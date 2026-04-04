@@ -1,0 +1,100 @@
+/* Base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #fdfaf6; /* warm, soft background */
+  color: #333;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #556b2f; /* warm earthy green */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #f0e68c; /* soft yellow highlight */
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #556b2f; /* consistent earthy green */
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.6em;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 1em;
+}
+
+/* Main content */
+main {
+  padding: 20px 0;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+/* Links */
+a {
+  color: #556b2f;
+}
+
+a:hover {
+  color: #8fbc8f; /* lighter green on hover */
+}
+
+/* Footer */
+footer {
+  background: #eee8d5; /* soft warm tone */
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+footer a {
+  color: #556b2f;
+  text-decoration: none;
+}
