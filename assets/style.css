@@ -79,6 +79,10 @@ header nav a.active {
   background: none;
   border: none;
   z-index: 1001;
+  position: relative;
+  width: 41px;
+  height: 35px;
+  flex-shrink: 0;
 }
 
 .menu-toggle span {
@@ -102,10 +106,12 @@ header nav a.active {
   z-index: 999;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .nav-overlay.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Hero Section */
