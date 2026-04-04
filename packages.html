@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Packages - SteadyDevs</title>
-  <meta name="description" content="Flexible packages to suit your needs and budget">
-  <link rel="stylesheet" href="assets/style.css?v=14">
+  <title>Pricing & Packages - Freelance Developer Malaysia | SteadyDevs</title>
+  <meta name="description" content="Transparent pricing for C# .NET PHP development services. From RM300 bug fixes to system optimization. Free consultation available. Malaysia-based developer.">
+  <link rel="stylesheet" href="assets/style.css?v=25">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -49,7 +49,7 @@
         <h2 style="margin-top: 0; color: #1e40af; font-size: 1.8em;">🎁 Free Consultation + Written Assessment</h2>
         <p style="font-size: 1.1em; margin: 15px 0;"><strong>Get started risk-free</strong> with a complimentary 30-minute consultation plus a detailed written project assessment sent to your email.</p>
         <div style="text-align: center; margin-top: 25px;">
-          <a href="contact.html" class="cta-button">Claim Your Free Session</a>
+          <a href="contact.html" class="cta-button">Claim FREE Consultation →</a>
         </div>
       </div>
 
@@ -110,11 +110,47 @@
 
       <hr>
 
+      <h2>Payment Terms</h2>
+
+      <div style="background: #f8fafc; padding: 30px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 30px 0;">
+        <div style="display: grid; gap: 20px;">
+          <div>
+            <strong style="color: #1e40af;">💳 Payment Schedule:</strong>
+            <p style="color: #666; margin: 8px 0 0 0;">50% deposit upfront, 50% upon completion</p>
+          </div>
+          <div>
+            <strong style="color: #1e40af;">💰 Payment Method:</strong>
+            <p style="color: #666; margin: 8px 0 0 0;">Bank Transfer (Malaysian accounts accepted)</p>
+          </div>
+          <div>
+            <strong style="color: #1e40af;">💵 Currency:</strong>
+            <p style="color: #666; margin: 8px 0 0 0;">RM (Malaysian Ringgit) or USD — your choice</p>
+          </div>
+          <div>
+            <strong style="color: #1e40af;">📄 Invoicing:</strong>
+            <p style="color: #666; margin: 8px 0 0 0;">Detailed invoice provided for each payment</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Cancellation & Refund Policy</h2>
+
+      <div style="background: #fef3c7; padding: 25px 30px; border-radius: 6px; border-left: 4px solid #f59e0b; margin: 30px 0;">
+        <ul style="color: #78350f; line-height: 1.8; margin: 0; padding-left: 20px;">
+          <li><strong>Before work starts:</strong> Full refund of deposit</li>
+          <li><strong>Mid-project cancellation:</strong> Prorated refund based on work completed</li>
+          <li><strong>After delivery:</strong> No refunds (review period before final payment)</li>
+          <li><strong>Disputes:</strong> Handled professionally with clear documentation of work done</li>
+        </ul>
+      </div>
+
+      <hr>
+
       <div style="background: #f8faf9; padding: 30px; border-radius: 6px; border: 1px solid #e8e8e8; margin: 40px 0;">
         <h3 style="margin-top: 0; text-align: center; color: #1a1a1a;">Not Sure Which Package Fits?</h3>
         <p style="text-align: center; color: #666;">Tell me about your problem and I'll recommend the best approach for your situation.</p>
         <div style="text-align: center; margin-top: 25px;">
-          <a href="contact.html" class="cta-button">Get in Touch</a>
+          <a href="contact.html" class="cta-button">Book Your FREE Consultation</a>
         </div>
       </div>
 
@@ -125,6 +161,11 @@
     <p>&copy; 2026 SteadyDevs</p>
     <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
   </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="contact.html">Get FREE Consultation →</a>
+  </div>
   
   <!-- Mobile Menu Script -->
   <script>
@@ -148,6 +189,21 @@
         navOverlay.classList.remove('active');
         document.body.style.overflow = '';
       });
+    });
+    
+    // Sticky CTA - show after scrolling down
+    const stickyCta = document.getElementById('stickyCta');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Show sticky CTA after scrolling down 300px
+      if (currentScroll > 300) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
     });
   </script>
 </body>

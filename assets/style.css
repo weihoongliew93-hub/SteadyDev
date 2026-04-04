@@ -800,3 +800,58 @@ blockquote {
     max-width: 1000px;
   }
 }
+
+/* Sticky Mobile CTA */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  padding: 15px 20px;
+  text-align: center;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  animation: slideUp 0.4s ease-out;
+}
+
+.sticky-cta a {
+  display: inline-block;
+  background: white;
+  color: #1e40af;
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sticky-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.sticky-cta.visible {
+  display: block;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hide sticky CTA on desktop */
+@media (min-width: 769px) {
+  .sticky-cta {
+    display: none !important;
+  }
+}
