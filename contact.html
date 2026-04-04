@@ -56,7 +56,18 @@
 
       <div class="contact-form">
         <h3 style="margin-top: 0; color: #1e40af;">Send Me a Message</h3>
-        <form action="https://formspree.io/f/xpqooaea" method="POST">
+        
+        <!-- Success Message (hidden by default) -->
+        <div id="form-success" style="display: none; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+          ✅ Thank you! Your message has been sent successfully. I'll get back to you within 1-2 business days.
+        </div>
+        
+        <!-- Error Message (hidden by default) -->
+        <div id="form-error" style="display: none; background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+          ❌ Oops! Something went wrong. Please try again or email me directly at steadydevs.contact@gmail.com
+        </div>
+        
+        <form id="contact-form" action="https://formspree.io/f/xpqooaea" method="POST">
           <div class="form-group">
             <label for="name">Your Name *</label>
             <input type="text" id="name" name="name" required>
@@ -80,10 +91,56 @@
           <!-- Honeypot for spam protection -->
           <input type="text" name="_gotcha" style="display:none">
           
-          <button type="submit" class="form-submit">Send Message</button>
+          <button type="submit" id="submit-btn" class="form-submit">Send Message</button>
         </form>
         <p style="margin-top: 15px; font-size: 0.9em; color: #666;">Or email directly: <a href="mailto:steadydevs.contact@gmail.com">steadydevs.contact@gmail.com</a></p>
       </div>
+
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const form = e.target;
+          const submitBtn = document.getElementById('submit-btn');
+          const successMsg = document.getElementById('form-success');
+          const errorMsg = document.getElementById('form-error');
+          
+          // Disable button and show loading
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          
+          // Hide previous messages
+          successMsg.style.display = 'none';
+          errorMsg.style.display = 'none';
+          
+          // Submit form data
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              // Success
+              successMsg.style.display = 'block';
+              form.reset();
+              // Scroll to success message
+              successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              // Error
+              errorMsg.style.display = 'block';
+            }
+          }).catch(error => {
+            // Network error
+            errorMsg.style.display = 'block';
+          }).finally(() => {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+          });
+        });
+      </script>
 
       <hr>
 
