@@ -13,6 +13,19 @@ body {
   font-size: 16px;
 }
 
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 /* Container */
 .container {
   max-width: 1100px;
@@ -498,22 +511,51 @@ blockquote {
 }
 
 /* Responsive Design */
+
+/* Tablets and below (768px) */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
     text-align: center;
+    gap: 15px;
+  }
+  
+  header {
+    padding: 20px 15px;
+  }
+  
+  header h1 {
+    font-size: 1.4em;
+  }
+  
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   header nav a {
-    margin: 10px 15px;
+    margin: 8px 12px;
+    font-size: 0.9em;
   }
   
   .hero {
-    padding: 50px 25px;
+    padding: 40px 20px;
   }
   
   .hero h1 {
-    font-size: 1.8em;
+    font-size: 1.7em;
+  }
+  
+  .hero p {
+    font-size: 1.05em;
+  }
+  
+  .cta-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 14px 20px;
   }
   
   h2 {
@@ -531,22 +573,150 @@ blockquote {
   .service-card,
   .package-card {
     margin: 20px 0;
+    padding: 25px 20px;
+  }
+  
+  .stats-section {
+    padding: 40px 20px;
   }
   
   .stats-container {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
   }
   
   .stat-number {
-    font-size: 2.5em;
+    font-size: 2.3em;
+  }
+  
+  .stat-label {
+    font-size: 1em;
   }
   
   .offer-box {
     padding: 30px 20px;
   }
   
+  .offer-box h2 {
+    font-size: 1.5em;
+  }
+  
+  .offer-box ul {
+    padding-left: 20px;
+  }
+  
   .contact-form {
-    padding: 25px 20px;
+    padding: 25px 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .help-list {
+    padding: 25px 20px 25px 40px;
+  }
+}
+
+/* Mobile phones (480px and below) */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  
+  header h1 {
+    font-size: 1.3em;
+  }
+  
+  header nav a {
+    margin: 6px 10px;
+    font-size: 0.85em;
+    padding: 6px 12px;
+  }
+  
+  .hero {
+    padding: 30px 15px;
+  }
+  
+  .hero h1 {
+    font-size: 1.5em;
+  }
+  
+  .hero p {
+    font-size: 1em;
+  }
+  
+  .container {
+    padding: 30px 12px;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+  }
+  
+  h3 {
+    font-size: 1.1em;
+  }
+  
+  .service-card,
+  .package-card,
+  .contact-form {
+    padding: 20px 15px;
+  }
+  
+  .stats-section {
+    padding: 30px 15px;
+  }
+  
+  .stat-number {
+    font-size: 2em;
+  }
+  
+  .stat-label {
+    font-size: 0.9em;
+  }
+  
+  .offer-box {
+    padding: 25px 15px;
+  }
+  
+  .offer-box h2 {
+    font-size: 1.3em;
+  }
+  
+  .offer-badge {
+    font-size: 0.75em;
+    padding: 5px 15px;
+  }
+  
+  .cta-button {
+    padding: 12px 20px;
+    font-size: 0.95em;
+  }
+  
+  .help-list {
+    padding: 20px 15px 20px 35px;
+  }
+  
+  .help-list li {
+    padding: 10px 0;
+    padding-left: 25px;
+    font-size: 0.95em;
+  }
+}
+
+/* Large screens (1200px and above) - Optional enhancement */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .hero h1 {
+    font-size: 2.8em;
+  }
+  
+  .stats-container {
+    max-width: 1000px;
   }
 }
