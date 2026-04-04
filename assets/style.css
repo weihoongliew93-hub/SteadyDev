@@ -48,12 +48,21 @@ header {
   align-items: center;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.6em;
-  font-weight: 600;
-  color: #1e40af;
-  letter-spacing: -0.3px;
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.site-logo {
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 header nav a {
@@ -606,8 +615,8 @@ blockquote {
     padding: 20px 15px;
   }
   
-  header h1 {
-    font-size: 1.4em;
+  .site-logo {
+    height: 45px;
   }
   
   .hero {
@@ -696,8 +705,8 @@ blockquote {
     font-size: 15px;
   }
   
-  header h1 {
-    font-size: 1.3em;
+  .site-logo {
+    height: 40px;
   }
   
   header nav a {
