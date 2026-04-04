@@ -6,6 +6,8 @@
   <title>{{ page.title }} - {{ site.title }}</title>
   <meta name="description" content="{{ site.description }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
   <header>
@@ -24,7 +26,8 @@
   </div>
 
   <footer>
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. Reliable solutions. Clear guidance. Less stress.</p>
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+    <p style="margin-top: 10px; font-style: italic; opacity: 0.9;">Reliable solutions. Clear guidance. Less stress.</p>
   </footer>
 </body>
 </html>
