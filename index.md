@@ -3,9 +3,9 @@ layout: default
 title: Home
 ---
 
-# Fix, Understand, and Improve Your System — Without Breaking It
+# SteadyDev – Reliable Solutions for Complex Systems
 
-I help businesses deal with complex or legacy systems — from quick bug fixes to deep system analysis and long-term improvements.
+I help businesses fix, understand, and improve their systems — efficiently and safely, without the stress.
 
 [Get Help Now](#contact) | [View Services](#services)
 
@@ -14,10 +14,10 @@ I help businesses deal with complex or legacy systems — from quick bug fixes t
 ## What I Can Help With
 
 - Something broke and you need it fixed fast  
-- You’re afraid to change your system because it’s too complex  
+- Your system is complex and hard to understand  
 - Bugs take too long to investigate  
-- No one fully understands how the system works anymore  
-- You want to improve or automate, but don’t know where to start  
+- You need guidance before making changes  
+- You want practical improvements or tools to make work easier  
 
 ---
 
@@ -25,53 +25,53 @@ I help businesses deal with complex or legacy systems — from quick bug fixes t
 
 ### 🔧 Fix & Build
 Quick fixes, enhancements, and performance improvements  
-**Best for immediate issues**
+**Best for urgent or immediate issues**
 
 **Includes:**
-- Bug fixing  
+- Bug fixes  
 - Small feature development  
 - Performance improvements  
 
-💰 Starter-friendly, quick turnaround
+💰 Affordable and fast turnaround
 
 ---
 
 ### 🔍 System Understanding
-System flow mapping, debugging, and impact analysis  
-**Best for complex / legacy systems**
+Analysis of existing systems to understand how they work  
+**Best for complex or legacy systems**
 
 **Includes:**
-- System flow analysis  
-- Debugging complex issues  
+- System flow mapping  
+- Debugging tricky issues  
 - Impact analysis before changes  
 - Documentation recovery  
 
-💡 Helps reduce risk and uncertainty
+💡 Reduces risk and gives clarity
 
 ---
 
 ### ⚙️ Improve & Automate
-Tools, optimizations, and workflow improvements  
-**Best for scaling and efficiency**
+Practical tools and optimizations to make your workflows smoother  
+**Best for long-term efficiency**
 
 **Includes:**
-- Build internal tools  
-- Automate repetitive tasks  
-- Improve workflows  
+- Internal tools to speed up work  
+- Automation of repetitive tasks  
+- Workflow improvements  
 
-🚀 Leads toward long-term productivity
+🚀 Saves time and improves reliability
 
 ---
 
-## Optional Packages
+## Packages
 
 ### 🟢 Quick Fix Package
-- Bug fixing, minor adjustments, small features  
+- Bug fixes, minor adjustments, small features  
 💰 RM300 – RM1,500  
 ⏱ 1–3 days turnaround
 
 ### 🟡 System Deep Dive
-- Investigate problem, trace system flow, identify root cause  
+- Investigate problems, trace system flow, identify root causes  
 💰 RM1,500 – RM5,000
 
 ### 🔵 System Understanding Package
@@ -83,8 +83,17 @@ Tools, optimizations, and workflow improvements
 💰 Custom pricing
 
 ### 🔁 Monthly Retainer
-- Async support, non-urgent fixes, advisory  
+- Ongoing support: async help, advisory, non-urgent fixes  
 💰 RM500 – RM2,000 / month
+
+---
+
+## Why Work With SteadyDev
+
+- Careful, reliable approach — no unnecessary risks  
+- Fast understanding of complex or messy systems  
+- Build practical solutions and internal tools  
+- Focused on results that make your life easier  
 
 ---
 
@@ -95,5 +104,5 @@ Not sure what you need? Just describe your problem — I’ll help you figure ou
 **Email:** [your-email@example.com](mailto:your-email@example.com)  
 **Form / Contact Link:** [Contact Me](#contact)
 
-> **Positioning Line:**  
-> “I help businesses fix and safely work with complex systems.”
+> **Tagline:**  
+> “Reliable solutions. Clear guidance. Less stress.”
