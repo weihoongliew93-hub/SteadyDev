@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main>
+      {{ content }}
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+    <p style="margin-top: 10px; font-style: italic; opacity: 0.9;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+</body>
+</html>
