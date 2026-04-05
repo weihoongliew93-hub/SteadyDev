@@ -8,6 +8,8 @@
 
 html {
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -20,6 +22,7 @@ body {
   font-size: 16px;
   overflow-x: hidden;
   width: 100%;
+  max-width: 100vw;
   min-height: 100vh;
   /* More obvious grid pattern */
   background-image: 
@@ -42,6 +45,7 @@ img {
   margin: auto;
   padding: 80px 8px;
   background: transparent;
+  width: 100%;
 }
 
 /* Alternating section backgrounds */
@@ -737,7 +741,7 @@ blockquote {
     position: fixed;
     top: 0;
     right: 0;
-    width: 280px;
+    max-width: 80vw;
     height: 100vh;
     background: #0B0F14;
     box-shadow: -2px 0 20px rgba(0,0,0,0.5);
@@ -747,6 +751,8 @@ blockquote {
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 1000;
+    border-left: 1px solid #1F2937;
+    will-change: transform
     border-left: 1px solid #1F2937;
   }
   
