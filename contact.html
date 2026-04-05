@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Contact - Hire Freelance Developer Malaysia | SteadyDevs</title>
   <meta name="description" content="Get in touch with Sean, freelance C# .NET PHP developer in Malaysia. Free 30-minute consultation + written assessment. Contact via email for reliable development solutions.">
-  <link rel="stylesheet" href="assets/style.css?v=64">
+  <link rel="stylesheet" href="assets/style.css?v=74">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -65,6 +65,19 @@
         Based in Malaysia, serving clients worldwide</p>
       </div>
 
+      <div style="background: #121821; border-left: 4px solid #10b981; padding: 25px 35px; border-radius: 8px; margin: 30px 0;">
+        <h3 style="margin-top: 0; color: #34D399;">💬 What to Include in Your Message</h3>
+        <ul style="color: #D1D5DB; line-height: 1.8; margin: 0; padding-left: 25px;">
+          <li>Brief description of your problem or project</li>
+          <li>What you've tried so far (if applicable)</li>
+          <li>Your timeline and urgency level</li>
+          <li>Preferred budget range (optional)</li>
+          <li>Any specific requirements or constraints</li>
+        </ul>
+      </div>
+
+      <hr>
+
       <div class="contact-form">
         <h3 style="margin-top: 0; color: #60A5FA;">Send Me a Message</h3>
         
@@ -101,7 +114,9 @@
               <option value="Quick Bug Fix & Minor Features">Quick Bug Fix & Minor Features</option>
               <option value="Investigation & Root Cause Analysis">Investigation & Root Cause Analysis</option>
               <option value="Full System Documentation & Flow Mapping">Full System Documentation & Flow Mapping</option>
-              <option value="Monthly Retainer - Ongoing Support">Monthly Retainer - Ongoing Support</option>
+              <option value="Light Support Retainer">Monthly Retainer: Light Support (RM500/mo)</option>
+              <option value="Standard Support Retainer">Monthly Retainer: Standard Support (RM1,000/mo)</option>
+              <option value="Priority Support Retainer">Monthly Retainer: Priority Support (RM2,000/mo)</option>
               <option value="Express / Urgent Service">Express / Urgent Service</option>
               <option value="Process Automation & Internal Tools">Process Automation & Internal Tools</option>
               <option value="Free Consultation">Free Consultation</option>
@@ -190,6 +205,22 @@
         });
       </script>
 
+      <div class="scroll-indicator">
+        <p>More information below</p>
+        <div class="arrow">↓</div>
+      </div>
+
+      <hr>
+
+      <blockquote style="text-align: center; font-size: 1.1em; margin: 50px 0;">
+        "Reliable solutions. Clear guidance. Less stress."
+      </blockquote>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="services.html" class="cta-button secondary">What I Can Do</a>
+        <a href="packages.html" class="cta-button secondary">See Pricing</a>
+      </div>
+
       <hr>
 
       <h2>Frequently Asked Questions</h2>
@@ -231,27 +262,6 @@
         </div>
       </div>
 
-      <hr>
-
-      <h2>What to Include in Your Message</h2>
-
-      <ul class="help-list">
-        <li>Brief description of your problem or project</li>
-        <li>What you've tried so far (if applicable)</li>
-        <li>Your timeline and urgency level</li>
-        <li>Preferred budget range (optional)</li>
-        <li>Any specific requirements or constraints</li>
-      </ul>
-
-      <blockquote style="text-align: center; font-size: 1.1em; margin: 50px 0;">
-        "Reliable solutions. Clear guidance. Less stress."
-      </blockquote>
-
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="services.html" class="cta-button secondary">What I Can Do</a>
-        <a href="packages.html" class="cta-button secondary">See Pricing</a>
-      </div>
-
     </main>
   </div>
 
@@ -262,6 +272,9 @@
   
   <!-- Sticky Mobile CTA (hidden on contact page) -->
   <div class="sticky-cta" id="stickyCta" style="display: none;"></div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
   
   <!-- Mobile Menu Script -->
   <script>
@@ -284,6 +297,31 @@
         mainNav.classList.remove('active');
         navOverlay.classList.remove('active');
         document.body.style.overflow = '';
+      });
+    });
+    
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
     });
   </script>

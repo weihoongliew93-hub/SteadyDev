@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Services - C# .NET PHP Development | SteadyDevs Malaysia</title>
   <meta name="description" content="Professional C#, .NET, PHP development services. Bug fixes, SQL optimization, code refactoring, system debugging. Based in Malaysia, serving clients worldwide.">
-  <link rel="stylesheet" href="assets/style.css?v=64">
+  <link rel="stylesheet" href="assets/style.css?v=74">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -187,6 +187,9 @@
     <a href="contact.html">FREE Consultation →</a>
   </div>
   
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+  
   <!-- Mobile Menu Script -->
   <script>
     const menuToggle = document.getElementById('menuToggle');
@@ -211,9 +214,9 @@
       });
     });
     
-    // Sticky CTA - show after scrolling down
+    // Sticky CTA and Back to Top Button - handle scroll
     const stickyCta = document.getElementById('stickyCta');
-    let lastScroll = 0;
+    const backToTop = document.getElementById('backToTop');
     
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
@@ -224,6 +227,21 @@
       } else {
         stickyCta.classList.remove('visible');
       }
+      
+      // Show back to top button after scrolling down 500px
+      if (currentScroll > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    // Back to Top Button click handler
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   </script>
 </body>
