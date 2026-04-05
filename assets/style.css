@@ -39,7 +39,7 @@ img {
 .container {
   max-width: 1400px;
   margin: auto;
-  padding: 180px 8px 80px 8px;
+  padding: 180px 30px 80px 30px;
   background: transparent;
   width: 100%;
 }
@@ -271,7 +271,6 @@ h3 {
   border-radius: 8px;
   margin: 30px 0;
   border: 1px solid #1F2937;
-  border-left: 4px solid #3B82F6;
   transition: all 0.25s ease-out;
 }
 
@@ -483,7 +482,6 @@ section:has(h2 + ul) ul:last-of-type {
   background: #f7fafc;
   padding: 30px 30px 30px 50px;
   border-radius: 8px;
-  border-left: 4px solid #556b2f;
 }
 
 /* Contact Section */
@@ -513,7 +511,6 @@ h2[id="contact"] ~ blockquote {
 }
 
 blockquote {
-  border-left: 4px solid #556b2f;
   padding-left: 20px;
   margin: 20px 0;
   color: #4a5568;
@@ -723,7 +720,6 @@ footer a:hover {
 
 blockquote {
   background: #121821;
-  border-left: 4px solid #3B82F6;
   padding: 25px 35px;
   margin: 35px 0;
   font-style: italic;
