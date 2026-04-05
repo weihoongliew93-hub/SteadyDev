@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Hire Freelance Developer Malaysia | SteadyDevs</title>
   <meta name="description" content="Get in touch with Sean, freelance C# .NET PHP developer in Malaysia. Free 30-minute consultation + written assessment. Contact via email for reliable development solutions.">
-  <link rel="stylesheet" href="assets/style.css?v=33">
+  <link rel="stylesheet" href="assets/style.css?v=47">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -32,6 +32,7 @@
       </button>
       <nav id="mainNav">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="packages.html">Packages</a>
         <a href="contact.html" class="active">Contact</a>
@@ -42,20 +43,20 @@
   <div class="container">
     <main>
       <h1 style="text-align: center; margin-bottom: 20px;">Get in Touch</h1>
-      <p style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 30px;">Not sure what you need? Just describe your problem — I'm Sean, and I'll help you figure out the best approach.</p>
+      <p style="text-align: center; color: #9CA3AF; font-size: 1.1em; margin-bottom: 35px;">Not sure what you need? Just describe your problem — I'm Sean, and I'll help you figure out the best approach.</p>
 
-      <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px 30px; border-radius: 4px; margin-bottom: 40px;">
-        <p style="margin: 0; color: #1e40af; font-weight: 600;">💡 New clients get a FREE 30-minute consultation + written project assessment — no commitment required!</p>
+      <div style="background: linear-gradient(135deg, #1A202C 0%, #121821 100%); border-left: 4px solid #3b82f6; padding: 25px 35px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);">
+        <p style="margin: 0; color: #60A5FA; font-weight: 600; font-size: 1.05em;">💡 New clients get a FREE 30-minute consultation + written project assessment — no commitment required!</p>
       </div>
 
       <div class="contact-info">
-        <h3 style="margin-top: 0; color: #1e40af;">Contact Information</h3>
+        <h3 style="margin-top: 0; color: #60A5FA;">Contact Information</h3>
         
         <p><strong>Email:</strong><br>
         <a href="mailto:steadydevs.contact@gmail.com">steadydevs.contact@gmail.com</a></p>
         
         <p><strong>Response Time:</strong><br>
-        Usually within 1-2 business days</p>
+        Within 1-2 business days (24 hours for urgent enquiries)</p>
 
         <p><strong>Availability:</strong><br>
         Evenings and weekends (Malaysia Time, GMT+8)</p>
@@ -65,15 +66,15 @@
       </div>
 
       <div class="contact-form">
-        <h3 style="margin-top: 0; color: #1e40af;">Send Me a Message</h3>
+        <h3 style="margin-top: 0; color: #60A5FA;">Send Me a Message</h3>
         
         <!-- Success Message (hidden by default) -->
-        <div id="form-success" style="display: none; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+        <div id="form-success" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34D399; padding: 18px; border-radius: 4px; margin-bottom: 20px;">
           ✅ Thank you! Your message has been sent successfully. I'll get back to you within 1-2 business days.
         </div>
         
         <!-- Error Message (hidden by default) -->
-        <div id="form-error" style="display: none; background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+        <div id="form-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #f87171; padding: 18px; border-radius: 4px; margin-bottom: 20px;">
           ❌ Oops! Something went wrong. Please try again or email me directly at steadydevs.contact@gmail.com
         </div>
         
@@ -94,6 +95,21 @@
           </div>
           
           <div class="form-group">
+            <label for="package">Interested Package (Optional)</label>
+            <select id="package" name="package">
+              <option value="">Select a package...</option>
+              <option value="Quick Bug Fix & Minor Features">Quick Bug Fix & Minor Features</option>
+              <option value="Investigation & Root Cause Analysis">Investigation & Root Cause Analysis</option>
+              <option value="Full System Documentation & Flow Mapping">Full System Documentation & Flow Mapping</option>
+              <option value="Monthly Retainer - Ongoing Support">Monthly Retainer - Ongoing Support</option>
+              <option value="Express / Urgent Service">Express / Urgent Service</option>
+              <option value="Process Automation & Internal Tools">Process Automation & Internal Tools</option>
+              <option value="Free Consultation">Free Consultation</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
             <label for="message">Message *</label>
             <textarea id="message" name="message" required placeholder="Tell me about your problem or project..."></textarea>
           </div>
@@ -103,10 +119,32 @@
           
           <button type="submit" id="submit-btn" class="form-submit">Send Message</button>
         </form>
-        <p style="margin-top: 15px; font-size: 0.9em; color: #666;">Or email directly: <a href="mailto:steadydevs.contact@gmail.com">steadydevs.contact@gmail.com</a></p>
+        <p style="margin-top: 15px; font-size: 0.9em; color: #9CA3AF;">Or email directly: <a href="mailto:steadydevs.contact@gmail.com" style="color: #60A5FA;">steadydevs.contact@gmail.com</a></p>
       </div>
 
       <script>
+        // Auto-scroll to form if coming from a package CTA
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageFromUrl = urlParams.get('package');
+        
+        if (packageFromUrl) {
+          // Auto-select package from URL parameter
+          const packageSelect = document.getElementById('package');
+          if (packageSelect) {
+            packageSelect.value = decodeURIComponent(packageFromUrl);
+          }
+          
+          // Scroll to the contact form section with offset for navbar
+          setTimeout(() => {
+            const formSection = document.querySelector('.contact-form');
+            if (formSection) {
+              const yOffset = -100; // Offset to prevent navbar from covering title
+              const y = formSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }, 100);
+        }
+        
         document.getElementById('contact-form').addEventListener('submit', function(e) {
           e.preventDefault();
           
@@ -156,40 +194,40 @@
 
       <h2>Frequently Asked Questions</h2>
 
-      <div style="background: #f8fafc; padding: 30px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 30px 0;">
-        <div style="margin-bottom: 25px;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">How do payments work?</h3>
-          <p style="color: #666; line-height: 1.7;">I require a 50% deposit upfront to secure your spot and begin work. The remaining 50% is due upon project completion. I accept bank transfers in RM or USD.</p>
+      <div style="background: #121821; padding: 35px 40px; border-radius: 8px; border: 1px solid #1F2937; margin: 35px 0;">
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">How do payments work?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">I require a 50% deposit upfront to secure your spot and begin work. The remaining 50% is due upon project completion. I accept bank transfers in RM or USD.</p>
         </div>
 
-        <div style="margin-bottom: 25px;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">What if I'm not satisfied with the work?</h3>
-          <p style="color: #666; line-height: 1.7;">You'll receive regular updates throughout the project. Before final payment, you have a review period to ensure everything meets your expectations. If you cancel mid-project, you'll receive a prorated refund based on work completed.</p>
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">What if I'm not satisfied with the work?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">You'll receive regular updates throughout the project. Before final payment, you have a review period to ensure everything meets your expectations. If you cancel mid-project, you'll receive a prorated refund based on work completed.</p>
         </div>
 
-        <div style="margin-bottom: 25px;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">What's your typical response time?</h3>
-          <p style="color: #666; line-height: 1.7;">For initial inquiries, I typically respond within 1-2 business days. During active projects, I provide regular updates and respond to questions within 24-48 hours during my availability window (evenings/weekends, Malaysia Time).</p>
-        </div>
-
-        <div style="margin-bottom: 25px;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">Do you offer refunds or guarantees?</h3>
-          <p style="color: #666; line-height: 1.7;">Yes. If no work has started, you'll receive a full refund. For mid-project cancellations, refunds are prorated based on work completed. I don't offer refunds after final delivery, but you have a review period before the final payment.</p>
-        </div>
-
-        <div style="margin-bottom: 25px;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">How do you handle intellectual property?</h3>
-          <p style="color: #666; line-height: 1.7;">All code and work product becomes your property upon final payment. Your existing code and business information remain strictly confidential. I can sign NDAs if required.</p>
-        </div>
-
-        <div style="margin-bottom: 25px;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">What happens after the free consultation?</h3>
-          <p style="color: #666; line-height: 1.7;">You'll receive a detailed written assessment via email, including my recommendations, estimated timeline, and pricing. There's no obligation to proceed — the consultation and assessment are completely free.</p>
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">What's your typical response time?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">For initial inquiries, I typically respond within 1-2 business days. <strong style="color: #60A5FA;">For urgent/express enquiries, I respond within 24 hours.</strong> During active projects, I provide regular updates and respond to questions within 24-48 hours.</p>
         </div>
 
         <div style="margin-bottom: 0;">
-          <h3 style="font-size: 1.1em; color: #1e40af; margin-bottom: 10px;">Do you provide 24/7 emergency support?</h3>
-          <p style="color: #666; line-height: 1.7;">No, I don't provide 24/7 emergency support. My availability is limited to evenings and weekends (Malaysia Time, GMT+8). For urgent issues requiring immediate response, please seek dedicated on-call support services.</p>
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">Do you offer refunds or guarantees?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">Yes. If no work has started, you'll receive a full refund. For mid-project cancellations, refunds are prorated based on work completed. I don't offer refunds after final delivery, but you have a review period before the final payment.</p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">How do you handle intellectual property?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">All code and work product becomes your property upon final payment. Your existing code and business information remain strictly confidential. I can sign NDAs if required.</p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">What happens after the free consultation?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">You'll receive a detailed written assessment via email, including my recommendations, estimated timeline, and pricing. There's no obligation to proceed — the consultation and assessment are completely free.</p>
+        </div>
+
+        <div style="margin-bottom: 0;">
+          <h3 style="font-size: 1.15em; color: #60A5FA; margin-bottom: 12px;">Do you provide 24/7 emergency support?</h3>
+          <p style="color: #D1D5DB; line-height: 1.7;">No, I don't provide 24/7 emergency support. My availability is limited to evenings and weekends (Malaysia Time, GMT+8). For urgent issues requiring immediate response, please seek dedicated on-call support services.</p>
         </div>
       </div>
 
