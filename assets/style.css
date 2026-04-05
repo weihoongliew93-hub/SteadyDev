@@ -49,8 +49,8 @@ img {
 /* Alternating section backgrounds */
 .section-light {
   background: #121821;
-  margin: 0 -100vw;
-  padding: 60px 100vw;
+  margin: 0;
+  padding: 60px 0;
 }
 
 /* Header */
