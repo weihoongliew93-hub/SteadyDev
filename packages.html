@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Pricing & Packages - Freelance Developer Malaysia | SteadyDevs</title>
   <meta name="description" content="Transparent pricing for C# .NET PHP development services. From RM300 bug fixes to system optimization. Free consultation available. Malaysia-based developer.">
-<link rel="stylesheet" href="assets/style.css?v=75">
+<link rel="stylesheet" href="assets/style.css?v=80">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -58,7 +58,7 @@
       <p style="text-align: center; color: #9CA3AF; margin-bottom: 40px;">Fixed pricing structure with clear deliverables</p>
 
       <div class="packages-grid-4col">
-        <div class="package-card">
+        <div class="package-card animate-on-scroll">
           <h3>🟢 Quick Bug Fix & Minor Features</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Systems with specific issues affecting functionality or needing small enhancements</p>
@@ -85,7 +85,7 @@
           </div>
         </div>
 
-        <div class="package-card">
+        <div class="package-card animate-on-scroll">
           <h3>🟡 Investigation & Root Cause Analysis</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Recurring issues or problems that are difficult to trace</p>
@@ -112,7 +112,7 @@
           </div>
         </div>
 
-        <div class="package-card">
+        <div class="package-card animate-on-scroll">
           <h3>🔵 Full System Documentation & Flow Mapping</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Complex or legacy systems that lack documentation or are hard to understand</p>
@@ -139,7 +139,7 @@
           </div>
         </div>
 
-        <div class="package-card">
+        <div class="package-card animate-on-scroll">
           <h3>� Monthly Retainer - Ongoing Support</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Businesses needing regular maintenance, advisory support, or non-urgent improvements</p>
@@ -171,7 +171,7 @@
       <p style="text-align: center; color: #9CA3AF; margin-bottom: 40px;">Ongoing support and maintenance with clear time allocations</p>
 
       <div class="packages-grid-3col" style="padding-top: 30px;">
-        <div class="package-card" style="border-left: 4px solid #10b981;">
+        <div class="package-card animate-on-scroll" style="border-left: 4px solid #10b981;">
           <h3>🟢 Light Support</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Small systems with occasional issues</p>
@@ -204,7 +204,7 @@
           </div>
         </div>
 
-        <div class="package-card" style="border-left: 4px solid #3b82f6; border: 2px solid #3b82f6; position: relative; overflow: visible;">
+        <div class="package-card animate-on-scroll" style="border-left: 4px solid #3b82f6; border: 2px solid #3b82f6; position: relative; overflow: visible;">
           <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%); color: white; text-align: center; padding: 6px 24px; font-weight: 700; letter-spacing: 0.5px; font-size: 0.85em; border-radius: 20px; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4); z-index: 10; white-space: nowrap;">RECOMMENDED</div>
           <h3>🔵 Standard Support</h3>
           <div class="package-description">
@@ -239,7 +239,7 @@
           </div>
         </div>
 
-        <div class="package-card" style="border-left: 4px solid #8b5cf6;">
+        <div class="package-card animate-on-scroll" style="border-left: 4px solid #8b5cf6;">
           <h3>🔷 Priority Support</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Business-critical systems requiring consistent attention</p>
@@ -288,7 +288,7 @@
       <p style="text-align: center; color: #9CA3AF; margin-bottom: 40px;">Tailored solutions with pricing based on your specific needs</p>
 
       <div class="packages-grid">
-        <div class="package-card" style="border-left: 4px solid #ef4444;">
+        <div class="package-card animate-on-scroll" style="border-left: 4px solid #ef4444;">
           <h3>🔴 Express / Urgent Service</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Time-sensitive issues that need immediate attention and priority treatment</p>
@@ -320,7 +320,7 @@
           </div>
         </div>
 
-        <div class="package-card">
+        <div class="package-card animate-on-scroll">
           <h3>🟣 Process Automation & Internal Tools</h3>
           <div class="package-description">
             <p><strong>Best for:</strong> Teams spending too much time on repetitive tasks or needing workflow improvements</p>
@@ -462,6 +462,26 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+    
+    // Subtle scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>SteadyDevs - Freelance Developer Malaysia | C# .NET PHP Developer</title>
   <meta name="description" content="Freelance software developer in Malaysia with 11+ years experience. Expert in C#, .NET, PHP, SQL optimization, debugging complex systems. Free consultation for businesses in Malaysia & SEA.">
-  <link rel="stylesheet" href="assets/style.css?v=79">
+  <link rel="stylesheet" href="assets/style.css?v=80">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <div class="offer-box">
+      <div class="offer-box animate-on-scroll">
         <div class="offer-badge">Limited Availability</div>
         <h2 style="margin-top: 0; color: #1e40af;"><span style="font-size: 1.3em; color: #16a34a;">FREE</span> 30-Minute Consultation + Written Project Assessment</h2>
         <p style="font-size: 1.1em; margin: 15px 0;">Not sure where to start? Get a <strong>free 30-minute consultation</strong> plus a detailed written assessment — <strong>no commitment required</strong>.</p>
@@ -77,7 +77,7 @@
         <li>You need changes but don't have anyone you trust to make them</li>
       </ul>
 
-      <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 25px 35px; border-radius: 8px; margin: 30px 0;">
+      <div class="animate-on-scroll" style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 25px 35px; border-radius: 8px; margin: 30px 0;">
         <h3 style="margin-top: 0; color: #f87171;">⚠️ The Cost of Waiting</h3>
         <ul style="color: #D1D5DB; line-height: 1.8; margin: 0;">
           <li>Every day that bug exists, you lose time and money</li>
@@ -129,21 +129,21 @@
       <h2>Example Projects</h2>
 
       <div style="display: grid; gap: 25px; margin: 30px 0;">
-        <div style="background: #121821; padding: 30px; border-radius: 8px; border-left: 4px solid #16a34a;">
+        <div class="animate-on-scroll" style="background: #121821; padding: 30px; border-radius: 8px; border-left: 4px solid #16a34a;">
           <h3 style="margin-top: 0; color: #34D399; font-size: 1.3em;">🚀 SQL Performance Optimization — Healthcare System</h3>
           <p style="color: #D1D5DB; line-height: 1.7; margin-bottom: 10px;"><strong>Challenge:</strong> Patient lookup queries timing out during peak hours, affecting clinic operations</p>
           <p style="color: #D1D5DB; line-height: 1.7; margin: 0;"><strong>Solution:</strong> Identified missing indexes, optimized complex joins, and restructured queries — achieving <strong style="color: #34D399;">10x performance improvement</strong> (from 8s to 0.8s response time)</p>
           <p style="color: #34D399; margin-top: 12px; font-weight: 600;">✅ System now handles 5x more concurrent users</p>
         </div>
 
-        <div style="background: #121821; padding: 30px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+        <div class="animate-on-scroll" style="background: #121821; padding: 30px; border-radius: 8px; border-left: 4px solid #3b82f6;">
           <h3 style="margin-top: 0; color: #60A5FA; font-size: 1.3em;">⚡ Desktop Application Performance — Retail Management System</h3>
           <p style="color: #D1D5DB; line-height: 1.7; margin-bottom: 10px;"><strong>Challenge:</strong> Point-of-sale application experiencing slow startup times and UI freezes during busy periods</p>
           <p style="color: #D1D5DB; line-height: 1.7; margin: 0;"><strong>Solution:</strong> Optimized initialization routines, implemented async operations for heavy tasks, improved memory management — reduced startup time by <strong style="color: #60A5FA;">70%</strong> and eliminated UI freezing completely</p>
           <p style="color: #60A5FA; margin-top: 12px; font-weight: 600;">✅ Staff can now serve customers without system delays</p>
         </div>
 
-        <div style="background: #121821; padding: 30px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+        <div class="animate-on-scroll" style="background: #121821; padding: 30px; border-radius: 8px; border-left: 4px solid #f59e0b;">
           <h3 style="margin-top: 0; color: #FDB750; font-size: 1.3em;">🔧 Code Refactoring — Legacy ERP System</h3>
           <p style="color: #D1D5DB; line-height: 1.7; margin-bottom: 10px;"><strong>Challenge:</strong> 5+ year old manufacturing ERP with tangled dependencies making changes risky</p>
           <p style="color: #D1D5DB; line-height: 1.7; margin: 0;"><strong>Solution:</strong> Restructured code into clear modules, added documentation, separated concerns — team could now add features confidently without breaking existing functionality</p>
@@ -321,6 +321,26 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+    
+    // Subtle scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>

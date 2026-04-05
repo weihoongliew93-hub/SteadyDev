@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>About - SteadyDevs | Legacy .NET Systems Specialist</title>
   <meta name="description" content="Learn about SteadyDevs - helping businesses maintain and improve legacy .NET systems with careful, structured approach to system changes.">
-  <link rel="stylesheet" href="assets/style.css?v=74">
+  <link rel="stylesheet" href="assets/style.css?v=80">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -137,6 +137,26 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+    
+    // Subtle scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>

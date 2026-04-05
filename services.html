@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Services - C# .NET PHP Development | SteadyDevs Malaysia</title>
   <meta name="description" content="Professional C#, .NET, PHP development services. Bug fixes, SQL optimization, code refactoring, system debugging. Based in Malaysia, serving clients worldwide.">
-  <link rel="stylesheet" href="assets/style.css?v=74">
+  <link rel="stylesheet" href="assets/style.css?v=80">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -46,7 +46,7 @@
       <p style="text-align: center; color: #9CA3AF; font-size: 1.1em; margin-bottom: 50px;">Professional solutions tailored to your needs</p>
 
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card animate-on-scroll">
           <h3>🔧 Fix & Build</h3>
           <p class="subtitle">Focused fixes, enhancements, and performance improvements</p>
           <p><strong>Best for:</strong> Bug fixes and small improvements</p>
@@ -62,7 +62,7 @@
           <span class="highlight">💰 Affordable with reliable delivery</span>
         </div>
 
-        <div class="service-card">
+        <div class="service-card animate-on-scroll">
           <h3>🔍 System Understanding</h3>
           <p class="subtitle">Analysis of existing systems to understand how they work</p>
           <p><strong>Best for:</strong> Complex or legacy systems</p>
@@ -79,7 +79,7 @@
           <span class="highlight">💡 Reduces risk and gives clarity</span>
         </div>
 
-        <div class="service-card">
+        <div class="service-card animate-on-scroll">
           <h3>⚙️ Improve & Automate</h3>
           <p class="subtitle">Practical tools and optimizations to make your workflows smoother</p>
           <p><strong>Best for:</strong> Long-term efficiency</p>
@@ -242,6 +242,26 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+    
+    // Subtle scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>

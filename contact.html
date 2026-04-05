@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Contact - Hire Freelance Developer Malaysia | SteadyDevs</title>
   <meta name="description" content="Get in touch with Sean, freelance C# .NET PHP developer in Malaysia. Free 30-minute consultation + written assessment. Contact via email for reliable development solutions.">
-  <link rel="stylesheet" href="assets/style.css?v=74">
+  <link rel="stylesheet" href="assets/style.css?v=80">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -45,7 +45,7 @@
       <h1 style="text-align: center; margin-bottom: 20px;">Get in Touch</h1>
       <p style="text-align: center; color: #9CA3AF; font-size: 1.1em; margin-bottom: 35px;">Not sure what you need? Just describe your problem — I'm Sean, and I'll help you figure out the best approach.</p>
 
-      <div style="background: linear-gradient(135deg, #1A202C 0%, #121821 100%); border-left: 4px solid #3b82f6; padding: 25px 35px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);">
+      <div class="animate-on-scroll" style="background: linear-gradient(135deg, #1A202C 0%, #121821 100%); border-left: 4px solid #3b82f6; padding: 25px 35px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);">
         <p style="margin: 0; color: #60A5FA; font-weight: 600; font-size: 1.05em;">💡 New clients get a FREE 30-minute consultation + written project assessment — no commitment required!</p>
       </div>
 
@@ -65,7 +65,7 @@
         Based in Malaysia, serving clients worldwide</p>
       </div>
 
-      <div style="background: #121821; border-left: 4px solid #10b981; padding: 25px 35px; border-radius: 8px; margin: 30px 0;">
+      <div class="animate-on-scroll" style="background: #121821; border-left: 4px solid #10b981; padding: 25px 35px; border-radius: 8px; margin: 30px 0;">
         <h3 style="margin-top: 0; color: #34D399;">💬 What to Include in Your Message</h3>
         <ul style="color: #D1D5DB; line-height: 1.8; margin: 0; padding-left: 25px;">
           <li>Brief description of your problem or project</li>
@@ -323,6 +323,26 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+    
+    // Subtle scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>

@@ -205,7 +205,7 @@ header nav a.active {
   border-radius: 4px;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-out;
   margin: 8px;
   font-size: 0.95em;
   box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
@@ -272,7 +272,7 @@ h3 {
   margin: 30px 0;
   border: 1px solid #1F2937;
   border-left: 4px solid #3B82F6;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease-out;
 }
 
 .service-card:hover {
@@ -322,7 +322,7 @@ h3 {
   border-radius: 8px;
   margin: 30px 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease-out;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1072,7 +1072,7 @@ blockquote {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
   z-index: 998;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-out;
   border: none;
   font-size: 20px;
   font-weight: 700;
@@ -1126,5 +1126,49 @@ blockquote {
     width: 45px;
     height: 45px;
     font-size: 18px;
+  }
+}
+
+/* ============================================
+   SUBTLE ANIMATIONS - Professional & Trustworthy
+   ============================================ */
+
+/* Fade-in-up animation for sections and cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elements start hidden before animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* When element becomes visible */
+.animate-on-scroll.animated {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+/* Staggered delays for multiple cards */
+.animate-on-scroll:nth-child(1) { animation-delay: 0ms; }
+.animate-on-scroll:nth-child(2) { animation-delay: 100ms; }
+.animate-on-scroll:nth-child(3) { animation-delay: 200ms; }
+.animate-on-scroll:nth-child(4) { animation-delay: 300ms; }
+.animate-on-scroll:nth-child(5) { animation-delay: 400ms; }
+.animate-on-scroll:nth-child(6) { animation-delay: 500ms; }
+
+/* No animation on reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }
