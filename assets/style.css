@@ -990,13 +990,17 @@ blockquote {
   display: inline-block;
   background: white;
   color: #1e40af;
-  padding: 14px 28px;
+  padding: 14px 20px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.95em;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sticky-cta a:hover {
