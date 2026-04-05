@@ -852,8 +852,6 @@ blockquote {
   
   .stats-section {
     padding: 40px 20px;
-    margin-left: calc(-50vw + 50% - 8px);
-    margin-right: calc(-50vw + 50% - 8px);
   }
   
   .stats-container {
@@ -952,10 +950,7 @@ blockquote {
   
   .stats-section {
     padding: 40px 20px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: calc(-50vw + 50% - 8px);
-    margin-right: calc(-50vw + 50% - 8px);
+    margin: 50px 0;
   }
   
   .stat-number {
