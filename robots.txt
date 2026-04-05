@@ -1,0 +1,13 @@
+# robots.txt for SteadyDevs
+# Allow all crawlers to access all content
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://steadydevs.com/sitemap.xml
+
+# Block common non-content paths (if you have them in future)
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /*.zip$
