@@ -736,7 +736,7 @@ blockquote {
   header nav {
     position: fixed;
     top: 0;
-    right: -280px;
+    right: 0;
     width: 280px;
     height: 100vh;
     background: #0B0F14;
@@ -744,13 +744,14 @@ blockquote {
     display: flex;
     flex-direction: column;
     padding: 80px 30px 30px;
-    transition: right 0.3s ease;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
     z-index: 1000;
     border-left: 1px solid #1F2937;
   }
   
   header nav.active {
-    right: 0;
+    transform: translateX(0);
   }
   
   header nav a {
