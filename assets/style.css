@@ -39,7 +39,7 @@ img {
 .container {
   max-width: 1400px;
   margin: auto;
-  padding: 120px 8px 80px 8px;
+  padding: 100px 8px 80px 8px;
   background: transparent;
   width: 100%;
 }
@@ -159,6 +159,7 @@ header nav a.active {
   margin-bottom: 80px;
   position: relative;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .hero::before {
