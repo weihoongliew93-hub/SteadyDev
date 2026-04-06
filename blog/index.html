@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Blog - SteadyDevs | Legacy .NET Systems Insights</title>
+  <meta name="description" content="Expert insights on maintaining and improving legacy .NET systems. Practical tips, common pitfalls, and solutions for businesses running critical legacy applications.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/blog/">
+  <meta property="og:title" content="Blog - SteadyDevs Legacy .NET Systems Insights">
+  <meta property="og:description" content="Expert insights on maintaining and improving legacy .NET systems.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+  
+  <style>
+    .blog-hero {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #2D3748;
+    }
+    
+    .blog-hero h1 {
+      margin-bottom: 15px;
+    }
+    
+    .blog-hero p {
+      color: #9CA3AF;
+      font-size: 1.15em;
+      line-height: 1.7;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .blog-card {
+      background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
+      border-radius: 8px;
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #2D3748;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      border-color: #3B82F6;
+    }
+    
+    .blog-card-meta {
+      color: #9CA3AF;
+      font-size: 0.9em;
+      margin-bottom: 12px;
+    }
+    
+    .blog-card h2 {
+      color: #FDB750;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+    
+    .blog-card h2 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .blog-card h2 a:hover {
+      color: #60A5FA;
+    }
+    
+    .blog-card-excerpt {
+      color: #D1D5DB;
+      font-size: 1.05em;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .blog-card-readmore {
+      color: #60A5FA;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap 0.3s ease;
+    }
+    
+    .blog-card-readmore:hover {
+      gap: 10px;
+    }
+    
+    .blog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .blog-tag {
+      background: #2D3748;
+      color: #9CA3AF;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+    
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../packages.html">Packages</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <div class="blog-hero">
+        <h1>Blog</h1>
+        <p>Insights on maintaining and improving legacy .NET systems.<br>Practical tips and solutions from 11+ years of production experience.</p>
+      </div>
+
+      <div class="blog-grid" id="blogGrid">
+        <!-- Blog posts will be loaded here -->
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SteadyDevs | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Blog posts data
+    const blogPosts = [
+      {
+        title: "5 Warning Signs Your Legacy .NET System Needs Professional Attention",
+        slug: "5-warning-signs-your-legacy-dotnet-system-needs-attention",
+        excerpt: "Is your legacy .NET system showing signs of trouble? Learn the 5 critical warning signs that indicate it's time to seek professional help before small issues become major problems.",
+        date: "April 6, 2026",
+        readTime: "8 min read",
+        tags: ["Legacy Systems", ".NET", "Maintenance"]
+      }
+      // Add more blog posts here as you create them
+    ];
+
+    // Render blog posts
+    function renderBlogPosts() {
+      const blogGrid = document.getElementById('blogGrid');
+      
+      if (blogPosts.length === 0) {
+        blogGrid.innerHTML = '<p style="color: #9CA3AF; text-align: center;">No blog posts yet. Check back soon!</p>';
+        return;
+      }
+      
+      blogGrid.innerHTML = blogPosts.map(post => `
+        <article class="blog-card">
+          <div class="blog-card-meta">${post.date} • ${post.readTime}</div>
+          <h2><a href="${post.slug}.html">${post.title}</a></h2>
+          <div class="blog-tags">
+            ${post.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+          </div>
+          <p class="blog-card-excerpt">${post.excerpt}</p>
+          <a href="${post.slug}.html" class="blog-card-readmore">Read More →</a>
+        </article>
+      `).join('');
+    }
+
+    // Initialize
+    renderBlogPosts();
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
