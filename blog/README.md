@@ -5,12 +5,37 @@ Your blog now uses a **template-based CMS system** where all content is stored i
 ## ✅ How It Works
 
 - **All content** is stored in `blog-posts.json` (single source of truth)
-- **Blog listing** (`blog/index.html`) shows all posts and links to individual posts
+- **Blog listing** (`blog/index.html`) shows all posts with:
+  - **Horizontal card layout** with image thumbnails
+  - **Category filters** automatically generated from tags
+  - **Pagination** with "Load More" button (10 posts at a time)
+  - **End of blog** message when all posts are shown
 - **Individual post pages** load content dynamically from JSON:
   - Option 1: Clean URLs like `5-warning-signs...html` (recommended for SEO)
   - Option 2: Template URLs like `blog-template.html?post=slug`
 
 Both options render the same content from `blog-posts.json`.
+
+## Blog Listing Features
+
+### Horizontal Card Layout
+- Featured image on the left (300px wide)
+- Title, tags, excerpt, and meta information on the right
+- Hover effect with slide animation
+- Mobile responsive (stacks vertically on small screens)
+
+### Category Filtering
+- Filters automatically generated from post tags
+- Click any category to filter posts
+- "All" shows all posts
+- Active filter highlighted in blue
+
+### Pagination
+- Shows 10 posts initially
+- "Load More" button loads 10 more posts
+- Button shows remaining post count
+- "End of blog" message when all posts displayed
+- Smooth scroll to newly loaded content
 
 ## Files Structure
 
@@ -94,7 +119,7 @@ blog/
 }
 ```
 
-2. **Update `blog/index.html`** - Add the new post to the `blogPosts` array in the JavaScript section (around line 138):
+2. **Update the listing in `blog/index.html`** (add to the blogPosts array at the top):
 
 ```javascript
 const blogPosts = [
@@ -104,7 +129,9 @@ const blogPosts = [
     excerpt: "Brief summary of your post",
     date: "April 15, 2026",
     readTime: "10 min read",
-    tags: ["Tag1", "Tag2", "Tag3"]
+    tags: ["Tag1", "Tag2", "Tag3"],  // Used for category filtering
+    heroImage: "images/blog/your-hero-image.jpg",
+    heroImageAlt: "Description for accessibility"
   },
   {
     title: "5 Warning Signs Your Legacy .NET System Needs Professional Attention",
@@ -112,7 +139,9 @@ const blogPosts = [
     excerpt: "Is your legacy .NET system showing signs of trouble?...",
     date: "April 6, 2026",
     readTime: "8 min read",
-    tags: ["Legacy Systems", ".NET", "Maintenance"]
+    tags: ["Legacy Systems", ".NET", "Maintenance"],
+    heroImage: "images/blog/legacy-dotnet-warning-signs.jpg",
+    heroImageAlt: "Code displayed on laptop screen"
   }
 ];
 ```
@@ -135,14 +164,56 @@ If you prefer to create individual HTML files (like the original post), you can 
 ## Content Block Types
 
 The template system supports these content types:
-gradient background
+
+- **`paragraph`** - Regular text paragraph
+- **`heading2`** - Main section heading (h2)
+- **`heading3`** - Subsection heading (h3)
+- **`list`** - Unordered bullet list
+- **`orderedList`** - Numbered list
+- **`warning`** - Red warning box with gradient background
 - **`tip`** - Green tip box with gradient background
 - **`cta`** - Call-to-action box with button
 - **`image`** - Inline images with optional captions
+- **`faq`** - Expandable FAQ section with Q&A pairs
+
+## FAQ Sections
+
+Add frequently asked questions to provide additional value and improve SEO.
+
+**Structure:**
+```json
+{
+  "type": "faq",
+  "title": "Frequently Asked Questions",
+  "items": [
+    {
+      "question": "Your question here?",
+      "answer": "Your detailed answer here."
+    },
+    {
+      "question": "Another question?",
+      "answer": "Another answer."
+    }
+  ]
+}
+```
+
+**Features:**
+- Click to expand/collapse each Q&A
+- Only one FAQ open at a time for clean UX
+- Styled to match your site aesthetic
+- Great for SEO (Google favors FAQ content)
+
+**Best practices:**
+- 3-7 questions per section (or more as needed)
+- Keep questions concise and specific
+- Provide thorough, helpful answers
+- Address common reader concerns
+- Include questions about your services (like retainer packages)
 
 ## Hero Images
 
-Hero images appear at the top of blog posts and are used for social sharing (Open Graph).
+Hero images appear at the top of blog posts **and as thumbnails on the blog listing page**, improving visual appeal and social sharing.
 
 **To add a hero image:**
 

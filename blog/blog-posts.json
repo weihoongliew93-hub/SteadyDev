@@ -204,6 +204,32 @@
         "text": "The warning signs above aren't reasons to panic, but they are indicators that it's time to take action. Whether you bring in professional help or dedicate internal resources to the problem, acknowledging these issues and addressing them proactively will save time, money, and stress in the long run."
       },
       {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "How do I know if my .NET system is truly 'legacy'?",
+            "answer": "A system is typically considered legacy when it runs on older framework versions (like .NET Framework 4.x or earlier), has minimal or outdated documentation, and uses technologies or patterns that are no longer actively supported. More importantly, if your team struggles to make changes safely and quickly, that's a strong indicator of a legacy system regardless of its age."
+          },
+          {
+            "question": "Can a legacy system be fixed, or does it need to be completely replaced?",
+            "answer": "Most legacy systems can be improved incrementally without a full replacement. Complete rewrites are risky, expensive, and often unnecessary. The better approach is to stabilize the system first, address critical issues, improve documentation, and then make targeted improvements over time. Only consider a full replacement if the technology is completely obsolete or the business requirements have fundamentally changed."
+          },
+          {
+            "question": "How much does it typically cost to fix a legacy .NET system?",
+            "answer": "Costs vary widely depending on the system's complexity and the issues at hand. A focused bug fix might cost RM5,000-15,000, while comprehensive stabilization could range from RM15,000-30,000+. The key is to start with a proper assessment to understand what needs attention and prioritize based on business impact. Investing in proactive maintenance is almost always cheaper than dealing with emergency fixes after something breaks."
+          },
+          {
+            "question": "How long does it take to stabilize a legacy system?",
+            "answer": "Timelines depend on the scope of work. Critical bug fixes might take 1-2 weeks, while broader stabilization work typically takes 4-8 weeks. The process involves understanding the system, identifying root causes, implementing fixes, and thorough testing. Rushing this process increases risk, so it's better to plan for proper, careful work rather than quick patches that might cause more problems."
+          },
+          {
+            "question": "Should I hire an in-house developer, work with a consultant, or use a retainer package for legacy system support?",
+            "answer": "Each option serves different needs. An in-house developer is best for ongoing maintenance and long-term ownership of the system. A consultant with deep legacy system experience is ideal for specific fixes, assessments, or knowledge transfer without long-term commitment. A retainer package offers a middle ground—predictable monthly costs, priority response times, and consistent attention to your system's health without the overhead of a full-time hire. Many businesses use a hybrid approach: consultants or retainer packages for critical fixes and stabilization, then transition to in-house developers once the system is better understood. Retainer packages work especially well for preventing small issues from becoming major problems while keeping costs predictable."
+          }
+        ]
+      },
+      {
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Have questions about your specific situation? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Get in touch</a> for a free consultation.</em>"
       }
