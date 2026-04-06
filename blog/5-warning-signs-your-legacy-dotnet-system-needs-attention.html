@@ -48,6 +48,14 @@
       margin: 0 auto;
     }
     
+    .blog-hero-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    
     .blog-content h2 {
       color: #FDB750;
       margin-top: 45px;
@@ -189,9 +197,16 @@
     }
 
     function renderBlogPost(post) {
+      // Render hero image if it exists
+      let heroImageHtml = '';
+      if (post.heroImage) {
+        heroImageHtml = `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" class="blog-hero-image">`;
+      }
+
       // Render header
       let html = `
         <article>
+          ${heroImageHtml}
           <div class="blog-header">
             <h1>${post.title}</h1>
             <div class="blog-meta">${post.dateDisplay} | ${post.readTime}</div>
@@ -229,6 +244,14 @@
                 <p style="color: #D1D5DB;">${block.text}</p>
                 <a href="${block.buttonLink}" class="cta-button">${block.buttonText}</a>
               </div>
+            `;
+            break;
+          case 'image':
+            html += `
+              <figure style="margin: 30px 0;">
+                <img src="../${block.src}" alt="${block.alt}" style="width: 100%; border-radius: 8px;">
+                ${block.caption ? `<figcaption style="text-align: center; color: #9CA3AF; font-size: 0.95em; margin-top: 10px; font-style: italic;">${block.caption}</figcaption>` : ''}
+              </figure>
             `;
             break;
         }

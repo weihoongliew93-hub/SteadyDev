@@ -16,7 +16,7 @@
   <meta property="og:url" id="ogUrl" content="https://steadydevs.com/blog/">
   <meta property="og:title" id="ogTitle" content="SteadyDevs Blog">
   <meta property="og:description" id="ogDescription" content="Expert insights on legacy .NET systems">
-  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta property="og:image" id="ogImage" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
   
   <link rel="stylesheet" href="../assets/style.css?v=83">
   
@@ -46,6 +46,14 @@
     .blog-content {
       max-width: 800px;
       margin: 0 auto;
+    }
+    
+    .blog-hero-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 30px;
     }
     
     .blog-content h2 {
@@ -222,10 +230,22 @@
       document.getElementById('ogUrl').setAttribute('content', `https://steadydevs.com/blog/blog-template.html?post=${post.slug}`);
       document.getElementById('ogTitle').setAttribute('content', post.title);
       document.getElementById('ogDescription').setAttribute('content', post.excerpt);
+      
+      // Update OG image if hero image exists
+      if (post.heroImage) {
+        document.getElementById('ogImage').setAttribute('content', `https://steadydevs.com/${post.heroImage}`);
+      }
+
+      // Render hero image if it exists
+      let heroImageHtml = '';
+      if (post.heroImage) {
+        heroImageHtml = `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" class="blog-hero-image">`;
+      }
 
       // Render header
       let html = `
         <article>
+          ${heroImageHtml}
           <div class="blog-header">
             <h1>${post.title}</h1>
             <div class="blog-meta">${post.dateDisplay} | ${post.readTime}</div>
@@ -263,6 +283,14 @@
                 <p style="color: #D1D5DB;">${block.text}</p>
                 <a href="${block.buttonLink}" class="cta-button">${block.buttonText}</a>
               </div>
+            `;
+            break;
+          case 'image':
+            html += `
+              <figure style="margin: 30px 0;">
+                <img src="../${block.src}" alt="${block.alt}" style="width: 100%; border-radius: 8px;">
+                ${block.caption ? `<figcaption style="text-align: center; color: #9CA3AF; font-size: 0.95em; margin-top: 10px; font-style: italic;">${block.caption}</figcaption>` : ''}
+              </figure>
             `;
             break;
         }

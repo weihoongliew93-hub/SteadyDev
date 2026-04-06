@@ -9,6 +9,8 @@
     "readTime": "8 min read",
     "tags": ["Legacy Systems", ".NET", "Maintenance"],
     "author": "SteadyDevs",
+    "heroImage": "images/blog/legacy-dotnet-warning-signs.jpg",
+    "heroImageAlt": "Code displayed on laptop screen representing legacy .NET systems",
     "content": [
       {
         "type": "paragraph",

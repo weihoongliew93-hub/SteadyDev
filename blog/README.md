@@ -39,6 +39,8 @@ blog/
   "readTime": "10 min read",
   "tags": ["Tag1", "Tag2", "Tag3"],
   "author": "SteadyDevs",
+  "heroImage": "images/blog/your-hero-image.jpg",
+  "heroImageAlt": "Description of hero image for accessibility",
   "content": [
     {
       "type": "paragraph",
@@ -81,6 +83,12 @@ blog/
       "text": "Your CTA description text",
       "buttonText": "Button Text",
       "buttonLink": "../contact.html"
+    },
+    {
+      "type": "image",
+      "src": "images/blog/diagram.png",
+      "alt": "Description for accessibility",
+      "caption": "Optional caption text (can be omitted)"
     }
   ]
 }
@@ -127,9 +135,49 @@ If you prefer to create individual HTML files (like the original post), you can 
 ## Content Block Types
 
 The template system supports these content types:
+gradient background
+- **`tip`** - Green tip box with gradient background
+- **`cta`** - Call-to-action box with button
+- **`image`** - Inline images with optional captions
 
-- **`paragraph`** - Regular text paragraph
-- **`heading2`** - Main section heading (h2)
+## Hero Images
+
+Hero images appear at the top of blog posts and are used for social sharing (Open Graph).
+
+**To add a hero image:**
+
+1. Place your image in `images/blog/` folder (create if it doesn't exist)
+2. Add to your post in `blog-posts.json`:
+   ```json
+   "heroImage": "images/blog/my-hero-image.jpg",
+   "heroImageAlt": "Descriptive alt text for accessibility"
+   ```
+3. Hero images are **optional** - posts work fine without them
+
+**Recommended hero image specs:**
+- Size: 1200x630px (optimal for social sharing)
+- Format: JPG or PNG
+- Max file size: 200KB (compress for faster loading)
+
+**Free image sources:**
+- [Unsplash](https://unsplash.com) - Free stock photos
+- [Pexels](https://pexels.com) - Free stock photos
+- [Undraw](https://undraw.co) - Free illustrations
+
+## Inline Images
+
+Add images within your blog content:
+
+```json
+{
+  "type": "image",
+  "src": "images/blog/screenshot.png",
+  "alt": "Screenshot of legacy code",
+  "caption": "Example of tightly-coupled legacy code"
+}
+```
+
+The `caption` field is optional.
 - **`heading3`** - Subsection heading (h3)
 - **`list`** - Unordered bullet list
 - **`orderedList`** - Numbered list

@@ -5,6 +5,7 @@ Quick reference for maintaining the SteadyDevs website.
 ## 📝 Adding a New Blog Post
 
 - [ ] Add content to `blog/blog-posts.json`
+- [ ] Add hero image to `images/blog/` (optional but recommended)
 - [ ] Update post listing in `blog/index.html` (blogPosts array)
 - [ ] Update `sitemap.xml` with new post URL
 - [ ] Update `lastmod` date in sitemap.xml to current date
