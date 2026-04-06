@@ -47,12 +47,20 @@
       max-width: 800px;
       margin: 0 auto;
       position: relative;
+      padding: 0 20px;
+    }
+    
+    /* Shift content right on large screens to avoid TOC overlap */
+    @media (min-width: 1400px) {
+      .container {
+        padding-left: 300px;
+      }
     }
     
     /* Table of Contents */
     .blog-toc {
       position: fixed;
-      left: max(20px, calc((100vw - 1200px) / 2));
+      left: max(20px, calc((100vw - 1400px) / 2 + 20px));
       top: 120px;
       width: 250px;
       max-height: calc(100vh - 200px);
@@ -61,7 +69,8 @@
       background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
       border-radius: 8px;
       border: 1px solid #2D3748;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
     
     .blog-toc-title {
@@ -119,10 +128,76 @@
       padding-left: 25px;
     }
     
-    /* Hide TOC on smaller screens */
+    /* Mobile/Tablet TOC Toggle Button */
+    .toc-toggle-btn {
+      display: none;
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #FDB750 0%, #F59E0B 100%);
+      border: none;
+      border-radius: 50%;
+      color: #1A202C;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(253, 183, 80, 0.3);
+      z-index: 1001;
+      transition: all 0.3s ease;
+    }
+    
+    .toc-toggle-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(253, 183, 80, 0.4);
+    }
+    
+    .toc-toggle-btn:active {
+      transform: scale(0.95);
+    }
+    
+    /* Responsive TOC for tablet and mobile */
     @media (max-width: 1400px) {
+      .toc-toggle-btn {
+        display: block;
+      }
+      
       .blog-toc {
-        display: none;
+        left: auto;
+        right: 20px;
+        top: 160px;
+        width: 280px;
+        max-width: calc(100vw - 40px);
+        max-height: calc(100vh - 240px);
+        transform: translateX(calc(100% + 40px));
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+      
+      .blog-toc.toc-visible {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+    
+    /* Smaller mobile screens */
+    @media (max-width: 768px) {
+      .toc-toggle-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        right: 15px;
+        top: 90px;
+      }
+      
+      .blog-toc {
+        right: 15px;
+        top: 145px;
+        width: calc(100vw - 30px);
+        max-height: calc(100vh - 200px);
       }
     }
     
@@ -312,6 +387,11 @@
   </header>
 
   <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
     <!-- Table of Contents -->
     <aside class="blog-toc" id="blogToc" style="display: none;">
       <div class="blog-toc-title">On This Page</div>
@@ -506,6 +586,12 @@
       tocList.innerHTML = tocHTML;
       tocContainer.style.display = 'block';
       
+      // Show TOC toggle button on mobile/tablet
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
       // Add click handlers for smooth scrolling
       const tocLinks = tocList.querySelectorAll('.blog-toc-link');
       tocLinks.forEach(link => {
@@ -515,6 +601,10 @@
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Close TOC on mobile/tablet after clicking a link
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
           }
         });
       });
@@ -604,6 +694,36 @@
         behavior: 'smooth'
       });
     });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      // Close TOC when clicking outside
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      // Hide/show toggle button based on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
   </script>
 </body>
 </html>
