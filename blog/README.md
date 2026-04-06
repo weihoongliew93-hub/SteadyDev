@@ -5,7 +5,7 @@ Your blog now uses a **template-based CMS system** where all content is stored i
 ## ✅ How It Works
 
 - **All content** is stored in `blog-posts.json` (single source of truth)
-- **Blog listing** (`blog/index.html`) shows all posts with:
+- **Blog listing** (`blog/index.html`) automatically reads from `blog-posts.json` and shows:
   - **Horizontal card layout** with image thumbnails
   - **Category filters** automatically generated from tags
   - **Pagination** with "Load More" button (10 posts at a time)
@@ -13,8 +13,7 @@ Your blog now uses a **template-based CMS system** where all content is stored i
 - **Individual post pages** load content dynamically from JSON:
   - Option 1: Clean URLs like `5-warning-signs...html` (recommended for SEO)
   - Option 2: Template URLs like `blog-template.html?post=slug`
-
-Both options render the same content from `blog-posts.json`.
+- **Styles are centralized** in `blog-styles.css` - update once, applies everywhere
 
 ## Blog Listing Features
 
@@ -44,8 +43,11 @@ blog/
 ├── index.html              # Blog listing page (shows all posts)
 ├── blog-template.html      # Template for rendering individual posts
 ├── blog-posts.json         # All blog post content (CMS database)
-└── 5-warning-signs...html  # Legacy static HTML (kept for SEO/bookmarks)
+├── blog-styles.css         # Shared CSS styles for all blog pages
+└── 5-warning-signs...html  # Individual post HTML files
 ```
+
+**Note:** All blog post HTML files share the same `blog-styles.css` stylesheet, so any style updates are automatically applied to all blog posts. No need to duplicate CSS in each file!
 
 ## How to Add a New Blog Post
 
@@ -119,32 +121,11 @@ blog/
 }
 ```
 
-2. **Update the listing in `blog/index.html`** (add to the blogPosts array at the top):
-
-```javascript
-const blogPosts = [
-  {
-    title: "Your New Blog Post Title",
-    slug: "your-blog-post-slug",
-    excerpt: "Brief summary of your post",
-    date: "April 15, 2026",
-    readTime: "10 min read",
-    tags: ["Tag1", "Tag2", "Tag3"],  // Used for category filtering
-    heroImage: "images/blog/your-hero-image.jpg",
-    heroImageAlt: "Description for accessibility"
-  },
-  {
-    title: "5 Warning Signs Your Legacy .NET System Needs Professional Attention",
-    slug: "5-warning-signs-your-legacy-dotnet-system-needs-attention",
-    excerpt: "Is your legacy .NET system showing signs of trouble?...",
-    date: "April 6, 2026",
-    readTime: "8 min read",
-    tags: ["Legacy Systems", ".NET", "Maintenance"],
-    heroImage: "images/blog/legacy-dotnet-warning-signs.jpg",
-    heroImageAlt: "Code displayed on laptop screen"
-  }
-];
-```
+2. **The blog listing page automatically updates!** 
+   - `blog/index.html` now reads directly from `blog-posts.json`
+   - No need to manually add entries to any JavaScript arrays
+   - Your new post will automatically appear on the listing page
+   - Category filters will automatically include your post's tags
 
 3. **Access your post** at:
    - `blog/blog-template.html?post=your-blog-post-slug`
@@ -156,6 +137,7 @@ const blogPosts = [
    - Rename it to `your-blog-post-slug.html`
    - Update the `POST_SLUG` constant in the JavaScript section to match your slug
    - That's it! The file will automatically load content from `blog-posts.json`
+   - **Styling is handled automatically** via `blog-styles.css` - no need to add any CSS!
 
 ### Option 2: Create a Static HTML File (Old Method - Not Recommended)
 
@@ -269,6 +251,27 @@ The `caption` field is optional.
 - Blog listing: `blog/index.html`
 - Individual posts: `blog/blog-template.html?post=slug-name`
 - Legacy posts: `blog/5-warning-signs...html` (direct HTML files)
+
+## Customizing Styles
+
+All blog post styling is centralized in `blog/blog-styles.css`. This file contains:
+
+- **Blog layout** (headers, content width, TOC positioning)
+- **Table of Contents** (desktop fixed sidebar, mobile floating button)
+- **Typography** (headings, paragraphs, lists)
+- **Content boxes** (warning, tip, CTA boxes)
+- **FAQ sections** (expandable Q&A styling)
+- **Mobile responsiveness** (tablet and phone breakpoints)
+
+**To customize blog styles:**
+1. Edit `blog/blog-styles.css`
+2. Changes automatically apply to all blog posts (no need to update individual HTML files)
+3. Test on desktop, tablet, and mobile views
+
+**CSS is automatically included** in all blog post HTML files via:
+```html
+<link rel="stylesheet" href="blog-styles.css">
+```
 
 ## Future Improvements
 

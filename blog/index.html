@@ -310,25 +310,40 @@
   <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
-    // Blog posts data
-    const blogPosts = [
-      {
-        title: "5 Warning Signs Your Legacy .NET System Needs Professional Attention",
-        slug: "5-warning-signs-your-legacy-dotnet-system-needs-attention",
-        excerpt: "Is your legacy .NET system showing signs of trouble? Learn the 5 critical warning signs that indicate it's time to seek professional help before small issues become major problems.",
-        date: "April 6, 2026",
-        readTime: "8 min read",
-        tags: ["Legacy Systems", ".NET", "Maintenance"],
-        heroImage: "images/blog/legacy-dotnet-warning-signs.jpg",
-        heroImageAlt: "Code displayed on laptop screen"
-      }
-      // Add more blog posts here as you create them
-    ];
+    // Blog posts data - loaded from JSON
+    let blogPosts = [];
 
     // Pagination state
     let currentFilter = 'All';
     let displayedCount = 10;
     const postsPerPage = 10;
+
+    // Load blog posts from JSON
+    async function loadBlogPosts() {
+      try {
+        const response = await fetch('blog-posts.json');
+        const posts = await response.json();
+        
+        // Transform JSON data to match the format we need for listing
+        blogPosts = posts.map(post => ({
+          title: post.title,
+          slug: post.slug,
+          excerpt: post.excerpt,
+          date: post.dateDisplay,
+          readTime: post.readTime,
+          tags: post.tags,
+          heroImage: post.heroImage,
+          heroImageAlt: post.heroImageAlt
+        }));
+        
+        // Initialize the page after data is loaded
+        renderCategoryFilters();
+        renderBlogPosts();
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+        document.getElementById('blogList').innerHTML = '<p style="color: #FCA5A5; text-align: center; padding: 40px;">Error loading blog posts. Please try again later.</p>';
+      }
+    }
 
     // Get all unique categories
     function getAllCategories() {
@@ -430,9 +445,8 @@
       }
     }
 
-    // Initialize
-    renderCategoryFilters();
-    renderBlogPosts();
+    // Initialize - load blog posts from JSON
+    loadBlogPosts();
 
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
