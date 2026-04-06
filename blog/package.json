@@ -1,0 +1,10 @@
+{
+  "name": "steadydevs-blog",
+  "version": "1.0.0",
+  "description": "SteadyDevs blog build system",
+  "scripts": {
+    "build": "node build-blog.js"
+  },
+  "author": "SteadyDevs",
+  "license": "ISC"
+}

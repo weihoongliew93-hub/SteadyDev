@@ -15,6 +15,44 @@ Your blog now uses a **template-based CMS system** where all content is stored i
   - Option 2: Template URLs like `blog-template.html?post=slug`
 - **Styles are centralized** in `blog-styles.css` - update once, applies everywhere
 
+## 🔧 Build System for SEO
+
+For better SEO, use the build script to generate static HTML files from your JSON content:
+
+**Why use the build script?**
+- ✅ **Better SEO** - Search engines get pre-rendered HTML (no JavaScript required)
+- ✅ **Faster indexing** - Google doesn't have to execute JavaScript to see content
+- ✅ **Social media** - Facebook, Twitter, LinkedIn can properly preview your posts
+- ✅ **Easy to use** - One command regenerates all blog posts
+
+**How to use:**
+
+1. **Edit your content** in `blog-posts.json` (add/modify posts)
+
+2. **Run the build script:**
+   ```bash
+   cd blog
+   npm run build
+   ```
+   Or directly:
+   ```bash
+   node build-blog.js
+   ```
+
+3. **The script will:**
+   - Read all posts from `blog-posts.json`
+   - Generate static HTML for each post (e.g., `your-slug.html`)
+   - Include all content, meta tags, and structure
+   - Apply the shared `blog-styles.css` automatically
+
+4. **Review and commit** the generated HTML files
+
+**When to rebuild:**
+- After adding a new blog post
+- After editing existing post content
+- After updating post metadata (title, excerpt, etc.)
+- You do NOT need to rebuild for CSS changes (they're in a separate file)
+
 ## Blog Listing Features
 
 ### Horizontal Card Layout
@@ -44,7 +82,9 @@ blog/
 ├── blog-template.html      # Template for rendering individual posts
 ├── blog-posts.json         # All blog post content (CMS database)
 ├── blog-styles.css         # Shared CSS styles for all blog pages
-└── 5-warning-signs...html  # Individual post HTML files
+├── build-blog.js           # Build script to generate static HTML
+├── package.json            # NPM configuration for build script
+└── 5-warning-signs...html  # Generated static HTML files (SEO-friendly)
 ```
 
 **Note:** All blog post HTML files share the same `blog-styles.css` stylesheet, so any style updates are automatically applied to all blog posts. No need to duplicate CSS in each file!
@@ -121,27 +161,28 @@ blog/
 }
 ```
 
-2. **The blog listing page automatically updates!** 
-   - `blog/index.html` now reads directly from `blog-posts.json`
+2. **Run the build script to generate the HTML file:**
+   ```bash
+   cd blog
+   npm run build
+   ```
+   This automatically creates `your-blog-post-slug.html` with all content pre-rendered for SEO.
+
+3. **The blog listing page automatically updates!** 
+   - `blog/index.html` reads directly from `blog-posts.json`
    - No need to manually add entries to any JavaScript arrays
    - Your new post will automatically appear on the listing page
    - Category filters will automatically include your post's tags
 
-3. **Access your post** at:
-   - `blog/blog-template.html?post=your-blog-post-slug`
-
 4. **⚠️ UPDATE SITEMAP** - Don't forget to add your new post to `sitemap.xml`! See `SITEMAP-UPDATE-INSTRUCTIONS.md` in the root folder.
 
-5. **Create a clean URL HTML file** (recommended for SEO):
-   - Copy `5-warning-signs-your-legacy-dotnet-system-needs-attention.html`
-   - Rename it to `your-blog-post-slug.html`
-   - Update the `POST_SLUG` constant in the JavaScript section to match your slug
-   - That's it! The file will automatically load content from `blog-posts.json`
-   - **Styling is handled automatically** via `blog-styles.css` - no need to add any CSS!
+5. **Test and deploy:**
+   - Open the generated HTML file in your browser
+   - Review the content, meta tags, and styling
+   - Commit the JSON and generated HTML files
+   - Deploy to GitHub Pages
 
-### Option 2: Create a Static HTML File (Old Method - Not Recommended)
-
-If you prefer to create individual HTML files (like the original post), you can copy the existing `5-warning-signs-your-legacy-dotnet-system-needs-attention.html` and modify it directly. This is useful if you need custom styling or JavaScript for a specific post.
+**That's it!** The build script handles everything - no manual HTML editing needed.
 
 ## Content Block Types
 
