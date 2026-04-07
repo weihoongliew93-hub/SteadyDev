@@ -128,10 +128,6 @@
         "text": "Your .NET system is running on an older framework version. Maybe .NET Framework 4.5, or even older. Security patches need to be applied, but nobody wants to touch it because \"if it's not broken, don't fix it.\""
       },
       {
-        "type": "paragraph",
-        "text": "I've seen organizations where releasing new versions carries such a reputation for instability that even customers expect issues. The internal team hesitates, stakeholders push back, and users brace themselves. When everyone—from developers to end-users—assumes a new release means problems, that's a sign the underlying system needs serious attention before any updates can happen safely."
-      },
-      {
         "type": "heading3",
         "text": "Red Flags:"
       },
