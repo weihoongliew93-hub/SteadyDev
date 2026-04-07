@@ -37,6 +37,10 @@
         "text": "The original developer left years ago. Maybe there was a handoff, maybe there wasn't. The current team can make small changes, but when it comes to understanding <em>why</em> certain things were built the way they were, everyone just shrugs."
       },
       {
+        "type": "paragraph",
+        "text": "I worked on an F&B POS module where nearly everything was written in a single file. Logic was jumbled throughout, and simple actions required navigating through code that was genuinely hard to follow. Worse yet, the same code snippets were duplicated in multiple places across the file. When you needed to fix a bug, you could never be certain you'd found all the instances—miss one, and the bug persists. Over time, I did extensive code cleanup and refactoring, and recently restructured it to separate related functionality into dedicated files. The system's maintainability has improved significantly—though there's still ongoing work to be done."
+      },
+      {
         "type": "heading3",
         "text": "Warning Signs:"
       },
@@ -60,6 +64,10 @@
       {
         "type": "paragraph",
         "text": "You need a simple change—maybe adding a new field to a form, updating a report, or modifying a business rule. It seems straightforward, but weeks later, it's still not done."
+      },
+      {
+        "type": "paragraph",
+        "text": "Years back, I was maintaining a printing module for a client's system. Every time they needed a new report or document template, I had to modify more than 4 different files just to get it working. The code wasn't structured dynamically enough. Eventually, I restructured the entire printing system—and after that, adding a new printing module only required working in 1 main file and adding 1-2 lines in another. What used to take hours now took minutes."
       },
       {
         "type": "heading3",
@@ -91,6 +99,10 @@
         "text": "You fix a bug. Two months later, it's back. Or you fix it in one place, and it appears somewhere else. It feels like you're playing whack-a-mole with your own system."
       },
       {
+        "type": "paragraph",
+        "text": "I've dealt with issues that were maddeningly difficult to reproduce—the kind where you apply a fix in one area, everything seems fine, then weeks later the same problem surfaces elsewhere. One particular case involved an intermittent issue that kept reappearing despite multiple attempted fixes. It was only after dedicating focused time to trace through the possible code flows and reading through the logic carefully that I finally uncovered the actual root cause. Once properly fixed, the issue never came back."
+      },
+      {
         "type": "heading3",
         "text": "What This Looks Like:"
       },
@@ -114,6 +126,10 @@
       {
         "type": "paragraph",
         "text": "Your .NET system is running on an older framework version. Maybe .NET Framework 4.5, or even older. Security patches need to be applied, but nobody wants to touch it because \"if it's not broken, don't fix it.\""
+      },
+      {
+        "type": "paragraph",
+        "text": "I've seen organizations where releasing new versions carries such a reputation for instability that even customers expect issues. The internal team hesitates, stakeholders push back, and users brace themselves. When everyone—from developers to end-users—assumes a new release means problems, that's a sign the underlying system needs serious attention before any updates can happen safely."
       },
       {
         "type": "heading3",
@@ -141,6 +157,10 @@
         "text": "Deployment day feels like defusing a bomb. Everyone is on high alert, ready to roll back at the first sign of trouble. Sometimes deployments happen after hours or on weekends \"just in case.\""
       },
       {
+        "type": "paragraph",
+        "text": "This fear isn't theoretical—it's learned from experience. I've worked with teams where Friday deployments were banned outright because too many weekends were spent rolling back changes and firefighting issues. One system I assessed had a 40% rollback rate on deployments. When nearly half your releases fail, that's not bad luck—it's a systemic problem."
+      },
+      {
         "type": "heading3",
         "text": "Signs of Deployment Anxiety:"
       },
@@ -156,7 +176,7 @@
       },
       {
         "type": "paragraph",
-        "text": "This fear isn't irrational—it's based on experience. When a system is poorly understood and changes are risky, deployment anxiety is a natural response. But it's also a clear sign that something needs to change."
+        "text": "When deployments consistently cause stress, it's not just a technical issue—it's affecting your team's morale and your business's ability to adapt. Every delayed deployment is a delayed improvement, a delayed fix, or a delayed opportunity."
       },
       {
         "type": "tip",
@@ -183,6 +203,31 @@
       {
         "type": "paragraph",
         "text": "The key is to address these issues <strong>before</strong> they become critical. Waiting until something breaks in production is always more expensive and stressful than proactive maintenance."
+      },
+      {
+        "type": "heading2",
+        "text": "How I Approach Legacy .NET Systems"
+      },
+      {
+        "type": "paragraph",
+        "text": "Over 11 years of working with legacy systems, I've learned that what works isn't dramatic rewrites or grand modernization plans—it's careful, methodical work that respects the system's history while making it sustainable for the future."
+      },
+      {
+        "type": "paragraph",
+        "text": "My approach focuses on:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Understanding before changing</strong> — I document the current state thoroughly before touching a single line of code. You can't improve what you don't understand.",
+          "<strong>Minimal disruption</strong> — Your business depends on this system. Changes are incremental, tested, and designed to keep things running smoothly.",
+          "<strong>Practical fixes over perfect solutions</strong> — Legacy systems don't need to be perfect. They need to be stable, maintainable, and aligned with your business needs.",
+          "<strong>Knowledge transfer, not dependency</strong> — My goal is to leave your system in a state where your team can confidently maintain it, not to create ongoing dependency."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "If you're seeing these warning signs in your legacy .NET system, you don't need to panic—you just need a solid plan and someone who's solved these problems before."
       },
       {
         "type": "cta",
