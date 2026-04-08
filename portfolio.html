@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Portfolio | SteadyDevs - Real-World .NET Solutions</title>
+  <meta name="description" content="Explore real-world .NET projects and solutions delivered by SteadyDevs. See how we've helped businesses modernize legacy systems and build reliable software.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/portfolio.html">
+  <meta property="og:title" content="Portfolio | SteadyDevs">
+  <meta property="og:description" content="Explore real-world .NET projects and solutions delivered by SteadyDevs.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+  
+  <link rel="stylesheet" href="assets/style.css?v=83">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+  
+  <style>
+    /* Portfolio-specific styles */
+    .portfolio-hero {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .portfolio-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #F9FAFB;
+    }
+    
+    .portfolio-hero p {
+      font-size: 1.2rem;
+      color: #D1D5DB;
+      line-height: 1.6;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .portfolio-card {
+      background: #1F2937;
+      border-radius: 8px;
+      padding: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .portfolio-card h3 {
+      color: #60A5FA;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .portfolio-card .project-meta {
+      color: #9CA3AF;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .portfolio-card .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    
+    .portfolio-card .tech-tag {
+      background: #374151;
+      color: #D1D5DB;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: #374151;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6B7280;
+    }
+    
+    .skills-section {
+      margin: 60px 0;
+      padding: 40px;
+      background: #1F2937;
+      border-radius: 8px;
+    }
+    
+    .skills-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #F9FAFB;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .skill-category h3 {
+      color: #60A5FA;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .skill-category ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .skill-category li {
+      color: #D1D5DB;
+      padding: 8px 0;
+      border-bottom: 1px solid #374151;
+    }
+    
+    .skill-category li:last-child {
+      border-bottom: none;
+    }
+    
+    @media (max-width: 768px) {
+      .portfolio-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="header-content">
+      <div class="logo-link">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </div>
+      <nav id="mainNav">
+        <span style="color: #9CA3AF; font-size: 1.1em;">Portfolio Showcase</span>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="portfolio-hero">
+      <h1>Portfolio</h1>
+      <p>
+        11 years of delivering reliable .NET solutions with a focus on system automation, performance optimization, and turning legacy systems into efficient, maintainable applications. Experience spans major retail and F&B brands across multiple countries, from enterprise POS systems to customer-facing platforms. From automated business processes to complex integrations and regulatory compliance, here's how real-world problems get solved.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="portfolio-grid">
+      
+      <!-- PROJECT 1 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">⚡</span>
+        </div>
+        <h3>Automated Point Expiry System</h3>
+        <div class="project-meta">
+          Retail/Loyalty | Enterprise | Completed
+        </div>
+        <p>
+          A loyalty point management system needed automation to handle expiring points based on configurable business rules. Initial monthly processing couldn't keep up with growing data volume, and manual intervention was causing operational delays and data inconsistencies.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          The team designed and implemented a fully automated expiry system with multiple configuration options allowing business to define expiry rules (time-based, tier-based, conditional). Enhanced from monthly batch processing to support daily triggers. When performance degraded due to data volume growth, bottlenecks were identified and resolved within half a day. Custom optimization program was deployed during off-hours to rectify accumulated data issues.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          <strong>Flawless data accuracy</strong> with zero calculation errors (occasional issues stemmed only from source data quality, not the automation logic). Successfully handled performance crisis under pressure, preventing business disruption. System now processes millions of point transactions automatically with configurable rules, eliminating manual intervention and enabling business to scale loyalty programs confidently.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET Framework</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">Batch Processing</span>
+          <span class="tech-tag">Performance Optimization</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">🐾</span>
+        </div>
+        <h3>Advanced Pet Grooming Booking & Automation System</h3>
+        <div class="project-meta">
+          Pet Services | Small Business | 5 months
+        </div>
+        <p>
+          A legacy web-based pet booking system originally built by outsourced developers had minimal features and no customer-facing capabilities. Business needed complex scheduling automation, loyalty programs, automated notifications, and driver coordination—all while maintaining the existing backend operations.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          Transformed a backend-only system into a full customer-facing platform with intelligent booking automation (groomer availability, pet size restrictions, seniority-based scheduling, time slot management). Built automated driver scheduling with area code restrictions and pickup eligibility checks. Implemented configurable package subscription system with automatic point awards. Created automated email notification system (booking confirmations, appointment reminders, low-point alerts) triggered at API level. Fixed long-standing bugs and proactively optimized dashboard performance. <strong>Leveraged Claude AI as a development accelerator</strong> while maintaining strict code quality control—all AI-generated code was reviewed, logic was verified, and every change was thoroughly tested to ensure clean, maintainable implementation rather than letting AI create unmanageable code.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          Delivered every requested feature successfully with <strong>minimal issues</strong>. System now handles complex scheduling logic automatically, eliminating manual booking coordination. Automated notifications keep customers informed without staff intervention. Business operations greatly improved—what required constant manual scheduling and customer communication now runs autonomously. AI-assisted development accelerated delivery timeline while human oversight ensured code remained understandable and maintainable. Demonstrated ability to <strong>utilize modern tools efficiently without sacrificing code quality</strong>.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">Web API</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">Email Automation</span>
+          <span class="tech-tag">AI-Assisted Development</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">💳</span>
+        </div>
+        <h3>Payment Terminal Integration Middleware</h3>
+        <div class="project-meta">
+          Retail POS | Enterprise | Initial Build: Few Weeks | In Production Since
+        </div>
+        <p>
+          Multiple credit card terminals needed integration with POS system. Original implementation had all terminal logic embedded directly in POS code—jumbled in a single file, making debugging a nightmare and each new terminal integration increasingly complex and risky.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          The team architected and extracted terminal integration logic into a separate middleware program with clean structure. Created project base framework so developers don't need to handle connection logic—just implement terminal-specific commands. Physically separated each terminal implementation into dedicated files. Added extensive logging throughout for troubleshooting. Transformed chaotic embedded code into maintainable, scalable architecture.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          Decision proven to be <strong>superb over years of use</strong>. New terminal integrations now take fraction of original time. Debugging issues became straightforward with comprehensive logging. Developers work within established structure instead of reverse-engineering tangled code. Following the original pattern would have made maintaining numerous terminals a nightmare—instead, it's a clean, structured system that's easy to extend.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">Middleware Architecture</span>
+          <span class="tech-tag">Hardware Integration</span>
+          <span class="tech-tag">Logging & Diagnostics</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">🔄</span>
+        </div>
+        <h3>Offline POS Sync Optimization & Staging Database Innovation</h3>
+        <div class="project-meta">
+          Retail POS | Enterprise | Performance & Testing Enhancement
+        </div>
+        <p>
+          Offline-capable POS system relied on sync mechanism to synchronize data with server. Testing used fake outlets that generated noise data on production servers. Synchronous syncing (one table after another) made data downloads incredibly slow—when downloading the largest table, all other tables waited idle. Image downloads went through web service middleman, limiting throughput and consuming costly bandwidth.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          <strong>Introduced staging local database with minimal coding effort</strong> by dynamically cloning all tables into separate copies through existing in-house Entity Framework middleware. Carefully orchestrated the middle layer to handle staging vs. production switching <strong>without changing a single line of application code</strong>. Enhanced sync mechanism with <strong>multi-threading support</strong>—smaller tables now download in parallel while large tables process, dramatically reducing total sync time. Redesigned image download to go directly to blob storage, bypassing web service middleman entirely.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          Staging database solved test data pollution problem while easing feature testing significantly. Multi-threaded sync transformed download performance—<strong>longest sync time now determined by single largest table</strong> instead of cumulative sequential processing. Direct blob storage downloads not only sped up image transfers but also <strong>reduced infrastructure costs</strong> by eliminating web service bandwidth consumption. Achieved major performance gains and cost savings through architectural improvements requiring minimal code changes.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">Multi-threading</span>
+          <span class="tech-tag">Entity Framework</span>
+          <span class="tech-tag">Azure Blob Storage</span>
+          <span class="tech-tag">Performance Optimization</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 5 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">🏪</span>
+        </div>
+        <h3>Retail POS Module Refactoring & Architecture Overhaul</h3>
+        <div class="project-meta">
+          Retail POS | Enterprise | Multi-year Continuous Improvement
+        </div>
+        <p>
+          Legacy retail POS system had UI and business logic tightly coupled together, making changes risky and maintenance difficult. Before my involvement, there was no structured MVVM pattern in the sales module—code was monolithic and hard to maintain.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          <strong>Recognized the architectural flaw early</strong> and introduced code written in a properly structured way. The <strong>MVVM pattern was introduced</strong> to the sales module where none existed before. Once this approach was established, all subsequent new modules were coded with proper structure and separation of concerns. Continuously identified and optimized countless instances of inefficient code over the years, setting a higher standard for code quality.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          Pioneered structured coding practices that transformed how the team builds features. The MVVM-based modules have proven over time to be <strong>easy to maintain and pretty much issue-free</strong>. Other developers now follow similar patterns. What was once a tangled codebase gradually became more maintainable as structured modules replaced legacy code. Established architectural foundation that enables reliable, testable development going forward.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">MVVM Pattern</span>
+          <span class="tech-tag">Architecture Refactoring</span>
+          <span class="tech-tag">Code Quality Leadership</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 6 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">🛠️</span>
+        </div>
+        <h3>Developer Productivity Framework Enhancements</h3>
+        <div class="project-meta">
+          Internal Tooling | Enterprise | Continuous Improvement
+        </div>
+        <p>
+          Development workflows suffered from fragile, maintenance-heavy patterns: printing module required modifying 4+ files for each new report; system settings jumbled together in a single file; enum-string list pairs maintained manually with high risk of sequence mismatches. Each pattern slowed development and introduced unnecessary risks.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          <strong>Printing Module:</strong> Restructured system so adding new reports requires only 1 main file + 1-2 lines elsewhere—down from 4+ files. <strong>System Settings:</strong> Physically separated jumbled settings into module-specific files, then created framework that auto-generates UI from data models—new settings only need data model definition, no manual UI or save/load code. <strong>Enum-String Pairs:</strong> Refactored fragile positional dependencies into structured, readable code that eliminates sequence mismatch risks entirely.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          Printing enhancements: <strong>hours to minutes</strong> for new reports. Settings framework: adding new configuration became trivial instead of error-prone. Enum refactoring: completely eliminated maintenance risk and improved readability. Workflow problems were recognized early and reusable frameworks were built that benefit all developers. These improvements compound over time—every new feature leverages cleaner, safer patterns.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">Framework Design</span>
+          <span class="tech-tag">Code Generation</span>
+          <span class="tech-tag">Developer Experience</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 7 -->
+      <div class="portfolio-card">
+        <div class="project-image">
+          <span style="font-size: 3rem;">✈️</span>
+        </div>
+        <h3>Airport Retail POS Compliance & Major Enhancement</h3>
+        <div class="project-meta">
+          Transportation/Retail | Enterprise | Completed | Occasional Maintenance
+        </div>
+        <p>
+          Airport retail operations required major system enhancements to meet strict regulatory compliance requirements for duty-free sales. System needed sophisticated tracking of flight information, tariff codes, passport-based purchase restrictions, inventory controls, and multi-level financial reconciliation—all critical for customs compliance and audit requirements.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <p>
+          The team developed comprehensive flight info input module with real-time tracking to support compliance requirements. Implemented tariff code system with configurable purchase limits based on passport type and tariff classifications—ensuring regulatory adherence. Built stock overview report generation to meet audit and compliance documentation needs. Enhanced cash reconciliation module to support mandatory double verification workflow, plus post-reconciliation amendment and acknowledgement system for regulatory traceability. Code quality was ensured through careful implementation and extensive testing.
+        </p>
+        
+        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
+        <p>
+          Implemented features have <strong>minimal issues in general</strong>—high reliability in a compliance-critical production environment. Tariff-based restrictions prevent regulatory violations automatically, protecting the business from customs penalties. Double verification workflow eliminated financial discrepancies in cash handling, meeting audit requirements. System successfully passed compliance audits and regulatory reviews. Architecture improvements enable faster addition of new compliance features without risking existing controls. Performance optimization ensures the system remains responsive despite growing transaction volume and regulatory complexity.
+        </p>
+        
+        <div class="tech-stack">
+          <span class="tech-tag">.NET Framework</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">POS Systems</span>
+          <span class="tech-tag">Compliance & Reporting</span>
+          <span class="tech-tag">Regulatory Controls</span>
+        </div>
+      </div>
+
+      <!-- Add more project cards as needed -->
+
+    </div>
+
+    <!-- Skills/Expertise Section (Optional) -->
+    <div class="skills-section">
+      <h2>Technical Expertise</h2>
+      <div class="skills-grid">
+        
+        <div class="skill-category">
+          <h3>Automation & Integration</h3>
+          <ul>
+            <li>Automated business process workflows</li>
+            <li>Batch processing & scheduled jobs</li>
+            <li>Email notification automation</li>
+            <li>Third-party system integration</li>
+            <li>Payment terminal integration</li>
+            <li>API development & integration</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Database & Performance</h3>
+          <ul>
+            <li>Database design & schema modeling</li>
+            <li>SQL Server optimization expert</li>
+            <li>Query performance tuning</li>
+            <li>Index strategy & implementation</li>
+            <li>Complex query rewriting</li>
+            <li>Database troubleshooting</li>
+            <li>Large-scale data processing</li>
+            <li>Design for reporting & analytics</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Backend Development</h3>
+          <ul>
+            <li>.NET Framework / .NET Core</li>
+            <li>C# application development</li>
+            <li>Web API design & implementation</li>
+            <li>Windows Services</li>
+            <li>Middleware architecture</li>
+            <li>POS system development</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Architecture & Refactoring</h3>
+          <ul>
+            <li>Legacy system modernization</li>
+            <li>Code refactoring & restructuring</li>
+            <li>Separation of concerns</li>
+            <li>System architecture design</li>
+            <li>Performance bottleneck identification</li>
+            <li>Technical debt reduction</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div style="background: #1F2937; padding: 40px; border-radius: 8px; text-align: center; margin: 40px 0;">
+      <h2 style="color: #F9FAFB; margin-bottom: 15px;">Interested in Working Together?</h2>
+      <p style="color: #D1D5DB; margin-bottom: 25px; font-size: 1.1rem;">
+        Whether you need business process automation, system integration, performance optimization, or legacy system enhancement—let's discuss how expertise like this can transform your operations.
+      </p>
+      <p style="color: #60A5FA; font-size: 1.2rem; margin: 0;">Contact: steadydevs.contact@gmail.com</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SteadyDevs | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
