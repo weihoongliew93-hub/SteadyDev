@@ -31,17 +31,18 @@ For better SEO, use the build script to generate static HTML files from your JSO
 
 2. **Run the build script:**
    ```bash
-   cd blog
+   cd blog/_build
    npm run build
    ```
    Or directly:
    ```bash
+   cd blog/_build
    node build-blog.js
    ```
 
 3. **The script will:**
    - Read all posts from `blog-posts.json`
-   - Generate static HTML for each post (e.g., `your-slug.html`)
+   - Generate static HTML for each post in the blog folder (e.g., `your-slug.html`)
    - Include all content, meta tags, and structure
    - Apply the shared `blog-styles.css` automatically
 
@@ -78,13 +79,15 @@ For better SEO, use the build script to generate static HTML files from your JSO
 
 ```
 blog/
-├── index.html              # Blog listing page (shows all posts)
-├── blog-template.html      # Template for rendering individual posts
-├── blog-posts.json         # All blog post content (CMS database)
-├── blog-styles.css         # Shared CSS styles for all blog pages
-├── build-blog.js           # Build script to generate static HTML
-├── package.json            # NPM configuration for build script
-└── 5-warning-signs...html  # Generated static HTML files (SEO-friendly)
+├── index.html                    # Blog listing page (shows all posts)
+├── blog-posts.json               # All blog post content (CMS database)
+├── blog-styles.css               # Shared CSS styles for all blog pages
+├── 5-warning-signs...html        # Generated static HTML files (blog content)
+├── when-to-refactor...html       # Generated static HTML files (blog content)
+└── _build/                       # Build tools and templates (separate folder)
+    ├── build-blog.js             # Build script to generate static HTML
+    ├── blog-template.html        # Template used by build script
+    └── package.json              # NPM configuration for build script
 ```
 
 **Note:** All blog post HTML files share the same `blog-styles.css` stylesheet, so any style updates are automatically applied to all blog posts. No need to duplicate CSS in each file!

@@ -6,8 +6,8 @@
 const fs = require('fs');
 const path = require('path');
 
-// Read blog posts JSON
-const blogPosts = JSON.parse(fs.readFileSync('blog-posts.json', 'utf8'));
+// Read blog posts JSON from parent directory
+const blogPosts = JSON.parse(fs.readFileSync('../blog-posts.json', 'utf8'));
 
 console.log(`🚀 Building ${blogPosts.length} blog post(s)...`);
 
@@ -235,6 +235,7 @@ function generateHTML(post) {
     
     function setupScrollTracking(headings) {
       const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
       
       function updateActiveLink() {
         const scrollPosition = window.scrollY + 100;
@@ -253,6 +254,20 @@ function generateHTML(post) {
           const activeLink = document.querySelector(\`[data-target="\${currentHeading.id}"]\`);
           if (activeLink) {
             activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
           }
         }
       }
@@ -362,12 +377,12 @@ function generateHTML(post) {
 </html>`;
 }
 
-// Generate HTML for each post
+// Generate HTML for each post and write to parent directory
 blogPosts.forEach(post => {
   const html = generateHTML(post);
-  const filename = `${post.slug}.html`;
+  const filename = `../${post.slug}.html`;
   fs.writeFileSync(filename, html);
-  console.log(`✅ Generated: ${filename}`);
+  console.log(`✅ Generated: ${post.slug}.html`);
 });
 
 console.log(`\n🎉 Done! Generated ${blogPosts.length} blog post(s).`);

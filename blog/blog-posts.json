@@ -1,5 +1,19 @@
 [
   {
+    "id": "when-to-refactor-vs-rewrite-legacy-dotnet-system",
+    "title": "When to Refactor vs. Rewrite Your Legacy .NET System: A Practical Guide",
+    "slug": "when-to-refactor-vs-rewrite-legacy-dotnet-system",
+    "excerpt": "Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.",
+    "date": "2026-04-09",
+    "dateDisplay": "April 9, 2026",
+    "readTime": "10 min read",
+    "tags": ["Legacy Systems", ".NET", "Refactoring", "Architecture"],
+    "author": "SteadyDevs",
+    "heroImage": "images/blog/refactor-vs-rewrite.jpg",
+    "heroImageAlt": "Developer reviewing code architecture decisions",
+    "content": []
+  },
+  {
     "id": "5-warning-signs-your-legacy-dotnet-system-needs-attention",
     "title": "5 Warning Signs Your Legacy .NET System Needs Professional Attention",
     "slug": "5-warning-signs-your-legacy-dotnet-system-needs-attention",
