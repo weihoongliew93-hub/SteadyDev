@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Portfolio | SteadyDevs - Real-World .NET Solutions</title>
-  <meta name="description" content="Explore real-world .NET projects and solutions delivered by SteadyDevs. See how we've helped businesses modernize legacy systems and build reliable software.">
+  <title>Portfolio - Real .NET Solutions That Solve Expensive Problems | SteadyDevs</title>
+  <meta name="description" content="See how 11 years of .NET expertise fixes critical bugs, automates workflows, and optimizes legacy systems for F&B, retail, and enterprise clients. Real projects. Real results.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -14,8 +14,8 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://steadydevs.com/portfolio.html">
-  <meta property="og:title" content="Portfolio | SteadyDevs">
-  <meta property="og:description" content="Explore real-world .NET projects and solutions delivered by SteadyDevs.">
+  <meta property="og:title" content="Portfolio - Real .NET Solutions | SteadyDevs">
+  <meta property="og:description" content="11 years solving expensive problems: bug fixes, automation, performance optimization for F&B, retail, and enterprise clients.">
   <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
   
   <link rel="stylesheet" href="assets/style.css?v=83">
@@ -163,11 +163,22 @@
   
   <header>
     <div class="header-content">
-      <div class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
-      </div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav id="mainNav">
-        <span style="color: #9CA3AF; font-size: 1.1em;">Portfolio Showcase</span>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -175,10 +186,19 @@
   <div class="container">
     <!-- Hero Section -->
     <div class="portfolio-hero">
-      <h1>Portfolio</h1>
-      <p>
-        11 years of delivering reliable .NET solutions with a focus on system automation, performance optimization, and turning legacy systems into efficient, maintainable applications. Experience spans major retail and F&B brands across multiple countries, from enterprise POS systems to customer-facing platforms. From automated business processes to complex integrations and regulatory compliance, here's how real-world problems get solved.
+      <h1>Real Projects. Real Results.</h1>
+      <p style="font-size: 1.3rem; margin-bottom: 25px;">
+        <strong style="color: #60A5FA;">11 years solving expensive problems</strong> for businesses that can't afford downtime.
       </p>
+      <p>
+        Experience with systems serving F&B, retail, and enterprise clients across multiple countries. From enterprise POS systems handling thousands of daily transactions to automated business processes eliminating manual work—here's how complex problems get solved with clean, maintainable code.
+      </p>
+      <div style="background: rgba(96, 165, 250, 0.1); border-left: 3px solid #60A5FA; padding: 20px; margin-top: 30px; border-radius: 6px;">
+        <p style="color: #D1D5DB; margin: 0; font-size: 1.05rem; line-height: 1.7;">
+          <strong style="color: #60A5FA;">Industries:</strong> Major F&B and retail brands | Airport duty-free operations | Loyalty programs managing millions of points | Pet service businesses<br>
+          <strong style="color: #60A5FA;">Scale:</strong> Production systems handling high transaction volumes, multi-country deployments, compliance-critical environments
+        </p>
+      </div>
     </div>
 
     <!-- Projects Grid -->
@@ -189,29 +209,31 @@
         <div class="project-image">
           <span style="font-size: 3rem;">⚡</span>
         </div>
-        <h3>Automated Point Expiry System</h3>
+        <h3>High-Volume Performance Crisis Resolution</h3>
         <div class="project-meta">
-          Retail/Loyalty | Enterprise | Completed
+          Retail/Loyalty | Enterprise | Critical Production Issue
         </div>
-        <p>
-          A loyalty point management system needed automation to handle expiring points based on configurable business rules. Initial monthly processing couldn't keep up with growing data volume, and manual intervention was causing operational delays and data inconsistencies.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Automated point expiry system worked flawlessly for years—until a new customer with extremely high transaction volumes exposed critical performance bottlenecks. System couldn't handle the load. Processing times skyrocketed. Production environment at risk. Business operations threatened.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          The team designed and implemented a fully automated expiry system with multiple configuration options allowing business to define expiry rules (time-based, tier-based, conditional). Enhanced from monthly batch processing to support daily triggers. When performance degraded due to data volume growth, bottlenecks were identified and resolved within half a day. Custom optimization program was deployed during off-hours to rectify accumulated data issues.
+          Worked under high pressure to identify performance bottlenecks in production system. Analyzed query patterns, examined data access patterns, and located the chokepoints. Implemented targeted optimizations without disrupting the working automation. Deployed custom optimization program during off-hours to handle accumulated data issues while system remained operational.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          <strong>Flawless data accuracy</strong> with zero calculation errors (occasional issues stemmed only from source data quality, not the automation logic). Successfully handled performance crisis under pressure, preventing business disruption. System now processes millions of point transactions automatically with configurable rules, eliminating manual intervention and enabling business to scale loyalty programs confidently.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">Crisis resolved within half a day.</strong> System now handles high-volume customers that would have crashed it before. Zero business disruption during fix. Demonstrated ability to diagnose and resolve critical performance issues under pressure in production environment. Customer onboarding proceeded successfully.
         </p>
         
         <div class="tech-stack">
           <span class="tech-tag">.NET Framework</span>
           <span class="tech-tag">SQL Server</span>
-          <span class="tech-tag">Batch Processing</span>
           <span class="tech-tag">Performance Optimization</span>
+          <span class="tech-tag">Production Crisis Management</span>
         </div>
       </div>
 
@@ -224,18 +246,20 @@
         <div class="project-meta">
           Pet Services | Small Business | 5 months
         </div>
-        <p>
-          A legacy web-based pet booking system originally built by outsourced developers had minimal features and no customer-facing capabilities. Business needed complex scheduling automation, loyalty programs, automated notifications, and driver coordination—all while maintaining the existing backend operations.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Legacy web booking system had minimal features and no customer-facing capabilities. Staff spent hours coordinating schedules manually—checking groomer availability, driver routes, pet size restrictions, appointment reminders. Every booking required manual intervention. Scaling was impossible.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          Transformed a backend-only system into a full customer-facing platform with intelligent booking automation (groomer availability, pet size restrictions, seniority-based scheduling, time slot management). Built automated driver scheduling with area code restrictions and pickup eligibility checks. Implemented configurable package subscription system with automatic point awards. Created automated email notification system (booking confirmations, appointment reminders, low-point alerts) triggered at API level. Fixed long-standing bugs and proactively optimized dashboard performance. <strong>Leveraged Claude AI as a development accelerator</strong> while maintaining strict code quality control—all AI-generated code was reviewed, logic was verified, and every change was thoroughly tested to ensure clean, maintainable implementation rather than letting AI create unmanageable code.
+          Transformed backend-only system into full customer-facing platform. Built intelligent booking automation (groomer availability, pet size restrictions, seniority-based scheduling). Created automated driver scheduling with area code restrictions. Implemented package subscriptions with automatic point awards. Added automated email system for confirmations, reminders, and low-point alerts—all triggered at API level. <strong>Leveraged Claude AI to accelerate development</strong> while maintaining strict code review and testing to ensure clean, maintainable implementation.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          Delivered every requested feature successfully with <strong>minimal issues</strong>. System now handles complex scheduling logic automatically, eliminating manual booking coordination. Automated notifications keep customers informed without staff intervention. Business operations greatly improved—what required constant manual scheduling and customer communication now runs autonomously. AI-assisted development accelerated delivery timeline while human oversight ensured code remained understandable and maintainable. Demonstrated ability to <strong>utilize modern tools efficiently without sacrificing code quality</strong>.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">Every feature delivered with minimal issues.</strong> What required constant manual coordination now runs autonomously. Staff freed from scheduling grind—system handles complex logic automatically. Customers receive instant confirmations and reminders without staff intervention. Business can now scale without hiring for coordination. AI-assisted development accelerated delivery while human oversight kept code maintainable.
         </p>
         
         <div class="tech-stack">
@@ -256,18 +280,20 @@
         <div class="project-meta">
           Retail POS | Enterprise | Initial Build: Few Weeks | In Production Since
         </div>
-        <p>
-          Multiple credit card terminals needed integration with POS system. Original implementation had all terminal logic embedded directly in POS code—jumbled in a single file, making debugging a nightmare and each new terminal integration increasingly complex and risky.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Multiple credit card terminals needed POS integration. All terminal logic was embedded directly in POS code—jumbled in a single file. Debugging was a nightmare. Each new terminal integration became increasingly complex and risky. Developers wasted hours reverse-engineering tangled code.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          The team architected and extracted terminal integration logic into a separate middleware program with clean structure. Created project base framework so developers don't need to handle connection logic—just implement terminal-specific commands. Physically separated each terminal implementation into dedicated files. Added extensive logging throughout for troubleshooting. Transformed chaotic embedded code into maintainable, scalable architecture.
+          Architected and extracted terminal integration logic into separate middleware program with clean structure. Created project base framework—developers just implement terminal-specific commands without handling connection logic. Physically separated each terminal into dedicated files. Added extensive logging for troubleshooting. Transformed chaotic embedded code into maintainable, scalable architecture.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          Decision proven to be <strong>superb over years of use</strong>. New terminal integrations now take fraction of original time. Debugging issues became straightforward with comprehensive logging. Developers work within established structure instead of reverse-engineering tangled code. Following the original pattern would have made maintaining numerous terminals a nightmare—instead, it's a clean, structured system that's easy to extend.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">Decision proven superb over years of use.</strong> New terminal integrations now take a fraction of original time. Debugging became straightforward with comprehensive logging. Developers work within established structure instead of reverse-engineering spaghetti code. Following the original pattern would have made maintaining numerous terminals a nightmare—instead, it's a clean system that's easy to extend.
         </p>
         
         <div class="tech-stack">
@@ -287,18 +313,20 @@
         <div class="project-meta">
           Retail POS | Enterprise | Performance & Testing Enhancement
         </div>
-        <p>
-          Offline-capable POS system relied on sync mechanism to synchronize data with server. Testing used fake outlets that generated noise data on production servers. Synchronous syncing (one table after another) made data downloads incredibly slow—when downloading the largest table, all other tables waited idle. Image downloads went through web service middleman, limiting throughput and consuming costly bandwidth.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Offline POS sync was painfully slow—tables downloaded one-by-one sequentially. Testing polluted production servers with fake outlet data. Image downloads crawled through web service middleman, consuming expensive bandwidth. Sync times hurt productivity and infrastructure costs kept climbing.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          <strong>Introduced staging local database with minimal coding effort</strong> by dynamically cloning all tables into separate copies through existing in-house Entity Framework middleware. Carefully orchestrated the middle layer to handle staging vs. production switching <strong>without changing a single line of application code</strong>. Enhanced sync mechanism with <strong>multi-threading support</strong>—smaller tables now download in parallel while large tables process, dramatically reducing total sync time. Redesigned image download to go directly to blob storage, bypassing web service middleman entirely.
+          Introduced staging local database by dynamically cloning tables through existing Entity Framework middleware—<strong>zero application code changes needed</strong>. Enhanced sync with multi-threading—smaller tables download in parallel while large tables process. Redesigned image downloads to go directly to blob storage, bypassing web service entirely.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          Staging database solved test data pollution problem while easing feature testing significantly. Multi-threaded sync transformed download performance—<strong>longest sync time now determined by single largest table</strong> instead of cumulative sequential processing. Direct blob storage downloads not only sped up image transfers but also <strong>reduced infrastructure costs</strong> by eliminating web service bandwidth consumption. Achieved major performance gains and cost savings through architectural improvements requiring minimal code changes.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">Sync time now determined by single largest table instead of cumulative sequential processing.</strong> Test data pollution eliminated. Feature testing vastly improved. Direct blob downloads slashed infrastructure costs by cutting web service bandwidth consumption. Major performance gains with minimal code changes.
         </p>
         
         <div class="tech-stack">
@@ -319,18 +347,20 @@
         <div class="project-meta">
           Retail POS | Enterprise | Multi-year Continuous Improvement
         </div>
-        <p>
-          Legacy retail POS system had UI and business logic tightly coupled together, making changes risky and maintenance difficult. Before my involvement, there was no structured MVVM pattern in the sales module—code was monolithic and hard to maintain.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Legacy retail POS had UI and business logic tightly coupled—no structured MVVM pattern in sales module. Code was monolithic, changes were risky, maintenance was painful. Every feature addition threatened to break existing functionality. Developer productivity suffered.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          <strong>Recognized the architectural flaw early</strong> and introduced code written in a properly structured way. The <strong>MVVM pattern was introduced</strong> to the sales module where none existed before. Once this approach was established, all subsequent new modules were coded with proper structure and separation of concerns. Continuously identified and optimized countless instances of inefficient code over the years, setting a higher standard for code quality.
+          Recognized architectural flaw early and introduced properly structured code. <strong>MVVM pattern introduced to sales module where none existed before.</strong> Once established, all subsequent modules coded with proper structure and separation of concerns. Continuously identified and optimized inefficient code over years, setting higher standard for code quality.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          Pioneered structured coding practices that transformed how the team builds features. The MVVM-based modules have proven over time to be <strong>easy to maintain and pretty much issue-free</strong>. Other developers now follow similar patterns. What was once a tangled codebase gradually became more maintainable as structured modules replaced legacy code. Established architectural foundation that enables reliable, testable development going forward.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">MVVM-based modules proven easy to maintain and issue-free.</strong> Pioneered structured practices that transformed how the team builds features. Other developers now follow similar patterns. Tangled codebase gradually became maintainable as structured modules replaced legacy code. Established architectural foundation enabling reliable, testable development.
         </p>
         
         <div class="tech-stack">
@@ -350,18 +380,20 @@
         <div class="project-meta">
           Internal Tooling | Enterprise | Continuous Improvement
         </div>
-        <p>
-          Development workflows suffered from fragile, maintenance-heavy patterns: printing module required modifying 4+ files for each new report; system settings jumbled together in a single file; enum-string list pairs maintained manually with high risk of sequence mismatches. Each pattern slowed development and introduced unnecessary risks.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Development workflows killed productivity. Adding reports required modifying 4+ files (hours of work). System settings jumbled in single file—error-prone mess. Enum-string pairs maintained manually with high risk of sequence mismatches. Every feature took too long and introduced unnecessary bugs.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          <strong>Printing Module:</strong> Restructured system so adding new reports requires only 1 main file + 1-2 lines elsewhere—down from 4+ files. <strong>System Settings:</strong> Physically separated jumbled settings into module-specific files, then created framework that auto-generates UI from data models—new settings only need data model definition, no manual UI or save/load code. <strong>Enum-String Pairs:</strong> Refactored fragile positional dependencies into structured, readable code that eliminates sequence mismatch risks entirely.
+          <strong>Printing:</strong> Restructured to require only 1 main file + 1-2 lines elsewhere (down from 4+ files). <strong>Settings:</strong> Separated jumbled settings into module-specific files, created framework that auto-generates UI from data models—no manual UI or save/load code needed. <strong>Enums:</strong> Refactored fragile positional dependencies into structured code that eliminates sequence mismatch risks.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          Printing enhancements: <strong>hours to minutes</strong> for new reports. Settings framework: adding new configuration became trivial instead of error-prone. Enum refactoring: completely eliminated maintenance risk and improved readability. Workflow problems were recognized early and reusable frameworks were built that benefit all developers. These improvements compound over time—every new feature leverages cleaner, safer patterns.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">New reports: hours → minutes. New settings: trivial instead of error-prone.</strong> Enum refactoring completely eliminated maintenance risk. Built reusable frameworks benefiting all developers. Improvements compound over time—every new feature leverages cleaner, safer patterns. Developer velocity dramatically increased.
         </p>
         
         <div class="tech-stack">
@@ -381,18 +413,20 @@
         <div class="project-meta">
           Transportation/Retail | Enterprise | Completed | Occasional Maintenance
         </div>
-        <p>
-          Airport retail operations required major system enhancements to meet strict regulatory compliance requirements for duty-free sales. System needed sophisticated tracking of flight information, tariff codes, passport-based purchase restrictions, inventory controls, and multi-level financial reconciliation—all critical for customs compliance and audit requirements.
+        
+        <h4 style="color: #EF4444; margin-top: 0; margin-bottom: 10px;">⚠️ Problem</h4>
+        <p style="color: #FCA5A5; background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 6px; border-left: 3px solid #EF4444;">
+          Airport duty-free operations faced strict regulatory compliance requirements. System lacked flight tracking, tariff code restrictions, passport-based purchase limits, and proper audit trails. Manual compliance checks risked customs penalties. Cash reconciliation had no double-verification—audit failures loomed. Non-compliance could shut down operations.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Solution</h4>
+        <h4 style="color: #60A5FA; margin-top: 20px; margin-bottom: 10px;">✅ Solution</h4>
         <p>
-          The team developed comprehensive flight info input module with real-time tracking to support compliance requirements. Implemented tariff code system with configurable purchase limits based on passport type and tariff classifications—ensuring regulatory adherence. Built stock overview report generation to meet audit and compliance documentation needs. Enhanced cash reconciliation module to support mandatory double verification workflow, plus post-reconciliation amendment and acknowledgement system for regulatory traceability. Code quality was ensured through careful implementation and extensive testing.
+          Developed comprehensive flight info tracking module for compliance. Implemented tariff code system with configurable purchase limits based on passport type—automatic regulatory adherence. Built stock overview reports for audit documentation. Enhanced cash reconciliation with mandatory double verification workflow plus post-reconciliation amendment and acknowledgement for regulatory traceability. Extensive testing ensured reliability.
         </p>
         
-        <h4 style="color: #9CA3AF; margin-top: 20px; margin-bottom: 10px;">Outcome</h4>
-        <p>
-          Implemented features have <strong>minimal issues in general</strong>—high reliability in a compliance-critical production environment. Tariff-based restrictions prevent regulatory violations automatically, protecting the business from customs penalties. Double verification workflow eliminated financial discrepancies in cash handling, meeting audit requirements. System successfully passed compliance audits and regulatory reviews. Architecture improvements enable faster addition of new compliance features without risking existing controls. Performance optimization ensures the system remains responsive despite growing transaction volume and regulatory complexity.
+        <h4 style="color: #10B981; margin-top: 20px; margin-bottom: 10px;">🎯 Result</h4>
+        <p style="font-weight: 500;">
+          <strong style="color: #34D399;">High reliability in compliance-critical environment—minimal issues.</strong> Tariff restrictions prevent regulatory violations automatically, protecting business from customs penalties. Double verification eliminated financial discrepancies. System passed compliance audits and regulatory reviews. Can add new compliance features quickly without risking existing controls. Performance remains responsive despite growing complexity.
         </p>
         
         <div class="tech-stack">
@@ -467,12 +501,13 @@
     </div>
 
     <!-- Call to Action -->
-    <div style="background: #1F2937; padding: 40px; border-radius: 8px; text-align: center; margin: 40px 0;">
-      <h2 style="color: #F9FAFB; margin-bottom: 15px;">Interested in Working Together?</h2>
-      <p style="color: #D1D5DB; margin-bottom: 25px; font-size: 1.1rem;">
-        Whether you need business process automation, system integration, performance optimization, or legacy system enhancement—let's discuss how expertise like this can transform your operations.
+    <div style="background: linear-gradient(135deg, #1a1f26 0%, #0f1419 100%); padding: 50px 40px; border-radius: 8px; text-align: center; margin: 60px 0; border: 2px solid #60A5FA;">
+      <h2 style="color: #F9FAFB; margin-bottom: 15px; font-size: 2em;">Have a Legacy System Issue or Manual Workflow Problem?</h2>
+      <p style="color: #D1D5DB; margin-bottom: 30px; font-size: 1.15rem; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Whether you need to fix critical bugs, automate time-consuming processes, optimize performance, or rescue a failing system—expertise like this can transform your operations.
       </p>
-      <p style="color: #60A5FA; font-size: 1.2rem; margin: 0;">Contact: steadydevs.contact@gmail.com</p>
+      <a href="contact.html" class="cta-button" style="display: inline-block; background: #60A5FA; color: #0C1116; padding: 18px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.15em; transition: all 0.2s;">Get Your FREE Consultation →</a>
+      <p style="color: #9CA3AF; margin-top: 20px; font-size: 0.95rem;">Or email: <a href="mailto:steadydevs.contact@gmail.com" style="color: #60A5FA; text-decoration: underline;">steadydevs.contact@gmail.com</a></p>
     </div>
 
   </div>
