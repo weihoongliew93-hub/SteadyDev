@@ -129,7 +129,13 @@ function generateHTML(post) {
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
         <a href="../services.html">Services</a>
-        <a href="../packages.html">Packages</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
         <a href="../portfolio.html">Portfolio</a>
         <a href="index.html" class="active">Blog</a>
         <a href="../contact.html">Contact</a>

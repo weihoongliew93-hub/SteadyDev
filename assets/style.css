@@ -1337,14 +1337,31 @@ blockquote {
     font-size: 1em !important;
   }
   
-  /* Adjust padding for all content sections on pricing page */
-  main > div[style*="padding"] {
-    padding: 25px 20px !important;
+  /* Adjust padding for top-level content sections on pricing page */
+  main > div[style*="linear-gradient"] {
+    padding: 25px 18px !important;
+  }
+  
+  /* Inner panels should have equal left/right padding relative to parent */
+  main > div[style*="linear-gradient"] > div[style*="background"] {
+    padding: 25px 18px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
   /* Phase cards and similar grid layouts */
   div[style*="grid-template-columns"] {
     gap: 15px !important;
+  }
+  
+  /* Individual phase cards */
+  div[style*="grid-template-columns"] > div {
+    padding: 20px 15px !important;
+  }
+  
+  /* Comparison cards */
+  .comparison-card {
+    padding: 20px 15px !important;
   }
   
   /* Reduce large font sizes */
