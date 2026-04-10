@@ -9,6 +9,7 @@
     "readTime": "9 min read",
     "tags": ["AI Development", ".NET", "Code Quality", "Case Study"],
     "author": "SteadyDevs",
+    "published": false,
     "heroImage": "images/blog/ai-assisted-development.jpg",
     "heroImageAlt": "Developer using AI tools for coding",
     "content": [

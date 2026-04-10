@@ -331,8 +331,11 @@
         const response = await fetch('blog-posts.json');
         const posts = await response.json();
         
+        // Filter out unpublished posts
+        const publishedPosts = posts.filter(post => post.published !== false);
+        
         // Transform JSON data to match the format we need for listing
-        blogPosts = posts.map(post => ({
+        blogPosts = publishedPosts.map(post => ({
           title: post.title,
           slug: post.slug,
           excerpt: post.excerpt,
