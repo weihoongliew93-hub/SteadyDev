@@ -314,22 +314,28 @@
     menuToggle.addEventListener('click', toggleMenu);
     navOverlay.addEventListener('click', toggleMenu);
     
-    const navLinks = mainNav.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-    
     // Dropdown toggle
     const dropdowns = document.querySelectorAll('.nav-dropdown');
     dropdowns.forEach(dropdown => {
       const dropdownToggle = dropdown.querySelector(':scope > a');
       dropdownToggle.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
         dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu only when clicking actual navigation links (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
     

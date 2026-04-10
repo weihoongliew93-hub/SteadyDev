@@ -330,7 +330,22 @@ function generateHTML(post) {
       const dropdownToggle = dropdown.querySelector(':scope > a');
       dropdownToggle.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
         dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
       });
     });
     

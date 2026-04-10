@@ -168,6 +168,16 @@ header nav a.active {
   transform: rotate(-180deg);
 }
 
+/* Disable hover on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .nav-dropdown:hover .dropdown-content {
+    display: none;
+  }
+  .nav-dropdown.open .dropdown-content {
+    display: block;
+  }
+}
+
 /* Mobile Menu Toggle Button */
 .menu-toggle {
   display: none;
@@ -918,6 +928,12 @@ blockquote {
     font-size: 0.95em !important;
   }
   
+  /* Prevent touch delay on dropdown toggle */
+  .nav-dropdown > a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
   .dropdown-content a:last-child {
     border-bottom: none !important;
   }
@@ -1302,6 +1318,52 @@ blockquote {
     width: 45px;
     height: 45px;
     font-size: 18px;
+  }
+  
+  /* Pricing Terms Page - Mobile Responsive */
+  h1 {
+    font-size: 1.8em !important;
+  }
+  
+  h2 {
+    font-size: 1.4em !important;
+  }
+  
+  h3 {
+    font-size: 1.15em !important;
+  }
+  
+  h4 {
+    font-size: 1em !important;
+  }
+  
+  /* Adjust padding for all content sections on pricing page */
+  main > div[style*="padding"] {
+    padding: 25px 20px !important;
+  }
+  
+  /* Phase cards and similar grid layouts */
+  div[style*="grid-template-columns"] {
+    gap: 15px !important;
+  }
+  
+  /* Reduce large font sizes */
+  div[style*="font-size: 3.5em"],
+  div[style*="font-size: 2.5em"],
+  div[style*="font-size: 2.2em"] {
+    font-size: 1.8em !important;
+  }
+  
+  p[style*="font-size: 1.6em"] {
+    font-size: 1.3em !important;
+  }
+  
+  p[style*="font-size: 1.4em"] {
+    font-size: 1.2em !important;
+  }
+  
+  p[style*="font-size: 1.3em"] {
+    font-size: 1.1em !important;
   }
 }
 
