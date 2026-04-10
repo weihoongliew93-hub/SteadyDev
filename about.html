@@ -47,7 +47,13 @@
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
         <a href="services.html">Services</a>
-        <a href="packages.html">Packages</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="packages.html">All Packages</a>
+            <a href="pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
@@ -81,6 +87,7 @@
           <h2 style="margin-top: 0; color: #34D399; font-size: 1.8em;">What We Bring</h2>
           <ul style="color: #D1D5DB; font-size: 1.1em; line-height: 1.9; margin-bottom: 0; padding-left: 25px;">
             <li style="margin-bottom: 15px;"><strong style="color: #E5E7EB;">Deep expertise in cloud-based POS systems</strong> — 11+ years dedicated to .NET-based point-of-sale platforms, developing comprehensive knowledge of retail business logic, transaction processing, inventory management, and payment workflows in production environments</li>
+            <li style="margin-bottom: 15px;"><strong style="color: #E5E7EB;">Business process automation expertise</strong> — Eliminating repetitive manual tasks with targeted workflow automation, intelligent scheduling systems, and API-driven integrations</li>
             <li style="margin-bottom: 15px;"><strong style="color: #E5E7EB;">Strong debugging and analysis skills</strong> — Methodical approach to understanding complex systems and tracing issues to their root cause</li>
             <li style="margin-bottom: 15px;"><strong style="color: #E5E7EB;">Careful approach to system changes</strong> — Every change is made with consideration of existing functionality and potential impacts</li>
             <li><strong style="color: #E5E7EB;">Clear communication</strong> — Regular updates and detailed explanations of what was done and why</li>
@@ -139,6 +146,25 @@
       menuToggle.classList.remove('active');
       mainNav.classList.remove('active');
       navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
     });
     
     // Back to Top Button

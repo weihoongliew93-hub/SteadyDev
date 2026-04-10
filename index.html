@@ -143,7 +143,13 @@
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="packages.html">Packages</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="packages.html">All Packages</a>
+            <a href="pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
@@ -176,6 +182,10 @@
         <p style="background: rgba(251, 191, 36, 0.15); padding: 14px 24px; border-radius: 4px; color: #FDB750; font-weight: 600; margin: 20px auto; max-width: 550px; border: 1px solid rgba(251, 191, 36, 0.3);">⚡ Limited to 3 clients per month for quality focus</p>
         <p style="font-size: 0.95em; color: #9CA3AF; margin-top: 20px; font-style: italic;"><strong>Note:</strong> 11+ years working with production .NET systems handling real business operations. Most projects require source code access for effective diagnosis.</p>
         <a href="contact.html" class="cta-button" style="margin-top: 10px;">Book Your FREE Strategy Session →</a>
+      </div>
+
+      <div class="animate-on-scroll" style="background: linear-gradient(135deg, #042f2e 0%, #064e3b 100%); padding: 20px 30px; border-radius: 8px; margin: 40px 0 30px; text-align: center; border: 1px solid rgba(74, 222, 128, 0.2);">
+        <p style="margin: 0; color: #4ade80; font-weight: 600; font-size: 1.05em;">🎁 <strong>New:</strong> Earn 10% Partnership Credits + 10% Referral Bonuses on completed projects. <a href="pricing-terms.html" style="color: #a7f3d0; text-decoration: underline;">Learn more about our pricing programs →</a></p>
       </div>
 
       <h2>This is for you if:</h2>
@@ -387,6 +397,25 @@
         navOverlay.classList.remove('active');
         document.body.style.overflow = '';
       });
+    });
+    
+    // Dropdown toggle for mobile
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
     });
     
     // Sticky CTA and Back to Top Button - handle scroll

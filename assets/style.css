@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Offset for fixed header */
+}
+
 html,
 body {
   width: 100%;
@@ -103,6 +108,64 @@ header nav a {
 header nav a:hover,
 header nav a.active {
   color: #60A5FA;
+}
+
+/* Dropdown Menu Styles */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown > a {
+  cursor: pointer;
+}
+
+.nav-dropdown > a::after {
+  content: ' ▾';
+  font-size: 0.8em;
+  margin-left: 4px;
+  transition: transform 0.2s;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(11, 15, 20, 0.98);
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 1px solid #1F2937;
+  border-radius: 4px;
+  z-index: 1001;
+  margin-top: 0;
+  backdrop-filter: blur(10px);
+}
+
+.dropdown-content a {
+  display: block;
+  margin: 0 !important;
+  padding: 12px 20px !important;
+  border-bottom: 1px solid #1F2937;
+  font-size: 0.9em;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background: rgba(60, 130, 246, 0.1);
+}
+
+.nav-dropdown:hover .dropdown-content,
+.nav-dropdown.open .dropdown-content {
+  display: block;
+}
+
+.nav-dropdown:hover > a::after,
+.nav-dropdown.open > a::after {
+  transform: rotate(-180deg);
 }
 
 /* Mobile Menu Toggle Button */
@@ -825,6 +888,40 @@ blockquote {
     border-bottom: none;
   }
   
+  /* Mobile Dropdown Styles */
+  .nav-dropdown {
+    display: block;
+  }
+  
+  .nav-dropdown > a::after {
+    float: right;
+  }
+  
+  .dropdown-content {
+    position: static;
+    display: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding-left: 15px;
+  }
+  
+  .nav-dropdown.open .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 20px !important;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.5) !important;
+    font-size: 0.95em !important;
+  }
+  
+  .dropdown-content a:last-child {
+    border-bottom: none !important;
+  }
+  
   .nav-overlay {
     display: block;
   }
@@ -903,6 +1000,19 @@ blockquote {
     font-size: 0.95em;
     flex: 1;
     min-width: 150px;
+  }
+  
+  /* Mobile-responsive comparison table */
+  .comparison-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .comparison-card ul {
+    font-size: 0.9em !important;
+  }
+  
+  .comparison-card h4 {
+    font-size: 1.1em !important;
   }
   
   .stats-section {

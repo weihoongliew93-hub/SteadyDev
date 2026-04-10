@@ -239,7 +239,7 @@ function generateHTML(post) {
       const tocContainer = document.getElementById('blogToc');
       
       function updateActiveLink() {
-        const scrollPosition = window.scrollY + 100;
+        const scrollPosition = window.scrollY + 120;
         let currentHeading = null;
         
         headings.forEach((heading) => {
@@ -322,6 +322,25 @@ function generateHTML(post) {
       menuToggle.classList.remove('active');
       mainNav.classList.remove('active');
       navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
     });
     
     // Back to Top

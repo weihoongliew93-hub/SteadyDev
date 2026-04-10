@@ -47,7 +47,13 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html" class="active">Services</a>
-        <a href="packages.html">Packages</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="packages.html">All Packages</a>
+            <a href="pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
@@ -236,6 +242,25 @@
         navOverlay.classList.remove('active');
         document.body.style.overflow = '';
       });
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
     });
     
     // Sticky CTA and Back to Top Button - handle scroll

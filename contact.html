@@ -47,7 +47,13 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="packages.html">Packages</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="packages.html">All Packages</a>
+            <a href="pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html" class="active">Contact</a>
@@ -132,6 +138,7 @@
               <option value="Legacy System Rescue">Legacy System Rescue (RM5,000 – RM15,000)</option>
               <option value="System Understanding & Roadmap">System Understanding & Roadmap (RM8,000 – RM25,000)</option>
               <option value="System Stabilization Project">System Stabilization Project (RM12,000 – RM30,000+)</option>
+              <option value="Business Automation">Business Automation (RM8,000 – RM20,000)</option>
               <option value="Expert Technical Advisor - Advisory Only">Retainer: Advisory Only (RM3,000/mo)</option>
               <option value="Expert Technical Advisor - Active Support">Retainer: Active Support (RM5,000/mo)</option>
               <option value="Expert Technical Advisor - Strategic Partner">Retainer: Strategic Partner (RM8,000/mo)</option>
@@ -169,7 +176,7 @@
           setTimeout(() => {
             const formSection = document.querySelector('.contact-form');
             if (formSection) {
-              const yOffset = -100; // Offset to prevent navbar from covering title
+              const yOffset = -120; // Offset to prevent navbar from covering title
               const y = formSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
               window.scrollTo({ top: y, behavior: 'smooth' });
             }
@@ -314,6 +321,25 @@
         navOverlay.classList.remove('active');
         document.body.style.overflow = '';
       });
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
     });
     
     // Back to Top Button

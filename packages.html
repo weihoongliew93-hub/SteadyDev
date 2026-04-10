@@ -180,7 +180,13 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="packages.html" class="active">Packages</a>
+        <div class="nav-dropdown">
+          <a class="active">Packages</a>
+          <div class="dropdown-content">
+            <a href="packages.html" class="active">All Packages</a>
+            <a href="pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
@@ -228,7 +234,7 @@
         <p style="text-align: center; color: #9CA3AF; font-size: 0.95em; font-style: italic; margin-bottom: 40px;">✅ Suitable for legacy systems, complex codebases, and AI-generated projects requiring cleanup</p>
 
       <div class="packages-grid-3col" style="padding-top: 30px;">
-        <div class="package-card animate-on-scroll">
+        <div class="package-card animate-on-scroll" id="rescue">
           <h3>🚨 Legacy System Rescue</h3>
           <div class="package-description">
             <p><strong>For:</strong> Critical bugs, system failures, or urgent stabilization needs</p>
@@ -265,7 +271,7 @@
           </div>
         </div>
 
-        <div class="package-card animate-on-scroll" style="border: 2px solid #3b82f6; position: relative; overflow: visible;">
+        <div class="package-card animate-on-scroll" id="roadmap" style="border: 2px solid #3b82f6; position: relative; overflow: visible;">
           <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%); color: white; text-align: center; padding: 6px 24px; font-weight: 700; letter-spacing: 0.5px; font-size: 0.85em; border-radius: 20px; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4); z-index: 10; white-space: nowrap;">MOST POPULAR</div>
           <h3>📋 System Understanding & Roadmap</h3>
           <div class="package-description">
@@ -304,7 +310,7 @@
           </div>
         </div>
 
-        <div class="package-card animate-on-scroll">
+        <div class="package-card animate-on-scroll" id="stabilization">
           <h3>🔧 System Stabilization Project</h3>
           <div class="package-description">
             <p><strong>For:</strong> Systems ready for comprehensive stabilization and improvement</p>
@@ -347,7 +353,7 @@
       <p style="text-align: center; color: #9CA3AF; margin-bottom: 40px;">Save hours every week by automating repetitive tasks</p>
 
       <div style="max-width: 800px; margin: 0 auto;">
-        <div class="package-card animate-on-scroll">
+        <div class="package-card animate-on-scroll" id="automation">
           <h3>🤖 Business Automation</h3>
           <div class="package-description">
             <p><strong>For:</strong> Repetitive manual tasks eating up your team's time</p>
@@ -779,6 +785,25 @@
       });
     });
     
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
     // Sticky CTA and Back to Top Button - handle scroll
     const stickyCta = document.getElementById('stickyCta');
     const backToTop = document.getElementById('backToTop');
@@ -845,10 +870,15 @@
         tab.classList.add('active');
         document.getElementById(targetTab).classList.add('active');
         
-        // Smooth scroll to top of packages section
-        document.querySelector('.package-tabs').scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
+        // Smooth scroll to top of packages section with header offset
+        const packageTabs = document.querySelector('.package-tabs');
+        const headerOffset = 120;
+        const elementPosition = packageTabs.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       });
     });
@@ -857,6 +887,23 @@
     if (window.location.hash === '#retainer-section') {
       // Switch to retainer tab
       document.querySelector('[data-tab="retainer-packages"]').click();
+    }
+    
+    // Handle all package anchor links on page load
+    if (window.location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(window.location.hash);
+        if (element) {
+          const headerOffset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     }
   </script>
 </body>
