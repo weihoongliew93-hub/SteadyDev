@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>AI-Assisted Development Without the Code Chaos: Building a Pet Booking System | SteadyDevs</title>
+  <meta name="description" content="Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/ai-assisted-development-real-world-pet-booking-system.html">
+  <meta property="og:title" content="AI-Assisted Development Without the Code Chaos: Building a Pet Booking System">
+  <meta property="og:description" content="Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/ai-assisted-development.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/ai-assisted-development-real-world-pet-booking-system.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/ai-assisted-development.jpg" alt="Developer using AI tools for coding" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>AI-Assisted Development Without the Code Chaos: Building a Pet Booking System</h1>
+          <div class="blog-meta">April 12, 2026 | 9 min read</div>
+        </div>
+        <p>"Let AI write your code and ship faster!" That's the promise. The reality? Most developers have seen what happens when someone unleashes ChatGPT or Claude on a codebase without discipline—spaghetti logic, untested edge cases, and code that works until it spectacularly doesn't.</p>
+<p>But here's what I learned from a 5-month real-world project: <strong>AI can genuinely accelerate development—if you treat it as a tool, not a replacement for thinking.</strong></p>
+<p>This is the story of building an advanced pet grooming booking system using Claude AI as a development accelerator, what worked, what didn't, and how to avoid creating the kind of AI-generated mess that becomes unmaintainable six months later.</p>
+<h2>The Project: More Complex Than It Sounds</h2>
+<p>The business came to me with a legacy web-based booking system originally built by outsourced developers. It had minimal features and no customer-facing capabilities. They needed:</p>
+<ul><li>Intelligent booking automation (groomer availability, pet size restrictions, seniority-based scheduling, time slot management)</li><li>Automated driver scheduling with area code restrictions and pickup eligibility checks</li><li>Configurable package subscription system with automatic point awards</li><li>Automated email notification system (booking confirmations, appointment reminders, low-point alerts)</li><li>Customer-facing web interface</li><li>Bug fixes and performance optimization for the existing backend</li></ul>
+<p>This wasn't a simple CRUD app. It had complex business rules, scheduling logic, and integration requirements. Perfect territory for AI to either save time or create a disaster.</p>
+<h2>The AI Development Approach: Rules I Followed</h2>
+<p>Before generating a single line of code, I established strict rules for how AI would fit into the workflow:</p>
+<h3>1. AI Generates, I Review and Verify</h3>
+<p>Every piece of AI-generated code went through human review. Not a quick glance—actual scrutiny:</p>
+<ul><li>Does the logic make sense for the business requirements?</li><li>Are there edge cases the AI missed?</li><li>Is the code readable and maintainable?</li><li>Does it follow the existing codebase patterns?</li><li>Are there security or performance issues?</li></ul>
+<p>If the answer to any of these was "no" or "I'm not sure," I either rewrote it or asked the AI to revise with specific guidance.</p>
+<h3>2. Start with Clear Requirements, Not Vague Prompts</h3>
+<p>Bad prompt: "Create a booking system."</p>
+<p>Good prompt: "Create a booking validation function that checks: 1) groomer availability for the requested time slot, 2) whether the groomer can handle the pet size (small/medium/large), 3) seniority restrictions (senior groomers get priority on premium slots), and 4) return specific error messages for each validation failure."</p>
+<p>Specificity matters. Vague prompts produce vague code.</p>
+<h3>3. Test Everything the AI Writes</h3>
+<p>AI doesn't test its own code. I did. Every function, every edge case, every integration point.</p>
+<p>For the booking automation logic, I created test cases covering:</p>
+<ul><li>Valid bookings with all conditions met</li><li>Invalid scenarios (groomer unavailable, pet too large, slot already taken)</li><li>Edge cases (overlapping appointments, same-day bookings, subscription expiry)</li><li>Data validation (malformed inputs, missing fields, SQL injection attempts)</li></ul>
+<p>Testing revealed issues the AI hadn't considered—like what happens when two customers try to book the same slot simultaneously.</p>
+<h3>4. Maintain Code Quality Standards</h3>
+<p>AI loves to write long, nested functions. I don't. Whenever Claude generated something too complex, I refactored it:</p>
+<ul><li>Broke down large functions into smaller, focused ones</li><li>Added meaningful variable names (not generic "data" or "result")</li><li>Extracted business logic from database queries</li><li>Added comments explaining <em>why</em>, not <em>what</em></li><li>Ensured consistent patterns across the codebase</li></ul>
+<p>The goal: code that a human can understand and maintain six months from now.</p>
+<h2>What AI Accelerated</h2>
+<p>Where did AI genuinely save time?</p>
+<h3>Boilerplate and Repetitive Code</h3>
+<p>The email notification system needed similar patterns for different event types (booking confirmations, reminders, low-point alerts). AI generated the base templates quickly, and I customized the business logic.</p>
+<p>Time saved: Hours that would've been spent on repetitive typing.</p>
+<h3>API Endpoint Scaffolding</h3>
+<p>Creating REST API endpoints with validation, error handling, and response formatting is tedious but necessary. Claude generated solid scaffolding that I refined with specific business rules.</p>
+<h3>Complex Query Construction</h3>
+<p>The scheduling logic required intricate SQL queries joining multiple tables (groomers, availability, bookings, pet details, restrictions). AI helped construct the initial queries, which I then optimized and tested for performance.</p>
+<h3>Documentation and Comments</h3>
+<p>AI excels at generating clear documentation. I fed it function signatures and business logic, and it produced useful comments and documentation that explained the system to future maintainers.</p>
+<h2>What AI Struggled With</h2>
+<p>AI isn't magic. Here's where it fell short:</p>
+<h3>Understanding Complex Business Rules</h3>
+<p>The groomer seniority system had nuanced rules that weren't obvious from a simple description. AI would generate code that technically worked but didn't match the actual business requirements. Required multiple iterations and detailed clarification.</p>
+<h3>Edge Case Handling</h3>
+<p>AI tends to code the "happy path." What happens when the API receives malformed data? What if the database connection fails mid-transaction? What if two users book simultaneously? Human oversight was essential for robust error handling.</p>
+<h3>Integration Points</h3>
+<p>The notification system needed to trigger at specific points in the booking workflow. AI generated isolated notification code fine, but integrating it into the existing system's flow required understanding the broader architecture—something only a human could properly assess.</p>
+<h3>Performance Optimization</h3>
+<p>AI doesn't think about database performance. It'll happily generate code that works but makes 50 database calls when one would suffice. I optimized queries, added caching where appropriate, and ensured the system could scale.</p>
+<h2>The Results: What Actually Happened</h2>
+<p>After 5 months of development using this AI-assisted approach:</p>
+<ul><li><strong>Delivered every requested feature successfully</strong> — All the complex scheduling logic, automation, and notifications work as specified</li><li><strong>Minimal issues in production</strong> — The rigorous testing and code review paid off</li><li><strong>Maintainable codebase</strong> — Clean, understandable code that can be modified without fear</li><li><strong>Faster development timeline</strong> — AI accelerated routine tasks, letting me focus on architecture and business logic</li><li><strong>Client satisfaction</strong> — Business operations greatly improved with automated scheduling and customer communication</li></ul>
+<div class="tip-box"><p><strong>Key Insight:</strong> AI-assisted development accelerated delivery timeline while human oversight ensured code remained understandable and maintainable. This demonstrated that modern tools can speed up work without sacrificing code quality.</p></div>
+<h2>Lessons Learned: How to Use AI Successfully</h2>
+<p>If you're considering AI-assisted development, here's what actually works:</p>
+<h3>1. You Are the Architect, AI Is the Assistant</h3>
+<p>Define the architecture, design the data models, plan the workflows. <em>Then</em> use AI to help implement. Don't let AI make fundamental architectural decisions—it lacks the context.</p>
+<h3>2. Review Everything Like It's a Junior Developer's Code</h3>
+<p>Would you merge a junior developer's pull request without reviewing it? No. Same rule applies to AI-generated code. Read it, understand it, test it, refactor it if needed.</p>
+<h3>3. Write Better Prompts, Get Better Code</h3>
+<p>Invest time in clear, specific prompts. Include:</p>
+<ul><li>Exact requirements and constraints</li><li>Error handling expectations</li><li>Performance considerations</li><li>Example inputs and expected outputs</li><li>Integration points with existing code</li></ul>
+<h3>4. Test Aggressively</h3>
+<p>AI doesn't have production war stories. It won't anticipate that edge case that breaks everything at 2 AM. You need to.</p>
+<h3>5. Refactor AI Output</h3>
+<p>AI's first output is rarely optimal. Treat it as a draft. Refactor for clarity, performance, and maintainability.</p>
+<h2>When NOT to Use AI</h2>
+<p>AI isn't appropriate for everything:</p>
+<ul><li><strong>Mission-critical security code</strong> — Authentication, authorization, encryption should be carefully written by humans</li><li><strong>Complex algorithms with subtle requirements</strong> — AI might miss nuances that cause bugs</li><li><strong>Code you don't understand</strong> — If you can't explain what the AI wrote, don't use it</li><li><strong>Systems requiring deep domain expertise</strong> — AI lacks context about your specific business</li><li><strong>When you're learning</strong> — Don't let AI rob you of learning opportunities</li></ul>
+<h2>The Bottom Line</h2>
+<p>AI-assisted development works—<strong>if you stay in control</strong>.</p>
+<p>This pet booking project proved that AI tools like Claude can genuinely accelerate development without creating the unmaintainable mess many developers fear. The key is discipline:</p>
+<ul><li>Clear requirements before prompting</li><li>Rigorous review of generated code</li><li>Comprehensive testing</li><li>Refactoring for quality</li><li>Human oversight on architecture and business logic</li></ul>
+<p>What you get is the best of both worlds: faster development for routine tasks, human intelligence where it matters most, and a codebase you can actually maintain.</p>
+<p>The question isn't whether to use AI. It's whether you'll use it responsibly.</p>
+
+          <div class="cta-box">
+            <h3>Need Development That's Fast AND Maintainable?</h3>
+            <p style="color: #D1D5DB;">Whether using AI tools or traditional development, I focus on delivering clean, reliable code that serves your business needs. Let's talk about your project requirements and the right approach for your situation.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does AI-assisted development produce lower quality code?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not if done correctly. The quality depends entirely on how you use it. AI-generated code that's reviewed, tested, and refactored by an experienced developer can be just as clean and maintainable as hand-written code. The danger is when people blindly copy-paste AI output without understanding or testing it. Think of AI as a very fast junior developer—helpful, but needs oversight.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much faster is development with AI assistance?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It varies by task. For boilerplate code, API scaffolding, and repetitive patterns, AI can be 3-5x faster than writing from scratch. For complex business logic and architecture, the time savings are smaller but still meaningful—maybe 20-30% faster. The biggest gains come from letting AI handle tedious work so you can focus on the challenging parts that require deep thinking.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">What AI tools do you recommend for .NET development?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Claude (Anthropic) and GitHub Copilot both work well for .NET. Claude excels at understanding complex requirements and generating larger code blocks. Copilot is better for inline suggestions while coding. ChatGPT works too but tends to produce more generic solutions. Regardless of tool, the principles are the same: clear prompts, rigorous review, comprehensive testing.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can AI help with legacy code maintenance?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes, but with caution. AI can help understand unfamiliar code, generate documentation, or suggest refactoring approaches. However, AI doesn't have the context of why legacy code was written a certain way. It might suggest changes that break subtle business rules or remove workarounds that were there for good reason. Use AI for understanding and ideas, but lean heavily on testing before making changes to production legacy systems.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should I worry about AI-generated code being unmaintainable in the future?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Only if you don't review and refactor it. AI-generated code isn't inherently unmaintainable—poorly reviewed AI code is. If you follow the practices outlined in this post (review everything, test thoroughly, refactor for clarity), your codebase will be just as maintainable as traditionally written code. The real risk is letting AI output go directly to production without human oversight.</p>
+                </div>
+              </div>
+            
+          </div>
+<p><em style="color: #9CA3AF;">Have questions about AI-assisted development or want to discuss your project? <a href="../contact.html" style="color: #60A5FA;">Let's talk</a>.</em></p>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
