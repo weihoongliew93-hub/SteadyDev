@@ -337,6 +337,13 @@
         // Filter out unpublished posts
         const publishedPosts = posts.filter(post => post.published !== false);
         
+        // Sort by date (newest first)
+        publishedPosts.sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateB - dateA; // Descending order (newest first)
+        });
+        
         // Transform JSON data to match the format we need for listing
         blogPosts = publishedPosts.map(post => ({
           title: post.title,
