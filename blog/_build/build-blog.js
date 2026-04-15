@@ -16,6 +16,11 @@ function generateHTML(post) {
   // Render content blocks
   let contentHTML = '';
   
+  // Skip posts without content (standalone HTML files)
+  if (!post.content || !Array.isArray(post.content)) {
+    return null;
+  }
+  
   post.content.forEach(block => {
     switch (block.type) {
       case 'paragraph':
@@ -98,6 +103,9 @@ function generateHTML(post) {
   <meta property="og:title" content="${post.title}">
   <meta property="og:description" content="${post.excerpt}">
   <meta property="og:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/${post.slug}.html">
   
   <link rel="stylesheet" href="../assets/style.css?v=83">
   <link rel="stylesheet" href="blog-styles.css?v=1">
@@ -419,14 +427,26 @@ function generateHTML(post) {
 }
 
 // Generate HTML for each post and write to parent directory
+let generatedCount = 0;
+let skippedCount = 0;
+
 blogPosts.forEach(post => {
   const html = generateHTML(post);
+  
+  // Skip posts without content (standalone HTML files)
+  if (html === null) {
+    console.log(`⏭️  Skipped: ${post.slug}.html (no content array - using standalone HTML)`);
+    skippedCount++;
+    return;
+  }
+  
   const filename = `../${post.slug}.html`;
   fs.writeFileSync(filename, html);
   console.log(`✅ Generated: ${post.slug}.html`);
+  generatedCount++;
 });
 
-console.log(`\n🎉 Done! Generated ${blogPosts.length} blog post(s).`);
+console.log(`\n🎉 Done! Generated ${generatedCount} blog post(s), skipped ${skippedCount} standalone post(s).`);
 console.log('\n📝 Next steps:');
 console.log('   1. Review the generated HTML files');
 console.log('   2. Test them locally');

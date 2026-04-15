@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>E-Invoice Malaysia 2027: Is Your Legacy System Ready? | SteadyDevs</title>
+  <meta name="description" content="Malaysia's e-invoice mandate starts 2027. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now—before deadline pressure forces costly mistakes.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/e-invoice-malaysia-2027-legacy-system-ready.html">
+  <meta property="og:title" content="E-Invoice Malaysia 2027: Is Your Legacy System Ready?">
+  <meta property="og:description" content="Malaysia's e-invoice mandate starts 2027. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now—before deadline pressure forces costly mistakes.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/e-invoice-compliance.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/e-invoice-malaysia-2027-legacy-system-ready.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/e-invoice-compliance.jpg" alt="Digital invoice compliance and business systems" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>E-Invoice Malaysia 2027: Is Your Legacy System Ready?</h1>
+          <div class="blog-meta">April 15, 2026 | 10 min read</div>
+        </div>
+        <p>Malaysia's e-invoice mandate is coming. The phased rollout begins in 2027, and if you're running a legacy system that barely handles your current invoicing process, you're about to face a compliance crisis.</p>
+<p>I've worked with enough Malaysian businesses running outdated .NET systems to know what's coming: a mad scramble as the deadline approaches, expensive rush implementations, operational disruption, and in some cases, systems that simply can't be adapted in time.</p>
+<p>The businesses that start preparing now will handle this smoothly. The ones that wait will pay a premium in stress, money, and risk. Here's what you need to know—and do—right now.</p>
+<h2>What Is Malaysia's E-Invoice Mandate?</h2>
+<p>The Inland Revenue Board of Malaysia (LHDN) is implementing mandatory e-invoicing for all businesses in a phased approach:</p>
+<ul><li><strong>Phase 1 (2027):</strong> Large businesses with annual revenue > RM 100 million</li><li><strong>Phase 2 (2027-2028):</strong> Medium businesses with revenue > RM 25 million</li><li><strong>Phase 3 (2028+):</strong> All businesses regardless of size</li></ul>
+<p>E-invoicing means invoices must be:</p>
+<ul><li>Generated in a structured digital format (XML-based)</li><li>Validated and authenticated by LHDN's MyInvois system in real-time</li><li>Issued with a unique identification number from LHDN</li><li>Stored and transmitted digitally (not PDF scans of paper invoices)</li></ul>
+<p>This isn't optional. It's not "recommended best practice." It's a legal requirement with penalties for non-compliance.</p>
+<h2>Why Legacy Systems Struggle With E-Invoice Compliance</h2>
+<p>Most legacy systems in Malaysia were built when invoicing meant printing paper or emailing PDFs. They were never designed for:</p>
+<h3>1. Real-Time API Integration</h3>
+<p>E-invoicing requires your system to connect to LHDN's MyInvois API to validate invoices before they're issued. Legacy systems typically:</p>
+<ul><li>Don't have API integration capabilities</li><li>Were built before REST/SOAP APIs were standard</li><li>Use outdated frameworks that can't easily call modern web services</li><li>Have no authentication/security mechanisms for external APIs</li></ul>
+<p>Bolting API integration onto a 10-year-old system isn't trivial—especially if the original developers are long gone and documentation is non-existent.</p>
+<h3>2. Structured Data Formats (XML/JSON)</h3>
+<p>E-invoices must be submitted in a specific XML format defined by LHDN. Legacy systems often:</p>
+<ul><li>Store invoice data in unstructured formats or legacy database schemas</li><li>Generate invoices as formatted text or HTML</li><li>Have no XML generation capabilities</li><li>Mix data and presentation (can't separate content from formatting)</li></ul>
+<p>Extracting invoice data and restructuring it into compliant XML format means understanding the legacy database schema and writing transformation logic—risky work on fragile systems.</p>
+<h3>3. Real-Time Validation and Error Handling</h3>
+<p>When you submit an e-invoice to MyInvois, it validates the data and either approves it or returns validation errors. Your system must:</p>
+<ul><li>Handle real-time responses from the API</li><li>Process validation errors and show them to users</li><li>Retry failed submissions</li><li>Track invoice submission status</li><li>Log all API interactions for audit purposes</li></ul>
+<p>Legacy systems with batch processing or manual workflows can't easily handle this real-time validation requirement.</p>
+<h3>4. Mandatory Data Fields</h3>
+<p>E-invoices require specific data fields that your legacy system might not collect or store:</p>
+<ul><li>Buyer and seller tax identification numbers</li><li>Product classification codes</li><li>Specific tax breakdown details</li><li>Payment terms and methods</li><li>Digital signatures and timestamps</li></ul>
+<p>If your system doesn't capture this data during order/sales entry, you'll need to add fields, update the database schema, and modify all the forms and processes that create invoices.</p>
+<h2>The Risks of Waiting Until 2027</h2>
+<p>"We'll deal with it when the deadline is closer." I hear this constantly. Here's why that's a terrible strategy:</p>
+<h3>1. Everyone Else Will Be Scrambling Too</h3>
+<p>As the 2027 deadline approaches, thousands of Malaysian businesses will simultaneously realize they need help. Developers and consultants who specialize in e-invoice integration will be overwhelmed with last-minute projects.</p>
+<p>Result: higher costs, longer wait times, rushed implementations, and increased risk of errors. Businesses that start now get better resources and lower prices.</p>
+<h3>2. Your Legacy System May Need More Than E-Invoice Integration</h3>
+<p>Once you start digging into your legacy system to add e-invoice support, you'll likely discover:</p>
+<ul><li>The codebase is in worse shape than you thought</li><li>Critical dependencies are outdated and unsupported</li><li>Database schema has accumulated inconsistencies over years</li><li>No one fully understands how the invoicing logic works</li><li>The system is so fragile that changes risk breaking other features</li></ul>
+<p>At that point, you might realize you need a partial rewrite or complete replacement—work that takes months, not weeks. If you discover this in late 2026, you're in trouble.</p>
+<h3>3. Testing and Debugging Take Time</h3>
+<p>E-invoice integration isn't something you can deploy and hope for the best. You need time to:</p>
+<ul><li>Test against LHDN's sandbox environment</li><li>Handle all the edge cases and error scenarios</li><li>Train staff on the new workflow</li><li>Run parallel operations (old and new system) to verify accuracy</li><li>Debug issues that only appear with real production data</li></ul>
+<p>Rushing this testing phase leads to compliance failures, operational disruptions, and unhappy customers.</p>
+<h3>4. Compliance Penalties Are Real</h3>
+<p>Non-compliance with e-invoice requirements can result in:</p>
+<ul><li>Fines and penalties from LHDN</li><li>Inability to issue valid invoices (business disruption)</li><li>Tax audit triggers and increased scrutiny</li><li>Damage to business reputation</li><li>Competitive disadvantage vs. compliant businesses</li></ul>
+<p>"We'll figure it out later" is not a compliance strategy.</p>
+<h2>How to Assess Your Legacy System's E-Invoice Readiness</h2>
+<p>Ask these questions about your current invoicing system:</p>
+<h3>Technical Questions:</h3>
+<ul><li>Can the system integrate with external APIs? Has it ever done so successfully?</li><li>Does it support modern authentication methods (OAuth, JWT, API keys)?</li><li>Can it generate and parse XML or JSON data formats?</li><li>Is the invoice data stored in a structured, queryable format?</li><li>Can the system handle real-time validation responses and errors?</li><li>Does it have audit logging and transaction tracking capabilities?</li></ul>
+<h3>Data Questions:</h3>
+<ul><li>Does the system capture all mandatory e-invoice fields?</li><li>Is customer tax information stored and validated?</li><li>Are product/service codes compliant with classification requirements?</li><li>Can you generate complete tax breakdowns from existing data?</li><li>Is historical invoice data accessible and in good condition?</li></ul>
+<h3>Operational Questions:</h3>
+<ul><li>Who built the system? Are they still available?</li><li>Do you have source code and documentation?</li><li>What framework/technology is it built on? Is it still supported?</li><li>How fragile is the system? Does changing one thing break others?</li><li>Have you made recent successful changes to the invoicing logic?</li></ul>
+<div class="warning-box"><p><strong>Red flags:</strong> If you answered "no" or "don't know" to more than half of these questions, your system likely needs significant work to become e-invoice compliant.</p></div>
+<h2>Your Options: Three Paths to Compliance</h2>
+<h3>Option 1: Integrate E-Invoice Into Existing Legacy System</h3>
+<p><strong>Best for:</strong> Stable legacy systems with API capabilities, structured data, and available technical support.</p>
+<p><strong>Approach:</strong></p>
+<ul><li>Build API integration layer to connect to MyInvois</li><li>Add XML generation for invoice data</li><li>Implement validation error handling</li><li>Update database schema for missing mandatory fields</li><li>Add audit logging and status tracking</li></ul>
+<p><strong>Timeline:</strong> 3-6 months for planning, development, testing, and deployment.</p>
+<p><strong>Cost:</strong> RM 20,000-60,000 depending on complexity and current system state.</p>
+<h3>Option 2: Middleware/Bridge Solution</h3>
+<p><strong>Best for:</strong> Legacy systems too fragile to modify directly, or when you need a faster path to compliance.</p>
+<p><strong>Approach:</strong></p>
+<ul><li>Leave legacy system mostly unchanged</li><li>Build separate middleware service that extracts invoice data</li><li>Middleware transforms data to e-invoice XML format</li><li>Middleware handles MyInvois API integration</li><li>Results sync back to legacy system</li></ul>
+<p><strong>Timeline:</strong> 2-4 months for middleware development and integration.</p>
+<p><strong>Cost:</strong> RM 30,000-50,000 for custom middleware solution.</p>
+<h3>Option 3: Replace Invoicing Module or Entire System</h3>
+<p><strong>Best for:</strong> Legacy systems beyond reasonable repair, or when e-invoice mandate is the trigger for long-overdue modernization.</p>
+<p><strong>Approach:</strong></p>
+<ul><li>Replace invoicing module with modern, e-invoice-ready solution</li><li>Or migrate to new system entirely if other modules also failing</li><li>Design with e-invoice compliance baked in from the start</li><li>Plan migration strategy for historical data</li></ul>
+<p><strong>Timeline:</strong> 6-12 months for replacement project.</p>
+<p><strong>Cost:</strong> RM 60,000-200,000+ depending on scope and complexity.</p>
+<p>This option costs more upfront but solves e-invoice compliance while eliminating technical debt and positioning you for future growth.</p>
+<h2>What to Do Right Now</h2>
+<p>You don't have to commit to a full project today, but you should start preparing:</p>
+<h3>1. Conduct a Technical Assessment (Next 30 Days)</h3>
+<ul><li>Review your current invoicing system architecture</li><li>Document what technology it's built on</li><li>Identify who has knowledge of the codebase</li><li>List all the data fields currently captured</li><li>Note any known issues or fragile areas</li></ul>
+<h3>2. Map E-Invoice Requirements to Your System (Next 60 Days)</h3>
+<ul><li>Compare LHDN's e-invoice data requirements to your current data model</li><li>Identify gaps (missing fields, incorrect formats)</li><li>Estimate technical effort required for integration</li><li>Determine if your system can realistically be adapted</li></ul>
+<h3>3. Get Professional Technical Assessment (Next 90 Days)</h3>
+<p>Bring in a developer or consultant who specializes in legacy .NET systems and e-invoice integration. They can:</p>
+<ul><li>Review your codebase and database schema</li><li>Assess technical feasibility of integration</li><li>Identify risks and potential roadblocks</li><li>Recommend the best compliance path</li><li>Provide realistic timeline and cost estimates</li></ul>
+<h3>4. Budget and Plan (Q3 2026)</h3>
+<p>Once you know what needs to be done, allocate budget and timeline. Starting work in early 2027 gives you adequate time for development, testing, and deployment before your compliance deadline.</p>
+<h2>The Bottom Line</h2>
+<p>E-invoice compliance is not optional, and legacy systems won't magically become compatible as the deadline approaches. The gap between what your system can do and what LHDN requires won't close on its own.</p>
+<p>Businesses that assess their readiness now and start preparing early will face this mandate with confidence. They'll have time to choose the right solution, test thoroughly, and implement smoothly.</p>
+<p>Businesses that wait will face rushed decisions, premium pricing, operational stress, and real compliance risk.</p>
+<p>The deadline is fixed. The only variable is how prepared you'll be when it arrives.</p>
+<p><div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; color: white;"><h3 style="color: white; margin-top: 0; font-size: 24px;">Need an E-Invoice Readiness Assessment?</h3><p style="font-size: 18px; margin: 16px 0; opacity: 0.95;">Get a professional technical review of your legacy system and a clear compliance roadmap.</p><a href="../contact.html" style="display: inline-block; background: white; color: #667eea; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px; transition: transform 0.2s;">Schedule Assessment</a></div></p>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">When exactly does e-invoice mandate affect my business?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It depends on your annual revenue. Large businesses (>RM 100M) must comply first in 2027, medium businesses (>RM 25M) in late 2027-2028, and all businesses regardless of size by 2028. Check LHDN's official timeline for exact dates.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I just use third-party e-invoice software instead of modifying my legacy system?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Possibly, but there's always integration work required. Your legacy system needs to export invoice data to the third-party software, and that still requires technical modifications and data mapping. It's rarely a drop-in solution.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if my legacy system is too old to integrate?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Then you're looking at a middleware solution or system replacement. Both are viable paths to compliance—middleware keeps your legacy system running while handling e-invoice separately, or replacement modernizes everything at once.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much does e-invoice integration typically cost?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>For direct integration: RM 20,000-60,000. For middleware: RM 30,000-50,000. For module/system replacement: RM 60,000-200,000+. Exact cost depends on your system's complexity and current condition.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should I wait for LHDN to release final technical specifications?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. While specs may evolve, the core requirements are known. Start assessing your system now. You can begin technical preparation and planning without waiting for every final detail.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
