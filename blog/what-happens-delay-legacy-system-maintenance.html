@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>What Happens When You Delay Legacy System Maintenance | SteadyDevs</title>
+  <meta name="description" content="Every month you delay maintaining your legacy system, the problems compound. Here's the predictable cascade of consequences—and why fixing problems early costs a fraction of waiting until they're critical.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/what-happens-delay-legacy-system-maintenance.html">
+  <meta property="og:title" content="What Happens When You Delay Legacy System Maintenance">
+  <meta property="og:description" content="Every month you delay maintaining your legacy system, the problems compound. Here's the predictable cascade of consequences—and why fixing problems early costs a fraction of waiting until they're critical.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/delay-maintenance-consequences.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/what-happens-delay-legacy-system-maintenance.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/delay-maintenance-consequences.jpg" alt="Consequences of delaying system maintenance" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>What Happens When You Delay Legacy System Maintenance</h1>
+          <div class="blog-meta">April 18, 2026 | 11 min read</div>
+        </div>
+        <p>"We'll deal with the system issues next quarter when things slow down."</p>
+<p>"Let's just keep it running for now. We can't afford downtime right now."</p>
+<p>"The bugs are annoying but not critical. We'll fix them in the next major update."</p>
+<p>I hear variations of these words regularly from business owners managing legacy systems. And I've watched, with depressing predictability, what happens when maintenance gets postponed quarter after quarter, year after year.</p>
+<p>Technical debt compounds. Small problems metastasize. What could have been fixed for RM 10,000 becomes a RM 80,000 crisis. And unlike neglected physical infrastructure where you can at least see the decay, software rot is invisible until something breaks catastrophically.</p>
+<p>Here's the predictable cascade of consequences when you delay legacy system maintenance—a timeline I've watched play out more times than I can count.</p>
+<h2>Months 1-6: The "Manageable" Phase</h2>
+<p>Early deferred maintenance doesn't feel dangerous. The system still works. Bugs are workaround-able. Everything seems fine—on the surface.</p>
+<h3>What's Actually Happening:</h3>
+<ul><li><strong>Bug backlog grows:</strong> Known issues accumulate faster than they're addressed</li><li><strong>Workarounds become process:</strong> Staff develop unofficial procedures to avoid system problems</li><li><strong>Tribal knowledge deepens:</strong> Only certain people know how to navigate the system's quirks</li><li><strong>Code quality degrades:</strong> Quick patches instead of proper fixes create more technical debt</li><li><strong>Dependencies age:</strong> Framework versions, libraries, security patches fall further behind</li></ul>
+<p>At this stage, the cost to catch up is still reasonable—maybe RM 15,000-30,000 for systematic bug fixes and cleanup. But businesses rarely act because nothing feels urgent yet.</p>
+<div class="warning-box"><p><strong>Key mistake:</strong> Interpreting "still working" as "not a problem." The foundation is eroding, but you can't see it from the surface.</p></div>
+<h2>Months 7-12: The Performance Decline Phase</h2>
+<p>Users start noticing. The system feels slower. Operations that used to take seconds now take minutes. Reports time out. The database seems sluggish.</p>
+<h3>What's Happening:</h3>
+<ul><li><strong>Data accumulation without optimization:</strong> Years of data with no indexing or archiving strategy</li><li><strong>Memory leaks compound:</strong> Small performance issues stack up</li><li><strong>Inefficient queries multiply:</strong> Quick-fix code bypasses optimized data access patterns</li><li><strong>Staff productivity drops:</strong> Waiting for slow system becomes part of daily routine</li><li><strong>Workaround time increases:</strong> Manual processes take longer as data volume grows</li></ul>
+<p>Now you're losing real money—staff time wasted waiting for slow operations, reduced transaction capacity, customer frustration with delayed responses.</p>
+<p><strong>Measurable cost example:</strong> If 10 staff members waste 30 minutes daily waiting for slow system operations, that's 5 hours/day = 100 hours/month = RM 2,000/month in lost productivity (at RM 20/hour). Over a year: RM 24,000 gone to system slowness.</p>
+<p>Fixing it now: RM 25,000-50,000 for database optimization, code refactoring, performance tuning. But businesses still delay because "it's still usable."</p>
+<h2>Year 2: The Stability Crisis Phase</h2>
+<p>The system starts failing regularly. Weekly restarts become necessary. Crashes happen during peak hours. Data corruption incidents increase. The IT person (or outsourced support) is constantly firefighting.</p>
+<h3>What's Happening:</h3>
+<ul><li><strong>Cascading failures:</strong> Bugs interact with each other in unpredictable ways</li><li><strong>Resource exhaustion:</strong> Memory leaks, disk space issues, connection pool depletion</li><li><strong>Integration breakages:</strong> External systems update their APIs; your legacy system can't adapt</li><li><strong>Security vulnerabilities accumulate:</strong> Unpatched frameworks become attack vectors</li><li><strong>Knowledge attrition:</strong> Staff who understood the system leave; replacement staff struggle</li></ul>
+<p>Now downtime isn't hypothetical—it's happening. Lost revenue, customer complaints, operational chaos.</p>
+<p><strong>Common pattern:</strong> Order systems crashing multiple times monthly (4-6+ incidents), each causing hours of downtime during peak periods. Lost processing capacity leads to missed delivery windows, expedited shipping costs to compensate, and eventual customer churn. The monthly cost from system instability can easily reach RM 15,000-20,000 in direct and indirect losses.</p>
+<p>Fixing it now requires stabilization project: RM 60,000-100,000 for systematic fixes, security updates, architecture reinforcement. Much more expensive than addressing issues in year one, but still cheaper than what's coming.</p>
+<h2>Year 3: The Scaling Barrier Phase</h2>
+<p>Your business is trying to grow, but the system won't scale. You can't onboard new customers because the system can't handle the load. You can't add new features because the codebase is too fragile. Growth opportunities are being turned away because of technology limitations.</p>
+<h3>What's Happening:</h3>
+<ul><li><strong>Hard capacity limits:</strong> Database can't grow beyond certain size, performance collapses at scale</li><li><strong>Architecture constraints:</strong> Single-server design can't be distributed or load-balanced</li><li><strong>Integration impossibilities:</strong> Can't connect to modern cloud services or partner APIs</li><li><strong>Competitive disadvantage:</strong> Competitors with modern systems can operate more efficiently</li><li><strong>Opportunity cost mushrooms:</strong> Revenue you CAN'T earn because system can't support it</li></ul>
+<p>This pattern plays out regularly: businesses lose major contract opportunities because their legacy systems can't provide required integrations (EDI, real-time APIs) or handle the scale. One missed RM 500K-1M contract might be survivable. But when it happens repeatedly, the opportunity cost becomes existential.</p>
+<p>At this point, you're looking at either major reconstruction (RM 100,000-200,000) or full replacement (RM 150,000-400,000+), plus the ongoing cost of missed opportunities while you're fixing it.</p>
+<h2>Year 4-5: The Compliance and Security Crisis Phase</h2>
+<p>New regulations emerge (e-invoicing, data protection laws, industry standards). Your legacy system can't comply. Security vulnerabilities are now critical—frameworks are end-of-life, no more security patches, known exploits exist in the wild.</p>
+<h3>What's Happening:</h3>
+<ul><li><strong>Regulatory non-compliance risk:</strong> E-invoice mandate, PDPA, industry-specific requirements</li><li><strong>Security breach vulnerability:</strong> System running on unpatched software with known exploits</li><li><strong>Insurance and audit failures:</strong> Cyber insurance won't cover obsolete systems, audits flag risks</li><li><strong>Recruitment difficulty:</strong> IT staff don't want to work with ancient technology</li><li><strong>Partner/customer concerns:</strong> "Is our data safe on your old system?"</li></ul>
+<p><strong>Malaysia-specific example:</strong> E-invoice mandate (rolling out since August 2024). Businesses running systems that can't integrate with MyInvois API face compliance crisis. Rush implementations under deadline pressure cost 2-3x normal rates, plus operational disruption from forced migration.</p>
+<p>Now you're forced to act—not on your timeline, under optimal conditions, but under deadline pressure with penalties looming. Emergency projects during compliance crises are the most expensive way to solve the problem you could have addressed years earlier.</p>
+<h2>Year 6+: The Catastrophic Failure Phase</h2>
+<p>Something breaks catastrophically. Major data corruption. Complete system failure. Security breach. Regulatory shutdownorder. The system that you kept "limping along" finally collapses.</p>
+<h3>What Happens:</h3>
+<ul><li><strong>Business continuity crisis:</strong> Core operations halt, no backup plan</li><li><strong>Data recovery scramble:</strong> Backups may not work, data may be corrupted beyond repair</li><li><strong>Emergency replacement:</strong> Forced to implement new system in weeks instead of planned months</li><li><strong>Customer exodus:</strong> Can't serve customers, they leave for competitors</li><li><strong>Legal and financial consequences:</strong> Breach notifications, regulatory penalties, lawsuits</li></ul>
+<p><strong>Catastrophic scenario:</strong> POS systems running on ancient, unpatched operating systems (Windows Server 2003-era) are prime ransomware targets. When attacks succeed, businesses face impossible choices: pay ransoms (RM 50,000+) with no guarantee of recovery, or lose all operational data. If backups were on the compromised network, they're encrypted too. Recovery attempts are expensive, data loss is significant, and operations halt for days or weeks. By the time emergency replacement systems are rushed into production (RM 150,000-200,000+), the total crisis cost—including lost revenue—can exceed RM 600,000.</p>
+<p>Compare to proactive maintenance cost in year 1: RM 30,000. Cost multiplier for delaying: 20x+.</p>
+<h2>The Compounding Cost Reality</h2>
+<p>Here's what the deferred maintenance timeline costs in concrete terms:</p>
+<p><strong>Year 1: Proactive Maintenance</strong></p>
+<ul><li>Cost: RM 20,000-40,000</li><li>Approach: Systematic bug fixes, security updates, performance optimization</li><li>Impact: System stable, performant, secure</li><li>Business disruption: Minimal (planned maintenance)</li></ul>
+<p><strong>Year 2: Reactive Firefighting</strong></p>
+<ul><li>Cost: RM 50,000-80,000</li><li>Approach: Emergency fixes for failures, performance band-aids</li><li>Hidden cost: RM 20,000+ lost productivity from slow/unstable system</li><li>Business disruption: Moderate (unplanned downtime, staff frustration)</li></ul>
+<p><strong>Year 3: Stabilization Crisis</strong></p>
+<ul><li>Cost: RM 100,000-150,000</li><li>Approach: Major reconstruction to prevent total failure</li><li>Hidden cost: RM 50,000-100,000 in lost growth opportunities</li><li>Business disruption: Significant (can't scale, customers affected)</li></ul>
+<p><strong>Year 4-5: Forced Replacement</strong></p>
+<ul><li>Cost: RM 200,000-400,000+</li><li>Approach: Emergency replacement under compliance/security pressure</li><li>Hidden cost: RM 100,000+ in rushed implementation, operational chaos</li><li>Business disruption: Severe (rushed timeline, training, adjustment period)</li></ul>
+<p><strong>Year 6: Catastrophic Failure</strong></p>
+<ul><li>Cost: RM 500,000-1,000,000+</li><li>Include: Data recovery, emergency replacement, lost revenue, legal costs, reputation damage</li><li>Business disruption: Potentially existential</li></ul>
+<p>The cost of addressing problems doesn't grow linearly—it compounds exponentially. Every year of delay roughly doubles the eventual cost.</p>
+<h2>Why Businesses Keep Delaying</h2>
+<p>If deferred maintenance is so expensive, why do businesses keep postponing it? Common rationalizations:</p>
+<h3>"We Can't Afford It Right Now"</h3>
+<p>Reality: You're already paying for deferred maintenance through lost productivity, workaround time, missed opportunities, and system failures. You're choosing to pay incrementally and invisibly instead of fixing it properly.</p>
+<p>Redirecting existing waste (staff time on workarounds, lost revenue from system limitations) to proper maintenance is often cash-flow neutral.</p>
+<h3>"The System Is Still Working"</h3>
+<p>Reality: "Still working" is a low bar. Elevators "still work" even when they're slow, noisy, and break down monthly. That doesn't mean they're in good condition or cost-effective to operate.</p>
+<p>The real question: Is it working efficiently, reliably, and securely—or is it merely not-yet-completely-broken?</p>
+<h3>"We'll Replace It Soon Anyway"</h3>
+<p>Reality: "Soon" rarely happens on schedule. Replacement projects get delayed for budget, resources, operational constraints. Meanwhile, the existing system continues degrading.</p>
+<p>Even if replacement is planned, maintaining the current system until transition is cheaper than emergency firefighting when it collapses before replacement is ready.</p>
+<h3>"We Can't Risk Downtime for Maintenance"</h3>
+<p>Reality: Deferred maintenance doesn't avoid downtime—it guarantees unplanned downtime. The choice is between controlled planned downtime (scheduled maintenance windows) or uncontrolled crisis downtime (system crashes during peak business hours).</p>
+<p>One is manageable. The other is chaos.</p>
+<h2>Breaking the Delay Cycle</h2>
+<p>If you recognize your business on this timeline, here's how to stop the decay:</p>
+<h3>1. Acknowledge the True Cost</h3>
+<p>Calculate what you're actually paying for deferred maintenance:</p>
+<ul><li>Staff time on workarounds (hours/month × hourly rate)</li><li>Lost productivity from system slowness</li><li>Revenue lost from downtime and failures</li><li>Missed opportunities from scaling limitations</li><li>Risk exposure (compliance, security, data loss)</li></ul>
+<p>Most businesses discover they're already spending more on deferred maintenance than proactive fixes would cost.</p>
+<h3>2. Triage and Prioritize</h3>
+<p>You don't have to fix everything at once. Prioritize:</p>
+<ul><li><strong>Critical:</strong> Security vulnerabilities, data integrity issues, compliance gaps</li><li><strong>High impact:</strong> Frequent failures, major performance problems, workflow blockers</li><li><strong>Medium impact:</strong> Known bugs requiring workarounds, minor inefficiencies</li><li><strong>Low impact:</strong> Cosmetic issues, rarely-used features</li></ul>
+<p>Fix critical and high-impact issues first. This often costs RM 20,000-50,000 and delivers immediate stability improvement.</p>
+<h3>3. Establish Regular Maintenance Budget</h3>
+<p>Don't wait for crises. Allocate monthly/quarterly maintenance budget:</p>
+<ul><li>RM 2,000-5,000/month for ongoing maintenance</li><li>Systematic bug fixes, performance tuning, security updates</li><li>Prevents backlog accumulation</li><li>Addresses issues while they're still small and cheap</li></ul>
+<p>Regular maintenance is like changing your car's oil every 5,000 km. Skipping it doesn't save money—it guarantees expensive engine repairs later.</p>
+<h3>4. Plan Replacement If Maintenance Isn't Viable</h3>
+<p>If honest assessment shows the system is beyond reasonable repair (see assessment framework), don't throw money at unfixable problems. Instead:</p>
+<ul><li>Do minimal stabilization to keep it alive</li><li>Plan and budget for replacement on YOUR timeline (not crisis timeline)</li><li>Implement replacement while current system is still functional</li><li>Avoid forced emergency replacement under pressure</li></ul>
+<p>Planned replacement on your schedule costs half what emergency replacement costs.</p>
+<h2>The Bottom Line</h2>
+<p>Technical debt is like financial debt—it accumulates interest. Every month of deferred maintenance adds to the eventual cost of addressing it.</p>
+<p>The timeline is predictable:</p>
+<ul><li><strong>Year 1:</strong> Small, cheap to fix</li><li><strong>Year 2:</strong> Growing, moderate cost</li><li><strong>Year 3-4:</strong> Serious, expensive</li><li><strong>Year 5+:</strong> Crisis, astronomical cost</li></ul>
+<p>The businesses that thrive are the ones that maintain their systems proactively—fixing problems while they're still small, investing in stability before crisis forces their hand, and treating software as infrastructure that requires ongoing care.</p>
+<p>The businesses that struggle are the ones that keep postponing maintenance until "next quarter"—and wake up three years later facing a six-figure emergency that could have been prevented with a five-figure investment.</p>
+<p>Which timeline is your business on?</p>
+
+          <div class="cta-box">
+            <h3>Stop the Decay Before It's Too Late</h3>
+            <p style="color: #D1D5DB;">Get a maintenance assessment and see where your system is on the degradation timeline.</p>
+            <a href="../contact.html" class="cta-button">Schedule FREE Assessment</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do I know if my system is at the critical point where I need to act now?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Warning signs: frequent downtime (weekly+), staff complaining about system constantly, workarounds that take hours monthly, critical staff leaving who understand the system, inability to onboard new customers due to system limits, or compliance deadlines approaching. If 3+ apply, action is urgent.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I just keep doing workarounds indefinitely instead of fixing the system?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Temporarily, yes. Long-term, no. Workarounds compound in complexity, depend on tribal knowledge that leaves with staff, and eventually fail when the underlying problems grow. Workarounds are short-term survival, not sustainable strategy.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if I invest in maintenance but the system still fails?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Proper maintenance assessment identifies whether a system is fixable or beyond repair. If an honest technical review says it's salvageable, maintenance investment is low-risk. If review says replacement needed, at least you know before wasting money on unfixable problems.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much should a business budget for legacy system maintenance annually?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Rule of thumb: 15-20% of original development cost annually, or RM 24,000-60,000/year for typical SME systems. This covers bug fixes, security updates, performance optimization, and minor feature additions. Compare this to crisis costs (RM 100,000-500,000+).</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can deferred maintenance ever be recovered from, or does it doom the system?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Depends how deep the neglect goes. Systems deferred 1-3 years can usually be stabilized with intensive catch-up maintenance. Systems deferred 5-8+ years often need replacement—the accumulation of technical debt, security vulnerabilities, and architectural decay is too deep.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>

@@ -3469,13 +3469,13 @@
     "title": "What Happens When You Delay Legacy System Maintenance",
     "slug": "what-happens-delay-legacy-system-maintenance",
     "excerpt": "Every month you delay maintaining your legacy system, the problems compound. Here's the predictable cascade of consequences—and why fixing problems early costs a fraction of waiting until they're critical.",
-    "date": "2026-04-12",
-    "dateDisplay": "April 12, 2026",
+    "date": "2026-04-18",
+    "dateDisplay": "April 18, 2026",
     "readTime": "11 min read",
     "tags": ["Legacy Systems", "Maintenance", "Cost Analysis", "Risk Management"],
     "author": "SteadyDevs",
-    "published": false,
-    "heroImage": "images/ blog/delay-maintenance-consequences.jpg",
+    "published": true,
+    "heroImage": "images/blog/delay-maintenance-consequences.jpg",
     "heroImageAlt": "Consequences of delaying system maintenance",
     "content": [
       {
@@ -3492,7 +3492,7 @@
       },
       {
         "type": "paragraph",
-        "text": "I've heard these exact words from dozens of business owners managing legacy systems. And I've watched, with depressing predictability, what happens when maintenance gets postponed quarter after quarter, year after year."
+        "text": "I hear variations of these words regularly from business owners managing legacy systems. And I've watched, with depressing predictability, what happens when maintenance gets postponed quarter after quarter, year after year."
       },
       {
         "type": "paragraph",
@@ -3594,7 +3594,7 @@
       },
       {
         "type": "paragraph",
-        "text": "<strong>Real example:</strong> Distribution company's order system crashed 4-6 times monthly, averaging 2 hours downtime per incident. Lost processing capacity during peak periods = missed delivery windows = expedited shipping costs = customer churn. Estimated monthly cost: RM 15,000-20,000 in direct and indirect losses."
+        "text": "<strong>Common pattern:</strong> Order systems crashing multiple times monthly (4-6+ incidents), each causing hours of downtime during peak periods. Lost processing capacity leads to missed delivery windows, expedited shipping costs to compensate, and eventual customer churn. The monthly cost from system instability can easily reach RM 15,000-20,000 in direct and indirect losses."
       },
       {
         "type": "paragraph",
@@ -3624,7 +3624,7 @@
       },
       {
         "type": "paragraph",
-        "text": "<strong>Real example:</strong> Trading company had opportunity to onboard major corporate client worth RM 800,000 annual revenue. Client required EDI integration and real-time inventory visibility. Legacy system couldn't provide either. Lost the deal. That happened three times over 18 months—RM 2.4M in lost revenue because the system couldn't scale."
+        "text": "This pattern plays out regularly: businesses lose major contract opportunities because their legacy systems can't provide required integrations (EDI, real-time APIs) or handle the scale. One missed RM 500K-1M contract might be survivable. But when it happens repeatedly, the opportunity cost becomes existential."
       },
       {
         "type": "paragraph",
@@ -3654,7 +3654,7 @@
       },
       { 
         "type": "paragraph",
-        "text": "<strong>Malaysia-specific example:</strong> E-invoice mandate 2027. Businesses running systems that can't integrate with MyInvois API face compliance crisis. Rush implementations under deadline pressure cost 2-3x normal rates, plus operational disruption from forced migration."
+        "text": "<strong>Malaysia-specific example:</strong> E-invoice mandate (rolling out since August 2024). Businesses running systems that can't integrate with MyInvois API face compliance crisis. Rush implementations under deadline pressure cost 2-3x normal rates, plus operational disruption from forced migration."
       },
       {
         "type": "paragraph",
@@ -3684,11 +3684,11 @@
       },
       {
         "type": "paragraph",
-        "text": "<strong>Real example:</strong> Retail chain's POS system (running on Windows Server 2003, no maintenance for 8 years) suffered ransomware attack. Entire system encrypted, backups were on same compromised network. Paid ransom (RM 50,000), data partially recovered. Lost 2 weeks of operations = RM 400,000+ in lost revenue. Emergency replacement system: RM 180,000 for rushed implementation. Total crisis cost: RM 630,000+."
+        "text": "<strong>Catastrophic scenario:</strong> POS systems running on ancient, unpatched operating systems (Windows Server 2003-era) are prime ransomware targets. When attacks succeed, businesses face impossible choices: pay ransoms (RM 50,000+) with no guarantee of recovery, or lose all operational data. If backups were on the compromised network, they're encrypted too. Recovery attempts are expensive, data loss is significant, and operations halt for days or weeks. By the time emergency replacement systems are rushed into production (RM 150,000-200,000+), the total crisis cost—including lost revenue—can exceed RM 600,000."
       },
       {
         "type": "paragraph",
-        "text": "Compare to proactive maintenance cost in year 1: RM 30,000. Cost multiplier for delaying: 21x."
+        "text": "Compare to proactive maintenance cost in year 1: RM 30,000. Cost multiplier for delaying: 20x+."
       },
       {
         "type": "heading2",
