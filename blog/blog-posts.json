@@ -2398,12 +2398,12 @@
     "title": "The Price of Ignoring That 'Small' Bug in Your Production System",
     "slug": "price-ignoring-small-bug-production-system",
     "excerpt": "That minor bug you're postponing? It's costing you more than you think. Real examples of how small ignored bugs cascade into expensive problems—and why fixing them now is always cheaper than later.",
-    "date": "2026-04-12",
-    "dateDisplay": "April 12, 2026",
+    "date": "2026-04-21",
+    "dateDisplay": "April 21, 2026",
     "readTime": "9 min read",
     "tags": ["Bug Fixes", "Legacy Systems", "Maintenance", "ROI"],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/small-bug-big-cost.jpg",
     "heroImageAlt": "Software bug causing system problems",
     "content": [
@@ -2875,6 +2875,11 @@
           {
             "question": "How long should a bug backlog be before we consider the system beyond repair?",
             "answer": "It's less about backlog length and more about fixability. If bugs can be fixed incrementally without system-wide rewrites, the system is salvageable. If every bug fix breaks something else, you're looking at a rewrite candidate."
+          }
+          ,
+          {
+            "question": "How do I convince management to prioritize fixing small bugs when they only see the big issues?",
+            "answer": "Show them the real costs of ignoring small bugs: time wasted on workarounds, risk of data errors, and the potential for minor issues to escalate into expensive crises. Use real examples from your own operations or the case studies in this article. Emphasize that fixing small bugs early is a low-cost way to prevent much larger problems and protect business continuity."
           }
         ]
       }

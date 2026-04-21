@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The Price of Ignoring That 'Small' Bug in Your Production System | SteadyDevs</title>
+  <meta name="description" content="That minor bug you're postponing? It's costing you more than you think. Real examples of how small ignored bugs cascade into expensive problems—and why fixing them now is always cheaper than later.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/price-ignoring-small-bug-production-system.html">
+  <meta property="og:title" content="The Price of Ignoring That 'Small' Bug in Your Production System">
+  <meta property="og:description" content="That minor bug you're postponing? It's costing you more than you think. Real examples of how small ignored bugs cascade into expensive problems—and why fixing them now is always cheaper than later.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/small-bug-big-cost.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/price-ignoring-small-bug-production-system.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/small-bug-big-cost.jpg" alt="Software bug causing system problems" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>The Price of Ignoring That 'Small' Bug in Your Production System</h1>
+          <div class="blog-meta">April 21, 2026 | 9 min read</div>
+        </div>
+        <p>"It's just a small bug. Customers can work around it. We'll fix it in the next update."</p>
+<p>I've heard this hundreds of times from business owners and managers dealing with legacy systems. A minor calculation error here, a UI glitch there, a report that requires manual correction—nothing that stops the business from operating.</p>
+<p>But here's what I've learned from 11 years of stabilizing legacy systems: <strong>Small bugs never stay small.</strong> They compound, cascade, and eventually cost far more than they would have cost to fix immediately.</p>
+<p>Let me show you real examples of how "small" ignored bugs turned into expensive problems—and why the cost of fixing bugs increases exponentially with time.</p>
+<h2>Example 1: The "Harmless" Rounding Error</h2>
+<h3>The Bug</h3>
+<p>A retail management system rounded tax calculations to the nearest ringgit instead of using precise cents. On individual transactions, the difference was negligible—a few cents per invoice.</p>
+<p>The business owner's response: "It's just rounding. Customers don't even notice. Not worth fixing right now."</p>
+<h3>What Actually Happened</h3>
+<p>Over 18 months:</p>
+<ul><li>The system processed 45,000+ transactions</li><li>Small rounding errors accumulated to RM 3,200+ in tax discrepancies</li><li>Tax audit flagged the inconsistency between reported revenue and calculated tax</li><li>Business faced penalties and had to manually reconcile 18 months of transactions</li><li>Accounting firm charged RM 12,000 for reconciliation work</li><li>Two weeks of operational disruption while fixing historical records</li></ul>
+<p><strong>Total cost:</strong> RM 15,000+ in penalties, professional fees, and lost productivity.</p>
+<p><strong>Original fix cost estimate:</strong> RM 1,500 (2 days of developer time to correct the calculation logic).</p>
+<p><strong>Cost multiplier for delaying: 10x.</strong></p>
+<h2>Example 2: The "Occasional" Data Export Failure</h2>
+<h3>The Bug</h3>
+<p>A manufacturing system's inventory export feature sometimes failed when product descriptions contained special characters (quotes, ampersands). It happened maybe 3-4 times per month, and staff had learned to work around it by manually exporting problematic records.</p>
+<p>Management's view: "It's annoying but not critical. Staff know the workaround. We'll fix it when we have development capacity."</p>
+<h3>What Actually Happened</h3>
+<p>After 9 months:</p>
+<ul><li>The business grew and hired new staff who weren't trained on the workaround</li><li>A month-end inventory report was exported with missing records (new staff didn't notice the silent failure)</li><li>Financial statements were prepared using incomplete data</li><li>Discrepancy was discovered during quarterly audit</li><li>Had to restate financials and reissue corrected reports to stakeholders</li><li>Lost credibility with investors and faced awkward explanations</li></ul>
+<p><strong>Unmeasured cost:</strong> Damaged reputation, investor confidence erosion, management time spent on damage control.</p>
+<p><strong>Measurable cost:</strong> RM 8,000 in emergency bug fix + data cleanup + audit adjustments.</p>
+<p><strong>Original fix cost estimate:</strong> RM 800 (half-day fix for string escaping).</p>
+<p><strong>Cost multiplier for delaying: 10x cash + reputation damage.</strong></p>
+<h2>Example 3: The "Rare" Report Miscalculation</h2>
+<h3>The Bug</h3>
+<p>A sales commission system miscalculated bonuses when salespeople had both products and services in the same month. It only affected 2-3 salespeople per month, and the finance team had been manually correcting the reports before processing payments.</p>
+<p>Management decision: "Finance knows to check this. It's only a few cases per month. Not worth developer time to fix."</p>
+<h3>What ActuallyHappened</h3>
+<p>After 14 months:</p>
+<ul><li>The finance staff member who "knew to check" left the company</li><li>New finance staff didn't know about the bug</li><li>Three months of commission payments went out with miscalculations</li><li>Some salespeople were underpaid, others overpaid</li><li>Salespeople lost trust in the system and management</li><li>Had to audit 6 months of commission data to ensure everything was corrected</li><li>Top salesperson quit citing "incompetent systems and broken promises" (exit interview)</li></ul>
+<p><strong>Direct cost:</strong> RM 24,000 in correction payments + audit work.</p>
+<p><strong>Indirect cost:</strong> Lost top performer (contributing RM 500,000+ annual revenue), damaged team morale.</p>
+<p><strong>Original fix cost estimate:</strong> RM 2,500 (commission calculation logic correction).</p>
+<p><strong>Cost multiplier for delaying: Incalculable due to staff turnover impact.</strong></p>
+<h2>Why Small Bugs Get Expensive Over Time</h2>
+<p>These aren't exceptional cases. They follow a predictable pattern:</p>
+<h3>1. Tribal Knowledge Dependency</h3>
+<p>When bugs aren't fixed, workarounds become institutional knowledge. "Just remember to do this manually." "Always double-check that report." This knowledge lives in people's heads, not documentation.</p>
+<p>When those people leave, the workaround knowledge leaves with them. The bug that was "manageable" suddenly becomes a crisis.</p>
+<h3>2. Accumulation of Bad Data</h3>
+<p>Bugs that corrupt or miscalculate data compound over time. One month of bad data is fixable. Eighteen months? That's a major cleanup project requiring data forensics and manual correction.</p>
+<p>The longer a data-corrupting bug runs, the more expensive it becomes to remediate.</p>
+<h3>3. Integration and Dependency Growth</h3>
+<p>Systems evolve. New features get built on top of old code. Workarounds become dependencies. After 6-12 months, that "small bug" is now tangled up with other system components.</p>
+<p>A bug that would have taken 2 hours to fix initially now requires 2 days because you have to untangle dependencies and test all the features that rely on the buggy behavior.</p>
+<h3>4. User Expectation Lock-In</h3>
+<p>Users adapt to bugs. They learn workarounds. They adjust their processes. After long enough, the bug becomes the expected behavior.</p>
+<p>When you finally fix it, users complain that you "broke" the system—because what was technically correct behavior doesn't match what they're used to. Now you face change management costs on top of the technical fix.</p>
+<h2>The Real Cost Formula</h2>
+<p>Here's what ignoring small bugs actually costs:</p>
+<p><strong>Cost of Ignoring = Direct Bug Impact + Compounding Effects + Opportunity Cost</strong></p>
+<h3>Direct Bug Impact</h3>
+<ul><li>Time spent on workarounds (every single occurrence)</li><li>Errors that slip through because workarounds aren't consistently applied</li><li>Manual correction time when the workaround fails</li></ul>
+<h3>Compounding Effects</h3>
+<ul><li>Bad data accumulation requiring expensive cleanup</li><li>Workaround training for every new staff member</li><li>Knowledge loss when workaround experts leave</li><li>Integration complexity as system evolves around the bug</li><li>Reputation damage when bugs cause visible problems</li></ul>
+<h3>Opportunity Cost</h3>
+<ul><li>Staff time spent on workarounds instead of productive work</li><li>Developer time eventually spent on emergency fixes under pressure</li><li>Management time dealing with bug consequences</li><li>Lost trust from users/customers when bugs cause problems</li></ul>
+<p>In every case I've seen, the total cost of ignoring a bug for 6-12 months exceeds the immediate fix cost by at least 5-10x—often much more.</p>
+<h2>The "We'll Fix It Next Update" Trap</h2>
+<p>The most dangerous phrase in software maintenance: <em>"We'll fix it in the next update."</em></p>
+<p>Here's what actually happens:</p>
+<ul><li>Next update gets postponed (other priorities emerge)</li><li>Bug gets deprioritized because "it's manageable"</li><li>Months pass, bug accumulates damage</li><li>Eventually becomes urgent when it causes a visible problem</li><li>Now it's an emergency fix under pressure—more expensive, more risky</li></ul>
+<p>Bug backlogs don't shrink on their own. They grow. Small bugs become medium bugs. Medium bugs become crises.</p>
+<h2>When Should You Fix "Small" Bugs?</h2>
+<p>Fix immediately if the bug:</p>
+<ul><li><strong>Affects data accuracy or integrity</strong> (calculations, reports, records)</li><li><strong>Requires manual workarounds</strong> (staff time compounds monthly)</li><li><strong>Has compliance or legal implications</strong> (tax, regulations, audit)</li><li><strong>Impacts customer-facing processes</strong> (invoicing, orders, support)</li><li><strong>Depends on tribal knowledge</strong> (only one person knows the workaround)</li></ul>
+<p>Delay (carefully) if the bug:</p>
+<ul><li>Is purely cosmetic with no functional impact</li><li>Affects a feature that's rarely used and has no data consequences</li><li>Is already documented and has a reliable, simple workaround</li><li>Will be eliminated entirely by a planned feature update</li></ul>
+<p>But even "safe to delay" bugs should have fix dates, not indefinite postponement.</p>
+<h2>The Fix-Now Advantage</h2>
+<p>Businesses that fix bugs promptly gain:</p>
+<ul><li><strong>Lower total cost</strong> - Fixing early is always cheaper than fixing later</li><li><strong>Cleaner codebase</strong> - No accumulation of workarounds and technical debt</li><li><strong>Better data quality</strong> - No corruption accumulation</li><li><strong>Reduced operational friction</strong> - Staff don't waste time on workarounds</li><li><strong>Higher user confidence</strong> - System works correctly and reliably</li><li><strong>Easier future development</strong> - No buggy code to work around</li></ul>
+<p>Think of bug fixes as preventive maintenance. Fixing your car's oil leak today costs RM 500. Ignoring it until the engine seizes costs RM 15,000.</p>
+<h2>How to Make Bug Fixing Sustainable</h2>
+<p>If you're running a legacy system with accumulated bugs, here's a practical approach:</p>
+<h3>1. Triage Your Bug Backlog</h3>
+<p>Categorize every known bug:</p>
+<ul><li><strong>Critical:</strong> Data integrity, compliance, customer-facing (fix immediately)</li><li><strong>High:</strong> Requires workarounds, impacts efficiency (fix within 1 month)</li><li><strong>Medium:</strong> Minor inconvenience, documented workaround (fix within 3 months)</li><li><strong>Low:</strong> Cosmetic, rarely encountered (fix when convenient)</li></ul>
+<h3>2. Allocate Regular Fix Budget</h3>
+<p>Instead of "waiting for the next update," allocate a monthly budget for bug fixes. Even RM 2,000-5,000/month for maintenance work prevents backlog accumulation.</p>
+<h3>3. Fix Bugs When Adding Related Features</h3>
+<p>When developing new features that touch buggy code, fix the bugs first. Don't build new functionality on top of broken foundations.</p>
+<h3>4. Track Bug Age and Cost</h3>
+<p>For each bug, track:</p>
+<ul><li>How long it's been in the backlog</li><li>How much time is spent on workarounds monthly</li><li>Estimated fix cost</li><li>Estimated cost of continuing to ignore it</li></ul>
+<p>When you see a bug is costing RM 1,000/month in workaround time and would cost RM 3,000 to fix, the ROI calculation becomes obvious.</p>
+<h2>The Bottom Line</h2>
+<p>"Small" bugs are only small at the moment you discover them. Over time, they grow—in impact, in complexity, in cost, and in risk.</p>
+<p>The cheapest time to fix a bug is always now. The most expensive time is after it's caused a crisis.</p>
+<p>Every day you postpone fixing a known bug, you're making a bet: <em>"I bet this won't cause a bigger problem before we get around to fixing it."</em></p>
+<p>In my 11 years of legacy system work, I've never seen that bet pay off consistently.</p>
+
+          <div class="cta-box">
+            <h3>Sitting on a Bug Backlog?</h3>
+            <p style="color: #D1D5DB;">Let's triage your bugs, assess the real costs, and create a practical fix plan.</p>
+            <a href="../contact.html" class="cta-button">Get FREE Bug Assessment</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do I know if a bug is really "small" or if it will become a problem?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Ask: Does it affect data accuracy? Does it require workarounds? Does it depend on one person's knowledge? If yes to any of these, it's not actually small—it's a growing liability.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if we don't have budget for bug fixes right now?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Track the cost of workarounds and bug impact monthly. Often the cost of NOT fixing bugs (in wasted time and errors) exceeds the cost of fixing them. Reallocating existing waste to bug fixes is usually cash-flow neutral.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should we fix bugs ourselves or hire a developer?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>If you have in-house technical capacity, fix critical bugs immediately. For legacy systems where expertise has left, hiring a specialist is usually faster and less risky than trying to figure it out internally.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">How long should a bug backlog be before we consider the system beyond repair?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It's less about backlog length and more about fixability. If bugs can be fixed incrementally without system-wide rewrites, the system is salvageable. If every bug fix breaks something else, you're looking at a rewrite candidate.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do I convince management to prioritize fixing small bugs when they only see the big issues?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Show them the real costs of ignoring small bugs: time wasted on workarounds, risk of data errors, and the potential for minor issues to escalate into expensive crises. Use real examples from your own operations or the case studies in this article. Emphasize that fixing small bugs early is a low-cost way to prevent much larger problems and protect business continuity.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
