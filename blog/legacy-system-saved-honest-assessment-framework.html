@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>How to Know If Your Legacy System Can Be Saved (Honest Assessment) | SteadyDevs</title>
+  <meta name="description" content="Not every legacy system is worth saving. Here's a practical framework to assess whether yours can be fixed, should be replaced, or needs a hybrid approach—based on 11 years of real-world stabilization projects.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/legacy-system-saved-honest-assessment-framework.html">
+  <meta property="og:title" content="How to Know If Your Legacy System Can Be Saved (Honest Assessment)">
+  <meta property="og:description" content="Not every legacy system is worth saving. Here's a practical framework to assess whether yours can be fixed, should be replaced, or needs a hybrid approach—based on 11 years of real-world stabilization projects.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/legacy-system-assessment.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/legacy-system-saved-honest-assessment-framework.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/legacy-system-assessment.jpg" alt="Evaluating legacy software systems" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>How to Know If Your Legacy System Can Be Saved (Honest Assessment)</h1>
+          <div class="blog-meta">April 24, 2026 | 10 min read</div>
+        </div>
+        <p>"Should we fix this legacy system or replace it entirely?"</p>
+<p>It's the question every business with aging software eventually faces. And it's rarely simple. Fixing might mean throwing good money after bad. Replacing means disruption, risk, and significant investment. Choosing wrong costs tens of thousands of ringgit and months of operational chaos.</p>
+<p>After 11 years stabilizing legacy .NET systems, I've seen systems that were absolutely salvageable, systems that should have been replaced years ago, and everything in between. Here's a practical framework to honestly assess your situation—and make the right decision for your business.</p>
+<h2>The Three Possible Outcomes</h2>
+<p>Before we assess anything, understand your options:</p>
+<h3>1. Stabilize and Maintain (Evolution Path)</h3>
+<p>Fix critical bugs, refactor fragile code, add missing features incrementally. Keep the core system but improve it systematically over time.</p>
+<p><strong>Best for:</strong> Systems with sound foundations that have accumulated neglect but not fundamental architectural problems.</p>
+<h3>2. Hybrid Approach (Strangler Pattern)</h3>
+<p>Keep the legacy core for stable functions, but replace or add new modules using modern technology. Gradually "strangle" the legacy code by building around it.</p>
+<p><strong>Best for:</strong> Large systems where some parts still work well but others are beyond reasonable repair.</p>
+<h3>3. Replace Entirely (Rebuild/Migrate)</h3>
+<p>Build a new system from scratch (or migrate to commercial solution) and sunset the legacy system.</p>
+<p><strong>Best for:</strong> Systems that are fundamentally broken, unmaintainable, or built on technology that's genuinely obsolete.</p>
+<p>Now, how do you determine which path fits your system?</p>
+<h2>Assessment Framework: 7 Critical Dimensions</h2>
+<p>Evaluate your legacy system across these dimensions. Be brutally honest—optimistic assessments lead to expensive mistakes.</p>
+<h3>Dimension 1: Technical Foundation</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>What technology stack is it built on? (.NET Framework version, database, etc.)</li><li>Is that technology still supported by Microsoft/vendors?</li><li>Can you still find developers with expertise in this stack?</li><li>Are there known security vulnerabilities in the framework version?</li><li>Can the current stack run on modern servers/operating systems?</li></ul>
+<p><strong>Green flags (salvageable):</strong></p>
+<ul><li>.NET Framework 4.5+ or .NET Core/5+</li><li>SQL Server 2012+ or modern database</li><li>Technology is still officially supported</li><li>Active developer community exists</li><li>Can deploy on current infrastructure</li></ul>
+<p><strong>Red flags (replacement territory):</strong></p>
+<ul><li>.NET Framework 2.0 or earlier (end-of-life)</li><li>Proprietary/obscure frameworks with no support</li><li>Requires Windows Server 2003 or similarly ancient OS</li><li>Database is Access or similar non-scalable solution</li><li>No one knows how to work with the technology anymore</li></ul>
+<h3>Dimension 2: Code Quality and Architecture</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>Is the code structured with clear separation of concerns?</li><li>Are there layers (presentation, business logic, data access)?</li><li>Is the codebase mostly readable and followable?</li><li>Do changes in one area regularly break unrelated features?</li><li>Is there excessive code duplication?</li></ul>
+<p><strong>Green flags:</strong></p>
+<ul><li>Clear architectural patterns (MVC, layered architecture, etc.)</li><li>Functions/classes have single, clear responsibilities</li><li>Code is mostly understandable by a competent developer</li><li>Changing one module rarely breaks others</li><li>Reasonable amount of code reuse</li></ul>
+<p><strong>Red flags:</strong></p>
+<ul><li>Spaghetti code (everything tangled together)</li><li>2000+ line functions with no structure</li><li>Business logic embedded in database stored procedures or UI code</li><li>Every change breaks something unexpected</li><li>Copy-paste code everywhere (same logic duplicated 20+ times)</li></ul>
+<h3>Dimension 3: Source Code and Documentation</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>Do you have complete source code?</li><li>Is there version control history?</li><li>Is there any documentation (technical specs, business logic)?</li><li>Can you build/deploy the system from source?</li><li>Are there comments explaining complex logic?</li></ul>
+<p><strong>Green flags:</strong></p>
+<ul><li>Full source code with version control (Git, SVN, etc.)</li><li>Build process is documented and works</li><li>Some level of technical documentation exists</li><li>Critical business rules are documented somewhere</li><li>Recent commit history shows what changed and why</li></ul>
+<p><strong>Red flags:</strong></p>
+<ul><li>Only have compiled binaries, no source code</li><li>Source code exists but no one knows how to build it</li><li>Zero documentation anywhere</li><li>No version control (files on shared drive with dates in filename)</li><li>Original developers gone and no knowledge transfer happened</li></ul>
+<div class="warning-box"><p><strong>Critical:</strong> If you don't have source code, you effectively don't own the system. This alone might justify replacement.</p></div>
+<h3>Dimension 4: Business Logic Complexity</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>How complex are your business rules?</li><li>Are the rules documented or only in code?</li><li>Have rules been stable or constantly changing?</li><li>Could business users explain how the system should behave?</li><li>How much domain-specific logic is embedded in the system?</li></ul>
+<p><strong>Leans toward fixing:</strong></p>
+<ul><li>Complex, specialized business logic built over years</li><li>Logic is stable and well-understood</li><li>Rules are documented and traceable to requirements</li><li>Replicating the logic would take months of analysis</li></ul>
+<p><strong>Leans toward replacement:</strong></p>
+<ul><li>Business logic is relatively generic (CRUD operations, standard workflows)</li><li>Rules are simple enough to document in a few days</li><li>Commercial solutions exist that handle your domain</li><li>Logic has changed so much that old code doesn't match current needs</li></ul>
+<p>Complex proprietary business logic is one of the strongest arguments FOR fixing rather than replacing—if the technical foundation supports it.</p>
+<h3>Dimension 5: Data Quality and Schema</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>Is your database schema reasonable and normalized?</li><li>Is data quality good (minimal corruption/inconsistency)?</li><li>Can you export data in standard formats?</li><li>Are there critical data relationships and constraints in place?</li><li>How much data cleanup would migration require?</li></ul>
+<p><strong>Green flags:</strong></p>
+<ul><li>Well-structured database schema with proper relationships</li><li>Data integrity constraints (foreign keys, validations) exist</li><li>Data is mostly clean and consistent</li><li>Export/import capabilities work</li><li>Regular backups and data is recoverable</li></ul>
+<p><strong>Red flags:</strong></p>
+<ul><li>Database is a tangled mess with no clear structure</li><li>Massive data inconsistencies and corruption</li><li>No referential integrity (orphaned records everywhere)</li><li>Data locked in proprietary formats that can't be exported</li><li>Years of accumulated garbage data mixed with valid records</li></ul>
+<p>Good data trapped in bad code is salvageable. Bad data trapped in bad code is a nightmare to migrate.</p>
+<h3>Dimension 6: Current Business Impact</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>How critical is this system to daily operations?</li><li>What's the cost of downtime (per hour/day)?</li><li>How much does the system limit business growth?</li><li>Are competitors outperforming you because they have better systems?</li><li>How much time do staff waste working around system limitations?</li></ul>
+<p><strong>Leans toward incremental fixing:</strong></p>
+<ul><li>System is critical and can't have extended downtime</li><li>Current system mostly works despite issues</li><li>Staff are trained and productive with current system</li><li>Business needs stability more than new features</li></ul>
+<p><strong>Leans toward replacement:</strong></p>
+<ul><li>System frequently crashes or has extended outages</li><li>Staff spend hours daily on manual workarounds</li><li>Can't onboard new customers/scale because system won't handle it</li><li>Lost business opportunities due to system limitations</li><li>Operational costs from system inefficiency exceed replacement cost</li></ul>
+<h3>Dimension 7: Financial Reality</h3>
+<p><strong>Questions to ask:</strong></p>
+<ul><li>What budget is available for fixing vs. replacing?</li><li>What's the total cost of ownership for maintaining legacy system?</li><li>Can the business tolerate a multi-month replacement project?</li><li>What's the cost of doing nothing (system failure risk)?</li><li>Is there funding for interim solutions if needed?</li></ul>
+<p>Rough cost expectations:</p>
+<ul><li><strong>Stabilization and fixes:</strong> RM 20,000-60,000 for significant cleanup</li><li><strong>Hybrid approach:</strong> RM 40,000-100,000+ depending on scope</li><li><strong>Full replacement:</strong> RM 80,000-300,000+ for custom development</ <strong>Commercial solution migration:</strong> RM 30,000-150,000+ for setup and data migration</li></ul>
+<p>If you can't fund replacement but the system is salvageable, incremental fixing might be the only viable path.</p>
+<h2>Decision Matrix: What Do Your Answers Tell You?</h2>
+<h3>Strong Candidate for Stabilization/Fixing:</h3>
+<ul><li>Modern-ish tech stack (.NET Framework 4.5+, supported database)</li><li>Code is messy but structurally sound (has layers, not complete spaghetti)</li><li>You have source code and can build it</li><li>Complex proprietary business logic that would be expensive to rebuild</li><li>Data is good quality in a reasonable schema</li><li>Budget constraints favor incremental improvement</li><li>System is critical and prolonged downtime isn't acceptable</li></ul>
+<p><strong>Recommendation:</strong> Invest in stabilization. Fix critical bugs, refactor dangerous code, add missing features incrementally. Plan for eventual modernization but do it gradually.</p>
+<h3>Strong Candidate for Replacement:</h3>
+<ul><li>Ancient, unsupported technology stack (pre-.NET 4.0, Access database, etc.)</li><li>Code is complete spaghetti with no structure</li><li>No source code, or source code but no build process</li><li>Business logic is relatively simple or well-documented</li><li>System actively prevents business growth</li><li>Budget exists for replacement project</li><li>Staff turnover is high because system is painful to use</li></ul>
+<p><strong>Recommendation:</strong> Plan replacement. Either custom rebuild with modern stack or migrate to commercial solution. Trying to fix this will be throwing money into a bottomless pit.</p>
+<h3>Hybrid Approach Territory:</h3>
+<ul><li>Some modules are solid, others are disasters</li><li>Core domain logic works but UI/reporting/integration fails</li><li>Technology is mixed (some modern, some ancient)</li><li>Can't afford whole replacement but incremental fixes aren't enough</li><li>Need new capabilities that legacy architecture can't support</li></ul>
+<p><strong>Recommendation:</strong> Identify which parts to keep and which to replace. Build new modules with modern tech that integrate with stable legacy core. Create migration path where new gradually replaces old.</p>
+<h2>Real-World Assessment Examples</h2>
+<p><strong>Example 1: Manufacturing ERP (.NET 3.5, 12 years old)</strong></p>
+<ul><li>Tech: .NET 3.5 (outdated but not dead), SQL Server 2008 R2</li><li>Code: Layered architecture, some spaghetti in reporting module</li><li>Source: Full source + version control</li><li>Logic: Extremely complex production scheduling rules built over decade</li><li>Data: Clean, well-structured</li><li>Impact: Critical system, 6-hour downtime would cost RM 50,000+</li></ul>
+<p><strong>Decision:</strong> Hybrid approach. Stabilize core scheduling logic, upgrade framework to .NET 4.8, rebuild reporting module with modern stack. Cost: RM 75,000 over 6 months. Replacement would have cost RM 250,000+ and taken 18 months with massive disruption.</p>
+<p><strong>Example 2: Retail POS System (VB6, Access database, 18 years old)</strong></p>
+<ul><li>Tech: Visual Basic 6 (completely obsolete), Access database</li><li>Code: No structure, 10,000-line functions, copy-paste everywhere</li><li>Source: Have source but build process broken, uses ancient IDE</li><li>Logic: Relatively simple retail operations</li><li>Data: Messy but extractable</li><li>Impact: Frequent crashes, can't integrate with modern systems</li></ul>
+<p><strong>Decision:</strong> Replace entirely. Migrated to commercial cloud-based POS solution. Trying to fix the VB6 system would have been futile—technology is dead, no developers available, can't deploy on modern Windows.</p>
+<p><strong>Example 3: Distribution Management System (.NET 4.6, 7 years old)</strong></p>
+<ul><li>Tech: .NET 4.6 (still supported), SQL Server 2014</li><li>Code: Decent architecture but accumulated bugs and tech debt</li><li>Source: Complete with git history</li><li>Logic: Complex warehouse and routing algorithms</li><li>Data: Good quality, well-structured</li><li>Impact: Works but has frequent bugs causing manual corrections</li></ul>
+<p><strong>Decision:</strong> Stabilization path. Invested RM 40,000 in bug fixes, refactoring dangerous code, adding automated testing. System now stable and maintainable. Replacement would have cost 4x more with questionable benefit.</p>
+<h2>The Bottom Line: Be Honest</h2>
+<p>The most expensive mistake is wishful thinking. Don't convince yourself a system is salvageable when it isn't. Don't replace a system that could be fixed for a fraction of the cost.</p>
+<p>Use this framework honestly:</p>
+<ul><li>Get technical assessment from someone who has no incentive to upsell you</li><li>Calculate realistic costs for BOTH fixing and replacing</li><li>Factor in business disruption and risk</li><li>Consider your team's technical capacity</li><li>Account for future needs, not just current pain</li></ul>
+<p>The right decision depends on your specific system, business context, and constraints. There's no universal answer—but there is an intellectually honest assessment process that leads to the right answer for YOU.</p>
+
+          <div class="cta-box">
+            <h3>Need an Honest System Assessment?</h3>
+            <p style="color: #D1D5DB;">Get a professional technical evaluation and clear recommendation: fix, replace, or hybrid.</p>
+            <a href="../contact.html" class="cta-button">Schedule FREE Assessment</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can you fix a legacy system that has no documentation?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Possibly, if you have source code and the code is reasonably readable. A competent developer can reverse-engineer logic from code. Complete spaghetti code with zero documentation is much harder and might not be worth the effort.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">How long does a good technical assessment take?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>For a thorough assessment: 3-5 days of technical review (code, database, architecture, deployment process) plus meetings with business stakeholders. Rush assessments miss critical issues.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is it ever worth fixing a system built on obsolete technology?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Rarely. If the technology is truly obsolete (can't run on modern OS, no developer community, unsupported frameworks), you're delaying inevitable replacement. Exception: systems with extremely complex logic where bridge/wrapper solutions can buy time.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if we can't afford either fixing or replacing right now?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Document critical bugs and workarounds, back up data religiously, and start budgeting for when the system inevitably fails. Doing nothing is choosing to pay a much higher price later under emergency conditions.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can a hybrid approach really work, or is it just delaying the inevitable?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Hybrid works when you have identifiable stable components worth keeping and problematic areas worth replacing. It's practical for large systems where full replacement is too risky/expensive. But it requires discipline—don't let hybrid become "never finishing the migration."</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>

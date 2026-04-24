@@ -2890,12 +2890,12 @@
     "title": "How to Know If Your Legacy System Can Be Saved (Honest Assessment)",
     "slug": "legacy-system-saved-honest-assessment-framework",
     "excerpt": "Not every legacy system is worth saving. Here's a practical framework to assess whether yours can be fixed, should be replaced, or needs a hybrid approach—based on 11 years of real-world stabilization projects.",
-    "date": "2026-04-12",
-    "dateDisplay": "April 12, 2026",
+    "date": "2026-04-24",
+    "dateDisplay": "April 24, 2026",
     "readTime": "10 min read",
     "tags": ["Legacy Systems", "Assessment", "Decision Framework", ".NET"],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/legacy-system-assessment.jpg",
     "heroImageAlt": "Evaluating legacy software systems",
     "content": [
@@ -3388,7 +3388,7 @@
       },
       {
         "type": "paragraph",
-        "text": "<strong>Decision:</strong> Replace entirely. Migrated to commercial cloud-based POS solution. Cost: RM 45,000 migration + RM 800/month subscription. Trying to fix the VB6 system would have been futile—technology is dead, no developers available, can't deploy on modern Windows."
+        "text": "<strong>Decision:</strong> Replace entirely. Migrated to commercial cloud-based POS solution. Trying to fix the VB6 system would have been futile—technology is dead, no developers available, can't deploy on modern Windows."
       },
       {
         "type": "paragraph",
