@@ -50,13 +50,13 @@
   </url>
   <url>
     <loc>https://steadydevs.com/blog/</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/blog/index.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -81,6 +81,12 @@
   <url>
     <loc>https://steadydevs.com/blog/e-invoice-malaysia-legacy-system-ready.html</loc>
     <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://steadydevs.com/blog/hidden-cost-manual-invoicing-malaysian-smes.html</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
