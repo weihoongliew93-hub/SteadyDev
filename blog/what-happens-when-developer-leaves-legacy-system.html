@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>What Happens to Your Business When the Developer Who Knows Your System Leaves | SteadyDevs</title>
+  <meta name="description" content="Most businesses don't realise how much critical knowledge lives in one person's head — until they're gone. Here's what actually happens, and how to protect yourself before it becomes a crisis.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/what-happens-when-developer-leaves-legacy-system.html">
+  <meta property="og:title" content="What Happens to Your Business When the Developer Who Knows Your System Leaves">
+  <meta property="og:description" content="Most businesses don't realise how much critical knowledge lives in one person's head — until they're gone. Here's what actually happens, and how to protect yourself before it becomes a crisis.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/developer-leaves-legacy-system.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/what-happens-when-developer-leaves-legacy-system.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/developer-leaves-legacy-system.jpg" alt="Empty developer workstation representing knowledge loss risk" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>What Happens to Your Business When the Developer Who Knows Your System Leaves</h1>
+          <div class="blog-meta">May 3, 2026 | 7 min read</div>
+        </div>
+        <p>Every business has at least one — the developer who built the system, who remembers why things were done a certain way, who knows which parts to never touch without a very good reason. They're so deeply embedded in the day-to-day that nobody has really thought about what happens if they leave.</p>
+<p>Then one day, they do. And what follows is not a technical problem — it's a business crisis with technical symptoms.</p>
+<p>After working with legacy .NET systems for over 11 years, I've seen this play out many times. The pattern is almost always the same. Here's what actually happens, and what you can do before it does.</p>
+<h2>The First 48 Hours</h2>
+<p>A bug gets reported. Something small, maybe. Staff can't process a certain transaction, or a report isn't generating. Someone asks: "Who do we call?"</p>
+<p>And the answer is: the person who left.</p>
+<p>In those first two days, everyone is scrambling to find any documentation, any notes, any handover material. Usually there isn't much. The system is still running, but nobody knows <em>why</em> it runs, or how long it will keep running without intervention.</p>
+<div class="warning-box"><p><strong>The Immediate Risk:</strong> Small issues that the departing developer would have resolved in 20 minutes now take days — because the replacement has to first understand what the system does before they can figure out what went wrong.</p></div>
+<h2>The First Month</h2>
+<p>The new developer (internal or external) starts digging through the code. What they find is not a system they can read — it's an archaeology project. Code written in different styles across different years. Business logic buried in database stored procedures that don't have obvious names. Configuration values nobody can explain.</p>
+<p>In one system I took over, a critical piece of business logic was split across three different files with no obvious connection between them. There were no comments explaining the relationship. The only way to understand it was to trace execution manually through the entire flow. What should have been a 2-hour fix took two full days, just to understand the problem — not solve it.</p>
+<ul><li>The new developer spends 70–80% of their time reading code, not writing it</li><li>Business decisions get delayed because nobody can answer "can the system support this?"</li><li>Urgent fixes are made with low confidence — the developer isn't sure what else they might break</li><li>Staff start working around system features because nobody is sure if they still work correctly</li></ul>
+<h2>The Long-Term Damage</h2>
+<p>The crisis phase passes. The system stabilises. But the long-term cost is still accumulating.</p>
+<p>Without someone who understands the full picture, every new developer adds their own interpretation of how the system works. Workarounds pile on top of workarounds. Decisions get made without knowing what already exists. Eventually you have a system where three different developers have each added their own version of the same functionality — because none of them knew the other two had done it.</p>
+<p>Technical debt compounds faster without a foundation of shared knowledge. And the next developer who leaves takes a little more of that knowledge with them.</p>
+<h2>Signs Your System Is Already at Risk</h2>
+<p>You don't have to wait for someone to resign to assess your exposure. These are the warning signs:</p>
+<ul><li>Only one or two people can answer detailed questions about how the system works</li><li>Changes always have to go through a specific person because "only they know how"</li><li>No documentation exists beyond the code itself — or what does exist is years out of date</li><li>If that person was unavailable for two weeks, your team would genuinely struggle</li><li>New developers take months to become productive because there's no structured onboarding to the system</li></ul>
+<div class="tip-box"><p><strong>A Simple Test:</strong> Ask yourself — if your key developer gave two weeks' notice today, what would actually be at risk? The answer to that question is your system's single biggest vulnerability.</p></div>
+<h2>What Real System Documentation Looks Like</h2>
+<p>Documentation is not just comments in code. A developer who has left can't clarify their comments — so documentation needs to capture <em>why</em> decisions were made, not just what the code does.</p>
+<p>What actually protects a business is:</p>
+<ul><li><strong>Data flow documentation</strong> — how data moves through the system, what triggers what</li><li><strong>Decision records</strong> — why key architectural choices were made, what alternatives were considered and rejected</li><li><strong>Danger zones</strong> — specific areas of the code that are fragile, and what to watch out for</li><li><strong>Business logic documentation</strong> — the rules the system enforces, written in plain English, not just in code</li><li><strong>Environment and deployment notes</strong> — how the system is set up, what it depends on, how to deploy changes safely</li></ul>
+<h2>How to Get There Without Disrupting Operations</h2>
+<p>The good news: you don't need a perfect handover to protect yourself. You need a structured starting point.</p>
+<p>The most practical approach is a dedicated system understanding engagement — a focused period where an experienced developer reads through the system, maps what it does, documents the critical paths, and produces a written assessment. This is not about rewriting anything. It's about creating the knowledge base that lets your business survive the next transition without a crisis.</p>
+<p>It also has a secondary benefit that most businesses don't expect: once the system is properly documented, onboarding new developers becomes dramatically faster — from months to weeks. The time investment pays back on the very first hire.</p>
+
+          <div class="cta-box">
+            <h3>Protect Your Business Before It Becomes a Crisis</h3>
+            <p style="color: #D1D5DB;">SteadyDevs offers a System Understanding & Roadmap service specifically for this situation — a structured review that maps your system, documents critical knowledge, and gives you a clear picture of what needs attention. Get a free consultation to find out what's at risk.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much documentation is actually enough to protect us?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>You don't need perfect documentation — you need enough that a competent developer could take over the system without needing the previous developer to answer questions. That means: data flow, key business rules, known risks, and deployment procedures. Even a rough but accurate document is far more valuable than no document.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if the developer is still here but we want to reduce the risk now?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>This is the ideal time. An experienced third party can work alongside your current developer to extract and document their knowledge in a structured way — before it's lost. The developer doesn't need to write all the documentation themselves; they just need to answer questions while someone else captures the answers properly.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can you take over support of our system once you've documented it?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes. Once we understand how your system works, we can move into an ongoing maintenance and support arrangement. Many clients start with the System Understanding & Roadmap engagement and then continue with retainer support — where we handle bugs, improvements, and questions on an ongoing basis.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">How long does a system understanding review take?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It depends on system size and complexity. For most legacy .NET systems in the small-to-medium business range, a thorough review takes 3–6 weeks. We produce a written deliverable at the end — not just verbal knowledge transfer.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if we don't even have a clear picture of what our own system does?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>That's actually the most common starting point. Most businesses in this situation know something isn't right but can't articulate exactly what. The System Understanding review starts exactly there — we ask the questions, explore the system, and surface what matters. You don't need to know the answers before we begin; finding them is the whole point of the engagement.</p>
+                </div>
+              </div>
+            
+          </div>
+<p><em style="color: #9CA3AF;">Have questions about your specific situation? <a href="../contact.html" style="color: #60A5FA;">Get in touch</a> for a free consultation.</em></p>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
