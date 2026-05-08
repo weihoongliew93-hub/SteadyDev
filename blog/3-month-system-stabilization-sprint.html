@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The 3-Month System Stabilization Sprint: A Framework for Crisis Mode | SteadyDevs</title>
+  <meta name="description" content="When your legacy system is actively causing business problems, you need a structured approach to stabilize fast. Here's a proven 90-day framework for taking systems from crisis to manageable—without a complete rewrite.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/3-month-system-stabilization-sprint.html">
+  <meta property="og:title" content="The 3-Month System Stabilization Sprint: A Framework for Crisis Mode">
+  <meta property="og:description" content="When your legacy system is actively causing business problems, you need a structured approach to stabilize fast. Here's a proven 90-day framework for taking systems from crisis to manageable—without a complete rewrite.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/system-stabilization-sprint.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/3-month-system-stabilization-sprint.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/system-stabilization-sprint.jpg" alt="Emergency system stabilization process" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>The 3-Month System Stabilization Sprint: A Framework for Crisis Mode</h1>
+          <div class="blog-meta">May 8, 2026 | 14 min read</div>
+        </div>
+        <p>Your system is actively causing problems. Daily crashes. Data corruption. Security vulnerabilities. Performance so slow your staff can't work. Customer complaints mounting.</p>
+<p>Your options seem to be: (1) rebuild completely (6-12+ months, RM 100,000+), or (2) keep firefighting indefinitely. Both options feel impossible.</p>
+<p>There's a third option: <strong>the 90-day stabilization sprint.</strong></p>
+<p>I've used this framework on dozens of Malaysian SME systems in crisis. It's not a complete fix, and it's not a transformation—it's a structured way to take a system from "actively breaking the business" to "manageable and functional" in three months.</p>
+<p>Here's exactly how it works.</p>
+<h2>What Is a Stabilization Sprint?</h2>
+<p>A stabilization sprint is a time-boxed, intensive effort to:</p>
+<ul><li>Stop the bleeding (fix crisis-level problems)</li><li>Eliminate high-impact bugs and vulnerabilities</li><li>Improve performance to acceptable levels</li><li>Document the system enough for ongoing maintenance</li><li>Establish monitoring and backup systems</li><li>Create a sustainable maintenance plan going forward</li></ul>
+<p><strong>What it is NOT:</strong></p>
+<ul><li>Not a complete rewrite</li><li>Not adding new features (except critical ones)</li><li>Not achieving perfection</li><li>Not eliminating all technical debt</li><li>Not modernizing the technology stack</li></ul>
+<p><strong>Goal:</strong> Transform a system from crisis state to stable enough to run business operations reliably while you decide long-term strategy.</p>
+<p><strong>Timeline:</strong> 90 days (3 months)</p>
+<p><strong>Typical cost:</strong> RM 25,000-60,000 depending on system complexity and crisis severity</p>
+<h2>When You Need Stabilization Sprint vs Other Solutions</h2>
+<p>Use stabilization sprint when:</p>
+<ul><li>System is causing active business problems RIGHT NOW</li><li>Can't afford 6-12 month rebuild timeline</li><li>Need the system functional while planning long-term strategy</li><li>System isn't fundamentally broken—just neglected and degraded</li><li>Business is losing money/customers due to system problems</li><li>Staff morale suffering from constant system firefighting</li></ul>
+<p>DON'T use stabilization sprint when:</p>
+<ul><li>System is fundamentally architecturally broken (see our assessment framework article)</li><li>Security vulnerabilities are so deep they can't be patched</li><li>Platform is genuinely obsolete with no available expertise</li><li>You've already decided to rebuild and have budget/timeline</li><li>"Stabilization" would cost more than 50% of rebuild cost</li></ul>
+<h2>The 90-Day Framework: Three Phases</h2>
+<p>The sprint divides into three 30-day phases:</p>
+<h3>Phase 1 (Days 1-30): Triage and Critical Fixes</h3>
+<p><strong>Goal:</strong> Stop the bleeding. Fix problems causing immediate business damage.</p>
+<h3>Phase 2 (Days 31-60): Systematic Stabilization</h3>
+<p><strong>Goal:</strong> Address root causes. Improve performance, security, and reliability.</p>
+<h3>Phase 3 (Days 61-90): Documentation and Sustainability</h3>
+<p><strong>Goal:</strong> Make the system maintainable. Enable ongoing operation without constant crisis.</p>
+<h2>Phase 1 (Days 1-30): Triage and Critical Fixes</h2>
+<h3>Week 1: Assessment and Prioritization</h3>
+<p><strong>Activities:</strong></p>
+<ul><li><strong>Day 1-2: Problem inventory</strong> - Document every known issue from users, IT staff, management</li><li><strong>Day 3-4: Technical assessment</strong> - Review code, database, server logs, error patterns</li><li><strong>Day 5: Crisis triage meeting</strong> - Categorize all problems by business impact and technical complexity</li></ul>
+<p><strong>Deliverable:</strong> Prioritized problem list categorized as:</p>
+<ul><li><strong>Critical:</strong> Causing data loss, security breaches, or complete system failure</li><li><strong>High:</strong> Severely impacting operations or customer experience</li><li><strong>Medium:</strong> Causing friction but business functions</li><li><strong>Low:</strong> Annoyances that can wait</li></ul>
+<p><strong>Decision:</strong> Identify top 5-8 critical problems to fix first.</p>
+<h3>Week 2-4: Emergency Fixes</h3>
+<p><strong>Focus:</strong> Fix only the critical and high-priority problems identified in Week 1.</p>
+<p><strong>Common Week 2-4 fixes:</strong></p>
+<ul><li><strong>Data corruption bugs:</strong> Fix bugs causing data loss or inconsistency</li><li><strong>Critical security holes:</strong> Patch SQL injection, authentication bypass, or other severe vulnerabilities</li><li><strong>Performance killers:</strong> Fix queries or processes causing severe slowdowns</li><li><strong>Crash-causing bugs:</strong> Eliminate bugs causing system crashes or freezes</li><li><strong>Backup implementation:</strong> Set up automated backups if not already working</li><li><strong>Monitoring setup:</strong> Implement basic error logging and monitoring</li></ul>
+<p><strong>Approach:</strong></p>
+<ul><li>Fix fast—don't aim for perfect code, aim for working code</li><li>Test thoroughly—don't create new problems while fixing old ones</li><li>Deploy incrementally—release fixes as soon as tested rather than batching</li><li>Document workarounds—if proper fix takes too long, implement workaround and document proper fix for Phase 2</li></ul>
+<p><strong>Success metric:</strong> By end of Week 4, system should no longer be causing active business crises.</p>
+<h3>Phase 1 Deliverables:</h3>
+<ul><li>Critical bugs fixed</li><li>System no longer causing daily firefighting</li><li>Backups working automatically</li><li>Basic monitoring in place</li><li>Documented list of remaining issues for Phase 2</li></ul>
+<h2>Phase 2 (Days 31-60): Systematic Stabilization</h2>
+<p><strong>Goal:</strong> Address root causes of instability rather than just symptoms.</p>
+<h3>Week 5-6: Performance Optimization</h3>
+<p><strong>Activities:</strong></p>
+<ul><li><strong>Database optimization:</strong> Add missing indexes, optimize slow queries, clean up bloated tables</li><li><strong>Code optimization:</strong> Fix inefficient loops, reduce unnecessary database calls, optimize frequently-used functions</li><li><strong>Caching implementation:</strong> Add caching for frequently-accessed data</li><li><strong>Resource cleanup:</strong> Fix memory leaks, close database connections properly, clean up temporary files</li><li><strong>Load testing:</strong> Identify performance bottlenecks under real usage patterns</li></ul>
+<p><strong>Target:</strong> System performance acceptable for current business volume (response times under 3-5 seconds for typical operations).</p>
+<h3>Week 7-8: Security Hardening</h3>
+<p><strong>Activities:</strong></p>
+<ul><li><strong>Vulnerability patching:</strong> Fix known security vulnerabilities in framework, libraries, and custom code</li><li><strong>Authentication strengthening:</strong> Improve password policies, implement session timeouts, add multi-factor authentication if needed</li><li><strong>Input validation:</strong> Add validation to prevent SQL injection, XSS, and other injection attacks</li><li><strong>Access control audit:</strong> Review and fix authorization logic—ensure users can only access what they should</li><li><strong>Security configuration:</strong> Harden server/database configuration, disable unnecessary services, update security settings</li></ul>
+<p><strong>Target:</strong> System passes basic security audit with no critical or high-severity vulnerabilities.</p>
+<h3>Phase 2 Deliverables:</h3>
+<ul><li>System performance acceptable for business operations</li><li>Critical security vulnerabilities patched</li><li>No active security threats</li><li>System stable under normal load</li><li>Reduced error rates</li></ul>
+<h2>Phase 3 (Days 61-90): Documentation and Sustainability</h2>
+<p><strong>Goal:</strong> Make the system maintainable by creating documentation, establishing processes, and planning ongoing maintenance.</p>
+<h3>Week 9: Technical Documentation</h3>
+<p><strong>Create:</strong></p>
+<ul><li><strong>System architecture document:</strong> High-level overview of how system works, major components, dependencies</li><li><strong>Database documentation:</strong> Schema diagrams, table relationships, key fields</li><li><strong>Code documentation:</strong> Comments for complex logic, explanation of key modules</li><li><strong>Deployment guide:</strong> How to deploy updates, rollback procedures</li><li><strong>Known issues log:</strong> Documented list of remaining technical debt and quirks</li></ul>
+<p><strong>Audience:</strong> Future developers who need to maintain or modify the system.</p>
+<h3>Week 10: Operational Documentation</h3>
+<p><strong>Create:</strong></p>
+<ul><li><strong>Backup and recovery procedures:</strong> How to restore from backup, what's backed up, recovery time estimates</li><li><strong>Monitoring and alerts guide:</strong> What to monitor, how to interpret alerts, escalation procedures</li><li><strong>Common problems troubleshooting:</strong> Known issues and how to resolve them</li><li><strong>User documentation updates:</strong> Document any changed workflows or features</li><li><strong>Maintenance procedures:</strong> Regular maintenance tasks (database cleanup, log rotation, etc.)</li></ul>
+<p><strong>Audience:</strong> IT staff and system administrators responsible for day-to-day operations.</p>
+<h3>Week 11: Ongoing Maintenance Plan</h3>
+<p><strong>Establish:</strong></p>
+<ul><li><strong>Monthly maintenance schedule:</strong> Regular tasks to keep system healthy</li><li><strong>Bug tracking process:</strong> How to report, prioritize, and fix new bugs</li><li><strong>Update policy:</strong> How often to update, testing procedures</li><li><strong>Support arrangement:</strong> Who maintains the system going forward (internal team, external contractor, vendor)</li><li><strong>Budget allocation:</strong> Monthly/annual maintenance budget</li><li><strong>Health metrics:</strong> Key indicators to track system health (uptime, error rates, performance)</li></ul>
+<h3>Week 12: Knowledge Transfer and Handoff</h3>
+<p><strong>Activities:</strong></p>
+<ul><li><strong>Training sessions:</strong> Train internal IT staff or ongoing maintenance team on system</li><li><strong>Documentation review:</strong> Walk through all documentation with stakeholders</li><li><strong>Handoff meeting:</strong> Formal transfer of system responsibility</li><li><strong>90-day retrospective:</strong> Review what was accomplished, what remains, lessons learned</li><li><strong>Long-term planning:</strong> Discuss options—continue maintaining, plan gradual modernization, or plan replacement</li></ul>
+<h3>Phase 3 Deliverables:</h3>
+<ul><li>Complete technical documentation</li><li>Operational procedures documented</li><li>Ongoing maintenance plan established</li><li>Team trained on system maintenance</li><li>Clear understanding of system state and future options</li></ul>
+<h2>Critical Success Factors</h2>
+<p>Stabilization sprints succeed when these factors are present:</p>
+<h3>1. Executive Commitment</h3>
+<ul><li>CEO/owner personally invested in success</li><li>Stabilization treated as business priority, not just IT project</li><li>Resources (time, budget, access) provided without hesitation</li><li>Decisions made quickly when needed</li></ul>
+<h3>2. Experienced Technical Lead</h3>
+<ul><li>Specialist with legacy system stabilization experience</li><li>Authority to make technical decisions</li><li>Able to triage effectively—knows what to fix vs what to defer</li><li>Communicates clearly with non-technical stakeholders</li></ul>
+<h3>3. Realistic Scope Management</h3>
+<ul><li>No feature additions during sprint (except critical ones)</li><li>Ruthless prioritization—fix what matters most</li><li>Acceptance that not everything will be perfect at end</li><li>Understanding that this is stabilization, not transformation</li></ul>
+<h3>4. User Cooperation</h3>
+<ul><li>Users willing to test fixes quickly</li><li>Staff available to explain problems and workflows</li><li>Tolerance for temporary disruption during fix deployments</li><li>Feedback provided promptly</li></ul>
+<h3>5. Continuous Communication</h3>
+<ul><li>Weekly progress updates to stakeholders</li><li>Transparent about problems discovered</li><li>Celebrate wins (bugs fixed, performance improved)</li><li>Adjust plan when reality demands it</li></ul>
+<h2>What to Expect: Realistic Outcomes</h2>
+<p>After a 90-day stabilization sprint, expect:</p>
+<h3>What You Will Get:</h3>
+<ul><li>System that reliably runs daily business operations</li><li>No more daily crisis firefighting</li><li>Performance acceptable for current business volume</li><li>Critical security vulnerabilities patched</li><li>Documented system that can be maintained going forward</li><li>Clear understanding of system limitations and remaining issues</li><li>Sustainable maintenance plan</li></ul>
+<h3>What You Won't Get:</h3>
+<ul><li>Perfect, bug-free system</li><li>Modern technology stack</li><li>New features beyond critical needs</li><li>Elimination of all technical debt</li><li>Infinite scalability</li><li>Beautiful, refactored code throughout</li></ul>
+<h3>Typical Improvements (Measured):</h3>
+<ul><li><strong>Uptime:</strong> 85-90% → 98-99%</li><li><strong>Performance:</strong> 15-30 second operations → 2-5 seconds</li><li><strong>Error rates:</strong> Daily errors → weekly or monthly</li><li><strong>Staff firefighting time:</strong> 10-20 hours/week → 1-2 hours/week</li><li><strong>User satisfaction:</strong> Frustrated → Acceptably functional</li></ul>
+<h2>Cost and Resource Requirements</h2>
+<h3>Typical Budget:</h3>
+<ul><li><strong>Small systems (single module, simple):strong> RM 25,000-40,000</li><li><strong>Medium systems (multiple modules, moderate complexity):</strong> RM 40,000-60,000</li><li><strong>Large/complex systems:</strong> RM 60,000-90,000</li></ul>
+<h3>Team Requirements:</h3>
+<ul><li><strong>Lead developer/architect:</strong> Full-time for 90 days</li><li><strong>Additional developer(s):</strong> Part-time or full-time depending on system complexity</li><li><strong>Internal IT liaison:</strong> 25-50% time commitment</li><li><strong>Business stakeholders:</strong> 5-10 hours/week for meetings, testing, decisions</li></ul>
+<h3>Timeline Factors:</h3>
+<p>90 days assumes:</p>
+<ul><li>Immediate access to system, code, database</li><li>Stakeholders available for quick decisions</li><li>Testing resources available when needed</li><li>No major scope changes during sprint</li></ul>
+<p>Timeline extends to 4-5 months if:</p>
+<ul><li>System extremely complex or large</li><li>Documentation completely absent</li><li>Original developers unavailable and no knowledge transfer</li><li>Business can't provide timely access or decisions</li></ul>
+<h2>After the Sprint: What Comes Next?</h2>
+<p>At the end of 90 days, you'll face a decision about the system's future:</p>
+<h3>Option 1: Ongoing Maintenance Mode</h3>
+<p><strong>Continue maintaining stabilized system indefinitely</strong></p>
+<ul><li><strong>Best for:</strong> System meets business needs, budget constraints prevent replacement</li><li><strong>Cost:</strong> RM 3,000-8,000/month for ongoing maintenance</li><li><strong>Timeline:</strong> Can run system 2-5+ years with proper maintenance</li><li><strong>Risk:</strong> Technology continues aging, talent pool shrinks over time</li></ul>
+<h3>Option 2: Gradual Modernization</h3>
+<p><strong>Incrementally replace or modernize system components</strong></p>
+<ul><li><strong>Best for:</strong> System core is solid but some components need replacement</li><li><strong>Cost:</strong> RM 50,000-150,000 over 12-24 months</li><li><strong>Timeline:</strong> 1-2 years to complete</li><li><strong>Risk:</strong> Lower than complete rewrite, higher than pure maintenance</li></ul>
+<h3>Option 3: Planned Replacement</h3>
+<p><strong>Build or buy new system while stabilized system continues running</strong></p>
+<ul><li><strong>Best for:</strong> System fundamentally limited, business needs major new capabilities</li><li><strong>Cost:</strong> RM 100,000-500,000+ depending on scope</li><li><strong>Timeline:</strong> 12-24 months typical</li><li><strong>Advantage:</strong> Stabilized system buys time to plan replacement properly</li></ul>
+<p>The stabilization sprint doesn't decide your long-term strategy—it creates breathing room to make that decision calmly instead of in crisis mode.</p>
+<h2>Real Example: Manufacturing Company Sprint</h2>
+<p>RM 15M revenue manufacturing company, 12-year-old inventory/production system causing daily problems:</p>
+<h3>Crisis State (Day 0):</h3>
+<ul><li>System crashed 2-3 times per week</li><li>Inventory reports took 20+ minutes to generate</li><li>Data corruption in production orders weekly</li><li>No backups working</li><li>Staff spending 15+ hours/week on system workarounds</li><li>Production delays due to system unreliability</li></ul>
+<h3>Stabilization Sprint Execution:</h3>
+<p><strong>Phase 1 (Month 1):</strong></p>
+<ul><li>Fixed 3 critical bugs causing crashes</li><li>Implemented automated backups</li><li>Patched SQL injection vulnerability</li><li>Set up error monitoring</li></ul>
+<p><strong>Phase 2 (Month 2):</strong></p>
+<ul><li>Optimized 12 slow database queries</li><li>Added missing database indexes</li><li>Fixed memory leak in production module</li><li>Hardened authentication system</li></ul>
+<p><strong>Phase 3 (Month 3):</strong></p>
+<ul><li>Created system documentation</li><li>Trained internal IT staff</li><li>Established monthly maintenance plan</li><li>Documented 8 remaining non-critical issues for future work</li></ul>
+<h3>Outcome (Day 90):</h3>
+<ul><li>Zero crashes in final 30 days of sprint</li><li>Report generation: 20 minutes → 30-45 seconds</li><li>No data corruption incidents</li><li>Backups running nightly automatically</li><li>Staff workaround time: 15 hours/week → 2 hours/week</li><li>Production no longer delayed by system issues</li><li><strong>Cost:</strong> RM 48,000</li><li><strong>Decision:</strong> Continue maintenance mode for 2-3 years while accumulating budget for eventual replacement</li></ul>
+<h2>The Bottom Line</h2>
+<p>When your legacy system is in crisis, you don't need to choose between "suffer indefinitely" and "spend RM 200,000 on complete rebuild."</p>
+<p>The 90-day stabilization sprint is the middle path: intensive, focused work to take your system from crisis to manageable in three months.</p>
+<p>It won't give you a perfect system, but it will give you:</p>
+<ul><li>A system that works reliably enough to run your business</li><li>Breathing room to plan long-term strategy without crisis pressure</li><li>Documentation and processes to maintain the system sustainably</li><li>Clear understanding of what the system can and can't do</li><li>Time to save budget for eventual replacement if needed</li></ul>
+<p>Most businesses running stabilized systems continue operating them successfully for 2-5 years while planning their next move—whether that's continued maintenance, gradual modernization, or eventual replacement.</p>
+<p>The key is getting OUT of crisis mode first. That's what the 90-day sprint delivers.</p>
+
+          <div class="cta-box">
+            <h3>Is Your System in Crisis Mode?</h3>
+            <p style="color: #D1D5DB;">We can assess your system and execute a 90-day stabilization sprint to get you back to functional operations.</p>
+            <a href="../contact.html" class="cta-button">Start Stabilization Sprint</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can we do a stabilization sprint in less than 90 days?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Possible but risky. 60-day sprints work for simpler systems, but rushing stabilization often means missed issues that surface later. The 90-day timeline allows proper triage, testing, and documentation.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if we discover the system is actually unfixable during the sprint?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Early termination clause should be in contract. If system is genuinely unfixable, experienced lead will identify this in Phase 1 (first 30 days). You'll have assessment results and can shift to replacement planning, having spent only ⅓ of budget.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can we add new features during the stabilization sprint?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Generally no—sprint focuses on stability first. Exception: if a feature is CRITICAL for business operations and can be added quickly. New features usually deferred to post-sprint maintenance phase.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">What happens if the developer finds more problems than expected?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Common occurrence. Good sprint management means constant re-prioritization. Fix what matters most within 90 days, document the rest for future work. The goal is functional stability, not perfection.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do we maintain the system after the sprint ends?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Options: (1) retainer with sprint developer, (2) train internal team during sprint, (3) hire specialist for ongoing maintenance. Plan this in Phase 3. Budget RM 3,000-8,000/month for ongoing maintenance depending on system complexity.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
