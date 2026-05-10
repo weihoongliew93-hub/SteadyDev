@@ -104,11 +104,46 @@ function generateHTML(post) {
   <meta property="og:description" content="${post.excerpt}">
   <meta property="og:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
   
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${post.title}">
+  <meta name="twitter:description" content="${post.excerpt}">
+  <meta name="twitter:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
+  
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/${post.slug}.html">
   
   <link rel="stylesheet" href="../assets/style.css?v=83">
   <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Article Schema (BlogPosting) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "${post.title}",
+    "image": "https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}",
+    "datePublished": "${post.date}",
+    "dateModified": "${post.date}",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "${post.excerpt}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/${post.slug}.html"
+    }
+  }
+  </script>
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -126,7 +161,7 @@ function generateHTML(post) {
   <header>
     <div class="header-content">
       <a href="../index.html" class="logo-link">
-        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs Logo" class="site-logo">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span>
@@ -150,6 +185,45 @@ function generateHTML(post) {
       </nav>
     </div>
   </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">${post.title}</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "${post.title}",
+        "item": "https://steadydevs.com/blog/${post.slug}.html"
+      }
+    ]
+  }
+  </script>
 
   <div class="container">
     <!-- TOC Toggle Button for Mobile/Tablet -->
