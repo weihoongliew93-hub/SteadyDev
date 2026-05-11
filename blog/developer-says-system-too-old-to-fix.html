@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Your Developer Says the System is 'Too Old to Fix': Is That Actually True? | SteadyDevs</title>
+  <meta name="description" content="When a developer tells you your legacy system can't be fixed, are they right—or just reluctant? Here's how to verify the diagnosis, spot red flags of lazy assessment, and get a real answer about your system's future.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/developer-says-system-too-old-to-fix.html">
+  <meta property="og:title" content="Your Developer Says the System is 'Too Old to Fix': Is That Actually True?">
+  <meta property="og:description" content="When a developer tells you your legacy system can't be fixed, are they right—or just reluctant? Here's how to verify the diagnosis, spot red flags of lazy assessment, and get a real answer about your system's future.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/developer-assessment-credibility.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Developer Says the System is 'Too Old to Fix': Is That Actually True?">
+  <meta name="twitter:description" content="When a developer tells you your legacy system can't be fixed, are they right—or just reluctant? Here's how to verify the diagnosis, spot red flags of lazy assessment, and get a real answer about your system's future.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/developer-assessment-credibility.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/developer-says-system-too-old-to-fix.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Article Schema (BlogPosting) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your Developer Says the System is 'Too Old to Fix': Is That Actually True?",
+    "image": "https://steadydevs.com/images/blog/developer-assessment-credibility.jpg",
+    "datePublished": "2026-05-11",
+    "dateModified": "2026-05-11",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "When a developer tells you your legacy system can't be fixed, are they right—or just reluctant? Here's how to verify the diagnosis, spot red flags of lazy assessment, and get a real answer about your system's future.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/developer-says-system-too-old-to-fix.html"
+    }
+  }
+  </script>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">Your Developer Says the System is 'Too Old to Fix': Is That Actually True?</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Your Developer Says the System is 'Too Old to Fix': Is That Actually True?",
+        "item": "https://steadydevs.com/blog/developer-says-system-too-old-to-fix.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/developer-assessment-credibility.jpg" alt="Evaluating developer assessment of legacy systems" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>Your Developer Says the System is 'Too Old to Fix': Is That Actually True?</h1>
+          <div class="blog-meta">May 11, 2026 | 13 min read</div>
+        </div>
+        <p>"Your system is too old. The technology is obsolete. We should rebuild from scratch."</p>
+<p>Every Malaysian business owner with a legacy system has heard this at some point—usually from a developer who either wants a lucrative rebuild project or doesn't want to deal with old code.</p>
+<p>But here's the challenge: <strong>sometimes developers are absolutely right, and sometimes they're absolutely wrong.</strong> How do you tell the difference when you're not technical yourself?</p>
+<p>I've spent 11 years stabilizing "unfixable" legacy systems. I've seen systems that genuinely needed replacement, and I've seen systems declared "dead" by developers that ran successfully for another 5+ years after proper maintenance. Let me show you how to tell which is which.</p>
+<h2>Why Developers Say Systems Are Unfixable</h2>
+<p>Before assuming bad intent, understand the legitimate and illegitimate reasons developers declare systems beyond repair:</p>
+<h3>Legitimate Technical Reasons</h3>
+<ul><li><strong>Framework/platform genuinely obsolete:</strong> Running on technology that has zero support, no security updates, and no available expertise</li><li><strong>Architectural decay beyond repair:</strong> Core design so flawed that every fix breaks something else</li><li><strong>Code quality collapsed:</strong> Years of bad patches created unmaintainable spaghetti code</li><li><strong>Security vulnerabilities too deep:</strong> Known exploits that can't be patched without complete rewrite</li><li><strong>Performance degradation unfixable:</strong> Database schema or architecture fundamentally can't handle current load</li><li><strong>Integration impossibility:</strong> System architecture prevents connecting to modern systems/APIs</li></ul>
+<p>These are real technical death sentences. Systems with these problems often do need replacement.</p>
+<h3>Illegitimate (But Common) Reasons</h3>
+<ul><li><strong>Developer doesn't know the technology:</strong> "It's old" often means "I don't know it and don't want to learn"</li><li><strong>Rebuild is more profitable:</strong> Fixing systems pays less than building new ones</li><li><strong>Code is messy but functional:</strong> Developer confuses "I don't like this code" with "this code doesn't work"</li><li><strong>No documentation:</strong> Developer doesn't want to invest time understanding existing system</li><li><strong>Previous bad experience:</strong> Developer struggled with ONE legacy system and now assumes ALL old systems are unfixable</li><li><strong>Resume building:</strong> Young developers want modern tech stack experience, not maintenance work</li></ul>
+<p>These reasons feel technical but aren't actual system limitations—they're developer preferences or business interests.</p>
+<h3>The Gray Zone: Fixable But Hard</h3>
+<ul><li><strong>Limited expertise available:</strong> Technology is old but specialists still exist (just harder to find)</li><li><strong>High technical debt:</strong> System needs significant cleanup but isn't fundamentally broken</li><li><strong>Performance issues solvable:</strong> Requires optimization work but doesn't need complete rewrite</li><li><strong>Partial obsolescence:</strong> Some components need replacement but core system is salvageable</li><li><strong>Integration challenges:</strong> Requires custom bridging/middleware but is technically possible</li></ul>
+<p>These systems CAN be fixed—it's just harder and requires more specialized skills than building new. Developers often recommend replacement for gray-zone systems because it's easier for them, not because it's necessary.</p>
+<h2>Red Flags: Signs Your Developer Might Be Wrong</h2>
+<p>Watch for these warning signs that suggest the "unfixable" diagnosis might be inaccurate:</p>
+<h3>Red Flag #1: They Didn't Actually Analyze the System</h3>
+<p><strong>What it looks like:</strong></p>
+<ul><li>Assessment took less than a day</li><li>They never asked for database access or full codebase review</li><li>No written analysis—just verbal "this is too old"</li><li>Can't explain specific technical barriers when pressed</li><li>Assessment focused on what technology it uses rather than how it actually works</li></ul>
+<p><strong>What this means:</strong> They made a surface judgment based on technology age, not actual system health. Legitimate assessments require deep analysis—examining code quality, architecture, database health, dependencies, and integration points. Quick dismissals are usually lazy.</p>
+<h3>Red Flag #2: They Recommend Complete Rewrite as Only Option</h3>
+<p><strong>What it looks like:</strong></p>
+<ul><li>Only solution offered is "build new system from scratch"</li><li>No discussion of partial modernization, refactoring, or stabilization options</li><li>Dismiss questions about interim fixes as "throwing good money after bad"</li><li>Can't explain why specific components couldn't be updated incrementally</li></ul>
+<p><strong>What this means:</strong> Experienced legacy system specialists almost always identify multiple options with different cost/risk tradeoffs. Only offering "rebuild or nothing" suggests they either lack experience with legacy systems or have ulterior motives.</p>
+<h3>Red Flag #3: They Can't Articulate Specific Technical Barriers</h3>
+<p><strong>What it looks like:</strong></p>
+<ul><li>Vague explanations: "The technology is just too old"</li><li>Hand-waving: "Nobody uses this anymore"</li><li>Can't explain WHY specific features can't be added or fixed</li><li>Responses get defensive when asked for details</li><li>No documentation of specific technical debt or architectural problems</li></ul>
+<p><strong>What this means:</strong> Legitimate technical barriers are concrete and explainable. If a developer can't clearly articulate why something is impossible, they probably don't actually know if it is.</p>
+<h3>Red Flag #4: The System Currently Works Fine</h3>
+<p><strong>What it looks like:</strong></p>
+<ul><li>System is stable—no crashes, data corruption, or serious bugs</li><li>Performance is acceptable for current usage</li><li>Users can do their work without major workarounds</li><li>Security hasn't been breached</li><li>You just need to add ONE new feature or integration</li></ul>
+<p><strong>What this means:</strong> If the system currently works, it's not "unfixable"—it's WORKING. The question is whether it can be EXTENDED, not whether it can be FIXED. These are different problems with different solutions.</p>
+<h3>Red Flag #5: They Have Financial Incentive for Rebuild</h3>
+<p><strong>What it looks like:</strong></p>
+<ul><li>Developer/agency specializes in new development, not maintenance</li><li>Rebuild quote is 5-10x higher than fix quote from other sources</li><li>They get ongoing maintenance contract if you rebuild with them</li><li>They've been trying to convince you to rebuild for months/years</li><li>They dismiss every alternative as insufficient</li></ul>
+<p><strong>What this means:</strong> Follow the money. Rebuilds are more profitable than maintenance. While financial incentive doesn't mean they're wrong, it does mean you need independent verification.</p>
+<h2>Green Flags: Signs Your Developer Might Be Right</h2>
+<p>Conversely, these signs suggest the "unfixable" diagnosis might be accurate:</p>
+<h3>Green Flag #1: Thorough Analysis with Documentation</h3>
+<ul><li>Multi-day assessment including code review, database analysis, architecture documentation</li><li>Written report with specific technical findings</li><li>Clear explanation of what's broken and why it can't be fixed</li><li>Evidence provided (screenshots of code quality tools, security scan results, etc.)</li></ul>
+<h3>Green Flag #2: Multiple Options Presented</h3>
+<ul><li>Options include: stabilize current system, partial modernization, gradual migration, complete rebuild</li><li>Honest assessment of pros/cons/costs for each option</li><li>Acknowledgment that rebuild is expensive and risky</li><li>Recommendation comes with explanation of why alternatives won't work</li></ul>
+<h3>Green Flag #3: Specific, Concrete Technical Barriers</h3>
+<ul><li>"The framework reached end-of-life in 2018 and has unpatched security vulnerabilities CVE-2019-XXXX"</li><li>"The database schema violates normalization principles so severely that query performance degrades exponentially with data growth"</li><li>"The authentication system uses MD5 hashing which is cryptographically broken and can't be upgraded without breaking all existing user accounts"</li><li>"The code has cyclomatic complexity scores above 50 in core modules, indicating untestable spaghetti code"</li></ul>
+<p>Specific, verifiable technical details indicate thorough analysis.</p>
+<h3>Green Flag #4: The System Has Obvious Serious Problems</h3>
+<ul><li>Frequent crashes or data corruption</li><li>Performance degraded to unusable levels</li><li>Security breaches have occurred</li><li>Every fix causes new bugs</li><li>Critical features simply don't work</li><li>Can't hire anyone willing to work on it at reasonable rates</li></ul>
+<h3>Green Flag #5: Second Opinion Agrees</h3>
+<ul><li>Independent assessment from different developer reaches same conclusion</li><li>Multiple specialists confirm the technology is obsolete</li><li>Industry consensus that this platform is dead</li><li>Security auditors flag critical unfixable vulnerabilities</li></ul>
+<h2>How to Verify the Diagnosis: Questions to Ask</h2>
+<p>When a developer tells you your system is unfixable, ask these questions to verify their assessment:</p>
+<h3>Question 1: "What specifically makes it unfixable?"</h3>
+<p><strong>Good answer:</strong> Specific technical details about framework obsolescence, architectural problems, security vulnerabilities, or code quality issues with evidence.</p>
+<p><strong>Bad answer:</strong> "It's just too old" or "Nobody uses this technology anymore" without specifics.</p>
+<h3>Question 2: "Can you show me the analysis that led to this conclusion?"</h3>
+<p><strong>Good answer:</strong> Written assessment document with findings, code analysis, security scan results, or architecture diagrams showing problems.</p>
+<p><strong>Bad answer:</strong> "I don't need to write it down, I can just tell it's too old" or no documentation at all.</p>
+<h3>Question 3: "What are the alternatives to complete rebuild?"</h3>
+<p><strong>Good answer:</strong> Discussion of stabilization, partial modernization, or gradual migration options with honest assessment of why they won't work or aren't recommended.</p>
+<p><strong>Bad answer:</strong> Dismissive "those won't work" without explanation, or insistence that rebuild is the ONLY option.</p>
+<h3>Question 4: "If we just need to add Feature X, why can't that be done?"</h3>
+<p><strong>Good answer:</strong> Specific explanation of why the system architecture prevents adding that feature, with technical details about dependencies or limitations.</p>
+<p><strong>Bad answer:</strong> "The whole system needs rebuilding first" without explaining why the feature can't be added to existing system.</p>
+<h3>Question 5: "How long would this system last if we did bare minimum maintenance?"</h3>
+<p><strong>Good answer:</strong> Realistic timeline: "6-12 months before security vulnerabilities become critical" or "system will likely survive 2-3 years but risks increase monthly."</p>
+<p><strong>Bad answer:</strong> "It could fail at any moment" (fearmongering) or refusing to give any timeline estimate.</p>
+<h3>Question 6: "Who else have you asked to review this system?"</h3>
+<p><strong>Good answer:</strong> Openness to second opinion, or mention of peer review by other technical staff.</p>
+<p><strong>Bad answer:</strong> Defensiveness about seeking second opinion, or pressure tactics "if you don't trust me, find someone else."</p>
+<h2>Getting a Second Opinion: How to Do It Right</h2>
+<p>If you're unsure about the diagnosis, get a second opinion. Here's how:</p>
+<h3>Who to Ask</h3>
+<ul><li><strong>Legacy system specialists:</strong> Look for developers who specifically advertise legacy system maintenance, not just new development</li><li><strong>Independent consultants:</strong> Technical consultants who don't benefit from rebuild vs fix decision</li><li><strong>Technology-specific experts:</strong> If your system runs on .NET Framework, find .NET specialists; if Java, find Java specialists</li><li><strong>Security auditors:</strong> For concerns about security vulnerabilities</li><li><strong>Technical CTOs/architects:</strong> Experienced senior technical people who've seen many systems</li></ul>
+<h3>What to Provide</h3>
+<ul><li>Full codebase access (within reasonable confidentiality agreements)</li><li>Database schema and sample data</li><li>Current system documentation (if any exists)</li><li>List of current problems, bugs, or limitations</li><li>Business requirements (what you need the system to do)</li><li>First developer's assessment (if they provided one)</li></ul>
+<h3>What to Ask For</h3>
+<ul><li>Written assessment of system health</li><li>Specific identification of fixable vs unfixable problems</li><li>Multiple options: stabilize, partial modernize, rebuild</li><li>Cost and timeline estimates for each option</li><li>Risk assessment for each option</li><li>Honest opinion about whether first developer's assessment was accurate</li></ul>
+<h3>Red Flags in Second Opinions Too</h3>
+<p>Watch out for second opinion providers who:</p>
+<ul><li>Give opposite assessment without analysis ("oh that's totally fixable" after 30-minute look)</li><li>Also recommend the most profitable option for them</li><li>Dismiss first opinion without specific technical rebuttal</li><li>Promise easy fixes for complex problems</li></ul>
+<p>Good second opinions provide detailed analysis, not just contradicting the first opinion to win business.</p>
+<h2>Decision Framework: What to Do with Conflicting Assessments</h2>
+<p>If you get conflicting assessments, use this framework:</p>
+<h3>Both Say "Unfixable": Probably True</h3>
+<p>If multiple independent assessments reach the same conclusion, it's likely accurate. Focus on:</p>
+<ul><li>Planning rebuild timeline and budget</li><li>Determining minimum maintenance to keep current system alive during transition</li><li>Deciding between custom rebuild or switching to commercial software</li><li>Planning data migration strategy</li></ul>
+<h3>Both Say "Fixable": Probably True</h3>
+<p>If multiple assessments agree system is salvageable, proceed with fixes. Choose developer based on:</p>
+<ul><li>Demonstrated experience with this specific technology</li><li>Quality of assessment and proposed solution</li><li>Reasonable cost and timeline estimates</li><li>Track record with legacy systems</li></ul>
+<h3>Conflicting Opinions: Get Third Opinion or Do Phased Test</h3>
+<p>If opinions conflict, either:</p>
+<p><strong>Option A: Get third independent opinion</strong></p>
+<ul><li>Hire senior technical architect for comprehensive assessment</li><li>Get security audit if security is the concern</li><li>Engage academic or research institution for neutral technical review</li></ul>
+<p><strong>Option B: Do small paid proof-of-concept</strong></p>
+<ul><li>Pay developer who says it's fixable to fix ONE specific problem as proof</li><li>Budget RM 5,000-15,000 for proof-of-concept work</li><li>If they succeed, system is likely fixable; if they fail, rebuild is likely necessary</li><li>This is cheaper than full rebuild and provides definitive answer</li></ul>
+<h2>The Truth About Legacy System Age</h2>
+<p>Here's what 11 years of legacy system work has taught me about age vs fixability:</p>
+<h3>Age Alone Doesn't Determine Fixability</h3>
+<p>I've seen:</p>
+<ul><li>15-year-old systems that are perfectly maintainable</li><li>5-year-old systems that are already technical debt disasters</li><li>Systems written in "obsolete" technology that run flawlessly</li><li>Systems written in "modern" technology that are unmaintainable messes</li></ul>
+<p>What matters isn't WHEN the system was built, but HOW it was built and WHETHER it was maintained.</p>
+<h3>Well-Maintained Old Systems > Poorly-Built New Systems</h3>
+<p>A 12-year-old system with:</p>
+<ul><li>Clean architecture</li><li>Regular updates and bug fixes</li><li>Good documentation</li><li>Security patches applied</li><li>Performance optimization maintained</li></ul>
+<p>...is more maintainable than a 2-year-old system with spaghetti code, no documentation, and accumulated technical debt.</p>
+<h3>"Nobody Uses This Anymore" Is Often False</h3>
+<p>Developers frequently declare technologies "dead" when they mean "I don't use it" or "it's not trendy." Reality:</p>
+<ul><li>Millions of systems still run on .NET Framework, VB.NET, PHP 5, Java 8, etc.</li><li>Specialists who know these technologies still exist (just charge premium rates)</li><li>Many "obsolete" technologies have active communities and ongoing support</li><li>"Modern" doesn't always mean "better" for your specific use case</li></ul>
+<h2>When Developers Are Right: Real Unfixable Situations</h2>
+<p>To be fair, sometimes systems truly are beyond economically viable repair:</p>
+<h3>Genuinely Unfixable Scenario 1: Platform Extinction</h3>
+<p>System runs on platform that NO specialists can be found for at any reasonable price, has critical security vulnerabilities with no patches available, and can't run on modern operating systems or hardware.</p>
+<p><strong>Example:</strong> Application built on Visual FoxPro or Classic ASP that requires Windows XP to run.</p>
+<h3>Genuinely Unfixable Scenario 2: Cascading Failure Architecture</h3>
+<p>System architecture is so tightly coupled that fixing any bug breaks multiple other features, making maintenance economically impossible.</p>
+<p><strong>Example:</strong> System where every feature directly manipulates database without abstraction layer, and changing any table structure breaks everything.</p>
+<h3>Genuinely Unfixable Scenario 3: Performance Collapse</h3>
+<p>Database schema or architecture fundamentally can't handle current data volume, and optimization is impossible without complete redesign.</p>
+<p><strong>Example:</strong> System that went from 1,000 records to 10,000,000 records and now takes 45 minutes to load a single report.</p>
+<h3>Genuinely Unfixable Scenario 4: Security Beyond Repair</h3>
+<p>Security vulnerabilities so deep and pervasive that patching them would require rewriting most of the system anyway.</p>
+<p><strong>Example:</strong> System storing passwords in plain text with authentication logic scattered throughout codebase, running on framework with known remote code execution vulnerabilities.</p>
+<p>In these scenarios, developers are right—rebuild is the only viable option.</p>
+<h2>The Bottom Line</h2>
+<p>When a developer tells you your system is "too old to fix," don't automatically accept or reject the diagnosis. Instead:</p>
+<ul><li><strong>Demand specific technical details</strong> about what makes it unfixable</li><li><strong>Ask for written assessment</strong> documenting their analysis</li><li><strong>Request multiple options</strong> beyond just complete rebuild</li><li><strong>Watch for red flags</strong> indicating lazy assessment or ulterior motives</li><li><strong>Get second opinion</strong> from independent specialist if unsure</li><li><strong>Consider proof-of-concept</strong> to test fixability claims</li><li><strong>Understand that age ≠ unfixable</strong> in most cases</li></ul>
+<p>Good developers provide thorough analysis, multiple options, and honest assessment of tradeoffs. Developers who push for expensive rebuilds without detailed justification deserve skepticism.</p>
+<p>Sometimes systems truly are beyond repair—but more often, they're beyond the developer's interest or expertise, not beyond technical fixability.</p>
+<p>Your job as a business owner is to determine which situation you're in before committing hundreds of thousands of ringgit to a rebuild that might not have been necessary.</p>
+
+          <div class="cta-box">
+            <h3>Need Independent System Assessment?</h3>
+            <p style="color: #D1D5DB;">We provide honest legacy system assessments with no agenda—we're equally comfortable fixing systems or recommending replacements when justified.</p>
+            <a href="../contact.html" class="cta-button">Get Honest Assessment</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much should a proper legacy system assessment cost?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>For Malaysian SME systems: RM 3,000-8,000 for thorough 2-4 day assessment including code review, database analysis, and written report. Beware of free assessments from developers who profit from the recommended solution.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">If my developer has been maintaining the system for years and now says it's unfixable, are they lying?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not necessarily lying, but potentially self-serving. Long-term maintainers sometimes recommend rebuilds when they're tired of working on old code, or when they see opportunity for lucrative rebuild contract. Still get second opinion.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do I find developers who actually specialize in legacy system maintenance?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Search for "legacy system modernization," "legacy .NET maintenance," or specific technology maintenance. Avoid agencies that only showcase new development work. Ask candidates for case studies of systems they've maintained long-term.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if the system works fine but developer says it will fail soon?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Ask for specific evidence of impending failure—security vulnerabilities, performance degradation trends, hardware end-of-life dates. "It could fail any moment" without evidence is fearmongering. Working systems don't suddenly die without warning signs.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should I trust developers who offer to rebuild cheaper than the original assessment quoted?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Be cautious. Significantly cheaper rebuilds often mean: (1) they're underestimating complexity, (2) they'll cut corners, or (3) they're using the assessment to get their foot in the door then will increase costs later. Trust thorough assessments with realistic budgets over cheap promises.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
