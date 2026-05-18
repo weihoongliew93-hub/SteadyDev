@@ -7004,8 +7004,8 @@
     "title": "Your Developer Left. Now What? (Emergency Recovery Guide)",
     "slug": "developer-left-emergency-recovery-guide",
     "excerpt": "Your only developer quit, disappeared, or can't be reached. Your legacy system is running but nobody knows how it works. Here's your immediate action plan for recovering from developer departure without destroying the business.",
-    "date": "2026-05-29",
-    "dateDisplay": "May 29, 2026",
+    "date": "2026-05-18",
+    "dateDisplay": "May 18, 2026",
     "readTime": "11 min read",
     "tags": [
       "Legacy Systems",
@@ -7014,7 +7014,7 @@
       "Developer Transition"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/developer-departure-crisis.jpg",
     "heroImageAlt": "Managing business systems after developer departure",
     "content": [

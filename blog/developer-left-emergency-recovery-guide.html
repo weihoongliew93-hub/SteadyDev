@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Your Developer Left. Now What? (Emergency Recovery Guide) | SteadyDevs</title>
+  <meta name="description" content="Your only developer quit, disappeared, or can't be reached. Your legacy system is running but nobody knows how it works. Here's your immediate action plan for recovering from developer departure without destroying the business.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/developer-left-emergency-recovery-guide.html">
+  <meta property="og:title" content="Your Developer Left. Now What? (Emergency Recovery Guide)">
+  <meta property="og:description" content="Your only developer quit, disappeared, or can't be reached. Your legacy system is running but nobody knows how it works. Here's your immediate action plan for recovering from developer departure without destroying the business.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/developer-departure-crisis.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Developer Left. Now What? (Emergency Recovery Guide)">
+  <meta name="twitter:description" content="Your only developer quit, disappeared, or can't be reached. Your legacy system is running but nobody knows how it works. Here's your immediate action plan for recovering from developer departure without destroying the business.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/developer-departure-crisis.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/developer-left-emergency-recovery-guide.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Article Schema (BlogPosting) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your Developer Left. Now What? (Emergency Recovery Guide)",
+    "image": "https://steadydevs.com/images/blog/developer-departure-crisis.jpg",
+    "datePublished": "2026-05-18",
+    "dateModified": "2026-05-18",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Your only developer quit, disappeared, or can't be reached. Your legacy system is running but nobody knows how it works. Here's your immediate action plan for recovering from developer departure without destroying the business.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/developer-left-emergency-recovery-guide.html"
+    }
+  }
+  </script>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">Your Developer Left. Now What? (Emergency Recovery Guide)</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Your Developer Left. Now What? (Emergency Recovery Guide)",
+        "item": "https://steadydevs.com/blog/developer-left-emergency-recovery-guide.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/developer-departure-crisis.jpg" alt="Managing business systems after developer departure" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>Your Developer Left. Now What? (Emergency Recovery Guide)</h1>
+          <div class="blog-meta">May 18, 2026 | 11 min read</div>
+        </div>
+        <p>It's Friday afternoon. Your developer—the one who built and maintains your core business system—just quit. Or they stopped responding to calls. Or they sent a resignation email effective immediately.</p>
+<p>The system is running. Orders are processing. But you suddenly realize: nobody else knows how it works. No documentation. No handover. Just a system that the business depends on, and the only person who understands it is gone.</p>
+<p>This is more common than businesses want to admit. It's a crisis, but it's a manageable crisis if you take the right steps immediately. Here's your emergency recovery guide.</p>
+<h2>First 24 Hours: Secure What You Have</h2>
+<p>Before trying to understand the system or find replacement help, secure access and assets. This is time-critical—do it immediately.</p>
+<h3>Action 1: Secure All Access Credentials</h3>
+<p>You need every login, password, and access credential for:</p>
+<ul><li>Server administrator accounts</li><li>Database passwords</li><li>Hosting provider logins</li><li>Domain registrar access</li><li>Email service credentials</li><li>Third-party API keys</li><li>Source code repository access (GitHub, GitLab, etc.)</li><li>Cloud service accounts (Azure, AWS, etc.)</li><li>SSL certificate management</li><li>Payment gateway credentials</li></ul>
+<p>If the departed developer maintained these credentials personally, you need them documented NOW before relations sour or access gets lost.</p>
+<div class="tip-box"><p><strong>Pro tip:</strong> If the developer is still reachable and departure is amicable, getting credential handover should be your absolute first priority. Offer to pay for a handover session if necessary—it's worth every ringgit.</p></div>
+<h3>Action 2: Change Administrator Passwords</h3>
+<p>Once you have credentials documented, change all administrator passwords immediately. This isn't about not trusting the developer—it's standard security practice during personnel transitions.</p>
+<p>Priority order:</p>
+<ul><li>Hosting/server admin access</li><li>Database root passwords</li><li>Domain registrar access</li><li>Email admin accounts</li><li>Repository admin access</li></ul>
+<h3>Action 3: Locate and Secure Source Code</h3>
+<p>Where is the actual code? Common locations:</p>
+<ul><li>GitHub/GitLab repositories (check if account is personal or company-owned)</li><li>On the server itself (not ideal, but common)</li><li>Developer's personal computer (problematic if you've lost contact)</li><li>Company network drives</li><li>Backup services</li></ul>
+<p>If code is in a repository under the developer's personal account, you need to fork/transfer ownership immediately. If it's only on their personal computer, this becomes urgent negotiation.</p>
+<div class="warning-box"><p><strong>Critical:</strong> If you can't locate source code within 48 hours, assume it's gone and plan accordingly. Don't spend weeks trying to recover code that might not exist in accessible form.</p></div>
+<h3>Action 4: Document Current System State</h3>
+<p>Before anything changes, document everything about how the system is currently running:</p>
+<ul><li>What URLs/domains the system uses</li><li>Where it's hosted (which servers, which hosting provider)</li><li>What databases it uses</li><li>What external services it depends on (payment gateways, email, SMS, etc.)</li><li>Current version or release information if visible</li><li>Any scheduled tasks or background jobs you're aware of</li><li>Recent backup dates (if visible)</li><li>Any error messages or issues currently present</li></ul>
+<p>Take screenshots of admin panels, server dashboards, database interfaces—anything that shows current configuration.</p>
+<h3>Action 5: Verify Backup Status</h3>
+<p>Find out if backups exist and when they last ran successfully:</p>
+<ul><li>Database backups (when was last backup, where are they stored)</li><li>File/code backups</li><li>Server snapshots or images</li><li>Backup automation status</li></ul>
+<p>If backups haven't been running, or if you can't verify they exist, create manual backups immediately (or hire someone to do this urgently).</p>
+<h2>Days 2-7: Assess What You Actually Have</h2>
+<p>Now that you've secured access and assets, assess the situation realistically.</p>
+<h3>Question 1: Do You Have the Source Code?</h3>
+<p><strong>If YES:</strong> Recovery is manageable. You can hire a replacement developer to learn the system, even without documentation.</p>
+<p><strong>If NO:</strong> You're in emergency mode. Without source code, any bugs that emerge can't be fixed, any changes are impossible, and system failure becomes a question of when, not if.</p>
+<h3>Question 2: Do You Have Database Access?</h3>
+<p>Can you access the database directly? This is critical because:</p>
+<ul><li>Database contains all your business data</li><li>You can extract data even if application code is lost</li><li>Backups are only useful if you can restore them</li></ul>
+<p>If you can't access the database, this is top priority for your emergency tech hire.</p>
+<h3>Question 3: Is Documentation Available?</h3>
+<p>Look for any documentation the developer might have left:</p>
+<ul><li>README files in code repositories</li><li>Design documents or specifications</li><li>Email conversations about how things work</li><li>Comments in the code itself</li><li>Setup instructions</li><li>API documentation</li></ul>
+<p>Even incomplete documentation is valuable. Treat anything you find as precious—it'll save significant time for whoever takes over.</p>
+<h3>Question 4: What External Dependencies Exist?</h3>
+<p>Identify what external services the system depends on:</p>
+<ul><li>Payment gateways</li><li>SMS providers</li><li>Email services</li><li>Mapping/location services</li><li>Third-party APIs</li><li>Authentication services</li></ul>
+<p>You need to maintain access to all of these. If credentials are lost or in developer's personal name, migration becomes urgent.</p>
+<h3>Question 5: What's the Technology Stack?</h3>
+<p>Try to identify what technologies the system uses:</p>
+<ul><li>Programming language (.NET, PHP, Node.js, Python, etc.)</li><li>Database type (SQL Server, MySQL, PostgreSQL, etc.)</li><li>Web server (IIS, Apache, Nginx)</li><li>Framework (if identifiable)</li><li>Operating system</li></ul>
+<p>This information is crucial for hiring replacement expertise—.NET developers are different from PHP developers.</p>
+<h2>Weeks 2-4: Find Emergency Support</h2>
+<p>You need technical support quickly, but the type depends on your situation.</p>
+<h3>Scenario A: You Have Code and Database Access</h3>
+<p><strong>What you need:</strong> Developer with experience in your technology stack who can learn unfamiliar codebases.</p>
+<p><strong>Timeline:</strong> 2-4 weeks to hire and onboard a capable developer. They'll need 2-4 additional weeks to become productive in the system.</p>
+<p><strong>Interim strategy:</strong> Operate conservatively. Avoid system changes. Document any issues that emerge. Have an emergency contact for critical problems (freelancer or consultancy on standby).</p>
+<h3>Scenario B: You Have Code but No Documentation</h3>
+<p><strong>What you need:</strong> Senior developer experienced in code archaeology—someone comfortable reverse-engineering systems.</p>
+<p><strong>Timeline:</strong> 4-8 weeks for a senior developer to understand undocumented systems well enough to make safe changes.</p>
+<p><strong>Cost consideration:</strong> Senior developers cost 50-100% more than juniors, but trying to save money with inexperienced developers on undocumented systems usually backfires.</p>
+<h3>Scenario C: You Don't Have Source Code</h3>
+<p><strong>What you need:</strong> Emergency decision on system future, plus someone who can keep things running short-term while you decide.</p>
+<p><strong>Your options:</strong></p>
+<ul><li><strong>Negotiate code recovery:</strong> If developer is reachable, pay whatever it takes to get source code. This is almost always cheaper than alternatives.</li><li><strong>Attempt code recovery:</strong> If code might exist on servers or backups, hire someone to search for it.</li><li><strong>Run until it breaks:</strong> Operate the system as-is until something fails critically, then migrate to new system. Risky but sometimes only option.</li><li><strong>Emergency replacement:</strong> Start building/buying replacement system immediately. Budget 3-6 months and RM 30,000-100,000+ depending on complexity.</li></ul>
+<h3>Where to Find Emergency Help</h3>
+<p>Places to look for emergency technical support:</p>
+<ul><li><strong>Specialized consultancies:</strong> Firms that handle legacy systems and emergency support (like SteadyDevs). More expensive but faster response.</li><li><strong>Freelancer platforms:</strong> Upwork, Freelancer.com for urgent contracts. Vet carefully—you need experienced developers, not cheap ones.</li><li><strong>Local tech communities:</strong> LinkedIn, tech meetups, developer groups. Sometimes experienced developers take side projects.</li><li><strong>Former colleagues of departed developer:</strong> If developer worked with others previously, those people may understand similar technology.</li><li><strong>Hosting provider support:</strong> Some hosting companies offer emergency technical support or can recommend specialists.</li></ul>
+<div class="warning-box"><p><strong>Red flag:</strong> Anyone who promises they can fix everything without first assessing the system. Legitimate developers will want to understand what they're inheriting before committing to solutions.</p></div>
+<h2>Months 2-6: Stabilize and Document</h2>
+<p>Once you have emergency support in place, focus on stabilization and preventing this from happening again.</p>
+<h3>Priority 1: Create System Documentation</h3>
+<p>Work with your new developer to document:</p>
+<ul><li>System architecture (what components exist, how they connect)</li><li>Deployment process (how to release updates)</li><li>Backup and recovery procedures</li><li>Common troubleshooting steps</li><li>External service configurations</li><li>Database schema documentation</li><li>User management and permissions</li><li>Critical business logic explanations</li></ul>
+<p>This doesn't need to be perfect. Even rough notes dramatically reduce risk if another transition happens.</p>
+<h3>Priority 2: Implement Proper Backups</h3>
+<p>If backups were inadequate or uncertain, fix this immediately:</p>
+<ul><li>Automated daily database backups</li><li>Weekly full system backups</li><li>Off-site backup storage</li><li>Regular backup restoration tests (to verify backups actually work)</li><li>Documented backup and restore procedures</li></ul>
+<h3>Priority 3: Transfer Critical Assets to Company Control</h3>
+<p>Ensure all critical technical assets are owned by the company, not individuals:</p>
+<ul><li>Domain names registered to company</li><li>Code repositories under company accounts</li><li>Hosting accounts in company name</li><li>SSL certificates managed by company</li><li>API accounts and keys owned by company</li><li>Shared credential management (password manager accessible to multiple people)</li></ul>
+<h3>Priority 4: Create Redundancy</h3>
+<p>Don't create another single point of failure:</p>
+<ul><li>Have at least two people with system knowledge</li><li>Maintain relationships with consultancies for emergency backup</li><li>Document everything so knowledge isn't trapped in one person's head</li><li>Consider team setups instead of sole developers for critical systems</li></ul>
+<h2>The Longer-Term Decision: Maintain or Replace?</h2>
+<p>After stabilizing, you face a strategic question: continue maintaining the inherited system, or replace it?</p>
+<h3>Continue Maintaining If:</h3>
+<ul><li>You successfully recovered source code</li><li>System is fundamentally sound architecturally</li><li>New developer can work with the codebase</li><li>Business logic is complex and would be expensive to rebuild</li><li>System meets current needs adequately</li></ul>
+<p>Budget for documentation improvement, technical debt reduction, and gradual modernization.</p>
+<h3>Consider Replacement If:</h3>
+<ul><li>Source code is permanently lost</li><li>Technology is obsolete with no maintenance path</li><li>System is so poorly built that maintenance is impractical</li><li>Business has outgrown system capabilities</li><li>Ongoing maintenance costs approach replacement costs</li></ul>
+<p>Budget 6-12 months and RM 50,000-200,000+ for replacement depending on complexity.</p>
+<h2>Prevention: How to Avoid This Crisis</h2>
+<p>If you're reading this before crisis hits, here's how to prevent developer departure from becoming emergency:</p>
+<ul><li><strong>Maintain documentation:</strong> Require ongoing documentation as part of development work</li><li><strong>Company-owned assets:</strong> All accounts, repositories, domains in company name from day one</li><li><strong>Regular knowledge sharing:</strong> At least one other person should understand system basics</li><li><strong>Verified backups:</strong> Regular backup tests confirm you can actually restore</li><li><strong>Succession planning:</strong> Know how you'd replace critical technical staff before you need to</li><li><strong>Avoid sole-developer dependency:</strong> For critical systems, team approaches reduce risk</li><li><strong>Contractual protection:</strong> Development contracts should specify code ownership, handover requirements</li></ul>
+<h2>The Bottom Line</h2>
+<p>Developer departure doesn't have to be catastrophic, but it becomes catastrophic when you don't have source code, credentials, documentation, or backups.</p>
+<p>If you're in this crisis now: secure everything within 48 hours, assess what you have within a week, find emergency support within a month. It's fixable, but speed matters.</p>
+<p>If you're not in crisis yet: implement the prevention measures now. The time to prepare for developer transition is before it happens, not during the emergency.</p>
+<p>Most businesses experience this at least once. The ones that recover quickly are the ones who act decisively in the first 72 hours.</p>
+
+          <div class="cta-box">
+            <h3>Need Emergency Recovery Support?</h3>
+            <p style="color: #D1D5DB;">If your developer just left and you're facing system crisis, SteadyDevs provides emergency assessment and recovery services for legacy .NET systems. We can help you secure assets, assess what you have, and create a recovery plan.</p>
+            <a href="../contact.html" class="cta-button">Get Emergency Help</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if the developer refuses to hand over credentials or source code?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Legal options exist but are slow. Practical approach: negotiate payment for handover first. If that fails and system is critical, consult lawyer about employment contracts and intellectual property clauses. Simultaneously, plan for system replacement assuming you won't recover code.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much should we pay for emergency recovery support?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Emergency rates are typically 50-100% higher than standard development rates. For Malaysia: expect RM 150-300/hour for experienced emergency support, or RM 5,000-15,000 for initial assessment and stabilization projects. This is expensive but cheaper than system failure.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can we recover source code from the running server?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Sometimes. Compiled code (like .NET DLLs) can be partially decompiled but won't match original source exactly. Source code files might exist on the server. A technical specialist can assess what's recoverable, but don't assume recovery is possible until verified.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should we try to maintain the system without source code?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not long-term. You can run a system without source code until something breaks, but you can't fix bugs or make changes. Treat it as temporary while planning replacement. Timeline depends on system criticality—weeks to months maximum.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do we prevent this happening with the next developer?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Company-owned code repositories, documented credentials in password manager, regular system documentation, at least one other person with basic knowledge, clear employment contracts specifying code ownership. Also consider consultant relationships instead of sole in-house developers for critical systems.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+</body>
+</html>
