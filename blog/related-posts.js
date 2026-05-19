@@ -65,6 +65,7 @@
   function renderRelatedPosts(posts) {
     const section = document.createElement('section');
     section.style.cssText = 'margin-top: 60px; padding: 40px 30px; background: linear-gradient(135deg, #0f1729 0%, #0a0f1a 100%); border-radius: 12px; border: 1px solid #2D3748; box-shadow: 0 4px 16px rgba(0,0,0,0.3);';
+    section.className = 'related-posts-section';
     
     const heading = document.createElement('h2');
     heading.style.cssText = 'color: #60A5FA; margin-top: 0; margin-bottom: 30px; font-size: 1.6em; text-align: center;';
@@ -72,7 +73,8 @@
     section.appendChild(heading);
     
     const grid = document.createElement('div');
-    grid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;';
+    grid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;';
+    grid.className = 'related-posts-grid';
     
     posts.forEach(post => {
       const card = createPostCard(post);
@@ -176,4 +178,43 @@
     
     return card;
   }
+  
+  // Add responsive CSS for mobile
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 768px) {
+      .related-posts-section {
+        padding: 30px 20px !important;
+        margin-top: 40px !important;
+      }
+      
+      .related-posts-section h2 {
+        font-size: 1.4em !important;
+        margin-bottom: 25px !important;
+      }
+      
+      .related-posts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .related-posts-section {
+        padding: 25px 15px !important;
+        margin-top: 35px !important;
+        border-radius: 8px !important;
+      }
+      
+      .related-posts-section h2 {
+        font-size: 1.3em !important;
+        margin-bottom: 20px !important;
+      }
+      
+      .related-posts-grid {
+        gap: 18px !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
 })();
