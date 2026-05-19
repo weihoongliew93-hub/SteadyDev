@@ -21,9 +21,23 @@ For better SEO, use the build script to generate static HTML files from your JSO
 
 **Why use the build script?**
 - ✅ **Better SEO** - Search engines get pre-rendered HTML (no JavaScript required)
+- ✅ **Enhanced Schema** - Automatically generates AI-friendly structured data
 - ✅ **Faster indexing** - Google doesn't have to execute JavaScript to see content
 - ✅ **Social media** - Facebook, Twitter, LinkedIn can properly preview your posts
 - ✅ **Easy to use** - One command regenerates all blog posts
+
+**SEO Features Auto-Generated:**
+- 📊 **Enhanced BlogPosting Schema** with AI-friendly fields:
+  - Word count estimation
+  - Article section categorization
+  - About/mentions entities
+  - Speakable content markers
+- 🎯 **HowTo Schema** (automatically added for guide-style articles)
+- 🌍 **Language/Region Tags** (hreflang for en-MY and en)
+- 📅 **ISO 8601 Dates** with timezone
+- 🏷️ **Article Metadata** (Open Graph article tags)
+- 🔗 **Breadcrumb Schema** for navigation
+- 🗣️ **Voice Search Optimization** (speakable specification)
 
 **How to use:**
 
@@ -42,8 +56,11 @@ For better SEO, use the build script to generate static HTML files from your JSO
 
 3. **The script will:**
    - Read all posts from `blog-posts.json`
-   - Generate static HTML for each post in the blog folder (e.g., `your-slug.html`)
-   - Include all content, meta tags, and structure
+   - Calculate word count from content
+   - Detect guide-style articles and generate HowTo schema
+   - Generate enhanced BlogPosting schema with all AI-friendly fields
+   - Add article metadata (Open Graph, hreflang tags)
+   - Create static HTML for each post in the blog folder (e.g., `your-slug.html`)
    - Apply the shared `blog-styles.css` automatically
 
 4. **Review and commit** the generated HTML files
@@ -51,8 +68,25 @@ For better SEO, use the build script to generate static HTML files from your JSO
 **When to rebuild:**
 - After adding a new blog post
 - After editing existing post content
-- After updating post metadata (title, excerpt, etc.)
+- After updating post metadata (title, excerpt, tags)
 - You do NOT need to rebuild for CSS changes (they're in a separate file)
+
+**SEO Enhancements Details:**
+
+**Word Count:** Automatically calculated from all content blocks (paragraphs, lists, FAQs)
+
+**Article Section:** Determined from first tag:
+- "Legacy Systems" → "Legacy Systems Management"
+- ".NET" → "Software Development"
+- "Automation" → "Business Automation"
+- "E-Invoice" → "Compliance & Regulation"
+- etc.
+
+**HowTo Schema:** Automatically generated when title contains keywords like:
+- "guide", "how to", "step-by-step", "tutorial", "now what"
+- Extracts step headings from content (Week 1, Phase 2, etc.)
+
+**About/Mentions:** First 3 tags become "about" entities, .NET mentioned by default
 
 ## Blog Listing Features
 

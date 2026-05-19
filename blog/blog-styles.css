@@ -32,8 +32,9 @@
   position: fixed;
   left: max(20px, calc((100vw - 1400px) / 2 + 20px));
   top: 120px;
+  bottom: 200px;
   width: 300px;
-  max-height: calc(100vh - 200px);
+  height: auto;
   overflow-y: auto;
   padding: 18px;
   background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
@@ -157,9 +158,10 @@
     left: auto;
     right: 20px;
     top: 160px;
+    bottom: 100px;
     width: 320px;
     max-width: calc(100vw - 40px);
-    max-height: calc(100vh - 240px);
+    height: auto;
     transform: translateX(calc(100% + 40px));
     opacity: 0;
     pointer-events: none;
@@ -369,8 +371,9 @@
   .blog-toc {
     right: 15px;
     top: 145px;
+    bottom: 80px;
     width: calc(100vw - 30px);
-    max-height: calc(100vh - 200px);
+    height: auto;
   }
   
   .faq-section {

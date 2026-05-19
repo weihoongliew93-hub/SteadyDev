@@ -11,6 +11,82 @@ const blogPosts = JSON.parse(fs.readFileSync('../blog-posts.json', 'utf8'));
 
 console.log(`🚀 Building ${blogPosts.length} blog post(s)...`);
 
+// Helper: Estimate word count from content blocks
+function estimateWordCount(content) {
+  if (!content || !Array.isArray(content)) return 0;
+  
+  let text = '';
+  content.forEach(block => {
+    if (block.text) text += block.text + ' ';
+    if (block.items && Array.isArray(block.items)) {
+      text += block.items.join(' ') + ' ';
+    }
+    if (block.type === 'faq' && block.items) {
+      block.items.forEach(item => {
+        text += (item.question || '') + ' ' + (item.answer || '') + ' ';
+      });
+    }
+  });
+  
+  return text.split(/\s+/).filter(word => word.length > 0).length;
+}
+
+// Helper: Convert date to ISO 8601 format with timezone
+function toISO8601(dateString) {
+  // Assume dates are in YYYY-MM-DD format, add time and timezone
+  return dateString + 'T00:00:00+08:00';
+}
+
+// Helper: Determine article section from tags
+function getArticleSection(tags) {
+  if (!tags || tags.length === 0) return 'Software Development';
+  
+  const primaryTag = tags[0];
+  const sectionMap = {
+    'Legacy Systems': 'Legacy Systems Management',
+    '.NET': 'Software Development',
+    'Automation': 'Business Automation',
+    'E-Invoice': 'Compliance & Regulation',
+    'POS Systems': 'Business Systems',
+    'Business Risk': 'Business Management',
+    'Case Study': 'Success Stories'
+  };
+  
+  return sectionMap[primaryTag] || 'Software Development';
+}
+
+// Helper: Detect if article is a guide/how-to
+function isGuideArticle(title) {
+  const guideKeywords = ['guide', 'how to', 'how-to', 'step-by-step', 'tutorial', 'what to do', 'now what'];
+  const lowerTitle = title.toLowerCase();
+  return guideKeywords.some(keyword => lowerTitle.includes(keyword));
+}
+
+// Helper: Extract how-to steps from content
+function extractHowToSteps(content) {
+  if (!content || !Array.isArray(content)) return [];
+  
+  const steps = [];
+  let stepNumber = 1;
+  
+  content.forEach(block => {
+    // Look for heading2 or heading3 that might be steps
+    if ((block.type === 'heading2' || block.type === 'heading3') && block.text) {
+      const text = block.text;
+      // Check if it looks like a step
+      if (text.match(/^(step|phase|week|month|day|first|second|third|\d+\.|\d+\))/i)) {
+        steps.push({
+          position: stepNumber++,
+          name: text.replace(/^(step|phase|week|month|day)\s*\d*:?\s*/i, '').trim(),
+          text: text
+        });
+      }
+    }
+  });
+  
+  return steps;
+}
+
 // HTML template
 function generateHTML(post) {
   // Render content blocks
@@ -84,6 +160,45 @@ function generateHTML(post) {
     ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" class="blog-hero-image">`
     : '';
 
+  // Calculate word count
+  const wordCount = estimateWordCount(post.content);
+  
+  // Format dates
+  const isoPublishDate = toISO8601(post.date);
+  const isoModifiedDate = toISO8601(post.date); // Use same date unless specified
+  
+  // Get article section
+  const articleSection = getArticleSection(post.tags);
+  
+  // Prepare tags for metadata
+  const tagString = (post.tags || []).join(', ');
+  
+  // Check if this is a guide article
+  const isGuide = isGuideArticle(post.title);
+  const howToSteps = isGuide ? extractHowToSteps(post.content) : [];
+  
+  // Generate HowTo schema if applicable
+  const howToSchema = isGuide && howToSteps.length > 0 ? `
+  
+  <!-- HowTo Schema for Guide Content -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "${post.title.replace(/"/g, '\\"')}",
+    "description": "${post.excerpt.replace(/"/g, '\\"')}",
+    "image": "https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}",
+    "step": [
+      ${howToSteps.map(step => `{
+        "@type": "HowToStep",
+        "name": "${step.name.replace(/"/g, '\\"')}",
+        "text": "${step.text.replace(/"/g, '\\"')}",
+        "position": ${step.position}
+      }`).join(',\n      ')}
+    ]
+  }
+  </script>` : '';
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,34 +231,69 @@ function generateHTML(post) {
   <link rel="stylesheet" href="../assets/style.css?v=83">
   <link rel="stylesheet" href="blog-styles.css?v=1">
   
-  <!-- Article Schema (BlogPosting) -->
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "${post.title}",
+    "headline": "${post.title.replace(/"/g, '\\"')}",
+    "alternativeHeadline": "${post.excerpt.replace(/"/g, '\\"').substring(0, 110)}",
     "image": "https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}",
-    "datePublished": "${post.date}",
-    "dateModified": "${post.date}",
+    "datePublished": "${isoPublishDate}",
+    "dateModified": "${isoModifiedDate}",
     "author": {
       "@type": "Person",
-      "name": "SteadyDevs"
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
     },
     "publisher": {
       "@type": "Organization",
       "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
       "logo": {
         "@type": "ImageObject",
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "${post.excerpt}",
+    "description": "${post.excerpt.replace(/"/g, '\\"')}",
+    "articleSection": "${articleSection}",
+    "articleBody": "${post.excerpt.replace(/"/g, '\\"')}",
+    "wordCount": ${wordCount},
+    "inLanguage": "en-MY",
+    "about": [
+      ${(post.tags || []).slice(0, 3).map(tag => `{
+        "@type": "Thing",
+        "name": "${tag}"
+      }`).join(',\n      ')}
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "${tagString.toLowerCase()}",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://steadydevs.com/blog/${post.slug}.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
     }
   }
-  </script>
+  </script>${howToSchema}
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="${isoPublishDate}">
+  <meta property="article:modified_time" content="${isoModifiedDate}">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="${articleSection}">
+  <meta property="article:tag" content="${tagString}">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/${post.slug}.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/${post.slug}.html" />
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -252,6 +402,10 @@ function generateHTML(post) {
   <footer>
     <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
     <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
   </footer>
   
   <!-- Sticky Mobile CTA -->

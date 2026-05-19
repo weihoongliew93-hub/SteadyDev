@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sean Liew - Business Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #1a1a1a;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .card {
+      width: 600px;
+      height: 350px;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    /* FRONT SIDE */
+    .card-front {
+      background: #0f1729;
+      position: relative;
+    }
+    
+    .card-front::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 32px;
+      background: #1e293b;
+    }
+    
+    .card-front::after {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: #3b82f6;
+    }
+    
+    .card-front .accent-right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 140px;
+      background: linear-gradient(to bottom, #1e293b 0%, #1e293b 75%, #3b82f6 75%, #3b82f6 100%);
+    }
+    
+    .front-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 60px;
+    }
+    
+    .front-logo {
+      width: 100px;
+      margin-bottom: 24px;
+    }
+    
+    .front-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f5f5f5;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    
+    .front-tagline {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #94a3b8;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    /* BACK SIDE */
+    .card-back {
+      background: linear-gradient(105deg, #0f1729 0%, #0f1729 52%, transparent 52.5%),
+                  linear-gradient(105deg, #3b82f6 52%, #3b82f6 54%, #1e293b 54%);
+      display: flex;
+    }
+    
+    .back-left {
+      flex: 0 0 52%;
+      padding: 45px 40px 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #e5e7eb;
+    }
+    
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      fill: #3b82f6;
+      flex-shrink: 0;
+    }
+    
+    .contact-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+    
+    .back-right {
+      flex: 1;
+      padding: 50px 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+      gap: 6px;
+    }
+    
+    .back-logo-watermark {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 140px;
+      opacity: 0.15;
+    }
+    
+    .back-name {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #f5f5f5;
+      margin-bottom: 0;
+      text-align: right;
+      letter-spacing: -0.02em;
+    }
+    
+    .back-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: right;
+      margin-bottom: 0;
+    }
+    
+    .back-differentiator {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #60a5fa;
+      text-align: right;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+      margin-top: 2px;
+    }
+    
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      
+      .card {
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- FRONT SIDE -->
+  <div class="card card-front">
+    <div class="accent-right"></div>
+    <div class="front-content">
+      <svg class="front-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1-front" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad2-front" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad3-front" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad4-front" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Bottom left block -->
+        <rect x="35" y="120" width="55" height="55" rx="10" 
+              fill="url(#grad1-front)" 
+              stroke="#60a5fa" 
+              stroke-width="3"/>
+        <!-- Right tall block -->
+        <rect x="95" y="80" width="55" height="95" rx="10" 
+              fill="url(#grad2-front)" 
+              stroke="#3b82f6" 
+              stroke-width="3"/>
+        <!-- Middle left block -->
+        <rect x="35" y="55" width="55" height="55" rx="10" 
+              fill="url(#grad3-front)" 
+              stroke="#2563eb" 
+              stroke-width="3"/>
+        <!-- Top right block -->
+        <rect x="95" y="15" width="55" height="55" rx="10" 
+              fill="url(#grad4-front)" 
+              stroke="#1e3a8a" 
+              stroke-width="3"/>
+      </svg>
+      <div class="front-name">Steady Devs Solutions</div>
+      <div class="front-tagline">Integrating Systems. Stabilizing Growth.</div>
+    </div>
+  </div>
+
+  <!-- BACK SIDE -->
+  <div class="card card-back">
+    <div class="back-left">
+      <div class="contact-item">
+        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        <div class="contact-text">sean@steadydevs.com</div>
+      </div>
+      
+      <div class="contact-item">
+        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <div class="contact-text">steadydevs.com</div>
+      </div>
+    </div>
+    
+    <div class="back-right">
+      <svg class="back-logo-watermark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1-back" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad2-back" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad3-back" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad4-back" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Bottom left block -->
+        <rect x="35" y="120" width="55" height="55" rx="10" 
+              fill="url(#grad1-back)" 
+              stroke="#60a5fa" 
+              stroke-width="3"/>
+        <!-- Right tall block -->
+        <rect x="95" y="80" width="55" height="95" rx="10" 
+              fill="url(#grad2-back)" 
+              stroke="#3b82f6" 
+              stroke-width="3"/>
+        <!-- Middle left block -->
+        <rect x="35" y="55" width="55" height="55" rx="10" 
+              fill="url(#grad3-back)" 
+              stroke="#2563eb" 
+              stroke-width="3"/>
+        <!-- Top right block -->
+        <rect x="95" y="15" width="55" height="55" rx="10" 
+              fill="url(#grad4-back)" 
+              stroke="#1e3a8a" 
+              stroke-width="3"/>
+      </svg>
+      <div class="back-name">Sean Liew</div>
+      <div class="back-title">Software & Integration Consultant</div>
+      <div class="back-differentiator">e-Invoice • System Integration • Legacy Systems</div>
+    </div>
+  </div>
+</body>
+</html>
