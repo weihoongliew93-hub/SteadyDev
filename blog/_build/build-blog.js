@@ -87,6 +87,38 @@ function extractHowToSteps(content) {
   return steps;
 }
 
+// Helper: Find related posts based on shared tags
+function findRelatedPosts(currentPost, allPosts, limit = 3) {
+  const relatedPosts = [];
+  const currentTags = currentPost.tags || [];
+  
+  allPosts.forEach(post => {
+    // Skip current post and unpublished posts
+    if (post.id === currentPost.id || !post.published) return;
+    
+    const postTags = post.tags || [];
+    const sharedTags = currentTags.filter(tag => postTags.includes(tag));
+    
+    if (sharedTags.length > 0) {
+      relatedPosts.push({
+        ...post,
+        sharedTagCount: sharedTags.length,
+        sharedTags: sharedTags
+      });
+    }
+  });
+  
+  // Sort by most shared tags, then by date (newest first)
+  relatedPosts.sort((a, b) => {
+    if (b.sharedTagCount !== a.sharedTagCount) {
+      return b.sharedTagCount - a.sharedTagCount;
+    }
+    return new Date(b.date) - new Date(a.date);
+  });
+  
+  return relatedPosts.slice(0, limit);
+}
+
 // HTML template
 function generateHTML(post) {
   // Render content blocks
@@ -176,6 +208,44 @@ function generateHTML(post) {
   // Check if this is a guide article
   const isGuide = isGuideArticle(post.title);
   const howToSteps = isGuide ? extractHowToSteps(post.content) : [];
+  
+  // Find related posts
+  const relatedPosts = findRelatedPosts(post, blogPosts, 3);
+  
+  // Generate related posts HTML
+  let relatedPostsHTML = '';
+  if (relatedPosts.length > 0) {
+    relatedPostsHTML = `
+    <section style="margin-top: 60px; padding: 40px 30px; background: linear-gradient(135deg, #0f1729 0%, #0a0f1a 100%); border-radius: 12px; border: 1px solid #2D3748; box-shadow: 0 4px 16px rgba(0,0,0,0.3);">
+      <h2 style="color: #60A5FA; margin-top: 0; margin-bottom: 30px; font-size: 1.6em; text-align: center;">📖 Continue Reading</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+        ${relatedPosts.map(related => {
+          const imageUrl = related.heroImage ? `../${related.heroImage}` : '';
+          return `
+          <a href="${related.slug}.html" style="display: flex; flex-direction: column; background: #1A202C; border-radius: 10px; overflow: hidden; border: 1px solid #2D3748; text-decoration: none; transition: all 0.3s ease; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 24px rgba(59,130,246,0.3)'; this.style.borderColor='#3b82f6';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.2)'; this.style.borderColor='#2D3748';">
+            ${imageUrl ? `
+            <div style="width: 100%; height: 180px; overflow: hidden; background: #0B0F14;">
+              <img src="${imageUrl}" alt="${related.heroImageAlt || related.title}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+            </div>` : ''}
+            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+              <h3 style="color: #60A5FA; margin: 0 0 12px 0; font-size: 1.05em; line-height: 1.4; font-weight: 600;">${related.title}</h3>
+              <p style="color: #9CA3AF; font-size: 0.88em; margin: 0 0 15px 0; line-height: 1.6; flex-grow: 1;">${related.excerpt.length > 120 ? related.excerpt.substring(0, 120) + '...' : related.excerpt}</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;">
+                ${related.sharedTags.slice(0, 2).map(tag => 
+                  `<span style="background: #0B0F14; color: #60A5FA; padding: 4px 10px; border-radius: 4px; font-size: 0.75em; border: 1px solid #2D3748;">${tag}</span>`
+                ).join('')}
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #2D3748;">
+                <span style="color: #6B7280; font-size: 0.8em;">${related.readTime}</span>
+                <span style="color: #3b82f6; font-size: 0.85em; font-weight: 600;">Read article →</span>
+              </div>
+            </div>
+          </a>
+        `;
+        }).join('')}
+      </div>
+    </section>`;
+  }
   
   // Generate HowTo schema if applicable
   const howToSchema = isGuide && howToSteps.length > 0 ? `
@@ -396,6 +466,8 @@ function generateHTML(post) {
         </div>
         ${contentHTML}
       </article>
+      
+      ${relatedPostsHTML}
     </main>
   </div>
 
@@ -403,6 +475,8 @@ function generateHTML(post) {
     <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
     <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
     <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
       <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
       <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
     </p>

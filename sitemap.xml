@@ -79,6 +79,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://steadydevs.com/blog/topics.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://steadydevs.com/blog/when-to-refactor-vs-rewrite-legacy-dotnet-system.html</loc>
     <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
