@@ -52,6 +52,65 @@
       margin: 0 auto;
     }
     
+    /* Quick Navigation */
+    .quick-nav {
+      background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
+      border-radius: 12px;
+      padding: 30px 35px;
+      margin: 40px 0;
+      border: 1px solid #2D3748;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .quick-nav h3 {
+      color: #60A5FA;
+      font-size: 1.2em;
+      margin: 0 0 20px 0;
+      text-align: center;
+    }
+    
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    
+    .quick-nav-item {
+      background: #0B0F14;
+      border: 1px solid #2D3748;
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95em;
+    }
+    
+    .quick-nav-item:hover {
+      background: #121821;
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+    
+    .quick-nav-item .icon {
+      font-size: 1.3em;
+    }
+    
+    .quick-nav-item .label {
+      color: #D1D5DB;
+      font-weight: 500;
+    }
+    
+    .quick-nav-item .count {
+      color: #9CA3AF;
+      font-size: 0.85em;
+      margin-left: auto;
+    }
+    
     .topic-category {
       background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
       border-radius: 12px;
@@ -168,6 +227,14 @@
         padding: 70px 25px 35px 25px;
       }
       
+      .quick-nav {
+        padding: 25px 20px;
+      }
+      
+      .quick-nav-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .topic-category {
         padding: 30px 25px;
       }
@@ -193,6 +260,14 @@
       
       .topics-container {
         padding: 60px 15px 30px 15px;
+      }
+      
+      .quick-nav {
+        padding: 20px 15px;
+      }
+      
+      .quick-nav h3 {
+        font-size: 1.1em;
       }
       
       .topic-category {
@@ -265,6 +340,14 @@
     <div class="topics-header">
       <h1>📚 Blog Topics & Categories</h1>
       <p>Browse our comprehensive collection of articles organized by topic. Find practical guidance on legacy system maintenance, modernization, and business automation.</p>
+    </div>
+    
+    <!-- Quick Navigation -->
+    <div class="quick-nav" id="quickNav">
+      <h3>🔍 Jump to Topic</h3>
+      <div class="quick-nav-grid" id="quickNavGrid">
+        <!-- Quick links will be generated here -->
+      </div>
     </div>
     
     <div id="topicsContent">
@@ -374,12 +457,53 @@
       .then(response => response.json())
       .then(posts => {
         const publishedPosts = posts.filter(post => post.published);
+        renderQuickNav(publishedPosts);
         renderTopics(publishedPosts);
       })
       .catch(error => {
         console.error('Error loading blog posts:', error);
         document.getElementById('topicsContent').innerHTML = '<p style="color: #9CA3AF; text-align: center;">Unable to load topics. Please try again later.</p>';
       });
+
+    function renderQuickNav(posts) {
+      const quickNavGrid = document.getElementById('quickNavGrid');
+      let navHTML = '';
+
+      topicCategories.forEach(category => {
+        // Count articles for this category
+        const categoryPosts = posts.filter(post => {
+          return post.tags && post.tags.some(tag => category.tags.includes(tag));
+        });
+
+        if (categoryPosts.length === 0) return;
+
+        const categoryId = category.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        
+        navHTML += `
+          <a href="#${categoryId}" class="quick-nav-item">
+            <span class="icon">${category.icon}</span>
+            <span class="label">${category.title}</span>
+            <span class="count">${categoryPosts.length}</span>
+          </a>
+        `;
+      });
+
+      quickNavGrid.innerHTML = navHTML;
+
+      // Add smooth scrolling
+      document.querySelectorAll('.quick-nav-item').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Adjust for header
+            window.scrollBy(0, -100);
+          }
+        });
+      });
+    }
 
     function renderTopics(posts) {
       const container = document.getElementById('topicsContent');
@@ -396,8 +520,10 @@
         // Sort by date (newest first)
         categoryPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+        const categoryId = category.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
         html += `
-          <div class="topic-category">
+          <div class="topic-category" id="${categoryId}">
             <h2>
               <span class="category-icon">${category.icon}</span>
               <span>${category.title}</span>
