@@ -99,14 +99,7 @@
       <nav id="mainNav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <div class="nav-dropdown">
-          <a>Packages</a>
-          <div class="dropdown-content">
-            <a href="packages.html">All Packages</a>
-            <a href="pricing-terms.html">Pricing & Terms</a>
-          </div>
-        </div>
+        <a href="solutions.html">Solutions</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html" class="active">Contact</a>
@@ -223,6 +216,7 @@
               <option value="System Understanding & Roadmap">System Understanding & Roadmap (RM8,000 – RM25,000)</option>
               <option value="System Stabilization Project">System Stabilization Project (RM12,000 – RM30,000+)</option>
               <option value="Business Automation">Business Automation (RM8,000 – RM20,000)</option>
+              <option value="EInvoice Platform - Early Access">EInvoice Platform - Early Access (Coming Soon)</option>
               <option value="Expert Technical Advisor - Advisory Only">Retainer: Advisory Only (RM3,000/mo)</option>
               <option value="Expert Technical Advisor - Active Support">Retainer: Active Support (RM5,000/mo)</option>
               <option value="Expert Technical Advisor - Strategic Partner">Retainer: Strategic Partner (RM8,000/mo)</option>
@@ -248,12 +242,33 @@
         // Auto-scroll to form if coming from a package CTA
         const urlParams = new URLSearchParams(window.location.search);
         const packageFromUrl = urlParams.get('package');
+        const refFromUrl = urlParams.get('ref');
         
-        if (packageFromUrl) {
+        // Map ref parameters to package options
+        const refToPackageMap = {
+          'einvoice': 'EInvoice Platform - Early Access',
+          'einvoice-free': 'EInvoice Platform - Early Access',
+          'einvoice-starter': 'EInvoice Platform - Early Access',
+          'einvoice-business': 'EInvoice Platform - Early Access',
+          'einvoice-growth': 'EInvoice Platform - Early Access',
+          'einvoice-premium': 'EInvoice Platform - Early Access',
+          'einvoice-custom': 'EInvoice Platform - Early Access',
+          'einvoice-cta': 'EInvoice Platform - Early Access',
+          'einvoice-sticky': 'EInvoice Platform - Early Access'
+        };
+        
+        if (packageFromUrl || refFromUrl) {
           // Auto-select package from URL parameter
           const packageSelect = document.getElementById('package');
           if (packageSelect) {
-            packageSelect.value = decodeURIComponent(packageFromUrl);
+            // First try the direct package parameter
+            if (packageFromUrl) {
+              packageSelect.value = decodeURIComponent(packageFromUrl);
+            } 
+            // Then try mapping from ref parameter
+            else if (refFromUrl && refToPackageMap[refFromUrl]) {
+              packageSelect.value = refToPackageMap[refFromUrl];
+            }
           }
           
           // Scroll to the contact form section with offset for navbar

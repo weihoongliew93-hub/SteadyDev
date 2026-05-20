@@ -69,12 +69,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      justify-content: center;
+      justify-content: flex-start;
+      align-items: center;
       margin-bottom: 40px;
       padding: 20px;
       background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
       border-radius: 8px;
       border: 1px solid #2D3748;
+      position: relative;
     }
     
     .category-filter {
@@ -98,6 +100,28 @@
       background: #3B82F6;
       color: #FFFFFF;
       font-weight: 600;
+    }
+    
+    .category-filter.hidden {
+      display: none;
+    }
+    
+    .show-more-tags {
+      padding: 10px 20px;
+      background: #10B981;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-left: auto;
+    }
+    
+    .show-more-tags:hover {
+      background: #059669;
+      transform: scale(1.05);
     }
     
     /* Blog List - Horizontal Cards */
@@ -260,6 +284,12 @@
         font-size: 0.9em;
         padding: 8px 16px;
       }
+      
+      .show-more-tags {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 5px;
+      }
     }
   </style>
 </head>
@@ -280,14 +310,7 @@
       <nav id="mainNav">
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
-        <a href="../services.html">Services</a>
-        <div class="nav-dropdown">
-          <a>Packages</a>
-          <div class="dropdown-content">
-            <a href="../packages.html">All Packages</a>
-            <a href="../pricing-terms.html">Pricing & Terms</a>
-          </div>
-        </div>
+        <a href="../solutions.html">Solutions</a>
         <a href="../portfolio.html">Portfolio</a>
         <a href="index.html" class="active">Blog</a>
         <a href="../contact.html">Contact</a>
@@ -372,6 +395,8 @@
     let currentFilter = 'All';
     let displayedCount = 10;
     const postsPerPage = 10;
+    let showAllTags = false;
+    const initialTagsCount = 8;
 
     // Load blog posts from JSON
     async function loadBlogPosts() {
@@ -424,14 +449,25 @@
       const filtersContainer = document.getElementById('categoryFilters');
       const categories = getAllCategories();
       
-      filtersContainer.innerHTML = categories.map(category => `
-        <button class="category-filter ${category === currentFilter ? 'active' : ''}" 
-                data-category="${category}">
-          ${category}
+      const categoryButtons = categories.map((category, index) => {
+        const shouldHide = !showAllTags && index >= initialTagsCount;
+        return `
+          <button class="category-filter ${category === currentFilter ? 'active' : ''} ${shouldHide ? 'hidden' : ''}" 
+                  data-category="${category}">
+            ${category}
+          </button>
+        `;
+      }).join('');
+      
+      const showMoreButton = categories.length > initialTagsCount ? `
+        <button class="show-more-tags" id="showMoreTags">
+          ${showAllTags ? 'Show Less ↑' : `Show More (${categories.length - initialTagsCount} more) ↓`}
         </button>
-      `).join('');
+      ` : '';
+      
+      filtersContainer.innerHTML = categoryButtons + showMoreButton;
 
-      // Add click handlers
+      // Add click handlers for category filters
       filtersContainer.querySelectorAll('.category-filter').forEach(btn => {
         btn.addEventListener('click', () => {
           currentFilter = btn.dataset.category;
@@ -440,6 +476,15 @@
           renderBlogPosts();
         });
       });
+      
+      // Add click handler for show more button
+      const showMoreBtn = document.getElementById('showMoreTags');
+      if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+          showAllTags = !showAllTags;
+          renderCategoryFilters();
+        });
+      }
     }
 
     // Filter posts by category
