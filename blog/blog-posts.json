@@ -7564,8 +7564,8 @@
     "title": "Should You Add Features to a Failing System? (The Stabilize-First Framework)",
     "slug": "should-you-add-features-to-failing-system",
     "excerpt": "Your legacy system is unstable, but business needs new features. Adding features to fragile systems usually backfires. Here's how to decide when to stabilize first vs. when feature work makes sense—and what the trade-offs actually look like.",
-    "date": "2026-06-05",
-    "dateDisplay": "June 5, 2026",
+    "date": "2026-05-21",
+    "dateDisplay": "May 21, 2026",
     "readTime": "10 min read",
     "tags": [
       "Legacy Systems",
@@ -7574,7 +7574,7 @@
       "Technical Debt"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/feature-development-unstable-system.jpg",
     "heroImageAlt": "Software development decisions for legacy systems",
     "content": [
