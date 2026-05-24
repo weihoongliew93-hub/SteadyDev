@@ -7967,8 +7967,8 @@
     "title": "The RM50,000 Question: Cloud Migration vs. On-Premise Modernization for Legacy .NET",
     "slug": "cloud-migration-vs-onpremise-modernization-dotnet",
     "excerpt": "Should you migrate your legacy .NET system to Azure cloud or modernize on-premise? Both paths cost RM40,000-80,000+ but solve different problems. Here's a practical decision framework based on real Malaysian SME scenarios.",
-    "date": "2026-06-12",
-    "dateDisplay": "June 12, 2026",
+    "date": "2026-05-24",
+    "dateDisplay": "May 24, 2026",
     "readTime": "12 min read",
     "tags": [
       "Cloud Migration",
@@ -7978,7 +7978,7 @@
       "Malaysia"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/cloud-migration-onpremise-decision.jpg",
     "heroImageAlt": "Cloud vs on-premise infrastructure decision for legacy systems",
     "content": [
