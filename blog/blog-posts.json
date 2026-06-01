@@ -8331,8 +8331,8 @@
     "title": "5 Questions to Ask Before Hiring a Developer to Fix Your Legacy System",
     "slug": "questions-before-hiring-developer-legacy-system",
     "excerpt": "Not all developers can handle legacy systems. Hiring the wrong one wastes money and makes problems worse. Here are 5 critical questions that separate capable legacy system specialists from developers who will fail.",
-    "date": "2026-06-05",
-    "dateDisplay": "June 5, 2026",
+    "date": "2026-06-01",
+    "dateDisplay": "June 1, 2026",
     "readTime": "10 min read",
     "tags": [
       "Hiring",
@@ -8341,7 +8341,7 @@
       "Developer Selection"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/hiring-legacy-system-developer.jpg",
     "heroImageAlt": "Interviewing developer for legacy system work",
     "content": [
