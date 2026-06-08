@@ -460,8 +460,8 @@
     "title": "How to Add Modern Features to a 10-Year-Old System (Without Breaking Everything)",
     "slug": "add-modern-features-legacy-system-without-breaking",
     "excerpt": "Your legacy system works, but customers want mobile apps, API integrations, and real-time features. Here's how to modernize incrementally without the risk of a catastrophic rewrite—with real examples from production systems.",
-    "date": "2026-05-17",
-    "dateDisplay": "May 17, 2026",
+    "date": "2026-06-08",
+    "dateDisplay": "June 8, 2026",
     "readTime": "12 min read",
     "tags": [
       "Legacy Systems",
@@ -471,7 +471,7 @@
       "Mobile"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/modernize-legacy-system.jpg",
     "heroImageAlt": "Modern features being added to legacy system architecture",
     "content": [
