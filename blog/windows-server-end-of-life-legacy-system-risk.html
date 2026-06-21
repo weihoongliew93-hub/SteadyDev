@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time? | SteadyDevs</title>
+  <meta name="description" content="Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance, and insurance liability overnight. Here's how to find out where you stand and what to do about it.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html">
+  <meta property="og:title" content="Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?">
+  <meta property="og:description" content="Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance, and insurance liability overnight. Here's how to find out where you stand and what to do about it.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/windows-server-end-of-life.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?">
+  <meta name="twitter:description" content="Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance, and insurance liability overnight. Here's how to find out where you stand and what to do about it.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/windows-server-end-of-life.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?",
+    "alternativeHeadline": "Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But w",
+    "image": "https://steadydevs.com/images/blog/windows-server-end-of-life.jpg",
+    "datePublished": "2026-06-21T00:00:00+08:00",
+    "dateModified": "2026-06-21T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance, and insurance liability overnight. Here's how to find out where you stand and what to do about it.",
+    "articleSection": "Software Development",
+    "articleBody": "Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance, and insurance liability overnight. Here's how to find out where you stand and what to do about it.",
+    "wordCount": 1538,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Windows Server"
+      },
+      {
+        "@type": "Thing",
+        "name": "SQL Server"
+      },
+      {
+        "@type": "Thing",
+        "name": "Security"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "windows server, sql server, security, legacy systems, infrastructure",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-06-21T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-06-21T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Windows Server, SQL Server, Security, Legacy Systems, Infrastructure">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?",
+        "item": "https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/windows-server-end-of-life.jpg" alt="Aging Windows Server infrastructure reaching end of life" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</h1>
+          <div class="blog-meta">June 21, 2026 | 11 min read</div>
+        </div>
+        <p>Ask a business owner about their legacy system and they'll talk about the application—the POS, the invoicing, the inventory module. Almost no one talks about the server it runs on. Yet that quiet machine in the back office, running a version of Windows Server and SQL Server chosen years ago, is often the real liability.</p>
+<p>Operating systems and databases have expiry dates. When Microsoft ends support, the software keeps running—which is exactly why the risk is so easy to ignore. Nothing visibly breaks. But behind the scenes, security patches stop, compliance assumptions collapse, and your exposure quietly climbs. Here's how to know whether you're on borrowed time.</p>
+<h2>What "End of Support" Actually Means</h2>
+<p>Microsoft products move through a lifecycle. The milestone that matters is <strong>end of extended support</strong>: the date after which Microsoft stops issuing security updates entirely (without paid arrangements). The software still runs. That's the trap—it feels fine right up until it's a headline.</p>
+<p>Roughly where common versions stand:</p>
+<ul><li><strong>Windows Server 2012 / 2012 R2:</strong> Extended support ended in October 2023. Already unsupported—any business still on it is exposed today.</li><li><strong>SQL Server 2012:</strong> Ended in 2022. <strong>SQL Server 2014:</strong> ended in 2024. Both are past end of support.</li><li><strong>Windows Server 2016 / 2019:</strong> Still in support for now, but with end dates approaching later this decade—plan ahead, don't panic.</li><li><strong>Windows Server 2008 / 2008 R2 and older:</strong> Long dead. If you're here, this is urgent.</li></ul>
+<div class="warning-box"><p><strong>Verify the exact dates for your versions</strong> on Microsoft's official Lifecycle pages before acting—Microsoft occasionally adjusts dates and offers paid Extended Security Updates (ESU) for some products. The point isn't the precise day; it's knowing whether you're already past it.</p></div>
+<h2>Why an Unsupported Server Is a Real Problem—Not a Theoretical One</h2>
+<h3>1. Security: No More Patches</h3>
+<p>This is the big one. After end of support, newly discovered vulnerabilities never get fixed. Attackers specifically hunt for unpatched, end-of-life servers because they're reliable targets. Ransomware crews love them. Your firewall and antivirus help, but they can't close holes in the operating system itself. Every month past end-of-life, the known-but-unpatched vulnerability list only grows.</p>
+<h3>2. Compliance: PDPA and Beyond</h3>
+<p>If your system holds personal data—customer names, NRIC, contact details—running it on an unsupported, unpatchable server undermines your duty to keep that data secure under the PDPA. In the event of a breach, "we were running a server Microsoft stopped supporting two years ago" is not a defensible position. Industry and partner requirements increasingly ask the same question.</p>
+<h3>3. Insurance: The Quiet Clause</h3>
+<p>Cyber insurance policies frequently require you to run supported, patched software. A claim arising from a breach of an end-of-life server can be reduced or denied because you weren't meeting the policy's basic security conditions. Many owners discover this clause only when they try to claim.</p>
+<h3>4. The Domino Effect</h3>
+<p>Old servers drag everything else down with them. New hardware may lack drivers. Modern security tools and backup software drop support for old operating systems. Integrations with newer cloud services may refuse to connect over outdated, insecure protocols. The longer you wait, the more tangled the eventual upgrade becomes.</p>
+<h2>How to Find Out Where You Stand</h2>
+<p>You can't manage a risk you can't see. Get clear answers to these questions—if you don't know them, that's itself a finding:</p>
+<ul><li><strong>What Windows Server version</strong> runs your business system? (Check Server Manager or system properties.)</li><li><strong>What SQL Server version and edition?</strong> (Express, Standard, etc.—editions have different limits and lifecycles.)</li><li><strong>Are those versions still supported by Microsoft?</strong> Check against the official lifecycle dates.</li><li><strong>Is the server physical or virtual,</strong> and where is it—on-premise, in a data centre, or somewhere nobody's quite sure?</li><li><strong>When was it last patched,</strong> and is anyone responsible for patching it?</li><li><strong>Does your application require that old version,</strong> or could it run on something current?</li><li><strong>Do you have working, tested backups</strong> of both the data and the server configuration?</li></ul>
+<div class="tip-box"><p><strong>The scariest answer is "I don't know."</strong> If no one in your business can answer these, the server has been running unmanaged—which means unpatched. That alone justifies an assessment, before anything actually goes wrong.</p></div>
+<h2>Your Paths Forward</h2>
+<h3>1. Migrate to a Newer Windows / SQL Server</h3>
+<p>The straightforward fix: move your application onto a currently supported Windows Server and SQL Server. The complication is whether your old application <em>runs</em> on modern versions. Legacy .NET apps and old database features sometimes need adjustments. This is very often achievable without rewriting the application—but it needs testing, not blind copying.</p>
+<h3>2. Move to the Cloud</h3>
+<p>Rehosting on Azure (or another cloud) shifts the infrastructure burden off your back-office machine. It can simplify patching and backups and improve resilience. It's not automatically cheaper or simpler for every small business, but for many it removes the "who owns this server?" problem permanently. We've written separately on cloud vs. on-premise trade-offs.</p>
+<h3>3. Paid Extended Security Updates (Stopgap Only)</h3>
+<p>Microsoft sells Extended Security Updates for some end-of-life products, buying you continued patches for a limited time at a recurring cost. Treat this as a bridge—a way to buy a year or two to plan a proper migration—not a destination. The cost rises over time precisely to push you to upgrade.</p>
+<h3>4. Isolate and Reduce Exposure (Interim)</h3>
+<p>If migration genuinely can't happen immediately, reduce the blast radius: take the server off the public internet, tighten network segmentation so it can't reach (or be reached by) everything, restrict access, and ensure rock-solid offline backups. This lowers risk—it does not remove it. Use the time it buys to migrate.</p>
+<div class="warning-box"><p><strong>An end-of-life server directly exposed to the internet is a genuine emergency.</strong> If your old Windows Server has open remote-desktop or other ports facing the world, treat that as a drop-everything problem—those are precisely how unpatched servers get ransomwared.</p></div>
+<h2>"But the App Needs the Old Version"</h2>
+<p>This is the most common reason businesses stay stuck, and it's often less true than feared. Many legacy applications run perfectly well on newer Windows and SQL Server with minor configuration changes; others need a modest compatibility update. The only way to know is to test the application on a current version in a safe environment—not to assume it's impossible because no one has tried.</p>
+<p>Even when the application genuinely needs work to move, that work is almost always smaller, cheaper, and less risky than the breach, the failed insurance claim, or the compliance finding that an unsupported server eventually invites.</p>
+<h2>The Bottom Line</h2>
+<p>End-of-life infrastructure is the risk that hides in plain sight because nothing visibly breaks. The server hums along while the security, compliance, and insurance ground shifts underneath it. Windows Server 2012 and the SQL Server versions of that era are already past support—and the businesses running them mostly don't know it.</p>
+<p>Start with knowledge: find out exactly what you're running and whether it's supported. If it's past end-of-life, you don't necessarily need to act this week—but you need a plan with a date, not a vague intention. Borrowed time always comes due.</p>
+
+          <div class="cta-box">
+            <h3>Not Sure What Your System Is Running On?</h3>
+            <p style="color: #D1D5DB;">SteadyDevs can audit your Windows Server and SQL Server versions, flag end-of-life risks, and lay out a realistic, costed migration path—often without rewriting your application.</p>
+            <a href="../contact.html" class="cta-button">Get an Infrastructure Risk Check</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Our server still works perfectly. Why spend money upgrading it?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Because "works" and "safe" aren't the same. An end-of-life server runs fine right up until an unpatched vulnerability is exploited—then you face downtime, potential data loss, a PDPA exposure, and possibly a denied insurance claim. Upgrading is cheap compared to any one of those outcomes. You're not paying to fix something broken; you're paying to remove a risk that's quietly compounding.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do I know if my Windows Server or SQL Server is still supported?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Check the version (Server Manager or system properties for Windows; run SELECT @@VERSION in SQL Server) and look it up on Microsoft's official Lifecycle pages. As a rough guide: Windows Server 2012/2012 R2 and SQL Server 2012/2014 are already past end of support. If you're not sure what version you have, that uncertainty is itself a reason to get an assessment.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can my old application even run on a newer Windows or SQL Server?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Usually yes, more easily than people expect—often with only minor configuration changes. Some legacy apps need a compatibility update for specific features. The reliable way to find out is to test it on a current version in a safe, isolated environment before committing. Assuming it's impossible without testing is how businesses stay stuck for years unnecessarily.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is Extended Security Updates (ESU) a good solution?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It's a bridge, not a fix. ESU buys you continued security patches for an end-of-life product at a recurring (and rising) cost. That's genuinely useful when you need a year or two to plan and execute a proper migration. It becomes expensive and pointless if you treat it as a way to avoid upgrading forever—which is exactly what Microsoft's pricing is designed to discourage.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">What's the single most urgent thing to check right now?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Whether an end-of-life server is exposed to the internet—especially via open remote-desktop (RDP) or similar ports. That combination is the classic ransomware entry point. If you find it, close that exposure immediately, even before planning the full migration. After that, confirm you have tested, offline backups you can actually restore from.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="windows-server-end-of-life-legacy-system-risk" data-current-tags='["Windows Server","SQL Server","Security","Legacy Systems","Infrastructure"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
