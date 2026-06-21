@@ -10731,7 +10731,7 @@
       "Infrastructure"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/windows-server-end-of-life.jpg",
     "heroImageAlt": "Aging Windows Server infrastructure reaching end of life",
     "content": [
