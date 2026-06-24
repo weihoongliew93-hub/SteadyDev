@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>What a Proper System Handover Document Should Contain (Free Checklist) | SteadyDevs</title>
+  <meta name="description" content="When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/system-handover-documentation-checklist.html">
+  <meta property="og:title" content="What a Proper System Handover Document Should Contain (Free Checklist)">
+  <meta property="og:description" content="When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/system-handover-checklist.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What a Proper System Handover Document Should Contain (Free Checklist)">
+  <meta name="twitter:description" content="When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/system-handover-checklist.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/system-handover-documentation-checklist.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What a Proper System Handover Document Should Contain (Free Checklist)",
+    "alternativeHeadline": "When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. ",
+    "image": "https://steadydevs.com/images/blog/system-handover-checklist.jpg",
+    "datePublished": "2026-06-24T00:00:00+08:00",
+    "dateModified": "2026-06-24T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.",
+    "articleSection": "Software Development",
+    "articleBody": "When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.",
+    "wordCount": 1569,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Documentation"
+      },
+      {
+        "@type": "Thing",
+        "name": "Business Continuity"
+      },
+      {
+        "@type": "Thing",
+        "name": "Developer Relationships"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "documentation, business continuity, developer relationships, legacy systems",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/system-handover-documentation-checklist.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-06-24T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-06-24T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Documentation, Business Continuity, Developer Relationships, Legacy Systems">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/system-handover-documentation-checklist.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/system-handover-documentation-checklist.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">What a Proper System Handover Document Should Contain (Free Checklist)</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What a Proper System Handover Document Should Contain (Free Checklist)",
+        "item": "https://steadydevs.com/blog/system-handover-documentation-checklist.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/system-handover-checklist.jpg" alt="System handover documentation checklist for business owners" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>What a Proper System Handover Document Should Contain (Free Checklist)</h1>
+          <div class="blog-meta">June 24, 2026 | 10 min read</div>
+        </div>
+        <p>Most businesses learn the value of documentation the hard way: the day the one person who understood their system stops answering. We've written before about what happens when a developer leaves and how to recover from it. This article is the prevention—the document that turns that potential crisis into a non-event.</p>
+<p>A proper handover document isn't a 200-page technical manual. It's a focused record of the things that, if lost, would leave you stranded. You don't need to write it yourself—but you do need to know what to demand. Use this as a checklist you can hand to any developer, current or departing.</p>
+<div class="tip-box"><p><strong>The best time to create this is now—while everything still works and the person who knows it is still around.</strong> The second-best time is before they leave. The worst time is after. If you only act on one thing from this article, request this document from whoever maintains your system today.</p></div>
+<h2>1. System Overview (The Map)</h2>
+<p>Someone new should be able to understand what the system is and how its pieces fit together before touching anything. Include:</p>
+<ul><li><strong>Plain-language description</strong> of what the system does and which business processes it runs.</li><li><strong>The main components</strong> and how they connect (e.g. POS front-end, database, reporting module, payment integration).</li><li><strong>A simple architecture diagram</strong>—boxes and arrows are fine; it doesn't need to be beautiful.</li><li><strong>What technology it's built on:</strong> languages, frameworks, and versions (e.g. .NET Framework 4.5, SQL Server 2016).</li><li><strong>External services it depends on:</strong> payment gateways, SMS providers, e-invoice middleware, anything it talks to.</li></ul>
+<h2>2. Access and Credentials (The Keys)</h2>
+<p>This is the section that causes the most pain when missing. If a developer disappears with the only copy of a password, you can be locked out of your own system. Document where every credential lives (in a secure password manager, not a plain file):</p>
+<ul><li><strong>Server access:</strong> how to log in to the server(s), with admin credentials.</li><li><strong>Database access:</strong> connection details and admin login.</li><li><strong>Source code location:</strong> where the code lives (repository URL, and who controls it).</li><li><strong>Hosting and domain accounts:</strong> cloud provider, domain registrar, DNS.</li><li><strong>Third-party service logins:</strong> payment gateway, email/SMS, e-invoice provider, any API keys.</li><li><strong>Software licenses:</strong> keys and the accounts they're registered under.</li></ul>
+<div class="warning-box"><p><strong>Credentials must be owned by the business, not the developer.</strong> Accounts for hosting, domains, and critical services should be registered under company email addresses you control—never a developer's personal account. If they are, fixing that is more urgent than the document itself.</p></div>
+<h2>3. The Source Code and How to Build It</h2>
+<p>Having the code isn't enough—you need to be able to turn it into the running application. A surprising number of businesses have "the code" but no one who can actually build and deploy it. Document:</p>
+<ul><li><strong>Where the complete, current source code is</strong>—and confirmation that it matches what's actually running in production.</li><li><strong>How to set up a development environment:</strong> what to install, in what order.</li><li><strong>How to build the application</strong> from source, step by step.</li><li><strong>Any special tools, libraries, or licenses</strong> required to build it.</li><li><strong>Where configuration and secrets live</strong> and how they differ between test and live.</li></ul>
+<h2>4. Deployment: How Changes Go Live</h2>
+<p>When something needs fixing, the next person has to know how to safely push a change to the live system. Capture:</p>
+<ul><li><strong>The exact deployment process:</strong> how a new version gets onto the production server.</li><li><strong>Any scripts or tools</strong> used in deployment, and where they are.</li><li><strong>How to roll back</strong> if a deployment goes wrong.</li><li><strong>Scheduled jobs and background tasks:</strong> what runs automatically, when, and what it does.</li><li><strong>Maintenance windows or timing constraints</strong> (e.g. "never deploy during business hours").</li></ul>
+<h2>5. The Database</h2>
+<p>The database is usually where your real business value lives. Document enough that someone can understand, back up, and restore it:</p>
+<ul><li><strong>Database platform and version,</strong> and where it's hosted.</li><li><strong>A high-level description of the main tables</strong> and what they hold—not every column, but the important structures.</li><li><strong>The backup process:</strong> what's backed up, how often, where backups are stored, and—critically—how to restore.</li><li><strong>Any important stored procedures, jobs, or business logic</strong> that lives in the database itself.</li><li><strong>Known data quirks:</strong> legacy fields, things that look wrong but aren't, fields that mean something non-obvious.</li></ul>
+<div class="tip-box"><p><strong>A backup you've never tested isn't a backup.</strong> The handover should include a restore that was actually performed at least once, so you know the backups work and how long a restore takes. Many businesses discover their backups were broken only when they needed them.</p></div>
+<h2>6. Known Issues, Quirks, and Landmines</h2>
+<p>This is the section that lives only in the departing developer's head—and it's pure gold. Get it written down before they leave:</p>
+<ul><li><strong>Known bugs and their workarounds.</strong></li><li><strong>"Don't touch this" areas</strong>—fragile code that breaks in non-obvious ways.</li><li><strong>Recurring problems</strong> and how they're usually resolved.</li><li><strong>Manual steps</strong> someone performs regularly that aren't automated (month-end routines, exports, reconciliations).</li><li><strong>Things that look broken but are intentional,</strong> so the next person doesn't "fix" them into a real problem.</li></ul>
+<h2>7. Support Contacts and Routine Operations</h2>
+<p>Round it out with the operational knowledge that keeps day-to-day running smooth:</p>
+<ul><li><strong>Who to contact</strong> for each external service (payment gateway support, hosting provider, etc.).</li><li><strong>Routine maintenance tasks</strong> and how often they're done.</li><li><strong>How to monitor</strong> system health—what "normal" looks like and what warning signs to watch for.</li><li><strong>Common support requests from staff</strong> and how to handle them.</li><li><strong>Any service contracts, warranties, or license renewal dates</strong> and when they're due.</li></ul>
+<h2>How to Actually Get This Document</h2>
+<p>Knowing what you want is half the battle. Getting it requires a little structure:</p>
+<ul><li><strong>Make it a deliverable, not a favour.</strong> Build documentation into the contract or scope of work from the start, or as a defined paid task.</li><li><strong>Request it now, not at exit.</strong> Ask your current developer to produce it while everything is fresh and working—frame it as protecting the business, which it is.</li><li><strong>If someone is leaving,</strong> make a complete handover document the final paid milestone before their last day.</li><li><strong>Verify it's usable</strong> by having someone else (another developer, or you) follow it to access the system and confirm nothing critical is missing.</li><li><strong>Keep it current.</strong> A document written once and never updated slowly drifts from reality. Review it whenever the system changes meaningfully.</li></ul>
+<div class="warning-box"><p><strong>Don't accept "the code is self-explanatory" as an answer.</strong> It never is for the business owner, and rarely is even for the next developer. A developer who resists writing basic handover documentation is leaving you exposed—politely insist, and treat refusal as a warning sign.</p></div>
+<h2>The Bottom Line</h2>
+<p>A handover document is cheap insurance against one of the most common and most damaging risks a small business faces: all the critical knowledge of its core system living in a single person's head. It doesn't need to be elaborate—it needs to cover the map, the keys, the build, the deployment, the database, the landmines, and the contacts.</p>
+<p>If you have a system you depend on and no document like this, you have a single point of failure walking around with the keys to your business. The fix costs far less than the crisis—and the best day to start was the day the system went live. The second-best day is today.</p>
+
+          <div class="cta-box">
+            <h3>Need a Proper Handover Document for Your System?</h3>
+            <p style="color: #D1D5DB;">SteadyDevs can produce clear, business-readable system documentation for your legacy application—or audit an existing handover to find the dangerous gaps before they become a crisis.</p>
+            <a href="../contact.html" class="cta-button">Get Your System Documented</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How long should a handover document be?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Long enough to cover the seven areas above, and no longer. For a typical small-business system that's often 10-30 pages, not hundreds. The goal is usefulness, not volume—a focused document someone will actually read and follow beats an exhaustive manual nobody opens. If it covers the map, the keys, the build, deployment, the database, the landmines, and the contacts, it's doing its job.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Our developer is still here and everything works. Isn't this premature?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It's the opposite—this is exactly the right time. Documentation written while the system is healthy and the expert is available is accurate and complete. Documentation extracted during a rushed exit, or reconstructed after someone's gone, is partial and unreliable. Requesting it now costs a little developer time; needing it later without having it costs a crisis.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if our developer refuses or keeps putting it off?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Treat persistent refusal as a warning sign about your overall exposure to that person. Make it concrete: a defined, paid deliverable with a deadline, ideally written into the engagement. If they still won't, you've learned something important—that your business is dangerously dependent on someone unwilling to reduce that dependency—and it may be time to bring in an independent party to document the system.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can someone document a system if the original developer is already gone?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes, though it's harder and costs more. An experienced developer can reverse-engineer documentation by examining the running system, the database, and the source code (if available). It won't capture every undocumented quirk that lived in the original person's head, but it can rebuild most of the critical map, access, and operational knowledge. This is a common first step in recovering from a developer's departure.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should the handover document include passwords directly?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No—don't write live passwords into a document that gets emailed around or saved in shared folders. Instead, store credentials in a proper password manager that the business owns and controls, and have the document point to where each credential lives and who has access. The document records the structure of access; the password manager holds the secrets securely.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="system-handover-documentation-checklist" data-current-tags='["Documentation","Business Continuity","Developer Relationships","Legacy Systems"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
