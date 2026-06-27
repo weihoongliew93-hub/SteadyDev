@@ -11159,5 +11159,573 @@
         ]
       }
     ]
+  },
+  {
+    "id": "myinvois-api-integration-legacy-system-guide",
+    "title": "MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System",
+    "slug": "myinvois-api-integration-legacy-system-guide",
+    "excerpt": "Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.",
+    "date": "2026-06-27",
+    "dateDisplay": "June 27, 2026",
+    "readTime": "12 min read",
+    "tags": [
+      "E-Invoice",
+      "Integration",
+      ".NET",
+      "Legacy Systems",
+      "Malaysia"
+    ],
+    "author": "SteadyDevs",
+    "published": true,
+    "heroImage": "images/blog/myinvois-api-integration.jpg",
+    "heroImageAlt": "MyInvois API integration with a legacy .NET system",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "\"Can't we just call the LHDN API and be done with it?\" That's usually the first question I get when a business owner asks about connecting their existing system to MyInvois. The honest answer: the API call is the easy part. Everything around it—authentication, digital signatures, document formatting, and validation handling—is where the real work lives."
+      },
+      {
+        "type": "paragraph",
+        "text": "If you're running a legacy .NET system and planning to integrate directly with LHDN's MyInvois platform (rather than going through a third-party middleware provider), here's what your developer actually needs to understand before writing a single line of code."
+      },
+      {
+        "type": "heading2",
+        "text": "Direct Integration vs. Middleware: Choose First"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before any technical work, decide how you're connecting. There are two realistic paths:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Direct API integration</strong> — your system talks to MyInvois directly. Full control, no per-document fees, but you own the entire compliance burden (signing, retries, updates when LHDN changes the spec).",
+          "<strong>Middleware / service provider</strong> — you send invoices to an intermediary that handles MyInvois submission. Faster to launch, but ongoing fees and a dependency on their uptime."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "For businesses with steady, moderate invoice volumes and an in-house or retained developer, direct integration usually pays off within 12–18 months. For very high volumes or businesses with no technical support, middleware is often the safer choice. This article assumes you've chosen direct integration."
+      },
+      {
+        "type": "heading2",
+        "text": "The Five Things the API Actually Requires"
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN's MyInvois API isn't a single \"send invoice\" call. A compliant submission involves several steps that must happen in the right order:"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Authentication (OAuth 2.0)"
+      },
+      {
+        "type": "paragraph",
+        "text": "MyInvois uses OAuth 2.0 client credentials. Your system authenticates with a Client ID and Client Secret to obtain an access token, which is then attached to every API request. Tokens expire, so your integration needs to cache and refresh them automatically rather than logging in on every call."
+      },
+      {
+        "type": "paragraph",
+        "text": "For legacy .NET Framework systems, watch the TLS version. MyInvois requires TLS 1.2 or higher. Older .NET Framework apps frequently default to TLS 1.0/1.1 and fail with cryptic connection errors. This single issue accounts for a surprising number of stalled integrations."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Building the Document (UBL 2.1)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Invoices must be formatted as UBL 2.1—an XML standard—or JSON following LHDN's schema. Every required field (supplier TIN, buyer details, classification codes, tax types, totals) must be present and correctly typed. A missing or malformed field means rejection, not a warning."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Digital Signing"
+      },
+      {
+        "type": "paragraph",
+        "text": "This is the step most teams underestimate. Each document must be digitally signed using a valid digital certificate so LHDN can verify authenticity and integrity. That means implementing XML digital signatures (XAdES) correctly—canonicalization, hashing, and certificate handling all have to match the spec exactly. Get one step wrong and the document is rejected with little explanation."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Submission and Asynchronous Validation"
+      },
+      {
+        "type": "paragraph",
+        "text": "When you submit a document, MyInvois doesn't validate it instantly. It returns a submission ID, then validates asynchronously. Your system must poll (or handle callbacks) to learn whether each document was <em>Valid</em>, <em>Invalid</em>, or still <em>InProgress</em>. Treating submission as \"fire and forget\" is a common and costly mistake."
+      },
+      {
+        "type": "heading3",
+        "text": "5. Handling the Outcome"
+      },
+      {
+        "type": "paragraph",
+        "text": "Once validated, you receive a unique identifier and a validation link (often rendered as a QR code on the invoice). You must store these, attach them to the customer's invoice, and be able to retrieve or cancel documents within the allowed window."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>The 72-hour rule:</strong> A validated e-invoice can only be cancelled within 72 hours of validation. After that, corrections require issuing a credit note or debit note instead. Your system's workflow has to enforce this—manual cancellation outside the window simply won't be accepted."
+      },
+      {
+        "type": "heading2",
+        "text": "Where Legacy Systems Specifically Struggle"
+      },
+      {
+        "type": "paragraph",
+        "text": "Integrating MyInvois into a modern greenfield app is straightforward. Doing it inside a 10-year-old .NET system is where the friction appears:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>TLS and security protocols</strong> — old framework versions need explicit configuration to negotiate TLS 1.2, and sometimes a framework upgrade.",
+          "<strong>XML signing libraries</strong> — legacy systems may lack modern cryptography libraries; XAdES signing often needs additional packages or a signing microservice.",
+          "<strong>Data quality gaps</strong> — legacy databases frequently store customer TINs, addresses, and classification data inconsistently (or not at all). The API demands clean, complete data.",
+          "<strong>No retry/queue infrastructure</strong> — older systems built for synchronous workflows have nowhere to park documents that are pending asynchronous validation.",
+          "<strong>Tight coupling</strong> — invoicing logic buried inside UI code makes it hard to insert a clean integration layer without risking the rest of the system."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "The cleanest pattern for a legacy system is to build a small, separate integration service that handles authentication, signing, submission, and polling—then have the legacy app talk to that service. This isolates the compliance logic, makes it independently testable, and means LHDN spec changes only touch one component."
+      },
+      {
+        "type": "heading2",
+        "text": "The Sandbox Is Not Optional"
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN provides a preproduction (sandbox) environment. Every integration should be fully tested there first—authentication, signing, submission, validation, cancellation, and credit notes—before touching production. The sandbox is also where you discover that your data isn't as clean as you assumed."
+      },
+      {
+        "type": "paragraph",
+        "text": "Budget real time for sandbox testing. Teams that skip it to \"save time\" almost always lose more time later debugging production rejections under deadline pressure."
+      },
+      {
+        "type": "heading2",
+        "text": "A Realistic Integration Timeline"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a typical legacy .NET system with a competent developer, expect:"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Week 1–2:</strong> Data audit and cleanup (TINs, classification codes, buyer details), plus sandbox account setup.",
+          "<strong>Week 2–4:</strong> Build the integration layer—auth, document mapping, digital signing.",
+          "<strong>Week 4–6:</strong> Submission, polling, and outcome handling; sandbox end-to-end testing.",
+          "<strong>Week 6–8:</strong> Edge cases—cancellations, credit/debit notes, error recovery—then a controlled production rollout."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Rushing this into two weeks is possible but creates fragile integrations that break the first time LHDN tweaks the schema or you hit an unusual transaction. Steady and tested beats fast and brittle."
+      },
+      {
+        "type": "cta",
+        "title": "Connecting Your Legacy System to MyInvois?",
+        "text": "SteadyDevs builds clean, isolated MyInvois integration layers for legacy .NET systems—handling authentication, digital signing, validation, and error recovery without destabilising your existing software. Get a free consultation to map out your integration.",
+        "buttonText": "Get Your FREE Consultation",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Do I have to integrate directly, or can I use middleware?",
+            "answer": "Both are valid. Direct integration gives you full control and no per-document fees but more responsibility. Middleware is faster to launch and offloads compliance, at the cost of ongoing fees and a third-party dependency. The right choice depends on your invoice volume and available technical support."
+          },
+          {
+            "question": "Why does my legacy system fail to connect to MyInvois even with correct credentials?",
+            "answer": "The most common cause is TLS version. MyInvois requires TLS 1.2+, and older .NET Framework applications often default to TLS 1.0/1.1, causing connection failures that look like authentication errors. Forcing TLS 1.2 in your code or configuration usually resolves it."
+          },
+          {
+            "question": "What is the hardest part of MyInvois integration?",
+            "answer": "Digital signing (XAdES) and handling asynchronous validation. Both are easy to implement <em>almost</em> correctly—and 'almost correct' means rejected documents with unhelpful error messages. These are the steps where experience saves the most time."
+          },
+          {
+            "question": "Can I cancel an e-invoice after it's validated?",
+            "answer": "Only within 72 hours of validation. After that window you must issue a credit note or debit note to correct it. Your system's workflow needs to enforce this rule rather than assuming cancellation is always available."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "einvoice-b2c-consolidation-retail-guide",
+    "title": "E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices",
+    "slug": "einvoice-b2c-consolidation-retail-guide",
+    "excerpt": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.",
+    "date": "2026-06-25",
+    "dateDisplay": "June 25, 2026",
+    "readTime": "10 min read",
+    "tags": [
+      "E-Invoice",
+      "POS Systems",
+      "Retail",
+      "Compliance",
+      "Malaysia"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/einvoice-b2c-consolidation.jpg",
+    "heroImageAlt": "Retail point of sale handling consolidated B2C e-invoices",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "If you run a retail shop, restaurant, or any business serving walk-in customers, the e-invoice mandate raises an obvious worry: \"Do I really have to generate a separate e-invoice for every single customer, even the ones who just buy a drink and leave?\" The good news is no—LHDN designed a consolidation mechanism specifically for B2C. The catch is that you have to handle it correctly, and your POS system has to support it."
+      },
+      {
+        "type": "heading2",
+        "text": "The Core Rule: Issue on Request, Consolidate the Rest"
+      },
+      {
+        "type": "paragraph",
+        "text": "For business-to-consumer transactions, the framework works like this:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "If a customer <strong>requests</strong> an e-invoice, you must issue a proper individual e-invoice with their details (name and TIN where applicable).",
+          "If a customer <strong>doesn't request</strong> one—which is the vast majority of walk-in retail—you issue a normal receipt at the point of sale, then submit a <strong>consolidated e-invoice</strong> covering all such transactions for the period."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "In other words, you're not signing and submitting an e-invoice to LHDN for every coffee or t-shirt sold. You aggregate the non-requesting sales and submit them together."
+      },
+      {
+        "type": "heading2",
+        "text": "How Consolidation Actually Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "A consolidated e-invoice batches your B2C transactions and is submitted to MyInvois periodically. The key parameters businesses need to know:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Timing:</strong> Consolidated e-invoices are submitted within seven calendar days after the end of the month for the previous month's B2C transactions.",
+          "<strong>Receipts still required:</strong> At the point of sale you still issue the customer a normal receipt. That receipt is what the customer walks away with.",
+          "<strong>Line items:</strong> The consolidated document summarises the qualifying receipts for the period, following LHDN's formatting rules for how individual receipts are represented."
+        ]
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Some industries can't consolidate.</strong> LHDN excludes certain activities from consolidation—meaning they must issue individual e-invoices even for B2C. These have historically included sectors such as automotive, aviation, luxury goods, construction, and licensed betting/gaming. If you operate in a restricted category, confirm your specific obligation before assuming consolidation applies."
+      },
+      {
+        "type": "heading2",
+        "text": "What This Means for Your POS System"
+      },
+      {
+        "type": "paragraph",
+        "text": "Consolidation sounds simple until you realise your point-of-sale software has to do several new things reliably:"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Capture e-invoice requests at the counter"
+      },
+      {
+        "type": "paragraph",
+        "text": "When a customer <em>does</em> ask for an e-invoice, your staff need a fast way to capture the buyer's details and trigger an individual e-invoice—without holding up the queue. A clunky workflow here causes either long lines or skipped compliance."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Tag and store every transaction for consolidation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every non-requesting sale has to be recorded with enough detail to be included in the monthly consolidated submission. Your system needs to reliably flag which transactions were already issued as individual e-invoices versus which still need consolidating—double-counting is a real risk."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Generate and submit the consolidated document"
+      },
+      {
+        "type": "paragraph",
+        "text": "At period end, the system must aggregate the right transactions, format them to LHDN's schema, sign, and submit—then track validation outcomes. For most retailers this should be automated, not a manual month-end scramble."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Handle returns and voids cleanly"
+      },
+      {
+        "type": "paragraph",
+        "text": "Refunds and voided sales that fall within a consolidation period have to be reflected correctly. A return processed after the consolidated invoice is submitted needs the proper adjustment mechanism, not a silent edit."
+      },
+      {
+        "type": "tip",
+        "text": "If your POS is a legacy system that wasn't built with e-invoice in mind, you usually don't need to replace it. The common approach is to add a consolidation module that reads completed transactions from your existing database, handles tagging and batching, and talks to MyInvois—leaving your day-to-day selling workflow untouched."
+      },
+      {
+        "type": "heading2",
+        "text": "Common Mistakes That Create Compliance Problems"
+      },
+      {
+        "type": "paragraph",
+        "text": "From what we've seen across retail and F&B businesses adapting to the mandate, these are the recurring pitfalls:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Assuming consolidation applies when it doesn't</strong> — businesses in restricted industries discovering too late that they owe individual e-invoices.",
+          "<strong>Missing the seven-day window</strong> — treating consolidation as a 'whenever we get to it' task instead of a hard monthly deadline.",
+          "<strong>Double-counting</strong> — including transactions in the consolidated batch that were already issued as individual e-invoices on request.",
+          "<strong>No reconciliation</strong> — not checking that the total of submitted e-invoices (individual + consolidated) matches actual sales, leaving gaps that surface during an audit.",
+          "<strong>Ignoring validation failures</strong> — submitting a consolidated document and never confirming LHDN actually accepted it."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "A Simple Monthly Workflow"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a typical retailer, a clean process looks like this:"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Throughout the month, issue receipts as normal; capture individual e-invoices only when customers request them.",
+          "The system tags every transaction as 'individually invoiced' or 'pending consolidation'.",
+          "After month-end, the system aggregates all pending transactions into a consolidated e-invoice and submits to MyInvois within seven days.",
+          "Confirm validation outcomes and store the identifiers.",
+          "Reconcile: total sales = individual e-invoices + consolidated e-invoice + any documented exclusions."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Done right, B2C e-invoicing adds almost no friction at the counter and becomes a quiet, automated month-end step. Done wrong, it becomes a manual headache and an audit risk."
+      },
+      {
+        "type": "cta",
+        "title": "Need B2C Consolidation Built Into Your POS?",
+        "text": "SteadyDevs adds e-invoice consolidation to existing POS and retail systems—capturing on-request invoices at the counter, batching B2C sales, and submitting compliant consolidated documents to MyInvois automatically. Get a free consultation to see how it fits your setup.",
+        "buttonText": "Get Your FREE Consultation",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Do I have to issue an e-invoice for every walk-in customer?",
+            "answer": "No. For B2C, you only issue an individual e-invoice when a customer requests one. All other sales are covered by a consolidated e-invoice submitted to LHDN after month-end. You still give every customer a normal receipt at the time of sale."
+          },
+          {
+            "question": "How often do I submit consolidated e-invoices?",
+            "answer": "Consolidated e-invoices covering the previous month's B2C transactions are submitted within seven calendar days after the end of that month. It's a recurring monthly obligation, so it's best automated rather than done by hand."
+          },
+          {
+            "question": "Are any businesses not allowed to consolidate?",
+            "answer": "Yes. LHDN excludes certain industries from consolidation—historically including automotive, aviation, luxury goods, construction, and licensed betting/gaming—requiring individual e-invoices even for B2C sales. Confirm your industry's specific rules before relying on consolidation."
+          },
+          {
+            "question": "Do I need a new POS system to handle this?",
+            "answer": "Usually not. In most cases a consolidation module can be added to your existing POS—reading completed transactions, tagging them, and submitting consolidated e-invoices—without changing how your staff ring up sales."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "einvoice-validation-errors-rejections-fix-guide",
+    "title": "E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them",
+    "slug": "einvoice-validation-errors-rejections-fix-guide",
+    "excerpt": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
+    "date": "2026-06-26",
+    "dateDisplay": "June 26, 2026",
+    "readTime": "11 min read",
+    "tags": [
+      "E-Invoice",
+      "Compliance",
+      "Troubleshooting",
+      "Integration",
+      "Malaysia"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/einvoice-validation-errors.jpg",
+    "heroImageAlt": "Troubleshooting MyInvois e-invoice validation errors",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Your system submits an invoice to MyInvois, and instead of a clean validation you get back a rejection—often with a terse error code and not much explanation. Now the document isn't valid, the customer can't rely on it, and someone has to figure out what went wrong before the clock runs out."
+      },
+      {
+        "type": "paragraph",
+        "text": "After helping businesses debug their MyInvois submissions, I've found that the same handful of errors account for the overwhelming majority of rejections. Here's what they mean and how to fix them—so you can resolve issues quickly instead of guessing."
+      },
+      {
+        "type": "heading2",
+        "text": "First: Understand What 'Rejected' Actually Means"
+      },
+      {
+        "type": "paragraph",
+        "text": "MyInvois validation has a few distinct outcomes, and confusing them leads to wasted effort:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Invalid</strong> — the document failed LHDN's validation rules (structure, signature, or data). It was not accepted and must be corrected and resubmitted.",
+          "<strong>Rejected by buyer</strong> — the document was valid, but the buyer requested rejection within the allowed window (e.g. wrong details). The seller must cancel and reissue.",
+          "<strong>Submission failure</strong> — the request never got far enough to validate, usually an authentication, formatting, or connectivity problem."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Knowing which bucket you're in tells you where to look—your data, your signing, or your connection."
+      },
+      {
+        "type": "heading2",
+        "text": "The Most Common Validation Errors"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Invalid or Mismatched TIN"
+      },
+      {
+        "type": "paragraph",
+        "text": "By far the most frequent issue. The Tax Identification Number you submitted doesn't validate against LHDN's records, or the TIN doesn't match the associated registration details. This happens with both supplier and buyer TINs."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Fix:</strong> Verify the TIN through LHDN's validation before submission, not after. Clean your customer master data so TINs are stored in the correct format. For B2B, confirm the buyer's TIN with them directly rather than guessing."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Digital Signature Validation Failure"
+      },
+      {
+        "type": "paragraph",
+        "text": "The document's digital signature couldn't be verified. Causes include an expired or invalid certificate, incorrect canonicalization, a wrong hashing step, or the signed content not matching the submitted content."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Fix:</strong> Confirm your digital certificate is valid and not expired. Re-check your XAdES signing implementation against the spec—signature failures are almost always an implementation detail, not a data issue. This is the error most worth getting expert eyes on."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Missing or Invalid Classification Code"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every line item needs a valid classification code, and the codes must come from LHDN's accepted list. A missing, outdated, or mistyped code fails validation."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Fix:</strong> Map your products and services to the correct classification codes once, store them properly, and validate against the current code list. Don't hardcode a single 'catch-all' code—that can itself cause rejections or compliance issues."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Tax Type / Tax Amount Inconsistencies"
+      },
+      {
+        "type": "paragraph",
+        "text": "The declared tax type, rate, or computed tax amount doesn't reconcile with the line totals and invoice total. Rounding differences and incorrect tax treatment are common culprits."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Fix:</strong> Ensure your tax calculation and rounding logic matches LHDN's expectations exactly. The totals must add up to the cent. Legacy systems with their own rounding quirks often need this logic adjusted specifically for e-invoice submission."
+      },
+      {
+        "type": "heading3",
+        "text": "5. Required Field Missing or Wrong Type"
+      },
+      {
+        "type": "paragraph",
+        "text": "A mandatory field is empty, or a value is the wrong data type or format (for example, a date in the wrong format, or a number sent as text). The UBL/JSON schema is strict."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Fix:</strong> Validate your document against LHDN's schema before sending. Build a pre-submission check that catches missing required fields and format errors—cheaper than a round-trip rejection."
+      },
+      {
+        "type": "heading3",
+        "text": "6. Duplicate Submission"
+      },
+      {
+        "type": "paragraph",
+        "text": "The same invoice (same document number) was submitted more than once. Often caused by a retry that didn't check whether the first attempt actually succeeded."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Fix:</strong> Make submissions idempotent—track each document's status so retries don't resubmit something already accepted. This ties directly into handling asynchronous validation properly."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Timing matters.</strong> Corrections aren't unlimited. A validated e-invoice can only be cancelled within 72 hours; after that you must issue a credit or debit note. And buyer-initiated rejections also operate within a fixed window. Build these deadlines into your process so a fixable error doesn't become a permanent compliance gap."
+      },
+      {
+        "type": "heading2",
+        "text": "Why Legacy Systems Hit These Errors More Often"
+      },
+      {
+        "type": "paragraph",
+        "text": "If your invoices keep getting rejected, the root cause is frequently not the e-invoice integration itself but the data and logic feeding it:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Customer records with missing, malformed, or outdated TINs accumulated over years.",
+          "Product catalogues with no concept of LHDN classification codes.",
+          "Tax and rounding logic written for printed invoices, not for cent-exact API validation.",
+          "No pre-submission validation layer, so bad data only fails once it reaches LHDN.",
+          "Retry logic that resubmits blindly, creating duplicates."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "The single most effective fix is a pre-submission validation step: check TINs, required fields, classification codes, and totals <em>before</em> the document ever leaves your system. Catching errors locally turns a slow, opaque LHDN rejection cycle into an instant, clear message your team can act on."
+      },
+      {
+        "type": "heading2",
+        "text": "A Practical Troubleshooting Checklist"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Identify the outcome type: Invalid, buyer-rejected, or submission failure.",
+          "Read the specific error code and field reference LHDN returned—don't guess.",
+          "If it's a signature error, treat it as an implementation issue and verify your certificate and signing steps.",
+          "If it's a data error (TIN, classification, totals), fix the source record, not just this one document.",
+          "Add a pre-submission check so the same class of error can't reach LHDN again.",
+          "Confirm the corrected document validates in sandbox before resubmitting to production.",
+          "Respect the cancellation and rejection windows—use credit/debit notes when the window has passed."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Rejections are frustrating, but they're rarely random. Almost every one traces back to a specific, fixable cause—and once you've built proper validation and signing, the rejection rate drops close to zero."
+      },
+      {
+        "type": "cta",
+        "title": "Fighting Repeated E-Invoice Rejections?",
+        "text": "SteadyDevs diagnoses and fixes MyInvois validation failures—from signature and schema errors to TIN, classification, and rounding issues—and builds pre-submission validation so rejections stop recurring. Get a free consultation to clear your backlog.",
+        "buttonText": "Get Your FREE Consultation",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Why does LHDN keep rejecting my e-invoices?",
+            "answer": "The most common causes are invalid or mismatched TINs, digital signature errors, missing or wrong classification codes, and tax/total inconsistencies. Each has a specific fix. If rejections recur, the underlying issue is usually bad source data or a signing implementation problem rather than the individual invoice."
+          },
+          {
+            "question": "What's the difference between 'Invalid' and 'Rejected by buyer'?",
+            "answer": "'Invalid' means the document failed LHDN's validation rules and was never accepted—you correct and resubmit. 'Rejected by buyer' means the document was valid but the buyer asked for rejection (e.g. wrong details) within the allowed window, so the seller cancels and reissues."
+          },
+          {
+            "question": "How do I fix a digital signature validation failure?",
+            "answer": "Confirm your digital certificate is valid and unexpired, then check your XAdES signing implementation—canonicalization, hashing, and ensuring the signed content matches what's submitted. Signature failures are almost always an implementation detail and are the area where expert help saves the most time."
+          },
+          {
+            "question": "Can I fix a rejected invoice anytime?",
+            "answer": "No. A validated e-invoice can only be cancelled within 72 hours; after that you must issue a credit or debit note. Buyer rejections also have a fixed window. Build these deadlines into your workflow so a correctable error doesn't become a lasting compliance gap."
+          }
+        ]
+      }
+    ]
   }
 ]

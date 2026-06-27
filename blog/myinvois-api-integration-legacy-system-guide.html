@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System | SteadyDevs</title>
+  <meta name="description" content="Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html">
+  <meta property="og:title" content="MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System">
+  <meta property="og:description" content="Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/myinvois-api-integration.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System">
+  <meta name="twitter:description" content="Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/myinvois-api-integration.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System",
+    "alternativeHeadline": "Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actual",
+    "image": "https://steadydevs.com/images/blog/myinvois-api-integration.jpg",
+    "datePublished": "2026-06-27T00:00:00+08:00",
+    "dateModified": "2026-06-27T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.",
+    "articleSection": "Compliance & Regulation",
+    "articleBody": "Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.",
+    "wordCount": 1169,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "E-Invoice"
+      },
+      {
+        "@type": "Thing",
+        "name": "Integration"
+      },
+      {
+        "@type": "Thing",
+        "name": ".NET"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "e-invoice, integration, .net, legacy systems, malaysia",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-06-27T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-06-27T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Compliance & Regulation">
+  <meta property="article:tag" content="E-Invoice, Integration, .NET, Legacy Systems, Malaysia">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System",
+        "item": "https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/myinvois-api-integration.jpg" alt="MyInvois API integration with a legacy .NET system" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System</h1>
+          <div class="blog-meta">June 27, 2026 | 12 min read</div>
+        </div>
+        <p>"Can't we just call the LHDN API and be done with it?" That's usually the first question I get when a business owner asks about connecting their existing system to MyInvois. The honest answer: the API call is the easy part. Everything around it—authentication, digital signatures, document formatting, and validation handling—is where the real work lives.</p>
+<p>If you're running a legacy .NET system and planning to integrate directly with LHDN's MyInvois platform (rather than going through a third-party middleware provider), here's what your developer actually needs to understand before writing a single line of code.</p>
+<h2>Direct Integration vs. Middleware: Choose First</h2>
+<p>Before any technical work, decide how you're connecting. There are two realistic paths:</p>
+<ul><li><strong>Direct API integration</strong> — your system talks to MyInvois directly. Full control, no per-document fees, but you own the entire compliance burden (signing, retries, updates when LHDN changes the spec).</li><li><strong>Middleware / service provider</strong> — you send invoices to an intermediary that handles MyInvois submission. Faster to launch, but ongoing fees and a dependency on their uptime.</li></ul>
+<p>For businesses with steady, moderate invoice volumes and an in-house or retained developer, direct integration usually pays off within 12–18 months. For very high volumes or businesses with no technical support, middleware is often the safer choice. This article assumes you've chosen direct integration.</p>
+<h2>The Five Things the API Actually Requires</h2>
+<p>LHDN's MyInvois API isn't a single "send invoice" call. A compliant submission involves several steps that must happen in the right order:</p>
+<h3>1. Authentication (OAuth 2.0)</h3>
+<p>MyInvois uses OAuth 2.0 client credentials. Your system authenticates with a Client ID and Client Secret to obtain an access token, which is then attached to every API request. Tokens expire, so your integration needs to cache and refresh them automatically rather than logging in on every call.</p>
+<p>For legacy .NET Framework systems, watch the TLS version. MyInvois requires TLS 1.2 or higher. Older .NET Framework apps frequently default to TLS 1.0/1.1 and fail with cryptic connection errors. This single issue accounts for a surprising number of stalled integrations.</p>
+<h3>2. Building the Document (UBL 2.1)</h3>
+<p>Invoices must be formatted as UBL 2.1—an XML standard—or JSON following LHDN's schema. Every required field (supplier TIN, buyer details, classification codes, tax types, totals) must be present and correctly typed. A missing or malformed field means rejection, not a warning.</p>
+<h3>3. Digital Signing</h3>
+<p>This is the step most teams underestimate. Each document must be digitally signed using a valid digital certificate so LHDN can verify authenticity and integrity. That means implementing XML digital signatures (XAdES) correctly—canonicalization, hashing, and certificate handling all have to match the spec exactly. Get one step wrong and the document is rejected with little explanation.</p>
+<h3>4. Submission and Asynchronous Validation</h3>
+<p>When you submit a document, MyInvois doesn't validate it instantly. It returns a submission ID, then validates asynchronously. Your system must poll (or handle callbacks) to learn whether each document was <em>Valid</em>, <em>Invalid</em>, or still <em>InProgress</em>. Treating submission as "fire and forget" is a common and costly mistake.</p>
+<h3>5. Handling the Outcome</h3>
+<p>Once validated, you receive a unique identifier and a validation link (often rendered as a QR code on the invoice). You must store these, attach them to the customer's invoice, and be able to retrieve or cancel documents within the allowed window.</p>
+<div class="warning-box"><p><strong>The 72-hour rule:</strong> A validated e-invoice can only be cancelled within 72 hours of validation. After that, corrections require issuing a credit note or debit note instead. Your system's workflow has to enforce this—manual cancellation outside the window simply won't be accepted.</p></div>
+<h2>Where Legacy Systems Specifically Struggle</h2>
+<p>Integrating MyInvois into a modern greenfield app is straightforward. Doing it inside a 10-year-old .NET system is where the friction appears:</p>
+<ul><li><strong>TLS and security protocols</strong> — old framework versions need explicit configuration to negotiate TLS 1.2, and sometimes a framework upgrade.</li><li><strong>XML signing libraries</strong> — legacy systems may lack modern cryptography libraries; XAdES signing often needs additional packages or a signing microservice.</li><li><strong>Data quality gaps</strong> — legacy databases frequently store customer TINs, addresses, and classification data inconsistently (or not at all). The API demands clean, complete data.</li><li><strong>No retry/queue infrastructure</strong> — older systems built for synchronous workflows have nowhere to park documents that are pending asynchronous validation.</li><li><strong>Tight coupling</strong> — invoicing logic buried inside UI code makes it hard to insert a clean integration layer without risking the rest of the system.</li></ul>
+<div class="tip-box"><p>The cleanest pattern for a legacy system is to build a small, separate integration service that handles authentication, signing, submission, and polling—then have the legacy app talk to that service. This isolates the compliance logic, makes it independently testable, and means LHDN spec changes only touch one component.</p></div>
+<h2>The Sandbox Is Not Optional</h2>
+<p>LHDN provides a preproduction (sandbox) environment. Every integration should be fully tested there first—authentication, signing, submission, validation, cancellation, and credit notes—before touching production. The sandbox is also where you discover that your data isn't as clean as you assumed.</p>
+<p>Budget real time for sandbox testing. Teams that skip it to "save time" almost always lose more time later debugging production rejections under deadline pressure.</p>
+<h2>A Realistic Integration Timeline</h2>
+<p>For a typical legacy .NET system with a competent developer, expect:</p>
+<ol><li><strong>Week 1–2:</strong> Data audit and cleanup (TINs, classification codes, buyer details), plus sandbox account setup.</li><li><strong>Week 2–4:</strong> Build the integration layer—auth, document mapping, digital signing.</li><li><strong>Week 4–6:</strong> Submission, polling, and outcome handling; sandbox end-to-end testing.</li><li><strong>Week 6–8:</strong> Edge cases—cancellations, credit/debit notes, error recovery—then a controlled production rollout.</li></ol>
+<p>Rushing this into two weeks is possible but creates fragile integrations that break the first time LHDN tweaks the schema or you hit an unusual transaction. Steady and tested beats fast and brittle.</p>
+
+          <div class="cta-box">
+            <h3>Connecting Your Legacy System to MyInvois?</h3>
+            <p style="color: #D1D5DB;">SteadyDevs builds clean, isolated MyInvois integration layers for legacy .NET systems—handling authentication, digital signing, validation, and error recovery without destabilising your existing software. Get a free consultation to map out your integration.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Do I have to integrate directly, or can I use middleware?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Both are valid. Direct integration gives you full control and no per-document fees but more responsibility. Middleware is faster to launch and offloads compliance, at the cost of ongoing fees and a third-party dependency. The right choice depends on your invoice volume and available technical support.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Why does my legacy system fail to connect to MyInvois even with correct credentials?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>The most common cause is TLS version. MyInvois requires TLS 1.2+, and older .NET Framework applications often default to TLS 1.0/1.1, causing connection failures that look like authentication errors. Forcing TLS 1.2 in your code or configuration usually resolves it.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">What is the hardest part of MyInvois integration?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Digital signing (XAdES) and handling asynchronous validation. Both are easy to implement <em>almost</em> correctly—and 'almost correct' means rejected documents with unhelpful error messages. These are the steps where experience saves the most time.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I cancel an e-invoice after it's validated?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Only within 72 hours of validation. After that window you must issue a credit note or debit note to correct it. Your system's workflow needs to enforce this rule rather than assuming cancellation is always available.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="myinvois-api-integration-legacy-system-guide" data-current-tags='["E-Invoice","Integration",".NET","Legacy Systems","Malaysia"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
