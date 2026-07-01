@@ -11354,8 +11354,8 @@
     "title": "E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices",
     "slug": "einvoice-b2c-consolidation-retail-guide",
     "excerpt": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.",
-    "date": "2026-06-25",
-    "dateDisplay": "June 25, 2026",
+    "date": "2026-07-01",
+    "dateDisplay": "July 01, 2026",
     "readTime": "10 min read",
     "tags": [
       "E-Invoice",
@@ -11365,7 +11365,7 @@
       "Malaysia"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/einvoice-b2c-consolidation.jpg",
     "heroImageAlt": "Retail point of sale handling consolidated B2C e-invoices",
     "content": [

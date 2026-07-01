@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices | SteadyDevs</title>
+  <meta name="description" content="Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html">
+  <meta property="og:title" content="E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices">
+  <meta property="og:description" content="Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/einvoice-b2c-consolidation.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices">
+  <meta name="twitter:description" content="Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/einvoice-b2c-consolidation.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=83">
+  <link rel="stylesheet" href="blog-styles.css?v=1">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices",
+    "alternativeHeadline": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's ho",
+    "image": "https://steadydevs.com/images/blog/einvoice-b2c-consolidation.jpg",
+    "datePublished": "2026-07-01T00:00:00+08:00",
+    "dateModified": "2026-07-01T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.",
+    "articleSection": "Compliance & Regulation",
+    "articleBody": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.",
+    "wordCount": 1004,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "E-Invoice"
+      },
+      {
+        "@type": "Thing",
+        "name": "POS Systems"
+      },
+      {
+        "@type": "Thing",
+        "name": "Retail"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "e-invoice, pos systems, retail, compliance, malaysia",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-07-01T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-07-01T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Compliance & Regulation">
+  <meta property="article:tag" content="E-Invoice, POS Systems, Retail, Compliance, Malaysia">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <div class="nav-dropdown">
+          <a>Packages</a>
+          <div class="dropdown-content">
+            <a href="../packages.html">All Packages</a>
+            <a href="../pricing-terms.html">Pricing & Terms</a>
+          </div>
+        </div>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices",
+        "item": "https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/einvoice-b2c-consolidation.jpg" alt="Retail point of sale handling consolidated B2C e-invoices" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</h1>
+          <div class="blog-meta">July 01, 2026 | 10 min read</div>
+        </div>
+        <p>If you run a retail shop, restaurant, or any business serving walk-in customers, the e-invoice mandate raises an obvious worry: "Do I really have to generate a separate e-invoice for every single customer, even the ones who just buy a drink and leave?" The good news is no—LHDN designed a consolidation mechanism specifically for B2C. The catch is that you have to handle it correctly, and your POS system has to support it.</p>
+<h2>The Core Rule: Issue on Request, Consolidate the Rest</h2>
+<p>For business-to-consumer transactions, the framework works like this:</p>
+<ul><li>If a customer <strong>requests</strong> an e-invoice, you must issue a proper individual e-invoice with their details (name and TIN where applicable).</li><li>If a customer <strong>doesn't request</strong> one—which is the vast majority of walk-in retail—you issue a normal receipt at the point of sale, then submit a <strong>consolidated e-invoice</strong> covering all such transactions for the period.</li></ul>
+<p>In other words, you're not signing and submitting an e-invoice to LHDN for every coffee or t-shirt sold. You aggregate the non-requesting sales and submit them together.</p>
+<h2>How Consolidation Actually Works</h2>
+<p>A consolidated e-invoice batches your B2C transactions and is submitted to MyInvois periodically. The key parameters businesses need to know:</p>
+<ul><li><strong>Timing:</strong> Consolidated e-invoices are submitted within seven calendar days after the end of the month for the previous month's B2C transactions.</li><li><strong>Receipts still required:</strong> At the point of sale you still issue the customer a normal receipt. That receipt is what the customer walks away with.</li><li><strong>Line items:</strong> The consolidated document summarises the qualifying receipts for the period, following LHDN's formatting rules for how individual receipts are represented.</li></ul>
+<div class="warning-box"><p><strong>Some industries can't consolidate.</strong> LHDN excludes certain activities from consolidation—meaning they must issue individual e-invoices even for B2C. These have historically included sectors such as automotive, aviation, luxury goods, construction, and licensed betting/gaming. If you operate in a restricted category, confirm your specific obligation before assuming consolidation applies.</p></div>
+<h2>What This Means for Your POS System</h2>
+<p>Consolidation sounds simple until you realise your point-of-sale software has to do several new things reliably:</p>
+<h3>1. Capture e-invoice requests at the counter</h3>
+<p>When a customer <em>does</em> ask for an e-invoice, your staff need a fast way to capture the buyer's details and trigger an individual e-invoice—without holding up the queue. A clunky workflow here causes either long lines or skipped compliance.</p>
+<h3>2. Tag and store every transaction for consolidation</h3>
+<p>Every non-requesting sale has to be recorded with enough detail to be included in the monthly consolidated submission. Your system needs to reliably flag which transactions were already issued as individual e-invoices versus which still need consolidating—double-counting is a real risk.</p>
+<h3>3. Generate and submit the consolidated document</h3>
+<p>At period end, the system must aggregate the right transactions, format them to LHDN's schema, sign, and submit—then track validation outcomes. For most retailers this should be automated, not a manual month-end scramble.</p>
+<h3>4. Handle returns and voids cleanly</h3>
+<p>Refunds and voided sales that fall within a consolidation period have to be reflected correctly. A return processed after the consolidated invoice is submitted needs the proper adjustment mechanism, not a silent edit.</p>
+<div class="tip-box"><p>If your POS is a legacy system that wasn't built with e-invoice in mind, you usually don't need to replace it. The common approach is to add a consolidation module that reads completed transactions from your existing database, handles tagging and batching, and talks to MyInvois—leaving your day-to-day selling workflow untouched.</p></div>
+<h2>Common Mistakes That Create Compliance Problems</h2>
+<p>From what we've seen across retail and F&B businesses adapting to the mandate, these are the recurring pitfalls:</p>
+<ul><li><strong>Assuming consolidation applies when it doesn't</strong> — businesses in restricted industries discovering too late that they owe individual e-invoices.</li><li><strong>Missing the seven-day window</strong> — treating consolidation as a 'whenever we get to it' task instead of a hard monthly deadline.</li><li><strong>Double-counting</strong> — including transactions in the consolidated batch that were already issued as individual e-invoices on request.</li><li><strong>No reconciliation</strong> — not checking that the total of submitted e-invoices (individual + consolidated) matches actual sales, leaving gaps that surface during an audit.</li><li><strong>Ignoring validation failures</strong> — submitting a consolidated document and never confirming LHDN actually accepted it.</li></ul>
+<h2>A Simple Monthly Workflow</h2>
+<p>For a typical retailer, a clean process looks like this:</p>
+<ol><li>Throughout the month, issue receipts as normal; capture individual e-invoices only when customers request them.</li><li>The system tags every transaction as 'individually invoiced' or 'pending consolidation'.</li><li>After month-end, the system aggregates all pending transactions into a consolidated e-invoice and submits to MyInvois within seven days.</li><li>Confirm validation outcomes and store the identifiers.</li><li>Reconcile: total sales = individual e-invoices + consolidated e-invoice + any documented exclusions.</li></ol>
+<p>Done right, B2C e-invoicing adds almost no friction at the counter and becomes a quiet, automated month-end step. Done wrong, it becomes a manual headache and an audit risk.</p>
+
+          <div class="cta-box">
+            <h3>Need B2C Consolidation Built Into Your POS?</h3>
+            <p style="color: #D1D5DB;">SteadyDevs adds e-invoice consolidation to existing POS and retail systems—capturing on-request invoices at the counter, batching B2C sales, and submitting compliant consolidated documents to MyInvois automatically. Get a free consultation to see how it fits your setup.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Do I have to issue an e-invoice for every walk-in customer?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. For B2C, you only issue an individual e-invoice when a customer requests one. All other sales are covered by a consolidated e-invoice submitted to LHDN after month-end. You still give every customer a normal receipt at the time of sale.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">How often do I submit consolidated e-invoices?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Consolidated e-invoices covering the previous month's B2C transactions are submitted within seven calendar days after the end of that month. It's a recurring monthly obligation, so it's best automated rather than done by hand.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Are any businesses not allowed to consolidate?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes. LHDN excludes certain industries from consolidation—historically including automotive, aviation, luxury goods, construction, and licensed betting/gaming—requiring individual e-invoices even for B2C sales. Confirm your industry's specific rules before relying on consolidation.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Do I need a new POS system to handle this?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Usually not. In most cases a consolidation module can be added to your existing POS—reading completed transactions, tagging them, and submitting consolidated e-invoices—without changing how your staff ring up sales.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="einvoice-b2c-consolidation-retail-guide" data-current-tags='["E-Invoice","POS Systems","Retail","Compliance","Malaysia"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    // Close menu on actual navigation link clicks (not dropdown toggles)
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Close dropdowns when clicking outside on desktop
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
