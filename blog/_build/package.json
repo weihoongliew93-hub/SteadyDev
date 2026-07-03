@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "SteadyDevs blog build system",
   "scripts": {
-    "build": "node build-blog.js"
+    "build": "node build-blog.js",
+    "sitemap": "node gen-sitemap.js",
+    "feed": "node gen-feed.js",
+    "seo": "node gen-sitemap.js && node gen-feed.js"
   },
   "author": "SteadyDevs",
   "license": "ISC"

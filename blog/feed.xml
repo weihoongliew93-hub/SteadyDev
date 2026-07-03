@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
+<rss version="2.0"
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
@@ -8,253 +8,407 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Mon, 19 May 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
-    
+
     <item>
-      <title>Cloud Migration vs On-Premise Modernization for .NET Systems</title>
-      <link>https://steadydevs.com/blog/cloud-migration-vs-onpremise-modernization-dotnet.html</link>
-      <description>Considering cloud migration for your legacy .NET system? Learn when moving to the cloud makes sense versus modernizing on-premise, based on real-world experience and practical cost considerations.</description>
-      <pubDate>Thu, 12 Jun 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/cloud-migration-vs-onpremise-modernization-dotnet.html</guid>
+      <title>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</title>
+      <link>https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html</link>
+      <description>Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.</description>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
-      <category>Legacy Systems</category>
-      <category>.NET</category>
-      <category>Cloud Migration</category>
+      <category>E-Invoice</category>
+      <category>POS Systems</category>
+      <category>Retail</category>
+      <category>Compliance</category>
+      <category>Malaysia</category>
     </item>
-    
+
     <item>
-      <title>Your POS Vendor Won't Support Customizations. Now What?</title>
+      <title>MyInvois API Integration: What Your Developer Needs to Know Before Connecting Your Legacy System</title>
+      <link>https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html</link>
+      <description>Connecting a legacy .NET system to LHDN's MyInvois API is more than a single endpoint call. Here's what actually goes into integration—authentication, digital signing, validation, and the pitfalls that catch most developers off guard.</description>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/myinvois-api-integration-legacy-system-guide.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>E-Invoice</category>
+      <category>Integration</category>
+      <category>.NET</category>
+      <category>Legacy Systems</category>
+      <category>Malaysia</category>
+    </item>
+
+    <item>
+      <title>What a Proper System Handover Document Should Contain (Free Checklist)</title>
+      <link>https://steadydevs.com/blog/system-handover-documentation-checklist.html</link>
+      <description>When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.</description>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/system-handover-documentation-checklist.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Documentation</category>
+      <category>Business Continuity</category>
+      <category>Developer Relationships</category>
+      <category>Legacy Systems</category>
+    </item>
+
+    <item>
+      <title>Windows Server &amp; SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</title>
+      <link>https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html</link>
+      <description>Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance, and insurance liability overnight. Here's how to find out where you stand and what to do about it.</description>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/windows-server-end-of-life-legacy-system-risk.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Windows Server</category>
+      <category>SQL Server</category>
+      <category>Security</category>
+      <category>Legacy Systems</category>
+      <category>Infrastructure</category>
+    </item>
+
+    <item>
+      <title>Why Your POS/ERP Vendor Won't Support Your Customizations (And What to Do About It)</title>
       <link>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</link>
-      <description>Your POS vendor refuses to support customizations or integrate with your systems. You're stuck between losing warranty support and losing business efficiency. Here's how to move forward without burning bridges.</description>
-      <pubDate>Thu, 19 Jun 2026 00:00:00 +0800</pubDate>
+      <description>You paid for a POS or ERP system, added essential customizations, and now the vendor refuses support. This is a common trap for Malaysian SMEs. Here's why it happens, how to avoid it, and what to do if you're already stuck.</description>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>POS Systems</category>
-      <category>Business Solutions</category>
-      <category>Integration</category>
+      <category>ERP</category>
+      <category>Vendor Management</category>
+      <category>Customization</category>
     </item>
-    
+
+    <item>
+      <title>LHDN E-Invoice Phase 3, 4 &amp; 5: What Small Businesses Must Do Before the Deadline (Mid-2026 Update)</title>
+      <link>https://steadydevs.com/blog/lhdn-einvoice-phase-3-4-small-business-2026.html</link>
+      <description>The e-invoice net has reached small businesses. If your annual turnover is between RM500,000 and RM25 million, your mandatory date has either passed or is about to. Here's the current rollout schedule, what the grace period really means, and exactly what to do now.</description>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/lhdn-einvoice-phase-3-4-small-business-2026.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>E-Invoice</category>
+      <category>Compliance</category>
+      <category>Malaysia</category>
+      <category>LHDN</category>
+      <category>SMEs</category>
+    </item>
+
+    <item>
+      <title>The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</title>
+      <link>https://steadydevs.com/blog/system-integration-guide-pos-accounting-inventory.html</link>
+      <description>Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.</description>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/system-integration-guide-pos-accounting-inventory.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>System Integration</category>
+      <category>POS</category>
+      <category>Accounting</category>
+      <category>Automation</category>
+      <category>.NET</category>
+      <category>SME Malaysia</category>
+    </item>
+
+    <item>
+      <title>How to Add Modern Features to a 10-Year-Old System (Without Breaking Everything)</title>
+      <link>https://steadydevs.com/blog/add-modern-features-legacy-system-without-breaking.html</link>
+      <description>Your legacy system works, but customers want mobile apps, API integrations, and real-time features. Here's how to modernize incrementally without the risk of a catastrophic rewrite—with real examples from production systems.</description>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/add-modern-features-legacy-system-without-breaking.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Legacy Systems</category>
+      <category>.NET</category>
+      <category>Modernization</category>
+      <category>API Integration</category>
+      <category>Mobile</category>
+    </item>
+
+    <item>
+      <title>Is Your Legacy System PDPA-Compliant? A Practical Guide for Malaysian Businesses</title>
+      <link>https://steadydevs.com/blog/pdpa-compliance-legacy-system-malaysian-guide.html</link>
+      <description>The Personal Data Protection Act isn't optional—and your legacy system probably wasn't built with PDPA in mind. Here's how to audit your system, identify gaps, and implement compliance without a costly rebuild.</description>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/pdpa-compliance-legacy-system-malaysian-guide.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>PDPA</category>
+      <category>Compliance</category>
+      <category>Legacy Systems</category>
+      <category>.NET</category>
+      <category>Malaysia</category>
+    </item>
+
+    <item>
+      <title>5 Questions to Ask Before Hiring a Developer to Fix Your Legacy System</title>
+      <link>https://steadydevs.com/blog/questions-before-hiring-developer-legacy-system.html</link>
+      <description>Not all developers can handle legacy systems. Hiring the wrong one wastes money and makes problems worse. Here are 5 critical questions that separate capable legacy system specialists from developers who will fail.</description>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/questions-before-hiring-developer-legacy-system.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Hiring</category>
+      <category>Legacy Systems</category>
+      <category>Due Diligence</category>
+      <category>Developer Selection</category>
+    </item>
+
+    <item>
+      <title>The True Cost of 'Free' Technical Support from Your Developer</title>
+      <link>https://steadydevs.com/blog/true-cost-free-technical-support.html</link>
+      <description>Your developer says &quot;just call me when something breaks&quot; with no formal contract. Sounds convenient and cost-effective—until you calculate what this informal arrangement actually costs your business in hidden expenses and risk.</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/true-cost-free-technical-support.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Developer Relationships</category>
+      <category>Support Contracts</category>
+      <category>Business Risk</category>
+      <category>Hidden Costs</category>
+    </item>
+
+    <item>
+      <title>The RM50,000 Question: Cloud Migration vs. On-Premise Modernization for Legacy .NET</title>
+      <link>https://steadydevs.com/blog/cloud-migration-vs-onpremise-modernization-dotnet.html</link>
+      <description>Should you migrate your legacy .NET system to Azure cloud or modernize on-premise? Both paths cost RM40,000-80,000+ but solve different problems. Here's a practical decision framework based on real Malaysian SME scenarios.</description>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/cloud-migration-vs-onpremise-modernization-dotnet.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Cloud Migration</category>
+      <category>.NET</category>
+      <category>Azure</category>
+      <category>Cost Analysis</category>
+      <category>Malaysia</category>
+    </item>
+
+    <item>
+      <title>Should You Add Features to a Failing System? (The Stabilize-First Framework)</title>
+      <link>https://steadydevs.com/blog/should-you-add-features-to-failing-system.html</link>
+      <description>Your legacy system is unstable, but business needs new features. Adding features to fragile systems usually backfires. Here's how to decide when to stabilize first vs. when feature work makes sense—and what the trade-offs actually look like.</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/should-you-add-features-to-failing-system.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Legacy Systems</category>
+      <category>Feature Development</category>
+      <category>System Stability</category>
+      <category>Technical Debt</category>
+    </item>
+
     <item>
       <title>Your Developer Left. Now What? (Emergency Recovery Guide)</title>
       <link>https://steadydevs.com/blog/developer-left-emergency-recovery-guide.html</link>
       <description>Your only developer quit, disappeared, or can't be reached. Your legacy system is running but nobody knows how it works. Here's your immediate action plan for recovering from developer departure without destroying the business.</description>
-      <pubDate>Sun, 18 May 2026 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/developer-left-emergency-recovery-guide.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
-      <category>Business Risk</category>
       <category>Crisis Management</category>
+      <category>Business Continuity</category>
+      <category>Developer Transition</category>
     </item>
-    
+
     <item>
-      <title>The E-Invoice Mandate: What Actually Happened to Businesses That Missed the Deadline</title>
+      <title>E-Invoice Mandate: What Happened to Businesses That Missed the Deadline</title>
       <link>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</link>
-      <description>Real stories from Malaysian businesses that missed e-Invoice deadlines. What penalties were enforced, what compliance looks like now, and practical steps if you're still not ready.</description>
-      <pubDate>Thu, 15 May 2026 00:00:00 +0800</pubDate>
+      <description>We're now deep into Malaysia's e-invoice rollout. Some businesses met their deadlines, others didn't. Here's what actually happened to the ones who missed it—the real consequences, recovery paths, and lessons learned.</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>E-Invoice</category>
       <category>Compliance</category>
       <category>Malaysia</category>
+      <category>Case Study</category>
     </item>
-    
+
     <item>
-      <title>The Excel Trap: When Spreadsheets Cost More Than Custom Software</title>
+      <title>The Excel Trap: When Spreadsheets Cost More Than Proper Software</title>
       <link>https://steadydevs.com/blog/excel-trap-when-spreadsheets-cost-more-than-software.html</link>
-      <description>Excel is free, flexible, and familiar. So why do businesses end up paying more when relying on spreadsheets instead of proper software? Here's what the hidden costs actually look like.</description>
-      <pubDate>Wed, 14 May 2026 00:00:00 +0800</pubDate>
+      <description>Excel is free and flexible—until it's not. Many Malaysian SMEs running RM5M-20M operations still rely on spreadsheets for critical business functions. Here's when Excel stops being cost-effective and starts being a liability.</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/excel-trap-when-spreadsheets-cost-more-than-software.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
-      <category>Business Process</category>
-      <category>Automation</category>
-      <category>ROI</category>
+      <category>Business Systems</category>
+      <category>Excel</category>
+      <category>Cost Analysis</category>
+      <category>SME</category>
     </item>
-    
+
     <item>
-      <title>Your Developer Says the System Is "Too Old to Fix." Is That Actually True?</title>
+      <title>Your Developer Says the System is 'Too Old to Fix': Is That Actually True?</title>
       <link>https://steadydevs.com/blog/developer-says-system-too-old-to-fix.html</link>
-      <description>When a developer tells you your legacy system is beyond repair, is it really unfixable or just unfamiliar? Learn how to evaluate the claim and determine your real options.</description>
-      <pubDate>Sun, 11 May 2026 00:00:00 +0800</pubDate>
+      <description>When a developer tells you your legacy system can't be fixed, are they right—or just reluctant? Here's how to verify the diagnosis, spot red flags of lazy assessment, and get a real answer about your system's future.</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/developer-says-system-too-old-to-fix.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
-      <category>Business Decision</category>
-      <category>.NET</category>
+      <category>Developer Assessment</category>
+      <category>Technical Debt</category>
+      <category>Decision Framework</category>
     </item>
-    
+
     <item>
-      <title>The 3-Month System Stabilization Sprint: What Actually Happens</title>
+      <title>The 3-Month System Stabilization Sprint: A Framework for Crisis Mode</title>
       <link>https://steadydevs.com/blog/3-month-system-stabilization-sprint.html</link>
-      <description>A detailed breakdown of what happens during a focused 3-month system stabilization engagement—real deliverables, realistic expectations, and what success actually looks like.</description>
-      <pubDate>Thu, 8 May 2026 00:00:00 +0800</pubDate>
+      <description>When your legacy system is actively causing business problems, you need a structured approach to stabilize fast. Here's a proven 90-day framework for taking systems from crisis to manageable—without a complete rewrite.</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/3-month-system-stabilization-sprint.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
-      <category>.NET</category>
-      <category>Project Management</category>
+      <category>Crisis Management</category>
+      <category>Stabilization</category>
+      <category>Framework</category>
     </item>
-    
+
     <item>
-      <title>From Manual to Automated Invoicing: The Real Business Impact</title>
+      <title>From Manual to Automated: What to Expect from Invoice Automation</title>
       <link>https://steadydevs.com/blog/manual-to-automated-invoice-real-business-impact.html</link>
-      <description>Real case study: A Malaysian SME automated their invoicing process. Here's what actually changed—the time saved, errors eliminated, and unexpected benefits that made the investment worthwhile.</description>
-      <pubDate>Mon, 5 May 2026 00:00:00 +0800</pubDate>
+      <description>Three Malaysian business scenarios that show what happens when you automate invoicing—measurable time savings, error elimination, cash flow improvement, and unexpected benefits most businesses don't anticipate.</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/manual-to-automated-invoice-real-business-impact.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Automation</category>
       <category>Case Study</category>
-      <category>ROI</category>
+      <category>Invoice</category>
+      <category>Business Impact</category>
     </item>
-    
+
     <item>
       <title>What Happens to Your Business When the Developer Who Knows Your System Leaves</title>
       <link>https://steadydevs.com/blog/what-happens-when-developer-leaves-legacy-system.html</link>
-      <description>Most businesses don't realise how much critical knowledge lives in one person's head—until they're gone. Here's what actually happens, and how to protect yourself before it becomes a crisis.</description>
-      <pubDate>Sat, 3 May 2026 00:00:00 +0800</pubDate>
+      <description>Most businesses don't realise how much critical knowledge lives in one person's head — until they're gone. Here's what actually happens, and how to protect yourself before it becomes a crisis.</description>
+      <pubDate>Sun, 03 May 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/what-happens-when-developer-leaves-legacy-system.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
+      <category>.NET</category>
       <category>Business Risk</category>
       <category>Documentation</category>
     </item>
-    
+
+    <item>
+      <title>Why Your POS System Keeps Getting Slower (And What's Actually Happening Inside)</title>
+      <link>https://steadydevs.com/blog/why-pos-system-getting-slower.html</link>
+      <description>POS slowness is rarely a hardware problem. It's almost always something that's been quietly building inside the system for months. Here's what's actually happening — and why throwing more server power at it usually doesn't help.</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/why-pos-system-getting-slower.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+
+    </item>
+
     <item>
       <title>5 Signs Your Business Is Ready for Automation (And What to Automate First)</title>
       <link>https://steadydevs.com/blog/5-signs-business-ready-for-automation.html</link>
-      <description>Business automation isn't about replacing people—it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.</description>
-      <pubDate>Mon, 28 Apr 2026 00:00:00 +0800</pubDate>
+      <description>Business automation isn't about replacing people — it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/5-signs-business-ready-for-automation.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Automation</category>
       <category>Business Operations</category>
+      <category>.NET</category>
       <category>SME Malaysia</category>
     </item>
-    
+
     <item>
       <title>The Hidden Cost of Manual Invoicing in Malaysian SMEs</title>
       <link>https://steadydevs.com/blog/hidden-cost-manual-invoicing-malaysian-smes.html</link>
       <description>Manual invoicing costs Malaysian SMEs more than you think. Discover the hidden expenses in time, errors, cash flow delays, and missed opportunities—and why automation is no longer optional.</description>
-      <pubDate>Sun, 27 Apr 2026 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/hidden-cost-manual-invoicing-malaysian-smes.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Automation</category>
       <category>Business Process</category>
       <category>Invoice</category>
+      <category>ROI</category>
     </item>
-    
+
     <item>
-      <title>How We Saved a Legacy System: An Honest Assessment Framework</title>
+      <title>How to Know If Your Legacy System Can Be Saved (Honest Assessment)</title>
       <link>https://steadydevs.com/blog/legacy-system-saved-honest-assessment-framework.html</link>
-      <description>Not every legacy system can—or should—be saved. Here's the honest assessment framework I use to determine whether a system is worth fixing, and how we successfully rescued one that others had written off.</description>
-      <pubDate>Thu, 24 Apr 2026 00:00:00 +0800</pubDate>
+      <description>Not every legacy system is worth saving. Here's a practical framework to assess whether yours can be fixed, should be replaced, or needs a hybrid approach—based on 11 years of real-world stabilization projects.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/legacy-system-saved-honest-assessment-framework.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
-      <category>Case Study</category>
+      <category>Assessment</category>
+      <category>Decision Framework</category>
       <category>.NET</category>
     </item>
-    
+
     <item>
-      <title>The Price of Ignoring That "Small Bug" in Your Production System</title>
+      <title>The Price of Ignoring That 'Small' Bug in Your Production System</title>
       <link>https://steadydevs.com/blog/price-ignoring-small-bug-production-system.html</link>
-      <description>A small bug in production seems harmless—until it isn't. Real stories of minor issues that grew into major problems, and how to decide what's truly urgent versus what can wait.</description>
-      <pubDate>Mon, 21 Apr 2026 00:00:00 +0800</pubDate>
+      <description>That minor bug you're postponing? It's costing you more than you think. Real examples of how small ignored bugs cascade into expensive problems—and why fixing them now is always cheaper than later.</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/price-ignoring-small-bug-production-system.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
+      <category>Bug Fixes</category>
       <category>Legacy Systems</category>
-      <category>Bug Fixing</category>
-      <category>Technical Debt</category>
+      <category>Maintenance</category>
+      <category>ROI</category>
     </item>
-    
+
     <item>
-      <title>What Really Happens When You Delay Legacy System Maintenance</title>
+      <title>What Happens When You Delay Legacy System Maintenance</title>
       <link>https://steadydevs.com/blog/what-happens-delay-legacy-system-maintenance.html</link>
-      <description>Delaying legacy system maintenance feels like saving money in the short term. Here's what actually happens—the costs that accumulate, the risks that grow, and when the bill comes due.</description>
-      <pubDate>Fri, 18 Apr 2026 00:00:00 +0800</pubDate>
+      <description>Every month you delay maintaining your legacy system, the problems compound. Here's the predictable cascade of consequences—and why fixing problems early costs a fraction of waiting until they're critical.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/what-happens-delay-legacy-system-maintenance.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
       <category>Maintenance</category>
-      <category>Technical Debt</category>
+      <category>Cost Analysis</category>
+      <category>Risk Management</category>
     </item>
-    
+
     <item>
-      <title>Is Your Legacy .NET System Ready for Malaysia's E-Invoice Mandate?</title>
+      <title>E-Invoice Malaysia: Is Your Legacy System Ready?</title>
       <link>https://steadydevs.com/blog/e-invoice-malaysia-legacy-system-ready.html</link>
-      <description>Malaysia's e-Invoice mandate is rolling out. If your business runs on a legacy .NET system, here's what you need to know about compliance, integration, and whether your current system can handle it.</description>
-      <pubDate>Tue, 15 Apr 2026 00:00:00 +0800</pubDate>
+      <description>Malaysia's e-invoice mandate is already rolling out. Large and medium businesses are already mandated. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/e-invoice-malaysia-legacy-system-ready.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>E-Invoice</category>
       <category>Compliance</category>
       <category>Legacy Systems</category>
+      <category>Malaysia</category>
     </item>
-    
+
     <item>
       <title>AI-Assisted Development Without the Code Chaos: Building a Pet Booking System</title>
       <link>https://steadydevs.com/blog/ai-assisted-development-real-world-pet-booking-system.html</link>
       <description>Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.</description>
-      <pubDate>Sat, 12 Apr 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/ai-assisted-development-real-world-pet-booking-system.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>AI Development</category>
       <category>.NET</category>
       <category>Code Quality</category>
+      <category>Case Study</category>
     </item>
-    
+
     <item>
       <title>When to Refactor vs. Rewrite Your Legacy .NET System: A Practical Guide</title>
       <link>https://steadydevs.com/blog/when-to-refactor-vs-rewrite-legacy-dotnet-system.html</link>
       <description>Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.</description>
-      <pubDate>Wed, 9 Apr 2026 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/when-to-refactor-vs-rewrite-legacy-dotnet-system.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
       <category>.NET</category>
       <category>Refactoring</category>
+      <category>Architecture</category>
     </item>
-    
+
     <item>
       <title>5 Warning Signs Your Legacy .NET System Needs Professional Attention</title>
       <link>https://steadydevs.com/blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html</link>
       <description>Is your legacy .NET system showing signs of trouble? Learn the 5 critical warning signs that indicate it's time to seek professional help before small issues become major problems.</description>
-      <pubDate>Sun, 6 Apr 2026 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
       <category>Legacy Systems</category>
       <category>.NET</category>
       <category>Maintenance</category>
     </item>
-    
-    <item>
-      <title>Should You Add Features to a Failing System? When New Features Make Things Worse</title>
-      <link>https://steadydevs.com/blog/should-you-add-features-to-failing-system.html</link>
-      <description>Your system is unstable, but the business wants new features. Do you add functionality on top of a shaky foundation, or fix the foundation first? Here's how to make that call.</description>
-      <pubDate>Thu, 5 Jun 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/should-you-add-features-to-failing-system.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>Legacy Systems</category>
-      <category>Technical Debt</category>
-      <category>Business Decision</category>
-    </item>
-    
-    <item>
-      <title>Why Is Your POS System Getting Slower? (And How to Fix It Without Replacing Everything)</title>
-      <link>https://steadydevs.com/blog/why-pos-system-getting-slower.html</link>
-      <description>Your POS system used to be fast. Now every transaction takes longer, reports time out, and your staff is frustrated. Here's why this happens and how to fix it without buying a new system.</description>
-      <pubDate>Tue, 13 May 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/why-pos-system-getting-slower.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>POS Systems</category>
-      <category>Performance</category>
-      <category>.NET</category>
-    </item>
-    
   </channel>
 </rss>
