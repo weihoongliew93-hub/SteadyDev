@@ -47,6 +47,79 @@
   </script>
 
   <style>
+    /* Blog list layout (page-local): horizontal rows with cover image */
+    .sd-bloglist {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .sd-blogrow {
+      display: flex;
+      gap: 0;
+      text-decoration: none;
+      background: var(--sd-card);
+      border: 1px solid var(--sd-border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sd-blogrow:hover {
+      transform: translateY(-3px);
+      border-color: rgba(96, 165, 250, 0.5);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+    }
+    .sd-blogrow-thumb {
+      flex: 0 0 280px;
+      position: relative;
+      min-height: 190px;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 22px, rgba(148,163,184,0.06) 22px 23px),
+        linear-gradient(135deg, #0c1524, #17253c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .sd-blogrow-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sd-blogrow-thumb .sd-thumb-icon { font-size: 42px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
+    .sd-blogrow-body {
+      flex: 1;
+      min-width: 0;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sd-blogrow-body h3 {
+      color: #f1f5f9;
+      font-size: 1.25em;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 6px 0 10px;
+    }
+    .sd-blogrow-body p {
+      color: var(--sd-muted);
+      font-size: 0.95em;
+      line-height: 1.65;
+      margin: 0 0 16px;
+    }
+    .sd-blogrow-body .sd-blog-meta { margin-top: auto; }
+    .sd-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @media (max-width: 640px) {
+      .sd-blogrow { flex-direction: column; }
+      .sd-blogrow-thumb { flex-basis: auto; height: 180px; min-height: 0; }
+    }
+
     /* Dark category filters (page-local, tuned to the .sd- dark system) */
     .category-filters {
       display: flex;
@@ -191,7 +264,7 @@
       </div>
 
       <!-- Blog List -->
-      <div class="sd-dcard-grid" id="blogList">
+      <div class="sd-bloglist" id="blogList">
         <!-- Blog posts will be loaded here -->
       </div>
 
@@ -440,15 +513,20 @@
       blogList.innerHTML = postsToShow.map(post => {
         const category = (post.tags && post.tags.length) ? post.tags[0] : 'Article';
         const emoji = getCategoryEmoji(category);
+        const thumb = post.heroImage
+          ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" loading="lazy">`
+          : `<span class="sd-thumb-icon">${emoji}</span>`;
         return `
-        <a href="${post.slug}.html" class="sd-dcard" style="text-decoration:none;">
-          <div class="sd-thumb"><span class="sd-thumb-icon">${emoji}</span></div>
-          <div class="sd-cat">${category}</div>
-          <h3>${post.title}</h3>
-          <p class="sd-clamp-3">${post.excerpt}</p>
-          <div class="sd-blog-meta">
-            <span class="sd-blog-date">${post.date} · ${post.readTime}</span>
-            <span class="sd-help-link">Read More →</span>
+        <a href="${post.slug}.html" class="sd-blogrow">
+          <div class="sd-blogrow-thumb">${thumb}</div>
+          <div class="sd-blogrow-body">
+            <div class="sd-cat">${category}</div>
+            <h3>${post.title}</h3>
+            <p class="sd-clamp-2">${post.excerpt}</p>
+            <div class="sd-blog-meta">
+              <span class="sd-blog-date">${post.date} · ${post.readTime}</span>
+              <span class="sd-help-link">Read More →</span>
+            </div>
           </div>
         </a>
       `;
