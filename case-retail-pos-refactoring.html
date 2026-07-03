@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Case Study: Retail POS Module Refactoring &amp; MVVM Architecture Overhaul (.NET) | SteadyDevs</title>
+  <meta name="description" content="How a legacy retail POS with UI and business logic fused together was refactored to a structured MVVM pattern — setting a clean template every later module followed, and proving easy to maintain and issue-free.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/case-retail-pos-refactoring.html">
+  <meta property="og:title" content="Case Study: Retail POS Module Refactoring &amp; MVVM Architecture Overhaul (.NET) | SteadyDevs">
+  <meta property="og:description" content="How a legacy retail POS with UI and business logic fused together was refactored to a structured MVVM pattern — setting a clean template every later module followed, and proving easy to maintain and issue-free.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Retail POS Module Refactoring &amp; MVVM Architecture Overhaul (.NET) | SteadyDevs">
+  <meta name="twitter:description" content="How a legacy retail POS with UI and business logic fused together was refactored to a structured MVVM pattern — setting a clean template every later module followed, and proving easy to maintain and issue-free.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/case-retail-pos-refactoring.html">
+
+  <link rel="stylesheet" href="assets/style.css?v=84">
+
+  <!-- Case Study Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case Study: Retail POS Module Refactoring & Architecture Overhaul",
+    "description": "How a legacy retail POS with UI and business logic fused together was refactored to a structured MVVM pattern — setting a clean template every later module followed, and proving easy to maintain and issue-free.",
+    "author": { "@type": "Organization", "name": "SteadyDevs", "url": "https://steadydevs.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": { "@type": "ImageObject", "url": "https://steadydevs.com/images/SteadyDevsLogo.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://steadydevs.com/case-retail-pos-refactoring.html" }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo-link">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Book Free Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== CASE STUDY HERO ===================== -->
+  <section class="sd-cs-hero">
+    <div class="sd-cs-hero-inner">
+      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
+        <a href="portfolio.html">← Portfolio</a> <span style="color:#475569;">/</span> <a href="portfolio.html">Case Studies</a>
+      </nav>
+      <p class="sd-eyebrow" style="text-align:left;">POS &amp; Desktop</p>
+      <h1>Retail POS Module Refactoring &amp; Architecture Overhaul</h1>
+      <p class="sd-cs-lead">
+        A legacy retail POS had UI and business logic fused together with no structured pattern — every new feature risked breaking the last. Introducing MVVM where none existed set a clean template that every later module followed.
+      </p>
+      <div class="sd-facts">
+        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (POS vendor)</div></div>
+        <div class="sd-fact"><div class="k">Industry</div><div class="v">Retail POS</div></div>
+        <div class="sd-fact"><div class="k">Role</div><div class="v">Architecture &amp; code-quality leadership</div></div>
+        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET · MVVM pattern · Refactoring</div></div>
+        <div class="sd-fact"><div class="k">Focus</div><div class="v">Separation of concerns</div></div>
+        <div class="sd-fact"><div class="k">Status</div><div class="v">In production</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARTICLE BODY ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <article class="sd-article">
+
+        <h2>The Challenge</h2>
+        <p>
+          The legacy retail POS had grown without an architectural pattern. In the sales module especially, the UI and the business logic were tightly coupled — presentation and rules lived together in the same monolithic code, with no separation between what the user saw and what the system did underneath.
+        </p>
+        <p>
+          In that kind of codebase, every new feature is a gamble: because everything is entangled, a change made for one requirement can silently break functionality somewhere else. Development slowed and risk rose with every addition.
+        </p>
+
+        <h2>The Approach</h2>
+        <p>
+          The goal was to introduce structure where there was none — and to do it in a way the rest of the codebase could follow.
+        </p>
+        <ul>
+          <li><strong>Introduced a properly structured MVVM pattern</strong> in the sales module, cleanly separating the UI (View) from state and behaviour (ViewModel) and the underlying business logic (Model), where previously no such separation existed.</li>
+          <li><strong>Established a template the team could reuse</strong> — once the first module proved the pattern, subsequent modules followed the same clean separation of concerns instead of repeating the old tangle.</li>
+          <li><strong>Continuously optimized</strong> the MVVM-based modules as they grew, keeping the structure clean rather than letting it erode over time.</li>
+        </ul>
+
+        <h2>The Result</h2>
+        <p>
+          <strong>The MVVM-based modules proved easy to maintain and issue-free.</strong> With presentation and logic separated, new features could be added without the fear of breaking unrelated functionality, and the pattern gave the whole team a consistent, predictable way to build. What began as one refactored module became the architectural standard the codebase grew into.
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== BOTTOM CTA ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <div class="sd-cta-band">
+        <h2>Does Every New Feature Risk Breaking the Last?</h2>
+        <p>When UI and business logic are tangled together, growth gets dangerous. Introducing a clean architectural pattern makes a codebase safe to extend again — and gives your team a template to follow.</p>
+        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a></p>
+        <p><a href="solutions.html">Solutions</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="blog/index.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="contact.html">FREE Consultation →</a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Sticky mobile CTA visibility
+    (function () {
+      var stickyCta = document.getElementById('stickyCta');
+      if (!stickyCta) return;
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -5,11 +5,30 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // Read blog posts JSON from parent directory
 const blogPosts = JSON.parse(fs.readFileSync('../blog-posts.json', 'utf8'));
 
+// Content-hash cache-busting: the ?v= token is derived from the CSS file's
+// actual contents, so editing the stylesheet and rebuilding automatically
+// produces a fresh token — browsers pick up the new styling with no manual
+// version bumping. Paths are relative to this script's dir (blog/_build).
+function assetVersion(relPath) {
+  try {
+    const buf = fs.readFileSync(path.join(__dirname, relPath));
+    return crypto.createHash('md5').update(buf).digest('hex').slice(0, 8);
+  } catch (e) {
+    console.warn(`⚠️  Could not hash ${relPath} (${e.message}); falling back to timestamp.`);
+    return String(Date.now());
+  }
+}
+
+const STYLE_VER = assetVersion('../../assets/style.css');   // shared site stylesheet
+const BLOG_STYLE_VER = assetVersion('../blog-styles.css');  // blog-specific stylesheet
+
 console.log(`🚀 Building ${blogPosts.length} blog post(s)...`);
+console.log(`   style.css?v=${STYLE_VER} · blog-styles.css?v=${BLOG_STYLE_VER}`);
 
 // Helper: Estimate word count from content blocks
 function estimateWordCount(content) {
@@ -232,8 +251,8 @@ function generateHTML(post) {
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/${post.slug}.html">
   
-  <link rel="stylesheet" href="../assets/style.css?v=83">
-  <link rel="stylesheet" href="blog-styles.css?v=1">
+  <link rel="stylesheet" href="../assets/style.css?v=${STYLE_VER}">
+  <link rel="stylesheet" href="blog-styles.css?v=${BLOG_STYLE_VER}">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -325,17 +344,11 @@ function generateHTML(post) {
       <nav id="mainNav">
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
-        <a href="../services.html">Services</a>
-        <div class="nav-dropdown">
-          <a>Packages</a>
-          <div class="dropdown-content">
-            <a href="../packages.html">All Packages</a>
-            <a href="../pricing-terms.html">Pricing & Terms</a>
-          </div>
-        </div>
+        <a href="../solutions.html">Solutions</a>
         <a href="../portfolio.html">Portfolio</a>
         <a href="index.html" class="active">Blog</a>
         <a href="../contact.html">Contact</a>
+        <a href="../contact.html" class="nav-cta">Book Free Assessment</a>
       </nav>
     </div>
   </header>
@@ -574,38 +587,14 @@ function generateHTML(post) {
       navOverlay.classList.remove('active');
     });
     
-    // Dropdown toggle
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
-    dropdowns.forEach(dropdown => {
-      const dropdownToggle = dropdown.querySelector(':scope > a');
-      dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // Close other dropdowns
-        dropdowns.forEach(d => {
-          if (d !== dropdown) d.classList.remove('open');
-        });
-        dropdown.classList.toggle('open');
-      });
-    });
-    
-    // Close menu on actual navigation link clicks (not dropdown toggles)
-    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
         mainNav.classList.remove('active');
         navOverlay.classList.remove('active');
       });
-    });
-    
-    // Close dropdowns when clicking outside on desktop
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav-dropdown')) {
-        dropdowns.forEach(dropdown => {
-          dropdown.classList.remove('open');
-        });
-      }
     });
     
     // Back to Top

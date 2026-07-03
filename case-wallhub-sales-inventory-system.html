@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Case Study: Wallhub Sales &amp; Inventory System (.NET 8) | SteadyDevs</title>
+  <meta name="description" content="How a ground-up .NET 8 Clean Architecture sales & inventory platform replaced spreadsheet workarounds for an interior-materials retailer — measurement-based quotations, stock-reserving orders, staged payments and event-driven inventory. Live and in daily use.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/case-wallhub-sales-inventory-system.html">
+  <meta property="og:title" content="Case Study: Wallhub Sales &amp; Inventory System (.NET 8) | SteadyDevs">
+  <meta property="og:description" content="A ground-up .NET 8 platform built around how an interior-materials retailer actually sells — now live and in daily use.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Wallhub Sales &amp; Inventory System | SteadyDevs">
+  <meta name="twitter:description" content="A ground-up .NET 8 platform built around how an interior-materials retailer actually sells — now live and in daily use.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/case-wallhub-sales-inventory-system.html">
+
+  <link rel="stylesheet" href="assets/style.css?v=84">
+
+  <!-- Case Study Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case Study: Wallhub Sales & Inventory System (.NET 8)",
+    "description": "A ground-up .NET 8 Clean Architecture sales & inventory platform built around how an interior-materials retailer actually sells.",
+    "author": { "@type": "Organization", "name": "SteadyDevs", "url": "https://steadydevs.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": { "@type": "ImageObject", "url": "https://steadydevs.com/images/SteadyDevsLogo.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://steadydevs.com/case-wallhub-sales-inventory-system.html" }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo-link">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Book Free Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== CASE STUDY HERO ===================== -->
+  <section class="sd-cs-hero">
+    <div class="sd-cs-hero-inner">
+      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
+        <a href="portfolio.html">← Portfolio</a> <span style="color:#475569;">/</span> <a href="portfolio.html">Case Studies</a>
+      </nav>
+      <p class="sd-eyebrow" style="text-align:left;">Web Application · Featured</p>
+      <h1>Sales &amp; Inventory System — Wallhub</h1>
+      <p class="sd-cs-lead">
+        A ground-up, web-based sales and inventory platform built around how an interior-materials retailer <em>actually</em> sells — measurement-based quotations, stock-reserving orders, staged payments and event-driven inventory — replacing brittle spreadsheet workarounds with a single source of truth.
+      </p>
+      <div class="sd-facts">
+        <div class="sd-fact"><div class="k">Client</div><div class="v">Wallhub (Singapore &amp; Malaysia)</div></div>
+        <div class="sd-fact"><div class="k">Industry</div><div class="v">Interior materials retail</div></div>
+        <div class="sd-fact"><div class="k">Role</div><div class="v">Architecture &amp; full-stack development</div></div>
+        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET 8 · Clean Architecture · Next.js / React · TypeScript</div></div>
+        <div class="sd-fact"><div class="k">Status</div><div class="v">Live &amp; in daily use</div></div>
+        <div class="sd-fact"><div class="k">Engagement</div><div class="v">Ongoing — modules on roadmap</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARTICLE BODY ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <article class="sd-article">
+
+        <h2>The Challenge</h2>
+        <p>
+          Off-the-shelf retail and POS software assumes a simple model: a product goes in, a product goes out. An interior-materials retailer doesn't work that way. Products are sold <strong>by measurement</strong>, a quotation goes through several revisions and approvals before it ever becomes an order, deposits and balances are collected in <strong>stages</strong> across a long fulfilment cycle, and stock has to be reserved the moment an order is confirmed — not when it eventually ships.
+        </p>
+        <p>
+          None of the ready-made tools mapped to that reality, so the business ran on spreadsheets and manual coordination. Quotation revisions lived in separate files, reserved stock was tracked in someone's head, and payment stages were reconciled by hand. Every workaround was a place for numbers to drift out of sync — and the more the business grew, the more expensive that drift became.
+        </p>
+
+        <h2>The Approach</h2>
+        <p>
+          Rather than bend a generic product into the wrong shape, the system was built <strong>ground-up on .NET 8 Clean Architecture</strong>, with the domain modelled around how the business genuinely operates. A Next.js / React / TypeScript front end sits on top, giving staff a fast, modern interface for day-to-day work.
+        </p>
+        <p>The core of the build:</p>
+        <ul>
+          <li><strong>Measurement-based quotations</strong> with versioned revisions and an approval flow — every change is tracked, and nothing becomes an order without sign-off.</li>
+          <li><strong>Sales orders that auto-reserve stock</strong> on confirmation, so availability reflects real commitments instead of guesswork.</li>
+          <li><strong>Staged deposit and balance payments</strong>, tracked against each order through the full fulfilment cycle.</li>
+          <li><strong>Event-driven inventory</strong>, so stock movements flow from the actions that cause them rather than manual adjustment.</li>
+          <li><strong>Procurement and installation scheduling</strong>, connecting the sale to what actually has to happen to deliver it.</li>
+        </ul>
+        <p>
+          Clean Architecture wasn't chosen for its own sake — it keeps the business rules isolated and testable, so the modules still on the roadmap can be added without destabilising what's already live.
+        </p>
+
+        <h2>The Result</h2>
+        <p>
+          The platform is <strong>now live and in daily use</strong>. The spreadsheet workarounds are gone: quotations, reservations, payments and inventory live in one system that stays in sync by design. Staff work from a single source of truth instead of reconciling parallel files, and the business has a foundation it can keep building on — with further modules already planned.
+        </p>
+        <p>
+          <a href="https://www.wallhub.com.sg/malaysia/" target="_blank" rel="noopener">Visit Wallhub →</a>
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== BOTTOM CTA ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <div class="sd-cta-band">
+        <h2>Have a Process No Off-the-Shelf Software Fits?</h2>
+        <p>If your business runs on spreadsheets and workarounds because the packaged tools don't match how you actually operate, a system built around your real process can put everything back in one place.</p>
+        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a></p>
+        <p><a href="solutions.html">Solutions</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="blog/index.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="contact.html">FREE Consultation →</a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Sticky mobile CTA visibility
+    (function () {
+      var stickyCta = document.getElementById('stickyCta');
+      if (!stickyCta) return;
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

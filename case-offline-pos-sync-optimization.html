@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Case Study: Offline POS Sync Optimization &amp; Staging DB Innovation (.NET) | SteadyDevs</title>
+  <meta name="description" content="How a painfully slow offline POS sync was re-engineered with a staging database, multi-threaded parallel downloads, and direct blob storage — so sync time is set by the single largest table instead of the cumulative total.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/case-offline-pos-sync-optimization.html">
+  <meta property="og:title" content="Case Study: Offline POS Sync Optimization &amp; Staging DB Innovation (.NET) | SteadyDevs">
+  <meta property="og:description" content="How a painfully slow offline POS sync was re-engineered with a staging database, multi-threaded parallel downloads, and direct blob storage — so sync time is set by the single largest table instead of the cumulative total.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Offline POS Sync Optimization &amp; Staging DB Innovation (.NET) | SteadyDevs">
+  <meta name="twitter:description" content="How a painfully slow offline POS sync was re-engineered with a staging database, multi-threaded parallel downloads, and direct blob storage — so sync time is set by the single largest table instead of the cumulative total.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/case-offline-pos-sync-optimization.html">
+
+  <link rel="stylesheet" href="assets/style.css?v=84">
+
+  <!-- Case Study Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case Study: Offline POS Sync Optimization & Staging DB Innovation",
+    "description": "How a painfully slow offline POS sync was re-engineered with a staging database, multi-threaded parallel downloads, and direct blob storage — so sync time is set by the single largest table instead of the cumulative total.",
+    "author": { "@type": "Organization", "name": "SteadyDevs", "url": "https://steadydevs.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": { "@type": "ImageObject", "url": "https://steadydevs.com/images/SteadyDevsLogo.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://steadydevs.com/case-offline-pos-sync-optimization.html" }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo-link">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Book Free Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== CASE STUDY HERO ===================== -->
+  <section class="sd-cs-hero">
+    <div class="sd-cs-hero-inner">
+      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
+        <a href="portfolio.html">← Portfolio</a> <span style="color:#475569;">/</span> <a href="portfolio.html">Case Studies</a>
+      </nav>
+      <p class="sd-eyebrow" style="text-align:left;">POS &amp; Performance</p>
+      <h1>Offline POS Sync Optimization &amp; Staging DB Innovation</h1>
+      <p class="sd-cs-lead">
+        Offline POS sync crawled — tables downloaded one by one, test runs polluted production, and images trickled through a web-service middleman. A staging-database and multi-threading redesign made sync time depend on the single largest table, not the cumulative total.
+      </p>
+      <div class="sd-facts">
+        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (POS vendor)</div></div>
+        <div class="sd-fact"><div class="k">Industry</div><div class="v">Retail POS</div></div>
+        <div class="sd-fact"><div class="k">Role</div><div class="v">Performance engineering</div></div>
+        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET · Multi-threading · Entity Framework · Azure Blob Storage</div></div>
+        <div class="sd-fact"><div class="k">Focus</div><div class="v">Offline sync architecture</div></div>
+        <div class="sd-fact"><div class="k">Status</div><div class="v">In production</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARTICLE BODY ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <article class="sd-article">
+
+        <h2>The Challenge</h2>
+        <p>
+          Offline POS terminals needed to sync data down from the central system, and that sync was painfully slow. Three problems compounded each other: tables were downloaded one at a time in sequence, so total sync time was the sum of every table added together; testing the sync polluted the live production database with fake data, because there was no isolation between a test run and the real thing; and image downloads crawled, because they were routed through a web-service middleman instead of coming straight from storage.
+        </p>
+
+        <h2>The Approach</h2>
+        <p>
+          Each bottleneck was addressed at its root, reusing the existing infrastructure rather than replacing it.
+        </p>
+        <ul>
+          <li><strong>Introduced a staging local database</strong> by dynamically cloning tables through the existing Entity Framework middleware — giving sync (and testing) a clean, isolated place to work without touching production data.</li>
+          <li><strong>Added multi-threading for parallel downloads</strong>, so tables come down simultaneously instead of one after another.</li>
+          <li><strong>Pointed image downloads directly at blob storage</strong>, cutting out the slow web-service middleman entirely.</li>
+        </ul>
+
+        <h2>The Result</h2>
+        <p>
+          The impact was structural: <strong>sync time is now set by the single largest table, instead of the cumulative total of every table processed in sequence.</strong> Because downloads run in parallel, adding more tables no longer stacks more waiting; testing no longer contaminates production; and images arrive quickly straight from storage. A sync that used to be a slow, risky bottleneck became fast and safe.
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== BOTTOM CTA ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <div class="sd-cta-band">
+        <h2>Is a Sync or Batch Process Holding You Back?</h2>
+        <p>Sequential processing and legacy middlemen quietly cap your performance. Re-architecting for parallelism and clean data paths can turn a slow, fragile process into a fast, dependable one.</p>
+        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a></p>
+        <p><a href="solutions.html">Solutions</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="blog/index.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="contact.html">FREE Consultation →</a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Sticky mobile CTA visibility
+    (function () {
+      var stickyCta = document.getElementById('stickyCta');
+      if (!stickyCta) return;
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

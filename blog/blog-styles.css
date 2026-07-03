@@ -65,7 +65,7 @@
 }
 
 .blog-toc-title {
-  color: #FDB750;
+  color: #3b82f6;
   font-size: 0.85em;
   font-weight: 700;
   text-transform: uppercase;
@@ -103,8 +103,8 @@
 }
 
 .blog-toc-link.active {
-  color: #FDB750;
-  border-left-color: #FDB750;
+  color: #3b82f6;
+  border-left-color: #3b82f6;
   font-weight: 600;
   padding-left: 15px;
 }
@@ -127,21 +127,21 @@
   right: 20px;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #FDB750 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   border: none;
   border-radius: 50%;
   color: #1A202C;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(253, 183, 80, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
   z-index: 1001;
   transition: all 0.3s ease;
 }
 
 .toc-toggle-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(253, 183, 80, 0.4);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
 }
 
 .toc-toggle-btn:active {
@@ -186,7 +186,7 @@
 
 /* Blog Content Typography */
 .blog-content h2 {
-  color: #FDB750;
+  color: #3b82f6;
   margin-top: 45px;
   margin-bottom: 20px;
   font-size: 1.75em;
@@ -288,7 +288,7 @@
 }
 
 .faq-section h2 {
-  color: #FDB750;
+  color: #3b82f6;
   margin-top: 0;
   margin-bottom: 30px;
   text-align: center;

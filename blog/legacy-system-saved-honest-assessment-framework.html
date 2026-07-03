@@ -27,8 +27,8 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/legacy-system-saved-honest-assessment-framework.html">
   
-  <link rel="stylesheet" href="../assets/style.css?v=83">
-  <link rel="stylesheet" href="blog-styles.css?v=1">
+  <link rel="stylesheet" href="../assets/style.css?v=dc992aa3">
+  <link rel="stylesheet" href="blog-styles.css?v=be752cfa">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -159,17 +159,11 @@
       <nav id="mainNav">
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
-        <a href="../services.html">Services</a>
-        <div class="nav-dropdown">
-          <a>Packages</a>
-          <div class="dropdown-content">
-            <a href="../packages.html">All Packages</a>
-            <a href="../pricing-terms.html">Pricing & Terms</a>
-          </div>
-        </div>
+        <a href="../solutions.html">Solutions</a>
         <a href="../portfolio.html">Portfolio</a>
         <a href="index.html" class="active">Blog</a>
         <a href="../contact.html">Contact</a>
+        <a href="../contact.html" class="nav-cta">Book Free Assessment</a>
       </nav>
     </div>
   </header>
@@ -563,38 +557,14 @@
       navOverlay.classList.remove('active');
     });
     
-    // Dropdown toggle
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
-    dropdowns.forEach(dropdown => {
-      const dropdownToggle = dropdown.querySelector(':scope > a');
-      dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // Close other dropdowns
-        dropdowns.forEach(d => {
-          if (d !== dropdown) d.classList.remove('open');
-        });
-        dropdown.classList.toggle('open');
-      });
-    });
-    
-    // Close menu on actual navigation link clicks (not dropdown toggles)
-    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
         mainNav.classList.remove('active');
         navOverlay.classList.remove('active');
       });
-    });
-    
-    // Close dropdowns when clicking outside on desktop
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav-dropdown')) {
-        dropdowns.forEach(dropdown => {
-          dropdown.classList.remove('open');
-        });
-      }
     });
     
     // Back to Top

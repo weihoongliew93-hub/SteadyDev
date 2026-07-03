@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Case Study: Developer Productivity Framework Enhancements (.NET) | SteadyDevs</title>
+  <meta name="description" content="How everyday .NET development friction was engineered away — adding a report went from editing 4+ files to one, settings were split into safe module files with auto-generated UI, and fragile positional enums were restructured.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/case-developer-productivity-framework.html">
+  <meta property="og:title" content="Case Study: Developer Productivity Framework Enhancements (.NET) | SteadyDevs">
+  <meta property="og:description" content="How everyday .NET development friction was engineered away — adding a report went from editing 4+ files to one, settings were split into safe module files with auto-generated UI, and fragile positional enums were restructured.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Developer Productivity Framework Enhancements (.NET) | SteadyDevs">
+  <meta name="twitter:description" content="How everyday .NET development friction was engineered away — adding a report went from editing 4+ files to one, settings were split into safe module files with auto-generated UI, and fragile positional enums were restructured.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/steadydevs-og.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/case-developer-productivity-framework.html">
+
+  <link rel="stylesheet" href="assets/style.css?v=84">
+
+  <!-- Case Study Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case Study: Developer Productivity Framework Enhancements",
+    "description": "How everyday .NET development friction was engineered away — adding a report went from editing 4+ files to one, settings were split into safe module files with auto-generated UI, and fragile positional enums were restructured.",
+    "author": { "@type": "Organization", "name": "SteadyDevs", "url": "https://steadydevs.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "logo": { "@type": "ImageObject", "url": "https://steadydevs.com/images/SteadyDevsLogo.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://steadydevs.com/case-developer-productivity-framework.html" }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo-link">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Book Free Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== CASE STUDY HERO ===================== -->
+  <section class="sd-cs-hero">
+    <div class="sd-cs-hero-inner">
+      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
+        <a href="portfolio.html">← Portfolio</a> <span style="color:#475569;">/</span> <a href="portfolio.html">Case Studies</a>
+      </nav>
+      <p class="sd-eyebrow" style="text-align:left;">Internal Tools</p>
+      <h1>Developer Productivity Framework Enhancements</h1>
+      <p class="sd-cs-lead">
+        Everyday development tasks bled productivity — adding one report meant editing four or more files, settings were jumbled into a single error-prone file, and enum-string pairs were maintained by hand. A framework overhaul cut adding a report from 4+ files down to one.
+      </p>
+      <div class="sd-facts">
+        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (software product team)</div></div>
+        <div class="sd-fact"><div class="k">Industry</div><div class="v">Enterprise software</div></div>
+        <div class="sd-fact"><div class="k">Role</div><div class="v">Framework design &amp; developer experience</div></div>
+        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET · Framework design · Code generation</div></div>
+        <div class="sd-fact"><div class="k">Focus</div><div class="v">Developer productivity</div></div>
+        <div class="sd-fact"><div class="k">Status</div><div class="v">Adopted internally</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARTICLE BODY ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <article class="sd-article">
+
+        <h2>The Challenge</h2>
+        <p>
+          The friction wasn't in any one feature — it was in the everyday mechanics of building. Three recurring tasks quietly taxed every developer:
+        </p>
+        <ul>
+          <li><strong>Adding a single report meant editing 4+ files</strong> — a tedious, error-prone ritual repeated every time reporting needed to grow.</li>
+          <li><strong>System settings were jumbled into one file</strong>, making them error-prone to change and easy to break.</li>
+          <li><strong>Enum-string pairs were maintained by hand</strong>, where a single mismatch in sequence could introduce subtle, hard-to-trace bugs.</li>
+        </ul>
+
+        <h2>The Approach</h2>
+        <p>
+          Each source of friction was replaced with structure that did the tedious work automatically.
+        </p>
+        <ul>
+          <li><strong>Restructured printing</strong> so adding a report means editing one main file plus a line or two elsewhere — instead of touching four or more.</li>
+          <li><strong>Split settings into module-specific files</strong> and built a framework that auto-generates the settings UI directly from the data models, so the interface follows the data instead of being hand-maintained.</li>
+          <li><strong>Refactored the fragile positional enum dependencies</strong> into structured code, removing the risk of sequence mismatches entirely.</li>
+        </ul>
+
+        <h2>The Result</h2>
+        <div class="sd-metric">
+          <div class="sd-metric-col"><div class="m-val before">4+ files</div><div class="m-lbl">To add a report (before)</div></div>
+          <div class="sd-metric-arrow">→</div>
+          <div class="sd-metric-col"><div class="m-val after">1 file</div><div class="m-lbl">After (+1–2 lines)</div></div>
+        </div>
+        <p>
+          <strong>Adding a report went from a 4+ file chore to a single file plus a line or two.</strong> Settings became safe to change, the UI generated itself from the models, and an entire class of enum-sequence bugs simply disappeared. The framework paid for itself continuously — every report, every setting, every enum after it was faster and safer to work with.
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== BOTTOM CTA ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <div class="sd-cta-band">
+        <h2>Is Routine Development Quietly Costing You?</h2>
+        <p>When simple tasks mean editing files in four places, the tax is invisible but constant. A framework that automates the boilerplate pays back on every change your team makes.</p>
+        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a></p>
+        <p><a href="solutions.html">Solutions</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="blog/index.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="contact.html">FREE Consultation →</a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Sticky mobile CTA visibility
+    (function () {
+      var stickyCta = document.getElementById('stickyCta');
+      if (!stickyCta) return;
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

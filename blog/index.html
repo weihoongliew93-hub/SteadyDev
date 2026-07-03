@@ -5,38 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Blog - SteadyDevs | Legacy .NET Systems Insights</title>
   <meta name="description" content="Expert insights on maintaining and improving legacy .NET systems. Practical tips, common pitfalls, and solutions for businesses running critical legacy applications.">
-  
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
-  
+
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://steadydevs.com/blog/">
   <meta property="og:title" content="Blog - SteadyDevs Legacy .NET Systems Insights">
   <meta property="og:description" content="Expert insights on maintaining and improving legacy .NET systems.">
   <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
-  
+
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog - SteadyDevs Legacy .NET Systems Insights">
   <meta name="twitter:description" content="Expert insights on maintaining and improving legacy .NET systems. Practical tips, common pitfalls, and solutions.">
   <meta name="twitter:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
-  
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/">
-  
+
   <!-- RSS Feed -->
   <link rel="alternate" type="application/rss+xml" title="SteadyDevs Blog RSS Feed" href="https://steadydevs.com/blog/feed.xml">
   <link rel="alternate" type="application/atom+xml" title="SteadyDevs Blog Atom Feed" href="https://steadydevs.com/blog/feed.xml">
-  
+
   <!-- Alternate Language Tags -->
   <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/" />
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/" />
-  
-  <link rel="stylesheet" href="../assets/style.css?v=83">
-  
+
+  <link rel="stylesheet" href="../assets/style.css?v=84">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
@@ -45,26 +45,9 @@
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
   </script>
-  
+
   <style>
-    .blog-hero {
-      text-align: center;
-      margin-bottom: 40px;
-      padding-bottom: 30px;
-      border-bottom: 2px solid #2D3748;
-    }
-    
-    .blog-hero h1 {
-      margin-bottom: 15px;
-    }
-    
-    .blog-hero p {
-      color: #9CA3AF;
-      font-size: 1.15em;
-      line-height: 1.7;
-    }
-    
-    /* Category Filters */
+    /* Dark category filters (page-local, tuned to the .sd- dark system) */
     .category-filters {
       display: flex;
       flex-wrap: wrap;
@@ -72,219 +55,83 @@
       justify-content: flex-start;
       align-items: center;
       margin-bottom: 40px;
-      padding: 20px;
-      background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
-      border-radius: 8px;
-      border: 1px solid #2D3748;
-      position: relative;
     }
-    
+
     .category-filter {
-      padding: 10px 20px;
-      background: #2D3748;
-      color: #9CA3AF;
-      border: none;
-      border-radius: 6px;
+      padding: 9px 18px;
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid var(--sd-border);
+      border-radius: 999px;
       cursor: pointer;
-      font-size: 0.95em;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .category-filter:hover {
-      background: #3B4758;
-      color: #E5E7EB;
-    }
-    
-    .category-filter.active {
-      background: #3B82F6;
-      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.9em;
       font-weight: 600;
+      transition: all 0.2s ease;
     }
-    
+
+    .category-filter:hover {
+      border-color: var(--sd-blue-light);
+      color: var(--sd-blue-light);
+    }
+
+    .category-filter.active {
+      background: var(--sd-blue);
+      border-color: var(--sd-blue);
+      color: #ffffff;
+    }
+
     .category-filter.hidden {
       display: none;
     }
-    
+
     .show-more-tags {
-      padding: 10px 20px;
-      background: #10B981;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 6px;
+      padding: 9px 18px;
+      background: rgba(37, 99, 235, 0.15);
+      color: var(--sd-blue-light);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 999px;
       cursor: pointer;
-      font-size: 0.95em;
+      font-family: inherit;
+      font-size: 0.9em;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       margin-left: auto;
     }
-    
+
     .show-more-tags:hover {
-      background: #059669;
-      transform: scale(1.05);
+      border-color: var(--sd-blue-light);
     }
-    
-    /* Blog List - Horizontal Cards */
-    .blog-list {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-    
-    .blog-card {
-      background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
-      border-radius: 8px;
-      border: 1px solid #2D3748;
-      transition: all 0.3s ease;
-      overflow: hidden;
-      display: flex;
-      flex-direction: row;
-      min-height: 240px;
-    }
-    
-    .blog-card:hover {
-      transform: translateX(5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      border-color: #3B82F6;
-    }
-    
-    .blog-card-image {
-      width: 300px;
-      object-fit: cover;
-      flex-shrink: 0;
-      align-self: stretch;
-    }
-    
-    .blog-card-content {
-      padding: 25px 30px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    
-    .blog-card-meta {
-      color: #9CA3AF;
-      font-size: 0.9em;
-      margin-bottom: 10px;
-    }
-    
-    .blog-card h2 {
-      color: #FDB750;
-      font-size: 1.4em;
-      margin-bottom: 12px;
-      line-height: 1.3;
-      margin-top: 0;
-    }
-    
-    .blog-card h2 a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .blog-card h2 a:hover {
-      color: #60A5FA;
-    }
-    
-    .blog-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    
-    .blog-tag {
-      background: #2D3748;
-      color: #9CA3AF;
-      padding: 4px 12px;
-      border-radius: 4px;
-      font-size: 0.85em;
-    }
-    
-    .blog-card-excerpt {
-      color: #D1D5DB;
-      font-size: 1em;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-    
-    .blog-card-readmore {
-      color: #60A5FA;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: gap 0.3s ease;
-      align-self: flex-start;
-    }
-    
-    .blog-card-readmore:hover {
-      gap: 10px;
-    }
-    
+
     /* Load More / End of Blog */
     .load-more-container {
       text-align: center;
-      margin: 50px 0;
+      margin: 50px 0 0;
     }
-    
-    .load-more-btn {
-      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-      color: #FFFFFF;
-      border: none;
-      padding: 15px 40px;
-      border-radius: 8px;
-      font-size: 1.05em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .load-more-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-    }
-    
+
     .end-of-blog {
-      color: #9CA3AF;
-      font-size: 1.1em;
+      color: var(--sd-muted);
+      font-size: 1.05em;
       padding: 30px;
       text-align: center;
-      border-top: 1px solid #2D3748;
+      border-top: 1px solid var(--sd-border);
     }
-    
+
     .end-of-blog::after {
       content: "•  •  •";
       display: block;
       margin-top: 15px;
-      color: #4B5563;
+      color: #334155;
       font-size: 1.5em;
       letter-spacing: 10px;
     }
-    
-    /* Mobile Responsive */
+
     @media (max-width: 768px) {
-      .blog-card {
-        flex-direction: column;
-      }
-      
-      .blog-card-image {
-        width: 100%;
-        height: 220px;
-      }
-      
-      .category-filters {
-        padding: 15px;
-      }
-      
       .category-filter {
-        font-size: 0.9em;
-        padding: 8px 16px;
+        font-size: 0.85em;
+        padding: 8px 14px;
       }
-      
+
       .show-more-tags {
         width: 100%;
         margin-left: 0;
@@ -296,7 +143,7 @@
 <body>
   <!-- Mobile Menu Overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
-  
+
   <header>
     <div class="header-content">
       <a href="../index.html" class="logo-link">
@@ -314,22 +161,29 @@
         <a href="../portfolio.html">Portfolio</a>
         <a href="index.html" class="active">Blog</a>
         <a href="../contact.html">Contact</a>
+        <a href="../contact.html" class="nav-cta">Book Free Assessment</a>
       </nav>
     </div>
   </header>
 
-  <div class="container">
-    <main>
-      <div class="blog-hero">
-        <h1>Blog</h1>
-        <p>Insights on maintaining and improving legacy .NET systems.<br>Practical tips and solutions from 11+ years of production experience.</p>
-        <p style="margin-top: 20px;">
-          <a href="topics.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 0.95em; font-weight: 500; border: 1px solid #60A5FA; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);">
-            <span style="font-size: 1.2em;">📚</span>
-            <span>Browse All Topics & Categories</span>
-          </a>
-        </p>
+  <!-- ===================== PAGE HERO ===================== -->
+  <section class="sd-page-hero">
+    <div class="sd-page-hero-inner">
+      <p class="sd-eyebrow">Blog</p>
+      <h1>Insights, Tips &amp; Best Practices for <span class="accent">.NET Developers</span></h1>
+      <p class="sd-page-hero-lead">Practical advice on maintaining and improving legacy .NET systems — common pitfalls, real fixes, and solutions from 11+ years of production experience.</p>
+      <div class="sd-hero-cta">
+        <a href="topics.html" class="sd-btn sd-btn--ghost">📚 Browse All Topics &amp; Categories</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== BLOG LIST ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Latest Articles</p>
+      <h2 class="sd-section-title">From the <span class="accent">SteadyDevs</span> Blog</h2>
+      <div class="sd-title-rule"></div>
 
       <!-- Category Filters -->
       <div class="category-filters" id="categoryFilters">
@@ -337,7 +191,7 @@
       </div>
 
       <!-- Blog List -->
-      <div class="blog-list" id="blogList">
+      <div class="sd-dcard-grid" id="blogList">
         <!-- Blog posts will be loaded here -->
       </div>
 
@@ -345,45 +199,50 @@
       <div class="load-more-container" id="loadMoreContainer">
         <!-- Load more button or end message will be shown here -->
       </div>
+    </div>
+  </section>
 
-    </main>
-  </div>
-
-  <!-- Newsletter Signup Section - HIDDEN FOR NOW -->
-  <!--
-  <div style="background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%); padding: 50px 20px; margin-top: 60px;">
-    <div class="container" style="max-width: 600px;">
-      <div style="text-align: center;">
-        <h3 style="color: white; margin: 0 0 10px; font-size: 1.8em;">Get Expert Legacy System Tips</h3>
-        <p style="color: #E0E7FF; margin: 0 0 25px; font-size: 1.05em; line-height: 1.6;">Join our newsletter for practical advice on maintaining and improving legacy .NET systems. No spam, just valuable insights.</p>
-        
-        <form action="https://formspree.io/f/xpqooaea" method="POST" style="display: flex; gap: 10px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
-          <input type="email" name="newsletter_email" placeholder="Enter your email" required style="flex: 1; min-width: 250px; padding: 14px 18px; border: none; border-radius: 6px; font-size: 1em; background: white; color: #1F2937;">
-          <input type="hidden" name="_subject" value="Newsletter Signup - Blog">
-          <button type="submit" style="padding: 14px 30px; background: #10B981; color: white; border: none; border-radius: 6px; font-weight: 600; font-size: 1em; cursor: pointer; transition: background 0.3s;">Subscribe</button>
-        </form>
-        
-        <p style="color: #BFDBFE; margin: 15px 0 0; font-size: 0.9em;">💡 Weekly tips on system stabilization, bug fixes, and maintenance strategies</p>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="../about.html">About</a></p>
+        <p><a href="../solutions.html">Solutions</a></p>
+        <p><a href="../portfolio.html">Portfolio</a></p>
+        <p><a href="index.html">Blog</a></p>
+        <p><a href="../contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="../contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
       </div>
     </div>
-  </div>
-  -->
-
-  <footer>
-    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
-    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
-    <p style="margin-top: 12px; font-size: 0.9em;">
-      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
-      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
-      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
-    </p>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="../author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="../company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="../pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
   </footer>
-  
+
   <!-- Sticky Mobile CTA -->
   <div class="sticky-cta" id="stickyCta">
     <a href="../contact.html">FREE Consultation →</a>
   </div>
-  
+
   <!-- Back to Top Button -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
@@ -398,22 +257,92 @@
     let showAllTags = false;
     const initialTagsCount = 8;
 
+    // Pick a fitting emoji for a category
+    function getCategoryEmoji(category) {
+      const map = {
+        'Legacy Systems': '🏛️',
+        '.NET': '🧩',
+        'Malaysia': '🇲🇾',
+        'Compliance': '📋',
+        'E-Invoice': '🧾',
+        'Invoice': '🧾',
+        'Automation': '⚙️',
+        'Maintenance': '🛠️',
+        'Cost Analysis': '💰',
+        'ROI': '💰',
+        'Hidden Costs': '💸',
+        'Business Continuity': '🔄',
+        'Business Risk': '⚠️',
+        'Business Impact': '📈',
+        'Business Operations': '🏢',
+        'Business Systems': '🏢',
+        'Business Process': '🔧',
+        'SME Malaysia': '🏪',
+        'SME': '🏪',
+        'SMEs': '🏪',
+        'Documentation': '📄',
+        'Case Study': '📊',
+        'Decision Framework': '🧭',
+        'Technical Debt': '🧱',
+        'Crisis Management': '🚨',
+        'Developer Relationships': '🤝',
+        'Developer Assessment': '🔍',
+        'Developer Selection': '🔍',
+        'Developer Transition': '🔁',
+        'POS Systems': '🖥️',
+        'POS': '🖥️',
+        'Integration': '🔌',
+        'API Integration': '🔌',
+        'System Integration': '🔌',
+        'PDPA': '🔐',
+        'Security': '🔐',
+        'Modernization': '🚀',
+        'Mobile': '📱',
+        'Accounting': '🧮',
+        'AI Development': '🤖',
+        'Code Quality': '✨',
+        'Refactoring': '♻️',
+        'Architecture': '🏗️',
+        'Infrastructure': '🏗️',
+        'Bug Fixes': '🐛',
+        'Troubleshooting': '🐛',
+        'Assessment': '🔍',
+        'Risk Management': '🛡️',
+        'Vendor Risk': '🛡️',
+        'Stabilization': '⚖️',
+        'System Stability': '⚖️',
+        'Framework': '🧩',
+        'Excel': '📑',
+        'Feature Development': '✨',
+        'Cloud Migration': '☁️',
+        'Azure': '☁️',
+        'Support Contracts': '📝',
+        'Hiring': '🧑‍💼',
+        'Due Diligence': '🔍',
+        'LHDN': '🏛️',
+        'Windows Server': '🖧',
+        'SQL Server': '🗄️',
+        'Retail': '🛍️'
+      };
+      return map[category] || '📝';
+    }
+
     // Load blog posts from JSON
     async function loadBlogPosts() {
       try {
         const response = await fetch('blog-posts.json');
         const posts = await response.json();
-        
+
         // Filter out unpublished posts
         const publishedPosts = posts.filter(post => post.published !== false);
-        
+
         // Sort by date (newest first)
         publishedPosts.sort((a, b) => {
           const dateA = new Date(a.date);
           const dateB = new Date(b.date);
           return dateB - dateA; // Descending order (newest first)
         });
-        
+
         // Transform JSON data to match the format we need for listing
         blogPosts = publishedPosts.map(post => ({
           title: post.title,
@@ -425,13 +354,13 @@
           heroImage: post.heroImage,
           heroImageAlt: post.heroImageAlt
         }));
-        
+
         // Initialize the page after data is loaded
         renderCategoryFilters();
         renderBlogPosts();
       } catch (error) {
         console.error('Error loading blog posts:', error);
-        document.getElementById('blogList').innerHTML = '<p style="color: #FCA5A5; text-align: center; padding: 40px;">Error loading blog posts. Please try again later.</p>';
+        document.getElementById('blogList').innerHTML = '<p style="color: #FCA5A5; text-align: center; padding: 40px; grid-column: 1 / -1;">Error loading blog posts. Please try again later.</p>';
       }
     }
 
@@ -448,23 +377,23 @@
     function renderCategoryFilters() {
       const filtersContainer = document.getElementById('categoryFilters');
       const categories = getAllCategories();
-      
+
       const categoryButtons = categories.map((category, index) => {
         const shouldHide = !showAllTags && index >= initialTagsCount;
         return `
-          <button class="category-filter ${category === currentFilter ? 'active' : ''} ${shouldHide ? 'hidden' : ''}" 
+          <button class="category-filter ${category === currentFilter ? 'active' : ''} ${shouldHide ? 'hidden' : ''}"
                   data-category="${category}">
             ${category}
           </button>
         `;
       }).join('');
-      
+
       const showMoreButton = categories.length > initialTagsCount ? `
         <button class="show-more-tags" id="showMoreTags">
           ${showAllTags ? 'Show Less ↑' : `Show More (${categories.length - initialTagsCount} more) ↓`}
         </button>
       ` : '';
-      
+
       filtersContainer.innerHTML = categoryButtons + showMoreButton;
 
       // Add click handlers for category filters
@@ -476,7 +405,7 @@
           renderBlogPosts();
         });
       });
-      
+
       // Add click handler for show more button
       const showMoreBtn = document.getElementById('showMoreTags');
       if (showMoreBtn) {
@@ -499,29 +428,31 @@
     function renderBlogPosts() {
       const blogList = document.getElementById('blogList');
       const filteredPosts = getFilteredPosts();
-      
+
       if (filteredPosts.length === 0) {
-        blogList.innerHTML = '<p style="color: #9CA3AF; text-align: center; padding: 40px;">No blog posts found in this category.</p>';
+        blogList.innerHTML = '<p style="color: var(--sd-muted); text-align: center; padding: 40px; grid-column: 1 / -1;">No blog posts found in this category.</p>';
         updateLoadMoreButton(0, 0);
         return;
       }
-      
+
       const postsToShow = filteredPosts.slice(0, displayedCount);
-      
-      blogList.innerHTML = postsToShow.map(post => `
-        <article class="blog-card">
-          ${post.heroImage ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" class="blog-card-image">` : ''}
-          <div class="blog-card-content">
-            <div class="blog-card-meta">${post.date} • ${post.readTime}</div>
-            <h2><a href="${post.slug}.html">${post.title}</a></h2>
-            <div class="blog-tags">
-              ${post.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
-            </div>
-            <p class="blog-card-excerpt">${post.excerpt}</p>
-            <a href="${post.slug}.html" class="blog-card-readmore">Read More →</a>
+
+      blogList.innerHTML = postsToShow.map(post => {
+        const category = (post.tags && post.tags.length) ? post.tags[0] : 'Article';
+        const emoji = getCategoryEmoji(category);
+        return `
+        <a href="${post.slug}.html" class="sd-dcard" style="text-decoration:none;">
+          <div class="sd-thumb"><span class="sd-thumb-icon">${emoji}</span></div>
+          <div class="sd-cat">${category}</div>
+          <h3>${post.title}</h3>
+          <p class="sd-clamp-3">${post.excerpt}</p>
+          <div class="sd-blog-meta">
+            <span class="sd-blog-date">${post.date} · ${post.readTime}</span>
+            <span class="sd-help-link">Read More →</span>
           </div>
-        </article>
-      `).join('');
+        </a>
+      `;
+      }).join('');
 
       updateLoadMoreButton(postsToShow.length, filteredPosts.length);
     }
@@ -529,15 +460,15 @@
     // Update load more button or end message
     function updateLoadMoreButton(shown, total) {
       const container = document.getElementById('loadMoreContainer');
-      
+
       if (shown < total) {
         // Show load more button
         container.innerHTML = `
-          <button class="load-more-btn" id="loadMoreBtn">
+          <button class="sd-btn sd-btn--primary" id="loadMoreBtn">
             Load More Posts (${total - shown} remaining)
           </button>
         `;
-        
+
         document.getElementById('loadMoreBtn').addEventListener('click', () => {
           displayedCount += postsPerPage;
           renderBlogPosts();
@@ -574,24 +505,9 @@
       mainNav.classList.remove('active');
       navOverlay.classList.remove('active');
     });
-    
-    // Dropdown toggle
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
-    dropdowns.forEach(dropdown => {
-      const dropdownToggle = dropdown.querySelector(':scope > a');
-      dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // Close other dropdowns
-        dropdowns.forEach(d => {
-          if (d !== dropdown) d.classList.remove('open');
-        });
-        dropdown.classList.toggle('open');
-      });
-    });
-    
-    // Close menu on actual navigation link clicks (not dropdown toggles)
-    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
@@ -599,27 +515,29 @@
         navOverlay.classList.remove('active');
       });
     });
-    
-    // Close dropdowns when clicking outside on desktop
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav-dropdown')) {
-        dropdowns.forEach(dropdown => {
-          dropdown.classList.remove('open');
-        });
-      }
-    });
-    
-    // Back to Top Button
+
+    // Sticky CTA and Back to Top Button
+    const stickyCta = document.getElementById('stickyCta');
     const backToTop = document.getElementById('backToTop');
-    
+
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 500) {
+      const currentScroll = window.pageYOffset;
+
+      if (stickyCta) {
+        if (currentScroll > 300) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      }
+
+      if (currentScroll > 500) {
         backToTop.classList.add('visible');
       } else {
         backToTop.classList.remove('visible');
       }
     });
-    
+
     backToTop.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
