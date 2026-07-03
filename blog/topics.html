@@ -330,7 +330,65 @@
         font-size: 0.85em;
       }
     }
+
+    /* ===== New design-system theme (color/style refresh) ===== */
+    body { background: var(--sd-bg); }
+
+    .topics-container { padding-top: 130px; max-width: 1040px; }
+
+    .topics-header h1 { color: #f8fafc; font-weight: 800; letter-spacing: -0.02em; }
+    .topics-header h1 .accent { color: var(--sd-blue-light); }
+    .topics-header p { color: var(--sd-muted); }
+
+    .quick-nav,
+    .topic-category {
+      background: var(--sd-card);
+      border: 1px solid var(--sd-border);
+      box-shadow: none;
     }
+    .quick-nav h3 { color: #f1f5f9; }
+    .quick-nav-item {
+      background: var(--sd-bg-2);
+      border: 1px solid var(--sd-border);
+    }
+    .quick-nav-item:hover {
+      background: rgba(37, 99, 235, 0.08);
+      border-color: var(--sd-blue-light);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+    }
+    .quick-nav-item .label { color: #e2e8f0; }
+    .quick-nav-item .count { color: var(--sd-muted); }
+
+    .topic-category h2 { color: #f1f5f9; }
+    .topic-category h2 .category-icon { color: var(--sd-blue-light); }
+    .topic-category .category-description { color: var(--sd-muted); }
+
+    .article-item {
+      background: var(--sd-bg-2);
+      border: 1px solid var(--sd-border);
+      border-left: 3px solid var(--sd-blue);
+    }
+    .article-item:hover {
+      background: rgba(37, 99, 235, 0.06);
+      border-color: var(--sd-border);
+      border-left-color: var(--sd-blue-light);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+    .article-item h3 { color: #f1f5f9; }
+    .article-item:hover h3 { color: var(--sd-blue-light); }
+    .article-item .article-date { color: #64748b; }
+    .article-item .article-excerpt { color: var(--sd-muted); }
+    .article-tag {
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+      border: 1px solid transparent;
+    }
+
+    #backToTop {
+      background: var(--sd-blue);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+    #backToTop:hover { background: var(--sd-blue-hover); }
   </style>
   
   <!-- Google Analytics -->
@@ -370,7 +428,8 @@
 
   <div class="topics-container">
     <div class="topics-header">
-      <h1>📚 Blog Topics & Categories</h1>
+      <p class="sd-eyebrow">Blog</p>
+      <h1>Blog Topics &amp; <span class="accent">Categories</span></h1>
       <p>Browse our comprehensive collection of articles organized by topic. Find practical guidance on legacy system maintenance, modernization, and business automation.</p>
     </div>
     
@@ -389,10 +448,10 @@
     <!-- Back to Top Button -->
     <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
     
-    <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #1A202C 0%, #121821 100%); border-radius: 12px; border: 1px solid #2D3748;">
-      <h2 style="color: #60A5FA; margin-top: 0;">Can't Find What You're Looking For?</h2>
-      <p style="color: #D1D5DB; margin-bottom: 25px;">We're here to help with your specific legacy system challenges.</p>
-      <a href="../contact.html" class="cta-button">Get FREE Consultation</a>
+    <div class="sd-cta-band" style="margin-top: 60px;">
+      <h2>Can't Find What You're Looking For?</h2>
+      <p>We're here to help with your specific legacy system challenges.</p>
+      <a href="../contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
