@@ -1651,6 +1651,65 @@ blockquote {
 }
 .sd-btn--light:hover { background: var(--sd-blue-hover); color: #fff; transform: translateY(-2px); }
 
+/* Ghost buttons on light sections need dark/blue text so they don't blend in */
+.sd-section--light .sd-btn--ghost {
+  color: var(--sd-blue);
+  border-color: var(--sd-blue);
+}
+.sd-section--light .sd-btn--ghost:hover {
+  background: var(--sd-blue);
+  color: #fff;
+  border-color: var(--sd-blue);
+}
+
+/* --- FAQ accordion --- */
+.sd-faq {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.sd-faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.sd-faq-item + .sd-faq-item { margin-top: 0; }
+.sd-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  font-weight: 600;
+  font-size: 1.02em;
+  color: var(--sd-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: color 0.2s ease;
+}
+.sd-faq-item summary::-webkit-details-marker { display: none; }
+.sd-faq-item summary:hover { color: var(--sd-blue); }
+.sd-faq-item summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--sd-blue);
+  transition: transform 0.2s ease;
+}
+.sd-faq-item[open] summary::after {
+  content: "\2212"; /* minus */
+}
+.sd-faq-item[open] summary { color: var(--sd-blue); }
+.sd-faq-answer {
+  padding: 0 22px 20px;
+  color: var(--sd-ink-muted);
+  line-height: 1.7;
+}
+.sd-faq-answer p { margin: 0; }
+
 /* --- Hero transform visual (Complex -> Stable) --- */
 .sd-transform {
   display: grid;

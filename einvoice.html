@@ -95,7 +95,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="assets/style.css?v=83">
+  <link rel="stylesheet" href="assets/style.css?v=85">
 
   <style>
     /* ── Page-specific overrides ───────────────────────────────────────── */
@@ -718,41 +718,45 @@
         <a href="solutions.html">Solutions</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog/index.html">Blog</a>
-        <a href="einvoice.html" class="active" style="color: #34D399;">EInvoice</a>
+        <a href="einvoice.html" class="active">EInvoice</a>
         <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Book Free Assessment</a>
       </nav>
     </div>
   </header>
 
-  <div class="container">
-    <main>
-
-      <!-- ── HERO ──────────────────────────────────────────────────────── -->
-      <div class="hero">
-        <div class="ei-hero-badge">Platform in Beta · Early Access Partners Welcome</div>
-        <h1 style="max-width: 820px; margin-left: auto; margin-right: auto;">Your LHDN e-Invoice Compliance, Fully Automated.</h1>
-        <p style="font-size: 1.15em; color: #D1D5DB; line-height: 1.7; margin-bottom: 30px; max-width: 680px;">
-          Connect your POS, ERP, or accounting system once.
-          Every invoice validated against LHDN rules, digitally signed, and submitted to MyInvois — automatically.
-          <strong style="color: #60A5FA;">No manual work. No cryptic rejection codes. No missed posting deadlines.</strong>
-        </p>
-        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 30px; justify-content: center;">
-          <span class="lhdn-badge">✓ MyInvois API v1.1</span>
-          <span class="lhdn-badge">✓ All 8 Invoice Types</span>
-          <span class="lhdn-badge">✓ Digital Signature</span>
-          <span class="lhdn-badge">✓ RM 10k Enforcement</span>
-          <span class="lhdn-badge" style="background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.35); color: #A5B4FC;">✓ Live Demo Available</span>
-        </div>
-        <div class="cta-buttons">
-          <a href="contact.html?ref=einvoice" class="cta-button">Request Early Access</a>
-          <a href="#demo" class="cta-button demo-cta">Try Live Demo →</a>
-        </div>
-        <p style="margin-top: 10px; font-size: 0.87em; color: #6B7280;">or <a href="#pricing" style="color: #60A5FA;">compare plans</a></p>
+  <!-- ===================== PAGE HERO ===================== -->
+  <section class="sd-page-hero">
+    <div class="sd-page-hero-inner">
+      <div class="ei-hero-badge">Platform in Beta · Early Access Partners Welcome</div>
+      <h1>Your LHDN e-Invoice Compliance, <span class="accent">Fully Automated</span>.</h1>
+      <p class="sd-page-hero-lead">
+        Connect your POS, ERP, or accounting system once.
+        Every invoice validated against LHDN rules, digitally signed, and submitted to MyInvois — automatically.
+        <strong style="color: #60A5FA;">No manual work. No cryptic rejection codes. No missed posting deadlines.</strong>
+      </p>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 24px 0 4px; justify-content: center;">
+        <span class="lhdn-badge">✓ MyInvois API v1.1</span>
+        <span class="lhdn-badge">✓ All 8 Invoice Types</span>
+        <span class="lhdn-badge">✓ Digital Signature</span>
+        <span class="lhdn-badge">✓ RM 10k Enforcement</span>
+        <span class="lhdn-badge" style="background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.35); color: #A5B4FC;">✓ Live Demo Available</span>
       </div>
+      <div class="sd-hero-cta">
+        <a href="contact.html?ref=einvoice" class="sd-btn sd-btn--primary">Request Early Access <span aria-hidden="true">→</span></a>
+        <a href="#demo" class="sd-btn sd-btn--ghost">Try Live Demo →</a>
+      </div>
+      <p style="margin-top: 14px; font-size: 0.87em; color: #6B7280;">or <a href="#pricing" style="color: #60A5FA;">compare plans</a></p>
+    </div>
+  </section>
 
-      <!-- ── PROBLEM ────────────────────────────────────────────────────── -->
-      <div class="animate-on-scroll" style="background: rgba(239, 68, 68, 0.08); padding: 30px 35px; border-radius: 8px; margin: 10px 0 40px; border: 1px solid rgba(239,68,68,0.2);">
-        <h3 style="margin-top: 0; color: #f87171;">The reality of LHDN e-invoicing for most Malaysian businesses</h3>
+  <!-- ===================== PROBLEM ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">The Reality</p>
+      <h2 class="sd-section-title">LHDN E-Invoicing, <span class="accent">As Most Experience It</span></h2>
+      <div class="sd-title-rule"></div>
+      <div class="animate-on-scroll" style="background: rgba(239, 68, 68, 0.08); padding: 30px 35px; border-radius: 12px; margin: 0; border: 1px solid rgba(239,68,68,0.2);">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
           <div style="color: #D1D5DB; font-size: 0.95em; line-height: 1.7;">
             <strong style="color: #FCA5A5;">Cryptic rejection codes</strong><br>
@@ -773,38 +777,43 @@
         </div>
       </div>
 
-      <!-- ── STATS ─────────────────────────────────────────────────────── -->
-    </main>
-  </div>
+    </div>
+  </section>
 
-  <div class="stats-section">
-    <h2 style="margin-top: 0; margin-bottom: 40px; color: white; border: none; padding: 0;">Built for Malaysian LHDN Compliance</h2>
-    <div class="stats-container">
-      <div class="stat-item">
-        <div class="stat-number">8</div>
-        <div class="stat-label">LHDN Invoice Types Supported (01–04, 11–14)</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">3-Tier</div>
-        <div class="stat-label">Validation Before Any Submission Reaches LHDN</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">5 min</div>
-        <div class="stat-label">Auto Status Sync from MyInvois</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">RM 99</div>
-        <div class="stat-label">Starting Price — No Setup Fee</div>
+  <!-- ===================== STATS ===================== -->
+  <section class="sd-section sd-section--light">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">By the Numbers</p>
+      <h2 class="sd-section-title">Built for Malaysian <span class="accent">LHDN Compliance</span></h2>
+      <div class="sd-title-rule"></div>
+      <div class="sd-stats-grid">
+        <div class="sd-stat-card">
+          <div class="sd-stat-num">8</div>
+          <div class="sd-stat-label">LHDN Invoice Types Supported (01–04, 11–14)</div>
+        </div>
+        <div class="sd-stat-card">
+          <div class="sd-stat-num">3-Tier</div>
+          <div class="sd-stat-label">Validation Before Any Submission Reaches LHDN</div>
+        </div>
+        <div class="sd-stat-card">
+          <div class="sd-stat-num">5 min</div>
+          <div class="sd-stat-label">Auto Status Sync from MyInvois</div>
+        </div>
+        <div class="sd-stat-card">
+          <div class="sd-stat-num">RM 99</div>
+          <div class="sd-stat-label">Starting Price — No Setup Fee</div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <main>
-
-      <!-- ── THREE-TIER VALIDATION ──────────────────────────────────────── -->
-      <h2>Three-Tier Validation — Problems Caught Before They Reach LHDN</h2>
-      <p style="color: #9CA3AF; margin-bottom: 0; max-width: 620px;">Every invoice passes three layers of checks before we attempt a submission. You fix issues in your dashboard — LHDN never sees a bad invoice.</p>
+  <!-- ===================== THREE-TIER VALIDATION ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Validation</p>
+      <h2 class="sd-section-title">Three-Tier Validation — Caught <span class="accent">Before They Reach LHDN</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Every invoice passes three layers of checks before we attempt a submission. You fix issues in your dashboard — LHDN never sees a bad invoice.</p>
 
       <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; margin: 36px 0;">
         <div class="validation-flow" style="flex: 1; min-width: 280px;">
@@ -847,10 +856,15 @@
         </div>
       </div>
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── FEATURES ───────────────────────────────────────────────────── -->
-      <h2>Everything You Need to Stay Compliant</h2>
+  <!-- ===================== FEATURES ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Features</p>
+      <h2 class="sd-section-title">Everything You Need to <span class="accent">Stay Compliant</span></h2>
+      <div class="sd-title-rule"></div>
 
       <div class="feature-grid">
         <div class="feature-card animate-on-scroll">
@@ -905,10 +919,15 @@
         </div>
       </div>
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── HOW IT WORKS ───────────────────────────────────────────────── -->
-      <h2>How It Works</h2>
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">How It Works</p>
+      <h2 class="sd-section-title">From Connect to <span class="accent">Compliant</span></h2>
+      <div class="sd-title-rule"></div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 40px 0;">
         <div style="text-align: center;" class="animate-on-scroll">
@@ -933,11 +952,16 @@
         </div>
       </div>
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── SCREENSHOTS SLIDESHOW ────────────────────────────────────────── -->
-      <h2>A Closer Look</h2>
-      <p style="color: #9CA3AF; max-width: 560px; margin-bottom: 0;">Every screen you'll use day-to-day — from invoice submission to rejection handling.</p>
+  <!-- ===================== SCREENSHOTS ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Screenshots</p>
+      <h2 class="sd-section-title">A Closer <span class="accent">Look</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Every screen you'll use day-to-day — from invoice submission to rejection handling.</p>
 
       <div class="animate-on-scroll" id="slideshow">
         <div class="slideshow-frame">
@@ -996,10 +1020,13 @@
         </div><!-- /slideshow-frame -->
       </div><!-- /slideshow -->
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── LIVE DEMO ─────────────────────────────────────────────────────── -->
-      <div id="demo" class="demo-section animate-on-scroll">
+  <!-- ===================== LIVE DEMO ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <div id="demo" class="demo-section animate-on-scroll" style="scroll-margin-top: 90px;">
 
         <div style="text-align: center; margin-bottom: 8px;">
           <div class="demo-badge">Live Demo — No Signup Required</div>
@@ -1057,12 +1084,16 @@
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <hr>
-
-      <!-- ── PRICING ─────────────────────────────────────────────────────── -->
-      <h2 id="pricing">Simple, Predictable Pricing</h2>
-      <p style="color: #9CA3AF; margin-bottom: 0;">All paid plans include a 30-day free trial. No credit card required to start. Upgrade, downgrade, or cancel any time.</p>
+  <!-- ===================== PRICING ===================== -->
+  <section class="sd-section sd-section--dark" id="pricing" style="scroll-margin-top: 90px;">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Pricing</p>
+      <h2 class="sd-section-title">Simple, <span class="accent">Predictable Pricing</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">All paid plans include a 30-day free trial. No credit card required to start. Upgrade, downgrade, or cancel any time.</p>
 
       <div class="pricing-grid animate-on-scroll" style="margin-top: 40px;">
 
@@ -1199,11 +1230,16 @@
         </p>
       </div>
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── INTEGRATION ────────────────────────────────────────────────── -->
-      <h2>Works With the Systems You Already Have</h2>
-      <p style="color: #9CA3AF; max-width: 600px;">The adapter plugin system connects to any source — no full system rewrite required.</p>
+  <!-- ===================== INTEGRATION ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Integrations</p>
+      <h2 class="sd-section-title">Works With the Systems <span class="accent">You Already Have</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">The adapter plugin system connects to any source — no full system rewrite required.</p>
 
       <div style="background: #121821; border: 1px solid #1F2937; border-radius: 8px; padding: 36px; margin: 36px 0;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
@@ -1226,105 +1262,66 @@
         </div>
       </div>
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
-      <h2>Common Questions</h2>
+  <!-- ===================== FAQ ===================== -->
+  <section class="sd-section sd-section--light">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Good to Know</p>
+      <h2 class="sd-section-title">Common <span class="accent">Questions</span></h2>
+      <div class="sd-title-rule"></div>
 
-      <div style="max-width: 760px; margin: 36px 0;" class="animate-on-scroll">
-
-        <div class="faq-item">
-          <div class="faq-q">
-            Is this platform officially approved by LHDN?
-            <span class="faq-toggle">+</span>
+      <div class="sd-faq">
+        <details class="sd-faq-item">
+          <summary>Is this platform officially approved by LHDN?</summary>
+          <div class="sd-faq-answer"><p>The platform submits invoices via the official LHDN MyInvois REST API using your business's own registered credentials and digital certificate. Each business must obtain their own LHDN intermediary authorization — the platform guides you through this during onboarding. All invoice formats follow the LHDN e-Invoice specification v1.1.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Do I need to get my own digital certificate?</summary>
+          <div class="sd-faq-answer"><p>Yes — each business TIN requires its own LHDN-approved X.509 digital certificate, obtained from an approved Certificate Authority (CA) in Malaysia. The cost is typically RM 500–2,000/year depending on the CA. Once obtained, you upload it once in your dashboard Settings. The platform handles signing every invoice automatically from then on — and alerts you 60 days before expiry.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>What happens if LHDN rejects an invoice?</summary>
+          <div class="sd-faq-answer"><p>Rejected invoices appear in your dashboard under "LHDN Rejections" with the specific error code (E1–E12) translated into plain English with a suggested fix. For example: "E7 — Tax calculation mismatch: Recalculate line-item tax amounts, check rounding." You correct the data and resubmit with one click — no need to call LHDN or decipher their documentation.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Can I manage multiple companies under one account?</summary>
+          <div class="sd-faq-answer">
+            <p>Yes — Premium plan supports multi-entity. Each entity has its own TIN, LHDN credentials, digital certificate, and submission history, all managed under one login. Useful for accounting firms handling multiple clients, or holding companies with several registered subsidiaries.</p>
+            <p>Note that the 10,000 invoice limit applies to the account total across all entities. Usage above 10,000/month is billed at RM 0.30 per invoice. If you're managing high-volume clients above this threshold, the Custom plan is the right fit — let us know at onboarding.</p>
           </div>
-          <div class="faq-a">
-            The platform submits invoices via the official LHDN MyInvois REST API using your business's own registered credentials and digital certificate. Each business must obtain their own LHDN intermediary authorization — the platform guides you through this during onboarding. All invoice formats follow the LHDN e-Invoice specification v1.1.
+        </details>
+        <details class="sd-faq-item">
+          <summary>How does the 10,000 invoice limit on the Premium plan work?</summary>
+          <div class="sd-faq-answer">
+            <p>Premium includes 10,000 invoice submissions per month — that's over 450 invoices every working day. For most high-volume businesses and accounting firms, this is more than sufficient.</p>
+            <p>If you exceed 10,000 in a given month, the extra invoices are billed at RM 0.30 each — you're never blocked. Overage is calculated and charged at the start of the following month. The platform notifies you at 80% and 95% of your limit so there are no surprises.</p>
+            <p>If your volume consistently exceeds 10,000/month, the <strong>Custom plan</strong> is the right fit — contact us for volume-based pricing and a dedicated enterprise contract.</p>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            Do I need to get my own digital certificate?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            Yes — each business TIN requires its own LHDN-approved X.509 digital certificate, obtained from an approved Certificate Authority (CA) in Malaysia. The cost is typically RM 500–2,000/year depending on the CA. Once obtained, you upload it once in your dashboard Settings. The platform handles signing every invoice automatically from then on — and alerts you 60 days before expiry.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            What happens if LHDN rejects an invoice?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            Rejected invoices appear in your dashboard under "LHDN Rejections" with the specific error code (E1–E12) translated into plain English with a suggested fix. For example: "E7 — Tax calculation mismatch: Recalculate line-item tax amounts, check rounding." You correct the data and resubmit with one click — no need to call LHDN or decipher their documentation.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            Can I manage multiple companies under one account?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            Yes — Premium plan supports multi-entity. Each entity has its own TIN, LHDN credentials, digital certificate, and submission history, all managed under one login. Useful for accounting firms handling multiple clients, or holding companies with several registered subsidiaries.
-            <br><br>
-            Note that the 10,000 invoice limit applies to the account total across all entities. Usage above 10,000/month is billed at RM 0.30 per invoice. If you're managing high-volume clients above this threshold, the Custom plan is the right fit — let us know at onboarding.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            How does the 10,000 invoice limit on the Premium plan work?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            Premium includes 10,000 invoice submissions per month — that's over 450 invoices every working day. For most high-volume businesses and accounting firms, this is more than sufficient.
-            <br><br>
-            If you exceed 10,000 in a given month, the extra invoices are billed at RM 0.30 each — you're never blocked. Overage is calculated and charged at the start of the following month. The platform notifies you at 80% and 95% of your limit so there are no surprises.
-            <br><br>
-            If your volume consistently exceeds 10,000/month, the <strong>Custom plan</strong> is the right fit — contact us for volume-based pricing and a dedicated enterprise contract.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            My POS system is quite old / custom built. Can it still connect?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            Almost certainly yes. The adapter system was designed specifically for legacy and custom-built systems. If your POS can export a daily invoice file (CSV, JSON, XML) or make an HTTP POST, it can connect. For .NET systems specifically, SteadyDevs can help build a tight integration with your existing codebase.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            What is the 30-day trial and what happens after?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            All paid plans (Starter through Premium) start with a 30-day free trial — no credit card required. During the trial your invoice limits and all features are active. At the end of 30 days, you're prompted to add a payment method to continue. If you don't, your account switches to Free tier (10 invoices/month). No invoices are deleted — your history is preserved.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">
-            Is my LHDN client secret and certificate stored securely?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-a">
-            Yes. All LHDN credentials (client ID, client secret, certificate, private key) are encrypted at rest using AES-256-GCM before being written to the database. The encryption master key is stored separately from the database. Credentials are decrypted in memory only when a submission is being made and are never exposed in API responses — the dashboard masks the secret as "••••••••".
-          </div>
-        </div>
-
+        </details>
+        <details class="sd-faq-item">
+          <summary>My POS system is quite old / custom built. Can it still connect?</summary>
+          <div class="sd-faq-answer"><p>Almost certainly yes. The adapter system was designed specifically for legacy and custom-built systems. If your POS can export a daily invoice file (CSV, JSON, XML) or make an HTTP POST, it can connect. For .NET systems specifically, SteadyDevs can help build a tight integration with your existing codebase.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>What is the 30-day trial and what happens after?</summary>
+          <div class="sd-faq-answer"><p>All paid plans (Starter through Premium) start with a 30-day free trial — no credit card required. During the trial your invoice limits and all features are active. At the end of 30 days, you're prompted to add a payment method to continue. If you don't, your account switches to Free tier (10 invoices/month). No invoices are deleted — your history is preserved.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Is my LHDN client secret and certificate stored securely?</summary>
+          <div class="sd-faq-answer"><p>Yes. All LHDN credentials (client ID, client secret, certificate, private key) are encrypted at rest using AES-256-GCM before being written to the database. The encryption master key is stored separately from the database. Credentials are decrypted in memory only when a submission is being made and are never exposed in API responses — the dashboard masks the secret as "••••••••".</p></div>
+        </details>
       </div>
+    </div>
+  </section>
 
-      <hr>
-
-      <!-- ── TECHNICAL TRANSPARENCY ────────────────────────────────────────── -->
-      <h2>Platform Configuration for Production Use</h2>
+  <!-- ===================== TECHNICAL TRANSPARENCY ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Under the Hood</p>
+      <h2 class="sd-section-title">Platform Configuration for <span class="accent">Production Use</span></h2>
+      <div class="sd-title-rule"></div>
 
       <div class="animate-on-scroll" style="background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 28px 32px; margin: 32px 0;">
         <p style="color: #9CA3AF; line-height: 1.75; margin-bottom: 18px; font-size: 0.95em;">
@@ -1336,30 +1333,60 @@
         </p>
       </div>
 
-      <hr>
+    </div>
+  </section>
 
-      <!-- ── FINAL CTA ───────────────────────────────────────────────────── -->
-      <div class="animate-on-scroll" style="background: linear-gradient(135deg, #0f1f3d 0%, #121821 100%); border: 1px solid rgba(59,130,246,0.3); border-radius: 10px; padding: 50px 40px; text-align: center; margin: 40px 0;">
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner">
+      <div class="sd-cta-band">
         <div class="ei-hero-badge" style="margin-bottom: 18px;">Platform in Beta — Early Access Partners Welcome</div>
-        <h2 style="color: #F9FAFB; margin: 0 0 16px; font-size: 1.8em;">Ready to automate your LHDN submissions?</h2>
-        <p style="color: #9CA3AF; font-size: 1.05em; max-width: 520px; margin: 0 auto 30px; line-height: 1.7;">
-          Try the live demo first — no signup needed. When you're ready, drop us a message and we'll walk you through connecting your existing system and setting up your LHDN credentials.
-        </p>
-        <div class="cta-buttons" style="justify-content: center;">
-          <a href="contact.html?ref=einvoice-cta" class="cta-button">Request Early Access</a>
-          <a href="#demo" class="cta-button demo-cta">Try Demo First</a>
+        <h2>Ready to automate your LHDN submissions?</h2>
+        <p>Try the live demo first — no signup needed. When you're ready, drop us a message and we'll walk you through connecting your existing system and setting up your LHDN credentials.</p>
+        <div class="sd-hero-cta" style="justify-content: center;">
+          <a href="contact.html?ref=einvoice-cta" class="sd-btn sd-btn--primary">Request Early Access <span aria-hidden="true">→</span></a>
+          <a href="#demo" class="sd-btn sd-btn--ghost">Try Demo First</a>
         </div>
         <p style="color: #6B7280; font-size: 0.85em; margin-top: 20px; margin-bottom: 0;">
           30-day free trial on all paid plans · No setup fee · Cancel any time
         </p>
       </div>
+    </div>
+  </section>
 
-    </main>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
-    <p style="margin-top: 8px;">EInvoice Platform — LHDN MyInvois compliance, automated.</p>
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a></p>
+        <p><a href="solutions.html">Solutions</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="blog/index.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="contact.html?ref=einvoice" class="sd-btn sd-btn--primary" style="margin-top:8px;">Request Early Access <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
   </footer>
 
   <!-- Sticky CTA -->
@@ -1422,15 +1449,6 @@
       { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     );
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-    // ── FAQ toggles ───────────────────────────────────────────────────────
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.querySelector('.faq-q').addEventListener('click', () => {
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!wasOpen) item.classList.add('open');
-      });
-    });
 
     // ── Slideshow ─────────────────────────────────────────────────────────
     (function () {
