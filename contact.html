@@ -194,10 +194,12 @@
               <option value="System Understanding & Roadmap">System Understanding & Roadmap (RM8,000 – RM25,000)</option>
               <option value="System Stabilization Project">System Stabilization Project (RM12,000 – RM30,000+)</option>
               <option value="Business Automation">Business Automation (RM8,000 – RM20,000)</option>
+              <option value="System Health Check">System Health Check (RM1,200 one-time diagnostic)</option>
               <option value="EInvoice Platform - Early Access">EInvoice Platform - Early Access (Coming Soon)</option>
               <option value="Expert Technical Advisor - Advisory Only">Retainer: Advisory Only (RM3,000/mo)</option>
               <option value="Expert Technical Advisor - Active Support">Retainer: Active Support (RM5,000/mo)</option>
               <option value="Expert Technical Advisor - Strategic Partner">Retainer: Strategic Partner (RM8,000/mo)</option>
+              <option value="Expert Technical Advisor - Retainer">Retainer: Not sure which tier yet</option>
               <option value="Free Strategy Session">Free Strategy Session</option>
               <option value="Not sure yet">Not sure yet / Need guidance</option>
             </select>
@@ -222,7 +224,7 @@
         const packageFromUrl = urlParams.get('package');
         const refFromUrl = urlParams.get('ref');
         
-        // Map ref parameters to package options
+        // Map ref parameters (e-invoice landing pages) to package options
         const refToPackageMap = {
           'einvoice': 'EInvoice Platform - Early Access',
           'einvoice-free': 'EInvoice Platform - Early Access',
@@ -234,21 +236,47 @@
           'einvoice-cta': 'EInvoice Platform - Early Access',
           'einvoice-sticky': 'EInvoice Platform - Early Access'
         };
-        
-        if (packageFromUrl || refFromUrl) {
-          // Auto-select package from URL parameter
-          const packageSelect = document.getElementById('package');
-          if (packageSelect) {
-            // First try the direct package parameter
-            if (packageFromUrl) {
-              packageSelect.value = decodeURIComponent(packageFromUrl);
-            } 
-            // Then try mapping from ref parameter
-            else if (refFromUrl && refToPackageMap[refFromUrl]) {
-              packageSelect.value = refToPackageMap[refFromUrl];
-            }
+
+        // Aliases: incoming ?package= labels that don't exactly match an <option> value
+        const packageAliasMap = {
+          'expert technical advisor retainer': 'Expert Technical Advisor - Retainer',
+          'einvoice early access': 'EInvoice Platform - Early Access',
+          'einvoice integration': 'Business Automation',
+          'e-invoice integration': 'Business Automation'
+        };
+
+        // Normalize for tolerant matching: lowercase, strip non-alphanumerics
+        const normalizePkg = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        // Select the option best matching a requested package label.
+        // Order: exact value -> alias map -> normalized equality/containment. Returns true on success.
+        function selectPackage(requested) {
+          const select = document.getElementById('package');
+          if (!select || !requested) return false;
+          const options = Array.from(select.options).filter(o => o.value);
+
+          let match = options.find(o => o.value === requested);
+          if (!match) {
+            const aliased = packageAliasMap[requested.toLowerCase().trim()];
+            if (aliased) match = options.find(o => o.value === aliased);
           }
-          
+          if (!match) {
+            const nReq = normalizePkg(requested);
+            match = options.find(o => normalizePkg(o.value) === nReq)
+                 || options.find(o => normalizePkg(o.value).includes(nReq) || nReq.includes(normalizePkg(o.value)))
+                 || options.find(o => normalizePkg(o.textContent).includes(nReq));
+          }
+          if (match) { select.value = match.value; return true; }
+          return false; // leave default "Select a package..." rather than silently blanking
+        }
+
+        if (packageFromUrl || refFromUrl) {
+          if (packageFromUrl) {
+            selectPackage(decodeURIComponent(packageFromUrl));
+          } else if (refFromUrl && refToPackageMap[refFromUrl]) {
+            selectPackage(refToPackageMap[refFromUrl]);
+          }
+
           // Scroll to the contact form section with offset for navbar
           setTimeout(() => {
             const formSection = document.querySelector('.contact-form');

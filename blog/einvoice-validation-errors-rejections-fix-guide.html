@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them | SteadyDevs</title>
+  <meta name="description" content="A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html">
+  <meta property="og:title" content="E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them">
+  <meta property="og:description" content="A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/einvoice-validation-errors.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them">
+  <meta name="twitter:description" content="A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/einvoice-validation-errors.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=310ff712">
+  <link rel="stylesheet" href="blog-styles.css?v=be752cfa">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them",
+    "alternativeHeadline": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are",
+    "image": "https://steadydevs.com/images/blog/einvoice-validation-errors.jpg",
+    "datePublished": "2026-07-07T00:00:00+08:00",
+    "dateModified": "2026-07-07T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
+    "articleSection": "Compliance & Regulation",
+    "articleBody": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
+    "wordCount": 1151,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "E-Invoice"
+      },
+      {
+        "@type": "Thing",
+        "name": "Compliance"
+      },
+      {
+        "@type": "Thing",
+        "name": "Troubleshooting"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "e-invoice, compliance, troubleshooting, integration, malaysia",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- HowTo Schema for Guide Content -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them",
+    "description": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
+    "image": "https://steadydevs.com/images/blog/einvoice-validation-errors.jpg",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "First: Understand What 'Rejected' Actually Means",
+        "text": "First: Understand What 'Rejected' Actually Means",
+        "position": 1
+      },
+      {
+        "@type": "HowToStep",
+        "name": "1. Invalid or Mismatched TIN",
+        "text": "1. Invalid or Mismatched TIN",
+        "position": 2
+      },
+      {
+        "@type": "HowToStep",
+        "name": "2. Digital Signature Validation Failure",
+        "text": "2. Digital Signature Validation Failure",
+        "position": 3
+      },
+      {
+        "@type": "HowToStep",
+        "name": "3. Missing or Invalid Classification Code",
+        "text": "3. Missing or Invalid Classification Code",
+        "position": 4
+      },
+      {
+        "@type": "HowToStep",
+        "name": "4. Tax Type / Tax Amount Inconsistencies",
+        "text": "4. Tax Type / Tax Amount Inconsistencies",
+        "position": 5
+      },
+      {
+        "@type": "HowToStep",
+        "name": "5. Required Field Missing or Wrong Type",
+        "text": "5. Required Field Missing or Wrong Type",
+        "position": 6
+      },
+      {
+        "@type": "HowToStep",
+        "name": "6. Duplicate Submission",
+        "text": "6. Duplicate Submission",
+        "position": 7
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-07-07T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Compliance & Regulation">
+  <meta property="article:tag" content="E-Invoice, Compliance, Troubleshooting, Integration, Malaysia">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../solutions.html">Solutions</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../contact.html" class="nav-cta">Book Free Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them",
+        "item": "https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/einvoice-validation-errors.jpg" alt="Troubleshooting MyInvois e-invoice validation errors" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them</h1>
+          <div class="blog-meta">July 07, 2026 | 11 min read</div>
+        </div>
+        <p>Your system submits an invoice to MyInvois, and instead of a clean validation you get back a rejection—often with a terse error code and not much explanation. Now the document isn't valid, the customer can't rely on it, and someone has to figure out what went wrong before the clock runs out.</p>
+<p>After helping businesses debug their MyInvois submissions, I've found that the same handful of errors account for the overwhelming majority of rejections. Here's what they mean and how to fix them—so you can resolve issues quickly instead of guessing.</p>
+<h2>First: Understand What 'Rejected' Actually Means</h2>
+<p>MyInvois validation has a few distinct outcomes, and confusing them leads to wasted effort:</p>
+<ul><li><strong>Invalid</strong> — the document failed LHDN's validation rules (structure, signature, or data). It was not accepted and must be corrected and resubmitted.</li><li><strong>Rejected by buyer</strong> — the document was valid, but the buyer requested rejection within the allowed window (e.g. wrong details). The seller must cancel and reissue.</li><li><strong>Submission failure</strong> — the request never got far enough to validate, usually an authentication, formatting, or connectivity problem.</li></ul>
+<p>Knowing which bucket you're in tells you where to look—your data, your signing, or your connection.</p>
+<h2>The Most Common Validation Errors</h2>
+<h3>1. Invalid or Mismatched TIN</h3>
+<p>By far the most frequent issue. The Tax Identification Number you submitted doesn't validate against LHDN's records, or the TIN doesn't match the associated registration details. This happens with both supplier and buyer TINs.</p>
+<p><strong>Fix:</strong> Verify the TIN through LHDN's validation before submission, not after. Clean your customer master data so TINs are stored in the correct format. For B2B, confirm the buyer's TIN with them directly rather than guessing.</p>
+<h3>2. Digital Signature Validation Failure</h3>
+<p>The document's digital signature couldn't be verified. Causes include an expired or invalid certificate, incorrect canonicalization, a wrong hashing step, or the signed content not matching the submitted content.</p>
+<p><strong>Fix:</strong> Confirm your digital certificate is valid and not expired. Re-check your XAdES signing implementation against the spec—signature failures are almost always an implementation detail, not a data issue. This is the error most worth getting expert eyes on.</p>
+<h3>3. Missing or Invalid Classification Code</h3>
+<p>Every line item needs a valid classification code, and the codes must come from LHDN's accepted list. A missing, outdated, or mistyped code fails validation.</p>
+<p><strong>Fix:</strong> Map your products and services to the correct classification codes once, store them properly, and validate against the current code list. Don't hardcode a single 'catch-all' code—that can itself cause rejections or compliance issues.</p>
+<h3>4. Tax Type / Tax Amount Inconsistencies</h3>
+<p>The declared tax type, rate, or computed tax amount doesn't reconcile with the line totals and invoice total. Rounding differences and incorrect tax treatment are common culprits.</p>
+<p><strong>Fix:</strong> Ensure your tax calculation and rounding logic matches LHDN's expectations exactly. The totals must add up to the cent. Legacy systems with their own rounding quirks often need this logic adjusted specifically for e-invoice submission.</p>
+<h3>5. Required Field Missing or Wrong Type</h3>
+<p>A mandatory field is empty, or a value is the wrong data type or format (for example, a date in the wrong format, or a number sent as text). The UBL/JSON schema is strict.</p>
+<p><strong>Fix:</strong> Validate your document against LHDN's schema before sending. Build a pre-submission check that catches missing required fields and format errors—cheaper than a round-trip rejection.</p>
+<h3>6. Duplicate Submission</h3>
+<p>The same invoice (same document number) was submitted more than once. Often caused by a retry that didn't check whether the first attempt actually succeeded.</p>
+<p><strong>Fix:</strong> Make submissions idempotent—track each document's status so retries don't resubmit something already accepted. This ties directly into handling asynchronous validation properly.</p>
+<div class="warning-box"><p><strong>Timing matters.</strong> Corrections aren't unlimited. A validated e-invoice can only be cancelled within 72 hours; after that you must issue a credit or debit note. And buyer-initiated rejections also operate within a fixed window. Build these deadlines into your process so a fixable error doesn't become a permanent compliance gap.</p></div>
+<h2>Why Legacy Systems Hit These Errors More Often</h2>
+<p>If your invoices keep getting rejected, the root cause is frequently not the e-invoice integration itself but the data and logic feeding it:</p>
+<ul><li>Customer records with missing, malformed, or outdated TINs accumulated over years.</li><li>Product catalogues with no concept of LHDN classification codes.</li><li>Tax and rounding logic written for printed invoices, not for cent-exact API validation.</li><li>No pre-submission validation layer, so bad data only fails once it reaches LHDN.</li><li>Retry logic that resubmits blindly, creating duplicates.</li></ul>
+<div class="tip-box"><p>The single most effective fix is a pre-submission validation step: check TINs, required fields, classification codes, and totals <em>before</em> the document ever leaves your system. Catching errors locally turns a slow, opaque LHDN rejection cycle into an instant, clear message your team can act on.</p></div>
+<h2>A Practical Troubleshooting Checklist</h2>
+<ol><li>Identify the outcome type: Invalid, buyer-rejected, or submission failure.</li><li>Read the specific error code and field reference LHDN returned—don't guess.</li><li>If it's a signature error, treat it as an implementation issue and verify your certificate and signing steps.</li><li>If it's a data error (TIN, classification, totals), fix the source record, not just this one document.</li><li>Add a pre-submission check so the same class of error can't reach LHDN again.</li><li>Confirm the corrected document validates in sandbox before resubmitting to production.</li><li>Respect the cancellation and rejection windows—use credit/debit notes when the window has passed.</li></ol>
+<p>Rejections are frustrating, but they're rarely random. Almost every one traces back to a specific, fixable cause—and once you've built proper validation and signing, the rejection rate drops close to zero.</p>
+
+          <div class="cta-box">
+            <h3>Fighting Repeated E-Invoice Rejections?</h3>
+            <p style="color: #D1D5DB;">SteadyDevs diagnoses and fixes MyInvois validation failures—from signature and schema errors to TIN, classification, and rounding issues—and builds pre-submission validation so rejections stop recurring. Get a free consultation to clear your backlog.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Why does LHDN keep rejecting my e-invoices?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>The most common causes are invalid or mismatched TINs, digital signature errors, missing or wrong classification codes, and tax/total inconsistencies. Each has a specific fix. If rejections recur, the underlying issue is usually bad source data or a signing implementation problem rather than the individual invoice.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">What's the difference between 'Invalid' and 'Rejected by buyer'?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>'Invalid' means the document failed LHDN's validation rules and was never accepted—you correct and resubmit. 'Rejected by buyer' means the document was valid but the buyer asked for rejection (e.g. wrong details) within the allowed window, so the seller cancels and reissues.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do I fix a digital signature validation failure?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Confirm your digital certificate is valid and unexpired, then check your XAdES signing implementation—canonicalization, hashing, and ensuring the signed content matches what's submitted. Signature failures are almost always an implementation detail and are the area where expert help saves the most time.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I fix a rejected invoice anytime?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. A validated e-invoice can only be cancelled within 72 hours; after that you must issue a credit or debit note. Buyer rejections also have a fixed window. Build these deadlines into your workflow so a correctable error doesn't become a lasting compliance gap.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="einvoice-validation-errors-rejections-fix-guide" data-current-tags='["E-Invoice","Compliance","Troubleshooting","Integration","Malaysia"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>

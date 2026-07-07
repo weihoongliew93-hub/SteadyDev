@@ -11532,8 +11532,8 @@
     "title": "E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them",
     "slug": "einvoice-validation-errors-rejections-fix-guide",
     "excerpt": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
-    "date": "2026-06-26",
-    "dateDisplay": "June 26, 2026",
+    "date": "2026-07-07",
+    "dateDisplay": "July 07, 2026",
     "readTime": "11 min read",
     "tags": [
       "E-Invoice",
@@ -11543,7 +11543,7 @@
       "Malaysia"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/einvoice-validation-errors.jpg",
     "heroImageAlt": "Troubleshooting MyInvois e-invoice validation errors",
     "content": [
