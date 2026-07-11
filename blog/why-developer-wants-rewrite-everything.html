@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them) | SteadyDevs</title>
+  <meta name="description" content="Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. Sometimes they're right. Usually they're not. Here's how to tell the difference before you commit six figures and a year of risk.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html">
+  <meta property="og:title" content="Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)">
+  <meta property="og:description" content="Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. Sometimes they're right. Usually they're not. Here's how to tell the difference before you commit six figures and a year of risk.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/why-developer-wants-rewrite.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)">
+  <meta name="twitter:description" content="Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. Sometimes they're right. Usually they're not. Here's how to tell the difference before you commit six figures and a year of risk.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/why-developer-wants-rewrite.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=310ff712">
+  <link rel="stylesheet" href="blog-styles.css?v=be752cfa">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)",
+    "alternativeHeadline": "Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. ",
+    "image": "https://steadydevs.com/images/blog/why-developer-wants-rewrite.jpg",
+    "datePublished": "2026-07-14T00:00:00+08:00",
+    "dateModified": "2026-07-14T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/author.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. Sometimes they're right. Usually they're not. Here's how to tell the difference before you commit six figures and a year of risk.",
+    "articleSection": "Software Development",
+    "articleBody": "Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. Sometimes they're right. Usually they're not. Here's how to tell the difference before you commit six figures and a year of risk.",
+    "wordCount": 1032,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Rewrites"
+      },
+      {
+        "@type": "Thing",
+        "name": "Legacy Systems"
+      },
+      {
+        "@type": "Thing",
+        "name": "Decision Making"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "rewrites, legacy systems, decision making, business risk",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-07-14T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-07-14T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Rewrites, Legacy Systems, Decision Making, Business Risk">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <header>
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../solutions.html">Solutions</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../contact.html" class="nav-cta">Book Free Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)",
+        "item": "https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/why-developer-wants-rewrite.jpg" alt="Developer proposing a full system rewrite to a business owner" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</h1>
+          <div class="blog-meta">July 14, 2026 | 10 min read</div>
+        </div>
+        <p>If you've hired a new developer to work on an older system, you've probably heard some version of this: "Honestly, this codebase is a mess. It would be faster to just rebuild it properly than to keep patching it."</p>
+<p>It sounds reasonable. It's said with confidence. And it's one of the most expensive pieces of advice a business owner can act on without scrutiny.</p>
+<p>The urge to rewrite is almost universal among developers. Understanding <em>why</em> they feel it—and when it's actually justified—can save you from an avoidable disaster.</p>
+<h2>Why Developers Almost Always Want to Rewrite</h2>
+<p>The instinct isn't malicious or lazy. It comes from a few very human, very predictable factors:</p>
+<h3>1. Reading Code Is Harder Than Writing It</h3>
+<p>Understanding someone else's code—their naming, their assumptions, the reasons behind decisions that aren't documented—is genuinely difficult. Writing fresh code feels faster and more satisfying. So "rewrite" often really means "I don't want to spend the time understanding this."</p>
+<h3>2. The Old Code Encodes Knowledge They Can't See</h3>
+<p>That "ugly" function with five special cases usually isn't bad code—it's the scar tissue from five real problems that happened in production. Each weird condition represents a bug that was found and fixed, an edge case a customer hit, a regulation that changed. A rewrite throws all of that away and rediscovers it painfully, one production incident at a time.</p>
+<h3>3. New Tools Are More Exciting</h3>
+<p>Developers want to work with current frameworks and languages, not something from 2014. A rewrite is a chance to use the shiny new thing. That's a legitimate career motivation—but it's not the same as a legitimate business case.</p>
+<div class="warning-box"><p><strong>The hidden risk:</strong> A rewrite doesn't just cost the rebuild. During the rewrite, your existing system still needs maintenance, and you now have two systems to keep in sync. Meanwhile, no new business value ships for months. The most common outcome of a full rewrite is that it takes twice as long as promised and the old system is still running years later.</p></div>
+<h2>When a Rewrite Is Actually the Wrong Call</h2>
+<p>For most working legacy systems, a full rewrite is the wrong answer because:</p>
+<ul><li><strong>The system works and makes money today.</strong> Every day of the rewrite is a day you're spending to stand still.</li><li><strong>The requirements aren't written down—they're in the code.</strong> Rebuilding means re-deriving years of business logic that nobody has fully documented.</li><li><strong>The risk is all upfront and the payoff is all at the end.</strong> You pay for months before you see anything, and cutover day is a single point of catastrophic failure.</li><li><strong>The real problems are usually local.</strong> A slow report, a fragile integration, an unmaintainable module—these can be fixed in place without touching the parts that work fine.</li></ul>
+<h2>When a Rewrite Genuinely Makes Sense</h2>
+<p>To be fair, sometimes it is the right decision. A rewrite can be justified when:</p>
+<ul><li>The underlying platform is genuinely dead—unsupported runtime, a database that can no longer be licensed or secured, or hardware that can't be replaced.</li><li>The system can no longer meet a hard requirement (a compliance mandate, a security standard) and retrofitting would cost more than rebuilding.</li><li>The business itself has fundamentally changed and the old system models a business you no longer run.</li><li>You can rewrite incrementally—replacing one module at a time behind the scenes—rather than in one risky big-bang cutover.</li></ul>
+<div class="tip-box"><p>The safest form of "rewrite" is the strangler approach: leave the old system running, build new pieces alongside it, and route functionality over to the new code one module at a time. You get modernization without a single terrifying cutover day—and you can stop at any point if priorities change.</p></div>
+<h2>How to Respond When You Hear "Let's Rewrite It"</h2>
+<p>You don't need to be technical to ask the right questions. Try these:</p>
+<ol><li>"What specific problem are we solving that we can't solve by fixing the current system?" Vague answers about "cleanliness" aren't a business case.</li><li>"Can we fix the parts that are actually causing pain without touching the rest?" Usually the answer is yes.</li><li>"How long, and what does the business get during that time?" If the answer is 'nothing for eight months,' weigh that honestly.</li><li>"Can we do this incrementally so we're never betting everything on one release?"</li><li>"What happens to the current system while we build the new one, and who maintains it?"</li></ol>
+<p>A good developer will welcome these questions and give you honest, specific answers. If the only justification is that the old code is "messy" or "outdated," that's a preference, not a plan—and you should push back.</p>
+<p>The goal isn't to never modernize. It's to modernize deliberately, in a way that protects the working business you already have.</p>
+
+          <div class="cta-box">
+            <h3>Told Your System Needs a Full Rewrite?</h3>
+            <p style="color: #D1D5DB;">Before you commit to a costly rebuild, get an independent second opinion. SteadyDevs assesses whether your system genuinely needs replacing or can be modernized in place—incrementally, without a risky cutover. Get a free, honest assessment.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Assessment</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is my developer wrong to suggest a rewrite?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not necessarily—but the suggestion needs a business case beyond 'the code is messy.' Reading and maintaining old code is harder than writing new code, so the instinct to rewrite is very common even when it isn't justified. Ask what specific problem a rewrite solves that fixing the current system can't.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">What's the biggest risk of a full rewrite?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>That it takes far longer than estimated while delivering no new value in the meantime, and that a single big-bang cutover fails. Meanwhile you're maintaining two systems. The old system's 'ugly' code often encodes years of hard-won business logic that gets painfully rediscovered after the switch.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is there a safer alternative to rewriting everything?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes—the strangler approach. You keep the existing system running and build new functionality alongside it, migrating one module at a time. This gives you modernization without a risky all-or-nothing cutover, and you can pause or stop whenever priorities shift.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">When is a rewrite actually the right choice?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>When the underlying platform is genuinely dead or unsupported, when the system can't meet a hard compliance or security requirement and retrofitting would cost more than rebuilding, or when the business has fundamentally changed. Even then, doing it incrementally is almost always safer than a big-bang rebuild.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="why-developer-wants-rewrite-everything" data-current-tags='["Rewrites","Legacy Systems","Decision Making","Business Risk"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
+      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
+      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
