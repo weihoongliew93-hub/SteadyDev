@@ -117,10 +117,6 @@
       .sb-steps { grid-template-columns: 1fr; }
       .sb-price { font-size: 2.5em; }
     }
-
-    /* TEMPORARY: hide the buy CTAs until Freemius checkout is configured.
-       Delete this one rule to bring all the "Get SteadyBook" buttons back. */
-    .sb-buy, #stickyCta { display: none !important; }
   </style>
 </head>
 <body>
@@ -406,9 +402,11 @@
        Until then, the buy buttons scroll to the pricing section.
        ============================================================ */
     var SB_FREEMIUS = {
-      plugin_id:  'YOUR_PLUGIN_ID',   // e.g. '12345'
-      plan_id:    'YOUR_PLAN_ID',     // the plan's ID — set BOTH monthly ($29) and annual ($299) pricing on this one plan in Freemius
-      public_key: 'YOUR_PUBLIC_KEY'   // e.g. 'pk_xxxxxxxxxxxxx'
+      plugin_id:  '34678',
+      public_key: 'pk_e2d277144cc1c1879c64dd097d991',
+      // Optional: the paid plan's ID (from Freemius → your plan). Leave '' to let
+      // Freemius show the product's plan automatically. billing_cycle still applies.
+      plan_id:    ''
     };
 
     var sbConfigured =
@@ -417,11 +415,12 @@
 
     var sbHandler = null;
     if (sbConfigured && typeof FS !== 'undefined' && FS.Checkout) {
-      sbHandler = new FS.Checkout({
+      var fsConfig = {
         plugin_id:  SB_FREEMIUS.plugin_id,
-        plan_id:    SB_FREEMIUS.plan_id,
         public_key: SB_FREEMIUS.public_key
-      });
+      };
+      if (SB_FREEMIUS.plan_id) { fsConfig.plan_id = SB_FREEMIUS.plan_id; }
+      sbHandler = new FS.Checkout(fsConfig);
     }
 
     document.querySelectorAll('.sb-buy').forEach(function (btn) {
@@ -430,11 +429,9 @@
         if (sbHandler) {
           // Buttons carry data-cycle="monthly" or "annual"; default to annual.
           var cycle = btn.getAttribute('data-cycle') === 'monthly' ? 'monthly' : 'annual';
-          sbHandler.open({
-            name: 'SteadyBook',
-            licenses: 1,
-            billing_cycle: cycle
-          });
+          var opts = { name: 'SteadyBook', licenses: 1, billing_cycle: cycle };
+          if (SB_FREEMIUS.plan_id) { opts.plan_id = SB_FREEMIUS.plan_id; }
+          sbHandler.open(opts);
         } else {
           document.getElementById('buy').scrollIntoView({ behavior: 'smooth' });
         }
