@@ -53,6 +53,9 @@
   </div>
 
   <!-- ===================== FREEMIUS CUSTOMER PORTAL ===================== -->
+  <!-- The Freemius portal script requires jQuery (WordPress bundles it; a
+       static site must load it first). Must come BEFORE the Freemius script. -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://customers.freemius.com/js/v1/"></script>
   <script>
     if (typeof FS !== 'undefined' && FS.Members) {
