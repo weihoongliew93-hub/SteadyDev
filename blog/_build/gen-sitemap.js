@@ -54,8 +54,6 @@ const MAIN = [
   { file: 'services.html',      loc: '/services.html',      changefreq: 'monthly', priority: '0.8' },
   { file: 'contact.html',       loc: '/contact.html',       changefreq: 'monthly', priority: '0.8' },
   { file: 'about.html',         loc: '/about.html',         changefreq: 'monthly', priority: '0.7' },
-  { file: 'author.html',        loc: '/author.html',        changefreq: 'monthly', priority: '0.6' },
-  { file: 'company.html',       loc: '/company.html',       changefreq: 'monthly', priority: '0.6' },
 ];
 MAIN.forEach(p => { if (fs.existsSync(path.join(ROOT, p.file))) add(p.loc, mtime(p.file), p.changefreq, p.priority); });
 

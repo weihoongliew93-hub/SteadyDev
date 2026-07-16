@@ -88,6 +88,14 @@
     .sb-plan .sd-btn { width: 100%; justify-content: center; font-size: 1.05em; }
     .sb-guarantee { color: var(--sd-muted); font-size: 0.85em; margin: 16px 0 0; }
 
+    /* Two-plan layout (monthly + annual) */
+    .sb-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 860px; margin: 0 auto; align-items: start; }
+    .sb-plans .sb-plan { max-width: none; margin: 0; }
+    .sb-plan--featured { border-color: rgba(96,165,250,0.75); box-shadow: 0 24px 60px rgba(37,99,235,0.28); }
+    .sb-save { display: inline-block; margin: 8px 0 0; color: var(--sd-green-light); font-weight: 700; font-size: 0.9em; }
+    .sb-plan-badge--muted { background: #334155; }
+    @media (max-width: 700px) { .sb-plans { grid-template-columns: 1fr; } }
+
     .sb-usecases { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
     .sb-usecases span {
       font-size: 0.86em; font-weight: 600; color: #cbd5e1;
@@ -129,7 +137,7 @@
         <span class="sb-price">$299</span>
         <span class="sb-price-cycle">/ year</span>
       </div>
-      <p class="sb-price-note">One flat price · all features · updates &amp; support included</p>
+      <p class="sb-price-note">or $29/month · all features · updates &amp; support included</p>
       <div class="sd-hero-cta">
         <a href="#buy" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
         <a href="#features" class="sd-btn sd-btn--ghost">See what's included</a>
@@ -218,29 +226,56 @@
   <section class="sd-section sd-section--dark" id="buy">
     <div class="sd-inner">
       <p class="sd-eyebrow">Pricing</p>
-      <h2 class="sd-section-title">One plan. <span class="accent">Everything included.</span></h2>
+      <h2 class="sd-section-title">Same plugin. <span class="accent">Pick your billing.</span></h2>
       <div class="sd-title-rule"></div>
 
-      <div class="sb-plan">
-        <span class="sb-plan-badge">Annual License</span>
-        <p class="sb-plan-name">SteadyBook</p>
-        <div class="sb-price-wrap">
-          <span class="sb-price">$299</span>
-          <span class="sb-price-cycle">/ year</span>
+      <div class="sb-plans">
+        <!-- Monthly -->
+        <div class="sb-plan">
+          <span class="sb-plan-badge sb-plan-badge--muted">Monthly</span>
+          <p class="sb-plan-name">SteadyBook</p>
+          <div class="sb-price-wrap">
+            <span class="sb-price">$29</span>
+            <span class="sb-price-cycle">/ month</span>
+          </div>
+          <p class="sb-price-note">Billed monthly · cancel anytime</p>
+
+          <ul class="sb-feature-list">
+            <li>Unlimited resources &amp; bookings</li>
+            <li>Admin approval + double-booking protection</li>
+            <li>Automatic approve / reject customer emails</li>
+            <li>WhatsApp, shortcode &amp; Elementor support</li>
+            <li>Updates &amp; support while subscribed</li>
+            <li>Use on your business website</li>
+          </ul>
+
+          <a href="#" class="sd-btn sd-btn--ghost sb-buy" data-cycle="monthly">Start monthly — $29/mo <span aria-hidden="true">→</span></a>
+          <p class="sb-guarantee">Secure checkout by Freemius</p>
         </div>
-        <p class="sb-price-note">Renews yearly · cancel anytime</p>
 
-        <ul class="sb-feature-list">
-          <li>Unlimited resources &amp; bookings</li>
-          <li>Admin approval + double-booking protection</li>
-          <li>Automatic approve / reject customer emails</li>
-          <li>WhatsApp, shortcode &amp; Elementor support</li>
-          <li>One year of updates &amp; support</li>
-          <li>Use on your business website</li>
-        </ul>
+        <!-- Annual (best value) -->
+        <div class="sb-plan sb-plan--featured">
+          <span class="sb-plan-badge">Annual · Best value</span>
+          <p class="sb-plan-name">SteadyBook</p>
+          <div class="sb-price-wrap">
+            <span class="sb-price">$299</span>
+            <span class="sb-price-cycle">/ year</span>
+          </div>
+          <p class="sb-price-note">Just ~$24.92/mo, billed yearly · cancel anytime</p>
+          <span class="sb-save">Save $49 a year vs monthly</span>
 
-        <a href="#" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
-        <p class="sb-guarantee">Secure checkout by Freemius · invoice &amp; license emailed instantly</p>
+          <ul class="sb-feature-list">
+            <li>Unlimited resources &amp; bookings</li>
+            <li>Admin approval + double-booking protection</li>
+            <li>Automatic approve / reject customer emails</li>
+            <li>WhatsApp, shortcode &amp; Elementor support</li>
+            <li>A full year of updates &amp; support</li>
+            <li>Use on your business website</li>
+          </ul>
+
+          <a href="#" class="sd-btn sd-btn--primary sb-buy" data-cycle="annual">Get annual — $299/year <span aria-hidden="true">→</span></a>
+          <p class="sb-guarantee">Secure checkout by Freemius · invoice &amp; license emailed instantly</p>
+        </div>
       </div>
     </div>
   </section>
@@ -261,8 +296,12 @@
           <div class="sd-faq-answer"><p>Immediately after checkout you get the plugin ZIP to download plus a license key, both shown on the confirmation page and emailed to you. You upload the ZIP to WordPress and activate it with the key.</p></div>
         </details>
         <details class="sd-faq-item">
-          <summary>What does the $299/year cover?</summary>
-          <div class="sd-faq-answer"><p>A full license for your site, every feature, and one year of updates and support. Updates install automatically inside your WordPress dashboard while your license is active.</p></div>
+          <summary>What does the license cover?</summary>
+          <div class="sd-faq-answer"><p>A full license for your site, every feature, and updates &amp; support while your subscription is active. Updates install automatically inside your WordPress dashboard.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Should I pick monthly or annual?</summary>
+          <div class="sd-faq-answer"><p>Both unlock the exact same plugin. Monthly is $29/month if you'd rather spread the cost or try it short-term. Annual is $299/year — that works out to about $24.92/month, so you save roughly $49 a year compared with paying monthly. You can start monthly and switch to annual any time.</p></div>
         </details>
         <details class="sd-faq-item">
           <summary>What are the requirements?</summary>
@@ -317,8 +356,6 @@
     <div class="sd-footer-bottom">
       <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
       <span>
-        <a href="author.html" style="color:#64748b;">About the Author</a> ·
-        <a href="company.html" style="color:#64748b;">Company Info</a> ·
         <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
       </span>
     </div>
@@ -370,7 +407,7 @@
        ============================================================ */
     var SB_FREEMIUS = {
       plugin_id:  'YOUR_PLUGIN_ID',   // e.g. '12345'
-      plan_id:    'YOUR_PLAN_ID',     // the annual $299 plan's ID
+      plan_id:    'YOUR_PLAN_ID',     // the plan's ID — set BOTH monthly ($29) and annual ($299) pricing on this one plan in Freemius
       public_key: 'YOUR_PUBLIC_KEY'   // e.g. 'pk_xxxxxxxxxxxxx'
     };
 
@@ -391,10 +428,12 @@
       btn.addEventListener('click', function (e) {
         e.preventDefault();
         if (sbHandler) {
+          // Buttons carry data-cycle="monthly" or "annual"; default to annual.
+          var cycle = btn.getAttribute('data-cycle') === 'monthly' ? 'monthly' : 'annual';
           sbHandler.open({
             name: 'SteadyBook',
             licenses: 1,
-            billing_cycle: 'annual'
+            billing_cycle: cycle
           });
         } else {
           document.getElementById('buy').scrollIntoView({ behavior: 'smooth' });

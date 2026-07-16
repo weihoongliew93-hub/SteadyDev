@@ -267,7 +267,7 @@ function generateHTML(post) {
     "author": {
       "@type": "Person",
       "name": "SteadyDevs",
-      "url": "https://steadydevs.com/author.html"
+      "url": "https://steadydevs.com/about.html"
     },
     "publisher": {
       "@type": "Organization",
@@ -401,9 +401,7 @@ function generateHTML(post) {
     <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
     <p style="margin-top: 12px; font-size: 0.9em;">
       <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
-      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a> |
-      <a href="../author.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">About the Author</a> | 
-      <a href="../company.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Company Info</a>
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a>
     </p>
   </footer>
   

@@ -20,7 +20,7 @@
   var active = (function () {
     if (inBlog) return 'blog';
     if (file === '' || file === 'index.html') return 'home';
-    if (file === 'about.html' || file === 'author.html' || file === 'company.html') return 'about';
+    if (file === 'about.html') return 'about';
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file.indexOf('packages') === 0) return 'solutions';
     if (file === 'einvoice.html' || file === 'steadybook.html') return 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
@@ -63,7 +63,8 @@
         '<div class="nav-dropdown">' +
           '<span class="nav-toggle' + (active === 'products' ? ' active' : '') + '" tabindex="0" role="button" aria-haspopup="true">Products</span>' +
           '<div class="dropdown-content">' +
-            '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
+            // E-Invoice hidden from the nav for now — uncomment the next line to restore it.
+            // '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
             '<a href="' + base + 'steadybook.html">SteadyBook — Booking Plugin</a>' +
           '</div>' +
         '</div>' +
