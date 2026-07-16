@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Your SteadyBook Account | SteadyDevs</title>
+  <meta name="description" content="Manage your SteadyBook subscription — download the plugin, view invoices, update payment, manage your license or cancel.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Private account area — keep it out of search. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://steadydevs.com/my-account.html">
+
+  <link rel="stylesheet" href="assets/style.css?v=85">
+
+  <style>
+    /* The Freemius portal renders as a fixed panel; sit it just below the
+       fixed site header. Tweak the top values if your header height changes. */
+    #fs_dashboard_container {
+      top: 96px !important;
+    }
+    @media (max-width: 768px) {
+      #fs_dashboard_container { top: 80px !important; }
+    }
+
+    /* Shown while the portal loads (and if it can't). The portal overlays it. */
+    .ma-fallback {
+      max-width: 620px;
+      margin: 160px auto 80px;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .ma-fallback h1 { font-size: 1.6em; color: #f8fafc; margin: 0 0 10px; }
+    .ma-fallback p { color: var(--sd-muted); margin: 8px 0; }
+    .ma-fallback .sd-btn { margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js"></script>
+
+  <!-- Fallback: visible until the portal loads over it, or if it can't load. -->
+  <div class="ma-fallback">
+    <h1>Your SteadyBook account</h1>
+    <p>Loading your customer portal…</p>
+    <p style="font-size:0.9em;">If the dashboard doesn't appear, open it directly or contact us at
+      <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>.</p>
+    <a class="sd-btn sd-btn--primary" href="https://customers.freemius.com/" target="_blank" rel="noopener">Open customer portal →</a>
+  </div>
+
+  <!-- ===================== FREEMIUS CUSTOMER PORTAL ===================== -->
+  <script src="https://customers.freemius.com/js/v1/"></script>
+  <script>
+    if (typeof FS !== 'undefined' && FS.Members) {
+      FS.Members.configure({
+        store_id:   18292,
+        product_id: 34678,
+        public_key: 'pk_7e1f724e8d464d68dace9ccd9276a',
+        css: {
+          position: 'fixed',
+          top: '96px',
+          bottom: '0',
+          left: '0',
+          right: '0',
+          zIndex: 100
+        }
+      }).open({});
+    }
+  </script>
+
+  <!-- Shared nav behavior (site-nav.js injects the markup; this binds it). -->
+  <script>
+    var menuToggle = document.getElementById('menuToggle');
+    var mainNav = document.getElementById('mainNav');
+    var navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    }
+    if (menuToggle) { menuToggle.addEventListener('click', toggleMenu); }
+    if (navOverlay) { navOverlay.addEventListener('click', toggleMenu); }
+
+    document.querySelectorAll('.nav-dropdown > .nav-toggle').forEach(function (t) {
+      t.addEventListener('click', function () { t.parentElement.classList.toggle('open'); });
+    });
+
+    if (mainNav) {
+      mainNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mainNav.classList.remove('active');
+          navOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+</body>
+</html>
