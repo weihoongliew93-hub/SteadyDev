@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>SteadyBook — The Most Versatile Booking System for WordPress | $299/year</title>
+  <meta name="description" content="SteadyBook is a versatile WordPress booking plugin: live availability, a clean multi-step booking flow, and an admin approval workflow with double-booking protection. For bays, courts, rooms, tables, equipment and more. One flat price — $299/year, updates included.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://steadydevs.com/steadybook.html">
+  <meta property="og:title" content="SteadyBook — The Most Versatile Booking System for WordPress">
+  <meta property="og:description" content="Live availability, multi-step booking, admin approval and double-booking protection. For bays, courts, rooms, tables & more. $299/year.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SteadyBook — Versatile Booking System for WordPress">
+  <meta name="twitter:description" content="A versatile WordPress booking plugin with admin approval and double-booking protection. $299/year, updates included.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/steadybook.html">
+
+  <link rel="stylesheet" href="assets/style.css?v=85">
+
+  <!-- Freemius Checkout (loads the buy popup). Safe to keep; does nothing until clicked. -->
+  <script src="https://checkout.freemius.com/checkout.min.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+
+  <!-- Page-scoped styles (all .sb- prefixed so they never collide with the shared system) -->
+  <style>
+    .sb-price-wrap { display: flex; align-items: baseline; justify-content: center; gap: 10px; margin: 6px 0 4px; }
+    .sb-price { font-size: 3.1em; font-weight: 800; color: #f8fafc; letter-spacing: -0.02em; line-height: 1; }
+    .sb-price-cycle { color: var(--sd-muted); font-weight: 600; font-size: 1em; }
+    .sb-price-note { color: var(--sd-muted); font-size: 0.9em; margin: 0 0 26px; }
+
+    .sb-plan {
+      max-width: 480px;
+      margin: 0 auto;
+      background: linear-gradient(160deg, rgba(37,99,235,0.10), rgba(15,26,39,0.35));
+      border: 1px solid rgba(96,165,250,0.4);
+      border-radius: 18px;
+      padding: 40px 34px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .sb-plan-badge {
+      display: inline-block;
+      background: var(--sd-blue);
+      color: #fff;
+      font-size: 0.74em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .sb-plan-name { color: #f1f5f9; font-size: 1.3em; font-weight: 700; margin: 0 0 4px; }
+    .sb-feature-list { list-style: none; margin: 26px 0 30px; padding: 0; text-align: left; }
+    .sb-feature-list li {
+      display: flex; align-items: flex-start; gap: 11px;
+      color: #cbd5e1; font-size: 0.96em; padding: 9px 0;
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+    }
+    .sb-feature-list li:last-child { border-bottom: none; }
+    .sb-feature-list li::before {
+      content: "✓"; flex-shrink: 0;
+      width: 20px; height: 20px; margin-top: 2px;
+      border-radius: 50%; background: var(--sd-green); color: #052e1c;
+      font-size: 0.72em; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sb-plan .sd-btn { width: 100%; justify-content: center; font-size: 1.05em; }
+    .sb-guarantee { color: var(--sd-muted); font-size: 0.85em; margin: 16px 0 0; }
+
+    .sb-usecases { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+    .sb-usecases span {
+      font-size: 0.86em; font-weight: 600; color: #cbd5e1;
+      padding: 7px 15px; border: 1px solid var(--sd-border); border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .sb-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .sb-step .n {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: var(--sd-blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1em; margin-bottom: 16px;
+    }
+    .sb-step h3 { color: var(--sd-ink); font-size: 1.12em; margin: 0 0 8px; font-weight: 700; }
+    .sb-step p { color: var(--sd-ink-muted); font-size: 0.94em; line-height: 1.6; margin: 0; }
+
+    @media (max-width: 700px) {
+      .sb-steps { grid-template-columns: 1fr; }
+      .sb-price { font-size: 2.5em; }
+    }
+
+    /* TEMPORARY: hide the buy CTAs until Freemius checkout is configured.
+       Delete this one rule to bring all the "Get SteadyBook" buttons back. */
+    .sb-buy, #stickyCta { display: none !important; }
+  </style>
+</head>
+<body>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js"></script>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="sd-page-hero">
+    <div class="sd-page-hero-inner">
+      <p class="sd-eyebrow">WordPress Plugin</p>
+      <h1>SteadyBook — the most versatile <span class="accent">booking system</span> for WordPress</h1>
+      <p class="sd-page-hero-lead">Let customers reserve anything you rent by time — with live availability, a clean multi-step booking flow, and an admin approval workflow so you stay in control of every reservation.</p>
+      <div class="gbb-price-wrap sb-price-wrap">
+        <span class="sb-price">$299</span>
+        <span class="sb-price-cycle">/ year</span>
+      </div>
+      <p class="sb-price-note">One flat price · all features · updates &amp; support included</p>
+      <div class="sd-hero-cta">
+        <a href="#buy" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
+        <a href="#features" class="sd-btn sd-btn--ghost">See what's included</a>
+      </div>
+      <div class="sb-usecases">
+        <span>🏸 Courts</span>
+        <span>🏌️ Bays</span>
+        <span>🧖 Rooms</span>
+        <span>🍽️ Tables</span>
+        <span>🎛️ Equipment</span>
+        <span>💇 Chairs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES ===================== -->
+  <section class="sd-section sd-section--dark" id="features">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">What's Inside</p>
+      <h2 class="sd-section-title">Everything you need to <span class="accent">take bookings</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Built to handle any time-slot reservation — configure your resources, prices and hours, and let customers book while you approve.</p>
+
+      <div class="sd-dcard-grid">
+        <div class="sd-dcard">
+          <div class="sd-dicon">🗓️</div>
+          <h3>Live Multi-Step Booking</h3>
+          <p>Customers pick a date &amp; time, choose a resource and group size, then confirm — with real-time availability so two people can't grab the same slot.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">✅</div>
+          <h3>Admin Approval Workflow</h3>
+          <p>Every booking arrives as <em>Pending</em>. Approve, reject, or cancel from your dashboard — nothing is confirmed until you say so.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">🛡️</div>
+          <h3>Double-Booking Protection</h3>
+          <p>SteadyBook refuses to approve a resource + date + time that's already confirmed, so the same slot can never be booked twice.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">✉️</div>
+          <h3>Automatic Customer Emails</h3>
+          <p>Customers are emailed the moment you approve or reject their booking — no manual follow-up, no missed confirmations.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">💬</div>
+          <h3>WhatsApp Enquiries</h3>
+          <p>Optional "Enquire via WhatsApp" button pre-fills the full booking details into a message straight to your business number.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">🧩</div>
+          <h3>Shortcode &amp; Elementor</h3>
+          <p>Drop the form anywhere with <code>[steadybook]</code> or the built-in Elementor widget. Configurable resources, pricing, and booking window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="sd-section sd-section--light">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">How It Works</p>
+      <h2 class="sd-section-title">From purchase to first booking</h2>
+      <div class="sd-title-rule"></div>
+      <div class="sb-steps">
+        <div class="sb-step">
+          <div class="n">1</div>
+          <h3>Buy &amp; download</h3>
+          <p>Check out securely below. You get the plugin ZIP and your license key instantly by email.</p>
+        </div>
+        <div class="sb-step">
+          <div class="n">2</div>
+          <h3>Install &amp; activate</h3>
+          <p>Upload the ZIP in WordPress, activate your license, then set your resources, pricing, and hours.</p>
+        </div>
+        <div class="sb-step">
+          <div class="n">3</div>
+          <h3>Take bookings</h3>
+          <p>Add the form to a page. Customers book, you approve — updates arrive automatically in WP.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING / BUY ===================== -->
+  <section class="sd-section sd-section--dark" id="buy">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Pricing</p>
+      <h2 class="sd-section-title">One plan. <span class="accent">Everything included.</span></h2>
+      <div class="sd-title-rule"></div>
+
+      <div class="sb-plan">
+        <span class="sb-plan-badge">Annual License</span>
+        <p class="sb-plan-name">SteadyBook</p>
+        <div class="sb-price-wrap">
+          <span class="sb-price">$299</span>
+          <span class="sb-price-cycle">/ year</span>
+        </div>
+        <p class="sb-price-note">Renews yearly · cancel anytime</p>
+
+        <ul class="sb-feature-list">
+          <li>Unlimited resources &amp; bookings</li>
+          <li>Admin approval + double-booking protection</li>
+          <li>Automatic approve / reject customer emails</li>
+          <li>WhatsApp, shortcode &amp; Elementor support</li>
+          <li>One year of updates &amp; support</li>
+          <li>Use on your business website</li>
+        </ul>
+
+        <a href="#" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
+        <p class="sb-guarantee">Secure checkout by Freemius · invoice &amp; license emailed instantly</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="sd-section sd-section--light">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">FAQ</p>
+      <h2 class="sd-section-title">Common questions</h2>
+      <div class="sd-title-rule"></div>
+      <div class="sd-faq">
+        <details class="sd-faq-item">
+          <summary>What kind of businesses is SteadyBook for?</summary>
+          <div class="sd-faq-answer"><p>Anything booked by time slot: sports courts and simulator bays, studios and treatment rooms, restaurant tables, equipment or gear rental, salon chairs, meeting rooms and more. You define the resources, prices and hours.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>What do I actually receive after buying?</summary>
+          <div class="sd-faq-answer"><p>Immediately after checkout you get the plugin ZIP to download plus a license key, both shown on the confirmation page and emailed to you. You upload the ZIP to WordPress and activate it with the key.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>What does the $299/year cover?</summary>
+          <div class="sd-faq-answer"><p>A full license for your site, every feature, and one year of updates and support. Updates install automatically inside your WordPress dashboard while your license is active.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>What are the requirements?</summary>
+          <div class="sd-faq-answer"><p>WordPress 5.0+ and PHP 7.2+. For approval emails to land reliably we recommend a simple SMTP plugin (e.g. WP Mail SMTP) — this is standard for any WordPress site sending mail.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>What happens if I don't renew?</summary>
+          <div class="sd-faq-answer"><p>Your existing bookings and data stay in WordPress. You simply stop receiving new updates and support until you renew.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="sd-section sd-section--dark">
+    <div class="sd-inner" style="text-align:center;">
+      <h2 class="sd-section-title">Ready to take bookings online?</h2>
+      <p class="sd-section-sub" style="margin-top:14px;">Set it up in an afternoon and let customers reserve around the clock.</p>
+      <div class="sd-hero-cta" style="justify-content:center;">
+        <a href="#" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
+        <a href="contact.html" class="sd-btn sd-btn--ghost">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="sd-footer">
+    <div class="sd-footer-inner">
+      <div class="sd-footer-brand">
+        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
+        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
+        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a></p>
+        <p><a href="solutions.html">Solutions</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="blog/index.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="sd-footer-contact">
+          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
+          <li>📍 Malaysia · Singapore · International</li>
+          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="#buy" class="sd-btn sd-btn--primary sb-buy" style="margin-top:8px;">Get SteadyBook <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="sd-footer-bottom">
+      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
+      <span>
+        <a href="author.html" style="color:#64748b;">About the Author</a> ·
+        <a href="company.html" style="color:#64748b;">Company Info</a> ·
+        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#buy" class="sb-buy">Get SteadyBook — $299/year →</a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // ---- Shared site chrome (nav, sticky CTA, back-to-top) ----
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    }
+    menuToggle.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    const stickyCta = document.getElementById('stickyCta');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      const y = window.pageYOffset;
+      stickyCta.classList.toggle('visible', y > 300);
+      backToTop.classList.toggle('visible', y > 500);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ============================================================
+       FREEMIUS CHECKOUT — paste your 3 values from the Freemius
+       dashboard (Settings → Keys, and the plan's ID).
+       Until then, the buy buttons scroll to the pricing section.
+       ============================================================ */
+    var SB_FREEMIUS = {
+      plugin_id:  'YOUR_PLUGIN_ID',   // e.g. '12345'
+      plan_id:    'YOUR_PLAN_ID',     // the annual $299 plan's ID
+      public_key: 'YOUR_PUBLIC_KEY'   // e.g. 'pk_xxxxxxxxxxxxx'
+    };
+
+    var sbConfigured =
+      SB_FREEMIUS.plugin_id !== 'YOUR_PLUGIN_ID' &&
+      SB_FREEMIUS.public_key !== 'YOUR_PUBLIC_KEY';
+
+    var sbHandler = null;
+    if (sbConfigured && typeof FS !== 'undefined' && FS.Checkout) {
+      sbHandler = new FS.Checkout({
+        plugin_id:  SB_FREEMIUS.plugin_id,
+        plan_id:    SB_FREEMIUS.plan_id,
+        public_key: SB_FREEMIUS.public_key
+      });
+    }
+
+    document.querySelectorAll('.sb-buy').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (sbHandler) {
+          sbHandler.open({
+            name: 'SteadyBook',
+            licenses: 1,
+            billing_cycle: 'annual'
+          });
+        } else {
+          document.getElementById('buy').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
