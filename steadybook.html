@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="assets/style.css?v=85">
 
   <!-- Freemius Checkout (loads the buy popup). Safe to keep; does nothing until clicked. -->
-  <script src="https://checkout.freemius.com/checkout.min.js"></script>
+  <script src="https://checkout.freemius.com/js/v1/"></script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -397,44 +397,47 @@
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     /* ============================================================
-       FREEMIUS CHECKOUT — paste your 3 values from the Freemius
-       dashboard (Settings → Keys, and the plan's ID).
-       Until then, the buy buttons scroll to the pricing section.
+       FREEMIUS CHECKOUT — SteadyBook (product 34678, plan 57078).
+       Opens the overlay checkout on click; if the checkout script is
+       blocked, buttons fall back to the hosted checkout page.
        ============================================================ */
-    var SB_FREEMIUS = {
-      plugin_id:  '34678',
-      public_key: 'pk_e2d277144cc1c1879c64dd097d991',
-      // Optional: the paid plan's ID (from Freemius → your plan). Leave '' to let
-      // Freemius show the product's plan automatically. billing_cycle still applies.
-      plan_id:    ''
+    var SB_PRODUCT = {
+      product_id: '34678',
+      plan_id:    '57078',
+      public_key: 'pk_e2d277144cc1c1879c64dd097d991'
     };
 
-    var sbConfigured =
-      SB_FREEMIUS.plugin_id !== 'YOUR_PLUGIN_ID' &&
-      SB_FREEMIUS.public_key !== 'YOUR_PUBLIC_KEY';
+    // Hosted checkout URL — used as a fallback if the overlay script is blocked.
+    var SB_CHECKOUT_URL = 'https://checkout.freemius.com/plugin/' +
+      SB_PRODUCT.product_id + '/plan/' + SB_PRODUCT.plan_id + '/';
 
     var sbHandler = null;
-    if (sbConfigured && typeof FS !== 'undefined' && FS.Checkout) {
-      var fsConfig = {
-        plugin_id:  SB_FREEMIUS.plugin_id,
-        public_key: SB_FREEMIUS.public_key
-      };
-      if (SB_FREEMIUS.plan_id) { fsConfig.plan_id = SB_FREEMIUS.plan_id; }
-      sbHandler = new FS.Checkout(fsConfig);
+    if (typeof FS !== 'undefined' && FS.Checkout) {
+      sbHandler = new FS.Checkout({
+        product_id: SB_PRODUCT.product_id,
+        plan_id:    SB_PRODUCT.plan_id,
+        public_key: SB_PRODUCT.public_key
+      });
     }
 
     document.querySelectorAll('.sb-buy').forEach(function (btn) {
+      // Buttons carry data-cycle="monthly" or "annual"; default to annual.
+      var cycle = btn.getAttribute('data-cycle') === 'monthly' ? 'monthly' : 'annual';
+
+      // Give every button a real fallback link to the hosted checkout, so a
+      // click always works even if the overlay script fails to load.
+      btn.setAttribute('href', SB_CHECKOUT_URL + (cycle === 'monthly' ? '?billing_cycle=monthly' : ''));
+
       btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (sbHandler) {
-          // Buttons carry data-cycle="monthly" or "annual"; default to annual.
-          var cycle = btn.getAttribute('data-cycle') === 'monthly' ? 'monthly' : 'annual';
-          var opts = { name: 'SteadyBook', licenses: 1, billing_cycle: cycle };
-          if (SB_FREEMIUS.plan_id) { opts.plan_id = SB_FREEMIUS.plan_id; }
-          sbHandler.open(opts);
-        } else {
-          document.getElementById('buy').scrollIntoView({ behavior: 'smooth' });
+        if (!sbHandler) {
+          return; // Let the browser follow the href to the hosted checkout.
         }
+        e.preventDefault();
+        sbHandler.open({
+          name: 'SteadyBook',
+          licenses: 1,
+          billing_cycle: cycle
+        });
       });
     });
   </script>
