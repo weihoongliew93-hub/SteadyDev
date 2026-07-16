@@ -25,6 +25,7 @@
     if (file === 'einvoice.html' || file === 'steadybook.html') return 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
+    if (file === 'my-account.html') return 'account';
     return '';
   })();
 
@@ -42,7 +43,10 @@
       "#mainNav .nav-toggle:hover,#mainNav .nav-toggle.active,.nav-dropdown:hover>.nav-toggle{color:#60A5FA}" +
       ".nav-dropdown>.nav-toggle::after{content:' \\25BE';font-size:.8em;margin-left:4px;display:inline-block;transition:transform .2s}" +
       ".nav-dropdown:hover>.nav-toggle::after{transform:rotate(-180deg)}" +
-      "@media (max-width:768px){#mainNav .nav-toggle{display:block;margin:0;padding:18px 20px;border-bottom:1px solid #1F2937}.nav-dropdown>.nav-toggle::after{float:right}.nav-dropdown:focus-within .dropdown-content{display:block}}";
+      "#mainNav .nav-account{color:#9CA3AF;margin-left:26px;font-size:1.1em;line-height:1;display:inline-flex;align-items:center;opacity:.85;transition:opacity .2s ease}" +
+      "#mainNav .nav-account:hover,#mainNav .nav-account.active{opacity:1}" +
+      "#mainNav .nav-account-label{display:none}" +
+      "@media (max-width:768px){#mainNav .nav-toggle{display:block;margin:0;padding:18px 20px;border-bottom:1px solid #1F2937}.nav-dropdown>.nav-toggle::after{float:right}.nav-dropdown:focus-within .dropdown-content{display:block}#mainNav .nav-account{margin:0;padding:18px 20px;border-bottom:1px solid #1F2937;display:flex;font-size:1em;opacity:1}#mainNav .nav-account-label{display:inline}}";
     var style = document.createElement('style');
     style.id = 'sd-nav-style';
     style.textContent = css;
@@ -71,6 +75,7 @@
         link('portfolio.html', 'Portfolio', 'portfolio') +
         link('blog/index.html', 'Blog', 'blog') +
         link('contact.html', 'Contact', 'contact') +
+        '<a href="' + base + 'my-account.html" class="nav-account' + (active === 'account' ? ' active' : '') + '" aria-label="My account" title="My account">👤<span class="nav-account-label"> Account</span></a>' +
         '<a href="' + base + 'contact.html" class="nav-cta">Book Free Assessment</a>' +
       '</nav>' +
     '</div></header>';
