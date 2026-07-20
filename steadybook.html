@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>SteadyBook — The Most Versatile Booking System for WordPress | $299/year</title>
-  <meta name="description" content="SteadyBook is a versatile WordPress booking plugin: live availability, a clean multi-step booking flow, and an admin approval workflow with double-booking protection. For bays, courts, rooms, tables, equipment and more. One flat price — $299/year, updates included.">
+  <title>SteadyBook — The Most Versatile Booking System for WordPress | From $299/year</title>
+  <meta name="description" content="SteadyBook is a versatile WordPress booking plugin: live availability, a clean multi-step booking flow, and an admin approval workflow with double-booking protection. For bays, courts, rooms, tables, equipment and more. Free 14-day trial, no credit card. Plans from $299/year for 1 site up to 25 sites.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -15,13 +15,13 @@
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://steadydevs.com/steadybook.html">
   <meta property="og:title" content="SteadyBook — The Most Versatile Booking System for WordPress">
-  <meta property="og:description" content="Live availability, multi-step booking, admin approval and double-booking protection. For bays, courts, rooms, tables & more. $299/year.">
+  <meta property="og:description" content="Live availability, multi-step booking, admin approval and double-booking protection. For bays, courts, rooms, tables & more. Plans from $299/year.">
   <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SteadyBook — Versatile Booking System for WordPress">
-  <meta name="twitter:description" content="A versatile WordPress booking plugin with admin approval and double-booking protection. $299/year, updates included.">
+  <meta name="twitter:description" content="A versatile WordPress booking plugin with admin approval and double-booking protection. From $299/year, updates included.">
   <meta name="twitter:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
 
   <!-- Canonical URL -->
@@ -88,13 +88,31 @@
     .sb-plan .sd-btn { width: 100%; justify-content: center; font-size: 1.05em; }
     .sb-guarantee { color: var(--sd-muted); font-size: 0.85em; margin: 16px 0 0; }
 
-    /* Two-plan layout (monthly + annual) */
-    .sb-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 860px; margin: 0 auto; align-items: start; }
-    .sb-plans .sb-plan { max-width: none; margin: 0; }
+    /* Four-plan layout (Starter / Professional / Agency / Custom) */
+    .sb-plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; max-width: 1240px; margin: 0 auto; align-items: start; }
+    .sb-plans .sb-plan { max-width: none; margin: 0; padding: 32px 22px; }
+    .sb-plans .sb-price { font-size: 2.4em; }
     .sb-plan--featured { border-color: rgba(96,165,250,0.75); box-shadow: 0 24px 60px rgba(37,99,235,0.28); }
     .sb-save { display: inline-block; margin: 8px 0 0; color: var(--sd-green-light); font-weight: 700; font-size: 0.9em; }
     .sb-plan-badge--muted { background: #334155; }
-    @media (max-width: 700px) { .sb-plans { grid-template-columns: 1fr; } }
+    .sb-sites { color: #93c5fd; font-weight: 700; font-size: 0.95em; margin: 0 0 2px; }
+    .sb-alt-cycle { color: var(--sd-muted); font-size: 0.86em; margin: 12px 0 0; }
+    .sb-alt-cycle a { color: #93c5fd; text-decoration: underline; cursor: pointer; }
+    .sb-trial-note { color: var(--sd-muted); font-size: 0.88em; margin: 14px 0 0; }
+    .sb-trial-cta { margin-top: 12px; }
+    .sb-trial-cta .sd-btn { width: 100%; justify-content: center; }
+    .sb-trial-badge {
+      display: inline-block; margin: 0 0 14px;
+      background: rgba(34,197,94,0.14); color: var(--sd-green-light);
+      border: 1px solid rgba(34,197,94,0.38); border-radius: 999px;
+      font-size: 0.76em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 6px 14px;
+    }
+    .sb-more { text-align: center; margin-top: 26px; color: var(--sd-muted); font-size: 0.95em; }
+    .sb-plan--custom { background: linear-gradient(160deg, rgba(148,163,184,0.08), rgba(15,26,39,0.35)); border-color: rgba(148,163,184,0.3); }
+    .sb-price--custom { font-size: 1.9em !important; }
+    @media (max-width: 1080px) { .sb-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; } }
+    @media (max-width: 700px) { .sb-plans { grid-template-columns: 1fr; max-width: 480px; } }
 
     .sb-usecases { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
     .sb-usecases span {
@@ -133,11 +151,12 @@
         <span class="sb-price">$299</span>
         <span class="sb-price-cycle">/ year</span>
       </div>
-      <p class="sb-price-note">or $29/month · all features · updates &amp; support included</p>
+      <p class="sb-price-note">for 1 site · all features · updates &amp; support included · plans up to 25 sites</p>
       <div class="sd-hero-cta">
-        <a href="#buy" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
-        <a href="#features" class="sd-btn sd-btn--ghost">See what's included</a>
+        <a href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free" class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free">Start your free 14-day trial <span aria-hidden="true">→</span></a>
+        <a href="#buy" class="sd-btn sd-btn--ghost">See pricing</a>
       </div>
+      <p class="sb-trial-note">No credit card required · full plugin, every feature · cancel any time</p>
       <div class="sb-usecases">
         <span>🏸 Courts</span>
         <span>🏌️ Bays</span>
@@ -188,6 +207,21 @@
           <h3>Shortcode &amp; Elementor</h3>
           <p>Drop the form anywhere with <code>[steadybook]</code> or the built-in Elementor widget. Configurable resources, pricing, and booking window.</p>
         </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">🎨</div>
+          <h3>Full Colour Control</h3>
+          <p>Every colour is yours to set — accents, buttons, text, borders, available and booked slots. Pick your brand palette once and the whole booking flow follows it, on light or dark backgrounds.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">📐</div>
+          <h3>Layout That Fits Your Page</h3>
+          <p>Adjust widths, spacing, corner radius and how the steps and slots are arranged, so the form sits naturally inside your page instead of fighting it.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">🪄</div>
+          <h3>Matches Any Theme</h3>
+          <p>Styles are scoped so they never collide with your theme's CSS, and the form picks up your site's typography by default — it looks built-in, not bolted on.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -222,58 +256,106 @@
   <section class="sd-section sd-section--dark" id="buy">
     <div class="sd-inner">
       <p class="sd-eyebrow">Pricing</p>
-      <h2 class="sd-section-title">Same plugin. <span class="accent">Pick your billing.</span></h2>
+      <h2 class="sd-section-title">Same plugin. <span class="accent">Pick your site count.</span></h2>
       <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Every plan unlocks every feature — the only difference is how many sites you can activate on. Billed yearly, cancel anytime.</p>
 
       <div class="sb-plans">
-        <!-- Monthly -->
+        <!-- Starter — 1 site -->
         <div class="sb-plan">
-          <span class="sb-plan-badge sb-plan-badge--muted">Monthly</span>
-          <p class="sb-plan-name">SteadyBook</p>
-          <div class="sb-price-wrap">
-            <span class="sb-price">$29</span>
-            <span class="sb-price-cycle">/ month</span>
-          </div>
-          <p class="sb-price-note">Billed monthly · cancel anytime</p>
-
-          <ul class="sb-feature-list">
-            <li>Unlimited resources &amp; bookings</li>
-            <li>Admin approval + double-booking protection</li>
-            <li>Automatic approve / reject customer emails</li>
-            <li>WhatsApp, shortcode &amp; Elementor support</li>
-            <li>Updates &amp; support while subscribed</li>
-            <li>Use on your business website</li>
-          </ul>
-
-          <a href="#" class="sd-btn sd-btn--ghost sb-buy" data-cycle="monthly">Start monthly — $29/mo <span aria-hidden="true">→</span></a>
-          <p class="sb-guarantee">Secure checkout by Freemius</p>
-        </div>
-
-        <!-- Annual (best value) -->
-        <div class="sb-plan sb-plan--featured">
-          <span class="sb-plan-badge">Annual · Best value</span>
-          <p class="sb-plan-name">SteadyBook</p>
+          <span class="sb-plan-badge sb-plan-badge--muted">Starter</span>
+          <span class="sb-trial-badge">14-day free trial</span>
+          <p class="sb-sites">1 site</p>
           <div class="sb-price-wrap">
             <span class="sb-price">$299</span>
             <span class="sb-price-cycle">/ year</span>
           </div>
-          <p class="sb-price-note">Just ~$24.92/mo, billed yearly · cancel anytime</p>
-          <span class="sb-save">Save $49 a year vs monthly</span>
+          <p class="sb-price-note">For a single business website</p>
 
           <ul class="sb-feature-list">
             <li>Unlimited resources &amp; bookings</li>
             <li>Admin approval + double-booking protection</li>
             <li>Automatic approve / reject customer emails</li>
             <li>WhatsApp, shortcode &amp; Elementor support</li>
+            <li>Staging &amp; dev sites don't count</li>
             <li>A full year of updates &amp; support</li>
-            <li>Use on your business website</li>
           </ul>
 
-          <a href="#" class="sd-btn sd-btn--primary sb-buy" data-cycle="annual">Get annual — $299/year <span aria-hidden="true">→</span></a>
-          <p class="sb-guarantee">Secure checkout by Freemius · invoice &amp; license emailed instantly</p>
+          <a href="#" class="sd-btn sd-btn--ghost sb-buy" data-plan="57078">Get Starter — $299/year <span aria-hidden="true">→</span></a>
+          <p class="sb-trial-cta">
+            <a href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free" class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free">Or try it free for 14 days <span aria-hidden="true">→</span></a>
+          </p>
+          <p class="sb-alt-cycle">No credit card required · cancel any time</p>
+        </div>
+
+        <!-- Professional — 5 sites -->
+        <div class="sb-plan sb-plan--featured">
+          <span class="sb-plan-badge">Professional · Most popular</span>
+          <p class="sb-sites">5 sites</p>
+          <div class="sb-price-wrap">
+            <span class="sb-price">$699</span>
+            <span class="sb-price-cycle">/ year</span>
+          </div>
+          <p class="sb-price-note">Just $140 per site · billed yearly</p>
+          <span class="sb-save">Save $796 vs 5 × Starter</span>
+
+          <ul class="sb-feature-list">
+            <li>Everything in Starter</li>
+            <li>Activate on up to 5 sites</li>
+            <li>Staging &amp; dev sites don't count</li>
+            <li>Manage all licenses from one account</li>
+            <li>A full year of updates &amp; support</li>
+          </ul>
+
+          <a href="#" class="sd-btn sd-btn--primary sb-buy" data-plan="57602">Get Professional — $699/year <span aria-hidden="true">→</span></a>
+          <p class="sb-guarantee">Secure checkout by Freemius</p>
+        </div>
+
+        <!-- Agency — 25 sites -->
+        <div class="sb-plan">
+          <span class="sb-plan-badge sb-plan-badge--muted">Agency</span>
+          <p class="sb-sites">25 sites</p>
+          <div class="sb-price-wrap">
+            <span class="sb-price">$1,499</span>
+            <span class="sb-price-cycle">/ year</span>
+          </div>
+          <p class="sb-price-note">Just $60 per site · billed yearly</p>
+          <span class="sb-save">Save $5,976 vs 25 × Starter</span>
+
+          <ul class="sb-feature-list">
+            <li>Everything in Professional</li>
+            <li>Activate on up to 25 client sites</li>
+            <li>Staging &amp; dev sites don't count</li>
+            <li>Priority support</li>
+            <li>A full year of updates &amp; support</li>
+          </ul>
+
+          <a href="#" class="sd-btn sd-btn--ghost sb-buy" data-plan="57603">Get Agency — $1,499/year <span aria-hidden="true">→</span></a>
+          <p class="sb-guarantee">Secure checkout by Freemius</p>
+        </div>
+
+        <!-- Custom — talk to us -->
+        <div class="sb-plan sb-plan--custom">
+          <span class="sb-plan-badge sb-plan-badge--muted">Custom</span>
+          <p class="sb-sites">26+ sites</p>
+          <div class="sb-price-wrap">
+            <span class="sb-price sb-price--custom">Let's talk</span>
+          </div>
+          <p class="sb-price-note">Volume, hosting &amp; reseller arrangements</p>
+
+          <ul class="sb-feature-list">
+            <li>Everything in Agency</li>
+            <li>Pricing sized to your site count</li>
+            <li>Reseller &amp; white-label licensing</li>
+            <li>Custom features built to order</li>
+            <li>Direct line to the developer</li>
+          </ul>
+
+          <a href="contact.html" class="sd-btn sd-btn--ghost">Contact us <span aria-hidden="true">→</span></a>
+          <p class="sb-guarantee">We usually reply within one business day</p>
         </div>
       </div>
-      <p style="text-align:center; margin-top:22px; color:var(--sd-muted); font-size:0.95em;">
+      <p class="sb-more">
         Already a customer? <a href="my-account.html">Manage your subscription →</a>
       </p>
     </div>
@@ -291,16 +373,28 @@
           <div class="sd-faq-answer"><p>Anything booked by time slot: sports courts and simulator bays, studios and treatment rooms, restaurant tables, equipment or gear rental, salon chairs, meeting rooms and more. You define the resources, prices and hours.</p></div>
         </details>
         <details class="sd-faq-item">
+          <summary>Is there a free trial?</summary>
+          <div class="sd-faq-answer"><p>Yes — 14 days free on the Starter plan, with <strong>no credit card required</strong>. You get the complete plugin with every feature unlocked, not a limited demo, so you can set up your real resources and take real bookings while you decide. If you do nothing at the end of the 14 days, it simply stops — you're never charged. Professional and Agency don't include a trial, but you can start on Starter and upgrade once you're happy.</p></div>
+        </details>
+        <details class="sd-faq-item">
           <summary>What do I actually receive after buying?</summary>
           <div class="sd-faq-answer"><p>Immediately after checkout you get the plugin ZIP to download plus a license key, both shown on the confirmation page and emailed to you. You upload the ZIP to WordPress and activate it with the key.</p></div>
         </details>
         <details class="sd-faq-item">
           <summary>What does the license cover?</summary>
-          <div class="sd-faq-answer"><p>A full license for your site, every feature, and updates &amp; support while your subscription is active. Updates install automatically inside your WordPress dashboard.</p></div>
+          <div class="sd-faq-answer"><p>Every feature of the plugin, plus updates &amp; support while your subscription is active — on as many sites as your plan allows (1, 5 or 25). Updates install automatically inside your WordPress dashboard.</p></div>
         </details>
         <details class="sd-faq-item">
-          <summary>Should I pick monthly or annual?</summary>
-          <div class="sd-faq-answer"><p>Both unlock the exact same plugin. Monthly is $29/month if you'd rather spread the cost or try it short-term. Annual is $299/year — that works out to about $24.92/month, so you save roughly $49 a year compared with paying monthly. You can start monthly and switch to annual any time.</p></div>
+          <summary>Which plan do I need?</summary>
+          <div class="sd-faq-answer"><p>All plans unlock the exact same plugin — the only difference is how many sites you can activate on. <strong>Starter</strong> ($299/year) covers one business website. <strong>Professional</strong> ($699/year) covers 5 sites at $140 each. <strong>Agency</strong> ($1,499/year) covers 25 client sites at $60 each. Need more than 25? <a href="contact.html">Get in touch</a> and we'll size a plan to your site count. You can upgrade at any time and only pay the difference.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Do staging and development sites use up a license?</summary>
+          <div class="sd-faq-answer"><p>No. Staging, development and local installs (for example <code>staging.yoursite.com</code> or <code>yoursite.local</code>) don't count towards your site limit — only live production sites do.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Can I pay monthly?</summary>
+          <div class="sd-faq-answer"><p>All plans are billed yearly. If you'd like to try SteadyBook before committing, start the free 14-day trial instead — no credit card, every feature unlocked, and nothing to cancel if you decide it isn't for you.</p></div>
         </details>
         <details class="sd-faq-item">
           <summary>What are the requirements?</summary>
@@ -320,7 +414,7 @@
       <h2 class="sd-section-title">Ready to take bookings online?</h2>
       <p class="sd-section-sub" style="margin-top:14px;">Set it up in an afternoon and let customers reserve around the clock.</p>
       <div class="sd-hero-cta" style="justify-content:center;">
-        <a href="#" class="sd-btn sd-btn--primary sb-buy">Get SteadyBook — $299/year <span aria-hidden="true">→</span></a>
+        <a href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free" class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free">Start your free 14-day trial <span aria-hidden="true">→</span></a>
         <a href="contact.html" class="sd-btn sd-btn--ghost">Ask a question</a>
       </div>
     </div>
@@ -362,7 +456,7 @@
 
   <!-- Sticky Mobile CTA -->
   <div class="sticky-cta" id="stickyCta">
-    <a href="#buy" class="sb-buy">Get SteadyBook — $299/year →</a>
+    <a href="#buy" class="sb-buy">Get SteadyBook — from $299/year →</a>
   </div>
 
   <!-- Back to Top Button -->
@@ -400,47 +494,58 @@
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     /* ============================================================
-       FREEMIUS CHECKOUT — SteadyBook (product 34678, plan 57078).
+       FREEMIUS CHECKOUT — SteadyBook (product 34678).
+       Each tier is its OWN Freemius plan, so the plan id is what
+       switches between them — not a licenses/quantity parameter:
+         57078 = Starter      (1 site)
+         57602 = Professional (5 sites)
+         57603 = Agency       (25 sites)
        Opens the overlay checkout on click; if the checkout script is
        blocked, buttons fall back to the hosted checkout page.
        ============================================================ */
-    var SB_PRODUCT = {
-      product_id: '34678',
-      plan_id:    '57078',
-      public_key: 'pk_e2d277144cc1c1879c64dd097d991'
-    };
+    var SB_PRODUCT_ID  = '34678';
+    var SB_PUBLIC_KEY  = 'pk_e2d277144cc1c1879c64dd097d991';
+    var SB_PLANS       = { starter: '57078', pro: '57602', agency: '57603' };
+    var SB_VALID_PLANS = [SB_PLANS.starter, SB_PLANS.pro, SB_PLANS.agency];
 
     // Hosted checkout URL — used as a fallback if the overlay script is blocked.
-    var SB_CHECKOUT_URL = 'https://checkout.freemius.com/plugin/' +
-      SB_PRODUCT.product_id + '/plan/' + SB_PRODUCT.plan_id + '/';
+    function sbCheckoutUrl(planId) {
+      return 'https://checkout.freemius.com/plugin/' + SB_PRODUCT_ID + '/plan/' + planId + '/';
+    }
 
     var sbHandler = null;
     if (typeof FS !== 'undefined' && FS.Checkout) {
       sbHandler = new FS.Checkout({
-        product_id: SB_PRODUCT.product_id,
-        plan_id:    SB_PRODUCT.plan_id,
-        public_key: SB_PRODUCT.public_key
+        product_id: SB_PRODUCT_ID,
+        plan_id:    SB_PLANS.starter,
+        public_key: SB_PUBLIC_KEY
       });
     }
 
-    document.querySelectorAll('.sb-buy').forEach(function (btn) {
-      // Buttons carry data-cycle="monthly" or "annual"; default to annual.
-      var cycle = btn.getAttribute('data-cycle') === 'monthly' ? 'monthly' : 'annual';
+    // Only buttons that name a specific plan open checkout. Every other .sb-buy
+    // on the page (hero, final CTA, footer, sticky bar) keeps its href="#buy"
+    // and just scrolls to the pricing table so the visitor picks a tier first.
+    document.querySelectorAll('.sb-buy[data-plan]').forEach(function (btn) {
+      var planId = btn.getAttribute('data-plan');
+      if (SB_VALID_PLANS.indexOf(planId) === -1) { planId = SB_PLANS.starter; }
+
+      // The free 14-day trial is offered on Starter only.
+      var trial = btn.getAttribute('data-trial') === 'free';
+      if (trial) { planId = SB_PLANS.starter; }
 
       // Give every button a real fallback link to the hosted checkout, so a
       // click always works even if the overlay script fails to load.
-      btn.setAttribute('href', SB_CHECKOUT_URL + (cycle === 'monthly' ? '?billing_cycle=monthly' : ''));
+      btn.setAttribute('href', sbCheckoutUrl(planId) + (trial ? '?trial=free' : ''));
 
       btn.addEventListener('click', function (e) {
         if (!sbHandler) {
           return; // Let the browser follow the href to the hosted checkout.
         }
         e.preventDefault();
-        sbHandler.open({
-          name: 'SteadyBook',
-          licenses: 1,
-          billing_cycle: cycle
-        });
+        var opts = { name: 'SteadyBook', plan_id: planId };
+        if (trial) { opts.trial = 'free'; }
+        else { opts.billing_cycle = 'annual'; }
+        sbHandler.open(opts);
       });
     });
   </script>
