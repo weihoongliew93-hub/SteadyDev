@@ -11602,8 +11602,8 @@
     "title": "The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple",
     "slug": "rm30000-mistake-add-feature-complexity",
     "excerpt": "That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.",
-    "date": "2026-07-21",
-    "dateDisplay": "July 21, 2026",
+    "date": "2026-07-25",
+    "dateDisplay": "July 25, 2026",
     "readTime": "10 min read",
     "tags": [
       "Feature Development",
@@ -11612,7 +11612,7 @@
       "Scope Creep"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/rm30000-mistake-add-feature.jpg",
     "heroImageAlt": "Business owner and developer discussing the true cost of a feature",
     "content": [

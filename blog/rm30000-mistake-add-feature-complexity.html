@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple | SteadyDevs</title>
+  <meta name="description" content="That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html">
+  <meta property="og:title" content="The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple">
+  <meta property="og:description" content="That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/rm30000-mistake-add-feature.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple">
+  <meta name="twitter:description" content="That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/rm30000-mistake-add-feature.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=310ff712">
+  <link rel="stylesheet" href="blog-styles.css?v=be752cfa">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple",
+    "alternativeHeadline": "That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive ",
+    "image": "https://steadydevs.com/images/blog/rm30000-mistake-add-feature.jpg",
+    "datePublished": "2026-07-25T00:00:00+08:00",
+    "dateModified": "2026-07-25T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.",
+    "articleSection": "Software Development",
+    "articleBody": "That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.",
+    "wordCount": 1100,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Feature Development"
+      },
+      {
+        "@type": "Thing",
+        "name": "Cost Estimation"
+      },
+      {
+        "@type": "Thing",
+        "name": "Legacy Systems"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "feature development, cost estimation, legacy systems, scope creep",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-07-25T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-07-25T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Feature Development, Cost Estimation, Legacy Systems, Scope Creep">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js"></script>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple",
+        "item": "https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/rm30000-mistake-add-feature.jpg" alt="Business owner and developer discussing the true cost of a feature" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</h1>
+          <div class="blog-meta">July 25, 2026 | 10 min read</div>
+        </div>
+        <p>"Can you just add a field so we can track the delivery date?" It sounds like a five-minute job. Then the quote comes back at RM30,000 and a two-month timeline, and you're left wondering whether you're being taken for a ride.</p>
+<p>Usually, you're not. The gap between how simple a feature <em>sounds</em> and what it actually takes to build is one of the most consistent sources of friction between business owners and developers. Understanding where the cost comes from won't make features cheaper—but it will help you make smarter decisions about which ones are worth it.</p>
+<h2>Why 'Just Add a Field' Is Almost Never Just a Field</h2>
+<p>Let's take that delivery-date example and trace where the work actually goes. Adding one field to a form touches far more than the form:</p>
+<ul><li><strong>The database</strong> needs a new column—and existing records need a sensible default or migration.</li><li><strong>The data-entry screen</strong> needs the field, plus validation (what's a valid date? can it be in the past?).</li><li><strong>Every report and export</strong> that should include delivery dates now needs updating.</li><li><strong>Searching and filtering</strong> by the new field has to be built, because people will immediately want it.</li><li><strong>Printed documents and invoices</strong> may need the field added and re-laid-out.</li><li><strong>Permissions</strong>—who can see or edit this?—have to be decided and enforced.</li><li><strong>Existing integrations</strong> that sync this data elsewhere may need to carry the new field too.</li></ul>
+<p>The field itself is five minutes. Everything that makes the field <em>useful</em> is the other two months.</p>
+<h2>The Hidden Multipliers in Legacy Systems</h2>
+<p>On a clean, modern, well-documented system, a feature costs what you'd expect. On an older system, several multipliers kick in:</p>
+<h3>1. Everything Is Connected in Ways Nobody Documented</h3>
+<p>In legacy systems, one change often ripples into three others. That module you're touching feeds a report, which feeds an export, which feeds a spreadsheet someone in accounts relies on. Discovering these connections—and not breaking them—is where much of the time goes.</p>
+<h3>2. There Are No Automated Safety Nets</h3>
+<p>Modern systems have automated tests that instantly flag when a change breaks something. Most legacy systems don't. So every change has to be verified manually, carefully, across everything it might affect. That caution is a cost—but skipping it is far more expensive when something breaks in production.</p>
+<h3>3. The Original Assumptions Fight the New Requirement</h3>
+<p>Sometimes a system was built assuming something that your new feature contradicts—for example, that each order has exactly one delivery. Adding "split deliveries" then isn't a feature; it's an unwinding of a foundational assumption that's baked into dozens of places. That's how a small-sounding request becomes a genuinely large project.</p>
+<div class="warning-box"><p><strong>The most expensive features are the ones that quietly contradict how the system was designed.</strong> They look identical in size to trivial features from the outside—which is exactly why the estimate can be so surprising. The complexity is invisible until someone opens the code.</p></div>
+<h2>Why a Good Developer Quotes High (And a Bad One Quotes Low)</h2>
+<p>Here's a counterintuitive point: the higher quote is often the honest one. A developer who says "sure, two days" for something that genuinely touches your whole order flow is either inexperienced or planning to cut corners you'll pay for later—in bugs, in a half-finished feature, or in a system that's now more fragile than before.</p>
+<p>A developer who quotes higher has usually thought through the ripple effects, the testing, and the edge cases. You're not paying more for the same thing—you're paying for the version that won't break the rest of your business.</p>
+<h2>How to Scope a Feature Before You Commit</h2>
+<p>You can get much better estimates—and avoid nasty surprises—by framing the request well:</p>
+<ol><li>Describe the <em>outcome</em> you want, not the implementation. "I need to know when things were delivered" invites a better solution than "add a date field."</li><li>Ask what else the change will touch. A good answer lists reports, exports, permissions, and integrations—not just the screen.</li><li>Ask for a small, cheap version first. Often 80% of the value is in 20% of the feature. Get that, then decide if the rest is worth it.</li><li>Ask what assumptions in the current system this fights against. If the answer is 'a big one,' expect a bigger number—and now you know why.</li><li>Get the estimate as a range with the risky unknowns named, not a single confident number that's likely to be wrong.</li></ol>
+<div class="tip-box"><p>The cheapest feature is the one you scope down before building. Ask 'what's the simplest version that still solves my real problem?' You can almost always cut a request in half without losing what actually mattered—and add the rest later only if you genuinely need it.</p></div>
+<p>None of this means every high quote is fair, or that you shouldn't push back. It means the surprise usually isn't a markup—it's the difference between how simple the feature sounds and how connected your system really is. Once you can see that, you can decide which features are worth their true cost, and which ones aren't.</p>
+
+          <div class="cta-box">
+            <h3>Got a Feature That 'Should Be Simple'?</h3>
+            <p style="color: #D1D5DB;">SteadyDevs scopes feature requests honestly—showing you what a change actually touches, offering a cheaper minimal version where one exists, and giving you a realistic estimate before you commit. Get a free consultation on your next feature.</p>
+            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Why does a small feature cost so much?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Because the visible part—a field or a button—is a fraction of the work. Making it useful means updating the database, validation, reports, exports, search, permissions, printed documents, and any integrations. On legacy systems, undocumented connections and the lack of automated tests add further cost, since every change must be verified manually.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is a higher quote a sign I'm being overcharged?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not usually. A higher quote often reflects a developer who has thought through the ripple effects, testing, and edge cases. A suspiciously low quote frequently means corners will be cut—leaving you with bugs, a half-finished feature, or a more fragile system. Always ask what the change will touch to judge whether the estimate is reasonable.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">How can I make a feature cheaper?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Scope it down before building. Ask for the simplest version that still solves your real problem—often 80% of the value is in 20% of the feature. Describe the outcome you want rather than dictating the implementation, and add the remaining pieces later only if you actually need them.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Why are legacy systems more expensive to change?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Three multipliers: undocumented connections mean one change ripples into others; the absence of automated tests forces slow manual verification; and new requirements sometimes contradict foundational assumptions baked into the original design. That last case is what turns a small-sounding request into a genuinely large project.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="rm30000-mistake-add-feature-complexity" data-current-tags='["Feature Development","Cost Estimation","Legacy Systems","Scope Creep"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
