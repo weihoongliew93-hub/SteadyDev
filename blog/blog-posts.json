@@ -11758,8 +11758,8 @@
     "title": "AI Tools for Legacy System Maintenance: Hype vs Reality",
     "slug": "ai-tools-legacy-system-maintenance-hype-reality",
     "excerpt": "AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.",
-    "date": "2026-07-24",
-    "dateDisplay": "July 24, 2026",
+    "date": "2026-08-06",
+    "dateDisplay": "August 06, 2026",
     "readTime": "10 min read",
     "tags": [
       "AI",
@@ -11768,7 +11768,7 @@
       "Development"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/ai-tools-legacy-maintenance.jpg",
     "heroImageAlt": "AI coding tools applied to legacy system maintenance",
     "content": [
