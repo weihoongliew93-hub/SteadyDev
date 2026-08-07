@@ -511,6 +511,107 @@
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     /* ============================================================
+       FUNNEL INSTRUMENTATION
+       ============================================================
+       The plugin already tags every upgrade link it renders:
+
+         ?utm_source=plugin&utm_medium=upsell&utm_campaign=<where>
+
+       where <where> is the screen the visitor clicked from - 'bays',
+       'reports', 'upgrade-page', 'account', 'billing'. GA4 records
+       those automatically as the session source, so arrivals were
+       already being counted. What was missing is everything after the
+       arrival: nothing recorded whether a visitor reached the pricing
+       table, opened checkout, or bought. That is the part that turns
+       traffic into a conversion rate.
+
+       So four steps are recorded, each carrying the prompt that
+       brought the visitor, so any of them can be read per prompt:
+
+         plugin_upsell_arrival  landed here from an in-plugin prompt
+         view_pricing           actually saw the pricing table
+         begin_checkout         opened the checkout overlay
+         purchase               completed payment
+
+       Two notes on why it is written this way.
+
+       The campaign is stashed in sessionStorage on arrival. The
+       overlay checkout does not change the URL, but a visitor may
+       navigate within the site before buying, and the query string
+       does not survive that - without stashing it, purchases would
+       attribute to (direct) and the whole point would be lost.
+
+       Everything degrades to nothing if gtag is missing - blocked by
+       an ad blocker, or simply not loaded yet. Analytics must never
+       be able to break a checkout button: a failed purchase costs
+       more than a missing data point. Hence the no-op guard and the
+       try/catch around every call.
+       ============================================================ */
+    var SB_ATTR_KEY = 'sb_attr';
+
+    var sbAttr = (function () {
+      var qs = new URLSearchParams(window.location.search);
+      var fromUrl = {
+        source:   qs.get('utm_source')   || '',
+        medium:   qs.get('utm_medium')   || '',
+        campaign: qs.get('utm_campaign') || ''
+      };
+
+      // A freshly tagged arrival always wins over a stashed one, so a
+      // second visit from a different prompt is not credited to the
+      // first one the visitor happened to click.
+      if (fromUrl.source) {
+        try { sessionStorage.setItem(SB_ATTR_KEY, JSON.stringify(fromUrl)); } catch (e) {}
+        return fromUrl;
+      }
+
+      try {
+        var saved = sessionStorage.getItem(SB_ATTR_KEY);
+        if (saved) { return JSON.parse(saved); }
+      } catch (e) {}
+
+      return fromUrl;
+    })();
+
+    function sbTrack(name, params) {
+      if (typeof gtag !== 'function') { return; }
+
+      var payload = params || {};
+      payload.utm_source  = sbAttr.source || '(none)';
+      payload.utm_medium  = sbAttr.medium || '(none)';
+      // The prompt the visitor came from. Named plainly rather than
+      // utm_campaign so it reads as its own dimension in GA4.
+      payload.upsell_from = sbAttr.campaign || '(none)';
+
+      try { gtag('event', name, payload); } catch (e) {}
+    }
+
+    // Arrival from an in-plugin prompt: the denominator for "did that
+    // prompt work".
+    if (sbAttr.source === 'plugin') {
+      sbTrack('plugin_upsell_arrival');
+    }
+
+    // Reaching the pricing table is the step between arriving and
+    // buying, and the likeliest place to lose people. Observed rather
+    // than tied to a click, because the hero and the sticky bar both
+    // scroll here and plenty of visitors just scroll on their own.
+    (function () {
+      var pricing = document.getElementById('buy');
+      if (!pricing || !('IntersectionObserver' in window)) { return; }
+
+      var io = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) { return; }
+          sbTrack('view_pricing');
+          observer.disconnect();
+        });
+      }, { threshold: 0.4 });
+
+      io.observe(pricing);
+    })();
+
+    /* ============================================================
        FREEMIUS CHECKOUT — SteadyBook (product 34678).
        Each tier is its OWN Freemius plan, so the plan id is what
        switches between them — not a licenses/quantity parameter:
@@ -525,6 +626,17 @@
     var SB_PLANS       = { starter: '57078', pro: '57602', agency: '57603' };
     var SB_VALID_PLANS = [SB_PLANS.starter, SB_PLANS.pro, SB_PLANS.agency];
 
+    // Plan id -> what GA4 needs to report revenue. These are list
+    // prices, not what Freemius actually charged: a coupon or a
+    // proration is not reflected here. Good enough to compare tiers
+    // and prompts against each other, which is the question being
+    // asked; Freemius remains the source of truth for money.
+    var SB_PLAN_META = {
+      '57078': { name: 'Starter',      value: 299 },
+      '57602': { name: 'Professional', value: 699 },
+      '57603': { name: 'Agency',       value: 1499 }
+    };
+
     // Hosted checkout URL — used as a fallback if the overlay script is blocked.
     function sbCheckoutUrl(planId) {
       return 'https://checkout.freemius.com/plugin/' + SB_PRODUCT_ID + '/plan/' + planId + '/';
@@ -535,7 +647,24 @@
       sbHandler = new FS.Checkout({
         product_id: SB_PRODUCT_ID,
         plan_id:    SB_PLANS.starter,
-        public_key: SB_PUBLIC_KEY
+        public_key: SB_PUBLIC_KEY,
+
+        // The only place a completed sale is observable from this
+        // page - the overlay never navigates, so there is no thank-you
+        // URL to hang a conversion on. Freemius remains the record of
+        // what was actually charged; this exists so the sale can be
+        // attributed back to the prompt that started it.
+        purchaseCompleted: function (response) {
+          var plan = (response && (response.plan_id || (response.plan && response.plan.id))) || '';
+          var meta = SB_PLAN_META[String(plan)] || {};
+
+          sbTrack('purchase', {
+            transaction_id: (response && (response.id || response.license_id)) || '',
+            currency: 'USD',
+            value: meta.value || 0,
+            items: [{ item_id: String(plan), item_name: meta.name || 'SteadyBook' }]
+          });
+        }
       });
     }
 
@@ -555,6 +684,19 @@
       btn.setAttribute('href', sbCheckoutUrl(planId) + (trial ? '?trial=free' : ''));
 
       btn.addEventListener('click', function (e) {
+        var meta = SB_PLAN_META[planId] || {};
+
+        // Recorded before the branch below, so a click still counts
+        // when the overlay is blocked and the browser leaves for the
+        // hosted checkout. Those visitors buy too, and dropping them
+        // would quietly understate every prompt.
+        sbTrack('begin_checkout', {
+          currency: 'USD',
+          value: meta.value || 0,
+          trial: trial ? 'yes' : 'no',
+          items: [{ item_id: planId, item_name: meta.name || 'SteadyBook' }]
+        });
+
         if (!sbHandler) {
           return; // Let the browser follow the href to the hosted checkout.
         }
