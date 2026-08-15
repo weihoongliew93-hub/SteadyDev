@@ -22,7 +22,7 @@
     if (file === '' || file === 'index.html') return 'home';
     if (file === 'about.html') return 'about';
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file.indexOf('packages') === 0) return 'solutions';
-    if (file === 'einvoice.html' || file === 'steadybook.html') return 'products';
+    if (file === 'einvoice.html' || file === 'venue-booking.html') return 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
     if (file === 'my-account.html') return 'account';
@@ -69,7 +69,7 @@
           '<div class="dropdown-content">' +
             // E-Invoice hidden from the nav for now — uncomment the next line to restore it.
             // '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
-            '<a href="' + base + 'steadybook.html">SteadyBook — Booking Plugin</a>' +
+            '<a href="' + base + 'venue-booking.html">SteadyDevs Venue Booking — WordPress Plugin</a>' +
           '</div>' +
         '</div>' +
         link('portfolio.html', 'Portfolio', 'portfolio') +
