@@ -389,11 +389,18 @@
       text-align: center; font-size: 1.2em; background: none; border: 1px solid var(--sd-border);
       border-radius: 8px; padding: 5px 0; cursor: pointer; color: #e5e7eb;
     }
-    .sb-res-row input[type="text"], .sb-res-row input[type="number"] {
+    .sb-res-row input[type="text"], .sb-res-row input[type="number"], .sb-res-row select {
       background: var(--sd-card); border: 1px solid var(--sd-border); border-radius: 7px;
       padding: 8px 10px; color: #e5e7eb; font-size: 0.88em; font-family: inherit; width: 100%;
     }
-    .sb-res-row input:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-res-row input:focus, .sb-res-row select:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-res-row select {
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
+      cursor: pointer;
+    }
+    .sb-res-row select option { background: var(--sd-card); color: #e5e7eb; }
     .sb-res-field { display: flex; flex-direction: column; gap: 4px; }
     .sb-res-field span { color: #64748b; font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
     .sb-res-row .sb-admin-btn--reject { justify-self: end; }
@@ -461,6 +468,115 @@
       .sb-brand-layout { grid-template-columns: 1fr; }
       .sb-mail-layout { grid-template-columns: 1fr; }
     }
+
+    /* ===================== DEMO HUB SWITCHER ===================== */
+    .sb-pro-tag {
+      display: inline-block; background: rgba(96,165,250,0.16); color: #93c5fd;
+      border: 1px solid rgba(96,165,250,0.4); border-radius: 999px;
+      font-size: 0.68em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 2px 8px; margin-left: 8px; vertical-align: middle;
+    }
+    .sb-demo-switch {
+      display: inline-flex; gap: 4px; margin: 8px 0 0;
+      background: var(--sd-card); border: 1px solid var(--sd-border); border-radius: 999px; padding: 4px;
+    }
+    .sb-demo-switch button {
+      cursor: pointer; background: none; border: none; border-radius: 999px;
+      color: var(--sd-muted); font-size: 0.9em; font-weight: 700;
+      padding: 10px 20px;
+    }
+    .sb-demo-switch button:hover { color: #e5e7eb; }
+    .sb-demo-switch button.is-active { background: var(--sd-blue); color: #fff; }
+    .sb-demo-switch .sb-pro-tag { margin-left: 6px; }
+
+    /* ===================== CLASS PORTAL: MEMBER SIDE ===================== */
+    .sb-cp-nav { display: flex; gap: 6px; margin-bottom: 22px; flex-wrap: wrap; }
+    .sb-cp-nav button {
+      cursor: pointer; background: var(--sd-bg-2); border: 1px solid var(--sd-border); color: #cbd5e1;
+      font-size: 0.86em; font-weight: 700; padding: 9px 16px; border-radius: 999px;
+    }
+    .sb-cp-nav button:hover { border-color: var(--sd-blue-light); }
+    .sb-cp-nav button.is-active { background: var(--sd-blue); border-color: var(--sd-blue); color: #fff; }
+
+    .sb-cp-subhead { color: #cbd5e1; font-size: 0.9em; font-weight: 700; margin: 22px 0 12px; }
+    .sb-cp-balances { display: flex; gap: 10px; flex-wrap: wrap; }
+    .sb-cp-balchip {
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 12px;
+      padding: 14px 18px; min-width: 140px;
+    }
+    .sb-cp-balchip .lvl { color: #64748b; font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .sb-cp-balchip .n { color: #f1f5f9; font-size: 1.6em; font-weight: 800; margin-top: 4px; }
+    .sb-cp-balchip .n span { font-size: 0.5em; color: var(--sd-muted); font-weight: 700; }
+
+    .sb-cp-upcoming { display: flex; flex-direction: column; gap: 8px; }
+    .sb-cp-uitem {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px; padding: 12px 16px;
+    }
+    .sb-cp-uitem b { color: #f1f5f9; }
+    .sb-cp-uitem span { color: var(--sd-muted); font-size: 0.86em; }
+    .sb-cp-uitem .sb-admin-btn { flex-shrink: 0; }
+    .sb-cp-empty { color: var(--sd-muted); font-size: 0.88em; padding: 10px 0; }
+
+    .sb-cp-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .sb-cp-day { display: flex; flex-direction: column; gap: 8px; }
+    .sb-cp-day-h { text-align: center; color: var(--sd-muted); font-size: 0.76em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 4px; }
+    .sb-cp-class {
+      border: 1px solid var(--sd-border); border-radius: 10px; padding: 9px 8px;
+      background: var(--sd-bg-2); font-size: 0.78em; text-align: center;
+    }
+    .sb-cp-class .t { color: #f1f5f9; font-weight: 700; display: block; }
+    .sb-cp-class .n { color: #cbd5e1; display: block; margin: 2px 0 6px; line-height: 1.3; }
+    .sb-cp-class .spots { display: block; font-size: 0.86em; color: var(--sd-green-light); margin-bottom: 6px; }
+    .sb-cp-class .spots.full { color: #fca5a5; }
+    .sb-cp-class button {
+      width: 100%; cursor: pointer; border: none; border-radius: 7px; padding: 6px 0;
+      font-size: 0.86em; font-weight: 700; background: var(--sd-blue); color: #fff;
+    }
+    .sb-cp-class button.is-wait { background: #334155; }
+    .sb-cp-class button.is-booked { background: rgba(16,185,129,0.18); color: var(--sd-green-light); cursor: default; }
+    .sb-cp-class.is-empty { opacity: 0.35; }
+
+    .sb-cp-packs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .sb-cp-pack { border: 1px solid var(--sd-border); border-radius: 12px; padding: 18px; background: var(--sd-bg-2); text-align: center; }
+    .sb-cp-pack .lvl { color: #64748b; font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .sb-cp-pack h4 { color: #f1f5f9; font-size: 1.05em; margin: 6px 0 2px; }
+    .sb-cp-pack .credits { color: var(--sd-blue-light); font-size: 0.86em; font-weight: 700; margin-bottom: 10px; }
+    .sb-cp-pack .price { color: #f1f5f9; font-size: 1.6em; font-weight: 800; margin-bottom: 14px; }
+    .sb-cp-pack button { width: 100%; }
+
+    .sb-cp-pay-methods { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .sb-cp-pay-method {
+      cursor: pointer; text-align: left; border: 1px solid var(--sd-border); border-radius: 10px;
+      background: var(--sd-bg-2); padding: 13px 16px; color: #cbd5e1;
+    }
+    .sb-cp-pay-method:hover { border-color: var(--sd-blue-light); }
+    .sb-cp-pay-method b { display: block; color: #f1f5f9; font-size: 0.94em; }
+    .sb-cp-pay-method span { color: var(--sd-muted); font-size: 0.84em; }
+    .sb-cp-pay-instructions {
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px;
+      padding: 14px 16px; color: #cbd5e1; font-size: 0.88em; line-height: 1.6; margin: 14px 0;
+    }
+
+    /* ===================== CLASS PORTAL: ADMIN SIDE ===================== */
+    .sb-cp-classlist .sb-res-row, .sb-cp-packlist .sb-res-row {
+      grid-template-columns: 1.4fr 0.8fr 0.7fr 0.7fr 90px;
+    }
+    .sb-cp-timetable { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .sb-cp-tt-day { display: flex; flex-direction: column; gap: 6px; }
+    .sb-cp-tt-h { text-align: center; color: var(--sd-muted); font-size: 0.76em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 4px; }
+    .sb-cp-tt-slot { border: 1px solid var(--sd-border); border-radius: 8px; padding: 8px 6px; background: var(--sd-bg-2); font-size: 0.76em; text-align: center; }
+    .sb-cp-tt-slot .t { display: block; color: #93c5fd; font-weight: 700; }
+    .sb-cp-tt-slot .n { display: block; color: #cbd5e1; margin-top: 2px; }
+    .sb-cp-tt-empty { color: #475569; font-size: 0.76em; text-align: center; padding: 10px 0; }
+
+    @media (max-width: 900px) {
+      .sb-cp-week, .sb-cp-timetable { grid-template-columns: repeat(7, minmax(90px, 1fr)); overflow-x: auto; }
+    }
+    @media (max-width: 640px) {
+      .sb-cp-week, .sb-cp-timetable { display: flex; overflow-x: auto; padding-bottom: 6px; }
+      .sb-cp-day, .sb-cp-tt-day { min-width: 110px; }
+    }
   </style>
 </head>
 <body>
@@ -490,14 +606,31 @@
         <span>🍽️ Tables</span>
         <span>🎛️ Equipment</span>
         <span>💇 Chairs</span>
+        <span>🧘 Classes <em class="sb-pro-tag" style="margin-left:6px;">Pro</em></span>
       </div>
     </div>
   </section>
 
+  <!-- ===================== DEMO HUB SWITCHER ===================== -->
+  <section class="sd-section sd-section--dark" style="padding-bottom:0;" id="demo-hub">
+    <div class="sd-inner" style="text-align:center;">
+      <p class="sd-eyebrow">See It In Action</p>
+      <h2 class="sd-section-title">Two live demos. <span class="accent">Try them yourself.</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">The hourly booking flow every plan includes, and the Class Portal add-on for recurring classes sold as prepaid credits. Nothing here is real — click around freely.</p>
+      <div class="sb-demo-switch" id="sbDemoSwitch">
+        <button class="is-active" data-demo="venue">🏟️ Venue Booking</button>
+        <button data-demo="classportal">🧘 Class Portal <span class="sb-pro-tag">Pro</span></button>
+      </div>
+    </div>
+  </section>
+
+  <div id="demoGroup-venue">
+
   <!-- ===================== LIVE DEMO ===================== -->
   <section class="sd-section sd-section--dark" id="demo">
     <div class="sd-inner">
-      <p class="sd-eyebrow">See It In Action</p>
+      <p class="sd-eyebrow">Customer View</p>
       <h2 class="sd-section-title">Try the <span class="accent">booking flow</span> yourself</h2>
       <div class="sd-title-rule"></div>
       <p class="sd-section-sub">This is a live simulation of the exact steps a customer walks through on your site — pick a resource, a date, a time, then confirm. Nothing here is real; go ahead and click around.</p>
@@ -695,6 +828,139 @@
     </div>
   </section>
 
+  </div><!-- /demoGroup-venue -->
+
+  <div id="demoGroup-classportal" style="display:none;">
+
+  <!-- ===================== LIVE DEMO: CLASS PORTAL (MEMBER) ===================== -->
+  <section class="sd-section sd-section--dark" id="cp-demo">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Customer View <span class="sb-pro-tag">Pro add-on</span></p>
+      <h2 class="sd-section-title">Book a <span class="accent">recurring class</span> on credits</h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Class Portal is the add-on for venues that run classes and programmes instead of one-off slots. Members buy credits, then spend them on any open class in the weekly schedule.</p>
+
+      <div class="sb-demo-shell">
+        <div class="sb-demo-bar">
+          <span class="sb-demo-dot"></span><span class="sb-demo-dot"></span><span class="sb-demo-dot"></span>
+          <span class="sb-demo-bar-label">[steadybook_portal]</span>
+          <span class="sb-demo-live">Interactive demo</span>
+        </div>
+
+        <div class="sb-demo-body">
+          <div class="sb-cp-nav" id="cpMemberNav">
+            <button class="is-active" data-tab="dashboard">Dashboard</button>
+            <button data-tab="schedule">Weekly Schedule</button>
+            <button data-tab="buy">Buy Credits</button>
+          </div>
+
+          <!-- MEMBER TAB: dashboard -->
+          <div class="sb-cp-pane" data-tab="dashboard">
+            <h3 class="sb-demo-h">Welcome back, Alex</h3>
+            <p class="sb-demo-sub">Your balance and upcoming classes, at a glance.</p>
+            <div class="sb-cp-balances" id="cpBalances"></div>
+            <p class="sb-cp-subhead">Upcoming classes</p>
+            <div class="sb-cp-upcoming" id="cpUpcoming"></div>
+            <button class="sd-btn sd-btn--primary" id="cpGoBuy" type="button" style="margin-top:16px;">+ Buy more credits</button>
+          </div>
+
+          <!-- MEMBER TAB: schedule -->
+          <div class="sb-cp-pane" data-tab="schedule" style="display:none;">
+            <h3 class="sb-demo-h">This week</h3>
+            <p class="sb-demo-sub">Tap an open class to book it — a credit is taken straight away. Full classes offer a waitlist instead.</p>
+            <div class="sb-cp-week" id="cpWeek"></div>
+          </div>
+
+          <!-- MEMBER TAB: buy credits -->
+          <div class="sb-cp-pane" data-tab="buy" style="display:none;">
+            <h3 class="sb-demo-h">Credit packages</h3>
+            <p class="sb-demo-sub">Buy a pack, then spend credits on any class it's eligible for.</p>
+            <div class="sb-cp-packs" id="cpPacks"></div>
+          </div>
+        </div>
+      </div>
+      <p class="sb-demo-caption">This is a front-end simulation for demo purposes — the real Class Portal runs inside your WordPress site with your own classes, levels and pricing.</p>
+    </div>
+  </section>
+
+  <!-- ===================== LIVE DEMO: CLASS PORTAL (ADMIN) ===================== -->
+  <section class="sd-section sd-section--dark" id="cp-admin-demo">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">Admin View <span class="sb-pro-tag">Pro add-on</span></p>
+      <h2 class="sd-section-title">Running the <span class="accent">Class Portal</span></h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Classes, the weekly timetable, credit packages, payment confirmations and members — all in one screen inside WordPress.</p>
+
+      <div class="sb-admin-shell">
+        <div class="sb-admin-topbar">
+          <span class="sb-admin-wp">🔷 WP&nbsp;Admin</span>
+          <span class="sb-admin-crumb" id="cpAdminCrumb">Class Portal ▸ Classes</span>
+          <span class="sb-demo-live">Interactive demo</span>
+        </div>
+
+        <div class="sb-admin-nav" id="cpAdminNav">
+          <button class="sb-admin-navbtn is-active" data-section="classes">🧘 Classes</button>
+          <button class="sb-admin-navbtn" data-section="timetable">🗓️ Timetable</button>
+          <button class="sb-admin-navbtn" data-section="packages">💳 Packages</button>
+          <button class="sb-admin-navbtn" data-section="orders">🧾 Credit Orders</button>
+          <button class="sb-admin-navbtn" data-section="members">👥 Members</button>
+        </div>
+
+        <div class="sb-admin-body">
+
+          <!-- SECTION: classes -->
+          <div class="sb-admin-section" data-section="classes">
+            <p class="sb-admin-hint">One row per thing you teach, not per session — "Junior Beginners" is one class even if it runs three times a week.</p>
+            <div class="sb-res-list sb-cp-classlist" id="cpClassList"></div>
+            <button class="sd-btn sd-btn--ghost" id="cpClassAdd" type="button">+ Add class</button>
+          </div>
+
+          <!-- SECTION: timetable -->
+          <div class="sb-admin-section" data-section="timetable" style="display:none;">
+            <p class="sb-admin-hint">Classes mapped onto the week. Sessions repeat every week; members see them on the current week's real dates.</p>
+            <div class="sb-cp-timetable" id="cpTimetable"></div>
+          </div>
+
+          <!-- SECTION: packages -->
+          <div class="sb-admin-section" data-section="packages" style="display:none;">
+            <p class="sb-admin-hint">What members buy before they can book. Set a level to price a tier differently — leave it "Any level" and the credits book anything.</p>
+            <div class="sb-res-list sb-cp-packlist" id="cpPackList"></div>
+          </div>
+
+          <!-- SECTION: credit orders -->
+          <div class="sb-admin-section" data-section="orders" style="display:none;">
+            <p class="sb-admin-hint">Manual payment methods need your confirmation before credits are granted. Check it against your own records, then confirm — or void if it was never paid.</p>
+            <div class="sb-admin-table-wrap">
+              <table class="sb-admin-table">
+                <thead>
+                  <tr><th>Member</th><th>Package</th><th>Method</th><th>Amount</th><th>Status</th><th></th></tr>
+                </thead>
+                <tbody id="cpOrderRows"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION: members -->
+          <div class="sb-admin-section" data-section="members" style="display:none;">
+            <p class="sb-admin-hint">Everyone who can log in, including people who haven't bought a credit yet. Open a member to adjust their balance or see their history.</p>
+            <div class="sb-admin-table-wrap">
+              <table class="sb-admin-table">
+                <thead>
+                  <tr><th>Member</th><th>Level balances</th><th>Upcoming</th><th></th></tr>
+                </thead>
+                <tbody id="cpMemberRows"></tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="sb-demo-caption">In the real plugin, a "Class Portal Staff" role can run this whole screen — confirm payments, take the register, edit members — without full admin access.</p>
+    </div>
+  </section>
+
+  </div><!-- /demoGroup-classportal -->
+
   <!-- ===================== FEATURES ===================== -->
   <section class="sd-section sd-section--dark" id="features">
     <div class="sd-inner">
@@ -704,6 +970,11 @@
       <p class="sd-section-sub">Built to handle any time-slot reservation — configure your resources, prices and hours, and let customers book while you approve.</p>
 
       <div class="sd-dcard-grid">
+        <div class="sd-dcard">
+          <div class="sd-dicon">🧘</div>
+          <h3>Class Portal <span class="sb-pro-tag">Pro add-on</span></h3>
+          <p>Run recurring classes instead of one-off slots. Members log in, buy prepaid credits, and book off a weekly timetable — with per-tier pricing and waitlists built in.</p>
+        </div>
         <div class="sd-dcard">
           <div class="sd-dicon">🗓️</div>
           <h3>Live Multi-Step Booking</h3>
@@ -915,6 +1186,10 @@
         <details class="sd-faq-item">
           <summary>What kind of businesses is SteadyDevs Venue Booking for?</summary>
           <div class="sd-faq-answer"><p>Anything booked by time slot: sports courts and simulator bays, studios and treatment rooms, restaurant tables, equipment or gear rental, salon chairs, meeting rooms and more. You define the resources, prices and hours.</p></div>
+        </details>
+        <details class="sd-faq-item">
+          <summary>Does this include recurring classes, not just one-off slots?</summary>
+          <div class="sd-faq-answer"><p>Yes — <strong>Class Portal</strong> is included with every plan on this page. It's a second booking mode alongside your hourly form: members log in, buy prepaid credit packages, and book off a weekly timetable of classes you run. It comes with optional per-tier pricing (levels), waitlists for full classes, a printable attendance register, and a "Class Portal Staff" role so front-desk can run it without full admin access. <a href="#demo-hub" onclick="document.querySelector('#sbDemoSwitch [data-demo=classportal]').click();">Try the live demo above</a> — customer and admin sides both. (It's a separate free plugin on WordPress.org that doesn't include Class Portal; this page sells the Pro edition, which does.)</p></div>
         </details>
         <details class="sd-faq-item">
           <summary>Is there a free trial?</summary>
@@ -1716,6 +1991,451 @@
         sbHandler.open(opts);
       });
     });
+
+    /* ============================================================
+       DEMO HUB SWITCHER — toggles between the Venue Booking demo
+       group and the Class Portal demo group.
+       ============================================================ */
+    (function () {
+      var btns = document.querySelectorAll('#sbDemoSwitch button');
+      var venue = document.getElementById('demoGroup-venue');
+      var cp = document.getElementById('demoGroup-classportal');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          var isVenue = b.dataset.demo === 'venue';
+          venue.style.display = isVenue ? '' : 'none';
+          cp.style.display = isVenue ? 'none' : '';
+        });
+      });
+    })();
+
+    /* ============================================================
+       CLASS PORTAL DEMO — a front-end-only simulation of the
+       Pro add-on: recurring classes sold as prepaid credits.
+       Shared store on window.SBClassPortal so the member widget and
+       the admin widget can read and update the same state, the same
+       way SBAdmin bridges the venue-booking demo pair above.
+       ============================================================ */
+    window.SBClassPortal = (function () {
+      var DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+      var classes = [
+        { id: 1, name: 'Junior Beginners', level: 'Any', duration: '45 min', credits: 1, capacity: 8, status: 'active' },
+        { id: 2, name: 'Adult Intermediate', level: 'Any', duration: '60 min', credits: 1, capacity: 6, status: 'active' },
+        { id: 3, name: 'Elite Squad', level: 'Elite', duration: '90 min', credits: 2, capacity: 4, status: 'active' }
+      ];
+      var nextClassId = 4;
+
+      var packages = [
+        { id: 1, name: 'Starter', level: 'Any', credits: 5, price: 60 },
+        { id: 2, name: 'Standard', level: 'Any', credits: 10, price: 110 },
+        { id: 3, name: 'Elite Squad Pack', level: 'Elite', credits: 10, price: 150 },
+        { id: 4, name: 'Free Trial', level: 'Any', credits: 1, price: 0 }
+      ];
+
+      var sessions = [
+        { id: 1, day: 0, time: '16:00', classId: 1, capacity: 8, booked: 5, coach: 'Coach Mel' },
+        { id: 2, day: 0, time: '18:00', classId: 3, capacity: 4, booked: 4, coach: 'Coach Rui' },
+        { id: 3, day: 1, time: '17:00', classId: 2, capacity: 6, booked: 3, coach: 'Coach Sam' },
+        { id: 4, day: 2, time: '16:00', classId: 1, capacity: 8, booked: 8, coach: 'Coach Mel' },
+        { id: 5, day: 3, time: '18:00', classId: 3, capacity: 4, booked: 2, coach: 'Coach Rui' },
+        { id: 6, day: 4, time: '17:00', classId: 2, capacity: 6, booked: 6, coach: 'Coach Sam' },
+        { id: 7, day: 5, time: '10:00', classId: 1, capacity: 8, booked: 1, coach: 'Coach Mel' },
+        { id: 8, day: 5, time: '11:30', classId: 3, capacity: 4, booked: 1, coach: 'Coach Rui' }
+      ];
+      var nextSessionBookingState = {}; // sessionId -> 'booked' | 'waitlisted'
+
+      var member = { name: 'Alex Wong', balances: { Any: 4, Elite: 1 } };
+      var upcoming = []; // { sessionId, cancelRequested }
+
+      var otherMembers = [
+        { name: 'Priya Nair', balances: { Any: 6, Elite: 0 }, upcoming: 2 },
+        { name: 'Marcus Lee', balances: { Any: 2, Elite: 3 }, upcoming: 1 }
+      ];
+
+      var orders = [
+        { id: 5001, member: 'Priya Nair', packageName: 'Standard', method: 'Bank transfer', amount: 110, status: 'confirmed' },
+        { id: 5002, member: 'Marcus Lee', packageName: 'Elite Squad Pack', method: 'Bank transfer', amount: 150, status: 'pending' }
+      ];
+      var nextOrderId = 5003;
+
+      function classById(id) { return classes.find(function (c) { return c.id === id; }); }
+
+      function spotsLeft(s) { return s.capacity - s.booked; }
+
+      function canAfford(level) {
+        if (level === 'Any') { return member.balances.Any > 0 || member.balances.Elite > 0; }
+        return (member.balances[level] || 0) > 0;
+      }
+
+      function charge(level) {
+        if (level === 'Any') {
+          if (member.balances.Any > 0) { member.balances.Any -= 1; }
+          else { member.balances.Elite -= 1; }
+        } else {
+          member.balances[level] -= 1;
+        }
+      }
+
+      function refund(level) {
+        if (level === 'Any') { member.balances.Any += 1; }
+        else { member.balances[level] = (member.balances[level] || 0) + 1; }
+      }
+
+      return {
+        DAYS: DAYS,
+        classes: classes,
+        packages: packages,
+        sessions: sessions,
+        member: member,
+        otherMembers: otherMembers,
+        orders: orders,
+
+        classById: classById,
+        spotsLeft: spotsLeft,
+
+        addClass: function (c) {
+          c.id = nextClassId++;
+          c.status = 'active';
+          classes.push(c);
+        },
+
+        bookingStateOf: function (sessionId) { return nextSessionBookingState[sessionId] || null; },
+
+        book: function (sessionId) {
+          var s = sessions.find(function (x) { return x.id === sessionId; });
+          if (!s || nextSessionBookingState[sessionId]) { return { ok: false, reason: 'already' }; }
+          var cls = classById(s.classId);
+          if (spotsLeft(s) <= 0) { return { ok: false, reason: 'full' }; }
+          if (!canAfford(cls.level)) { return { ok: false, reason: 'credits' }; }
+          charge(cls.level);
+          s.booked += 1;
+          nextSessionBookingState[sessionId] = 'booked';
+          upcoming.push({ sessionId: sessionId, cancelRequested: false });
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          return { ok: true };
+        },
+
+        waitlist: function (sessionId) {
+          nextSessionBookingState[sessionId] = 'waitlisted';
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          return { ok: true };
+        },
+
+        requestCancel: function (sessionId) {
+          var u = upcoming.find(function (x) { return x.sessionId === sessionId; });
+          if (u) { u.cancelRequested = true; }
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+        },
+
+        upcomingList: function () {
+          return upcoming.map(function (u) {
+            var s = sessions.find(function (x) { return x.id === u.sessionId; });
+            var cls = s ? classById(s.classId) : null;
+            return { session: s, cls: cls, cancelRequested: u.cancelRequested };
+          }).filter(function (x) { return x.session; });
+        },
+
+        buyInstant: function (pkg) {
+          member.balances[pkg.level] = (member.balances[pkg.level] || 0) + pkg.credits;
+          orders.unshift({ id: nextOrderId++, member: member.name, packageName: pkg.name, method: 'Card / PayNow', amount: pkg.price, status: 'confirmed', _new: true });
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+        },
+
+        buyManual: function (pkg) {
+          var order = { id: nextOrderId++, member: member.name, packageName: pkg.name, method: 'Bank transfer', amount: pkg.price, status: 'pending', _new: true, level: pkg.level, credits: pkg.credits };
+          orders.unshift(order);
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+          return order.id;
+        },
+
+        confirmOrder: function (id) {
+          var o = orders.find(function (x) { return x.id === id; });
+          if (!o || o.status !== 'pending') { return; }
+          o.status = 'confirmed';
+          if (o.member === member.name && o.level) {
+            member.balances[o.level] = (member.balances[o.level] || 0) + o.credits;
+            document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          }
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+          document.dispatchEvent(new CustomEvent('cp:orderStatusChange', { detail: { id: id, status: 'confirmed' } }));
+        },
+
+        voidOrder: function (id) {
+          var o = orders.find(function (x) { return x.id === id; });
+          if (!o || o.status !== 'pending') { return; }
+          o.status = 'voided';
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+          document.dispatchEvent(new CustomEvent('cp:orderStatusChange', { detail: { id: id, status: 'voided' } }));
+        }
+      };
+    })();
+
+    /* ============================================================
+       CLASS PORTAL — MEMBER WIDGET
+       ============================================================ */
+    (function () {
+      var CP = window.SBClassPortal;
+      var navBtns = document.querySelectorAll('#cpMemberNav button');
+      var panes = document.querySelectorAll('#cp-demo .sb-cp-pane');
+
+      function showTab(name) {
+        navBtns.forEach(function (b) { b.classList.toggle('is-active', b.dataset.tab === name); });
+        panes.forEach(function (p) { p.style.display = (p.dataset.tab === name) ? '' : 'none'; });
+      }
+      navBtns.forEach(function (b) { b.addEventListener('click', function () { showTab(b.dataset.tab); }); });
+      document.getElementById('cpGoBuy').addEventListener('click', function () { showTab('buy'); });
+
+      function renderBalances() {
+        var el = document.getElementById('cpBalances');
+        var chips = [];
+        Object.keys(CP.member.balances).forEach(function (lvl) {
+          chips.push('<div class="sb-cp-balchip"><div class="lvl">' + lvl + ' credits</div><div class="n">' + CP.member.balances[lvl] + '</div></div>');
+        });
+        el.innerHTML = chips.join('');
+      }
+
+      function renderUpcoming() {
+        var el = document.getElementById('cpUpcoming');
+        var list = CP.upcomingList();
+        if (!list.length) {
+          el.innerHTML = '<p class="sb-cp-empty">No classes booked yet — try the Weekly Schedule tab.</p>';
+          return;
+        }
+        el.innerHTML = list.map(function (item) {
+          var s = item.session, cls = item.cls;
+          var status = item.cancelRequested
+            ? '<span class="sb-admin-badge sb-admin-badge--pending">Cancel requested</span>'
+            : '<button class="sb-admin-btn" data-cancel="' + s.id + '">Request cancellation</button>';
+          return '<div class="sb-cp-uitem"><div><b>' + cls.name + '</b><br><span>' + CP.DAYS[s.day] + ' · ' + s.time + ' · ' + s.coach + '</span></div>' + status + '</div>';
+        }).join('');
+        el.querySelectorAll('[data-cancel]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.requestCancel(+btn.dataset.cancel); });
+        });
+      }
+
+      function renderWeek() {
+        var el = document.getElementById('cpWeek');
+        el.innerHTML = CP.DAYS.map(function (day, dIdx) {
+          var sessions = CP.sessions.filter(function (s) { return s.day === dIdx; });
+          var body = sessions.length ? sessions.map(function (s) {
+            var cls = CP.classById(s.classId);
+            var left = CP.spotsLeft(s);
+            var state = CP.bookingStateOf(s.id);
+            var spotsHtml = left > 0 ? left + ' left' : 'Full';
+            var btnHtml;
+            if (state === 'booked') { btnHtml = '<button class="is-booked" disabled>✓ Booked</button>'; }
+            else if (state === 'waitlisted') { btnHtml = '<button class="is-wait" disabled>On waitlist</button>'; }
+            else if (left > 0) { btnHtml = '<button data-book="' + s.id + '">Book · ' + cls.credits + ' cr</button>'; }
+            else { btnHtml = '<button class="is-wait" data-wait="' + s.id + '">Join waitlist</button>'; }
+            return '<div class="sb-cp-class' + (left <= 0 && state !== 'booked' ? '' : '') + '">' +
+              '<span class="t">' + s.time + '</span>' +
+              '<span class="n">' + cls.name + (cls.level !== 'Any' ? ' <em>(' + cls.level + ')</em>' : '') + '</span>' +
+              '<span class="spots' + (left <= 0 ? ' full' : '') + '">' + spotsHtml + '</span>' +
+              btnHtml + '</div>';
+          }).join('') : '<p class="sb-cp-empty" style="font-size:0.78em;">—</p>';
+          return '<div class="sb-cp-day"><div class="sb-cp-day-h">' + day + '</div>' + body + '</div>';
+        }).join('');
+
+        el.querySelectorAll('[data-book]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var res = CP.book(+btn.dataset.book);
+            if (!res.ok && res.reason === 'credits') {
+              btn.textContent = 'Not enough credits';
+              setTimeout(renderAll, 1100);
+            }
+          });
+        });
+        el.querySelectorAll('[data-wait]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.waitlist(+btn.dataset.wait); });
+        });
+      }
+
+      function renderPacks() {
+        var el = document.getElementById('cpPacks');
+        el.innerHTML = CP.packages.map(function (p) {
+          return '<div class="sb-cp-pack">' +
+            '<div class="lvl">' + p.level + ' level</div>' +
+            '<h4>' + p.name + '</h4>' +
+            '<div class="credits">' + p.credits + (p.credits === 1 ? ' credit' : ' credits') + '</div>' +
+            '<div class="price">' + (p.price ? '$' + p.price : 'Free') + '</div>' +
+            '<button class="sd-btn sd-btn--primary" data-buy="' + p.id + '" type="button">Buy</button>' +
+            '<div class="sb-cp-pay-methods" data-methods="' + p.id + '" style="display:none;">' +
+              '<button type="button" class="sb-cp-pay-method" data-pay="instant" data-pkg="' + p.id + '"><b>Card / PayNow</b><span>Instant — credits added the moment it clears</span></button>' +
+              '<button type="button" class="sb-cp-pay-method" data-pay="manual" data-pkg="' + p.id + '"><b>Bank transfer</b><span>You confirm it yourself — credits added once the owner approves</span></button>' +
+            '</div>' +
+            '<div class="sb-cp-pay-instructions" data-instructions="' + p.id + '" style="display:none;"></div>' +
+          '</div>';
+        }).join('');
+
+        el.querySelectorAll('[data-buy]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var m = el.querySelector('[data-methods="' + btn.dataset.buy + '"]');
+            m.style.display = m.style.display === 'none' ? 'flex' : 'none';
+          });
+        });
+        el.querySelectorAll('[data-pay="instant"]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var pkg = CP.packages.find(function (p) { return p.id === +btn.dataset.pkg; });
+            CP.buyInstant(pkg);
+            var box = el.querySelector('[data-instructions="' + pkg.id + '"]');
+            box.style.display = 'block';
+            box.textContent = '✅ Payment successful — ' + pkg.credits + ' ' + pkg.level + ' credits added to your account.';
+          });
+        });
+        el.querySelectorAll('[data-pay="manual"]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var pkg = CP.packages.find(function (p) { return p.id === +btn.dataset.pkg; });
+            CP.buyManual(pkg);
+            var box = el.querySelector('[data-instructions="' + pkg.id + '"]');
+            box.style.display = 'block';
+            box.innerHTML = '⏳ Order submitted. Transfer $' + pkg.price + ' to <b>Maybank 1234-5678-9012</b> and the owner will confirm it — you\'ll see the credits appear here once they do. Try approving it in the admin demo below.';
+          });
+        });
+      }
+
+      function renderAll() {
+        renderBalances();
+        renderUpcoming();
+        renderWeek();
+        renderPacks();
+      }
+
+      document.addEventListener('cp:memberChange', renderAll);
+      document.addEventListener('cp:orderStatusChange', function (e) {
+        if (e.detail.status === 'confirmed') { renderAll(); }
+      });
+
+      renderAll();
+    })();
+
+    /* ============================================================
+       CLASS PORTAL — ADMIN WIDGET
+       ============================================================ */
+    (function () {
+      var CP = window.SBClassPortal;
+      var navBtns = document.querySelectorAll('#cpAdminNav .sb-admin-navbtn');
+      var sections = document.querySelectorAll('#cp-admin-demo .sb-admin-section');
+      var crumb = document.getElementById('cpAdminCrumb');
+      var CRUMBS = { classes: 'Class Portal ▸ Classes', timetable: 'Class Portal ▸ Timetable', packages: 'Class Portal ▸ Packages', orders: 'Class Portal ▸ Credit Orders', members: 'Class Portal ▸ Members' };
+
+      navBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          navBtns.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          sections.forEach(function (s) { s.style.display = (s.dataset.section === b.dataset.section) ? '' : 'none'; });
+          crumb.textContent = CRUMBS[b.dataset.section] || CRUMBS.classes;
+        });
+      });
+
+      var LEVEL_OPTS = ['Any', 'Elite'];
+      function levelSelect(value) {
+        return '<select class="cp-level-select">' + LEVEL_OPTS.map(function (l) {
+          return '<option' + (l === value ? ' selected' : '') + '>' + l + '</option>';
+        }).join('') + '</select>';
+      }
+
+      function renderClasses() {
+        var el = document.getElementById('cpClassList');
+        el.innerHTML = CP.classes.map(function (c) {
+          return '<div class="sb-res-row">' +
+            '<div class="sb-res-field"><span>Name</span><input type="text" value="' + c.name + '"></div>' +
+            '<div class="sb-res-field"><span>Level</span>' + levelSelect(c.level) + '</div>' +
+            '<div class="sb-res-field"><span>Credits / booking</span><input type="number" value="' + c.credits + '" min="1"></div>' +
+            '<div class="sb-res-field"><span>Capacity</span><input type="number" value="' + c.capacity + '" min="1"></div>' +
+            '<button type="button" class="sb-admin-btn sb-admin-btn--reject">Remove</button>' +
+            '</div>';
+        }).join('');
+        el.querySelectorAll('.sb-admin-btn--reject').forEach(function (btn) {
+          btn.addEventListener('click', function () { btn.closest('.sb-res-row').remove(); });
+        });
+      }
+
+      document.getElementById('cpClassAdd').addEventListener('click', function () {
+        CP.addClass({ name: 'New class', level: 'Any', duration: '60 min', credits: 1, capacity: 6 });
+        renderClasses();
+      });
+
+      function renderTimetable() {
+        var el = document.getElementById('cpTimetable');
+        el.innerHTML = CP.DAYS.map(function (day, dIdx) {
+          var sessions = CP.sessions.filter(function (s) { return s.day === dIdx; });
+          var body = sessions.length ? sessions.map(function (s) {
+            var cls = CP.classById(s.classId);
+            return '<div class="sb-cp-tt-slot"><span class="t">' + s.time + '</span><span class="n">' + cls.name + '</span></div>';
+          }).join('') : '<p class="sb-cp-tt-empty">—</p>';
+          return '<div class="sb-cp-tt-day"><div class="sb-cp-tt-h">' + day + '</div>' + body + '</div>';
+        }).join('');
+      }
+
+      function renderPackages() {
+        var el = document.getElementById('cpPackList');
+        el.innerHTML = CP.packages.map(function (p) {
+          return '<div class="sb-res-row">' +
+            '<div class="sb-res-field"><span>Name</span><input type="text" value="' + p.name + '"></div>' +
+            '<div class="sb-res-field"><span>Level</span>' + levelSelect(p.level) + '</div>' +
+            '<div class="sb-res-field"><span>Credits</span><input type="number" value="' + p.credits + '" min="1"></div>' +
+            '<div class="sb-res-field"><span>Price ($)</span><input type="number" value="' + p.price + '" min="0"></div>' +
+            '<button type="button" class="sb-admin-btn sb-admin-btn--reject">Remove</button>' +
+            '</div>';
+        }).join('');
+        el.querySelectorAll('.sb-admin-btn--reject').forEach(function (btn) {
+          btn.addEventListener('click', function () { btn.closest('.sb-res-row').remove(); });
+        });
+      }
+
+      function orderBadge(status) {
+        var map = { pending: 'pending', confirmed: 'confirmed', voided: 'rejected' };
+        var label = status.charAt(0).toUpperCase() + status.slice(1);
+        return '<span class="sb-admin-badge sb-admin-badge--' + map[status] + '">' + label + '</span>';
+      }
+
+      function renderOrders() {
+        var el = document.getElementById('cpOrderRows');
+        if (!CP.orders.length) {
+          el.innerHTML = '<tr><td colspan="6"><p class="sb-admin-empty">No credit orders yet.</p></td></tr>';
+          return;
+        }
+        el.innerHTML = CP.orders.map(function (o) {
+          var actions = o.status === 'pending'
+            ? '<div class="sb-admin-actions"><button class="sb-admin-btn sb-admin-btn--approve" data-confirm="' + o.id + '">Confirm</button><button class="sb-admin-btn sb-admin-btn--reject" data-void="' + o.id + '">Void</button></div>'
+            : '<span style="color:#475569; font-size:0.85em;">—</span>';
+          return '<tr' + (o._new ? ' class="is-new"' : '') + '>' +
+            '<td>' + o.member + '</td><td>' + o.packageName + '</td><td>' + o.method + '</td><td>$' + o.amount + '</td><td>' + orderBadge(o.status) + '</td><td>' + actions + '</td>' +
+            '</tr>';
+        }).join('');
+        CP.orders.forEach(function (o) { o._new = false; });
+
+        el.querySelectorAll('[data-confirm]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.confirmOrder(+btn.dataset.confirm); });
+        });
+        el.querySelectorAll('[data-void]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.voidOrder(+btn.dataset.void); });
+        });
+      }
+
+      function renderMembers() {
+        var el = document.getElementById('cpMemberRows');
+        var rows = [{ name: CP.member.name, balances: CP.member.balances, upcoming: CP.upcomingList().length }]
+          .concat(CP.otherMembers.map(function (m) { return { name: m.name, balances: m.balances, upcoming: m.upcoming }; }));
+        el.innerHTML = rows.map(function (m) {
+          var bal = Object.keys(m.balances).map(function (l) { return l + ': ' + m.balances[l]; }).join(' · ');
+          return '<tr><td class="sb-admin-cust"><b>' + m.name + '</b></td><td>' + bal + '</td><td>' + m.upcoming + '</td><td><span style="color:#475569; font-size:0.85em;">—</span></td></tr>';
+        }).join('');
+      }
+
+      renderClasses();
+      renderTimetable();
+      renderPackages();
+      renderOrders();
+      renderMembers();
+
+      document.addEventListener('cp:ordersChange', function () { renderOrders(); renderMembers(); });
+      document.addEventListener('cp:memberChange', renderMembers);
+    })();
   </script>
 </body>
 </html>
