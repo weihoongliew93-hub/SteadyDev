@@ -135,6 +135,332 @@
       .sb-steps { grid-template-columns: 1fr; }
       .sb-price { font-size: 2.5em; }
     }
+
+    /* ===================== LIVE DEMO WIDGET ===================== */
+    .sb-demo-shell {
+      max-width: 760px; margin: 0 auto;
+      background: var(--sd-card);
+      border: 1px solid var(--sd-border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .sb-demo-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 18px;
+      background: var(--sd-bg-2);
+      border-bottom: 1px solid var(--sd-border);
+    }
+    .sb-demo-dot { width: 10px; height: 10px; border-radius: 50%; background: #334155; }
+    .sb-demo-bar-label {
+      margin-left: 8px; color: var(--sd-muted); font-size: 0.82em; font-weight: 600;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .sb-demo-live {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 6px;
+      color: var(--sd-green-light); font-size: 0.76em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .sb-demo-live::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--sd-green); box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+    }
+    .sb-demo-body { padding: 30px 28px 32px; }
+
+    .sb-demo-steps {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; margin-bottom: 26px; flex-wrap: wrap;
+    }
+    .sb-demo-step-pill {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--sd-muted); font-size: 0.82em; font-weight: 600;
+    }
+    .sb-demo-step-pill .num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85em; font-weight: 800; color: var(--sd-muted);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .sb-demo-step-pill.is-active { color: #e5e7eb; }
+    .sb-demo-step-pill.is-active .num { background: var(--sd-blue); border-color: var(--sd-blue); color: #fff; }
+    .sb-demo-step-pill.is-done .num { background: var(--sd-green); border-color: var(--sd-green); color: #052e1c; }
+    .sb-demo-step-sep { width: 22px; height: 1px; background: var(--sd-border); }
+
+    .sb-demo-h { color: #f1f5f9; font-size: 1.08em; font-weight: 700; margin: 0 0 4px; }
+    .sb-demo-sub { color: var(--sd-muted); font-size: 0.88em; margin: 0 0 20px; }
+
+    .sb-demo-resources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .sb-demo-res {
+      cursor: pointer; text-align: center;
+      border: 1px solid var(--sd-border); border-radius: 12px;
+      background: var(--sd-bg-2); padding: 16px 8px;
+      color: #cbd5e1; font-size: 0.86em; font-weight: 600;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    }
+    .sb-demo-res .ic { font-size: 1.6em; display: block; margin-bottom: 8px; }
+    .sb-demo-res:hover { border-color: var(--sd-blue-light); transform: translateY(-1px); }
+    .sb-demo-res.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: #fff; }
+
+    .sb-demo-dates { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+    .sb-demo-date {
+      cursor: pointer; flex-shrink: 0; text-align: center; min-width: 58px;
+      border: 1px solid var(--sd-border); border-radius: 10px;
+      background: var(--sd-bg-2); padding: 10px 4px;
+      color: #cbd5e1; font-size: 0.8em; font-weight: 600;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .sb-demo-date .dow { display: block; color: var(--sd-muted); font-size: 0.82em; margin-bottom: 3px; }
+    .sb-demo-date .dnum { display: block; font-size: 1.15em; font-weight: 800; }
+    .sb-demo-date:hover { border-color: var(--sd-blue-light); }
+    .sb-demo-date.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: #fff; }
+    .sb-demo-date.is-sel .dow { color: #93c5fd; }
+
+    .sb-demo-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-top: 18px; }
+    .sb-demo-slot {
+      cursor: pointer; text-align: center; border-radius: 9px;
+      border: 1px solid var(--sd-border); background: var(--sd-bg-2);
+      padding: 10px 4px; font-size: 0.84em; font-weight: 700; color: #cbd5e1;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .sb-demo-slot:hover { border-color: var(--sd-blue-light); }
+    .sb-demo-slot.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.16); color: #fff; }
+    .sb-demo-slot.is-peak { position: relative; }
+    .sb-demo-slot.is-peak::after {
+      content: "Peak"; position: absolute; top: -8px; right: -6px;
+      background: var(--sd-blue); color: #fff; font-size: 0.62em; font-weight: 800;
+      padding: 2px 6px; border-radius: 999px; letter-spacing: 0.03em;
+    }
+    .sb-demo-slot.is-taken {
+      cursor: not-allowed; color: #475569; text-decoration: line-through;
+      background: rgba(148,163,184,0.04);
+    }
+    .sb-demo-slot.is-taken:hover { border-color: var(--sd-border); }
+
+    .sb-demo-summary {
+      margin-top: 20px; border: 1px solid var(--sd-border); border-radius: 12px;
+      background: var(--sd-bg-2); padding: 14px 16px;
+      display: flex; flex-wrap: wrap; gap: 8px 22px;
+      font-size: 0.85em; color: var(--sd-muted);
+    }
+    .sb-demo-summary b { color: #e5e7eb; font-weight: 700; }
+
+    .sb-demo-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+    .sb-demo-nav .sd-btn { padding: 11px 24px; font-size: 0.94em; }
+    .sb-demo-back { background: none; border: none; color: var(--sd-muted); font-size: 0.88em; font-weight: 600; cursor: pointer; padding: 8px 4px; }
+    .sb-demo-back:hover { color: #e5e7eb; }
+
+    .sb-demo-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .sb-demo-field { display: flex; flex-direction: column; gap: 6px; }
+    .sb-demo-field.full { grid-column: 1 / -1; }
+    .sb-demo-field label { color: #cbd5e1; font-size: 0.82em; font-weight: 600; }
+    .sb-demo-field input {
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
+      padding: 10px 12px; color: #e5e7eb; font-size: 0.92em; font-family: inherit;
+    }
+    .sb-demo-field input:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-demo-field input::placeholder { color: #475569; }
+
+    .sb-demo-done { text-align: center; padding: 10px 0 4px; }
+    .sb-demo-done .tick {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 18px;
+      background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.4);
+      display: flex; align-items: center; justify-content: center; font-size: 1.6em;
+    }
+    .sb-demo-done h3 { color: #f1f5f9; font-size: 1.15em; margin: 0 0 8px; }
+    .sb-demo-done p { color: var(--sd-muted); font-size: 0.9em; max-width: 420px; margin: 0 auto 20px; line-height: 1.6; }
+    .sb-demo-pending-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(245,158,11,0.12); color: #fbbf24;
+      border: 1px solid rgba(245,158,11,0.35); border-radius: 999px;
+      font-size: 0.78em; font-weight: 700; padding: 6px 14px; margin-bottom: 16px;
+    }
+    .sb-demo-restart { margin-top: 4px; }
+
+    .sb-demo-caption { text-align: center; color: var(--sd-muted); font-size: 0.86em; margin-top: 18px; }
+    .sb-demo-ref { color: #64748b; font-size: 0.78em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 0 0 20px; }
+    .sb-demo-done-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .sb-demo-done-actions .sd-btn { min-width: 280px; justify-content: center; }
+
+    @media (max-width: 640px) {
+      .sb-demo-body { padding: 24px 18px 26px; }
+      .sb-demo-resources { grid-template-columns: repeat(2, 1fr); }
+      .sb-demo-slots { grid-template-columns: repeat(3, 1fr); }
+      .sb-demo-form { grid-template-columns: 1fr; }
+      .sb-demo-step-pill span.lbl { display: none; }
+      .sb-demo-done-actions .sd-btn { min-width: 0; width: 100%; }
+    }
+
+    /* ===================== ADMIN DEMO WIDGET ===================== */
+    .sb-admin-shell {
+      max-width: 920px; margin: 0 auto;
+      background: var(--sd-card);
+      border: 1px solid var(--sd-border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .sb-admin-topbar {
+      display: flex; align-items: center; gap: 16px;
+      padding: 13px 20px;
+      background: #1d2327; border-bottom: 1px solid var(--sd-border);
+    }
+    .sb-admin-wp { color: #e5e7eb; font-size: 0.86em; font-weight: 700; }
+    .sb-admin-crumb { color: #94a3b8; font-size: 0.84em; }
+
+    .sb-admin-nav { display: flex; gap: 2px; padding: 0 20px; background: #15191f; border-bottom: 1px solid var(--sd-border); overflow-x: auto; }
+    .sb-admin-navbtn {
+      cursor: pointer; background: none; border: none; white-space: nowrap;
+      color: var(--sd-muted); font-size: 0.85em; font-weight: 600;
+      padding: 12px 14px; border-bottom: 2px solid transparent;
+    }
+    .sb-admin-navbtn:hover { color: #e5e7eb; }
+    .sb-admin-navbtn.is-active { color: #fff; border-bottom-color: var(--sd-blue); }
+
+    .sb-admin-body { padding: 24px 24px 28px; }
+    .sb-admin-hint { color: var(--sd-muted); font-size: 0.88em; margin: 0 0 18px; line-height: 1.6; max-width: 640px; }
+
+    .sb-admin-tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid var(--sd-border); }
+    .sb-admin-tab {
+      cursor: pointer; background: none; border: none;
+      color: var(--sd-muted); font-size: 0.86em; font-weight: 600;
+      padding: 9px 14px; border-bottom: 2px solid transparent;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .sb-admin-tab span { background: var(--sd-bg-2); border-radius: 999px; padding: 1px 7px; font-size: 0.86em; color: #cbd5e1; }
+    .sb-admin-tab:hover { color: #e5e7eb; }
+    .sb-admin-tab.is-active { color: #fff; border-bottom-color: var(--sd-blue); }
+    .sb-admin-tab.is-active span { background: var(--sd-blue); color: #fff; }
+
+    .sb-admin-table-wrap { overflow-x: auto; }
+    .sb-admin-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    .sb-admin-table th {
+      text-align: left; color: var(--sd-muted); font-size: 0.76em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0 12px 10px;
+      border-bottom: 1px solid var(--sd-border);
+    }
+    .sb-admin-table td {
+      padding: 13px 12px; font-size: 0.88em; color: #cbd5e1;
+      border-bottom: 1px solid rgba(148,163,184,0.1);
+      vertical-align: middle;
+    }
+    .sb-admin-table tr:last-child td { border-bottom: none; }
+    .sb-admin-table tr.is-new { animation: sbRowIn 1.4s ease; }
+    @keyframes sbRowIn { 0% { background: rgba(37,99,235,0.22); } 100% { background: transparent; } }
+    .sb-admin-cust b { display: block; color: #f1f5f9; font-weight: 700; }
+    .sb-admin-cust span { color: #64748b; font-size: 0.9em; }
+
+    .sb-admin-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.78em; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .sb-admin-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
+    .sb-admin-badge--pending { background: rgba(245,158,11,0.14); color: #fbbf24; }
+    .sb-admin-badge--pending::before { background: #fbbf24; }
+    .sb-admin-badge--confirmed { background: rgba(16,185,129,0.14); color: var(--sd-green-light); }
+    .sb-admin-badge--confirmed::before { background: var(--sd-green); }
+    .sb-admin-badge--rejected { background: rgba(248,113,113,0.14); color: #fca5a5; }
+    .sb-admin-badge--rejected::before { background: #f87171; }
+
+    .sb-admin-actions { display: flex; gap: 6px; white-space: nowrap; }
+    .sb-admin-btn {
+      cursor: pointer; border-radius: 7px; font-size: 0.8em; font-weight: 700;
+      padding: 6px 11px; border: 1px solid var(--sd-border); background: var(--sd-bg-2); color: #cbd5e1;
+    }
+    .sb-admin-btn:hover { border-color: var(--sd-blue-light); color: #fff; }
+    .sb-admin-btn--approve { border-color: rgba(16,185,129,0.4); color: var(--sd-green-light); }
+    .sb-admin-btn--approve:hover { background: rgba(16,185,129,0.14); border-color: var(--sd-green); }
+    .sb-admin-btn--reject { border-color: rgba(248,113,113,0.35); color: #fca5a5; }
+    .sb-admin-btn--reject:hover { background: rgba(248,113,113,0.14); border-color: #f87171; }
+    .sb-admin-empty { color: var(--sd-muted); font-size: 0.9em; text-align: center; padding: 30px 0; }
+
+    /* ---- Resources panel ---- */
+    .sb-res-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .sb-res-row {
+      display: grid; grid-template-columns: 40px 1.6fr 1fr 1fr 90px;
+      gap: 12px; align-items: center;
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px;
+      padding: 11px 14px;
+    }
+    .sb-res-row .icon-pick {
+      text-align: center; font-size: 1.2em; background: none; border: 1px solid var(--sd-border);
+      border-radius: 8px; padding: 5px 0; cursor: pointer; color: #e5e7eb;
+    }
+    .sb-res-row input[type="text"], .sb-res-row input[type="number"] {
+      background: var(--sd-card); border: 1px solid var(--sd-border); border-radius: 7px;
+      padding: 8px 10px; color: #e5e7eb; font-size: 0.88em; font-family: inherit; width: 100%;
+    }
+    .sb-res-row input:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-res-field { display: flex; flex-direction: column; gap: 4px; }
+    .sb-res-field span { color: #64748b; font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+    .sb-res-row .sb-admin-btn--reject { justify-self: end; }
+
+    /* ---- Branding panel ---- */
+    .sb-brand-layout { display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: start; }
+    .sb-brand-controls { display: flex; flex-direction: column; gap: 12px; }
+    .sb-brand-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .sb-brand-row label { color: #cbd5e1; font-size: 0.87em; font-weight: 600; }
+    .sb-brand-row input[type="color"] {
+      width: 40px; height: 30px; border: 1px solid var(--sd-border); border-radius: 7px;
+      background: none; cursor: pointer; padding: 0;
+    }
+    .sb-brand-preview { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 12px; padding: 20px; }
+    .sb-brand-preview-label { color: #64748b; font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 12px; }
+    .sb-bp-card { border-radius: 12px; padding: 18px; transition: background 0.15s; }
+    .sb-bp-h { font-weight: 700; margin-bottom: 12px; transition: color 0.15s; }
+    .sb-bp-slots { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .sb-bp-slot {
+      position: relative; font-size: 0.84em; font-weight: 700; padding: 8px 12px; border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.25); transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .sb-bp-slot.taken { opacity: 0.4; text-decoration: line-through; }
+    .sb-bp-slot i { position: absolute; top: -9px; right: -6px; font-style: normal; font-size: 0.7em; font-weight: 800; color: #fff; padding: 1px 6px; border-radius: 999px; }
+    .sb-bp-btn { border: none; border-radius: 9px; padding: 11px 18px; font-weight: 700; font-size: 0.9em; cursor: default; transition: background 0.15s, color 0.15s; }
+
+    /* ---- Emails panel ---- */
+    .sb-mail-layout { display: grid; grid-template-columns: 210px 1fr; gap: 20px; }
+    .sb-mail-list { display: flex; flex-direction: column; gap: 6px; }
+    .sb-mail-item {
+      cursor: pointer; text-align: left; background: var(--sd-bg-2); border: 1px solid var(--sd-border);
+      border-radius: 9px; padding: 10px 12px; color: #cbd5e1; font-size: 0.86em; font-weight: 600;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .sb-mail-item:hover { border-color: var(--sd-blue-light); }
+    .sb-mail-item.is-active { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: #fff; }
+    .sb-mail-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sd-green); flex-shrink: 0; }
+    .sb-mail-item.is-off .dot { background: #475569; }
+    .sb-mail-item.is-off { color: #64748b; }
+
+    .sb-mail-editor-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .sb-mail-subject {
+      flex: 1; background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
+      padding: 9px 12px; color: #f1f5f9; font-size: 0.92em; font-weight: 700; font-family: inherit;
+    }
+    .sb-mail-subject:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-mail-toggle { display: flex; align-items: center; gap: 6px; color: var(--sd-muted); font-size: 0.82em; font-weight: 600; white-space: nowrap; }
+    .sb-mail-body {
+      width: 100%; resize: vertical; background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
+      padding: 12px; color: #cbd5e1; font-size: 0.88em; font-family: inherit; line-height: 1.6;
+    }
+    .sb-mail-body:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-mail-tags { color: #64748b; font-size: 0.78em; margin: 8px 0 16px; }
+    .sb-mail-tags code { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 5px; padding: 1px 5px; color: #93c5fd; }
+    .sb-mail-preview-label { color: #64748b; font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 8px; }
+    .sb-mail-preview {
+      background: #f5f7fb; color: #1e293b; border-radius: 10px; padding: 18px 20px;
+      font-size: 0.9em; line-height: 1.7; white-space: pre-wrap;
+    }
+
+    @media (max-width: 640px) {
+      .sb-admin-body { padding: 18px 14px 22px; }
+      .sb-admin-tabs { overflow-x: auto; }
+      .sb-res-row { grid-template-columns: 1fr; }
+      .sb-brand-layout { grid-template-columns: 1fr; }
+      .sb-mail-layout { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -165,6 +491,207 @@
         <span>🎛️ Equipment</span>
         <span>💇 Chairs</span>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIVE DEMO ===================== -->
+  <section class="sd-section sd-section--dark" id="demo">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">See It In Action</p>
+      <h2 class="sd-section-title">Try the <span class="accent">booking flow</span> yourself</h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">This is a live simulation of the exact steps a customer walks through on your site — pick a resource, a date, a time, then confirm. Nothing here is real; go ahead and click around.</p>
+
+      <div class="sb-demo-shell">
+        <div class="sb-demo-bar">
+          <span class="sb-demo-dot"></span><span class="sb-demo-dot"></span><span class="sb-demo-dot"></span>
+          <span class="sb-demo-bar-label">[steadybook]</span>
+          <span class="sb-demo-live">Interactive demo</span>
+        </div>
+
+        <div class="sb-demo-body">
+          <div class="sb-demo-steps" id="sbSteps">
+            <div class="sb-demo-step-pill" data-step="1"><span class="num">1</span><span class="lbl">Resource</span></div>
+            <span class="sb-demo-step-sep"></span>
+            <div class="sb-demo-step-pill" data-step="2"><span class="num">2</span><span class="lbl">Date &amp; time</span></div>
+            <span class="sb-demo-step-sep"></span>
+            <div class="sb-demo-step-pill" data-step="3"><span class="num">3</span><span class="lbl">Your details</span></div>
+            <span class="sb-demo-step-sep"></span>
+            <div class="sb-demo-step-pill" data-step="4"><span class="num">4</span><span class="lbl">Done</span></div>
+          </div>
+
+          <!-- STEP 1: resource -->
+          <div class="sb-demo-pane" data-pane="1">
+            <h3 class="sb-demo-h">Choose what to book</h3>
+            <p class="sb-demo-sub">Resources, names and icons are whatever you configure — this demo uses a padel club as an example.</p>
+            <div class="sb-demo-resources" id="sbResources">
+              <div class="sb-demo-res" data-name="Court 1" data-price="80"><span class="ic">🏸</span>Court 1</div>
+              <div class="sb-demo-res" data-name="Court 2" data-price="80"><span class="ic">🏸</span>Court 2</div>
+              <div class="sb-demo-res" data-name="Court 3 (Indoor)" data-price="110"><span class="ic">🏟️</span>Court 3 (Indoor)</div>
+            </div>
+            <div class="sb-demo-nav">
+              <span></span>
+              <button class="sd-btn sd-btn--primary" id="sbNext1" disabled>Next: pick a time <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+
+          <!-- STEP 2: date/time -->
+          <div class="sb-demo-pane" data-pane="2" style="display:none;">
+            <h3 class="sb-demo-h">Pick a date &amp; time</h3>
+            <p class="sb-demo-sub">Slots update live — anything already confirmed is greyed out and can't be double-booked.</p>
+            <div class="sb-demo-dates" id="sbDates"></div>
+            <div class="sb-demo-slots" id="sbSlots"></div>
+            <div class="sb-demo-summary" id="sbSummary2" style="display:none;"></div>
+            <div class="sb-demo-nav">
+              <button class="sb-demo-back" data-back="1">← Back</button>
+              <button class="sd-btn sd-btn--primary" id="sbNext2" disabled>Next: your details <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+
+          <!-- STEP 3: details -->
+          <div class="sb-demo-pane" data-pane="3" style="display:none;">
+            <h3 class="sb-demo-h">Your details</h3>
+            <p class="sb-demo-sub">Try any values — this demo doesn't send anything anywhere.</p>
+            <div class="sb-demo-form">
+              <div class="sb-demo-field"><label>Full name</label><input type="text" id="sbName" placeholder="Jamie Tan"></div>
+              <div class="sb-demo-field"><label>Phone</label><input type="text" id="sbPhone" placeholder="012-345 6789"></div>
+              <div class="sb-demo-field full"><label>Email</label><input type="email" id="sbEmail" placeholder="jamie@example.com"></div>
+              <div class="sb-demo-field full"><label>Group size</label><input type="number" id="sbGroup" placeholder="4" min="1"></div>
+            </div>
+            <div class="sb-demo-summary" id="sbSummary3"></div>
+            <div class="sb-demo-nav">
+              <button class="sb-demo-back" data-back="2">← Back</button>
+              <button class="sd-btn sd-btn--primary" id="sbNext3">Confirm booking <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+
+          <!-- STEP 4: done -->
+          <div class="sb-demo-pane" data-pane="4" style="display:none;">
+            <div class="sb-demo-done">
+              <div class="tick" id="sbDoneTick">⏳</div>
+              <span class="sb-demo-pending-badge" id="sbStatusPill">● Pending admin approval</span>
+              <h3 id="sbDoneTitle">Request sent — awaiting confirmation</h3>
+              <p id="sbDoneText">In a real install, the site owner now sees this in their WordPress dashboard and approves, rejects, or cancels it. You'd get an email the moment they act, plus a reminder before the slot.</p>
+              <p class="sb-demo-ref" id="sbDoneRef"></p>
+              <div class="sb-demo-done-actions">
+                <button class="sd-btn sd-btn--primary" id="sbGoAdmin">Approve it in the admin dashboard <span aria-hidden="true">↓</span></button>
+                <button class="sd-btn sd-btn--ghost sb-demo-restart" id="sbRestart">↺ Try it again</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="sb-demo-caption">This is a front-end simulation for demo purposes — the real plugin runs inside your WordPress site with your own resources, pricing and branding.</p>
+    </div>
+  </section>
+
+  <!-- ===================== LIVE DEMO: ADMIN DASHBOARD ===================== -->
+  <section class="sd-section sd-section--dark" id="admin-demo">
+    <div class="sd-inner">
+      <p class="sd-eyebrow">The Other Side</p>
+      <h2 class="sd-section-title">What <span class="accent">you</span> see as the site owner</h2>
+      <div class="sd-title-rule"></div>
+      <p class="sd-section-sub">Every booking lands here first as <em>Pending</em> — nothing is confirmed until you approve it. This is also where you set up resources, colours and emails, so click around the tabs below too.</p>
+
+      <div class="sb-admin-shell">
+        <div class="sb-admin-topbar">
+          <span class="sb-admin-wp">🔷 WP&nbsp;Admin</span>
+          <span class="sb-admin-crumb" id="sbAdminCrumb">Venue Booking ▸ All Bookings</span>
+          <span class="sb-demo-live">Interactive demo</span>
+        </div>
+
+        <div class="sb-admin-nav" id="sbAdminNav">
+          <button class="sb-admin-navbtn is-active" data-section="bookings">📋 Bookings</button>
+          <button class="sb-admin-navbtn" data-section="resources">🏟️ Resources</button>
+          <button class="sb-admin-navbtn" data-section="branding">🎨 Colours &amp; Branding</button>
+          <button class="sb-admin-navbtn" data-section="emails">✉️ Emails</button>
+        </div>
+
+        <div class="sb-admin-body">
+
+          <!-- SECTION: bookings -->
+          <div class="sb-admin-section" data-section="bookings">
+            <div class="sb-admin-tabs" id="sbAdminTabs">
+              <button class="sb-admin-tab is-active" data-filter="all">All <span id="sbCountAll">0</span></button>
+              <button class="sb-admin-tab" data-filter="pending">Pending <span id="sbCountPending">0</span></button>
+              <button class="sb-admin-tab" data-filter="confirmed">Confirmed <span id="sbCountConfirmed">0</span></button>
+              <button class="sb-admin-tab" data-filter="rejected">Rejected <span id="sbCountRejected">0</span></button>
+            </div>
+
+            <div class="sb-admin-table-wrap">
+              <table class="sb-admin-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Resource</th>
+                    <th>Date &amp; time</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="sbAdminRows"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION: resources -->
+          <div class="sb-admin-section" data-section="resources" style="display:none;">
+            <p class="sb-admin-hint">Define what customers can book — name, icon, base price and a peak-hour surcharge. Add as many as you need: courts, bays, rooms, tables, chairs, equipment.</p>
+            <div class="sb-res-list" id="sbResList"></div>
+            <button class="sd-btn sd-btn--ghost" id="sbResAdd" type="button">+ Add resource</button>
+          </div>
+
+          <!-- SECTION: branding -->
+          <div class="sb-admin-section" data-section="branding" style="display:none;">
+            <p class="sb-admin-hint">Every colour in the booking form is yours to set. Drag the pickers and watch the preview update — this is exactly what your customers see.</p>
+            <div class="sb-brand-layout">
+              <div class="sb-brand-controls">
+                <div class="sb-brand-row"><label>Accent / buttons</label><input type="color" id="bcAccent" value="#2563eb"></div>
+                <div class="sb-brand-row"><label>Available slot</label><input type="color" id="bcAvail" value="#111a27"></div>
+                <div class="sb-brand-row"><label>Booked slot</label><input type="color" id="bcBooked" value="#3a2a2a"></div>
+                <div class="sb-brand-row"><label>Peak badge</label><input type="color" id="bcPeak" value="#2563eb"></div>
+                <div class="sb-brand-row"><label>Card background</label><input type="color" id="bcCard" value="#111a27"></div>
+                <div class="sb-brand-row"><label>Text</label><input type="color" id="bcText" value="#e5e7eb"></div>
+                <button class="sd-btn sd-btn--ghost" id="bcReset" type="button" style="margin-top:6px;">↺ Reset to defaults</button>
+              </div>
+              <div class="sb-brand-preview" id="sbBrandPreview">
+                <p class="sb-brand-preview-label">Live preview</p>
+                <div class="sb-bp-card" id="bpCard">
+                  <div class="sb-bp-h" id="bpH">Court 2 · Tue 25</div>
+                  <div class="sb-bp-slots">
+                    <span class="sb-bp-slot" id="bpSlot1">10:00</span>
+                    <span class="sb-bp-slot is-sel" id="bpSlot2">14:00</span>
+                    <span class="sb-bp-slot peak" id="bpSlot3">17:00<i>Peak</i></span>
+                    <span class="sb-bp-slot taken" id="bpSlot4">18:00</span>
+                  </div>
+                  <button class="sb-bp-btn" id="bpBtn">Confirm booking →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION: emails -->
+          <div class="sb-admin-section" data-section="emails" style="display:none;">
+            <p class="sb-admin-hint">Customers are emailed automatically at each stage. Edit the wording, or switch a template off entirely.</p>
+            <div class="sb-mail-layout">
+              <div class="sb-mail-list" id="sbMailList"></div>
+              <div class="sb-mail-editor">
+                <div class="sb-mail-editor-head">
+                  <input type="text" id="mailSubject" class="sb-mail-subject">
+                  <label class="sb-mail-toggle"><input type="checkbox" id="mailEnabled" checked><span>Enabled</span></label>
+                </div>
+                <textarea id="mailBody" class="sb-mail-body" rows="6"></textarea>
+                <p class="sb-mail-tags">Merge tags: <code>{{customer_name}}</code> <code>{{resource}}</code> <code>{{date}}</code> <code>{{time}}</code></p>
+                <p class="sb-mail-preview-label">Live preview</p>
+                <div class="sb-mail-preview" id="sbMailPreview"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="sb-demo-caption">In the real plugin this screen lives inside your WordPress dashboard, with your actual bookings — approving or rejecting here sends the customer an email automatically.</p>
     </div>
   </section>
 
@@ -509,6 +1036,488 @@
       backToTop.classList.toggle('visible', y > 500);
     });
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ============================================================
+       ADMIN DASHBOARD DEMO — a front-end-only simulation of the
+       plugin's "All Bookings" screen. Seeded with a few sample rows
+       so the table doesn't look empty, plus whatever the customer
+       widget below adds when someone completes the booking demo.
+       Exposed on window.SBAdmin so the customer widget can push a
+       booking into it and read its status back.
+       ============================================================ */
+    window.SBAdmin = (function () {
+      var rows = document.getElementById('sbAdminRows');
+      var tabs = document.querySelectorAll('#sbAdminTabs .sb-admin-tab');
+      var activeFilter = 'all';
+      var nextId = 1042;
+
+      var bookings = [
+        { id: 1039, name: 'Priya Nair', contact: 'priya.n@example.com', resource: 'Court 1', date: 'Tue 25', time: '18:00', price: 100, status: 'confirmed' },
+        { id: 1040, name: 'Marcus Lee', contact: 'marcus.lee@example.com', resource: 'Court 3 (Indoor)', date: 'Wed 26', time: '09:00', price: 110, status: 'pending' },
+        { id: 1041, name: 'Farah Aziz', contact: '012-778 4410', resource: 'Court 2', date: 'Thu 27', time: '15:00', price: 100, status: 'rejected' }
+      ];
+
+      function badge(status) {
+        var label = status.charAt(0).toUpperCase() + status.slice(1);
+        return '<span class="sb-admin-badge sb-admin-badge--' + status + '">' + label + '</span>';
+      }
+
+      function actionsFor(b) {
+        if (b.status === 'pending') {
+          return '<div class="sb-admin-actions">' +
+            '<button class="sb-admin-btn sb-admin-btn--approve" data-act="approve" data-id="' + b.id + '">Approve</button>' +
+            '<button class="sb-admin-btn sb-admin-btn--reject" data-act="reject" data-id="' + b.id + '">Reject</button>' +
+            '</div>';
+        }
+        if (b.status === 'confirmed') {
+          return '<div class="sb-admin-actions"><button class="sb-admin-btn" data-act="cancel" data-id="' + b.id + '">Cancel</button></div>';
+        }
+        return '<div class="sb-admin-actions"><span style="color:#475569; font-size:0.85em;">—</span></div>';
+      }
+
+      function render() {
+        var list = bookings.filter(function (b) { return activeFilter === 'all' || b.status === activeFilter; });
+
+        tabs.forEach(function (t) {
+          t.classList.toggle('is-active', t.dataset.filter === activeFilter);
+        });
+        document.getElementById('sbCountAll').textContent = bookings.length;
+        document.getElementById('sbCountPending').textContent = bookings.filter(function (b) { return b.status === 'pending'; }).length;
+        document.getElementById('sbCountConfirmed').textContent = bookings.filter(function (b) { return b.status === 'confirmed'; }).length;
+        document.getElementById('sbCountRejected').textContent = bookings.filter(function (b) { return b.status === 'rejected'; }).length;
+
+        if (!list.length) {
+          rows.innerHTML = '<tr><td colspan="6"><p class="sb-admin-empty">No bookings in this view.</p></td></tr>';
+          return;
+        }
+
+        rows.innerHTML = list.map(function (b) {
+          return '<tr' + (b._new ? ' class="is-new"' : '') + ' data-row="' + b.id + '">' +
+            '<td class="sb-admin-cust"><b>' + b.name + '</b><span>' + b.contact + '</span></td>' +
+            '<td>' + b.resource + '</td>' +
+            '<td>' + b.date + ' · ' + b.time + '</td>' +
+            '<td>$' + b.price + '</td>' +
+            '<td>' + badge(b.status) + '</td>' +
+            '<td>' + actionsFor(b) + '</td>' +
+            '</tr>';
+        }).join('');
+        list.forEach(function (b) { b._new = false; });
+      }
+
+      rows.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-act]');
+        if (!btn) { return; }
+        var id = +btn.dataset.id;
+        var b = bookings.find(function (x) { return x.id === id; });
+        if (!b) { return; }
+        if (btn.dataset.act === 'approve') { b.status = 'confirmed'; }
+        else if (btn.dataset.act === 'reject') { b.status = 'rejected'; }
+        else if (btn.dataset.act === 'cancel') { b.status = 'rejected'; }
+        render();
+        document.dispatchEvent(new CustomEvent('sb:statusChange', { detail: { id: id, status: b.status } }));
+      });
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { activeFilter = t.dataset.filter; render(); });
+      });
+
+      render();
+
+      return {
+        add: function (b) {
+          b.id = nextId++;
+          b.status = 'pending';
+          b._new = true;
+          bookings.unshift(b);
+          activeFilter = 'all';
+          render();
+          return b.id;
+        },
+        getStatus: function (id) {
+          var b = bookings.find(function (x) { return x.id === id; });
+          return b ? b.status : null;
+        },
+        highlight: function (id) {
+          window.sbAdminShowSection('bookings');
+          var row = rows.querySelector('[data-row="' + id + '"]');
+          if (row) { row.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+      };
+    })();
+
+    /* ============================================================
+       ADMIN NAV — switches between Bookings / Resources / Branding /
+       Emails inside the admin demo shell.
+       ============================================================ */
+    (function () {
+      var navBtns = document.querySelectorAll('#sbAdminNav .sb-admin-navbtn');
+      var sections = document.querySelectorAll('.sb-admin-section');
+      var crumb = document.getElementById('sbAdminCrumb');
+      var CRUMBS = {
+        bookings: 'Venue Booking ▸ All Bookings',
+        resources: 'Venue Booking ▸ Resources',
+        branding: 'Venue Booking ▸ Settings ▸ Colours &amp; Branding',
+        emails: 'Venue Booking ▸ Settings ▸ Emails'
+      };
+
+      function show(name) {
+        navBtns.forEach(function (b) { b.classList.toggle('is-active', b.dataset.section === name); });
+        sections.forEach(function (s) { s.style.display = (s.dataset.section === name) ? '' : 'none'; });
+        crumb.innerHTML = CRUMBS[name] || CRUMBS.bookings;
+      }
+
+      navBtns.forEach(function (b) {
+        b.addEventListener('click', function () { show(b.dataset.section); });
+      });
+
+      window.sbAdminShowSection = show;
+    })();
+
+    /* ============================================================
+       RESOURCES PANEL DEMO — editable list of bookable resources.
+       Purely cosmetic (nothing persists), it exists so a visitor can
+       feel how configuring resources, prices and peak rates works.
+       ============================================================ */
+    (function () {
+      var list = document.getElementById('sbResList');
+      var addBtn = document.getElementById('sbResAdd');
+      var icons = ['🏸','🏟️','🧖','🍽️','🎛️','💇','🏌️','🏋️'];
+      var seed = [
+        { icon: '🏸', name: 'Court 1', price: 80, peak: 20 },
+        { icon: '🏸', name: 'Court 2', price: 80, peak: 20 },
+        { icon: '🏟️', name: 'Court 3 (Indoor)', price: 110, peak: 20 }
+      ];
+
+      function addRow(data) {
+        var row = document.createElement('div');
+        row.className = 'sb-res-row';
+        row.innerHTML =
+          '<button type="button" class="icon-pick">' + data.icon + '</button>' +
+          '<div class="sb-res-field"><span>Name</span><input type="text" value="' + data.name + '"></div>' +
+          '<div class="sb-res-field"><span>Base price / hr</span><input type="number" value="' + data.price + '" min="0"></div>' +
+          '<div class="sb-res-field"><span>Peak surcharge</span><input type="number" value="' + data.peak + '" min="0"></div>' +
+          '<button type="button" class="sb-admin-btn sb-admin-btn--reject">Remove</button>';
+
+        row.querySelector('.icon-pick').addEventListener('click', function () {
+          var i = (icons.indexOf(this.textContent) + 1) % icons.length;
+          this.textContent = icons[i];
+        });
+        row.querySelector('.sb-admin-btn--reject').addEventListener('click', function () { row.remove(); });
+        list.appendChild(row);
+      }
+
+      seed.forEach(addRow);
+      addBtn.addEventListener('click', function () {
+        addRow({ icon: '🎛️', name: 'New resource', price: 50, peak: 10 });
+      });
+    })();
+
+    /* ============================================================
+       BRANDING PANEL DEMO — colour pickers drive a live preview of
+       the booking widget's slot grid so the effect is immediate.
+       ============================================================ */
+    (function () {
+      var accent = document.getElementById('bcAccent');
+      var avail = document.getElementById('bcAvail');
+      var booked = document.getElementById('bcBooked');
+      var peak = document.getElementById('bcPeak');
+      var card = document.getElementById('bcCard');
+      var text = document.getElementById('bcText');
+      var reset = document.getElementById('bcReset');
+
+      var defaults = { accent: '#2563eb', avail: '#111a27', booked: '#3a2a2a', peak: '#2563eb', card: '#111a27', text: '#e5e7eb' };
+
+      function apply() {
+        var bp = document.getElementById('bpCard');
+        bp.style.background = card.value;
+        document.getElementById('bpH').style.color = text.value;
+
+        var s1 = document.getElementById('bpSlot1'), s2 = document.getElementById('bpSlot2'),
+            s3 = document.getElementById('bpSlot3'), s4 = document.getElementById('bpSlot4');
+
+        [s1, s2, s3].forEach(function (s) { s.style.color = text.value; });
+        s1.style.background = avail.value;
+        s2.style.background = accent.value; s2.style.color = '#fff'; s2.style.borderColor = accent.value;
+        s3.style.background = avail.value;
+        s3.querySelector('i').style.background = peak.value;
+        s4.style.background = booked.value; s4.style.color = text.value;
+
+        var btn = document.getElementById('bpBtn');
+        btn.style.background = accent.value;
+        btn.style.color = '#fff';
+      }
+
+      [accent, avail, booked, peak, card, text].forEach(function (input) {
+        input.addEventListener('input', apply);
+      });
+
+      reset.addEventListener('click', function () {
+        accent.value = defaults.accent; avail.value = defaults.avail; booked.value = defaults.booked;
+        peak.value = defaults.peak; card.value = defaults.card; text.value = defaults.text;
+        apply();
+      });
+
+      apply();
+    })();
+
+    /* ============================================================
+       EMAILS PANEL DEMO — pick a template, edit subject/body, see a
+       merge-tag-rendered preview update live.
+       ============================================================ */
+    (function () {
+      var TEMPLATES = [
+        { id: 'received', label: 'Booking received', on: true,
+          subject: 'We\'ve got your booking request',
+          body: 'Hi {{customer_name}},\n\nThanks for booking {{resource}} on {{date}} at {{time}}. We\'ll confirm shortly.\n\n— The team' },
+        { id: 'approved', label: 'Booking approved', on: true,
+          subject: 'You\'re confirmed for {{date}}',
+          body: 'Hi {{customer_name}},\n\nGood news — your booking for {{resource}} on {{date}} at {{time}} is confirmed. See you then!\n\n— The team' },
+        { id: 'rejected', label: 'Booking rejected', on: true,
+          subject: 'About your booking request',
+          body: 'Hi {{customer_name}},\n\nUnfortunately we can\'t accommodate {{resource}} on {{date}} at {{time}}. Please try another slot.\n\n— The team' },
+        { id: 'reminder', label: 'Reminder', on: false,
+          subject: 'Reminder: {{resource}} today at {{time}}',
+          body: 'Hi {{customer_name}},\n\nJust a reminder that your booking for {{resource}} is coming up on {{date}} at {{time}}.\n\n— The team' }
+      ];
+      var SAMPLE = { customer_name: 'Alex Wong', resource: 'Court 2', date: 'Tue 25', time: '18:00' };
+
+      var listEl = document.getElementById('sbMailList');
+      var subjectEl = document.getElementById('mailSubject');
+      var bodyEl = document.getElementById('mailBody');
+      var enabledEl = document.getElementById('mailEnabled');
+      var previewEl = document.getElementById('sbMailPreview');
+      var activeId = 'received';
+
+      function merge(str) {
+        return str.replace(/\{\{(\w+)\}\}/g, function (m, k) { return SAMPLE[k] || m; });
+      }
+
+      function renderList() {
+        listEl.innerHTML = TEMPLATES.map(function (t) {
+          return '<button type="button" class="sb-mail-item' + (t.id === activeId ? ' is-active' : '') + (t.on ? '' : ' is-off') + '" data-id="' + t.id + '">' +
+            '<span class="dot"></span>' + t.label + '</button>';
+        }).join('');
+        listEl.querySelectorAll('.sb-mail-item').forEach(function (btn) {
+          btn.addEventListener('click', function () { activeId = btn.dataset.id; renderEditor(); renderList(); });
+        });
+      }
+
+      function renderPreview() {
+        previewEl.textContent = 'Subject: ' + merge(subjectEl.value) + '\n\n' + merge(bodyEl.value);
+      }
+
+      function renderEditor() {
+        var t = TEMPLATES.find(function (x) { return x.id === activeId; });
+        subjectEl.value = t.subject;
+        bodyEl.value = t.body;
+        enabledEl.checked = t.on;
+        renderPreview();
+      }
+
+      subjectEl.addEventListener('input', function () {
+        TEMPLATES.find(function (x) { return x.id === activeId; }).subject = subjectEl.value;
+        renderPreview();
+      });
+      bodyEl.addEventListener('input', function () {
+        TEMPLATES.find(function (x) { return x.id === activeId; }).body = bodyEl.value;
+        renderPreview();
+      });
+      enabledEl.addEventListener('change', function () {
+        TEMPLATES.find(function (x) { return x.id === activeId; }).on = enabledEl.checked;
+        renderList();
+      });
+
+      renderList();
+      renderEditor();
+    })();
+
+    /* ============================================================
+       LIVE DEMO WIDGET — a front-end-only simulation of the
+       [steadybook] booking flow. Nothing here talks to a server;
+       it exists purely so a visitor can feel the UX before buying.
+       ============================================================ */
+    (function () {
+      var state = { resource: null, price: 0, date: null, time: null, isPeak: false };
+      var currentBookingId = null;
+
+      var panes = document.querySelectorAll('.sb-demo-pane');
+      var stepPills = document.querySelectorAll('#sbSteps .sb-demo-step-pill');
+
+      function showStep(n) {
+        panes.forEach(function (p) { p.style.display = (+p.dataset.pane === n) ? '' : 'none'; });
+        stepPills.forEach(function (pill) {
+          var s = +pill.dataset.step;
+          pill.classList.toggle('is-active', s === n);
+          pill.classList.toggle('is-done', s < n);
+        });
+      }
+
+      document.querySelectorAll('.sb-demo-back').forEach(function (btn) {
+        btn.addEventListener('click', function () { showStep(+btn.dataset.back); });
+      });
+
+      // ---- Step 1: resource ----
+      var resourceEls = document.querySelectorAll('#sbResources .sb-demo-res');
+      var next1 = document.getElementById('sbNext1');
+      resourceEls.forEach(function (el) {
+        el.addEventListener('click', function () {
+          resourceEls.forEach(function (r) { r.classList.remove('is-sel'); });
+          el.classList.add('is-sel');
+          state.resource = el.dataset.name;
+          state.price = +el.dataset.price;
+          next1.disabled = false;
+        });
+      });
+      next1.addEventListener('click', function () {
+        if (next1.disabled) { return; }
+        buildDates();
+        showStep(2);
+      });
+
+      // ---- Step 2: date + time ----
+      var datesWrap = document.getElementById('sbDates');
+      var slotsWrap = document.getElementById('sbSlots');
+      var summary2 = document.getElementById('sbSummary2');
+      var next2 = document.getElementById('sbNext2');
+      var DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      var TIMES = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+
+      // Deterministic-ish "already booked" slots per date index, so the
+      // grid feels alive without being random on every render.
+      function takenForDate(idx) {
+        var sets = [[2,7], [1,5,9], [0,4,8,11], [3,6], [2,5,10], [1,7,8], [0,3,6,9]];
+        return sets[idx % sets.length];
+      }
+
+      function buildDates() {
+        datesWrap.innerHTML = '';
+        var today = new Date();
+        for (var i = 0; i < 7; i++) {
+          var d = new Date(today);
+          d.setDate(today.getDate() + i);
+          var el = document.createElement('div');
+          el.className = 'sb-demo-date' + (i === 0 ? ' is-sel' : '');
+          el.dataset.idx = i;
+          el.innerHTML = '<span class="dow">' + DOW[d.getDay()] + '</span><span class="dnum">' + d.getDate() + '</span>';
+          el.addEventListener('click', function () {
+            document.querySelectorAll('.sb-demo-date').forEach(function (x) { x.classList.remove('is-sel'); });
+            this.classList.add('is-sel');
+            state.date = this.querySelector('.dow').textContent + ' ' + this.querySelector('.dnum').textContent;
+            state.time = null;
+            next2.disabled = true;
+            summary2.style.display = 'none';
+            buildSlots(+this.dataset.idx);
+          });
+          datesWrap.appendChild(el);
+        }
+        state.date = DOW[today.getDay()] + ' ' + today.getDate();
+        buildSlots(0);
+      }
+
+      function buildSlots(dateIdx) {
+        slotsWrap.innerHTML = '';
+        var taken = takenForDate(dateIdx);
+        TIMES.forEach(function (t, i) {
+          var el = document.createElement('div');
+          var isTaken = taken.indexOf(i) !== -1;
+          var isPeak = (i >= 4 && i <= 8); // 13:00–17:00 treated as peak in this demo
+          el.className = 'sb-demo-slot' + (isTaken ? ' is-taken' : '') + (isPeak ? ' is-peak' : '');
+          el.textContent = t;
+          if (!isTaken) {
+            el.addEventListener('click', function () {
+              document.querySelectorAll('.sb-demo-slot').forEach(function (x) { x.classList.remove('is-sel'); });
+              el.classList.add('is-sel');
+              state.time = t;
+              state.isPeak = isPeak;
+              next2.disabled = false;
+              var total = state.price + (isPeak ? 20 : 0);
+              summary2.style.display = 'flex';
+              summary2.innerHTML =
+                '<span>Resource <b>' + state.resource + '</b></span>' +
+                '<span>Date <b>' + state.date + '</b></span>' +
+                '<span>Time <b>' + t + (isPeak ? ' · Peak' : '') + '</b></span>' +
+                '<span>Est. total <b>$' + total + '</b></span>';
+            });
+          }
+          slotsWrap.appendChild(el);
+        });
+      }
+
+      next2.addEventListener('click', function () {
+        if (next2.disabled) { return; }
+        var total = state.price + (state.isPeak ? 20 : 0);
+        document.getElementById('sbSummary3').innerHTML =
+          '<span>Resource <b>' + state.resource + '</b></span>' +
+          '<span>Date <b>' + state.date + '</b></span>' +
+          '<span>Time <b>' + state.time + (state.isPeak ? ' · Peak' : '') + '</b></span>' +
+          '<span>Est. total <b>$' + total + '</b></span>';
+        showStep(3);
+      });
+
+      // ---- Step 3: details ----
+      var statusPill = document.getElementById('sbStatusPill');
+      var doneTick = document.getElementById('sbDoneTick');
+      var doneTitle = document.getElementById('sbDoneTitle');
+      var doneRef = document.getElementById('sbDoneRef');
+
+      function setPending() {
+        statusPill.className = 'sb-demo-pending-badge';
+        statusPill.textContent = '● Pending admin approval';
+        doneTick.textContent = '⏳';
+        doneTitle.textContent = 'Request sent — awaiting confirmation';
+      }
+
+      document.getElementById('sbNext3').addEventListener('click', function () {
+        var name = document.getElementById('sbName').value.trim() || 'Guest';
+        var contact = document.getElementById('sbEmail').value.trim() || document.getElementById('sbPhone').value.trim() || 'no contact given';
+        var total = state.price + (state.isPeak ? 20 : 0);
+
+        currentBookingId = window.SBAdmin.add({
+          name: name, contact: contact, resource: state.resource,
+          date: state.date, time: state.time, price: total
+        });
+
+        setPending();
+        document.getElementById('sbDoneText').textContent =
+          'Thanks, ' + name + ' — in a real install, the site owner now sees this booking in their WordPress dashboard and approves, rejects, or cancels it. You\'d get an email the moment they act, plus a reminder before the slot.';
+        doneRef.textContent = 'Booking reference #' + currentBookingId;
+        showStep(4);
+      });
+
+      document.getElementById('sbGoAdmin').addEventListener('click', function () {
+        document.getElementById('admin-demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (currentBookingId) { setTimeout(function () { window.SBAdmin.highlight(currentBookingId); }, 350); }
+      });
+
+      document.addEventListener('sb:statusChange', function (e) {
+        if (!currentBookingId || e.detail.id !== currentBookingId) { return; }
+        if (e.detail.status === 'confirmed') {
+          statusPill.className = 'sb-admin-badge sb-admin-badge--confirmed';
+          statusPill.textContent = 'Confirmed';
+          doneTick.textContent = '✅';
+          doneTitle.textContent = 'Approved — you\'re booked in';
+        } else if (e.detail.status === 'rejected') {
+          statusPill.className = 'sb-admin-badge sb-admin-badge--rejected';
+          statusPill.textContent = 'Rejected';
+          doneTick.textContent = '❌';
+          doneTitle.textContent = 'This request was rejected';
+        }
+      });
+
+      // ---- Step 4: restart ----
+      document.getElementById('sbRestart').addEventListener('click', function () {
+        state = { resource: null, price: 0, date: null, time: null, isPeak: false };
+        currentBookingId = null;
+        setPending();
+        doneRef.textContent = '';
+        resourceEls.forEach(function (r) { r.classList.remove('is-sel'); });
+        next1.disabled = true;
+        ['sbName','sbPhone','sbEmail','sbGroup'].forEach(function (id) { document.getElementById(id).value = ''; });
+        showStep(1);
+      });
+
+      showStep(1);
+    })();
 
     /* ============================================================
        FUNNEL INSTRUMENTATION
