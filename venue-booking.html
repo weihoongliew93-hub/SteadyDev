@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>SteadyDevs Venue Booking — WordPress Booking Plugin | From $299/year</title>
-  <meta name="description" content="SteadyDevs Venue Booking is a versatile WordPress booking plugin: live availability, a clean multi-step booking flow, and an admin approval workflow with double-booking protection. Peak/off-peak pricing, automatic reminders and utilisation &amp; revenue reports. For bays, courts, rooms, tables, equipment and more. Free 14-day trial, no credit card. Plans from $299/year for 1 site up to 25 sites.">
+  <meta name="description" content="SteadyDevs Venue Booking is a versatile WordPress booking plugin: live availability, a clean multi-step booking flow, and an admin approval workflow with double-booking protection. Automatic reminders cut no-shows — plus peak/off-peak pricing, online payments for prepaid class credits, and utilisation &amp; revenue reports. For bays, courts, rooms, tables, equipment and more. Free 14-day trial, no credit card. Plans from $299/year for 1 site up to 25 sites.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -15,13 +15,13 @@
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://steadydevs.com/venue-booking">
   <meta property="og:title" content="SteadyDevs Venue Booking — WordPress Booking Plugin">
-  <meta property="og:description" content="Live availability, multi-step booking, admin approval and double-booking protection — plus peak pricing, reminders and revenue reports. For bays, courts, rooms, tables & more. Plans from $299/year.">
+  <meta property="og:description" content="Live availability, multi-step booking, admin approval and double-booking protection — plus automatic reminders, peak pricing and revenue reports. For bays, courts, rooms, tables & more. Plans from $299/year.">
   <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SteadyDevs Venue Booking for WordPress">
-  <meta name="twitter:description" content="A versatile WordPress booking plugin with admin approval, double-booking protection, peak pricing, reminders and revenue reports. From $299/year, updates included.">
+  <meta name="twitter:description" content="A versatile WordPress booking plugin with admin approval, double-booking protection, automatic reminders, peak pricing and revenue reports. From $299/year, updates included.">
   <meta name="twitter:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
 
   <!-- Canonical URL -->
@@ -577,6 +577,27 @@
       .sb-cp-week, .sb-cp-timetable { display: flex; overflow-x: auto; padding-bottom: 6px; }
       .sb-cp-day, .sb-cp-tt-day { min-width: 110px; }
     }
+
+    /* ===================== ENQUIRY FORM ===================== */
+    .sb-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; background: rgba(255,255,255,0.04); border: 1px solid #334155; border-radius: 12px; padding: 28px; }
+    .sb-enquiry h3 { margin: 0 0 8px; color: #e2e8f0; }
+    .sb-enquiry > p { margin: 0 0 20px; color: #94a3b8; }
+    .sb-enquiry label { display: block; margin: 14px 0 6px; color: #cbd5e1; font-size: 0.92em; font-weight: 600; }
+    .sb-enquiry input, .sb-enquiry select, .sb-enquiry textarea {
+      width: 100%; box-sizing: border-box; padding: 11px 12px; border-radius: 8px;
+      border: 1px solid #334155; background: rgba(255,255,255,0.05); color: #e2e8f0;
+      font: inherit; font-size: 0.95em;
+    }
+    .sb-enquiry input:focus, .sb-enquiry select:focus, .sb-enquiry textarea:focus { outline: none; border-color: #60a5fa; }
+    .sb-enquiry select option { color: #0f172a; }
+    .sb-enquiry textarea { resize: vertical; }
+    .sb-enquiry button[type="submit"] { margin-top: 18px; }
+    .sb-enquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .sb-enquiry-row { grid-template-columns: 1fr; } }
+    .sb-enquiry-note { padding: 14px 16px; border-radius: 8px; margin-bottom: 14px; }
+    .sb-enquiry-note--ok { background: rgba(16,185,129,0.15); border: 1px solid #10b981; color: #34d399; }
+    .sb-enquiry-note--err { background: rgba(239,68,68,0.15); border: 1px solid #ef4444; color: #f87171; }
+    .sb-enquiry-note--err a { color: #fca5a5; }
   </style>
 </head>
 <body>
@@ -588,7 +609,7 @@
     <div class="sd-page-hero-inner">
       <p class="sd-eyebrow">WordPress Plugin</p>
       <h1>SteadyDevs Venue Booking — the versatile <span class="accent">booking system</span> for WordPress</h1>
-      <p class="sd-page-hero-lead">Let customers reserve anything you rent by time — with live availability, a clean multi-step booking flow, and an admin approval workflow so you stay in control of every reservation. Peak-rate pricing, automatic reminders, and utilisation &amp; revenue reports come built in.</p>
+      <p class="sd-page-hero-lead">Let customers reserve anything you rent by time — with live availability, a clean multi-step booking flow, and an admin approval workflow so you stay in control of every reservation. Automatic reminders cut no-shows, and peak-rate pricing, online payments for class credits, and utilisation &amp; revenue reports come built in.</p>
       <div class="gbb-price-wrap sb-price-wrap">
         <span class="sb-price">$299</span>
         <span class="sb-price-cycle">/ year</span>
@@ -967,14 +988,9 @@
       <p class="sd-eyebrow">What's Inside</p>
       <h2 class="sd-section-title">Everything you need to <span class="accent">take bookings</span></h2>
       <div class="sd-title-rule"></div>
-      <p class="sd-section-sub">Built to handle any time-slot reservation — configure your resources, prices and hours, and let customers book while you approve.</p>
+      <p class="sd-section-sub">Built to handle any time-slot reservation — customers book online, reminders go out automatically, and you stay in control with approval on every booking.</p>
 
       <div class="sd-dcard-grid">
-        <div class="sd-dcard">
-          <div class="sd-dicon">🧘</div>
-          <h3>Class Portal <span class="sb-pro-tag">Pro add-on</span></h3>
-          <p>Run recurring classes instead of one-off slots. Members log in, buy prepaid credits, and book off a weekly timetable — with per-tier pricing and waitlists built in.</p>
-        </div>
         <div class="sd-dcard">
           <div class="sd-dicon">🗓️</div>
           <h3>Live Multi-Step Booking</h3>
@@ -991,14 +1007,24 @@
           <p>The plugin refuses to approve a resource + date + time that's already confirmed, so the same slot can never be booked twice.</p>
         </div>
         <div class="sd-dcard">
-          <div class="sd-dicon">✉️</div>
-          <h3>Editable Email Templates</h3>
-          <p>Customers are emailed the moment you approve or reject — and you control the wording, colours and logo. Edit each template visually with a live preview, or toggle any email off.</p>
-        </div>
-        <div class="sd-dcard">
           <div class="sd-dicon">⏰</div>
           <h3>Automatic Booking Reminders</h3>
           <p>Send a reminder email a set number of hours before each confirmed booking, so customers turn up and no-shows drop — set the lead time once and it runs on its own.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">💳</div>
+          <h3>Online Payments <span class="sb-pro-tag">Class Portal</span></h3>
+          <p>Members buy prepaid credit packages online through HitPay — card, PayNow and more — with credits granted automatically on payment. Manual methods like bank transfer are supported too, confirmed by you.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">🧑‍💼</div>
+          <h3>Front-Desk Staff Role <span class="sb-pro-tag">Class Portal</span></h3>
+          <p>A dedicated role for your receptionist — they confirm payments, take the class register and manage members from the Class Portal without ever needing a full administrator account.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">✉️</div>
+          <h3>Editable Email Templates</h3>
+          <p>Customers are emailed the moment you approve or reject — and you control the wording, colours and logo. Edit each template visually with a live preview, or toggle any email off.</p>
         </div>
         <div class="sd-dcard">
           <div class="sd-dicon">💲</div>
@@ -1009,6 +1035,11 @@
           <div class="sd-dicon">📊</div>
           <h3>Utilisation &amp; Revenue Reports</h3>
           <p>See how much of your sellable time actually sells: revenue per available hour, a weekday × hour busy grid, per-resource performance, peak vs off-peak and median lead time — with CSV export.</p>
+        </div>
+        <div class="sd-dcard">
+          <div class="sd-dicon">🧘</div>
+          <h3>Class Portal <span class="sb-pro-tag">Pro add-on</span></h3>
+          <p>Run recurring classes instead of one-off slots. Members log in, buy prepaid credits, and book off a weekly timetable — with per-tier pricing and waitlists built in.</p>
         </div>
         <div class="sd-dcard">
           <div class="sd-dicon">💬</div>
@@ -1089,6 +1120,9 @@
             <li>Unlimited resources &amp; bookings</li>
             <li>Admin approval + double-booking protection</li>
             <li>Editable emails + automatic reminders</li>
+            <li>Class Portal — classes, credits &amp; member logins</li>
+            <li>Online payments for credit packages (HitPay)</li>
+            <li>Front-desk staff role for the Class Portal</li>
             <li>Peak / off-peak pricing</li>
             <li>Utilisation &amp; revenue reports (CSV export)</li>
             <li>WhatsApp, shortcode &amp; Elementor support</li>
@@ -1166,7 +1200,7 @@
             <li>Direct line to the developer</li>
           </ul>
 
-          <a href="contact.html" class="sd-btn sd-btn--ghost">Contact us <span aria-hidden="true">→</span></a>
+          <a href="#sbEnquiryForm" class="sd-btn sd-btn--ghost">Contact us <span aria-hidden="true">→</span></a>
           <p class="sb-guarantee">We usually reply within one business day</p>
         </div>
       </div>
@@ -1188,6 +1222,10 @@
           <div class="sd-faq-answer"><p>Anything booked by time slot: sports courts and simulator bays, studios and treatment rooms, restaurant tables, equipment or gear rental, salon chairs, meeting rooms and more. You define the resources, prices and hours.</p></div>
         </details>
         <details class="sd-faq-item">
+          <summary>Can customers pay online?</summary>
+          <div class="sd-faq-answer"><p>For classes, yes — Class Portal members buy prepaid credit packages online through the HitPay gateway (card, PayNow and whatever methods your HitPay account offers), with credits granted automatically on payment. Manual methods like bank transfer or paying at the counter are supported alongside it — you confirm those against your own records before credits are granted. For one-off hourly bookings, payment is currently handled your way outside the plugin (at the venue, by transfer, or by invoice) — taking a deposit at booking time is on the roadmap.</p></div>
+        </details>
+        <details class="sd-faq-item">
           <summary>Does this include recurring classes, not just one-off slots?</summary>
           <div class="sd-faq-answer"><p>Yes — <strong>Class Portal</strong> is included with every plan on this page. It's a second booking mode alongside your hourly form: members log in, buy prepaid credit packages, and book off a weekly timetable of classes you run. It comes with optional per-tier pricing (levels), waitlists for full classes, a printable attendance register, and a "Class Portal Staff" role so front-desk can run it without full admin access. <a href="#demo-hub" onclick="document.querySelector('#sbDemoSwitch [data-demo=classportal]').click();">Try the live demo above</a> — customer and admin sides both. (It's a separate free plugin on WordPress.org that doesn't include Class Portal; this page sells the Pro edition, which does.)</p></div>
         </details>
@@ -1205,7 +1243,7 @@
         </details>
         <details class="sd-faq-item">
           <summary>Which plan do I need?</summary>
-          <div class="sd-faq-answer"><p>All plans unlock the exact same plugin — the only difference is how many sites you can activate on. <strong>Starter</strong> ($299/year) covers one business website. <strong>Professional</strong> ($699/year) covers 5 sites at $140 each. <strong>Agency</strong> ($1,499/year) covers 25 client sites at $60 each. Need more than 25? <a href="contact.html">Get in touch</a> and we'll size a plan to your site count. You can upgrade at any time and only pay the difference.</p></div>
+          <div class="sd-faq-answer"><p>All plans unlock the exact same plugin — the only difference is how many sites you can activate on. <strong>Starter</strong> ($299/year) covers one business website. <strong>Professional</strong> ($699/year) covers 5 sites at $140 each. <strong>Agency</strong> ($1,499/year) covers 25 client sites at $60 each. Need more than 25? <a href="#sbEnquiryForm">Get in touch</a> and we'll size a plan to your site count. You can upgrade at any time and only pay the difference.</p></div>
         </details>
         <details class="sd-faq-item">
           <summary>Do staging and development sites use up a license?</summary>
@@ -1220,6 +1258,10 @@
           <div class="sd-faq-answer"><p>WordPress 5.0+ and PHP 7.2+. For approval emails to land reliably we recommend a simple SMTP plugin (e.g. WP Mail SMTP) — this is standard for any WordPress site sending mail.</p></div>
         </details>
         <details class="sd-faq-item">
+          <summary>Missing a feature your venue needs?</summary>
+          <div class="sd-faq-answer"><p>Tell us — <a href="#sbEnquiryForm">send a feature request below</a> and we usually reply within one business day. The roadmap is driven by what real venues ask for, and requests from paying customers are prioritised. If you're on the free version, the <a href="https://wordpress.org/support/plugin/steadydevs-venue-booking/" target="_blank" rel="noopener">WordPress.org support forum</a> works too.</p></div>
+        </details>
+        <details class="sd-faq-item">
           <summary>What happens if I don't renew?</summary>
           <div class="sd-faq-answer"><p>Your existing bookings and data stay in WordPress. You simply stop receiving new updates and support until you renew.</p></div>
         </details>
@@ -1227,14 +1269,61 @@
     </div>
   </section>
 
-  <!-- ===================== FINAL CTA ===================== -->
-  <section class="sd-section sd-section--dark">
+  <!-- ===================== FINAL CTA + ENQUIRY ===================== -->
+  <section class="sd-section sd-section--dark" id="enquire">
     <div class="sd-inner" style="text-align:center;">
       <h2 class="sd-section-title">Ready to take bookings online?</h2>
       <p class="sd-section-sub" style="margin-top:14px;">Set it up in an afternoon and let customers reserve around the clock.</p>
       <div class="sd-hero-cta" style="justify-content:center;">
         <a href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free" class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free">Start your free 14-day trial <span aria-hidden="true">→</span></a>
-        <a href="contact.html" class="sd-btn sd-btn--ghost">Ask a question</a>
+        <a href="#sbEnquiryForm" class="sd-btn sd-btn--ghost">Ask a question</a>
+      </div>
+
+      <!-- Enquiry / feature request form. Every message lands in the same
+           inbox as the main contact form, tagged as a plugin lead and
+           carrying the funnel attribution, so enquiries can be read per
+           channel the same way purchases are. -->
+      <div class="sb-enquiry">
+        <h3>Not sure it fits your venue — or missing a feature you need?</h3>
+        <p>Tell us what you run and what's in your way. Feature requests directly shape the roadmap, and we usually reply within one business day.</p>
+
+        <div id="sbEnquiryOk" class="sb-enquiry-note sb-enquiry-note--ok" hidden>✅ Got it — thanks! We'll get back to you within one business day.</div>
+        <div id="sbEnquiryErr" class="sb-enquiry-note sb-enquiry-note--err" hidden>Something went wrong sending that. Please email us directly at <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>.</div>
+
+        <form id="sbEnquiryForm" action="https://formspree.io/f/xpqooaea" method="POST">
+          <input type="hidden" name="_subject" value="Venue Booking enquiry">
+          <input type="hidden" name="product" value="SteadyDevs Venue Booking">
+          <input type="hidden" name="attribution" id="sbEnquiryAttr" value="">
+          <div class="sb-enquiry-row">
+            <div>
+              <label for="sbEnqName">Your name</label>
+              <input type="text" id="sbEnqName" name="name" required autocomplete="name">
+            </div>
+            <div>
+              <label for="sbEnqEmail">Email</label>
+              <input type="email" id="sbEnqEmail" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div>
+            <label for="sbEnqVenue">What kind of venue do you run?</label>
+            <select id="sbEnqVenue" name="venue_type">
+              <option value="">Select one (optional)…</option>
+              <option>Driving range / golf simulator</option>
+              <option>Sports or racket club</option>
+              <option>Studio / wellness / classes</option>
+              <option>Salon / barber</option>
+              <option>Co-working / meeting rooms</option>
+              <option>Equipment hire</option>
+              <option>Restaurant / tables</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="sbEnqMsg">Your question or feature request</label>
+            <textarea id="sbEnqMsg" name="message" rows="4" required placeholder="e.g. We need customers to pay a deposit when they book — is that coming?"></textarea>
+          </div>
+          <button type="submit" id="sbEnqSubmit" class="sd-btn sd-btn--primary">Send it <span aria-hidden="true">→</span></button>
+        </form>
       </div>
     </div>
   </section>
@@ -1893,6 +1982,71 @@
       }, { threshold: 0.4 });
 
       io.observe(pricing);
+    })();
+
+    /* ============================================================
+       ENQUIRY FORM — same idea as the purchase funnel: every
+       enquiry is a lead, so it carries the same attribution and is
+       recorded as its own GA4 step. Submitted over fetch so the
+       visitor stays on the page; if that fails they get a mailto
+       fallback rather than a dead end.
+       ============================================================ */
+    (function () {
+      var form = document.getElementById('sbEnquiryForm');
+      if (!form) { return; }
+
+      // The enquiry inherits the same attribution as a purchase would,
+      // so "which prompt produces enquiries" is readable in GA4 AND in
+      // the email itself.
+      var attr = document.getElementById('sbEnquiryAttr');
+      if (attr) {
+        attr.value = (sbAttr.source || '(none)') + ' / ' + (sbAttr.medium || '(none)') + ' / ' + (sbAttr.campaign || '(none)');
+      }
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) { return; }
+            sbTrack('enquiry_view');
+            observer.disconnect();
+          });
+        }, { threshold: 0.4 });
+        io.observe(form);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var btn = document.getElementById('sbEnqSubmit');
+        var ok = document.getElementById('sbEnquiryOk');
+        var err = document.getElementById('sbEnquiryErr');
+        ok.hidden = true;
+        err.hidden = true;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        var restore = function () {
+          btn.disabled = false;
+          btn.innerHTML = 'Send it <span aria-hidden="true">→</span>';
+        };
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (!res.ok) { throw new Error('formspree ' + res.status); }
+          sbTrack('enquiry_submit', { venue_type: form.venue_type.value || '(none)' });
+          form.reset();
+          form.hidden = true;
+          ok.hidden = false;
+          ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          restore();
+        }).catch(function () {
+          err.hidden = false;
+          restore();
+        });
+      });
     })();
 
     /* ============================================================
