@@ -1,0 +1,83 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59,130,246,0.10)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="82%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="#0B0F14"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- eyebrow pill -->
+  <rect x="80" y="86" width="230" height="38" rx="19" fill="rgba(59,130,246,0.12)" stroke="rgba(96,165,250,0.5)" stroke-width="1"/>
+  <text x="195" y="111" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#93C5FD" text-anchor="middle" letter-spacing="1.2">VENUE BOOKING</text>
+
+  <!-- title -->
+  <text x="80" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="50" font-weight="800" fill="#F8FAFC">
+    <tspan x="80" dy="0">The Five Numbers Every</tspan>
+    <tspan x="80" dy="62">Venue Owner Should Know</tspan>
+  </text>
+
+  <!-- subtitle -->
+  <text x="80" y="345" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#94A3B8">
+    <tspan x="80" dy="0">What your booking calendar is trying to tell you</tspan>
+  </text>
+
+  <!-- divider -->
+  <rect x="80" y="385" width="64" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <!-- brand -->
+  <text x="80" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#E2E8F0">SteadyDevs</text>
+  <text x="80" y="586" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#64748B">Venue Booking for WordPress</text>
+
+  <!-- illustration: utilisation by slot -->
+  <g transform="translate(790,150)" filter="url(#soft)">
+    <rect x="0" y="0" width="300" height="290" rx="18" fill="#121821" stroke="rgba(96,165,250,0.4)" stroke-width="2"/>
+    <text x="20" y="34" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#93C5FD" letter-spacing="1">UTILISATION BY SLOT</text>
+
+    <!-- baseline -->
+    <path d="M20 214 L280 214" stroke="rgba(148,163,184,0.25)" stroke-width="1.5"/>
+
+    <!-- bars: peak, second tier, dead tail -->
+    <g>
+      <rect x="26" y="86" width="30" height="128" rx="6" fill="url(#bar)"/>
+      <rect x="72" y="70" width="30" height="144" rx="6" fill="url(#bar)"/>
+      <rect x="118" y="142" width="30" height="72" rx="6" fill="#1E3A5F" stroke="#FBBF24" stroke-width="2"/>
+      <rect x="164" y="156" width="30" height="58" rx="6" fill="#1E3A5F" stroke="#FBBF24" stroke-width="2"/>
+      <rect x="210" y="190" width="30" height="24" rx="6" fill="#1E293B"/>
+      <rect x="250" y="198" width="30" height="16" rx="6" fill="#1E293B"/>
+    </g>
+
+    <!-- axis labels -->
+    <g font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">
+      <text x="41" y="232">Sat</text>
+      <text x="87" y="232">Sun</text>
+      <text x="133" y="232">Thu</text>
+      <text x="179" y="232">Fri</text>
+      <text x="225" y="232">Tue</text>
+      <text x="265" y="232">Wed</text>
+    </g>
+
+    <!-- the insight -->
+    <rect x="20" y="246" width="260" height="30" rx="15" fill="rgba(251,191,36,0.12)"/>
+    <circle cx="40" cy="261" r="5" fill="#FBBF24"/>
+    <text x="56" y="266" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBBF24">Second tier = your real upside</text>
+  </g>
+</svg>

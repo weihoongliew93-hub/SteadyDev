@@ -12422,8 +12422,8 @@
     ],
     "author": "SteadyDevs",
     "published": false,
-    "heroImage": "images/blog/self-billed-einvoice-malaysia.jpg",
-    "heroImageAlt": "Illustration of a business issuing an e-invoice on behalf of a supplier under LHDN self-billed rules",
+    "heroImage": "images/blog/self-billed-einvoice-cover.svg",
+    "heroImageAlt": "Cover graphic showing a foreign supplier invoice becoming a validated self-billed e-invoice issued by the buyer",
     "content": [
       {
         "type": "paragraph",
@@ -12615,8 +12615,8 @@
     ],
     "author": "SteadyDevs",
     "published": false,
-    "heroImage": "images/blog/backup-restore-testing.jpg",
-    "heroImageAlt": "Server backup drive beside a restore checklist, illustrating backup verification",
+    "heroImage": "images/blog/backup-restore-testing-cover.svg",
+    "heroImageAlt": "Cover graphic contrasting nightly backup success reports against a restore test that has never been run",
     "content": [
       {
         "type": "paragraph",
@@ -12816,8 +12816,8 @@
     ],
     "author": "SteadyDevs",
     "published": false,
-    "heroImage": "images/blog/who-owns-your-source-code.jpg",
-    "heroImageAlt": "Business owner reviewing a software handover checklist and source code repository access",
+    "heroImage": "images/blog/who-owns-source-code-cover.svg",
+    "heroImageAlt": "Cover graphic showing a handover checklist where legal ownership and a code copy pass but rebuildability fails",
     "content": [
       {
         "type": "paragraph",
