@@ -635,6 +635,13 @@ let generatedCount = 0;
 let skippedCount = 0;
 
 blogPosts.forEach(post => {
+  // Skip drafts - unpublished posts should not have a live page
+  if (post.published === false) {
+    console.log(`⏭️  Skipped: ${post.slug}.html (draft - published: false)`);
+    skippedCount++;
+    return;
+  }
+
   const html = generateHTML(post);
   
   // Skip posts without content (standalone HTML files)

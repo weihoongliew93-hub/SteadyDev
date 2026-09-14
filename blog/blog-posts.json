@@ -11930,303 +11930,6 @@
     ]
   },
   {
-    "id": "why-pos-system-getting-slower",
-    "title": "Why Your POS System Gets Slower Every Month (And How to Fix It)",
-    "slug": "why-pos-system-getting-slower",
-    "excerpt": "Your point-of-sale system used to be instant. Now every sale, report, and search takes a little longer. That creeping slowdown isn't random—it's predictable, it's fixable, and ignoring it eventually costs you sales at the counter.",
-    "date": "2026-07-28",
-    "dateDisplay": "July 28, 2026",
-    "readTime": "10 min read",
-    "tags": [
-      "POS Systems",
-      "Performance",
-      "Database",
-      "Retail"
-    ],
-    "author": "SteadyDevs",
-    "published": false,
-    "heroImage": "images/blog/why-pos-system-slower.jpg",
-    "heroImageAlt": "Retail POS system slowing down at the checkout counter",
-    "content": [
-      {
-        "type": "paragraph",
-        "text": "When your point-of-sale system was new, everything was instant. Scan an item, it appeared. Pull up a sales report, it opened immediately. Search for a customer, done. A year or two later, there's a lag on every one of those actions—small enough to tolerate, big enough to notice, and getting worse each month."
-      },
-      {
-        "type": "paragraph",
-        "text": "That slowdown isn't your imagination, and it isn't because the hardware \"got old.\" It's a predictable result of how POS systems accumulate data and how rarely they get maintained. The good news: nearly every cause is fixable, usually without replacing anything."
-      },
-      {
-        "type": "heading2",
-        "text": "Why POS Systems Slow Down Over Time"
-      },
-      {
-        "type": "paragraph",
-        "text": "A POS system is, underneath the friendly interface, a database that keeps growing. Every sale, every line item, every price change, every log entry adds to it. Several things happen as that data piles up."
-      },
-      {
-        "type": "heading3",
-        "text": "1. The Transaction History Just Keeps Growing"
-      },
-      {
-        "type": "paragraph",
-        "text": "Every transaction you've ever made is usually still sitting in the main tables the system queries all day. After a busy year or two, that can be hundreds of thousands or millions of rows. When the system pulls up today's sales, it may be sifting through everything you've ever sold to do it. More data to search means slower searches."
-      },
-      {
-        "type": "heading3",
-        "text": "2. Indexes Get Fragmented"
-      },
-      {
-        "type": "paragraph",
-        "text": "Databases use indexes—like the index at the back of a book—to find data fast. With constant additions and changes, those indexes become fragmented and disorganized over time. A fragmented index is like an index whose page numbers are all slightly wrong: the system still finds things, but it works harder and slower to do it. Rebuilding indexes is routine maintenance that many POS installations simply never receive."
-      },
-      {
-        "type": "heading3",
-        "text": "3. Transaction Logs and Temp Data Grow Unchecked"
-      },
-      {
-        "type": "paragraph",
-        "text": "Databases keep transaction logs and generate temporary working data as they run. Without a maintenance routine to manage them, log files can balloon to many times the size of your actual data, filling the disk and slowing everything down. Temporary tables and cached data that never get cleaned up add to the drag."
-      },
-      {
-        "type": "heading3",
-        "text": "4. The Disk Fills Up"
-      },
-      {
-        "type": "paragraph",
-        "text": "As data, logs, and backups accumulate, free disk space shrinks. Databases and operating systems both slow dramatically when the disk gets close to full, because they lose room to work efficiently. A drive that's 95% full behaves very differently from one that's half empty."
-      },
-      {
-        "type": "warning",
-        "text": "<strong>The slowdown accelerates.</strong> These factors compound: more history makes queries slower, which makes fragmentation hurt more, while growing logs eat the free space the database needs to compensate. That's why the decline often feels gradual for a year and then suddenly gets much worse—right around your busiest season, when the load is highest."
-      },
-      {
-        "type": "heading2",
-        "text": "Why This Matters More Than It Seems"
-      },
-      {
-        "type": "paragraph",
-        "text": "A two-second lag doesn't sound like a crisis. But at a checkout counter, it is a real cost:"
-      },
-      {
-        "type": "list",
-        "items": [
-          "Slower checkouts mean longer queues, especially at peak hours—the exact moments you can least afford them.",
-          "Staff work around the lag by skipping steps or batching tasks, which introduces errors.",
-          "Reports that take too long simply stop getting run, so you lose visibility into your own business.",
-          "Eventually a slow system freezes or times out mid-sale, and now it's not a lag—it's a lost transaction and a frustrated customer."
-        ]
-      },
-      {
-        "type": "heading2",
-        "text": "How to Fix It (Usually Without Replacing Anything)"
-      },
-      {
-        "type": "paragraph",
-        "text": "The encouraging part: most of this is standard database maintenance that pays for itself quickly. In rough order of impact:"
-      },
-      {
-        "type": "orderedList",
-        "items": [
-          "<strong>Archive old transactions.</strong> Move history you rarely touch into separate archive tables or storage, keeping the tables the system queries daily lean and fast. The data is still there when you need it—just not in the way every time.",
-          "<strong>Rebuild and reorganize indexes.</strong> A routine reindex often restores much of the lost speed on its own, and it can be scheduled to run automatically overnight.",
-          "<strong>Set up log and temp-data management.</strong> Configure the database to keep transaction logs and temporary data under control instead of letting them grow forever.",
-          "<strong>Free up and monitor disk space.</strong> Clear out old backups and junk, and set an alert before the disk gets dangerously full.",
-          "<strong>Put a maintenance schedule in place.</strong> The reason systems degrade is almost always that no one set up recurring maintenance. Automating it once prevents the whole cycle from repeating."
-        ]
-      },
-      {
-        "type": "tip",
-        "text": "The single highest-value fix is usually archiving old transaction data combined with a scheduled reindex. Together they often restore a POS system to near its original speed—for a fraction of the cost and disruption of replacing it. Try maintenance before you ever consider a new system."
-      },
-      {
-        "type": "heading2",
-        "text": "When Maintenance Isn't Enough"
-      },
-      {
-        "type": "paragraph",
-        "text": "Occasionally, the slowdown points to something maintenance alone won't cure—a database design that doesn't scale, queries written inefficiently, or hardware that's genuinely undersized for how much you've grown. But this is the exception, not the rule, and you can only tell the difference after the basic maintenance is done. Replacing a system to fix a problem that a night of maintenance would have solved is an expensive way to learn that lesson."
-      },
-      {
-        "type": "paragraph",
-        "text": "A POS system that's slowing down isn't failing—it's asking for maintenance it never got. Give it that, and in most cases you get your fast, responsive checkout back without spending on a replacement you didn't need."
-      },
-      {
-        "type": "cta",
-        "title": "POS System Crawling More Every Month?",
-        "text": "SteadyDevs diagnoses why your POS has slowed down—transaction bloat, index fragmentation, runaway logs, disk pressure—and puts proper maintenance in place so it stays fast. Most systems don't need replacing, just tuning. Get a free performance check.",
-        "buttonText": "Get Your FREE Performance Check",
-        "buttonLink": "../contact.html"
-      },
-      {
-        "type": "faq",
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "question": "Why does my POS system get slower over time?",
-            "answer": "Because it's a growing database that rarely gets maintained. Transaction history piles up in the tables the system queries daily, indexes become fragmented, transaction logs and temporary data grow unchecked, and the disk fills up. These factors compound, which is why the slowdown often feels gradual and then suddenly worsens."
-          },
-          {
-            "question": "Do I need to replace my POS system to fix the slowness?",
-            "answer": "Usually not. Most slowdowns are cured by standard maintenance—archiving old transactions, rebuilding indexes, managing logs, and freeing disk space. Replacing the system to fix a problem that routine maintenance would solve is an expensive mistake. Always try maintenance first."
-          },
-          {
-            "question": "What's the single most effective fix?",
-            "answer": "Archiving old transaction data combined with a scheduled index rebuild. Keeping the daily-queried tables lean and the indexes healthy often restores a POS system to near its original speed, and both can run automatically overnight so the problem doesn't come back."
-          },
-          {
-            "question": "Is a two-second lag really worth worrying about?",
-            "answer": "At a checkout counter, yes. Small lags create longer queues at peak hours, push staff into error-prone workarounds, and cause reports to stop being run. Left unaddressed, a slow system eventually freezes or times out mid-sale—turning a minor annoyance into lost transactions and unhappy customers."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "lhdn-einvoice-enforcement-mid-2026-update",
-    "title": "LHDN E-Invoice Enforcement: What's Actually Happening (Mid-2026 Update)",
-    "slug": "lhdn-einvoice-enforcement-mid-2026-update",
-    "excerpt": "The e-invoice rollout has moved from 'coming soon' to 'in force' for a widening group of Malaysian businesses. Here's a plain-language status check on where enforcement stands in mid-2026, who's affected now, and what to do if you're not ready yet.",
-    "date": "2026-07-31",
-    "dateDisplay": "July 31, 2026",
-    "readTime": "9 min read",
-    "tags": [
-      "E-Invoice",
-      "Compliance",
-      "Malaysia",
-      "LHDN",
-      "Update"
-    ],
-    "author": "SteadyDevs",
-    "published": false,
-    "heroImage": "images/blog/lhdn-einvoice-enforcement-2026.jpg",
-    "heroImageAlt": "Malaysian business owner reviewing LHDN e-invoice enforcement status",
-    "content": [
-      {
-        "type": "paragraph",
-        "text": "For a long time, LHDN's e-invoice mandate lived in the future tense—something to prepare for, with dates that felt comfortably far off. In mid-2026, that's no longer true. For a growing set of Malaysian businesses, e-invoicing has moved from 'coming' to 'required,' and the grace periods that softened the early rollout are expiring."
-      },
-      {
-        "type": "paragraph",
-        "text": "This is a plain-language status check: where things actually stand, who's in scope now, and what your options are if you're behind. It's not legal or tax advice—always confirm your specific obligations and current deadlines with LHDN or your tax advisor, because the details continue to evolve."
-      },
-      {
-        "type": "heading2",
-        "text": "How We Got Here: The Phased Rollout"
-      },
-      {
-        "type": "paragraph",
-        "text": "LHDN deliberately rolled e-invoicing out in phases, starting with the largest businesses and working down by annual turnover. The logic was to let the biggest players—who have the most resources—go first, then bring in progressively smaller businesses as the system matured."
-      },
-      {
-        "type": "paragraph",
-        "text": "Each phase came with two things worth understanding: a mandatory start date, and an initial grace period during which enforcement was relaxed to let businesses find their feet. The pattern that matters in mid-2026 is that those grace periods don't last forever—and as they end, the difference between 'technically live' and 'actually enforced' disappears."
-      },
-      {
-        "type": "warning",
-        "text": "<strong>Grace periods are not extensions of the deadline.</strong> During a grace period you're generally still required to issue e-invoices—the relaxation is on penalties, not on the obligation itself. Businesses that treated the grace period as 'we can start later' are the ones most exposed once it ends."
-      },
-      {
-        "type": "heading2",
-        "text": "Who's Affected in Mid-2026"
-      },
-      {
-        "type": "paragraph",
-        "text": "The exact turnover thresholds and dates for each phase are set by LHDN and have been adjusted over time, so you should verify your own phase directly. But the broad picture in mid-2026 is:"
-      },
-      {
-        "type": "list",
-        "items": [
-          "<strong>Large and mid-sized businesses</strong> are well past their start dates and firmly in the enforced zone—e-invoicing is simply how they operate now.",
-          "<strong>Smaller businesses</strong> are the current frontier: increasingly in scope, with the smallest turnover bands being phased in and grace periods running down.",
-          "<strong>The very smallest businesses and certain exempt categories</strong> may still have relief or later dates—but 'I'm small' is no longer a safe assumption that you're out of scope. Check, don't guess."
-        ]
-      },
-      {
-        "type": "paragraph",
-        "text": "The practical takeaway: the pool of businesses that can safely ignore e-invoicing is shrinking fast. If you haven't confirmed your status recently, that's the first action to take."
-      },
-      {
-        "type": "heading2",
-        "text": "What 'Enforced' Actually Means for You"
-      },
-      {
-        "type": "paragraph",
-        "text": "Once you're past your grace period, e-invoicing stops being a best-effort exercise and becomes an operational requirement with real consequences:"
-      },
-      {
-        "type": "list",
-        "items": [
-          "Invoices that aren't validated through MyInvois may not be valid for tax purposes, affecting your customers' ability to claim and your own records.",
-          "B2B customers increasingly <em>require</em> a proper validated e-invoice before they'll pay—so non-compliance directly holds up your cash flow.",
-          "Penalties for non-compliance become live once the grace period ends.",
-          "Manual catch-up under pressure is far more error-prone than a system set up calmly in advance."
-        ]
-      },
-      {
-        "type": "heading2",
-        "text": "If You're Not Ready Yet: Your Realistic Options"
-      },
-      {
-        "type": "paragraph",
-        "text": "Plenty of businesses—especially smaller ones with older systems—are still not fully compliant. If that's you, don't panic, but do act. You broadly have three paths:"
-      },
-      {
-        "type": "orderedList",
-        "items": [
-          "<strong>Use the MyInvois Portal manually.</strong> LHDN's free portal lets you create and submit e-invoices by hand. It's viable for low invoice volumes and requires no integration, but it's slow and doesn't connect to your existing system.",
-          "<strong>Integrate your existing system with MyInvois.</strong> Connect the software you already use so invoices flow through validation automatically. This is the right long-term answer for most businesses with meaningful volume—and legacy systems can usually be integrated without being replaced.",
-          "<strong>Adopt a compliant third-party or middleware solution.</strong> A middleware layer can bridge an older system to MyInvois without deep changes to the system itself, often the fastest route to compliance for a fragile legacy setup."
-        ]
-      },
-      {
-        "type": "tip",
-        "text": "If you're behind, start with the manual portal for anything urgent so you're compliant today, then plan the integration in parallel. That way you stop the immediate exposure without rushing a system integration—rushed integrations are exactly where the validation errors and rejections come from."
-      },
-      {
-        "type": "heading2",
-        "text": "The One Thing Not to Do"
-      },
-      {
-        "type": "paragraph",
-        "text": "The worst strategy is to keep waiting for another extension. Deadlines have shifted before, which has trained some business owners to assume they always will. But the direction of travel is unmistakable: more businesses in scope, grace periods ending, enforcement tightening. Betting your compliance on a delay that may not come is a risk with no upside—if the extension arrives, you've lost nothing by being ready early; if it doesn't, you've avoided a scramble."
-      },
-      {
-        "type": "paragraph",
-        "text": "E-invoicing in Malaysia has crossed the line from future plan to present reality. The businesses handling it well aren't the ones with the newest systems—they're the ones who confirmed their obligations early and set up a calm, tested path to compliance instead of waiting to be forced."
-      },
-      {
-        "type": "cta",
-        "title": "Not Sure Where You Stand on E-Invoicing?",
-        "text": "SteadyDevs helps Malaysian businesses get compliant with LHDN e-invoicing—confirming your obligations, integrating your existing system with MyInvois (no full replacement needed), and setting up validation so submissions don't get rejected. Get a free consultation.",
-        "buttonText": "Get Your FREE Consultation",
-        "buttonLink": "../contact.html"
-      },
-      {
-        "type": "faq",
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "question": "Is e-invoicing actually enforced now, or still optional?",
-            "answer": "For large and mid-sized businesses it's firmly enforced, and the net is widening to smaller businesses as their phases begin and grace periods end. 'I'm small so it doesn't apply to me' is no longer a safe assumption—confirm your specific phase and deadline directly with LHDN, as thresholds and dates have been adjusted over time."
-          },
-          {
-            "question": "Does a grace period mean I can start later?",
-            "answer": "No. A grace period generally relaxes penalties, not the obligation itself—you're typically still required to issue e-invoices during it. Businesses that treated the grace period as permission to delay are the most exposed once it ends and enforcement becomes full."
-          },
-          {
-            "question": "I'm behind on compliance—what should I do first?",
-            "answer": "Use LHDN's free MyInvois Portal manually for anything urgent so you're compliant right away, then plan a proper integration of your existing system in parallel. This stops your immediate exposure without forcing a rushed integration, which is where validation errors and rejections tend to come from."
-          },
-          {
-            "question": "Do I need to replace my legacy system to comply?",
-            "answer": "Usually not. Most existing systems can be integrated with MyInvois directly, or bridged through a middleware layer that connects an older system without deep changes to it. Replacement is rarely necessary just to meet e-invoicing requirements—integration is almost always the more sensible route."
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "stop-taking-bookings-over-whatsapp-venue-booking",
     "title": "Stop Taking Bookings Over WhatsApp: Why Your Venue Needs Online Booking in 2026",
     "slug": "stop-taking-bookings-over-whatsapp-venue-booking",
@@ -12527,6 +12230,924 @@
           {
             "question": "Is this only useful for large venues with lots of bookings?",
             "answer": "It matters most for busy periods, but even a single-court or single-room business can lose a valuable customer to one bad double booking. The smaller the business, the more one lost customer tends to hurt."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reduce-no-shows-venue-booking-deposits-reminders",
+    "title": "No-Shows Are Quietly Eating Your Venue's Margin: How to Cut Them Without Annoying Customers",
+    "slug": "reduce-no-shows-venue-booking-deposits-reminders",
+    "excerpt": "An empty court at 8pm on a Saturday isn't a small loss—it's a peak slot you turned other customers away for. Here's why no-shows happen, what actually reduces them, and how to introduce deposits and reminders without scaring off regulars.",
+    "date": "2026-09-14",
+    "dateDisplay": "September 14, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "Venue Booking",
+      "No-Shows",
+      "Operations",
+      "Revenue"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/reduce-no-shows-venue-cover.svg",
+    "heroImageAlt": "Cover graphic showing an empty booked venue slot beside a confirmed, paid booking",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Most venue owners can tell you their busiest hours. Far fewer can tell you how many of those booked hours actually got used. That gap is where no-shows live—and unlike a slow Tuesday afternoon, a no-show at peak time costs you twice: you lose the revenue, and you lost the chance to give that slot to someone who would have shown up."
+      },
+      {
+        "type": "paragraph",
+        "text": "A 10% no-show rate on peak slots doesn't feel dramatic day to day. Over a year, for a venue running eight peak hours a week at RM80 an hour, it's roughly <strong>RM3,300 of revenue that was booked, blocked and never collected</strong>—and that assumes you never turned anyone away for those slots, which at peak time you almost certainly did."
+      },
+      {
+        "type": "heading2",
+        "text": "Why No-Shows Happen (It's Usually Not Bad Customers)"
+      },
+      {
+        "type": "heading3",
+        "text": "Booking is free and forgetting is easy"
+      },
+      {
+        "type": "paragraph",
+        "text": "When a booking costs nothing to make and nothing to break, it isn't really a commitment—it's an intention. Customers who book a week ahead over WhatsApp and hear nothing until the day are relying entirely on their own memory."
+      },
+      {
+        "type": "heading3",
+        "text": "Cancelling feels awkward, so people just don't"
+      },
+      {
+        "type": "paragraph",
+        "text": "This one surprises owners. Plenty of no-shows are customers who knew they couldn't make it but had no easy way to cancel. Messaging a business owner to say \"sorry, can't come\" feels confrontational; silently not turning up doesn't. If cancelling is a conversation, some people will avoid it."
+      },
+      {
+        "type": "heading3",
+        "text": "Speculative and duplicate bookings"
+      },
+      {
+        "type": "paragraph",
+        "text": "Groups often book two slots while they sort out who's free, intending to release one. If releasing it takes effort, it stays on your calendar as a booked-but-dead slot."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>The one to watch:</strong> no-shows cluster at peak times, because that's when people book early \"just in case.\" Your most valuable hours carry your highest no-show risk."
+      },
+      {
+        "type": "heading2",
+        "text": "What Actually Reduces No-Shows"
+      },
+      {
+        "type": "paragraph",
+        "text": "There are only a handful of levers that reliably work, and they work in combination rather than alone."
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>A deposit or prepayment.</strong> The single biggest lever. Even a small deposit converts an intention into a commitment—customers who have paid something turn up, or they cancel early enough for you to resell the slot.",
+          "<strong>Automatic reminders.</strong> A confirmation at booking and a reminder the day before removes the \"I completely forgot\" category, which is a large share of no-shows for bookings made more than three days out.",
+          "<strong>Easy self-service cancellation.</strong> Give customers a one-click way to cancel and you convert silent no-shows into early cancellations you can resell. A cancellation 24 hours out is worth far more to you than an empty court.",
+          "<strong>A stated, visible policy.</strong> Not to punish people, but to set expectations. A policy customers saw at booking time does most of its work before anyone breaks it.",
+          "<strong>Knowing your repeat offenders.</strong> A booking history that shows a customer has three no-shows lets you decide whether to require prepayment from them specifically, rather than tightening rules for everyone."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "Introducing Deposits Without Losing Regulars"
+      },
+      {
+        "type": "paragraph",
+        "text": "The fear that stops most owners is real: charge for something that used to be free and some customers will grumble. In practice, the grumbling is much smaller than expected when the change is introduced properly."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Start with peak slots only.</strong> Leave off-peak bookings free to make. You get most of the protection where it matters and your quiet hours stay frictionless.",
+          "<strong>Keep the deposit small and creditable.</strong> A deposit that comes off the final price isn't a charge—it's just paying earlier. Customers accept this far more readily than a fee.",
+          "<strong>Make the policy generous at the edges.</strong> Full refund if cancelled 24 or 48 hours ahead. Most people never test it, but knowing it exists removes the objection.",
+          "<strong>Tell regulars personally, once, before it starts.</strong> A short message explaining that it's to stop slots being blocked by people who don't turn up lands very differently from a policy discovered at checkout.",
+          "<strong>Give it a month, then look at the numbers.</strong> Compare no-show rate and total booked hours before and after. Owners are usually surprised that total bookings barely move while completed bookings rise."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "If you're not ready for deposits at all, start with reminders and one-click cancellation. They cost customers nothing, generate no pushback, and typically remove a meaningful share of no-shows on their own."
+      },
+      {
+        "type": "heading2",
+        "text": "Measure It Before You Fix It"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most venues don't actually know their no-show rate—they know it \"happens a lot.\" Before changing anything, spend four weeks recording, for every booking, whether it completed, was cancelled in advance, or was a no-show. Then split those numbers by peak versus off-peak, and by booking lead time."
+      },
+      {
+        "type": "paragraph",
+        "text": "You'll usually find the problem is narrower than it feels: a specific set of slots, or bookings made more than a week ahead. That tells you exactly where to apply deposits and where not to bother."
+      },
+      {
+        "type": "heading2",
+        "text": "How a Booking System Does This For You"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every lever above is manual work if your bookings live in a spreadsheet or a WhatsApp thread. Reminders need someone to send them. Deposits need someone to chase them. No-show rates need someone to tally them."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is the part a proper booking layer handles quietly: confirmations and reminders sent automatically, availability that reflects cancellations the moment they happen, and a record of every booking—completed, cancelled or missed—attached to the customer who made it, so the numbers are there when you want to look."
+      },
+      {
+        "type": "cta",
+        "title": "Turn Bookings Into Kept Appointments",
+        "text": "SteadyDevs Venue Booking adds live availability, automatic confirmations and an admin approval queue to your existing WordPress site—so fewer slots go empty. Try it free for 14 days, no credit card required.",
+        "buttonText": "Start Your Free Trial",
+        "buttonLink": "https://steadydevs.com/venue-booking.html"
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "No-shows aren't a customer-behaviour problem you have to accept—they're a design problem in how bookings are made. When booking costs nothing, cancelling is awkward, and nobody gets reminded, a steady percentage of slots will go empty no matter how good your service is."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fix those three things and the rate drops, usually without losing the customers you were worried about losing."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "What no-show rate is normal for a venue business?",
+            "answer": "It varies by type, but 5–15% of bookings is common for venues that take free bookings with no reminders. If you've never measured yours, assume it's higher than you think—and measure for a month before deciding how hard to push on deposits."
+          },
+          {
+            "question": "Won't asking for a deposit drive customers to competitors?",
+            "answer": "Some will say so; far fewer actually leave. Starting with peak slots only, keeping the deposit creditable against the final price, and offering a clear refund window removes most of the objection. Watch total completed bookings, not just complaints."
+          },
+          {
+            "question": "Do reminders really make a difference?",
+            "answer": "For bookings made more than a few days in advance, yes—forgetting is one of the largest single causes of no-shows. A confirmation at booking plus a reminder the day before addresses it at close to zero cost."
+          },
+          {
+            "question": "What should I do about repeat no-show customers?",
+            "answer": "Handle them individually rather than changing policy for everyone. A booking history tied to each customer lets you require prepayment from the handful of people causing the problem while leaving your regulars untouched."
+          },
+          {
+            "question": "Can I do all of this without replacing my website?",
+            "answer": "Yes. A booking layer added to your existing WordPress site handles availability, confirmations and booking records without touching the rest of your site or changing how customers find you."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "self-billed-einvoice-malaysia-guide",
+    "title": "Self-Billed E-Invoices: The LHDN Rule Most Malaysian SMEs Don't Realise Applies to Them",
+    "slug": "self-billed-einvoice-malaysia-guide",
+    "excerpt": "You've sorted out issuing e-invoices to your customers. But there's a second obligation that catches businesses out: transactions where you have to issue an e-invoice to yourself. Here's when self-billed e-invoices apply and what your system needs to handle them.",
+    "date": "2026-09-17",
+    "dateDisplay": "September 17, 2026",
+    "readTime": "9 min read",
+    "tags": [
+      "E-Invoice",
+      "Compliance",
+      "Malaysia",
+      "LHDN",
+      "MyInvois"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/self-billed-einvoice-malaysia.jpg",
+    "heroImageAlt": "Illustration of a business issuing an e-invoice on behalf of a supplier under LHDN self-billed rules",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Most Malaysian businesses approached e-invoicing with one question: how do we send e-invoices to our customers? That's the visible half of the mandate, and it's where the effort went—integrating with MyInvois, validating fields, handling rejections."
+      },
+      {
+        "type": "paragraph",
+        "text": "The half that gets missed is the mirror image: <strong>transactions where the buyer, not the seller, has to issue the e-invoice.</strong> LHDN calls these self-billed e-invoices, and they apply to situations far more ordinary than the name suggests. Businesses that assumed self-billing was an edge case for large corporates are often surprised to find they've been accumulating unreported transactions."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Why this matters:</strong> a self-billed e-invoice isn't optional paperwork. Without it, the expense may not be substantiated for tax purposes—which turns a documentation gap into a deduction you can't claim."
+      },
+      {
+        "type": "heading2",
+        "text": "What a Self-Billed E-Invoice Actually Is"
+      },
+      {
+        "type": "paragraph",
+        "text": "Normally the seller issues the invoice and the buyer receives it. A self-billed e-invoice inverts that: <strong>you, as the buyer, create the e-invoice recording the transaction, because the supplier either can't or isn't required to issue one.</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "You are effectively documenting your own expense in a form LHDN can validate, standing in for a supplier who isn't part of the e-invoicing system."
+      },
+      {
+        "type": "heading2",
+        "text": "The Situations Where It Applies"
+      },
+      {
+        "type": "paragraph",
+        "text": "The common triggers are more everyday than most owners expect:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Payments to foreign suppliers.</strong> Overseas vendors aren't subject to Malaysian e-invoicing, so imported goods and services—including the software subscriptions almost every business now pays for—typically require a self-billed e-invoice from you.",
+          "<strong>Payments to individuals who aren't in business.</strong> Freelancers, part-timers and casual service providers operating outside a registered business often can't issue an e-invoice, so the buyer documents it instead.",
+          "<strong>Commissions, incentives and agent payouts.</strong> Where you pay a commission to an agent or dealer, the payer commonly issues the self-billed document.",
+          "<strong>Certain claims and disbursements.</strong> Expense reimbursements and similar items where no supplier invoice exists in the required form.",
+          "<strong>Selected transaction types named by LHDN.</strong> Including specific categories such as profit distributions and certain interest or prize payments."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The pattern is consistent: whenever value flows out of your business to someone who isn't going to produce a validated e-invoice, the documentation obligation shifts to you."
+      },
+      {
+        "type": "tip",
+        "text": "A quick way to find your exposure: list every recurring payment leaving your business that does <em>not</em> arrive with a Malaysian tax invoice attached. Foreign SaaS subscriptions, cloud hosting, overseas advertising spend and freelancer payments usually surface immediately."
+      },
+      {
+        "type": "heading2",
+        "text": "What Your System Needs to Support"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here's where a lot of legacy systems fall short. Most accounting and ERP systems built before the mandate have a single invoicing path: sales out, purchases in as recorded documents. Self-billing needs something different."
+      },
+      {
+        "type": "heading3",
+        "text": "1. Creating an outbound document for an inbound transaction"
+      },
+      {
+        "type": "paragraph",
+        "text": "Your system has to generate a properly structured e-invoice where your own business appears as the buyer and a third party—often foreign, often without a Malaysian tax identification number—appears as the supplier. Many systems simply have no screen for this."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Handling supplier identification edge cases"
+      },
+      {
+        "type": "paragraph",
+        "text": "Foreign suppliers won't have a TIN in the usual format, and individuals may not have a business registration number. The submission still has to satisfy validation, using the identification rules LHDN specifies for these cases. Hard-coded local-format validation is a frequent breakage point."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Submitting and storing the validated document"
+      },
+      {
+        "type": "paragraph",
+        "text": "The self-billed e-invoice goes through MyInvois validation like any other. You need the validation response, the unique identifier and the QR-bearing document stored against the expense record, not sitting in a folder somewhere."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Keeping it out of your sales figures"
+      },
+      {
+        "type": "paragraph",
+        "text": "A self-billed e-invoice is an expense document that happens to be issued by you. If it leaks into revenue reporting because it was built on top of your sales invoice module, your accounts will disagree with your tax position."
+      },
+      {
+        "type": "heading2",
+        "text": "The Practical Approach for a Legacy System"
+      },
+      {
+        "type": "paragraph",
+        "text": "You don't necessarily need a new system. In most of the legacy .NET and SQL Server setups we work with, self-billing is handled by adding a parallel document path rather than rebuilding invoicing."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Identify which of your payment flows trigger self-billing.</strong> Usually a short list: foreign subscriptions, overseas services, freelancer payments, commissions.",
+          "<strong>Decide where the document originates.</strong> Often the purchase or payment entry you already capture—so the self-billed e-invoice is generated from data staff are entering anyway, not typed a second time.",
+          "<strong>Add a document type flag rather than a new module.</strong> The same submission plumbing that sends your sales e-invoices can send self-billed ones, with the party fields reversed and the type set accordingly.",
+          "<strong>Relax identification validation for non-Malaysian parties.</strong> Follow LHDN's rules for foreign and individual suppliers instead of your existing local-format checks.",
+          "<strong>Store the validated result against the expense.</strong> So that when a query comes, the substantiation is one click from the transaction rather than a manual search.",
+          "<strong>Run a back-check on the period since the mandate applied to you.</strong> Find the transactions that should have had self-billed documents and work out, with your tax agent, how to address them."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Not Sure If Your System Handles Self-Billing?",
+        "text": "We work with Malaysian SMEs running legacy .NET and SQL Server systems to close e-invoicing gaps without a rebuild—including self-billed documents. Get an honest assessment of where you stand.",
+        "buttonText": "Talk to Us",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "heading2",
+        "text": "Common Mistakes We See"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Assuming foreign purchases are out of scope.</strong> The supplier being outside Malaysia is exactly what creates the obligation, not what removes it.",
+          "<strong>Treating self-billed documents as internal paperwork.</strong> They're submitted and validated through MyInvois like any other e-invoice, not filed locally.",
+          "<strong>Recording them as sales.</strong> Built on the sales module without a separate document type, they end up inflating revenue.",
+          "<strong>Doing it manually in the portal and never reconciling.</strong> Portal-entered documents that don't flow back into your system leave your records and your submissions permanently out of sync.",
+          "<strong>Leaving it to year-end.</strong> These are transaction-time documents. Reconstructing months of them at once is far more expensive than issuing them as you go."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "Self-billed e-invoices catch businesses out precisely because they don't look like invoicing. They come out of your payments, not your sales, and they involve suppliers who are entirely unaware of Malaysian e-invoicing rules."
+      },
+      {
+        "type": "paragraph",
+        "text": "The fix is rarely dramatic. Most systems need a second document path, not a replacement—but it does need to be deliberate, because nobody is going to chase you for an invoice you were supposed to write to yourself."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Do I need a self-billed e-invoice for overseas software subscriptions?",
+            "answer": "Generally yes—payments to foreign suppliers are one of the most common self-billing triggers, and software and cloud subscriptions are the ones most businesses overlook because the amounts are small and recurring. Confirm your specific situation with your tax agent."
+          },
+          {
+            "question": "What if the foreign supplier has no Malaysian TIN?",
+            "answer": "That's the expected case. LHDN provides identification rules for foreign suppliers and for individuals without business registration. The problem is usually your system's validation, which often assumes a local format and rejects anything else."
+          },
+          {
+            "question": "Can I just issue self-billed e-invoices through the MyInvois portal manually?",
+            "answer": "For low volumes, yes. The risk is reconciliation—documents created in the portal that never make it back into your accounting records leave your books and your submissions disagreeing, which is painful to unwind later."
+          },
+          {
+            "question": "Does this apply if I'm not yet in an enforced phase of the mandate?",
+            "answer": "Your self-billing obligations follow the same phase timing as the rest of your e-invoicing obligations. If you're already issuing e-invoices to customers, assume self-billing applies to you now."
+          },
+          {
+            "question": "How much work is it to add self-billing to an existing legacy system?",
+            "answer": "Usually less than owners fear, if the system already submits e-invoices. The submission plumbing is reused; the work is in a new document path, relaxed party validation and storing the validated result against the expense. It's typically a scoped project, not a rebuild."
+          },
+          {
+            "question": "What happens if we've missed self-billed e-invoices for past months?",
+            "answer": "Address it deliberately rather than quietly. Identify the affected transactions, discuss remediation with your tax agent, and close the system gap so it stops accumulating—an ongoing gap is a much bigger problem than a historical one you're fixing."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "backup-restore-testing-legacy-systems",
+    "title": "Your Backup Isn't a Backup Until You've Restored It",
+    "slug": "backup-restore-testing-legacy-systems",
+    "excerpt": "Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.",
+    "date": "2026-09-20",
+    "dateDisplay": "September 20, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "Legacy Systems",
+      "Backups",
+      "Business Risk",
+      "SQL Server"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/backup-restore-testing.jpg",
+    "heroImageAlt": "Server backup drive beside a restore checklist, illustrating backup verification",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "\"Do you have backups?\" is one of the first questions we ask when assessing a legacy system. Almost everyone says yes. The follow-up question is the one that changes the mood: <strong>\"When did you last restore one?\"</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Long silence, usually. And that silence is the real risk—because an untested backup is a hypothesis, not a safety net. The business believes it's protected, budgets as if it's protected, and takes on risk accordingly. Whether it's actually protected only gets tested on the worst day."
+      },
+      {
+        "type": "heading2",
+        "text": "The Ways Backups Silently Fail"
+      },
+      {
+        "type": "paragraph",
+        "text": "Backups rarely fail loudly. They fail in ways nobody notices for months:"
+      },
+      {
+        "type": "heading3",
+        "text": "The job has been failing since a password changed"
+      },
+      {
+        "type": "paragraph",
+        "text": "A service account password rotated, the scheduled job started failing, the failure email went to a developer who left two years ago. The backup folder still has files in it—from 2024."
+      },
+      {
+        "type": "heading3",
+        "text": "It's backing up the wrong thing"
+      },
+      {
+        "type": "paragraph",
+        "text": "The database is backed up, but not the file uploads. Or the application server is imaged, but the database lives on a different machine that nobody added to the schedule. A partial backup restores into a system that doesn't work."
+      },
+      {
+        "type": "heading3",
+        "text": "Transaction log backups were never configured"
+      },
+      {
+        "type": "paragraph",
+        "text": "A nightly full backup in a SQL Server database running in full recovery mode means two things: you can lose up to a day of transactions, and your log file has been growing since the day it was set up. Both are usually discovered at the same unpleasant moment."
+      },
+      {
+        "type": "heading3",
+        "text": "The backup sits on the same machine as the system"
+      },
+      {
+        "type": "paragraph",
+        "text": "Backups on the same server, or the same physical site, protect you against one type of failure—accidental deletion—and no others. Hardware failure, ransomware, fire and theft take the original and the copy together."
+      },
+      {
+        "type": "heading3",
+        "text": "The files are there but can't be read"
+      },
+      {
+        "type": "paragraph",
+        "text": "Corrupt archives, backups from a database version you no longer run, an encrypted file whose key nobody has, or a backup format that needs software licensed to a former employee. The bytes exist. They just aren't usable."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>The pattern:</strong> every one of these failures is invisible while things are going well, and discovered only when something has already gone wrong. That's why the only meaningful test of a backup is an actual restore."
+      },
+      {
+        "type": "heading2",
+        "text": "What a Real Restore Test Looks Like"
+      },
+      {
+        "type": "paragraph",
+        "text": "A restore test isn't checking that the file exists. It's proving that a working system can be rebuilt from what you have, by someone who will be available when it matters."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Pick a recent backup at random.</strong> Not a freshly made one—something from the normal schedule, so you're testing the real process.",
+          "<strong>Restore it to separate hardware or a VM.</strong> Never over your live system. The point is to prove the backup works, not to risk what's currently running.",
+          "<strong>Bring the full system up, not just the database.</strong> Application, database, configuration, file storage, integrations pointed at test endpoints.",
+          "<strong>Log in and use it.</strong> Open a recent record, run a report, create a transaction. A database that restores but an application that won't start is still an outage.",
+          "<strong>Check how much data you lost.</strong> Compare the newest record in the restored copy against production. That gap is your real recovery point—often much larger than assumed.",
+          "<strong>Time the whole thing.</strong> From \"we've decided to restore\" to \"staff can work again.\" That number is your real recovery time, and it's the one to tell management.",
+          "<strong>Write down every step and every surprise.</strong> The missing password, the undocumented config file, the licence key you had to hunt for. That document is half the value of the exercise."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "Do the first restore test with the person who'd actually perform it in a crisis—not your most senior technical person. A restore that only one expert can do is a restore that depends on that expert being reachable at 2am."
+      },
+      {
+        "type": "heading2",
+        "text": "Two Numbers Every Owner Should Know"
+      },
+      {
+        "type": "paragraph",
+        "text": "Strip away the technical detail and backup strategy comes down to two business decisions:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>How much data can you afford to lose?</strong> If you back up nightly at 11pm and the server dies at 4pm, you've lost a full working day of orders, invoices and payments. Is that survivable? For some businesses yes; for a busy retail or booking operation, absolutely not.",
+          "<strong>How long can you afford to be down?</strong> Restoring from an offsite archive to newly purchased hardware can take days. Restoring to a standby machine that's already configured can take an hour. The difference is cost, and it's a business decision, not a technical one."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Once those two numbers are stated, the technical work is straightforward. Without them, backup discussions go in circles—because nobody knows what \"good enough\" means."
+      },
+      {
+        "type": "heading2",
+        "text": "A Sensible Baseline for an SME Legacy System"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a typical Malaysian SME running an on-premise .NET application on SQL Server, this is the shape of something defensible without being expensive:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Nightly full database backups, retained for at least 30 days.",
+          "Transaction log backups every 15–60 minutes if losing a day of work would hurt—this also keeps your log file from growing indefinitely.",
+          "At least one copy offsite or in cloud storage, on a separate account from your day-to-day logins.",
+          "Application files, configuration and any document or image storage included in the schedule, not just the database.",
+          "Automated verification that the backup completed, with failure alerts going to someone who still works at the company.",
+          "A full restore test at least twice a year, documented.",
+          "A written recovery runbook stored somewhere that survives the server being unavailable."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Not Sure Your Backups Would Actually Save You?",
+        "text": "We run restore tests and recovery assessments on legacy .NET and SQL Server systems—so you find out now, not during an outage. Straight answers, no scare tactics.",
+        "buttonText": "Request an Assessment",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "heading2",
+        "text": "The Ransomware Wrinkle"
+      },
+      {
+        "type": "paragraph",
+        "text": "One thing worth stating plainly: if your backup drive is permanently connected and writable from the server it's backing up, ransomware will encrypt your backups along with everything else. This is now one of the most common ways businesses discover their backup strategy was insufficient."
+      },
+      {
+        "type": "paragraph",
+        "text": "The defence is straightforward—at least one copy that the production system cannot write to. Offline media rotated regularly, or cloud storage with versioning and separate credentials. It doesn't need to be expensive, but it does need to exist before it's needed."
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "Having backups and being able to recover are different things, and the distance between them is where businesses get hurt. The good news is that finding out costs very little: one restore test, one afternoon, one honest look at how much data you'd lose and how long you'd be down."
+      },
+      {
+        "type": "paragraph",
+        "text": "If the test goes well, you've bought genuine peace of mind. If it doesn't, you've found out on a quiet afternoon rather than during a crisis—which is the whole point."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "How often should we test restores?",
+            "answer": "Twice a year is a reasonable baseline for a stable SME system, plus after any significant change to the server, database version or backup tooling. The first test is the important one—it's where the surprises are."
+          },
+          {
+            "question": "Isn't a cloud-hosted system automatically backed up?",
+            "answer": "Hosting providers protect their infrastructure, but the scope and retention of your data backups depend on your plan and configuration—and a provider's backup won't help if data was deleted or corrupted inside your application. Check what's actually covered rather than assuming."
+          },
+          {
+            "question": "Our backup software reports success every night. Isn't that enough?",
+            "answer": "It tells you files were written. It doesn't tell you the files are complete, readable, or sufficient to rebuild a working system. Plenty of successful-looking backups turn out to be missing the file storage, the configuration, or the ability to be read at all."
+          },
+          {
+            "question": "How long should we keep backups?",
+            "answer": "At least 30 days for daily backups, so you can go back past a problem that wasn't noticed immediately. Monthly archives kept for a year or more are worth having for data-loss issues discovered long after the fact, and for any record-keeping obligations your business has."
+          },
+          {
+            "question": "What's the single most important backup improvement for most SMEs?",
+            "answer": "An offsite or offline copy that the production server cannot write to. It's the difference between a bad week and an existential problem when hardware fails, the premises are affected, or ransomware hits."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "who-owns-your-source-code-legacy-system",
+    "title": "Who Actually Owns Your Source Code? The Question to Ask Before You Need the Answer",
+    "slug": "who-owns-your-source-code-legacy-system",
+    "excerpt": "You paid for the system, so you own it—right? Ownership, possession and the ability to hand it to another developer are three different things, and businesses usually discover the difference at the worst possible moment.",
+    "date": "2026-09-23",
+    "dateDisplay": "September 23, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "Legacy Systems",
+      "Business Risk",
+      "Developer Relationships",
+      "Due Diligence"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/who-owns-your-source-code.jpg",
+    "heroImageAlt": "Business owner reviewing a software handover checklist and source code repository access",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "A business calls because their developer has become unresponsive. The system still runs, but nothing can be changed. Somewhere in that first conversation comes the question we have to ask: <em>do you have the source code?</em>"
+      },
+      {
+        "type": "paragraph",
+        "text": "The answer is often a confident yes, followed by a pause, followed by: \"Well—he has it. But we paid for it, so it's ours.\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Those are two different statements, and only one of them helps you on a Monday morning when something breaks."
+      },
+      {
+        "type": "heading2",
+        "text": "Three Things That Get Confused"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Legal ownership"
+      },
+      {
+        "type": "paragraph",
+        "text": "Who owns the intellectual property, as set out in your contract. Without a written agreement assigning it to you, ownership may well sit with the developer who wrote it—even though you paid for the work. \"We paid for it\" is an argument; a signed assignment clause is a fact."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Possession"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whether you actually have a copy. Not a promise of a copy, not access to a repository under the developer's account—a copy you hold, that continues to exist if the relationship ends badly tomorrow."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Usability"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whether the code you hold can be turned into a running system by someone else. This is the one that quietly fails most often. A folder of source files with no build instructions, no database schema, no configuration, no third-party licence keys and no deployment steps is an archive, not an asset."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>The failure mode to avoid:</strong> being legally in the right, in possession of files, and still unable to get anything changed—because nobody can rebuild the system from what you have."
+      },
+      {
+        "type": "heading2",
+        "text": "What You Should Actually Hold"
+      },
+      {
+        "type": "paragraph",
+        "text": "A complete handover package is more than code. If you can't tick most of this list, you have a dependency rather than an asset:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Full source code</strong>, including every project and component, with its version history if one exists.",
+          "<strong>Database schema and a recent data export</strong>—structure, stored procedures, views, jobs, not just a data dump.",
+          "<strong>Build and deployment instructions</strong> specific enough that a competent developer who has never seen the system can follow them.",
+          "<strong>Configuration and environment details</strong>—connection strings, environment variables, server settings (secrets handled securely, not emailed around).",
+          "<strong>Third-party dependencies and licences</strong>, including which components are paid, whose account they're under, and when they renew.",
+          "<strong>Access to the accounts that matter</strong>: domain registrar, hosting, DNS, code repository, SSL certificates, any API credentials.",
+          "<strong>A brief architecture note</strong>—what the pieces are, what talks to what, and which parts are known to be fragile."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Notice that several of those are accounts, not files. Businesses that hold their code but not their domain registrar login are still one dispute away from being offline."
+      },
+      {
+        "type": "heading2",
+        "text": "How to Raise This With a Developer You Like"
+      },
+      {
+        "type": "paragraph",
+        "text": "Owners hesitate here, because asking feels like an accusation. It isn't—and a good developer will understand immediately, because they've seen what happens to businesses that never asked."
+      },
+      {
+        "type": "paragraph",
+        "text": "Frame it around business continuity, not distrust. \"If you were unavailable for a month, could someone else keep this running?\" is a fair question about your business's resilience, not a judgement on anyone's reliability."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Ask for a handover package as a normal, scheduled piece of work—annually, or at the end of each major project.",
+          "Store it somewhere the business controls: a company cloud account or repository, not a personal one.",
+          "Verify it once. Have another developer confirm the package is complete enough to build and run the system—a few hours of work that tells you whether your asset is real.",
+          "Get the ownership position in writing if it isn't already. For future work, an IP assignment clause costs nothing to include at the start and is difficult to negotiate later.",
+          "Keep account ownership in company names and company email addresses, with the developer added as a user rather than as the owner."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "The best time to do this is while the relationship is good. Every awkward handover conversation we've seen started after something had already gone wrong—which is exactly when goodwill is scarcest."
+      },
+      {
+        "type": "heading2",
+        "text": "If You're Already in the Difficult Version of This"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sometimes the question arrives too late: the developer has stopped responding, or the relationship has broken down. It's not hopeless, but the order of operations matters."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Secure what you can reach first.</strong> Take a full backup of the live server and database today, before any access changes. Even without source code, a running system plus a database is a far stronger position than a database alone.",
+          "<strong>Inventory your accounts.</strong> Work out which of domain, hosting, DNS, certificates and third-party services are under your control and which aren't. Recover the ones you can.",
+          "<strong>Check what's recoverable from the server.</strong> Deployed applications often contain more than owners expect—configuration, scripts, and in some cases enough to reconstruct or continue maintaining the system.",
+          "<strong>Make one clear, professional request in writing.</strong> Specific list, reasonable deadline, no accusations. A surprising number of these situations resolve at this step, because the developer was overloaded rather than obstructive.",
+          "<strong>Then take advice on the rest.</strong> What your contract actually says determines your options, and that's a question for a lawyer—but do the technical preservation work first, not after."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Not Sure What You're Actually Holding?",
+        "text": "We review handover packages and assess whether a legacy system can genuinely be maintained by someone new—before it becomes urgent. Clear findings, no jargon.",
+        "buttonText": "Get a Handover Review",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "Owning your system means three things at once: the legal right, a copy in your hands, and enough documentation for someone else to pick it up. Most businesses have one of the three and assume it's all of them."
+      },
+      {
+        "type": "paragraph",
+        "text": "Checking takes an afternoon. Finding out the hard way takes months and costs considerably more."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "We paid for the system – doesn't that mean we own the code?",
+            "answer": "Not automatically. Paying for development work and owning the intellectual property in it are separate things that a written agreement is supposed to connect. If your contract is silent, the position may not be what you assume—worth checking before it matters."
+          },
+          {
+            "question": "Is a copy of the source code enough on its own?",
+            "answer": "Usually not. Without build instructions, database schema, configuration and third-party licence details, a new developer may spend weeks just getting the system to run—if they can at all. Completeness matters more than possession."
+          },
+          {
+            "question": "How do I ask for this without offending our developer?",
+            "answer": "Frame it as business continuity planning, which is what it is. Good developers expect the question and often welcome it, because it makes the scope of their responsibility clearer for both sides."
+          },
+          {
+            "question": "What if our developer refuses to hand anything over?",
+            "answer": "Preserve what you can access immediately—server backups, database, account control—then make one specific written request, and take legal advice on your contract position. The technical preservation is urgent; the legal question can follow."
+          },
+          {
+            "question": "How often should we refresh our handover package?",
+            "answer": "At least annually, and after any significant piece of work. A package that's three years out of date describes a system you no longer run."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "venue-booking-numbers-owners-should-track",
+    "title": "The Five Numbers Every Venue Owner Should Know (And Most Don't)",
+    "slug": "venue-booking-numbers-owners-should-track",
+    "excerpt": "If your bookings live in a notebook or a WhatsApp thread, you know whether last month felt busy—but not which slots make money, who your best customers are, or how much capacity you're leaving unsold. These five numbers change that.",
+    "date": "2026-09-26",
+    "dateDisplay": "September 26, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "Venue Booking",
+      "Operations",
+      "Revenue",
+      "Data"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/venue-booking-numbers-cover.svg",
+    "heroImageAlt": "Cover graphic showing a venue booking calendar turning into simple business metrics",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ask most venue owners how business is going and you'll get an honest, useful answer: busy on weekends, quiet on weekday afternoons, better than last year. That instinct is built from years of standing in the room, and it's usually right in direction."
+      },
+      {
+        "type": "paragraph",
+        "text": "What it can't tell you is size. Which quiet hours are genuinely unsellable versus simply unpromoted. Whether your regulars account for a quarter of revenue or two-thirds. Whether that discount you've been running actually filled anything. Those answers need numbers, and the numbers only exist if bookings are recorded somewhere that can be counted."
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are the five worth having—and what each one changes about how you run the place."
+      },
+      {
+        "type": "heading2",
+        "text": "1. Utilisation Rate (By Slot, Not Overall)"
+      },
+      {
+        "type": "paragraph",
+        "text": "The share of your available hours that are actually booked. Overall utilisation is a vanity number; <strong>utilisation broken down by day and time is a decision-making number.</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Nearly every venue finds the same shape once they look: peak hours near capacity, a clear second tier that's half-full, and a long tail of hours that barely move. The second tier is where the money is—those slots already attract some demand, so a small nudge in price or promotion can fill them. The dead tail usually needs a different use entirely: classes, leagues, corporate blocks, or simply accepting that the space is closed."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Calculate it per resource (court, room, bay, table), not just for the venue as a whole.",
+          "Split weekday from weekend—averaging them together hides both problems.",
+          "Look at it monthly to catch seasonality before it surprises you."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "2. Revenue Per Available Hour"
+      },
+      {
+        "type": "paragraph",
+        "text": "Total revenue divided by total available hours, rather than by hours booked. This is the number that stops a common mistake: discounting peak slots that would have sold anyway."
+      },
+      {
+        "type": "paragraph",
+        "text": "A discount that fills an empty Tuesday afternoon adds revenue. The same discount applied to a Saturday evening that was going to sell at full price subtracts it. Revenue per available hour catches both effects, where a simple booking count can't."
+      },
+      {
+        "type": "tip",
+        "text": "Track this before and after any promotion. If bookings went up but revenue per available hour went down, the promotion moved customers from full-price slots into discounted ones rather than attracting new demand."
+      },
+      {
+        "type": "heading2",
+        "text": "3. Repeat Customer Share"
+      },
+      {
+        "type": "paragraph",
+        "text": "What proportion of your bookings come from customers who have booked before. For most venue businesses this number is high—and the fact that it's high is the most important strategic input you have."
+      },
+      {
+        "type": "paragraph",
+        "text": "If 70% of your revenue comes from repeat customers, then a loyalty habit, a reliable booking experience and remembering people's preferences are worth far more than another round of ads. If it's low, you have a retention problem that no amount of new traffic will fix—you're refilling a leaking bucket."
+      },
+      {
+        "type": "paragraph",
+        "text": "You can't calculate this at all unless bookings are tied to a customer record. This is the single strongest argument for getting bookings out of a notebook."
+      },
+      {
+        "type": "heading2",
+        "text": "4. No-Show and Late-Cancellation Rate"
+      },
+      {
+        "type": "paragraph",
+        "text": "The share of confirmed bookings that never happened, split between people who cancelled too late to resell and people who simply didn't appear."
+      },
+      {
+        "type": "paragraph",
+        "text": "The split matters. A high late-cancellation rate is a policy problem—your cancellation window may be too generous, or too hard to use. A high no-show rate is a commitment problem, usually solved by deposits and reminders. Lumping them together sends you after the wrong fix."
+      },
+      {
+        "type": "paragraph",
+        "text": "As with utilisation, look at it by slot. No-shows concentrate at peak times, where they hurt most."
+      },
+      {
+        "type": "heading2",
+        "text": "5. Booking Lead Time"
+      },
+      {
+        "type": "paragraph",
+        "text": "How far ahead people book, typically as a median. This quietly drives several decisions:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>How far ahead to open your calendar.</strong> If most bookings come in three days ahead, a six-month booking window adds risk without adding revenue.",
+          "<strong>When to promote.</strong> Marketing a Saturday slot on Saturday morning is too late if your customers decide on Thursday.",
+          "<strong>How aggressive to be with deposits.</strong> Long lead times mean more forgetting and more speculative holds—exactly where deposits and reminders pay off.",
+          "<strong>When to release unsold inventory.</strong> If nothing books beyond four days out, a slot still empty at that point is the one to discount."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "Why These Are Hard Without a System"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every number above needs the same underlying thing: <strong>each booking recorded as structured data</strong>—which resource, which slot, which customer, what happened. A WhatsApp thread has all the information and none of the structure. A paper diary shows you today but can't be counted across a quarter."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is the less obvious benefit of moving bookings online. Owners usually adopt a booking system to stop double bookings and cut admin time, which it does. The part they notice six months later is that they can finally answer questions about their own business that used to be guesswork."
+      },
+      {
+        "type": "cta",
+        "title": "Turn Your Bookings Into Numbers You Can Use",
+        "text": "SteadyDevs Venue Booking records every booking against a customer and a resource on your existing WordPress site—so the reporting is there when you want it. Try it free for 14 days, no credit card required.",
+        "buttonText": "Start Your Free Trial",
+        "buttonLink": "https://steadydevs.com/venue-booking.html"
+      },
+      {
+        "type": "heading2",
+        "text": "Start With One"
+      },
+      {
+        "type": "paragraph",
+        "text": "You don't need a dashboard. Pick utilisation by slot, work it out for last month, and look at where your second-tier hours are. That single view tends to change something in the first week—a price, an opening hour, a promotion aimed at a specific afternoon."
+      },
+      {
+        "type": "paragraph",
+        "text": "Add the others once the first one has proved useful. Numbers you actually act on beat a full reporting suite nobody opens."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "What's a good utilisation rate for a venue?",
+            "answer": "It varies too much by venue type and location for a single benchmark to be meaningful. The useful comparison is your own venue over time, and your peak slots against your second-tier slots—that gap is where your realistic upside sits."
+          },
+          {
+            "question": "Do I need a booking system to track these numbers?",
+            "answer": "Not strictly—a disciplined spreadsheet can produce them. The catch is that it relies on someone entering every booking consistently, including cancellations and no-shows, which is exactly the discipline that slips during busy periods."
+          },
+          {
+            "question": "Which number should I start with?",
+            "answer": "Utilisation by slot. It's the easiest to calculate, and it usually points straight at a specific decision—which hours to promote, which to reprice, and which to stop worrying about."
+          },
+          {
+            "question": "How far back do I need data before these are useful?",
+            "answer": "One month tells you something; three months tells you something reliable, because it smooths out weather, holidays and one-off events. Start recording now rather than waiting for a clean starting point."
+          },
+          {
+            "question": "Isn't this overkill for a small venue?",
+            "answer": "The smaller the venue, the more a single unsold peak slot matters as a share of revenue. These aren't corporate metrics—they're five numbers you can work out on one page, and they tend to pay for themselves in the first pricing decision they inform."
           }
         ]
       }

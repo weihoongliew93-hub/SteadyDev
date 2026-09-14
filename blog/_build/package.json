@@ -6,7 +6,10 @@
     "build": "node build-blog.js",
     "sitemap": "node gen-sitemap.js",
     "feed": "node gen-feed.js",
-    "seo": "node gen-sitemap.js && node gen-feed.js"
+    "seo": "node gen-sitemap.js && node gen-feed.js",
+    "publish": "node publish-due-posts.js",
+    "publish:dry": "node publish-due-posts.js --dry-run",
+    "release": "node publish-due-posts.js && node build-blog.js && node gen-sitemap.js && node gen-feed.js"
   },
   "author": "SteadyDevs",
   "license": "ISC"

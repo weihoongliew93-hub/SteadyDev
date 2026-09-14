@@ -1,0 +1,96 @@
+# Publishes blog posts whose scheduled date has arrived.
+#
+# A post is scheduled by setting a future "date" and "published": false in
+# blog/blog-posts.json. This workflow flips the flag when the date arrives,
+# regenerates the post HTML, sitemap and RSS feed, commits, and deploys.
+#
+# Deployment is done here rather than by static.yml, because pushes made with
+# GITHUB_TOKEN do not trigger other workflows.
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    # 01:00 UTC = 09:00 Malaysia time, daily
+    - cron: '0 1 * * *'
+  # Allows a manual run from the Actions tab (useful for testing)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report what would publish without changing anything'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Share the deploy lock with static.yml so two deploys never overlap
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Release posts that are due
+        id: release
+        working-directory: blog/_build
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node publish-due-posts.js --dry-run | tee output.log
+          else
+            node publish-due-posts.js | tee output.log
+          fi
+          count=$(grep -oP 'PUBLISHED_COUNT=\K\d+' output.log)
+          rm output.log
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Posts published this run: $count"
+
+      - name: Rebuild HTML, sitemap and feed
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        working-directory: blog/_build
+        run: |
+          node build-blog.js
+          node gen-sitemap.js
+          node gen-feed.js
+
+      - name: Commit and push
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog/blog-posts.json blog/*.html blog/feed.xml sitemap.xml
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Publish scheduled blog post(s) [skip ci]"
+            git push
+          fi
+
+      - name: Setup Pages
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        uses: actions/deploy-pages@v5
