@@ -8,13 +8,118 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>No-Shows Are Quietly Eating Your Venue's Margin: How to Cut Them Without Annoying Customers</title>
+      <link>https://steadydevs.com/blog/reduce-no-shows-venue-booking-deposits-reminders.html</link>
+      <description>An empty court at 8pm on a Saturday isn't a small loss—it's a peak slot you turned other customers away for. Here's why no-shows happen, what actually reduces them, and how to introduce deposits and reminders without scaring off regulars.</description>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/reduce-no-shows-venue-booking-deposits-reminders.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Venue Booking</category>
+      <category>No-Shows</category>
+      <category>Operations</category>
+      <category>Revenue</category>
+    </item>
+
+    <item>
+      <title>Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</title>
+      <link>https://steadydevs.com/blog/prevent-double-bookings-courts-studios-rental-spaces.html</link>
+      <description>A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else already there. Here's why double bookings keep happening even with a shared calendar, and how a proper booking system removes the problem entirely.</description>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/prevent-double-bookings-courts-studios-rental-spaces.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Venue Booking</category>
+      <category>Double Booking</category>
+      <category>Operations</category>
+      <category>WordPress</category>
+    </item>
+
+    <item>
+      <title>Stop Taking Bookings Over WhatsApp: Why Your Venue Needs Online Booking in 2026</title>
+      <link>https://steadydevs.com/blog/stop-taking-bookings-over-whatsapp-venue-booking.html</link>
+      <description>If your courts, rooms, tables or bays are still booked through WhatsApp messages and a shared spreadsheet, you're losing bookings to double-entries, missed messages and slow replies. Here's what online booking actually fixes—and how to add it to your existing WordPress site in an afternoon.</description>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/stop-taking-bookings-over-whatsapp-venue-booking.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Venue Booking</category>
+      <category>WordPress</category>
+      <category>Online Booking</category>
+      <category>Small Business</category>
+    </item>
+
+    <item>
+      <title>AI Tools for Legacy System Maintenance: Hype vs Reality</title>
+      <link>https://steadydevs.com/blog/ai-tools-legacy-system-maintenance-hype-reality.html</link>
+      <description>AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.</description>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/ai-tools-legacy-system-maintenance-hype-reality.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>AI</category>
+      <category>Legacy Systems</category>
+      <category>Tools</category>
+      <category>Development</category>
+    </item>
+
+    <item>
+      <title>The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</title>
+      <link>https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html</link>
+      <description>That small feature you asked for—the one that 'should be quick'—can quietly become one of your most expensive decisions. Here's why simple-sounding requests turn into major projects, and how to scope them before they surprise your budget.</description>
+      <pubDate>Sat, 25 Jul 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/rm30000-mistake-add-feature-complexity.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Feature Development</category>
+      <category>Cost Estimation</category>
+      <category>Legacy Systems</category>
+      <category>Scope Creep</category>
+    </item>
+
+    <item>
+      <title>When 'It's Working Fine' Actually Means 'It's About to Break'</title>
+      <link>https://steadydevs.com/blog/working-fine-about-to-break-warning-signs.html</link>
+      <description>The most dangerous phrase in software is 'it's working fine.' Systems rarely fail without warning—they send signals for months first. Here are the quiet symptoms that a stable-looking system is closer to failure than you think.</description>
+      <pubDate>Fri, 17 Jul 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/working-fine-about-to-break-warning-signs.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>System Health</category>
+      <category>Warning Signs</category>
+      <category>Preventive Maintenance</category>
+      <category>Risk</category>
+    </item>
+
+    <item>
+      <title>Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</title>
+      <link>https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html</link>
+      <description>Almost every developer who inherits a legacy system will, sooner or later, propose rewriting it from scratch. Sometimes they're right. Usually they're not. Here's how to tell the difference before you commit six figures and a year of risk.</description>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/why-developer-wants-rewrite-everything.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Rewrites</category>
+      <category>Legacy Systems</category>
+      <category>Decision Making</category>
+      <category>Business Risk</category>
+    </item>
+
+    <item>
+      <title>E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them</title>
+      <link>https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html</link>
+      <description>A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.</description>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>E-Invoice</category>
+      <category>Compliance</category>
+      <category>Troubleshooting</category>
+      <category>Integration</category>
+      <category>Malaysia</category>
+    </item>
 
     <item>
       <title>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</title>
@@ -69,19 +174,6 @@
       <category>Security</category>
       <category>Legacy Systems</category>
       <category>Infrastructure</category>
-    </item>
-
-    <item>
-      <title>Why Your POS/ERP Vendor Won't Support Your Customizations (And What to Do About It)</title>
-      <link>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</link>
-      <description>You paid for a POS or ERP system, added essential customizations, and now the vendor refuses support. This is a common trap for Malaysian SMEs. Here's why it happens, how to avoid it, and what to do if you're already stuck.</description>
-      <pubDate>Fri, 19 Jun 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>POS Systems</category>
-      <category>ERP</category>
-      <category>Vendor Management</category>
-      <category>Customization</category>
     </item>
 
     <item>
@@ -208,19 +300,6 @@
     </item>
 
     <item>
-      <title>E-Invoice Mandate: What Happened to Businesses That Missed the Deadline</title>
-      <link>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</link>
-      <description>We're now deep into Malaysia's e-invoice rollout. Some businesses met their deadlines, others didn't. Here's what actually happened to the ones who missed it—the real consequences, recovery paths, and lessons learned.</description>
-      <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>E-Invoice</category>
-      <category>Compliance</category>
-      <category>Malaysia</category>
-      <category>Case Study</category>
-    </item>
-
-    <item>
       <title>The Excel Trap: When Spreadsheets Cost More Than Proper Software</title>
       <link>https://steadydevs.com/blog/excel-trap-when-spreadsheets-cost-more-than-software.html</link>
       <description>Excel is free and flexible—until it's not. Many Malaysian SMEs running RM5M-20M operations still rely on spreadsheets for critical business functions. Here's when Excel stops being cost-effective and starts being a liability.</description>
@@ -283,16 +362,6 @@
       <category>.NET</category>
       <category>Business Risk</category>
       <category>Documentation</category>
-    </item>
-
-    <item>
-      <title>Why Your POS System Keeps Getting Slower (And What's Actually Happening Inside)</title>
-      <link>https://steadydevs.com/blog/why-pos-system-getting-slower.html</link>
-      <description>POS slowness is rarely a hardware problem. It's almost always something that's been quietly building inside the system for months. Here's what's actually happening — and why throwing more server power at it usually doesn't help.</description>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/why-pos-system-getting-slower.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-
     </item>
 
     <item>
