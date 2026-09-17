@@ -12421,7 +12421,7 @@
       "MyInvois"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/self-billed-einvoice-cover.svg",
     "heroImageAlt": "Cover graphic showing a foreign supplier invoice becoming a validated self-billed e-invoice issued by the buyer",
     "content": [

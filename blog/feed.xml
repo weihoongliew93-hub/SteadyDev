@@ -8,13 +8,27 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Mon, 14 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>Self-Billed E-Invoices: The LHDN Rule Most Malaysian SMEs Don't Realise Applies to Them</title>
+      <link>https://steadydevs.com/blog/self-billed-einvoice-malaysia-guide.html</link>
+      <description>You've sorted out issuing e-invoices to your customers. But there's a second obligation that catches businesses out: transactions where you have to issue an e-invoice to yourself. Here's when self-billed e-invoices apply and what your system needs to handle them.</description>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/self-billed-einvoice-malaysia-guide.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>E-Invoice</category>
+      <category>Compliance</category>
+      <category>Malaysia</category>
+      <category>LHDN</category>
+      <category>MyInvois</category>
+    </item>
 
     <item>
       <title>No-Shows Are Quietly Eating Your Venue's Margin: How to Cut Them Without Annoying Customers</title>
