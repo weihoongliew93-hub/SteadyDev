@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Your Backup Isn't a Backup Until You've Restored It | SteadyDevs</title>
+  <meta name="description" content="Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html">
+  <meta property="og:title" content="Your Backup Isn't a Backup Until You've Restored It">
+  <meta property="og:description" content="Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/backup-restore-testing-cover.svg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Backup Isn't a Backup Until You've Restored It">
+  <meta name="twitter:description" content="Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/backup-restore-testing-cover.svg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html">
+  
+  <link rel="stylesheet" href="../assets/style.css?v=316e8821">
+  <link rel="stylesheet" href="blog-styles.css?v=75bd046f">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your Backup Isn't a Backup Until You've Restored It",
+    "alternativeHeadline": "Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether ",
+    "image": "https://steadydevs.com/images/blog/backup-restore-testing-cover.svg",
+    "datePublished": "2026-09-20T00:00:00+08:00",
+    "dateModified": "2026-09-20T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.",
+    "articleSection": "Legacy Systems Management",
+    "articleBody": "Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.",
+    "wordCount": 1347,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Legacy Systems"
+      },
+      {
+        "@type": "Thing",
+        "name": "Backups"
+      },
+      {
+        "@type": "Thing",
+        "name": "Business Risk"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "legacy systems, backups, business risk, sql server",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-09-20T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-09-20T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Legacy Systems Management">
+  <meta property="article:tag" content="Legacy Systems, Backups, Business Risk, SQL Server">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js"></script>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
+    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
+      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
+      <span style="color: #6B7280; margin: 0 8px;">/</span>
+      <span style="color: #F3F4F6;">Your Backup Isn't a Backup Until You've Restored It</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Your Backup Isn't a Backup Until You've Restored It",
+        "item": "https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="container">
+    <!-- TOC Toggle Button for Mobile/Tablet -->
+    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
+      ☰
+    </button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content">
+      <article>
+        <img src="../images/blog/backup-restore-testing-cover.svg" alt="Cover graphic contrasting nightly backup success reports against a restore test that has never been run" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>Your Backup Isn't a Backup Until You've Restored It</h1>
+          <div class="blog-meta">September 20, 2026 | 8 min read</div>
+        </div>
+        <p>"Do you have backups?" is one of the first questions we ask when assessing a legacy system. Almost everyone says yes. The follow-up question is the one that changes the mood: <strong>"When did you last restore one?"</strong></p>
+<p>Long silence, usually. And that silence is the real risk—because an untested backup is a hypothesis, not a safety net. The business believes it's protected, budgets as if it's protected, and takes on risk accordingly. Whether it's actually protected only gets tested on the worst day.</p>
+<h2>The Ways Backups Silently Fail</h2>
+<p>Backups rarely fail loudly. They fail in ways nobody notices for months:</p>
+<h3>The job has been failing since a password changed</h3>
+<p>A service account password rotated, the scheduled job started failing, the failure email went to a developer who left two years ago. The backup folder still has files in it—from 2024.</p>
+<h3>It's backing up the wrong thing</h3>
+<p>The database is backed up, but not the file uploads. Or the application server is imaged, but the database lives on a different machine that nobody added to the schedule. A partial backup restores into a system that doesn't work.</p>
+<h3>Transaction log backups were never configured</h3>
+<p>A nightly full backup in a SQL Server database running in full recovery mode means two things: you can lose up to a day of transactions, and your log file has been growing since the day it was set up. Both are usually discovered at the same unpleasant moment.</p>
+<h3>The backup sits on the same machine as the system</h3>
+<p>Backups on the same server, or the same physical site, protect you against one type of failure—accidental deletion—and no others. Hardware failure, ransomware, fire and theft take the original and the copy together.</p>
+<h3>The files are there but can't be read</h3>
+<p>Corrupt archives, backups from a database version you no longer run, an encrypted file whose key nobody has, or a backup format that needs software licensed to a former employee. The bytes exist. They just aren't usable.</p>
+<div class="warning-box"><p><strong>The pattern:</strong> every one of these failures is invisible while things are going well, and discovered only when something has already gone wrong. That's why the only meaningful test of a backup is an actual restore.</p></div>
+<h2>What a Real Restore Test Looks Like</h2>
+<p>A restore test isn't checking that the file exists. It's proving that a working system can be rebuilt from what you have, by someone who will be available when it matters.</p>
+<ol><li><strong>Pick a recent backup at random.</strong> Not a freshly made one—something from the normal schedule, so you're testing the real process.</li><li><strong>Restore it to separate hardware or a VM.</strong> Never over your live system. The point is to prove the backup works, not to risk what's currently running.</li><li><strong>Bring the full system up, not just the database.</strong> Application, database, configuration, file storage, integrations pointed at test endpoints.</li><li><strong>Log in and use it.</strong> Open a recent record, run a report, create a transaction. A database that restores but an application that won't start is still an outage.</li><li><strong>Check how much data you lost.</strong> Compare the newest record in the restored copy against production. That gap is your real recovery point—often much larger than assumed.</li><li><strong>Time the whole thing.</strong> From "we've decided to restore" to "staff can work again." That number is your real recovery time, and it's the one to tell management.</li><li><strong>Write down every step and every surprise.</strong> The missing password, the undocumented config file, the licence key you had to hunt for. That document is half the value of the exercise.</li></ol>
+<div class="tip-box"><p>Do the first restore test with the person who'd actually perform it in a crisis—not your most senior technical person. A restore that only one expert can do is a restore that depends on that expert being reachable at 2am.</p></div>
+<h2>Two Numbers Every Owner Should Know</h2>
+<p>Strip away the technical detail and backup strategy comes down to two business decisions:</p>
+<ul><li><strong>How much data can you afford to lose?</strong> If you back up nightly at 11pm and the server dies at 4pm, you've lost a full working day of orders, invoices and payments. Is that survivable? For some businesses yes; for a busy retail or booking operation, absolutely not.</li><li><strong>How long can you afford to be down?</strong> Restoring from an offsite archive to newly purchased hardware can take days. Restoring to a standby machine that's already configured can take an hour. The difference is cost, and it's a business decision, not a technical one.</li></ul>
+<p>Once those two numbers are stated, the technical work is straightforward. Without them, backup discussions go in circles—because nobody knows what "good enough" means.</p>
+<h2>A Sensible Baseline for an SME Legacy System</h2>
+<p>For a typical Malaysian SME running an on-premise .NET application on SQL Server, this is the shape of something defensible without being expensive:</p>
+<ul><li>Nightly full database backups, retained for at least 30 days.</li><li>Transaction log backups every 15–60 minutes if losing a day of work would hurt—this also keeps your log file from growing indefinitely.</li><li>At least one copy offsite or in cloud storage, on a separate account from your day-to-day logins.</li><li>Application files, configuration and any document or image storage included in the schedule, not just the database.</li><li>Automated verification that the backup completed, with failure alerts going to someone who still works at the company.</li><li>A full restore test at least twice a year, documented.</li><li>A written recovery runbook stored somewhere that survives the server being unavailable.</li></ul>
+
+          <div class="cta-box">
+            <h3>Not Sure Your Backups Would Actually Save You?</h3>
+            <p style="color: #D1D5DB;">We run restore tests and recovery assessments on legacy .NET and SQL Server systems—so you find out now, not during an outage. Straight answers, no scare tactics.</p>
+            <a href="../contact.html" class="cta-button">Request an Assessment</a>
+          </div>
+<h2>The Ransomware Wrinkle</h2>
+<p>One thing worth stating plainly: if your backup drive is permanently connected and writable from the server it's backing up, ransomware will encrypt your backups along with everything else. This is now one of the most common ways businesses discover their backup strategy was insufficient.</p>
+<p>The defence is straightforward—at least one copy that the production system cannot write to. Offline media rotated regularly, or cloud storage with versioning and separate credentials. It doesn't need to be expensive, but it does need to exist before it's needed.</p>
+<h2>The Bottom Line</h2>
+<p>Having backups and being able to recover are different things, and the distance between them is where businesses get hurt. The good news is that finding out costs very little: one restore test, one afternoon, one honest look at how much data you'd lose and how long you'd be down.</p>
+<p>If the test goes well, you've bought genuine peace of mind. If it doesn't, you've found out on a quiet afternoon rather than during a crisis—which is the whole point.</p>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How often should we test restores?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Twice a year is a reasonable baseline for a stable SME system, plus after any significant change to the server, database version or backup tooling. The first test is the important one—it's where the surprises are.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Isn't a cloud-hosted system automatically backed up?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Hosting providers protect their infrastructure, but the scope and retention of your data backups depend on your plan and configuration—and a provider's backup won't help if data was deleted or corrupted inside your application. Check what's actually covered rather than assuming.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Our backup software reports success every night. Isn't that enough?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It tells you files were written. It doesn't tell you the files are complete, readable, or sufficient to rebuild a working system. Plenty of successful-looking backups turn out to be missing the file storage, the configuration, or the ability to be read at all.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">How long should we keep backups?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>At least 30 days for daily backups, so you can go back past a problem that wasn't noticed immediately. Monthly archives kept for a year or more are worth having for data-loss issues discovered long after the fact, and for any record-keeping obligations your business has.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">What's the single most important backup improvement for most SMEs?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>An offsite or offline copy that the production server cannot write to. It's the difference between a bad week and an existential problem when hardware fails, the premises are affected, or ransomware hits.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="backup-restore-testing-legacy-systems" data-current-tags='["Legacy Systems","Backups","Business Risk","SQL Server"]'></div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
+    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
+    <p style="margin-top: 12px; font-size: 0.9em;">
+      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
+      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a>
+    </p>
+  </footer>
+  
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="../contact.html">FREE Consultation →</a>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth <= 1400) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 1400) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1400 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1400) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>

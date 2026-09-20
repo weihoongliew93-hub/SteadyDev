@@ -12614,7 +12614,7 @@
       "SQL Server"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/backup-restore-testing-cover.svg",
     "heroImageAlt": "Cover graphic contrasting nightly backup success reports against a restore test that has never been run",
     "content": [

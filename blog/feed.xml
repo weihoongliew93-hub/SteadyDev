@@ -8,13 +8,26 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>Your Backup Isn't a Backup Until You've Restored It</title>
+      <link>https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html</link>
+      <description>Almost every business we assess has backups. Far fewer have ever restored one. Here's how to find out whether your backups would actually save you—before the day you need them to.</description>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/backup-restore-testing-legacy-systems.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Legacy Systems</category>
+      <category>Backups</category>
+      <category>Business Risk</category>
+      <category>SQL Server</category>
+    </item>
 
     <item>
       <title>Self-Billed E-Invoices: The LHDN Rule Most Malaysian SMEs Don't Realise Applies to Them</title>
