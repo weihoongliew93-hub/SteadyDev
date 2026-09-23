@@ -8,13 +8,26 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Sun, 20 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>Who Actually Owns Your Source Code? The Question to Ask Before You Need the Answer</title>
+      <link>https://steadydevs.com/blog/who-owns-your-source-code-legacy-system.html</link>
+      <description>You paid for the system, so you own it—right? Ownership, possession and the ability to hand it to another developer are three different things, and businesses usually discover the difference at the worst possible moment.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/who-owns-your-source-code-legacy-system.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Legacy Systems</category>
+      <category>Business Risk</category>
+      <category>Developer Relationships</category>
+      <category>Due Diligence</category>
+    </item>
 
     <item>
       <title>Your Backup Isn't a Backup Until You've Restored It</title>

@@ -12815,7 +12815,7 @@
       "Due Diligence"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/who-owns-source-code-cover.svg",
     "heroImageAlt": "Cover graphic showing a handover checklist where legal ownership and a code copy pass but rebuildability fails",
     "content": [
