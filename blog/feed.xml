@@ -8,13 +8,26 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Wed, 23 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>The Five Numbers Every Venue Owner Should Know (And Most Don't)</title>
+      <link>https://steadydevs.com/blog/venue-booking-numbers-owners-should-track.html</link>
+      <description>If your bookings live in a notebook or a WhatsApp thread, you know whether last month felt busy—but not which slots make money, who your best customers are, or how much capacity you're leaving unsold. These five numbers change that.</description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/venue-booking-numbers-owners-should-track.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Venue Booking</category>
+      <category>Operations</category>
+      <category>Revenue</category>
+      <category>Data</category>
+    </item>
 
     <item>
       <title>Who Actually Owns Your Source Code? The Question to Ask Before You Need the Answer</title>
