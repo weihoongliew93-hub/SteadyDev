@@ -23,7 +23,7 @@
     if (inBlog) return 'blog';
     if (file === '' || file === 'index.html') return 'home';
     if (file === 'about.html') return 'about';
-    if (file === 'solutions.html' || file === 'pricing-terms.html' || file.indexOf('packages') === 0) return 'solutions';
+    if (file === 'solutions.html' || file === 'pricing-terms.html' || file === 'cloud-cost-audit.html' || file.indexOf('packages') === 0) return 'solutions';
     if (file === 'einvoice.html') return isF ? 'einvoice' : 'products';
     if (file === 'venue-booking.html') return isF ? 'venue' : 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
