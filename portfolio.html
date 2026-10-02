@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/f.css?v=4">
-  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -44,48 +43,45 @@
     gtag('config', 'G-5LRWB31H8T');
   </script>
   
+  <style>
+    /* Portfolio page (design F). */
+    .pf-cat { color: var(--crimson-text); }
+    .pf-clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+    .f-tab.active { background: var(--text-strong); border-color: var(--text-strong); color: var(--bg); }
+  </style>
 </head>
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <!-- ===================== PAGE HERO ===================== -->
-  <section class="sd-page-hero">
-    <div class="sd-page-hero-inner">
-      <p class="sd-eyebrow">Portfolio</p>
-      <h1>Real Projects. <span class="accent">Real Results.</span></h1>
-      <p class="sd-page-hero-lead">
-        <strong>11 years solving expensive problems</strong> for businesses that can't afford downtime. From enterprise POS systems handling thousands of daily transactions to automated business processes that eliminate manual work — here's how complex problems get solved with clean, maintainable code.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===================== PROJECTS ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Selected Work</p>
-      <h2 class="sd-section-title">Case Studies That <span class="accent">Solve Expensive Problems</span></h2>
-      <div class="sd-title-rule"></div>
-      <p class="sd-section-sub">
-        <strong>Industries:</strong> Major F&amp;B and retail brands · Airport duty-free operations · Loyalty programs managing millions of points · Pet service businesses. &nbsp;<strong>Scale:</strong> Production systems handling high transaction volumes, multi-country deployments and compliance-critical environments.
-      </p>
-
-      <!-- Filter tabs -->
-      <div class="sd-filter sd-filter--dark" id="projectFilter">
-        <button class="active" data-filter="all">All</button>
-        <button data-filter="web">Web Systems</button>
-        <button data-filter="pos">POS &amp; Desktop</button>
-        <button data-filter="performance">Performance</button>
-        <button data-filter="automation">Automation</button>
-        <button data-filter="tooling">Internal Tools</button>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Portfolio · case studies</p>
+        <h1 class="f-h1">Real projects. <span class="f-dim">Real results.</span></h1>
+        <p class="f-lead"><strong>11 years solving expensive problems</strong> for businesses that can't afford downtime. From enterprise POS systems handling thousands of daily transactions to automated business processes that eliminate manual work — here's how complex problems get solved with clean, maintainable code.</p>
       </div>
+    </section>
 
-      <div class="sd-dcard-grid" id="projectGrid">
-
-        <!-- Wallhub case study hidden per request. To restore, remove the comment wrapper below. -->
+    <section class="f-section f-section--line">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Selected work</p>
+          <h2 class="f-h2">Case studies that solve expensive problems</h2>
+          <p class="f-sub"><strong>Industries:</strong> Major F&amp;B and retail brands · Airport duty-free operations · Loyalty programs managing millions of points · Pet service businesses.  <strong>Scale:</strong> Production systems handling high transaction volumes, multi-country deployments and compliance-critical environments.</p>
+        </div>
+        <div class="f-tabs" id="projectFilter" role="group" aria-label="Filter case studies">
+          <button type="button" class="f-tab active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="f-tab" data-filter="web" aria-pressed="false">Web Systems</button>
+          <button type="button" class="f-tab" data-filter="pos" aria-pressed="false">POS &amp; Desktop</button>
+          <button type="button" class="f-tab" data-filter="performance" aria-pressed="false">Performance</button>
+          <button type="button" class="f-tab" data-filter="automation" aria-pressed="false">Automation</button>
+          <button type="button" class="f-tab" data-filter="tooling" aria-pressed="false">Internal Tools</button>
+        </div>
+        <div class="f-grid" id="projectGrid">
+          <!-- Wallhub case study hidden per request. To restore, remove the comment wrapper below. -->
         <!--
         <div class="sd-dcard" data-cat="web">
           <div class="sd-thumb"><span class="sd-thumb-icon">🧾</span></div>
@@ -104,202 +100,97 @@
           <a href="case-wallhub-sales-inventory-system.html" class="sd-help-link">Read the full case study →</a>
         </div>
         -->
-
-        <!-- Performance Crisis -->
-        <div class="sd-dcard" data-cat="performance">
-          <div class="sd-thumb"><span class="sd-thumb-icon">⚡</span></div>
-          <div class="sd-cat">Performance</div>
-          <h3>High-Volume Performance Crisis Resolution</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET Framework</span>
-            <span class="sd-tag sd-tag--dark">SQL Server</span>
-            <span class="sd-tag sd-tag--dark">Performance Optimization</span>
-            <span class="sd-tag sd-tag--dark">Production Crisis</span>
-          </div>
-          <p class="sd-clamp-4">
-            An automated point-expiry system ran flawlessly for years — until a new customer's extremely high transaction volumes exposed critical bottlenecks and put production at risk. Analyzed query and data-access patterns under pressure, applied targeted optimizations without disrupting the live automation, and ran a custom off-hours program to clear accumulated data. <strong>Crisis resolved within half a day</strong> with zero business disruption.
-          </p>
-          <a href="case-high-volume-performance-crisis.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-        <!-- Pet Grooming -->
-        <div class="sd-dcard" data-cat="web automation">
-          <div class="sd-thumb"><span class="sd-thumb-icon">🐾</span></div>
-          <div class="sd-cat">Web &amp; Automation</div>
-          <h3>Pet Grooming Booking &amp; Automation System</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET</span>
-            <span class="sd-tag sd-tag--dark">Web API</span>
-            <span class="sd-tag sd-tag--dark">SQL Server</span>
-            <span class="sd-tag sd-tag--dark">Email Automation</span>
-          </div>
-          <p class="sd-clamp-4">
-            Transformed a backend-only legacy booking system into a full customer-facing platform: intelligent booking automation (groomer availability, pet-size rules, seniority-based scheduling), automated driver scheduling with area-code restrictions, package subscriptions with automatic point awards, and API-triggered confirmation, reminder and low-point emails. <strong>What once needed constant manual coordination now runs autonomously.</strong>
-          </p>
-          <a href="case-pet-grooming-booking-automation.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-        <!-- Payment Terminal Middleware -->
-        <div class="sd-dcard" data-cat="pos">
-          <div class="sd-thumb"><span class="sd-thumb-icon">💳</span></div>
-          <div class="sd-cat">POS &amp; Desktop</div>
-          <h3>Payment Terminal Integration Middleware</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET</span>
-            <span class="sd-tag sd-tag--dark">Middleware Architecture</span>
-            <span class="sd-tag sd-tag--dark">Hardware Integration</span>
-            <span class="sd-tag sd-tag--dark">Logging &amp; Diagnostics</span>
-          </div>
-          <p class="sd-clamp-4">
-            Multiple credit-card terminals were integrated directly inside the POS code — jumbled into a single file that made debugging a nightmare and every new terminal riskier. Extracted the terminal logic into a dedicated middleware program with a clean base framework, so developers implement only terminal-specific commands without touching connection logic, backed by extensive diagnostic logging. <strong>New integrations now take a fraction of the original time.</strong>
-          </p>
-          <a href="case-payment-terminal-middleware.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-        <!-- Offline POS Sync -->
-        <div class="sd-dcard" data-cat="pos performance">
-          <div class="sd-thumb"><span class="sd-thumb-icon">🔄</span></div>
-          <div class="sd-cat">POS &amp; Performance</div>
-          <h3>Offline POS Sync Optimization &amp; Staging DB Innovation</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET</span>
-            <span class="sd-tag sd-tag--dark">Multi-threading</span>
-            <span class="sd-tag sd-tag--dark">Entity Framework</span>
-            <span class="sd-tag sd-tag--dark">Azure Blob Storage</span>
-          </div>
-          <p class="sd-clamp-4">
-            Offline POS sync was painfully slow — tables downloaded one-by-one, testing polluted production with fake data, and image downloads crawled through a web-service middleman. Introduced a staging local database by dynamically cloning tables through the existing EF middleware, added multi-threading for parallel downloads, and pointed image downloads directly at blob storage. <strong>Sync time is now set by the single largest table instead of cumulative sequential processing.</strong>
-          </p>
-          <a href="case-offline-pos-sync-optimization.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-        <!-- Retail POS Refactoring -->
-        <div class="sd-dcard" data-cat="pos">
-          <div class="sd-thumb"><span class="sd-thumb-icon">🏪</span></div>
-          <div class="sd-cat">POS &amp; Desktop</div>
-          <h3>Retail POS Module Refactoring &amp; Architecture Overhaul</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET</span>
-            <span class="sd-tag sd-tag--dark">MVVM Pattern</span>
-            <span class="sd-tag sd-tag--dark">Architecture Refactoring</span>
-            <span class="sd-tag sd-tag--dark">Code Quality Leadership</span>
-          </div>
-          <p class="sd-clamp-4">
-            A legacy retail POS had UI and business logic tightly coupled with no structured pattern in the sales module — monolithic code where every new feature risked breaking existing functionality. Introduced a properly structured MVVM pattern where none existed; once established, subsequent modules followed with clean separation of concerns and were continuously optimized. <strong>The MVVM-based modules proved easy to maintain and issue-free.</strong>
-          </p>
-          <a href="case-retail-pos-refactoring.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-        <!-- Developer Productivity Framework -->
-        <div class="sd-dcard" data-cat="tooling">
-          <div class="sd-thumb"><span class="sd-thumb-icon">🛠️</span></div>
-          <div class="sd-cat">Internal Tools</div>
-          <h3>Developer Productivity Framework Enhancements</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET</span>
-            <span class="sd-tag sd-tag--dark">Framework Design</span>
-            <span class="sd-tag sd-tag--dark">Code Generation</span>
-            <span class="sd-tag sd-tag--dark">Developer Experience</span>
-          </div>
-          <div class="sd-metric">
-            <div class="sd-metric-col"><div class="m-val before">4+ files</div><div class="m-lbl">To add a report (before)</div></div>
-            <div class="sd-metric-arrow">→</div>
-            <div class="sd-metric-col"><div class="m-val after">1 file</div><div class="m-lbl">After (+1–2 lines)</div></div>
-          </div>
-          <p class="sd-clamp-4">
-            Development workflows killed productivity: adding a report meant editing 4+ files, system settings were jumbled into one error-prone file, and enum-string pairs were maintained by hand with high risk of sequence mismatches. Restructured printing to one main file plus a line or two elsewhere, split settings into module-specific files with a framework that auto-generates UI from data models, and refactored fragile positional enum dependencies into structured code.
-          </p>
-          <a href="case-developer-productivity-framework.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-        <!-- Airport Compliance -->
-        <div class="sd-dcard" data-cat="pos">
-          <div class="sd-thumb"><span class="sd-thumb-icon">✈️</span></div>
-          <div class="sd-cat">POS &amp; Compliance</div>
-          <h3>Airport Retail POS Compliance &amp; Major Enhancement</h3>
-          <div class="sd-tags">
-            <span class="sd-tag sd-tag--dark">.NET Framework</span>
-            <span class="sd-tag sd-tag--dark">SQL Server</span>
-            <span class="sd-tag sd-tag--dark">POS Systems</span>
-            <span class="sd-tag sd-tag--dark">Compliance &amp; Reporting</span>
-          </div>
-          <p class="sd-clamp-4">
-            Airport duty-free operations faced strict regulatory requirements the system couldn't meet — no flight tracking, tariff-code restrictions, passport-based purchase limits, or proper audit trails. Built a flight-info tracking module, a tariff-code system with configurable purchase limits by passport type, stock-overview reports for audit documentation, and a mandatory double-verification reconciliation workflow. <strong>Now highly reliable in a compliance-critical environment</strong>, passing audits and preventing violations automatically.
-          </p>
-          <a href="case-airport-retail-pos-compliance.html" class="sd-help-link">Read the full case study →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== TECHNICAL EXPERTISE ===================== -->
-  <section class="sd-section sd-section--light">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Capabilities</p>
-      <h2 class="sd-section-title">Technical <span class="accent">Expertise</span></h2>
-      <div class="sd-title-rule"></div>
-      <div class="sd-panel-grid sd-grid-2">
-        <div class="sd-panel">
-          <h3>Automation &amp; Integration</h3>
-          <ul>
-            <li>Automated business process workflows</li>
-            <li>Batch processing &amp; scheduled jobs</li>
-            <li>Email notification automation</li>
-            <li>Third-party system integration</li>
-            <li>Payment terminal integration</li>
-            <li>API development &amp; integration</li>
-          </ul>
-        </div>
-        <div class="sd-panel">
-          <h3>Database &amp; Performance</h3>
-          <ul>
-            <li>Database design &amp; schema modeling</li>
-            <li>SQL Server optimization expert</li>
-            <li>Query performance tuning</li>
-            <li>Index strategy &amp; implementation</li>
-            <li>Complex query rewriting</li>
-            <li>Database troubleshooting</li>
-            <li>Large-scale data processing</li>
-            <li>Design for reporting &amp; analytics</li>
-          </ul>
-        </div>
-        <div class="sd-panel">
-          <h3>Backend Development</h3>
-          <ul>
-            <li>.NET Framework / .NET Core</li>
-            <li>C# application development</li>
-            <li>Web API design &amp; implementation</li>
-            <li>Windows Services</li>
-            <li>Middleware architecture</li>
-            <li>POS system development</li>
-          </ul>
-        </div>
-        <div class="sd-panel">
-          <h3>Architecture &amp; Refactoring</h3>
-          <ul>
-            <li>Legacy system modernization</li>
-            <li>Code refactoring &amp; restructuring</li>
-            <li>Separation of concerns</li>
-            <li>System architecture design</li>
-            <li>Performance bottleneck identification</li>
-            <li>Technical debt reduction</li>
-          </ul>
+          <a class="f-card f-card--link sd-dcard" data-cat="performance" href="case-high-volume-performance-crisis.html">
+            <span class="f-mono f-small pf-cat">Performance</span>
+            <span class="f-card__title">High-Volume Performance Crisis Resolution</span>
+            <span class="f-tags"><span class="f-tag">.NET Framework</span><span class="f-tag">SQL Server</span><span class="f-tag">Performance Optimization</span><span class="f-tag">Production Crisis</span></span>
+            <span class="f-card__text pf-clamp">An automated point-expiry system ran flawlessly for years — until a new customer's extremely high transaction volumes exposed critical bottlenecks and put production at risk. Analyzed query and data-access patterns under pressure, applied targeted optimizations without disrupting the live automation, and ran a custom off-hours program to clear accumulated data. <strong>Crisis resolved within half a day</strong> with zero business disruption.</span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
+          <a class="f-card f-card--link sd-dcard" data-cat="web automation" href="case-pet-grooming-booking-automation.html">
+            <span class="f-mono f-small pf-cat">Web &amp; Automation</span>
+            <span class="f-card__title">Pet Grooming Booking &amp; Automation System</span>
+            <span class="f-tags"><span class="f-tag">.NET</span><span class="f-tag">Web API</span><span class="f-tag">SQL Server</span><span class="f-tag">Email Automation</span></span>
+            <span class="f-card__text pf-clamp">Transformed a backend-only legacy booking system into a full customer-facing platform: intelligent booking automation (groomer availability, pet-size rules, seniority-based scheduling), automated driver scheduling with area-code restrictions, package subscriptions with automatic point awards, and API-triggered confirmation, reminder and low-point emails. <strong>What once needed constant manual coordination now runs autonomously.</strong></span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
+          <a class="f-card f-card--link sd-dcard" data-cat="pos" href="case-payment-terminal-middleware.html">
+            <span class="f-mono f-small pf-cat">POS &amp; Desktop</span>
+            <span class="f-card__title">Payment Terminal Integration Middleware</span>
+            <span class="f-tags"><span class="f-tag">.NET</span><span class="f-tag">Middleware Architecture</span><span class="f-tag">Hardware Integration</span><span class="f-tag">Logging &amp; Diagnostics</span></span>
+            <span class="f-card__text pf-clamp">Multiple credit-card terminals were integrated directly inside the POS code — jumbled into a single file that made debugging a nightmare and every new terminal riskier. Extracted the terminal logic into a dedicated middleware program with a clean base framework, so developers implement only terminal-specific commands without touching connection logic, backed by extensive diagnostic logging. <strong>New integrations now take a fraction of the original time.</strong></span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
+          <a class="f-card f-card--link sd-dcard" data-cat="pos performance" href="case-offline-pos-sync-optimization.html">
+            <span class="f-mono f-small pf-cat">POS &amp; Performance</span>
+            <span class="f-card__title">Offline POS Sync Optimization &amp; Staging DB Innovation</span>
+            <span class="f-tags"><span class="f-tag">.NET</span><span class="f-tag">Multi-threading</span><span class="f-tag">Entity Framework</span><span class="f-tag">Azure Blob Storage</span></span>
+            <span class="f-card__text pf-clamp">Offline POS sync was painfully slow — tables downloaded one-by-one, testing polluted production with fake data, and image downloads crawled through a web-service middleman. Introduced a staging local database by dynamically cloning tables through the existing EF middleware, added multi-threading for parallel downloads, and pointed image downloads directly at blob storage. <strong>Sync time is now set by the single largest table instead of cumulative sequential processing.</strong></span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
+          <a class="f-card f-card--link sd-dcard" data-cat="pos" href="case-retail-pos-refactoring.html">
+            <span class="f-mono f-small pf-cat">POS &amp; Desktop</span>
+            <span class="f-card__title">Retail POS Module Refactoring &amp; Architecture Overhaul</span>
+            <span class="f-tags"><span class="f-tag">.NET</span><span class="f-tag">MVVM Pattern</span><span class="f-tag">Architecture Refactoring</span><span class="f-tag">Code Quality Leadership</span></span>
+            <span class="f-card__text pf-clamp">A legacy retail POS had UI and business logic tightly coupled with no structured pattern in the sales module — monolithic code where every new feature risked breaking existing functionality. Introduced a properly structured MVVM pattern where none existed; once established, subsequent modules followed with clean separation of concerns and were continuously optimized. <strong>The MVVM-based modules proved easy to maintain and issue-free.</strong></span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
+          <a class="f-card f-card--link sd-dcard" data-cat="tooling" href="case-developer-productivity-framework.html">
+            <span class="f-mono f-small pf-cat">Internal Tools</span>
+            <span class="f-card__title">Developer Productivity Framework Enhancements</span>
+            <span class="f-tags"><span class="f-tag">.NET</span><span class="f-tag">Framework Design</span><span class="f-tag">Code Generation</span><span class="f-tag">Developer Experience</span></span>
+            <span class="f-kpi"><span><span class="f-kpi__label">To add a report (before)</span><br><span class="f-kpi__value" style="color: var(--muted)">4+ files</span></span><span><span class="f-kpi__label">After (+1–2 lines)</span><br><span class="f-kpi__value" style="color: var(--ok)">1 file</span></span></span>
+            <span class="f-card__text pf-clamp">Development workflows killed productivity: adding a report meant editing 4+ files, system settings were jumbled into one error-prone file, and enum-string pairs were maintained by hand with high risk of sequence mismatches. Restructured printing to one main file plus a line or two elsewhere, split settings into module-specific files with a framework that auto-generates UI from data models, and refactored fragile positional enum dependencies into structured code.</span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
+          <a class="f-card f-card--link sd-dcard" data-cat="pos" href="case-airport-retail-pos-compliance.html">
+            <span class="f-mono f-small pf-cat">POS &amp; Compliance</span>
+            <span class="f-card__title">Airport Retail POS Compliance &amp; Major Enhancement</span>
+            <span class="f-tags"><span class="f-tag">.NET Framework</span><span class="f-tag">SQL Server</span><span class="f-tag">POS Systems</span><span class="f-tag">Compliance &amp; Reporting</span></span>
+            <span class="f-card__text pf-clamp">Airport duty-free operations faced strict regulatory requirements the system couldn't meet — no flight tracking, tariff-code restrictions, passport-based purchase limits, or proper audit trails. Built a flight-info tracking module, a tariff-code system with configurable purchase limits by passport type, stock-overview reports for audit documentation, and a mandatory double-verification reconciliation workflow. <strong>Now highly reliable in a compliance-critical environment</strong>, passing audits and preventing violations automatically.</span>
+            <span class="f-card__foot">Read the case study →</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== BOTTOM CTA ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <div class="sd-cta-band">
-        <h2>Have a Legacy System Issue or Manual Workflow Problem?</h2>
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Capabilities</p>
+          <h2 class="f-h2">Technical expertise</h2>
+        </div>
+        <div class="f-grid f-grid--2">
+          <div class="f-card">
+            <h3 class="f-h3">Automation &amp; Integration</h3>
+            <ul class="f-checks" style="margin-top: 10px"><li>Automated business process workflows</li><li>Batch processing &amp; scheduled jobs</li><li>Email notification automation</li><li>Third-party system integration</li><li>Payment terminal integration</li><li>API development &amp; integration</li></ul>
+          </div>
+          <div class="f-card">
+            <h3 class="f-h3">Database &amp; Performance</h3>
+            <ul class="f-checks" style="margin-top: 10px"><li>Database design &amp; schema modeling</li><li>SQL Server optimization expert</li><li>Query performance tuning</li><li>Index strategy &amp; implementation</li><li>Complex query rewriting</li><li>Database troubleshooting</li><li>Large-scale data processing</li><li>Design for reporting &amp; analytics</li></ul>
+          </div>
+          <div class="f-card">
+            <h3 class="f-h3">Backend Development</h3>
+            <ul class="f-checks" style="margin-top: 10px"><li>.NET Framework / .NET Core</li><li>C# application development</li><li>Web API design &amp; implementation</li><li>Windows Services</li><li>Middleware architecture</li><li>POS system development</li></ul>
+          </div>
+          <div class="f-card">
+            <h3 class="f-h3">Architecture &amp; Refactoring</h3>
+            <ul class="f-checks" style="margin-top: 10px"><li>Legacy system modernization</li><li>Code refactoring &amp; restructuring</li><li>Separation of concerns</li><li>System architecture design</li><li>Performance bottleneck identification</li><li>Technical debt reduction</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Have a Legacy System Issue or Manual Workflow Problem?</h2>
         <p>Whether you need to fix critical bugs, automate time-consuming processes, optimize performance, or rescue a failing system — expertise like this can transform your operations.</p>
-        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="contact.html">Book a free consultation</a>
+          <a class="f-btn f-btn--secondary" href="solutions.html">See engineering services</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -343,7 +234,6 @@
     </div>
   </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Mobile Menu Toggle
@@ -430,6 +320,7 @@
         var cat = btn.getAttribute('data-filter');
         filter.querySelectorAll('button').forEach(function (b) {
           b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
         });
         cards.forEach(function (card) {
           var cats = (card.getAttribute('data-cat') || '').split(/\s+/);

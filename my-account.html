@@ -21,28 +21,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/f.css?v=4">
-  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <style>
     /* The Freemius portal renders as a fixed panel; sit it just below the
        fixed site header. Tweak the top values if your header height changes. */
     #fs_dashboard_container {
-      top: 96px !important;
+      top: 69px !important;
     }
     @media (max-width: 768px) {
-      #fs_dashboard_container { top: 80px !important; }
+      #fs_dashboard_container { top: 69px !important; }
     }
 
     /* Shown while the portal loads (and if it can't). The portal overlays it. */
     .ma-fallback {
       max-width: 620px;
-      margin: 160px auto 80px;
+      margin: 96px auto 80px;
       text-align: center;
       padding: 0 24px;
     }
-    .ma-fallback h1 { font-size: 1.6em; color: var(--text); margin: 0 0 10px; }
-    .ma-fallback p { color: var(--sd-muted); margin: 8px 0; }
-    .ma-fallback .sd-btn { margin-top: 18px; }
+    .ma-fallback h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; color: var(--text-strong); margin: 0 0 10px; }
+    .ma-fallback p { color: var(--muted); margin: 8px 0; }
+    .ma-fallback .f-btn { margin-top: 18px; }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -58,7 +57,7 @@
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
   <!-- Fallback: visible until the portal loads over it, or if it can't load. -->
@@ -67,7 +66,7 @@
     <p>Loading your customer portal…</p>
     <p style="font-size:0.9em;">If the dashboard doesn't appear, open it directly or contact us at
       <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>.</p>
-    <a class="sd-btn sd-btn--primary" href="https://customers.freemius.com/" target="_blank" rel="noopener">Open customer portal →</a>
+    <a class="f-btn f-btn--primary" href="https://customers.freemius.com/" target="_blank" rel="noopener">Open customer portal →</a>
   </div>
 
   <!-- ===================== FREEMIUS CUSTOMER PORTAL ===================== -->
@@ -83,7 +82,7 @@
         public_key: 'pk_7e1f724e8d464d68dace9ccd9276a',
         css: {
           position: 'fixed',
-          top: '96px',
+          top: '69px',
           bottom: '0',
           left: '0',
           right: '0',

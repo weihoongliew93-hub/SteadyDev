@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/f.css?v=4">
-  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <!-- Case Study Schema -->
   <script type="application/ld+json">
@@ -78,80 +77,80 @@
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <!-- ===================== CASE STUDY HERO ===================== -->
-  <section class="sd-cs-hero">
-    <div class="sd-cs-hero-inner">
-      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
-        <a href="portfolio.html">← Portfolio</a> <span style="color:var(--muted);">/</span> <a href="portfolio.html">Case Studies</a>
-      </nav>
-      <p class="sd-eyebrow" style="text-align:left;">Internal Tools</p>
-      <h1>Developer Productivity Framework Enhancements</h1>
-      <p class="sd-cs-lead">
-        Everyday development tasks bled productivity — adding one report meant editing four or more files, settings were jumbled into a single error-prone file, and enum-string pairs were maintained by hand. A framework overhaul cut adding a report from 4+ files down to one.
-      </p>
-      <div class="sd-facts">
-        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (software product team)</div></div>
-        <div class="sd-fact"><div class="k">Industry</div><div class="v">Enterprise software</div></div>
-        <div class="sd-fact"><div class="k">Role</div><div class="v">Framework design &amp; developer experience</div></div>
-        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET · Framework design · Code generation</div></div>
-        <div class="sd-fact"><div class="k">Focus</div><div class="v">Developer productivity</div></div>
-        <div class="sd-fact"><div class="k">Status</div><div class="v">Adopted internally</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== ARTICLE BODY ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <article class="sd-article">
-
-        <h2>The Challenge</h2>
-        <p>
-          The friction wasn't in any one feature — it was in the everyday mechanics of building. Three recurring tasks quietly taxed every developer:
-        </p>
-        <ul>
-          <li><strong>Adding a single report meant editing 4+ files</strong> — a tedious, error-prone ritual repeated every time reporting needed to grow.</li>
-          <li><strong>System settings were jumbled into one file</strong>, making them error-prone to change and easy to break.</li>
-          <li><strong>Enum-string pairs were maintained by hand</strong>, where a single mismatch in sequence could introduce subtle, hard-to-trace bugs.</li>
-        </ul>
-
-        <h2>The Approach</h2>
-        <p>
-          Each source of friction was replaced with structure that did the tedious work automatically.
-        </p>
-        <ul>
-          <li><strong>Restructured printing</strong> so adding a report means editing one main file plus a line or two elsewhere — instead of touching four or more.</li>
-          <li><strong>Split settings into module-specific files</strong> and built a framework that auto-generates the settings UI directly from the data models, so the interface follows the data instead of being hand-maintained.</li>
-          <li><strong>Refactored the fragile positional enum dependencies</strong> into structured code, removing the risk of sequence mismatches entirely.</li>
-        </ul>
-
-        <h2>The Result</h2>
-        <div class="sd-metric">
-          <div class="sd-metric-col"><div class="m-val before">4+ files</div><div class="m-lbl">To add a report (before)</div></div>
-          <div class="sd-metric-arrow">→</div>
-          <div class="sd-metric-col"><div class="m-val after">1 file</div><div class="m-lbl">After (+1–2 lines)</div></div>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <nav class="f-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="portfolio.html">Case studies</a><span aria-hidden="true">/</span><span>Developer Productivity Framework Enhancements</span></nav>
+        <p class="f-eyebrow">Internal Tools</p>
+        <h1 class="f-h1">Developer Productivity Framework Enhancements</h1>
+        <p class="f-lead">Everyday development tasks bled productivity — adding one report meant editing four or more files, settings were jumbled into a single error-prone file, and enum-string pairs were maintained by hand. A framework overhaul cut adding a report from 4+ files down to one.</p>
+        <div class="f-kpi" style="margin-top: 32px; max-width: 720px">
+          <div><div class="f-kpi__label">Focus</div><div class="f-kpi__value" style="font-size: 20px">Developer productivity</div></div>
+          <div><div class="f-kpi__label">Status</div><div class="f-kpi__value" style="font-size: 20px">Adopted internally</div></div>
         </div>
-        <p>
-          <strong>Adding a report went from a 4+ file chore to a single file plus a line or two.</strong> Settings became safe to change, the UI generated itself from the models, and an entire class of enum-sequence bugs simply disappeared. The framework paid for itself continuously — every report, every setting, every enum after it was faster and safer to work with.
-        </p>
 
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== BOTTOM CTA ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <div class="sd-cta-band">
-        <h2>Is Routine Development Quietly Costing You?</h2>
-        <p>When simple tasks mean editing files in four places, the tax is invisible but constant. A framework that automates the boilerplate pays back on every change your team makes.</p>
-        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="f-section f-section--line">
+      <div class="f-container f-split">
+        <article class="f-split__main f-prose">
+      <h2>The Challenge</h2>
+              <p>
+                The friction wasn't in any one feature — it was in the everyday mechanics of building. Three recurring tasks quietly taxed every developer:
+              </p>
+              <ul>
+                <li><strong>Adding a single report meant editing 4+ files</strong> — a tedious, error-prone ritual repeated every time reporting needed to grow.</li>
+                <li><strong>System settings were jumbled into one file</strong>, making them error-prone to change and easy to break.</li>
+                <li><strong>Enum-string pairs were maintained by hand</strong>, where a single mismatch in sequence could introduce subtle, hard-to-trace bugs.</li>
+              </ul>
+      
+              <h2>The Approach</h2>
+              <p>
+                Each source of friction was replaced with structure that did the tedious work automatically.
+              </p>
+              <ul>
+                <li><strong>Restructured printing</strong> so adding a report means editing one main file plus a line or two elsewhere — instead of touching four or more.</li>
+                <li><strong>Split settings into module-specific files</strong> and built a framework that auto-generates the settings UI directly from the data models, so the interface follows the data instead of being hand-maintained.</li>
+                <li><strong>Refactored the fragile positional enum dependencies</strong> into structured code, removing the risk of sequence mismatches entirely.</li>
+              </ul>
+      
+              <h2>The Result</h2>
+              <div class="f-kpi"><div><div class="f-kpi__label">To add a report (before)</div><div class="f-kpi__value" style="color: var(--muted)">4+ files</div></div><div><div class="f-kpi__label">After (+1–2 lines)</div><div class="f-kpi__value" style="color: var(--ok)">1 file</div></div></div>
+              <p>
+                <strong>Adding a report went from a 4+ file chore to a single file plus a line or two.</strong> Settings became safe to change, the UI generated itself from the models, and an entire class of enum-sequence bugs simply disappeared. The framework paid for itself continuously — every report, every setting, every enum after it was faster and safer to work with.
+              </p>
+        </article>
+        <aside class="f-split__aside" aria-label="Project facts">
+          <div class="f-card">
+            <h2 class="f-h3">Project facts</h2>
+            <dl class="f-dl" style="margin-top: 8px">
+              <div><dt>Client</dt><dd>Confidential (software product team)</dd></div>
+              <div><dt>Industry</dt><dd>Enterprise software</dd></div>
+              <div><dt>Role</dt><dd>Framework design &amp; developer experience</dd></div>
+              <div><dt>Stack</dt><dd>.NET · Framework design · Code generation</dd></div>
+              <div><dt>Focus</dt><dd>Developer productivity</dd></div>
+              <div><dt>Status</dt><dd>Adopted internally</dd></div>
+            </dl>
+            <a class="f-btn f-btn--primary" style="width: 100%; margin-top: 18px" href="contact.html">Book a consultation</a>
+          </div>
+          <p class="f-note" style="margin-top: 14px"><a href="portfolio.html">← All case studies</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Is Routine Development Quietly Costing You?</h2>
+        <p>When simple tasks mean editing files in four places, the tax is invisible but constant. A framework that automates the boilerplate pays back on every change your team makes.</p>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="contact.html">Book a free consultation</a>
+          <a class="f-btn f-btn--secondary" href="portfolio.html">More case studies</a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -195,7 +194,6 @@
     </div>
   </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Mobile Menu Toggle

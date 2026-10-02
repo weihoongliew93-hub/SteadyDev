@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/f.css?v=4">
-  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <!-- Case Study Schema -->
   <script type="application/ld+json">
@@ -78,70 +77,74 @@
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <!-- ===================== CASE STUDY HERO ===================== -->
-  <section class="sd-cs-hero">
-    <div class="sd-cs-hero-inner">
-      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
-        <a href="portfolio.html">← Portfolio</a> <span style="color:var(--muted);">/</span> <a href="portfolio.html">Case Studies</a>
-      </nav>
-      <p class="sd-eyebrow" style="text-align:left;">POS &amp; Performance</p>
-      <h1>Offline POS Sync Optimization &amp; Staging DB Innovation</h1>
-      <p class="sd-cs-lead">
-        Offline POS sync crawled — tables downloaded one by one, test runs polluted production, and images trickled through a web-service middleman. A staging-database and multi-threading redesign made sync time depend on the single largest table, not the cumulative total.
-      </p>
-      <div class="sd-facts">
-        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (POS vendor)</div></div>
-        <div class="sd-fact"><div class="k">Industry</div><div class="v">Retail POS</div></div>
-        <div class="sd-fact"><div class="k">Role</div><div class="v">Performance engineering</div></div>
-        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET · Multi-threading · Entity Framework · Azure Blob Storage</div></div>
-        <div class="sd-fact"><div class="k">Focus</div><div class="v">Offline sync architecture</div></div>
-        <div class="sd-fact"><div class="k">Status</div><div class="v">In production</div></div>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <nav class="f-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="portfolio.html">Case studies</a><span aria-hidden="true">/</span><span>Offline POS Sync Optimization &amp; Staging DB Innovation</span></nav>
+        <p class="f-eyebrow">POS &amp; Performance</p>
+        <h1 class="f-h1">Offline POS Sync Optimization &amp; Staging DB Innovation</h1>
+        <p class="f-lead">Offline POS sync crawled — tables downloaded one by one, test runs polluted production, and images trickled through a web-service middleman. A staging-database and multi-threading redesign made sync time depend on the single largest table, not the cumulative total.</p>
+        <div class="f-kpi" style="margin-top: 32px; max-width: 720px">
+          <div><div class="f-kpi__label">Focus</div><div class="f-kpi__value" style="font-size: 20px">Offline sync architecture</div></div>
+          <div><div class="f-kpi__label">Status</div><div class="f-kpi__value" style="font-size: 20px">In production</div></div>
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== ARTICLE BODY ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <article class="sd-article">
+    <section class="f-section f-section--line">
+      <div class="f-container f-split">
+        <article class="f-split__main f-prose">
+      <h2>The Challenge</h2>
+              <p>
+                Offline POS terminals needed to sync data down from the central system, and that sync was painfully slow. Three problems compounded each other: tables were downloaded one at a time in sequence, so total sync time was the sum of every table added together; testing the sync polluted the live production database with fake data, because there was no isolation between a test run and the real thing; and image downloads crawled, because they were routed through a web-service middleman instead of coming straight from storage.
+              </p>
+      
+              <h2>The Approach</h2>
+              <p>
+                Each bottleneck was addressed at its root, reusing the existing infrastructure rather than replacing it.
+              </p>
+              <ul>
+                <li><strong>Introduced a staging local database</strong> by dynamically cloning tables through the existing Entity Framework middleware — giving sync (and testing) a clean, isolated place to work without touching production data.</li>
+                <li><strong>Added multi-threading for parallel downloads</strong>, so tables come down simultaneously instead of one after another.</li>
+                <li><strong>Pointed image downloads directly at blob storage</strong>, cutting out the slow web-service middleman entirely.</li>
+              </ul>
+      
+              <h2>The Result</h2>
+              <p>
+                The impact was structural: <strong>sync time is now set by the single largest table, instead of the cumulative total of every table processed in sequence.</strong> Because downloads run in parallel, adding more tables no longer stacks more waiting; testing no longer contaminates production; and images arrive quickly straight from storage. A sync that used to be a slow, risky bottleneck became fast and safe.
+              </p>
+        </article>
+        <aside class="f-split__aside" aria-label="Project facts">
+          <div class="f-card">
+            <h2 class="f-h3">Project facts</h2>
+            <dl class="f-dl" style="margin-top: 8px">
+              <div><dt>Client</dt><dd>Confidential (POS vendor)</dd></div>
+              <div><dt>Industry</dt><dd>Retail POS</dd></div>
+              <div><dt>Role</dt><dd>Performance engineering</dd></div>
+              <div><dt>Stack</dt><dd>.NET · Multi-threading · Entity Framework · Azure Blob Storage</dd></div>
+              <div><dt>Focus</dt><dd>Offline sync architecture</dd></div>
+              <div><dt>Status</dt><dd>In production</dd></div>
+            </dl>
+            <a class="f-btn f-btn--primary" style="width: 100%; margin-top: 18px" href="contact.html">Book a consultation</a>
+          </div>
+          <p class="f-note" style="margin-top: 14px"><a href="portfolio.html">← All case studies</a></p>
+        </aside>
+      </div>
+    </section>
 
-        <h2>The Challenge</h2>
-        <p>
-          Offline POS terminals needed to sync data down from the central system, and that sync was painfully slow. Three problems compounded each other: tables were downloaded one at a time in sequence, so total sync time was the sum of every table added together; testing the sync polluted the live production database with fake data, because there was no isolation between a test run and the real thing; and image downloads crawled, because they were routed through a web-service middleman instead of coming straight from storage.
-        </p>
-
-        <h2>The Approach</h2>
-        <p>
-          Each bottleneck was addressed at its root, reusing the existing infrastructure rather than replacing it.
-        </p>
-        <ul>
-          <li><strong>Introduced a staging local database</strong> by dynamically cloning tables through the existing Entity Framework middleware — giving sync (and testing) a clean, isolated place to work without touching production data.</li>
-          <li><strong>Added multi-threading for parallel downloads</strong>, so tables come down simultaneously instead of one after another.</li>
-          <li><strong>Pointed image downloads directly at blob storage</strong>, cutting out the slow web-service middleman entirely.</li>
-        </ul>
-
-        <h2>The Result</h2>
-        <p>
-          The impact was structural: <strong>sync time is now set by the single largest table, instead of the cumulative total of every table processed in sequence.</strong> Because downloads run in parallel, adding more tables no longer stacks more waiting; testing no longer contaminates production; and images arrive quickly straight from storage. A sync that used to be a slow, risky bottleneck became fast and safe.
-        </p>
-
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== BOTTOM CTA ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <div class="sd-cta-band">
-        <h2>Is a Sync or Batch Process Holding You Back?</h2>
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Is a Sync or Batch Process Holding You Back?</h2>
         <p>Sequential processing and legacy middlemen quietly cap your performance. Re-architecting for parallelism and clean data paths can turn a slow, fragile process into a fast, dependable one.</p>
-        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="contact.html">Book a free consultation</a>
+          <a class="f-btn f-btn--secondary" href="portfolio.html">More case studies</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -185,7 +188,6 @@
     </div>
   </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Mobile Menu Toggle

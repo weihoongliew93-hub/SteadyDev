@@ -23,377 +23,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="../assets/f.css?v=2">
-  <link rel="stylesheet" href="../assets/f-legacy.css?v=4">
   
   <style>
-    /* Override any inherited container styles */
-    body {
-      background: #000000;
-    }
-    
-    /* Topics page has its own layout - no container needed */
-    .topics-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 20px 40px 20px;
-      min-height: calc(100vh - 200px);
-    }
-    
-    .topics-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    .topics-header h1 {
-      color: var(--system);
-      font-size: 2.5em;
-      margin-bottom: 15px;
-    }
-    
-    .topics-header p {
-      color: var(--muted);
-      font-size: 1.15em;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    /* Quick Navigation */
-    .quick-nav {
-      background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
-      border-radius: 12px;
-      padding: 30px 35px;
-      margin: 40px 0;
-      border: 1px solid #2D3748;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    
-    .quick-nav h3 {
-      color: var(--system);
-      font-size: 1.2em;
-      margin: 0 0 20px 0;
-      text-align: center;
-    }
-    
-    .quick-nav-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-    
-    .quick-nav-item {
-      background: var(--surface);
-      border: 1px solid #2D3748;
-      border-radius: 8px;
-      padding: 12px 16px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95em;
-    }
-    
-    .quick-nav-item:hover {
-      background: var(--surface);
-      border-color: var(--system);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-    }
-    
-    .quick-nav-item .icon {
-      font-size: 1.3em;
-    }
-    
-    .quick-nav-item .label {
-      color: var(--text-soft);
-      font-weight: 500;
-    }
-    
-    .quick-nav-item .count {
-      color: var(--muted);
-      font-size: 0.85em;
-      margin-left: auto;
-    }
-    
-    /* Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    #backToTop.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    #backToTop:hover {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
-    }
-    
-    #backToTop:active {
-      transform: translateY(-1px);
-    }
-    
-    .topic-category {
-      background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
-      border-radius: 12px;
-      padding: 40px;
-      margin-bottom: 50px;
-      border: 1px solid #2D3748;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      text-align: center;
-    }
-    
-    .topic-category h2 {
-      color: var(--system);
-      font-size: 1.8em;
-      margin-top: 0;
-      margin-bottom: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .topic-category .category-icon {
-      font-size: 1.2em;
-    }
-    
-    .topic-category .category-description {
-      color: var(--muted);
-      margin-bottom: 35px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .articles-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .article-item {
-      background: var(--surface);
-      border-left: 3px solid var(--system);
-      border-radius: 6px;
-      padding: 20px 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-      display: block;
-      text-align: left;
-      border: 1px solid #2D3748;
-      border-left-width: 3px;
-    }
-    
-    .article-item:hover {
-      transform: translateX(8px);
-      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
-      border-left-color: var(--system);
-      background: var(--surface);
-    }
-    
-    .article-item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 8px;
-    }
-    
-    .article-item h3 {
-      color: var(--system);
-      font-size: 1.1em;
-      margin: 0;
-      line-height: 1.4;
-      flex: 1;
-    }
-    
-    .article-item .article-date {
-      color: var(--muted);
-      font-size: 0.85em;
-      white-space: nowrap;
-      margin-top: 2px;
-    }
-    
-    .article-item .article-excerpt {
-      color: var(--muted);
-      font-size: 0.9em;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-    
-    .article-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    
-    .article-tag {
-      background: var(--surface);
-      color: var(--system);
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-size: 0.75em;
-      border: 1px solid #2D3748;
-    }
-    
-    @media (max-width: 768px) {
-      .topics-header h1 {
-        font-size: 2em;
-      }
-      
-      .topics-container {
-        padding: 70px 25px 35px 25px;
-      }
-      
-      .quick-nav {
-        padding: 25px 20px;
-      }
-      
-      .quick-nav-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .topic-category {
-        padding: 30px 25px;
-      }
-      
-      .article-item {
-        padding: 18px 20px;
-      }
-      
-      .article-item-header {
-        flex-direction: column;
-        gap: 8px;
-      }
-      
-      .article-item .article-date {
-        align-self: flex-start;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .topics-header h1 {
-        font-size: 1.75em;
-      }
-      
-      .topics-container {
-        padding: 60px 15px 30px 15px;
-      }
-      
-      .quick-nav {
-        padding: 20px 15px;
-      }
-      
-      .quick-nav h3 {
-        font-size: 1.1em;
-      }
-      
-      .topic-category {
-        padding: 25px 18px;
-      }
-      
-      .topic-category h2 {
-        font-size: 1.5em;
-        flex-direction: column;
-        gap: 8px;
-      }
-      
-      .article-item {
-        padding: 16px 18px;
-      }
-      
-      .article-item h3 {
-        font-size: 1em;
-      }
-      
-      .article-item .article-excerpt {
-        font-size: 0.85em;
-      }
-    }
-
-    /* ===== New design-system theme (color/style refresh) ===== */
-    body { background: var(--sd-bg); }
-
-    .topics-container { padding-top: 130px; max-width: 1040px; }
-
-    .topics-header h1 { color: var(--text); font-weight: 800; letter-spacing: -0.02em; }
-    .topics-header h1 .accent { color: var(--sd-blue-light); }
-    .topics-header p { color: var(--sd-muted); }
-
-    .quick-nav,
-    .topic-category {
-      background: var(--sd-card);
-      border: 1px solid var(--sd-border);
-      box-shadow: none;
-    }
-    .quick-nav h3 { color: var(--text); }
-    .quick-nav-item {
-      background: var(--sd-bg-2);
-      border: 1px solid var(--sd-border);
-    }
-    .quick-nav-item:hover {
-      background: rgba(37, 99, 235, 0.08);
-      border-color: var(--sd-blue-light);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
-    }
-    .quick-nav-item .label { color: var(--text); }
-    .quick-nav-item .count { color: var(--sd-muted); }
-
-    .topic-category h2 { color: var(--text); }
-    .topic-category h2 .category-icon { color: var(--sd-blue-light); }
-    .topic-category .category-description { color: var(--sd-muted); }
-
-    .article-item {
-      background: var(--sd-bg-2);
-      border: 1px solid var(--sd-border);
-      border-left: 3px solid var(--sd-blue);
-    }
-    .article-item:hover {
-      background: rgba(37, 99, 235, 0.06);
-      border-color: var(--sd-border);
-      border-left-color: var(--sd-blue-light);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-    }
-    .article-item h3 { color: var(--text); }
-    .article-item:hover h3 { color: var(--sd-blue-light); }
-    .article-item .article-date { color: var(--muted); }
-    .article-item .article-excerpt { color: var(--sd-muted); }
-    .article-tag {
-      background: rgba(148, 163, 184, 0.12);
-      color: var(--text-soft);
-      border: 1px solid transparent;
-    }
-
-    #backToTop {
-      background: var(--sd-blue);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-    }
-    #backToTop:hover { background: var(--sd-blue-hover); }
+    /* Blog topics (design F). Uses f.css tokens only; styles the script-rendered markup. */
+    .tp-quick { margin-bottom: 56px; }
+    .tp-quick-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+    .quick-nav-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); text-decoration: none; color: var(--text); transition: border-color .15s; }
+    .quick-nav-item:hover { border-color: var(--border-strong); color: var(--text-strong); }
+    .quick-nav-item .icon, .topic-category .category-icon { display: none; }
+    .quick-nav-item .count { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+    .topic-category { padding-top: 48px; margin-top: 8px; border-top: 1px solid var(--border-soft); scroll-margin-top: 88px; }
+    .topic-category:first-child { border-top: 0; padding-top: 0; }
+    .topic-category h2 { display: flex; align-items: baseline; gap: 10px; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-strong); margin: 0; }
+    .topic-category .category-description { color: var(--muted); margin: 8px 0 24px; max-width: 640px; }
+    .articles-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+    .article-item { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); text-decoration: none; color: var(--text); transition: border-color .15s, transform .15s; }
+    .article-item:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+    .article-item-header { display: flex; flex-direction: column; gap: 4px; }
+    .article-item h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; color: var(--text-strong); margin: 0; }
+    .article-item .article-date { font-size: 13px; color: var(--faint); }
+    .article-item .article-excerpt { color: var(--muted); font-size: 15px; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .article-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .article-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); border: 1px solid var(--border); background: var(--surface-inset); padding: 2px 8px; border-radius: 6px; }
+    @media (prefers-reduced-motion: reduce) { .article-item:hover { transform: none; } }
   </style>
   
   <!-- Google Analytics -->
@@ -410,38 +62,40 @@
   <!-- Mobile Menu Overlay -->
 <div id="sd-site-nav"></div>
   <script src="../assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <div class="topics-container">
-    <div class="topics-header">
-      <p class="sd-eyebrow">Blog</p>
-      <h1>Blog Topics &amp; <span class="accent">Categories</span></h1>
-      <p>Browse our comprehensive collection of articles organized by topic. Find practical guidance on legacy system maintenance, modernization, and business automation.</p>
-    </div>
-    
-    <!-- Quick Navigation -->
-    <div class="quick-nav" id="quickNav">
-      <h3>🔍 Jump to Topic</h3>
-      <div class="quick-nav-grid" id="quickNavGrid">
-        <!-- Quick links will be generated here -->
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <nav class="f-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Topics</span></nav>
+        <p class="f-eyebrow">Blog topics</p>
+        <h1 class="f-h1">Browse by <span class="f-dim">topic.</span></h1>
+        <p class="f-lead">Every article, organised by subject: legacy system maintenance and modernisation, LHDN e-invoicing, business automation and venue operations.</p>
       </div>
-    </div>
-    
-    <div id="topicsContent">
-      <!-- Content will be generated by JavaScript -->
-    </div>
-    
-<button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
-    
-    <div class="sd-cta-band" style="margin-top: 60px;">
-      <h2>Can't Find What You're Looking For?</h2>
-      <p>We're here to help with your specific legacy system challenges.</p>
-      <a href="../contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
+    </section>
 
-    </main>
+    <section class="f-section f-section--line">
+      <div class="f-container">
+        <nav class="tp-quick" id="quickNav" aria-label="Jump to topic">
+          <p class="f-eyebrow">Jump to topic</p>
+          <div class="tp-quick-grid" id="quickNavGrid"></div>
+        </nav>
+        <div id="topicsContent"></div>
+      </div>
+    </section>
+
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Can't find what you're looking for?</h2>
+        <p>Tell us about your system. A senior engineer will reply with practical advice for your situation.</p>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a free consultation</a>
+          <a class="f-btn f-btn--secondary" href="index.html">Latest articles</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="ff">
     <div class="f-container">

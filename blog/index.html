@@ -41,7 +41,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="../assets/f.css?v=2">
-  <link rel="stylesheet" href="../assets/f-legacy.css?v=4">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -53,215 +52,52 @@
   </script>
 
   <style>
-    /* Blog list layout (page-local): horizontal rows with cover image */
-    .sd-bloglist {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .sd-blogrow {
-      display: flex;
-      gap: 0;
-      text-decoration: none;
-      background: var(--sd-card);
-      border: 1px solid var(--sd-border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .sd-blogrow:hover {
-      transform: translateY(-3px);
-      border-color: rgba(96, 165, 250, 0.5);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
-    }
-    .sd-blogrow-thumb {
-      flex: 0 0 280px;
-      position: relative;
-      min-height: 190px;
-      background: repeating-linear-gradient(180deg, transparent 0 22px, rgba(148,163,184,0.06) 22px 23px),
-        linear-gradient(135deg, #0c1524, #17253c);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .sd-blogrow-thumb img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .sd-blogrow-thumb .sd-thumb-icon { font-size: 42px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
-    .sd-blogrow-body {
-      flex: 1;
-      min-width: 0;
-      padding: 24px 28px;
-      display: flex;
-      flex-direction: column;
-    }
-    .sd-blogrow-body h3 {
-      color: var(--text);
-      font-size: 1.25em;
-      font-weight: 700;
-      line-height: 1.3;
-      margin: 6px 0 10px;
-    }
-    .sd-blogrow-body p {
-      color: var(--sd-muted);
-      font-size: 0.95em;
-      line-height: 1.65;
-      margin: 0 0 16px;
-    }
-    .sd-blogrow-body .sd-blog-meta { margin-top: auto; }
-    .sd-clamp-2 {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    @media (max-width: 640px) {
-      .sd-blogrow { flex-direction: column; }
-      .sd-blogrow-thumb { flex-basis: auto; height: 180px; min-height: 0; }
-    }
-
-    /* Dark category filters (page-local, tuned to the .sd- dark system) */
-    .category-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: flex-start;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .category-filter {
-      padding: 9px 18px;
-      background: transparent;
-      color: var(--text-soft);
-      border: 1px solid var(--sd-border);
-      border-radius: 999px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 0.9em;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .category-filter:hover {
-      border-color: var(--sd-blue-light);
-      color: var(--sd-blue-light);
-    }
-
-    .category-filter.active {
-      background: var(--sd-blue);
-      border-color: var(--sd-blue);
-      color: #ffffff;
-    }
-
-    .category-filter.hidden {
-      display: none;
-    }
-
-    .show-more-tags {
-      padding: 9px 18px;
-      background: rgba(37, 99, 235, 0.15);
-      color: var(--sd-blue-light);
-      border: 1px solid rgba(96, 165, 250, 0.3);
-      border-radius: 999px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 0.9em;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      margin-left: auto;
-    }
-
-    .show-more-tags:hover {
-      border-color: var(--sd-blue-light);
-    }
-
-    /* Load More / End of Blog */
-    .load-more-container {
-      text-align: center;
-      margin: 50px 0 0;
-    }
-
-    .end-of-blog {
-      color: var(--sd-muted);
-      font-size: 1.05em;
-      padding: 30px;
-      text-align: center;
-      border-top: 1px solid var(--sd-border);
-    }
-
-    .end-of-blog::after {
-      content: "•  •  •";
-      display: block;
-      margin-top: 15px;
-      color: var(--muted);
-      font-size: 1.5em;
-      letter-spacing: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .category-filter {
-        font-size: 0.85em;
-        padding: 8px 14px;
-      }
-
-      .show-more-tags {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 5px;
-      }
-    }
+    /* Blog index (design F). Uses f.css tokens only. */
+    .bl-list { display: grid; gap: 16px; }
+    .bl-row { flex-direction: row; gap: 24px; padding: 18px; align-items: stretch; }
+    .bl-thumb { flex: 0 0 240px; border-radius: 10px; overflow: hidden; background: var(--surface-inset); border: 1px solid var(--border-soft); min-height: 140px; display: flex; align-items: center; justify-content: center; }
+    .bl-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .bl-thumb-fallback { width: 26px; height: 26px; border: 1.5px solid var(--crimson-text); transform: rotate(45deg); }
+    .bl-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .bl-cat { color: var(--crimson-text); }
+    .bl-clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .bl-meta { margin-top: auto; display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--faint); }
+    .bl-meta span:last-child { color: var(--text); }
+    .category-filter.hidden { display: none; }
+    .f-tab.active { background: var(--text-strong); border-color: var(--text-strong); color: var(--bg); }
+    .bl-more { display: flex; justify-content: center; margin-top: 32px; }
+    .end-of-blog { font-size: 14px; color: var(--faint); font-family: var(--mono); }
+    @media (max-width: 720px) { .bl-row { flex-direction: column; } .bl-thumb { flex-basis: auto; height: 180px; } }
   </style>
 </head>
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="../assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <!-- ===================== PAGE HERO ===================== -->
-  <section class="sd-page-hero">
-    <div class="sd-page-hero-inner">
-      <p class="sd-eyebrow">Blog</p>
-      <h1>Insights, Tips &amp; Best Practices for <span class="accent">.NET Developers</span></h1>
-      <p class="sd-page-hero-lead">Practical advice on maintaining and improving legacy .NET systems — common pitfalls, real fixes, and solutions from 11+ years of production experience.</p>
-      <div class="sd-hero-cta">
-        <a href="topics.html" class="sd-btn sd-btn--ghost">📚 Browse All Topics &amp; Categories</a>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Blog</p>
+        <h1 class="f-h1">Notes from <span class="f-dim">production systems.</span></h1>
+        <p class="f-lead">Practical advice on maintaining and improving legacy .NET systems, LHDN e-invoicing and venue operations: common pitfalls, real fixes and lessons from 11+ years of production experience.</p>
+        <div class="f-actions"><a class="f-btn f-btn--secondary" href="topics.html">Browse all topics</a></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== BLOG LIST ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Latest Articles</p>
-      <h2 class="sd-section-title">From the <span class="accent">SteadyDevs</span> Blog</h2>
-      <div class="sd-title-rule"></div>
-
-      <!-- Category Filters -->
-      <div class="category-filters" id="categoryFilters">
-        <!-- Filters will be generated here -->
+    <section class="f-section f-section--line">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Latest articles</p>
+          <h2 class="f-h2">From the SteadyDevs blog</h2>
+        </div>
+        <div class="f-tabs" id="categoryFilters" role="group" aria-label="Filter articles by topic"></div>
+        <div class="bl-list" id="blogList"></div>
+        <div class="bl-more" id="loadMoreContainer"></div>
       </div>
+    </section>
 
-      <!-- Blog List -->
-      <div class="sd-bloglist" id="blogList">
-        <!-- Blog posts will be loaded here -->
-      </div>
-
-      <!-- Load More / End of Blog -->
-      <div class="load-more-container" id="loadMoreContainer">
-        <!-- Load more button or end message will be shown here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== FOOTER ===================== -->
   </main>
 
   <footer class="ff">
@@ -304,7 +140,6 @@
     </div>
   </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Blog posts data - loaded from JSON
@@ -441,15 +276,15 @@
       const categoryButtons = categories.map((category, index) => {
         const shouldHide = !showAllTags && index >= initialTagsCount;
         return `
-          <button class="category-filter ${category === currentFilter ? 'active' : ''} ${shouldHide ? 'hidden' : ''}"
-                  data-category="${category}">
+          <button type="button" class="f-tab category-filter ${category === currentFilter ? 'active' : ''} ${shouldHide ? 'hidden' : ''}"
+                  data-category="${category}" aria-pressed="${category === currentFilter}">
             ${category}
           </button>
         `;
       }).join('');
 
       const showMoreButton = categories.length > initialTagsCount ? `
-        <button class="show-more-tags" id="showMoreTags">
+        <button type="button" class="f-tab show-more-tags" id="showMoreTags">
           ${showAllTags ? 'Show Less ↑' : `Show More (${categories.length - initialTagsCount} more) ↓`}
         </button>
       ` : '';
@@ -502,18 +337,15 @@
         const emoji = getCategoryEmoji(category);
         const thumb = post.heroImage
           ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" loading="lazy">`
-          : `<span class="sd-thumb-icon">${emoji}</span>`;
+          : `<span class="bl-thumb-fallback" aria-hidden="true"></span>`;
         return `
-        <a href="${post.slug}.html" class="sd-blogrow">
-          <div class="sd-blogrow-thumb">${thumb}</div>
-          <div class="sd-blogrow-body">
-            <div class="sd-cat">${category}</div>
-            <h3>${post.title}</h3>
-            <p class="sd-clamp-2">${post.excerpt}</p>
-            <div class="sd-blog-meta">
-              <span class="sd-blog-date">${post.date} · ${post.readTime}</span>
-              <span class="sd-help-link">Read More →</span>
-            </div>
+        <a href="${post.slug}.html" class="f-card f-card--link bl-row">
+          <div class="bl-thumb">${thumb}</div>
+          <div class="bl-body">
+            <span class="f-mono f-small bl-cat">${category}</span>
+            <h3 class="f-card__title">${post.title}</h3>
+            <p class="f-card__text bl-clamp">${post.excerpt}</p>
+            <div class="bl-meta"><span>${post.date} · ${post.readTime}</span><span>Read article →</span></div>
           </div>
         </a>
       `;
@@ -529,7 +361,7 @@
       if (shown < total) {
         // Show load more button
         container.innerHTML = `
-          <button class="sd-btn sd-btn--primary" id="loadMoreBtn">
+          <button type="button" class="f-btn f-btn--secondary" id="loadMoreBtn">
             Load More Posts (${total - shown} remaining)
           </button>
         `;

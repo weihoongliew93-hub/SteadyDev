@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/f.css?v=4">
-  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <!-- Case Study Schema -->
   <script type="application/ld+json">
@@ -78,79 +77,82 @@
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <!-- ===================== CASE STUDY HERO ===================== -->
-  <section class="sd-cs-hero">
-    <div class="sd-cs-hero-inner">
-      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
-        <a href="portfolio.html">← Portfolio</a> <span style="color:var(--muted);">/</span> <a href="portfolio.html">Case Studies</a>
-      </nav>
-      <p class="sd-eyebrow" style="text-align:left;">Performance · Production Crisis</p>
-      <h1>High-Volume Performance Crisis Resolution</h1>
-      <p class="sd-cs-lead">
-        An automated point-expiry system that had run flawlessly for years suddenly buckled when a new, extremely high-volume customer exposed hidden bottlenecks — diagnosed under pressure and resolved in under half a day, with zero business disruption.
-      </p>
-      <div class="sd-facts">
-        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (loyalty program operator)</div></div>
-        <div class="sd-fact"><div class="k">Industry</div><div class="v">Retail loyalty / points</div></div>
-        <div class="sd-fact"><div class="k">Role</div><div class="v">Performance diagnosis &amp; optimization</div></div>
-        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET Framework · SQL Server</div></div>
-        <div class="sd-fact"><div class="k">Outcome</div><div class="v">Crisis resolved, zero downtime</div></div>
-        <div class="sd-fact"><div class="k">Timeline</div><div class="v">Under half a day</div></div>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <nav class="f-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="portfolio.html">Case studies</a><span aria-hidden="true">/</span><span>High-Volume Performance Crisis Resolution</span></nav>
+        <p class="f-eyebrow">Performance · Production Crisis</p>
+        <h1 class="f-h1">High-Volume Performance Crisis Resolution</h1>
+        <p class="f-lead">An automated point-expiry system that had run flawlessly for years suddenly buckled when a new, extremely high-volume customer exposed hidden bottlenecks — diagnosed under pressure and resolved in under half a day, with zero business disruption.</p>
+        <div class="f-kpi" style="margin-top: 32px; max-width: 720px">
+          <div><div class="f-kpi__label">Outcome</div><div class="f-kpi__value">Crisis resolved, zero downtime</div></div>
+          <div><div class="f-kpi__label">Timeline</div><div class="f-kpi__value">Under half a day</div></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== ARTICLE BODY ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <article class="sd-article">
+    <section class="f-section f-section--line">
+      <div class="f-container f-split">
+        <article class="f-split__main f-prose">
+      <h2>The Challenge</h2>
+              <p>
+                An automated point-expiry system had run <strong>flawlessly in production for years</strong>. Then a new customer arrived with extremely high transaction volumes — far beyond anything the system had encountered — and that scale exposed <strong>critical bottlenecks</strong> in the underlying queries and data-access patterns. What had been invisible at normal volumes now threatened to bring production down.
+              </p>
+              <p>
+                The pressure was real: this was a <strong>live system with real customers</strong>, and the automation could not simply be switched off while it was fixed.
+              </p>
+      
+              <h2>The Approach</h2>
+              <p>
+                The work had to happen carefully, on a live system, without disrupting the automation that was still running.
+              </p>
+              <ul>
+                <li><strong>Analysed query and data-access patterns under load</strong> to find exactly where the volume was causing the system to choke, rather than guessing.</li>
+                <li><strong>Applied targeted optimizations</strong> to the hot paths — improving how data was queried and accessed — without touching or destabilising the live automation.</li>
+                <li><strong>Ran a custom off-hours program</strong> to clear the accumulated backlog of data that had built up, doing the heavy cleanup outside business hours so daytime operations were never affected.</li>
+              </ul>
+              <p>
+                Because the fixes were surgical and scoped to the real bottlenecks, there was no need for a risky rewrite or extended downtime.
+              </p>
+      
+              <h2>The Result</h2>
+              <p>
+                The <strong>crisis was resolved within half a day</strong>, with zero business disruption. The point-expiry automation kept running throughout, the new high-volume customer was supported, and the system was left healthier than before — proof that a production emergency doesn't always mean a rebuild; often it means finding the precise bottleneck and fixing exactly that.
+              </p>
+              <p>
+                <a href="solutions.html#rescue">Explore Legacy System Rescue →</a>
+              </p>
+        </article>
+        <aside class="f-split__aside" aria-label="Project facts">
+          <div class="f-card">
+            <h2 class="f-h3">Project facts</h2>
+            <dl class="f-dl" style="margin-top: 8px">
+              <div><dt>Client</dt><dd>Confidential (loyalty program operator)</dd></div>
+              <div><dt>Industry</dt><dd>Retail loyalty / points</dd></div>
+              <div><dt>Role</dt><dd>Performance diagnosis &amp; optimization</dd></div>
+              <div><dt>Stack</dt><dd>.NET Framework · SQL Server</dd></div>
+              <div><dt>Outcome</dt><dd>Crisis resolved, zero downtime</dd></div>
+              <div><dt>Timeline</dt><dd>Under half a day</dd></div>
+            </dl>
+            <a class="f-btn f-btn--primary" style="width: 100%; margin-top: 18px" href="contact.html">Book a consultation</a>
+          </div>
+          <p class="f-note" style="margin-top: 14px"><a href="portfolio.html">← All case studies</a></p>
+        </aside>
+      </div>
+    </section>
 
-        <h2>The Challenge</h2>
-        <p>
-          An automated point-expiry system had run <strong>flawlessly in production for years</strong>. Then a new customer arrived with extremely high transaction volumes — far beyond anything the system had encountered — and that scale exposed <strong>critical bottlenecks</strong> in the underlying queries and data-access patterns. What had been invisible at normal volumes now threatened to bring production down.
-        </p>
-        <p>
-          The pressure was real: this was a <strong>live system with real customers</strong>, and the automation could not simply be switched off while it was fixed.
-        </p>
-
-        <h2>The Approach</h2>
-        <p>
-          The work had to happen carefully, on a live system, without disrupting the automation that was still running.
-        </p>
-        <ul>
-          <li><strong>Analysed query and data-access patterns under load</strong> to find exactly where the volume was causing the system to choke, rather than guessing.</li>
-          <li><strong>Applied targeted optimizations</strong> to the hot paths — improving how data was queried and accessed — without touching or destabilising the live automation.</li>
-          <li><strong>Ran a custom off-hours program</strong> to clear the accumulated backlog of data that had built up, doing the heavy cleanup outside business hours so daytime operations were never affected.</li>
-        </ul>
-        <p>
-          Because the fixes were surgical and scoped to the real bottlenecks, there was no need for a risky rewrite or extended downtime.
-        </p>
-
-        <h2>The Result</h2>
-        <p>
-          The <strong>crisis was resolved within half a day</strong>, with zero business disruption. The point-expiry automation kept running throughout, the new high-volume customer was supported, and the system was left healthier than before — proof that a production emergency doesn't always mean a rebuild; often it means finding the precise bottleneck and fixing exactly that.
-        </p>
-        <p>
-          <a href="solutions.html#rescue">Explore Legacy System Rescue →</a>
-        </p>
-
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== BOTTOM CTA ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <div class="sd-cta-band">
-        <h2>Is a Production System Buckling Under Load?</h2>
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Is a Production System Buckling Under Load?</h2>
         <p>When new volume exposes bottlenecks in a system that used to run fine, a targeted diagnosis can often resolve the crisis without downtime or a rewrite — fast.</p>
-        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="contact.html">Book a free consultation</a>
+          <a class="f-btn f-btn--secondary" href="portfolio.html">More case studies</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -194,7 +196,6 @@
     </div>
   </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Mobile Menu Toggle

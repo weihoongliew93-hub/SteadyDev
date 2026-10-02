@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/f.css?v=4">
-  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <!-- Case Study Schema -->
   <script type="application/ld+json">
@@ -78,73 +77,77 @@
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
   <script src="assets/site-nav.js?v=2"></script>
-  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
   <main id="main">
 
-  <!-- ===================== CASE STUDY HERO ===================== -->
-  <section class="sd-cs-hero">
-    <div class="sd-cs-hero-inner">
-      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
-        <a href="portfolio.html">← Portfolio</a> <span style="color:var(--muted);">/</span> <a href="portfolio.html">Case Studies</a>
-      </nav>
-      <p class="sd-eyebrow" style="text-align:left;">POS &amp; Desktop</p>
-      <h1>Retail POS Module Refactoring &amp; Architecture Overhaul</h1>
-      <p class="sd-cs-lead">
-        A legacy retail POS had UI and business logic fused together with no structured pattern — every new feature risked breaking the last. Introducing MVVM where none existed set a clean template that every later module followed.
-      </p>
-      <div class="sd-facts">
-        <div class="sd-fact"><div class="k">Client</div><div class="v">Confidential (POS vendor)</div></div>
-        <div class="sd-fact"><div class="k">Industry</div><div class="v">Retail POS</div></div>
-        <div class="sd-fact"><div class="k">Role</div><div class="v">Architecture &amp; code-quality leadership</div></div>
-        <div class="sd-fact"><div class="k">Stack</div><div class="v">.NET · MVVM pattern · Refactoring</div></div>
-        <div class="sd-fact"><div class="k">Focus</div><div class="v">Separation of concerns</div></div>
-        <div class="sd-fact"><div class="k">Status</div><div class="v">In production</div></div>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <nav class="f-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="portfolio.html">Case studies</a><span aria-hidden="true">/</span><span>Retail POS Module Refactoring &amp; Architecture Overhaul</span></nav>
+        <p class="f-eyebrow">POS &amp; Desktop</p>
+        <h1 class="f-h1">Retail POS Module Refactoring &amp; Architecture Overhaul</h1>
+        <p class="f-lead">A legacy retail POS had UI and business logic fused together with no structured pattern — every new feature risked breaking the last. Introducing MVVM where none existed set a clean template that every later module followed.</p>
+        <div class="f-kpi" style="margin-top: 32px; max-width: 720px">
+          <div><div class="f-kpi__label">Focus</div><div class="f-kpi__value" style="font-size: 20px">Separation of concerns</div></div>
+          <div><div class="f-kpi__label">Status</div><div class="f-kpi__value" style="font-size: 20px">In production</div></div>
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== ARTICLE BODY ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <article class="sd-article">
+    <section class="f-section f-section--line">
+      <div class="f-container f-split">
+        <article class="f-split__main f-prose">
+      <h2>The Challenge</h2>
+              <p>
+                The legacy retail POS had grown without an architectural pattern. In the sales module especially, the UI and the business logic were tightly coupled — presentation and rules lived together in the same monolithic code, with no separation between what the user saw and what the system did underneath.
+              </p>
+              <p>
+                In that kind of codebase, every new feature is a gamble: because everything is entangled, a change made for one requirement can silently break functionality somewhere else. Development slowed and risk rose with every addition.
+              </p>
+      
+              <h2>The Approach</h2>
+              <p>
+                The goal was to introduce structure where there was none — and to do it in a way the rest of the codebase could follow.
+              </p>
+              <ul>
+                <li><strong>Introduced a properly structured MVVM pattern</strong> in the sales module, cleanly separating the UI (View) from state and behaviour (ViewModel) and the underlying business logic (Model), where previously no such separation existed.</li>
+                <li><strong>Established a template the team could reuse</strong> — once the first module proved the pattern, subsequent modules followed the same clean separation of concerns instead of repeating the old tangle.</li>
+                <li><strong>Continuously optimized</strong> the MVVM-based modules as they grew, keeping the structure clean rather than letting it erode over time.</li>
+              </ul>
+      
+              <h2>The Result</h2>
+              <p>
+                <strong>The MVVM-based modules proved easy to maintain and issue-free.</strong> With presentation and logic separated, new features could be added without the fear of breaking unrelated functionality, and the pattern gave the whole team a consistent, predictable way to build. What began as one refactored module became the architectural standard the codebase grew into.
+              </p>
+        </article>
+        <aside class="f-split__aside" aria-label="Project facts">
+          <div class="f-card">
+            <h2 class="f-h3">Project facts</h2>
+            <dl class="f-dl" style="margin-top: 8px">
+              <div><dt>Client</dt><dd>Confidential (POS vendor)</dd></div>
+              <div><dt>Industry</dt><dd>Retail POS</dd></div>
+              <div><dt>Role</dt><dd>Architecture &amp; code-quality leadership</dd></div>
+              <div><dt>Stack</dt><dd>.NET · MVVM pattern · Refactoring</dd></div>
+              <div><dt>Focus</dt><dd>Separation of concerns</dd></div>
+              <div><dt>Status</dt><dd>In production</dd></div>
+            </dl>
+            <a class="f-btn f-btn--primary" style="width: 100%; margin-top: 18px" href="contact.html">Book a consultation</a>
+          </div>
+          <p class="f-note" style="margin-top: 14px"><a href="portfolio.html">← All case studies</a></p>
+        </aside>
+      </div>
+    </section>
 
-        <h2>The Challenge</h2>
-        <p>
-          The legacy retail POS had grown without an architectural pattern. In the sales module especially, the UI and the business logic were tightly coupled — presentation and rules lived together in the same monolithic code, with no separation between what the user saw and what the system did underneath.
-        </p>
-        <p>
-          In that kind of codebase, every new feature is a gamble: because everything is entangled, a change made for one requirement can silently break functionality somewhere else. Development slowed and risk rose with every addition.
-        </p>
-
-        <h2>The Approach</h2>
-        <p>
-          The goal was to introduce structure where there was none — and to do it in a way the rest of the codebase could follow.
-        </p>
-        <ul>
-          <li><strong>Introduced a properly structured MVVM pattern</strong> in the sales module, cleanly separating the UI (View) from state and behaviour (ViewModel) and the underlying business logic (Model), where previously no such separation existed.</li>
-          <li><strong>Established a template the team could reuse</strong> — once the first module proved the pattern, subsequent modules followed the same clean separation of concerns instead of repeating the old tangle.</li>
-          <li><strong>Continuously optimized</strong> the MVVM-based modules as they grew, keeping the structure clean rather than letting it erode over time.</li>
-        </ul>
-
-        <h2>The Result</h2>
-        <p>
-          <strong>The MVVM-based modules proved easy to maintain and issue-free.</strong> With presentation and logic separated, new features could be added without the fear of breaking unrelated functionality, and the pattern gave the whole team a consistent, predictable way to build. What began as one refactored module became the architectural standard the codebase grew into.
-        </p>
-
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== BOTTOM CTA ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <div class="sd-cta-band">
-        <h2>Does Every New Feature Risk Breaking the Last?</h2>
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Does Every New Feature Risk Breaking the Last?</h2>
         <p>When UI and business logic are tangled together, growth gets dangerous. Introducing a clean architectural pattern makes a codebase safe to extend again — and gives your team a template to follow.</p>
-        <a href="contact.html" class="sd-btn sd-btn--primary">Get Your FREE Consultation <span aria-hidden="true">→</span></a>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="contact.html">Book a free consultation</a>
+          <a class="f-btn f-btn--secondary" href="portfolio.html">More case studies</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -188,7 +191,6 @@
     </div>
   </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Mobile Menu Toggle

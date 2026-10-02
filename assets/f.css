@@ -348,6 +348,15 @@ a.f-tag:hover { color: var(--text-strong); border-color: var(--border-strong); }
 .f-kpi__label { font-size: 13px; color: var(--faint); }
 .f-kpi__value { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-strong); }
 
+/* Fact list (label / value rows) */
+.f-dl { margin: 0; }
+.f-dl > div { padding: 12px 0; border-bottom: 1px solid var(--border-soft); }
+.f-dl > div:last-child { border-bottom: 0; }
+.f-dl dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--faint); }
+.f-dl dd { margin: 4px 0 0; color: var(--text); font-size: 15px; }
+.f-prose a.f-btn { text-decoration: none; color: var(--text); }
+.f-prose a.f-btn--primary { color: #FFFFFF; }
+
 /* Check list */
 .f-checks { list-style: none; margin: 0; padding: 0; }
 .f-checks li { position: relative; padding: 6px 0 6px 26px; color: var(--text-soft); }
