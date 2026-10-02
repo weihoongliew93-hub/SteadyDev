@@ -164,6 +164,8 @@ p { margin: 0; }
 /* ---------- Cards ---------- */
 .f-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
 .f-card--accent { background: linear-gradient(180deg, var(--crimson-soft), var(--surface) 60%); border-color: var(--crimson-line); }
+.f-card--wide { grid-column: span 2; }
+@media (max-width: 640px) { .f-card--wide { grid-column: auto; } }
 .f-stat__value { font-size: 44px; font-weight: 600; letter-spacing: -0.03em; color: var(--text-strong); line-height: 1.15; }
 .f-stat__label { color: var(--muted); font-size: 15px; margin-top: 6px; }
 
