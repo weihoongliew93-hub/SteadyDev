@@ -28,7 +28,7 @@ const dateBySlug = {};
 const draftSlugs = new Set();
 json.forEach(p => {
   if (!p.slug) return;
-  if (p.date) dateBySlug[p.slug] = p.date;
+  if (p.updated || p.date) dateBySlug[p.slug] = p.updated || p.date;
   if (p.published === false) draftSlugs.add(p.slug);
 });
 
