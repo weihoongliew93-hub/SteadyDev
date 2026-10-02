@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -27,7 +27,13 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/case-airport-retail-pos-compliance.html">
 
-  <link rel="stylesheet" href="assets/style.css?v=85">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/f.css?v=4">
+  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <!-- Case Study Schema -->
   <script type="application/ld+json">
@@ -69,14 +75,17 @@
   </script>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js"></script>
+  <script src="assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <main id="main">
 
   <!-- ===================== CASE STUDY HERO ===================== -->
   <section class="sd-cs-hero">
     <div class="sd-cs-hero-inner">
       <nav class="sd-breadcrumb" aria-label="Breadcrumb">
-        <a href="portfolio.html">← Portfolio</a> <span style="color:#475569;">/</span> <a href="portfolio.html">Case Studies</a>
+        <a href="portfolio.html">← Portfolio</a> <span style="color:var(--muted);">/</span> <a href="portfolio.html">Case Studies</a>
       </nav>
       <p class="sd-eyebrow" style="text-align:left;">POS &amp; Compliance</p>
       <h1>Airport Retail POS Compliance &amp; Major Enhancement</h1>
@@ -138,46 +147,49 @@
     </div>
   </section>
 
-  <footer class="sd-footer">
-    <div class="sd-footer-inner">
-      <div class="sd-footer-brand">
-        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
-        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
-        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="solutions.html">Engineering services</a></li>
+            <li><a href="einvoice.html">EInvoice Platform</a></li>
+            <li><a href="venue-booking.html">Venue Booking</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Case studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="pricing-terms.html">Pricing terms</a></li>
+            <li><a href="my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <p><a href="about.html">About</a></p>
-        <p><a href="solutions.html">Solutions</a></p>
-        <p><a href="portfolio.html">Portfolio</a></p>
-        <p><a href="blog/index.html">Blog</a></p>
-        <p><a href="contact.html">Contact</a></p>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
       </div>
-      <div>
-        <h4>Get In Touch</h4>
-        <ul class="sd-footer-contact">
-          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
-          <li>📍 Malaysia · Singapore · International</li>
-          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <a href="contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-    <div class="sd-footer-bottom">
-      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
-      <span>
-        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
-      </span>
     </div>
   </footer>
 
-  <!-- Sticky Mobile CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="contact.html">FREE Consultation →</a>
-  </div>
-
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // Mobile Menu Toggle

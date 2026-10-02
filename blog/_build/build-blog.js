@@ -24,11 +24,11 @@ function assetVersion(relPath) {
   }
 }
 
-const STYLE_VER = assetVersion('../../assets/style.css');   // shared site stylesheet
+const STYLE_VER = assetVersion('../../assets/f.css');       // shared site stylesheet (design F)
 const BLOG_STYLE_VER = assetVersion('../blog-styles.css');  // blog-specific stylesheet
 
 console.log(`🚀 Building ${blogPosts.length} blog post(s)...`);
-console.log(`   style.css?v=${STYLE_VER} · blog-styles.css?v=${BLOG_STYLE_VER}`);
+console.log(`   f.css?v=${STYLE_VER} · blog-styles.css?v=${BLOG_STYLE_VER}`);
 
 // Helper: Estimate word count from content blocks
 function estimateWordCount(content) {
@@ -143,15 +143,15 @@ function generateHTML(post) {
         contentHTML += `
           <div class="cta-box">
             <h3>${block.title}</h3>
-            <p style="color: #D1D5DB;">${block.text}</p>
-            <a href="${block.buttonLink}" class="cta-button">${block.buttonText}</a>
+            <p>${block.text}</p>
+            <a href="${block.buttonLink}" class="f-btn f-btn--primary cta-button">${block.buttonText}</a>
           </div>\n`;
         break;
       case 'image':
         contentHTML += `
-          <figure style="margin: 30px 0;">
-            <img src="../${block.src}" alt="${block.alt}" style="width: 100%; border-radius: 8px;">
-            ${block.caption ? `<figcaption style="text-align: center; color: #9CA3AF; font-size: 0.95em; margin-top: 10px; font-style: italic;">${block.caption}</figcaption>` : ''}
+          <figure class="blog-figure">
+            <img src="../${block.src}" alt="${block.alt}">
+            ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
           </figure>\n`;
         break;
       case 'faq':
@@ -184,8 +184,14 @@ function generateHTML(post) {
   
   // Format dates
   const isoPublishDate = toISO8601(post.date);
-  const isoModifiedDate = toISO8601(post.date); // Use same date unless specified
-  
+  const isoModifiedDate = toISO8601(post.updated || post.date);
+
+  // Search-facing title and description. seoTitle/metaDescription let the
+  // <title> and snippet match how people actually search, while the on-page
+  // H1 stays as written; both fall back to title/excerpt when absent.
+  const seoTitle = post.seoTitle || post.title;
+  const metaDescription = post.metaDescription || post.excerpt;
+
   // Get article section
   const articleSection = getArticleSection(post.tags);
   
@@ -222,13 +228,34 @@ function generateHTML(post) {
   }
   </script>` : '';
 
+  // FAQPage schema from the post's FAQ block(s), so search engines and AI
+  // answers can read the Q&A directly. JSON.stringify handles the escaping.
+  const faqItems = (post.content || [])
+    .filter(block => block.type === 'faq' && Array.isArray(block.items))
+    .flatMap(block => block.items);
+  const stripTags = str => String(str || '').replace(/<[^>]+>/g, '').trim();
+  const faqSchema = faqItems.length > 0 ? `
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  ${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: stripTags(item.question),
+      acceptedAnswer: { '@type': 'Answer', text: stripTags(item.answer) }
+    }))
+  }, null, 2).replace(/\n/g, '\n  ')}
+  </script>` : '';
+
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>${post.title} | SteadyDevs</title>
-  <meta name="description" content="${post.excerpt}">
+  <title>${seoTitle} | SteadyDevs</title>
+  <meta name="description" content="${metaDescription}">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -238,20 +265,25 @@ function generateHTML(post) {
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/${post.slug}.html">
-  <meta property="og:title" content="${post.title}">
-  <meta property="og:description" content="${post.excerpt}">
+  <meta property="og:title" content="${seoTitle}">
+  <meta property="og:description" content="${metaDescription}">
   <meta property="og:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${post.title}">
-  <meta name="twitter:description" content="${post.excerpt}">
+  <meta name="twitter:title" content="${seoTitle}">
+  <meta name="twitter:description" content="${metaDescription}">
   <meta name="twitter:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/${post.slug}.html">
   
-  <link rel="stylesheet" href="../assets/style.css?v=${STYLE_VER}">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="../assets/f.css?v=${STYLE_VER}">
   <link rel="stylesheet" href="blog-styles.css?v=${BLOG_STYLE_VER}">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
@@ -278,7 +310,7 @@ function generateHTML(post) {
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "${post.excerpt.replace(/"/g, '\\"')}",
+    "description": "${metaDescription.replace(/"/g, '\\"')}",
     "articleSection": "${articleSection}",
     "articleBody": "${post.excerpt.replace(/"/g, '\\"')}",
     "wordCount": ${wordCount},
@@ -305,7 +337,7 @@ function generateHTML(post) {
       "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
     }
   }
-  </script>${howToSchema}
+  </script>${howToSchema}${faqSchema}
   
   <!-- Article Metadata -->
   <meta property="article:published_time" content="${isoPublishDate}">
@@ -328,17 +360,14 @@ function generateHTML(post) {
   </script>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="../assets/site-nav.js"></script>
+  <script src="../assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <!-- Breadcrumb Navigation -->
-  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
-    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
-      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
-      <span style="color: #6B7280; margin: 0 8px;">/</span>
-      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
-      <span style="color: #6B7280; margin: 0 8px;">/</span>
-      <span style="color: #F3F4F6;">${post.title}</span>
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>${post.title}</span>
     </nav>
   </div>
   
@@ -370,11 +399,9 @@ function generateHTML(post) {
   }
   </script>
 
-  <div class="container">
-    <!-- TOC Toggle Button for Mobile/Tablet -->
-    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
-      ☰
-    </button>
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
     
     <!-- Table of Contents -->
     <aside class="blog-toc" id="blogToc" style="display: none;">
@@ -382,7 +409,7 @@ function generateHTML(post) {
       <ul class="blog-toc-list" id="tocList"></ul>
     </aside>
     
-    <main class="blog-content">
+    <main class="blog-content" id="main">
       <article>
         ${heroImageHTML}
         <div class="blog-header">
@@ -396,22 +423,56 @@ function generateHTML(post) {
     </main>
   </div>
 
-  <footer>
-    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
-    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
-    <p style="margin-top: 12px; font-size: 0.9em;">
-      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
-      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a>
-    </p>
-  </footer>
-  
-  <!-- Sticky Mobile CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="../contact.html">FREE Consultation →</a>
-  </div>
-  
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
 
   <script>
     // Generate Table of Contents
@@ -450,7 +511,7 @@ function generateHTML(post) {
       tocContainer.style.display = 'block';
       
       const tocToggleBtn = document.getElementById('tocToggle');
-      if (window.innerWidth <= 1400) {
+      if (window.innerWidth < 1100) {
         tocToggleBtn.style.display = 'block';
       }
       
@@ -463,7 +524,7 @@ function generateHTML(post) {
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (window.innerWidth <= 1400) {
+            if (window.innerWidth < 1100) {
               tocContainer.classList.remove('toc-visible');
             }
           }
@@ -601,7 +662,7 @@ function generateHTML(post) {
       });
       
       document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 1400 && 
+        if (window.innerWidth < 1100 && 
             !tocContainer.contains(e.target) && 
             !tocToggleBtn.contains(e.target) &&
             tocContainer.classList.contains('toc-visible')) {
@@ -610,7 +671,7 @@ function generateHTML(post) {
       });
       
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 1400) {
+        if (window.innerWidth >= 1100) {
           tocToggleBtn.style.display = 'none';
           tocContainer.classList.remove('toc-visible');
         } else if (tocContainer.style.display === 'block') {

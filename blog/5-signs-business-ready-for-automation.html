@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -27,8 +27,13 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/5-signs-business-ready-for-automation.html">
   
-  <link rel="stylesheet" href="../assets/style.css?v=316e8821">
-  <link rel="stylesheet" href="blog-styles.css?v=75bd046f">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="../assets/f.css?v=8b5bdcfa">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -90,6 +95,56 @@
     }
   }
   </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a business automation project typically cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on complexity. Simple automations — scheduled report generation, email notifications, basic data sync — typically range from RM5,000–12,000. More complex systems involving multiple integrations, intelligent scheduling, or significant business logic typically range from RM12,000–25,000. The free consultation will give you a clearer picture based on your specific situation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if our current system isn't well-documented? Can you still automate parts of it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, but we'll need to spend time understanding the existing system first before building on top of it. This is standard — most legacy systems don't have thorough documentation. The investigation phase is built into the project scope, not assumed away."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will automation break if our business process changes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Any software needs to be updated when the process it supports changes — that's not specific to automation. We build automations to be maintainable, with clear logic and documentation, so changes can be made without starting over. A well-built automation should be straightforward to adjust as your business evolves."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need to replace our current system to add automation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually not. Most business automations are built alongside existing systems, not instead of them. We connect to what you already have — reading from your database, calling your existing APIs, integrating with your current tools — rather than replacing the core system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do we know if the automation project actually delivered ROI after it's done?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Before the project starts, we baseline the current cost — hours per week spent on the manual process, error rate, cost of fixing mistakes. After delivery, you measure against the same baseline. For most projects in the RM5,000–15,000 range, payback happens within 6–18 months from reduced staff hours and error correction alone. We'll work through the numbers with you before you commit, not after."
+        }
+      }
+    ]
+  }
+  </script>
   
   <!-- Article Metadata -->
   <meta property="article:published_time" content="2026-04-28T00:00:00+08:00">
@@ -112,17 +167,14 @@
   </script>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="../assets/site-nav.js"></script>
+  <script src="../assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <!-- Breadcrumb Navigation -->
-  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
-    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
-      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
-      <span style="color: #6B7280; margin: 0 8px;">/</span>
-      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
-      <span style="color: #6B7280; margin: 0 8px;">/</span>
-      <span style="color: #F3F4F6;">5 Signs Your Business Is Ready for Automation (And What to Automate First)</span>
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>5 Signs Your Business Is Ready for Automation (And What to Automate First)</span>
     </nav>
   </div>
   
@@ -154,11 +206,9 @@
   }
   </script>
 
-  <div class="container">
-    <!-- TOC Toggle Button for Mobile/Tablet -->
-    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
-      ☰
-    </button>
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
     
     <!-- Table of Contents -->
     <aside class="blog-toc" id="blogToc" style="display: none;">
@@ -166,7 +216,7 @@
       <ul class="blog-toc-list" id="tocList"></ul>
     </aside>
     
-    <main class="blog-content">
+    <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/business-automation-signs.jpg" alt="Business workflow automation illustration" class="blog-hero-image">
         <div class="blog-header">
@@ -211,8 +261,8 @@
 
           <div class="cta-box">
             <h3>Ready to Stop Doing Work That Software Should Do?</h3>
-            <p style="color: #D1D5DB;">SteadyDevs builds targeted business automations for companies running on .NET systems — from API integrations to scheduled workflows to automated reporting. Get a free consultation to see what's worth automating in your business.</p>
-            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+            <p>SteadyDevs builds targeted business automations for companies running on .NET systems — from API integrations to scheduled workflows to automated reporting. Get a free consultation to see what's worth automating in your business.</p>
+            <a href="../contact.html" class="f-btn f-btn--primary cta-button">Get Your FREE Consultation</a>
           </div>
 
           <div class="faq-section">
@@ -278,22 +328,56 @@
     </main>
   </div>
 
-  <footer>
-    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
-    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
-    <p style="margin-top: 12px; font-size: 0.9em;">
-      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
-      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a>
-    </p>
-  </footer>
-  
-  <!-- Sticky Mobile CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="../contact.html">FREE Consultation →</a>
-  </div>
-  
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
 
   <script>
     // Generate Table of Contents
@@ -332,7 +416,7 @@
       tocContainer.style.display = 'block';
       
       const tocToggleBtn = document.getElementById('tocToggle');
-      if (window.innerWidth <= 1400) {
+      if (window.innerWidth < 1100) {
         tocToggleBtn.style.display = 'block';
       }
       
@@ -345,7 +429,7 @@
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (window.innerWidth <= 1400) {
+            if (window.innerWidth < 1100) {
               tocContainer.classList.remove('toc-visible');
             }
           }
@@ -483,7 +567,7 @@
       });
       
       document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 1400 && 
+        if (window.innerWidth < 1100 && 
             !tocContainer.contains(e.target) && 
             !tocToggleBtn.contains(e.target) &&
             tocContainer.classList.contains('toc-visible')) {
@@ -492,7 +576,7 @@
       });
       
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 1400) {
+        if (window.innerWidth >= 1100) {
           tocToggleBtn.style.display = 'none';
           tocContainer.classList.remove('toc-visible');
         } else if (tocContainer.style.display === 'block') {

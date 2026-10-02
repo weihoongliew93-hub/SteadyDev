@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -27,7 +27,13 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/contact.html">
   
-  <link rel="stylesheet" href="assets/style.css?v=85">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/f.css?v=4">
+  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
@@ -83,8 +89,11 @@
   </script>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js"></script>
+  <script src="assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <main id="main">
 
   <!-- ===================== PAGE HERO ===================== -->
   <section class="sd-page-hero">
@@ -92,7 +101,7 @@
       <p class="sd-eyebrow">CONTACT</p>
       <h1>Let's Discuss Your <span class="accent">System</span></h1>
       <p class="sd-page-hero-lead">Get in touch for a free assessment and expert advice on your system.</p>
-      <p style="margin-top: 18px; color: #60A5FA; font-size: 0.95em; font-style: italic;">🛡️ 11+ years handling production .NET systems</p>
+      <p style="margin-top: 18px; color: var(--system); font-size: 0.95em; font-style: italic;">🛡️ 11+ years handling production .NET systems</p>
     </div>
   </section>
 
@@ -100,13 +109,13 @@
   <section class="sd-section sd-section--dark">
     <div class="sd-inner">
       <div class="sd-panel" style="text-align: center; margin-bottom: 32px;">
-        <p style="margin: 0; color: #60A5FA; font-weight: 600; font-size: 1.05em;">🎯 FREE Strategy Session + Written Assessment</p>
+        <p style="margin: 0; color: var(--system); font-weight: 600; font-size: 1.05em;">🎯 FREE Strategy Session + Written Assessment</p>
       </div>
 
       <div class="sd-panel-grid">
         <div>
           <div class="contact-info">
-            <h3 style="margin-top: 0; color: #60A5FA;">Contact Information</h3>
+            <h3 style="margin-top: 0; color: var(--system);">Contact Information</h3>
 
             <p><strong>Email:</strong><br>
             <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></p>
@@ -116,35 +125,35 @@
 
             <p><strong>Availability:</strong><br>
             Evenings and weekends (Malaysia Time, GMT+8)<br>
-            <span style="font-size: 0.9em; color: #9CA3AF;">Note: Best suited for planned improvements, not immediate emergencies</span></p>
+            <span style="font-size: 0.9em; color: var(--muted);">Note: Best suited for planned improvements, not immediate emergencies</span></p>
 
             <p><strong>Location:</strong><br>
             Based in Malaysia, serving clients worldwide</p>
           </div>
 
           <div class="sd-panel" style="margin-top: 24px;">
-            <h3 style="margin-top: 0; color: #34D399;">💬 What to Include in Your Message</h3>
-            <ul style="color: #D1D5DB; line-height: 1.8; margin: 0; padding-left: 25px;">
+            <h3 style="margin-top: 0; color: var(--ok);">💬 What to Include in Your Message</h3>
+            <ul style="color: var(--text-soft); line-height: 1.8; margin: 0; padding-left: 25px;">
               <li><strong>Brief description of your system and the problem</strong></li>
               <li>What you've tried so far (if anything)</li>
               <li>Your timeline and urgency level</li>
               <li>Investment range you're considering (helps us recommend the right solution)</li>
               <li>Any specific constraints or requirements</li>
             </ul>
-            <p style="color: #9CA3AF; margin: 15px 0 0; font-size: 0.95em; font-style: italic;">Don't worry if you're not technical — just describe what's happening and the impact on your business.</p>
+            <p style="color: var(--muted); margin: 15px 0 0; font-size: 0.95em; font-style: italic;">Don't worry if you're not technical — just describe what's happening and the impact on your business.</p>
           </div>
         </div>
 
       <div class="contact-form">
-        <h3 style="margin-top: 0; color: #60A5FA;">Send Us a Message</h3>
+        <h3 style="margin-top: 0; color: var(--system);">Send Us a Message</h3>
         
         <!-- Success Message (hidden by default) -->
-        <div id="form-success" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34D399; padding: 18px; border-radius: 4px; margin-bottom: 20px;">
+        <div id="form-success" style="display: none; background: var(--surface-inset); border: 1px solid var(--ok); color: var(--ok); padding: 18px; border-radius: 4px; margin-bottom: 20px;">
           ✅ Thank you! Your message has been sent successfully. We'll get back to you within 1-2 business days.
         </div>
         
         <!-- Error Message (hidden by default) -->
-        <div id="form-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #f87171; padding: 18px; border-radius: 4px; margin-bottom: 20px;">
+        <div id="form-error" style="display: none; background: var(--surface-inset); border: 1px solid var(--crimson-text); color: var(--crimson-text); padding: 18px; border-radius: 4px; margin-bottom: 20px;">
           ❌ Oops! Something went wrong. Please try again or email us directly at contact@steadydevs.com
         </div>
         
@@ -168,15 +177,15 @@
             <label for="package">Interested Package (Optional)</label>
             <select id="package" name="package">
               <option value="">Select a package...</option>
-              <option value="Legacy System Rescue">Legacy System Rescue (RM5,000 – RM15,000)</option>
-              <option value="System Understanding & Roadmap">System Understanding & Roadmap (RM8,000 – RM25,000)</option>
-              <option value="System Stabilization Project">System Stabilization Project (RM12,000 – RM30,000+)</option>
-              <option value="Business Automation">Business Automation (RM8,000 – RM20,000)</option>
-              <option value="System Health Check">System Health Check (RM1,200 one-time diagnostic)</option>
+              <option value="Legacy System Rescue">Legacy System Rescue (RM3,999 – RM13,999)</option>
+              <option value="System Understanding & Roadmap">System Understanding & Roadmap (RM6,999 – RM23,999)</option>
+              <option value="System Stabilization Project">System Stabilization Project (RM10,999 – RM28,999+)</option>
+              <option value="Business Automation">Business Automation (RM6,999 – RM18,999)</option>
+              <option value="System Health Check">System Health Check (RM1,199 one-time diagnostic)</option>
               <option value="EInvoice Platform - Early Access">EInvoice Platform - Early Access (Coming Soon)</option>
-              <option value="Expert Technical Advisor - Advisory Only">Retainer: Advisory Only (RM3,000/mo)</option>
-              <option value="Expert Technical Advisor - Active Support">Retainer: Active Support (RM5,000/mo)</option>
-              <option value="Expert Technical Advisor - Strategic Partner">Retainer: Strategic Partner (RM8,000/mo)</option>
+              <option value="Expert Technical Advisor - Advisory Only">Retainer: Advisory Only (RM1,999/mo)</option>
+              <option value="Expert Technical Advisor - Active Support">Retainer: Active Support (RM3,999/mo)</option>
+              <option value="Expert Technical Advisor - Strategic Partner">Retainer: Strategic Partner (RM6,999/mo)</option>
               <option value="Expert Technical Advisor - Retainer">Retainer: Not sure which tier yet</option>
               <option value="Free Strategy Session">Free Strategy Session</option>
               <option value="Not sure yet">Not sure yet / Need guidance</option>
@@ -193,7 +202,7 @@
           
           <button type="submit" id="submit-btn" class="form-submit">Send Message</button>
         </form>
-        <p style="margin-top: 15px; font-size: 0.9em; color: #9CA3AF;">Or email directly: <a href="mailto:contact@steadydevs.com" style="color: #60A5FA;">contact@steadydevs.com</a></p>
+        <p style="margin-top: 15px; font-size: 0.9em; color: var(--muted);">Or email directly: <a href="mailto:contact@steadydevs.com" style="color: var(--system);">contact@steadydevs.com</a></p>
       </div>
 
       <script>
@@ -380,44 +389,52 @@
     </div>
   </section>
 
-  <footer class="sd-footer">
-    <div class="sd-footer-inner">
-      <div class="sd-footer-brand">
-        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
-        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
-        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="solutions.html">Engineering services</a></li>
+            <li><a href="einvoice.html">EInvoice Platform</a></li>
+            <li><a href="venue-booking.html">Venue Booking</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Case studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="pricing-terms.html">Pricing terms</a></li>
+            <li><a href="my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <p><a href="about.html">About</a></p>
-        <p><a href="solutions.html">Solutions</a></p>
-        <p><a href="portfolio.html">Portfolio</a></p>
-        <p><a href="blog/index.html">Blog</a></p>
-        <p><a href="contact.html">Contact</a></p>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
       </div>
-      <div>
-        <h4>Get In Touch</h4>
-        <ul class="sd-footer-contact">
-          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
-          <li>📍 Malaysia · Singapore · International</li>
-          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <a href="contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-    <div class="sd-footer-bottom">
-      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
-      <span>
-        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
-      </span>
     </div>
   </footer>
   
   <!-- Sticky Mobile CTA (hidden on contact page) -->
   <div class="sticky-cta" id="stickyCta" style="display: none;"></div>
   
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
   
   <!-- Mobile Menu Script -->
   <script>

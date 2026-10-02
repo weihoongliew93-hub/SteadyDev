@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -27,7 +27,13 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/venue-booking">
 
-  <link rel="stylesheet" href="assets/style.css?v=85">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/f.css?v=4">
+  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <!-- Freemius Checkout (loads the buy popup). Safe to keep; does nothing until clicked. -->
   <script src="https://checkout.freemius.com/js/v1/"></script>
@@ -44,7 +50,7 @@
   <!-- Page-scoped styles (all .sb- prefixed so they never collide with the shared system) -->
   <style>
     .sb-price-wrap { display: flex; align-items: baseline; justify-content: center; gap: 10px; margin: 6px 0 4px; }
-    .sb-price { font-size: 3.1em; font-weight: 800; color: #f8fafc; letter-spacing: -0.02em; line-height: 1; }
+    .sb-price { font-size: 3.1em; font-weight: 800; color: var(--text); letter-spacing: -0.02em; line-height: 1; }
     .sb-price-cycle { color: var(--sd-muted); font-weight: 600; font-size: 1em; }
     .sb-price-note { color: var(--sd-muted); font-size: 0.9em; margin: 0 0 26px; }
 
@@ -70,11 +76,11 @@
       border-radius: 999px;
       margin-bottom: 18px;
     }
-    .sb-plan-name { color: #f1f5f9; font-size: 1.3em; font-weight: 700; margin: 0 0 4px; }
+    .sb-plan-name { color: var(--text); font-size: 1.3em; font-weight: 700; margin: 0 0 4px; }
     .sb-feature-list { list-style: none; margin: 26px 0 30px; padding: 0; text-align: left; }
     .sb-feature-list li {
       display: flex; align-items: flex-start; gap: 11px;
-      color: #cbd5e1; font-size: 0.96em; padding: 9px 0;
+      color: var(--text-soft); font-size: 0.96em; padding: 9px 0;
       border-bottom: 1px solid rgba(148,163,184,0.12);
     }
     .sb-feature-list li:last-child { border-bottom: none; }
@@ -95,9 +101,9 @@
     .sb-plan--featured { border-color: rgba(96,165,250,0.75); box-shadow: 0 24px 60px rgba(37,99,235,0.28); }
     .sb-save { display: inline-block; margin: 8px 0 0; color: var(--sd-green-light); font-weight: 700; font-size: 0.9em; }
     .sb-plan-badge--muted { background: #334155; }
-    .sb-sites { color: #93c5fd; font-weight: 700; font-size: 0.95em; margin: 0 0 2px; }
+    .sb-sites { color: var(--system); font-weight: 700; font-size: 0.95em; margin: 0 0 2px; }
     .sb-alt-cycle { color: var(--sd-muted); font-size: 0.86em; margin: 12px 0 0; }
-    .sb-alt-cycle a { color: #93c5fd; text-decoration: underline; cursor: pointer; }
+    .sb-alt-cycle a { color: var(--system); text-decoration: underline; cursor: pointer; }
     .sb-trial-note { color: var(--sd-muted); font-size: 0.88em; margin: 14px 0 0; }
     .sb-trial-cta { margin-top: 12px; }
     .sb-trial-cta .sd-btn { width: 100%; justify-content: center; }
@@ -116,7 +122,7 @@
 
     .sb-usecases { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
     .sb-usecases span {
-      font-size: 0.86em; font-weight: 600; color: #cbd5e1;
+      font-size: 0.86em; font-weight: 600; color: var(--text-soft);
       padding: 7px 15px; border: 1px solid var(--sd-border); border-radius: 999px;
       background: rgba(255,255,255,0.02);
     }
@@ -183,12 +189,12 @@
       font-size: 0.85em; font-weight: 800; color: var(--sd-muted);
       transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
-    .sb-demo-step-pill.is-active { color: #e5e7eb; }
+    .sb-demo-step-pill.is-active { color: var(--text); }
     .sb-demo-step-pill.is-active .num { background: var(--sd-blue); border-color: var(--sd-blue); color: #fff; }
     .sb-demo-step-pill.is-done .num { background: var(--sd-green); border-color: var(--sd-green); color: #052e1c; }
     .sb-demo-step-sep { width: 22px; height: 1px; background: var(--sd-border); }
 
-    .sb-demo-h { color: #f1f5f9; font-size: 1.08em; font-weight: 700; margin: 0 0 4px; }
+    .sb-demo-h { color: var(--text); font-size: 1.08em; font-weight: 700; margin: 0 0 4px; }
     .sb-demo-sub { color: var(--sd-muted); font-size: 0.88em; margin: 0 0 20px; }
 
     .sb-demo-resources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -196,36 +202,36 @@
       cursor: pointer; text-align: center;
       border: 1px solid var(--sd-border); border-radius: 12px;
       background: var(--sd-bg-2); padding: 16px 8px;
-      color: #cbd5e1; font-size: 0.86em; font-weight: 600;
+      color: var(--text-soft); font-size: 0.86em; font-weight: 600;
       transition: border-color 0.15s, background 0.15s, transform 0.1s;
     }
     .sb-demo-res .ic { font-size: 1.6em; display: block; margin-bottom: 8px; }
     .sb-demo-res:hover { border-color: var(--sd-blue-light); transform: translateY(-1px); }
-    .sb-demo-res.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: #fff; }
+    .sb-demo-res.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: var(--text-strong); }
 
     .sb-demo-dates { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
     .sb-demo-date {
       cursor: pointer; flex-shrink: 0; text-align: center; min-width: 58px;
       border: 1px solid var(--sd-border); border-radius: 10px;
       background: var(--sd-bg-2); padding: 10px 4px;
-      color: #cbd5e1; font-size: 0.8em; font-weight: 600;
+      color: var(--text-soft); font-size: 0.8em; font-weight: 600;
       transition: border-color 0.15s, background 0.15s;
     }
     .sb-demo-date .dow { display: block; color: var(--sd-muted); font-size: 0.82em; margin-bottom: 3px; }
     .sb-demo-date .dnum { display: block; font-size: 1.15em; font-weight: 800; }
     .sb-demo-date:hover { border-color: var(--sd-blue-light); }
-    .sb-demo-date.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: #fff; }
-    .sb-demo-date.is-sel .dow { color: #93c5fd; }
+    .sb-demo-date.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: var(--text-strong); }
+    .sb-demo-date.is-sel .dow { color: var(--system); }
 
     .sb-demo-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-top: 18px; }
     .sb-demo-slot {
       cursor: pointer; text-align: center; border-radius: 9px;
       border: 1px solid var(--sd-border); background: var(--sd-bg-2);
-      padding: 10px 4px; font-size: 0.84em; font-weight: 700; color: #cbd5e1;
+      padding: 10px 4px; font-size: 0.84em; font-weight: 700; color: var(--text-soft);
       transition: border-color 0.15s, background 0.15s;
     }
     .sb-demo-slot:hover { border-color: var(--sd-blue-light); }
-    .sb-demo-slot.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.16); color: #fff; }
+    .sb-demo-slot.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.16); color: var(--text-strong); }
     .sb-demo-slot.is-peak { position: relative; }
     .sb-demo-slot.is-peak::after {
       content: "Peak"; position: absolute; top: -8px; right: -6px;
@@ -233,7 +239,7 @@
       padding: 2px 6px; border-radius: 999px; letter-spacing: 0.03em;
     }
     .sb-demo-slot.is-taken {
-      cursor: not-allowed; color: #475569; text-decoration: line-through;
+      cursor: not-allowed; color: var(--muted); text-decoration: line-through;
       background: rgba(148,163,184,0.04);
     }
     .sb-demo-slot.is-taken:hover { border-color: var(--sd-border); }
@@ -244,23 +250,23 @@
       display: flex; flex-wrap: wrap; gap: 8px 22px;
       font-size: 0.85em; color: var(--sd-muted);
     }
-    .sb-demo-summary b { color: #e5e7eb; font-weight: 700; }
+    .sb-demo-summary b { color: var(--text); font-weight: 700; }
 
     .sb-demo-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
     .sb-demo-nav .sd-btn { padding: 11px 24px; font-size: 0.94em; }
     .sb-demo-back { background: none; border: none; color: var(--sd-muted); font-size: 0.88em; font-weight: 600; cursor: pointer; padding: 8px 4px; }
-    .sb-demo-back:hover { color: #e5e7eb; }
+    .sb-demo-back:hover { color: var(--text); }
 
     .sb-demo-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .sb-demo-field { display: flex; flex-direction: column; gap: 6px; }
     .sb-demo-field.full { grid-column: 1 / -1; }
-    .sb-demo-field label { color: #cbd5e1; font-size: 0.82em; font-weight: 600; }
+    .sb-demo-field label { color: var(--text-soft); font-size: 0.82em; font-weight: 600; }
     .sb-demo-field input {
       background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
-      padding: 10px 12px; color: #e5e7eb; font-size: 0.92em; font-family: inherit;
+      padding: 10px 12px; color: var(--text); font-size: 0.92em; font-family: inherit;
     }
     .sb-demo-field input:focus { outline: none; border-color: var(--sd-blue-light); }
-    .sb-demo-field input::placeholder { color: #475569; }
+    .sb-demo-field input::placeholder { color: var(--muted); }
 
     .sb-demo-done { text-align: center; padding: 10px 0 4px; }
     .sb-demo-done .tick {
@@ -268,18 +274,18 @@
       background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.4);
       display: flex; align-items: center; justify-content: center; font-size: 1.6em;
     }
-    .sb-demo-done h3 { color: #f1f5f9; font-size: 1.15em; margin: 0 0 8px; }
+    .sb-demo-done h3 { color: var(--text); font-size: 1.15em; margin: 0 0 8px; }
     .sb-demo-done p { color: var(--sd-muted); font-size: 0.9em; max-width: 420px; margin: 0 auto 20px; line-height: 1.6; }
     .sb-demo-pending-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(245,158,11,0.12); color: #fbbf24;
+      background: rgba(245,158,11,0.12); color: var(--warn);
       border: 1px solid rgba(245,158,11,0.35); border-radius: 999px;
       font-size: 0.78em; font-weight: 700; padding: 6px 14px; margin-bottom: 16px;
     }
     .sb-demo-restart { margin-top: 4px; }
 
     .sb-demo-caption { text-align: center; color: var(--sd-muted); font-size: 0.86em; margin-top: 18px; }
-    .sb-demo-ref { color: #64748b; font-size: 0.78em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 0 0 20px; }
+    .sb-demo-ref { color: var(--muted); font-size: 0.78em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 0 0 20px; }
     .sb-demo-done-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; }
     .sb-demo-done-actions .sd-btn { min-width: 280px; justify-content: center; }
 
@@ -304,19 +310,19 @@
     .sb-admin-topbar {
       display: flex; align-items: center; gap: 16px;
       padding: 13px 20px;
-      background: #1d2327; border-bottom: 1px solid var(--sd-border);
+      background: var(--surface); border-bottom: 1px solid var(--sd-border);
     }
-    .sb-admin-wp { color: #e5e7eb; font-size: 0.86em; font-weight: 700; }
-    .sb-admin-crumb { color: #94a3b8; font-size: 0.84em; }
+    .sb-admin-wp { color: var(--text); font-size: 0.86em; font-weight: 700; }
+    .sb-admin-crumb { color: var(--muted); font-size: 0.84em; }
 
-    .sb-admin-nav { display: flex; gap: 2px; padding: 0 20px; background: #15191f; border-bottom: 1px solid var(--sd-border); overflow-x: auto; }
+    .sb-admin-nav { display: flex; gap: 2px; padding: 0 20px; background: var(--surface); border-bottom: 1px solid var(--sd-border); overflow-x: auto; }
     .sb-admin-navbtn {
       cursor: pointer; background: none; border: none; white-space: nowrap;
       color: var(--sd-muted); font-size: 0.85em; font-weight: 600;
       padding: 12px 14px; border-bottom: 2px solid transparent;
     }
-    .sb-admin-navbtn:hover { color: #e5e7eb; }
-    .sb-admin-navbtn.is-active { color: #fff; border-bottom-color: var(--sd-blue); }
+    .sb-admin-navbtn:hover { color: var(--text); }
+    .sb-admin-navbtn.is-active { color: var(--text-strong); border-bottom-color: var(--sd-blue); }
 
     .sb-admin-body { padding: 24px 24px 28px; }
     .sb-admin-hint { color: var(--sd-muted); font-size: 0.88em; margin: 0 0 18px; line-height: 1.6; max-width: 640px; }
@@ -328,9 +334,9 @@
       padding: 9px 14px; border-bottom: 2px solid transparent;
       display: flex; align-items: center; gap: 6px;
     }
-    .sb-admin-tab span { background: var(--sd-bg-2); border-radius: 999px; padding: 1px 7px; font-size: 0.86em; color: #cbd5e1; }
-    .sb-admin-tab:hover { color: #e5e7eb; }
-    .sb-admin-tab.is-active { color: #fff; border-bottom-color: var(--sd-blue); }
+    .sb-admin-tab span { background: var(--sd-bg-2); border-radius: 999px; padding: 1px 7px; font-size: 0.86em; color: var(--text-soft); }
+    .sb-admin-tab:hover { color: var(--text); }
+    .sb-admin-tab.is-active { color: var(--text-strong); border-bottom-color: var(--sd-blue); }
     .sb-admin-tab.is-active span { background: var(--sd-blue); color: #fff; }
 
     .sb-admin-table-wrap { overflow-x: auto; }
@@ -342,15 +348,15 @@
       border-bottom: 1px solid var(--sd-border);
     }
     .sb-admin-table td {
-      padding: 13px 12px; font-size: 0.88em; color: #cbd5e1;
+      padding: 13px 12px; font-size: 0.88em; color: var(--text-soft);
       border-bottom: 1px solid rgba(148,163,184,0.1);
       vertical-align: middle;
     }
     .sb-admin-table tr:last-child td { border-bottom: none; }
     .sb-admin-table tr.is-new { animation: sbRowIn 1.4s ease; }
     @keyframes sbRowIn { 0% { background: rgba(37,99,235,0.22); } 100% { background: transparent; } }
-    .sb-admin-cust b { display: block; color: #f1f5f9; font-weight: 700; }
-    .sb-admin-cust span { color: #64748b; font-size: 0.9em; }
+    .sb-admin-cust b { display: block; color: var(--text); font-weight: 700; }
+    .sb-admin-cust span { color: var(--muted); font-size: 0.9em; }
 
     .sb-admin-badge {
       display: inline-flex; align-items: center; gap: 5px;
@@ -358,23 +364,23 @@
       text-transform: uppercase; letter-spacing: 0.03em;
     }
     .sb-admin-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
-    .sb-admin-badge--pending { background: rgba(245,158,11,0.14); color: #fbbf24; }
+    .sb-admin-badge--pending { background: rgba(245,158,11,0.14); color: var(--warn); }
     .sb-admin-badge--pending::before { background: #fbbf24; }
     .sb-admin-badge--confirmed { background: rgba(16,185,129,0.14); color: var(--sd-green-light); }
     .sb-admin-badge--confirmed::before { background: var(--sd-green); }
-    .sb-admin-badge--rejected { background: rgba(248,113,113,0.14); color: #fca5a5; }
+    .sb-admin-badge--rejected { background: rgba(248,113,113,0.14); color: var(--crimson-text); }
     .sb-admin-badge--rejected::before { background: #f87171; }
 
     .sb-admin-actions { display: flex; gap: 6px; white-space: nowrap; }
     .sb-admin-btn {
       cursor: pointer; border-radius: 7px; font-size: 0.8em; font-weight: 700;
-      padding: 6px 11px; border: 1px solid var(--sd-border); background: var(--sd-bg-2); color: #cbd5e1;
+      padding: 6px 11px; border: 1px solid var(--sd-border); background: var(--sd-bg-2); color: var(--text-soft);
     }
-    .sb-admin-btn:hover { border-color: var(--sd-blue-light); color: #fff; }
+    .sb-admin-btn:hover { border-color: var(--sd-blue-light); color: var(--text-strong); }
     .sb-admin-btn--approve { border-color: rgba(16,185,129,0.4); color: var(--sd-green-light); }
     .sb-admin-btn--approve:hover { background: rgba(16,185,129,0.14); border-color: var(--sd-green); }
-    .sb-admin-btn--reject { border-color: rgba(248,113,113,0.35); color: #fca5a5; }
-    .sb-admin-btn--reject:hover { background: rgba(248,113,113,0.14); border-color: #f87171; }
+    .sb-admin-btn--reject { border-color: rgba(248,113,113,0.35); color: var(--crimson-text); }
+    .sb-admin-btn--reject:hover { background: rgba(248,113,113,0.14); border-color: var(--crimson-text); }
     .sb-admin-empty { color: var(--sd-muted); font-size: 0.9em; text-align: center; padding: 30px 0; }
 
     /* ---- Resources panel ---- */
@@ -387,11 +393,11 @@
     }
     .sb-res-row .icon-pick {
       text-align: center; font-size: 1.2em; background: none; border: 1px solid var(--sd-border);
-      border-radius: 8px; padding: 5px 0; cursor: pointer; color: #e5e7eb;
+      border-radius: 8px; padding: 5px 0; cursor: pointer; color: var(--text);
     }
     .sb-res-row input[type="text"], .sb-res-row input[type="number"], .sb-res-row select {
       background: var(--sd-card); border: 1px solid var(--sd-border); border-radius: 7px;
-      padding: 8px 10px; color: #e5e7eb; font-size: 0.88em; font-family: inherit; width: 100%;
+      padding: 8px 10px; color: var(--text); font-size: 0.88em; font-family: inherit; width: 100%;
     }
     .sb-res-row input:focus, .sb-res-row select:focus { outline: none; border-color: var(--sd-blue-light); }
     .sb-res-row select {
@@ -400,22 +406,22 @@
       background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
       cursor: pointer;
     }
-    .sb-res-row select option { background: var(--sd-card); color: #e5e7eb; }
+    .sb-res-row select option { background: var(--sd-card); color: var(--text); }
     .sb-res-field { display: flex; flex-direction: column; gap: 4px; }
-    .sb-res-field span { color: #64748b; font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+    .sb-res-field span { color: var(--muted); font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
     .sb-res-row .sb-admin-btn--reject { justify-self: end; }
 
     /* ---- Branding panel ---- */
     .sb-brand-layout { display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: start; }
     .sb-brand-controls { display: flex; flex-direction: column; gap: 12px; }
     .sb-brand-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .sb-brand-row label { color: #cbd5e1; font-size: 0.87em; font-weight: 600; }
+    .sb-brand-row label { color: var(--text-soft); font-size: 0.87em; font-weight: 600; }
     .sb-brand-row input[type="color"] {
       width: 40px; height: 30px; border: 1px solid var(--sd-border); border-radius: 7px;
       background: none; cursor: pointer; padding: 0;
     }
     .sb-brand-preview { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 12px; padding: 20px; }
-    .sb-brand-preview-label { color: #64748b; font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 12px; }
+    .sb-brand-preview-label { color: var(--muted); font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 12px; }
     .sb-bp-card { border-radius: 12px; padding: 18px; transition: background 0.15s; }
     .sb-bp-h { font-weight: 700; margin-bottom: 12px; transition: color 0.15s; }
     .sb-bp-slots { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
@@ -424,7 +430,7 @@
       border: 1px solid rgba(148,163,184,0.25); transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
     .sb-bp-slot.taken { opacity: 0.4; text-decoration: line-through; }
-    .sb-bp-slot i { position: absolute; top: -9px; right: -6px; font-style: normal; font-size: 0.7em; font-weight: 800; color: #fff; padding: 1px 6px; border-radius: 999px; }
+    .sb-bp-slot i { position: absolute; top: -9px; right: -6px; font-style: normal; font-size: 0.7em; font-weight: 800; color: var(--text-strong); padding: 1px 6px; border-radius: 999px; }
     .sb-bp-btn { border: none; border-radius: 9px; padding: 11px 18px; font-weight: 700; font-size: 0.9em; cursor: default; transition: background 0.15s, color 0.15s; }
 
     /* ---- Emails panel ---- */
@@ -432,32 +438,32 @@
     .sb-mail-list { display: flex; flex-direction: column; gap: 6px; }
     .sb-mail-item {
       cursor: pointer; text-align: left; background: var(--sd-bg-2); border: 1px solid var(--sd-border);
-      border-radius: 9px; padding: 10px 12px; color: #cbd5e1; font-size: 0.86em; font-weight: 600;
+      border-radius: 9px; padding: 10px 12px; color: var(--text-soft); font-size: 0.86em; font-weight: 600;
       display: flex; align-items: center; justify-content: space-between; gap: 8px;
     }
     .sb-mail-item:hover { border-color: var(--sd-blue-light); }
-    .sb-mail-item.is-active { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: #fff; }
+    .sb-mail-item.is-active { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: var(--text-strong); }
     .sb-mail-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sd-green); flex-shrink: 0; }
     .sb-mail-item.is-off .dot { background: #475569; }
-    .sb-mail-item.is-off { color: #64748b; }
+    .sb-mail-item.is-off { color: var(--muted); }
 
     .sb-mail-editor-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
     .sb-mail-subject {
       flex: 1; background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
-      padding: 9px 12px; color: #f1f5f9; font-size: 0.92em; font-weight: 700; font-family: inherit;
+      padding: 9px 12px; color: var(--text); font-size: 0.92em; font-weight: 700; font-family: inherit;
     }
     .sb-mail-subject:focus { outline: none; border-color: var(--sd-blue-light); }
     .sb-mail-toggle { display: flex; align-items: center; gap: 6px; color: var(--sd-muted); font-size: 0.82em; font-weight: 600; white-space: nowrap; }
     .sb-mail-body {
       width: 100%; resize: vertical; background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
-      padding: 12px; color: #cbd5e1; font-size: 0.88em; font-family: inherit; line-height: 1.6;
+      padding: 12px; color: var(--text-soft); font-size: 0.88em; font-family: inherit; line-height: 1.6;
     }
     .sb-mail-body:focus { outline: none; border-color: var(--sd-blue-light); }
-    .sb-mail-tags { color: #64748b; font-size: 0.78em; margin: 8px 0 16px; }
-    .sb-mail-tags code { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 5px; padding: 1px 5px; color: #93c5fd; }
-    .sb-mail-preview-label { color: #64748b; font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 8px; }
+    .sb-mail-tags { color: var(--muted); font-size: 0.78em; margin: 8px 0 16px; }
+    .sb-mail-tags code { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 5px; padding: 1px 5px; color: var(--system); }
+    .sb-mail-preview-label { color: var(--muted); font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 8px; }
     .sb-mail-preview {
-      background: #f5f7fb; color: #1e293b; border-radius: 10px; padding: 18px 20px;
+      background: var(--surface-inset); color: #1e293b; border-radius: 10px; padding: 18px 20px;
       font-size: 0.9em; line-height: 1.7; white-space: pre-wrap;
     }
 
@@ -471,7 +477,7 @@
 
     /* ===================== DEMO HUB SWITCHER ===================== */
     .sb-pro-tag {
-      display: inline-block; background: rgba(96,165,250,0.16); color: #93c5fd;
+      display: inline-block; background: rgba(96,165,250,0.16); color: var(--system);
       border: 1px solid rgba(96,165,250,0.4); border-radius: 999px;
       font-size: 0.68em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
       padding: 2px 8px; margin-left: 8px; vertical-align: middle;
@@ -485,27 +491,27 @@
       color: var(--sd-muted); font-size: 0.9em; font-weight: 700;
       padding: 10px 20px;
     }
-    .sb-demo-switch button:hover { color: #e5e7eb; }
+    .sb-demo-switch button:hover { color: var(--text); }
     .sb-demo-switch button.is-active { background: var(--sd-blue); color: #fff; }
     .sb-demo-switch .sb-pro-tag { margin-left: 6px; }
 
     /* ===================== CLASS PORTAL: MEMBER SIDE ===================== */
     .sb-cp-nav { display: flex; gap: 6px; margin-bottom: 22px; flex-wrap: wrap; }
     .sb-cp-nav button {
-      cursor: pointer; background: var(--sd-bg-2); border: 1px solid var(--sd-border); color: #cbd5e1;
+      cursor: pointer; background: var(--sd-bg-2); border: 1px solid var(--sd-border); color: var(--text-soft);
       font-size: 0.86em; font-weight: 700; padding: 9px 16px; border-radius: 999px;
     }
     .sb-cp-nav button:hover { border-color: var(--sd-blue-light); }
     .sb-cp-nav button.is-active { background: var(--sd-blue); border-color: var(--sd-blue); color: #fff; }
 
-    .sb-cp-subhead { color: #cbd5e1; font-size: 0.9em; font-weight: 700; margin: 22px 0 12px; }
+    .sb-cp-subhead { color: var(--text-soft); font-size: 0.9em; font-weight: 700; margin: 22px 0 12px; }
     .sb-cp-balances { display: flex; gap: 10px; flex-wrap: wrap; }
     .sb-cp-balchip {
       background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 12px;
       padding: 14px 18px; min-width: 140px;
     }
-    .sb-cp-balchip .lvl { color: #64748b; font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
-    .sb-cp-balchip .n { color: #f1f5f9; font-size: 1.6em; font-weight: 800; margin-top: 4px; }
+    .sb-cp-balchip .lvl { color: var(--muted); font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .sb-cp-balchip .n { color: var(--text); font-size: 1.6em; font-weight: 800; margin-top: 4px; }
     .sb-cp-balchip .n span { font-size: 0.5em; color: var(--sd-muted); font-weight: 700; }
 
     .sb-cp-upcoming { display: flex; flex-direction: column; gap: 8px; }
@@ -513,7 +519,7 @@
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px; padding: 12px 16px;
     }
-    .sb-cp-uitem b { color: #f1f5f9; }
+    .sb-cp-uitem b { color: var(--text); }
     .sb-cp-uitem span { color: var(--sd-muted); font-size: 0.86em; }
     .sb-cp-uitem .sb-admin-btn { flex-shrink: 0; }
     .sb-cp-empty { color: var(--sd-muted); font-size: 0.88em; padding: 10px 0; }
@@ -525,10 +531,10 @@
       border: 1px solid var(--sd-border); border-radius: 10px; padding: 9px 8px;
       background: var(--sd-bg-2); font-size: 0.78em; text-align: center;
     }
-    .sb-cp-class .t { color: #f1f5f9; font-weight: 700; display: block; }
-    .sb-cp-class .n { color: #cbd5e1; display: block; margin: 2px 0 6px; line-height: 1.3; }
+    .sb-cp-class .t { color: var(--text); font-weight: 700; display: block; }
+    .sb-cp-class .n { color: var(--text-soft); display: block; margin: 2px 0 6px; line-height: 1.3; }
     .sb-cp-class .spots { display: block; font-size: 0.86em; color: var(--sd-green-light); margin-bottom: 6px; }
-    .sb-cp-class .spots.full { color: #fca5a5; }
+    .sb-cp-class .spots.full { color: var(--crimson-text); }
     .sb-cp-class button {
       width: 100%; cursor: pointer; border: none; border-radius: 7px; padding: 6px 0;
       font-size: 0.86em; font-weight: 700; background: var(--sd-blue); color: #fff;
@@ -539,23 +545,23 @@
 
     .sb-cp-packs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
     .sb-cp-pack { border: 1px solid var(--sd-border); border-radius: 12px; padding: 18px; background: var(--sd-bg-2); text-align: center; }
-    .sb-cp-pack .lvl { color: #64748b; font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
-    .sb-cp-pack h4 { color: #f1f5f9; font-size: 1.05em; margin: 6px 0 2px; }
+    .sb-cp-pack .lvl { color: var(--muted); font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .sb-cp-pack h4 { color: var(--text); font-size: 1.05em; margin: 6px 0 2px; }
     .sb-cp-pack .credits { color: var(--sd-blue-light); font-size: 0.86em; font-weight: 700; margin-bottom: 10px; }
-    .sb-cp-pack .price { color: #f1f5f9; font-size: 1.6em; font-weight: 800; margin-bottom: 14px; }
+    .sb-cp-pack .price { color: var(--text); font-size: 1.6em; font-weight: 800; margin-bottom: 14px; }
     .sb-cp-pack button { width: 100%; }
 
     .sb-cp-pay-methods { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
     .sb-cp-pay-method {
       cursor: pointer; text-align: left; border: 1px solid var(--sd-border); border-radius: 10px;
-      background: var(--sd-bg-2); padding: 13px 16px; color: #cbd5e1;
+      background: var(--sd-bg-2); padding: 13px 16px; color: var(--text-soft);
     }
     .sb-cp-pay-method:hover { border-color: var(--sd-blue-light); }
-    .sb-cp-pay-method b { display: block; color: #f1f5f9; font-size: 0.94em; }
+    .sb-cp-pay-method b { display: block; color: var(--text); font-size: 0.94em; }
     .sb-cp-pay-method span { color: var(--sd-muted); font-size: 0.84em; }
     .sb-cp-pay-instructions {
       background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px;
-      padding: 14px 16px; color: #cbd5e1; font-size: 0.88em; line-height: 1.6; margin: 14px 0;
+      padding: 14px 16px; color: var(--text-soft); font-size: 0.88em; line-height: 1.6; margin: 14px 0;
     }
 
     /* ===================== CLASS PORTAL: ADMIN SIDE ===================== */
@@ -566,9 +572,9 @@
     .sb-cp-tt-day { display: flex; flex-direction: column; gap: 6px; }
     .sb-cp-tt-h { text-align: center; color: var(--sd-muted); font-size: 0.76em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 4px; }
     .sb-cp-tt-slot { border: 1px solid var(--sd-border); border-radius: 8px; padding: 8px 6px; background: var(--sd-bg-2); font-size: 0.76em; text-align: center; }
-    .sb-cp-tt-slot .t { display: block; color: #93c5fd; font-weight: 700; }
-    .sb-cp-tt-slot .n { display: block; color: #cbd5e1; margin-top: 2px; }
-    .sb-cp-tt-empty { color: #475569; font-size: 0.76em; text-align: center; padding: 10px 0; }
+    .sb-cp-tt-slot .t { display: block; color: var(--system); font-weight: 700; }
+    .sb-cp-tt-slot .n { display: block; color: var(--text-soft); margin-top: 2px; }
+    .sb-cp-tt-empty { color: var(--muted); font-size: 0.76em; text-align: center; padding: 10px 0; }
 
     @media (max-width: 900px) {
       .sb-cp-week, .sb-cp-timetable { grid-template-columns: repeat(7, minmax(90px, 1fr)); overflow-x: auto; }
@@ -579,60 +585,96 @@
     }
 
     /* ===================== ENQUIRY FORM ===================== */
-    .sb-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; background: rgba(255,255,255,0.04); border: 1px solid #334155; border-radius: 12px; padding: 28px; }
-    .sb-enquiry h3 { margin: 0 0 8px; color: #e2e8f0; }
-    .sb-enquiry > p { margin: 0 0 20px; color: #94a3b8; }
-    .sb-enquiry label { display: block; margin: 14px 0 6px; color: #cbd5e1; font-size: 0.92em; font-weight: 600; }
+    .sb-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .sb-enquiry h3 { margin: 0 0 8px; color: var(--text); }
+    .sb-enquiry > p { margin: 0 0 20px; color: var(--muted); }
+    .sb-enquiry label { display: block; margin: 14px 0 6px; color: var(--text-soft); font-size: 0.92em; font-weight: 600; }
     .sb-enquiry input, .sb-enquiry select, .sb-enquiry textarea {
       width: 100%; box-sizing: border-box; padding: 11px 12px; border-radius: 8px;
-      border: 1px solid #334155; background: rgba(255,255,255,0.05); color: #e2e8f0;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text);
       font: inherit; font-size: 0.95em;
     }
-    .sb-enquiry input:focus, .sb-enquiry select:focus, .sb-enquiry textarea:focus { outline: none; border-color: #60a5fa; }
+    .sb-enquiry input:focus, .sb-enquiry select:focus, .sb-enquiry textarea:focus { outline: none; border-color: var(--system); }
     .sb-enquiry select option { color: #0f172a; }
     .sb-enquiry textarea { resize: vertical; }
     .sb-enquiry button[type="submit"] { margin-top: 18px; }
     .sb-enquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     @media (max-width: 560px) { .sb-enquiry-row { grid-template-columns: 1fr; } }
     .sb-enquiry-note { padding: 14px 16px; border-radius: 8px; margin-bottom: 14px; }
-    .sb-enquiry-note--ok { background: rgba(16,185,129,0.15); border: 1px solid #10b981; color: #34d399; }
-    .sb-enquiry-note--err { background: rgba(239,68,68,0.15); border: 1px solid #ef4444; color: #f87171; }
-    .sb-enquiry-note--err a { color: #fca5a5; }
+    .sb-enquiry-note--ok { background: rgba(16,185,129,0.15); border: 1px solid var(--ok); color: var(--ok); }
+    .sb-enquiry-note--err { background: rgba(239,68,68,0.15); border: 1px solid var(--crimson-text); color: var(--crimson-text); }
+    .sb-enquiry-note--err a { color: var(--crimson-text); }
+  </style>
+  <style>
+    /* Venue Booking page (design F). Uses f.css tokens only. */
+    .vb-hero-visual { display: flex; flex-direction: column; gap: 16px; }
+    .vb-grid-card { padding: 20px; }
+    .vb-grid-head { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 14px; color: var(--text-strong); }
+    .vb-grid { display: grid; grid-template-columns: 64px repeat(5, minmax(0, 1fr)); gap: 5px; font-family: var(--mono); font-size: 11.5px; color: var(--faint); align-items: center; }
+    .vb-grid i, .vb-legend i { display: block; height: 24px; border-radius: 4px; border: 1px solid var(--border); }
+    .vb-grid i.b, .vb-legend i.b { background: var(--border-strong); border-color: var(--border-strong); }
+    .vb-grid i.p, .vb-legend i.p { background: var(--crimson); border-color: var(--crimson); }
+    .vb-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 13px; color: var(--muted); }
+    .vb-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .vb-legend i { width: 12px; height: 12px; }
+    .vb-notice { align-self: flex-end; width: min(100%, 340px); }
+    .vb-notice .f-sys__body { padding: 16px; }
+    .f-card__title .f-badge { margin-left: 6px; vertical-align: middle; }
+    .f-faq details a { color: var(--text-strong); }
   </style>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js"></script>
+  <script src="assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <main id="main">
 
-  <!-- ===================== HERO ===================== -->
-  <section class="sd-page-hero">
-    <div class="sd-page-hero-inner">
-      <p class="sd-eyebrow">WordPress Plugin</p>
-      <h1>SteadyDevs Venue Booking — the versatile <span class="accent">booking system</span> for WordPress</h1>
-      <p class="sd-page-hero-lead">Let customers reserve anything you rent by time — with live availability, a clean multi-step booking flow, and an admin approval workflow so you stay in control of every reservation. Automatic reminders cut no-shows, and peak-rate pricing, online payments for class credits, and utilisation &amp; revenue reports come built in.</p>
-      <div class="gbb-price-wrap sb-price-wrap">
-        <span class="sb-price">$299</span>
-        <span class="sb-price-cycle">/ year</span>
+    <section class="f-glow-top">
+      <div class="f-container f-hero">
+        <div class="f-hero__grid">
+          <div class="f-hero__copy">
+            <p class="f-eyebrow">Venue Booking · WordPress plugin</p>
+            <h1 class="f-h1">Every time slot, <span class="f-dim">protected.</span></h1>
+            <p class="f-lead">Let customers reserve anything you rent by time, with live availability and your approval on every booking. Automatic reminders cut no-shows, and peak pricing, online payments for class credits and utilisation reports are built in.</p>
+            <div class="f-actions">
+              <a class="f-btn f-btn--primary" href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free">Start your free 14-day trial</a>
+              <a class="f-btn f-btn--secondary" href="#demo-hub">Try the live demo</a>
+            </div>
+            <p class="f-note" style="margin-top: 16px">$299/year for 1 site · every feature, updates &amp; support included · plans up to 25 sites · no credit card for the trial · <a href="#buy">see pricing</a></p>
+          </div>
+          <div class="f-hero__aside vb-hero-visual" aria-label="Illustration of the booking calendar">
+            <div class="f-card vb-grid-card">
+              <div class="vb-grid-head"><span>Saturday · courts</span><span class="f-muted">4 resources</span></div>
+              <div class="vb-grid" aria-hidden="true">
+                <span></span><span>4pm</span><span>5pm</span><span>6pm</span><span>7pm</span><span>8pm</span>
+                <span>Court 1</span><i class="b"></i><i class="b"></i><i></i><i class="p"></i><i class="b"></i>
+                <span>Court 2</span><i></i><i class="b"></i><i class="b"></i><i></i><i></i>
+                <span>Court 3</span><i class="b"></i><i></i><i class="p"></i><i class="b"></i><i class="b"></i>
+                <span>Court 4</span><i></i><i></i><i class="b"></i><i class="b"></i><i></i>
+              </div>
+              <div class="vb-legend"><span><i class="b"></i>Confirmed</span><span><i class="p"></i>Awaiting your approval</span><span><i></i>Open</span></div>
+            </div>
+            <div class="f-sys vb-notice">
+              <span class="f-sys__c f-sys__c--tl" aria-hidden="true"></span><span class="f-sys__c f-sys__c--br" aria-hidden="true"></span>
+              <div class="f-sys__head"><span class="f-sys__title">NOTICE</span><span class="f-sys__tag">BOOKING</span></div>
+              <div class="f-sys__body">
+                <p class="f-sys__lead" style="font-size: 16px">Double booking prevented</p>
+                <p>Court 3, 6pm is already confirmed. The second request can't be approved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="sb-price-note">for 1 site · all features · updates &amp; support included · plans up to 25 sites</p>
-      <div class="sd-hero-cta">
-        <a href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free" class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free">Start your free 14-day trial <span aria-hidden="true">→</span></a>
-        <a href="#buy" class="sd-btn sd-btn--ghost">See pricing</a>
-      </div>
-      <p class="sb-trial-note">No credit card required · full plugin, every feature · cancel any time</p>
-      <div class="sb-usecases">
-        <span>🏸 Courts</span>
-        <span>🏌️ Bays</span>
-        <span>🧖 Rooms</span>
-        <span>🍽️ Tables</span>
-        <span>🎛️ Equipment</span>
-        <span>💇 Chairs</span>
-        <span>🧘 Classes <em class="sb-pro-tag" style="margin-left:6px;">Pro</em></span>
+    </section>
+
+    <div class="f-strip">
+      <div class="f-container f-strip__inner">
+        <span>Book anything you rent by time</span>
+        <strong>Courts</strong><strong>Bays</strong><strong>Rooms</strong><strong>Tables</strong><strong>Equipment</strong><strong>Chairs</strong><strong>Classes (Pro)</strong>
       </div>
     </div>
-  </section>
 
-  <!-- ===================== DEMO HUB SWITCHER ===================== -->
   <section class="sd-section sd-section--dark" style="padding-bottom:0;" id="demo-hub">
     <div class="sd-inner" style="text-align:center;">
       <p class="sd-eyebrow">See It In Action</p>
@@ -982,121 +1024,47 @@
 
   </div><!-- /demoGroup-classportal -->
 
-  <!-- ===================== FEATURES ===================== -->
-  <section class="sd-section sd-section--dark" id="features">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">What's Inside</p>
-      <h2 class="sd-section-title">Everything you need to <span class="accent">take bookings</span></h2>
-      <div class="sd-title-rule"></div>
-      <p class="sd-section-sub">Built to handle any time-slot reservation — customers book online, reminders go out automatically, and you stay in control with approval on every booking.</p>
-
-      <div class="sd-dcard-grid">
-        <div class="sd-dcard">
-          <div class="sd-dicon">🗓️</div>
-          <h3>Live Multi-Step Booking</h3>
-          <p>Customers pick a date &amp; time, choose a resource and group size, then confirm — with real-time availability so two people can't grab the same slot.</p>
+    <section id="features" class="f-section">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">What's inside</p>
+          <h2 class="f-h2">Everything a venue needs to take bookings</h2>
+          <p class="f-sub">Customers book online, reminders go out automatically, and you stay in control with approval on every booking.</p>
         </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">✅</div>
-          <h3>Admin Approval Workflow</h3>
-          <p>Every booking arrives as <em>Pending</em>. Approve, reject, or cancel from your dashboard — nothing is confirmed until you say so.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">🛡️</div>
-          <h3>Double-Booking Protection</h3>
-          <p>The plugin refuses to approve a resource + date + time that's already confirmed, so the same slot can never be booked twice.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">⏰</div>
-          <h3>Automatic Booking Reminders</h3>
-          <p>Send a reminder email a set number of hours before each confirmed booking, so customers turn up and no-shows drop — set the lead time once and it runs on its own.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">💳</div>
-          <h3>Online Payments <span class="sb-pro-tag">Class Portal</span></h3>
-          <p>Members buy prepaid credit packages online through HitPay — card, PayNow and more — with credits granted automatically on payment. Manual methods like bank transfer are supported too, confirmed by you.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">🧑‍💼</div>
-          <h3>Front-Desk Staff Role <span class="sb-pro-tag">Class Portal</span></h3>
-          <p>A dedicated role for your receptionist — they confirm payments, take the class register and manage members from the Class Portal without ever needing a full administrator account.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">✉️</div>
-          <h3>Editable Email Templates</h3>
-          <p>Customers are emailed the moment you approve or reject — and you control the wording, colours and logo. Edit each template visually with a live preview, or toggle any email off.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">💲</div>
-          <h3>Peak &amp; Off-Peak Pricing</h3>
-          <p>Charge more on your busy days and hours. Set peak days and rates per resource and the plugin applies them automatically at checkout — not just on the label.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">📊</div>
-          <h3>Utilisation &amp; Revenue Reports</h3>
-          <p>See how much of your sellable time actually sells: revenue per available hour, a weekday × hour busy grid, per-resource performance, peak vs off-peak and median lead time — with CSV export.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">🧘</div>
-          <h3>Class Portal <span class="sb-pro-tag">Pro add-on</span></h3>
-          <p>Run recurring classes instead of one-off slots. Members log in, buy prepaid credits, and book off a weekly timetable — with per-tier pricing and waitlists built in.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">💬</div>
-          <h3>WhatsApp Enquiries</h3>
-          <p>Optional "Enquire via WhatsApp" button pre-fills the full booking details into a message straight to your business number.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">🧩</div>
-          <h3>Shortcode &amp; Elementor</h3>
-          <p>Drop the form anywhere with <code>[steadybook]</code> or the built-in Elementor widget. Configurable resources, pricing, and booking window.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">🎨</div>
-          <h3>Full Colour Control</h3>
-          <p>Every colour is yours to set — accents, buttons, text, borders, available and booked slots. Pick your brand palette once and the whole booking flow follows it, on light or dark backgrounds.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">📐</div>
-          <h3>Layout That Fits Your Page</h3>
-          <p>Adjust widths, spacing, corner radius and how the steps and slots are arranged, so the form sits naturally inside your page instead of fighting it.</p>
-        </div>
-        <div class="sd-dcard">
-          <div class="sd-dicon">🪄</div>
-          <h3>Matches Any Theme</h3>
-          <p>Styles are scoped so they never collide with your theme's CSS, and the form picks up your site's typography by default — it looks built-in, not bolted on.</p>
+        <div class="f-grid">
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Live multi-step booking</h3><p class="f-card__text">Customers pick a date and time, choose a resource and group size, then confirm, with real-time availability so two people can't grab the same slot.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Admin approval workflow</h3><p class="f-card__text">Every booking arrives as Pending. Approve, reject or cancel from your dashboard; nothing is confirmed until you say so.</p></article>
+          <article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Double-booking protection</h3><p class="f-card__text">The plugin refuses to approve a resource, date and time that's already confirmed, so the same slot can never be booked twice.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Automatic booking reminders</h3><p class="f-card__text">A reminder email goes out a set number of hours before each confirmed booking, so customers turn up and no-shows drop.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Online payments <span class="f-badge f-badge--crimson">Class Portal</span></h3><p class="f-card__text">Members buy prepaid credit packages through HitPay (card, PayNow and more), with credits granted automatically. Manual methods like bank transfer are supported too, confirmed by you.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Front-desk staff role <span class="f-badge f-badge--crimson">Class Portal</span></h3><p class="f-card__text">Your receptionist confirms payments, takes the class register and manages members without a full administrator account.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Editable email templates</h3><p class="f-card__text">Customers are emailed the moment you approve or reject. Control the wording, colours and logo with a live preview, or switch any email off.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Peak &amp; off-peak pricing</h3><p class="f-card__text">Set peak days and rates per resource; the plugin applies them automatically at checkout, not just on the label.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Utilisation &amp; revenue reports</h3><p class="f-card__text">Revenue per available hour, a weekday × hour busy grid, per-resource performance, peak vs off-peak and median lead time, with CSV export.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Class Portal Pro add-on</h3><p class="f-card__text">Run recurring classes instead of one-off slots. Members log in, buy prepaid credits and book off a weekly timetable, with per-tier pricing and waitlists.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">WhatsApp enquiries</h3><p class="f-card__text">An optional "Enquire via WhatsApp" button pre-fills the full booking details into a message to your business number.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Shortcode &amp; Elementor</h3><p class="f-card__text">Drop the form anywhere with [steadybook] or the built-in Elementor widget. Configurable resources, pricing and booking window.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Full colour control</h3><p class="f-card__text">Set accents, buttons, text, borders, and available and booked slots once, and the whole booking flow follows your brand, on light or dark backgrounds.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Layout that fits your page</h3><p class="f-card__text">Adjust widths, spacing, corner radius and how steps and slots are arranged, so the form sits naturally inside your page.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Matches any theme</h3><p class="f-card__text">Styles are scoped so they never collide with your theme's CSS, and the form picks up your site's typography. It looks built-in, not bolted on.</p></article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="sd-section sd-section--light">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">How It Works</p>
-      <h2 class="sd-section-title">From purchase to first booking</h2>
-      <div class="sd-title-rule"></div>
-      <div class="sb-steps">
-        <div class="sb-step">
-          <div class="n">1</div>
-          <h3>Buy &amp; download</h3>
-          <p>Check out securely below. You get the plugin ZIP and your license key instantly by email.</p>
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">How it works</p>
+          <h2 class="f-h2">From purchase to first booking</h2>
         </div>
-        <div class="sb-step">
-          <div class="n">2</div>
-          <h3>Install &amp; activate</h3>
-          <p>Upload the ZIP in WordPress, activate your license, then set your resources, pricing, and hours.</p>
-        </div>
-        <div class="sb-step">
-          <div class="n">3</div>
-          <h3>Take bookings</h3>
-          <p>Add the form to a page. Customers book, you approve — updates arrive automatically in WP.</p>
-        </div>
+        <ol class="f-steps">
+          <li><div class="f-steps__n">01</div><div class="f-steps__t">Buy &amp; download</div><div class="f-steps__d">Check out securely below. You get the plugin ZIP and your licence key instantly by email.</div></li>
+          <li><div class="f-steps__n">02</div><div class="f-steps__t">Install &amp; activate</div><div class="f-steps__d">Upload the ZIP in WordPress, activate your licence, then set your resources, pricing and hours.</div></li>
+          <li><div class="f-steps__n">03</div><div class="f-steps__t">Take bookings</div><div class="f-steps__d">Add the form to a page. Customers book, you approve, and updates arrive automatically in WordPress.</div></li>
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== PRICING / BUY ===================== -->
   <section class="sd-section sd-section--dark" id="buy">
     <div class="sd-inner">
       <p class="sd-eyebrow">Pricing</p>
@@ -1210,66 +1178,29 @@
     </div>
   </section>
 
-  <!-- ===================== FAQ ===================== -->
-  <section class="sd-section sd-section--light">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">FAQ</p>
-      <h2 class="sd-section-title">Common questions</h2>
-      <div class="sd-title-rule"></div>
-      <div class="sd-faq">
-        <details class="sd-faq-item">
-          <summary>What kind of businesses is SteadyDevs Venue Booking for?</summary>
-          <div class="sd-faq-answer"><p>Anything booked by time slot: sports courts and simulator bays, studios and treatment rooms, restaurant tables, equipment or gear rental, salon chairs, meeting rooms and more. You define the resources, prices and hours.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Can customers pay online?</summary>
-          <div class="sd-faq-answer"><p>For classes, yes — Class Portal members buy prepaid credit packages online through the HitPay gateway (card, PayNow and whatever methods your HitPay account offers), with credits granted automatically on payment. Manual methods like bank transfer or paying at the counter are supported alongside it — you confirm those against your own records before credits are granted. For one-off hourly bookings, payment is currently handled your way outside the plugin (at the venue, by transfer, or by invoice) — taking a deposit at booking time is on the roadmap.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Does this include recurring classes, not just one-off slots?</summary>
-          <div class="sd-faq-answer"><p>Yes — <strong>Class Portal</strong> is included with every plan on this page. It's a second booking mode alongside your hourly form: members log in, buy prepaid credit packages, and book off a weekly timetable of classes you run. It comes with optional per-tier pricing (levels), waitlists for full classes, a printable attendance register, and a "Class Portal Staff" role so front-desk can run it without full admin access. <a href="#demo-hub" onclick="document.querySelector('#sbDemoSwitch [data-demo=classportal]').click();">Try the live demo above</a> — customer and admin sides both. (It's a separate free plugin on WordPress.org that doesn't include Class Portal; this page sells the Pro edition, which does.)</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Is there a free trial?</summary>
-          <div class="sd-faq-answer"><p>Yes — 14 days free on the Starter plan, with <strong>no credit card required</strong>. You get the complete plugin with every feature unlocked, not a limited demo, so you can set up your real resources and take real bookings while you decide. If you do nothing at the end of the 14 days, it simply stops — you're never charged. Professional and Agency don't include a trial, but you can start on Starter and upgrade once you're happy.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>What do I actually receive after buying?</summary>
-          <div class="sd-faq-answer"><p>Immediately after checkout you get the plugin ZIP to download plus a license key, both shown on the confirmation page and emailed to you. You upload the ZIP to WordPress and activate it with the key.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>What does the license cover?</summary>
-          <div class="sd-faq-answer"><p>Every feature of the plugin, plus updates &amp; support while your subscription is active — on as many sites as your plan allows (1, 5 or 25). Updates install automatically inside your WordPress dashboard.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Which plan do I need?</summary>
-          <div class="sd-faq-answer"><p>All plans unlock the exact same plugin — the only difference is how many sites you can activate on. <strong>Starter</strong> ($299/year) covers one business website. <strong>Professional</strong> ($699/year) covers 5 sites at $140 each. <strong>Agency</strong> ($1,499/year) covers 25 client sites at $60 each. Need more than 25? <a href="#sbEnquiryForm">Get in touch</a> and we'll size a plan to your site count. You can upgrade at any time and only pay the difference.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Do staging and development sites use up a license?</summary>
-          <div class="sd-faq-answer"><p>No. Staging, development and local installs (for example <code>staging.yoursite.com</code> or <code>yoursite.local</code>) don't count towards your site limit — only live production sites do.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Can I pay monthly?</summary>
-          <div class="sd-faq-answer"><p>All plans are billed yearly. If you'd like to try it before committing, start the free 14-day trial instead — no credit card, every feature unlocked, and nothing to cancel if you decide it isn't for you.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>What are the requirements?</summary>
-          <div class="sd-faq-answer"><p>WordPress 5.0+ and PHP 7.2+. For approval emails to land reliably we recommend a simple SMTP plugin (e.g. WP Mail SMTP) — this is standard for any WordPress site sending mail.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Missing a feature your venue needs?</summary>
-          <div class="sd-faq-answer"><p>Tell us — <a href="#sbEnquiryForm">send a feature request below</a> and we usually reply within one business day. The roadmap is driven by what real venues ask for, and requests from paying customers are prioritised. If you're on the free version, the <a href="https://wordpress.org/support/plugin/steadydevs-venue-booking/" target="_blank" rel="noopener">WordPress.org support forum</a> works too.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>What happens if I don't renew?</summary>
-          <div class="sd-faq-answer"><p>Your existing bookings and data stay in WordPress. You simply stop receiving new updates and support until you renew.</p></div>
-        </details>
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">FAQ</p>
+          <h2 class="f-h2">Common questions</h2>
+        </div>
+        <div class="f-faq">
+          <details><summary>What kind of businesses is SteadyDevs Venue Booking for?</summary><div>Anything booked by time slot: sports courts and simulator bays, studios and treatment rooms, restaurant tables, equipment or gear rental, salon chairs, meeting rooms and more. You define the resources, prices and hours.</div></details>
+          <details><summary>Can customers pay online?</summary><div>For classes, yes. Class Portal members buy prepaid credit packages online through the HitPay gateway (card, PayNow and whatever methods your HitPay account offers), with credits granted automatically on payment. Manual methods like bank transfer or paying at the counter are supported alongside it; you confirm those before credits are granted. For one-off hourly bookings, payment is currently handled your way outside the plugin (at the venue, by transfer or by invoice). Taking a deposit at booking time is on the roadmap.</div></details>
+          <details><summary>Does this include recurring classes, not just one-off slots?</summary><div>Yes. Class Portal is included with every plan on this page: a second booking mode alongside your hourly form where members log in, buy prepaid credit packages and book off a weekly timetable. It comes with optional per-tier pricing (levels), waitlists for full classes, a printable attendance register, and a "Class Portal Staff" role so the front desk can run it without full admin access. Try the live demo above. (There is a separate free plugin on WordPress.org that doesn't include Class Portal; this page sells the Pro edition, which does.)</div></details>
+          <details><summary>Is there a free trial?</summary><div>Yes: 14 days free on the Starter plan, with no credit card required. You get the complete plugin with every feature unlocked, so you can set up your real resources and take real bookings while you decide. If you do nothing at the end of the 14 days, it simply stops and you're never charged. Professional and Agency don't include a trial, but you can start on Starter and upgrade once you're happy.</div></details>
+          <details><summary>What do I actually receive after buying?</summary><div>Immediately after checkout you get the plugin ZIP to download plus a licence key, both shown on the confirmation page and emailed to you. You upload the ZIP to WordPress and activate it with the key.</div></details>
+          <details><summary>What does the licence cover?</summary><div>Every feature of the plugin, plus updates and support while your subscription is active, on as many sites as your plan allows (1, 5 or 25). Updates install automatically inside your WordPress dashboard.</div></details>
+          <details><summary>Which plan do I need?</summary><div>All plans unlock the exact same plugin; the only difference is how many sites you can activate on. Starter ($299/year) covers one business website. Professional ($699/year) covers 5 sites at $140 each. Agency ($1,499/year) covers 25 client sites at $60 each. Need more than 25? Get in touch and we'll size a plan to your site count. You can upgrade at any time and only pay the difference.</div></details>
+          <details><summary>Do staging and development sites use up a licence?</summary><div>No. Staging, development and local installs (for example staging.yoursite.com or yoursite.local) don't count towards your site limit; only live production sites do.</div></details>
+          <details><summary>Can I pay monthly?</summary><div>All plans are billed yearly. If you'd like to try it before committing, start the free 14-day trial: no credit card, every feature unlocked, and nothing to cancel if you decide it isn't for you.</div></details>
+          <details><summary>What are the requirements?</summary><div>WordPress 5.0+ and PHP 7.2+. For approval emails to land reliably we recommend a simple SMTP plugin (for example WP Mail SMTP), which is standard for any WordPress site sending mail.</div></details>
+          <details><summary>Missing a feature your venue needs?</summary><div>Tell us: <a href="#sbEnquiryForm">send a feature request below</a> and we usually reply within one business day. The roadmap is driven by what real venues ask for, and requests from paying customers are prioritised. If you're on the free version, the <a href="https://wordpress.org/support/plugin/steadydevs-venue-booking/">WordPress.org support forum</a> works too.</div></details>
+          <details><summary>What happens if I don't renew?</summary><div>Your existing bookings and data stay in WordPress. You simply stop receiving new updates and support until you renew.</div></details>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== FINAL CTA + ENQUIRY ===================== -->
   <section class="sd-section sd-section--dark" id="enquire">
     <div class="sd-inner" style="text-align:center;">
       <h2 class="sd-section-title">Ready to take bookings online?</h2>
@@ -1328,47 +1259,49 @@
     </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="sd-footer">
-    <div class="sd-footer-inner">
-      <div class="sd-footer-brand">
-        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
-        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
-        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="solutions.html">Engineering services</a></li>
+            <li><a href="einvoice.html">EInvoice Platform</a></li>
+            <li><a href="venue-booking.html">Venue Booking</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Case studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="pricing-terms.html">Pricing terms</a></li>
+            <li><a href="my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <p><a href="about.html">About</a></p>
-        <p><a href="solutions.html">Solutions</a></p>
-        <p><a href="portfolio.html">Portfolio</a></p>
-        <p><a href="blog/index.html">Blog</a></p>
-        <p><a href="contact.html">Contact</a></p>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
       </div>
-      <div>
-        <h4>Get In Touch</h4>
-        <ul class="sd-footer-contact">
-          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
-          <li>📍 Malaysia · Singapore · International</li>
-          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <a href="#buy" class="sd-btn sd-btn--primary sb-buy" style="margin-top:8px;">Get the plugin <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-    <div class="sd-footer-bottom">
-      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
-      <span>
-        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
-      </span>
     </div>
   </footer>
 
-  <!-- Sticky Mobile CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="#buy" class="sb-buy">Get Venue Booking — from $299/year →</a>
-  </div>
-
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
 
   <script>
     // ---- Shared site chrome (nav, sticky CTA, back-to-top) ----
@@ -1436,7 +1369,7 @@
         if (b.status === 'confirmed') {
           return '<div class="sb-admin-actions"><button class="sb-admin-btn" data-act="cancel" data-id="' + b.id + '">Cancel</button></div>';
         }
-        return '<div class="sb-admin-actions"><span style="color:#475569; font-size:0.85em;">—</span></div>';
+        return '<div class="sb-admin-actions"><span style="color:var(--muted); font-size:0.85em;">—</span></div>';
       }
 
       function render() {
@@ -2556,7 +2489,7 @@
         el.innerHTML = CP.orders.map(function (o) {
           var actions = o.status === 'pending'
             ? '<div class="sb-admin-actions"><button class="sb-admin-btn sb-admin-btn--approve" data-confirm="' + o.id + '">Confirm</button><button class="sb-admin-btn sb-admin-btn--reject" data-void="' + o.id + '">Void</button></div>'
-            : '<span style="color:#475569; font-size:0.85em;">—</span>';
+            : '<span style="color:var(--muted); font-size:0.85em;">—</span>';
           return '<tr' + (o._new ? ' class="is-new"' : '') + '>' +
             '<td>' + o.member + '</td><td>' + o.packageName + '</td><td>' + o.method + '</td><td>$' + o.amount + '</td><td>' + orderBadge(o.status) + '</td><td>' + actions + '</td>' +
             '</tr>';
@@ -2577,7 +2510,7 @@
           .concat(CP.otherMembers.map(function (m) { return { name: m.name, balances: m.balances, upcoming: m.upcoming }; }));
         el.innerHTML = rows.map(function (m) {
           var bal = Object.keys(m.balances).map(function (l) { return l + ': ' + m.balances[l]; }).join(' · ');
-          return '<tr><td class="sb-admin-cust"><b>' + m.name + '</b></td><td>' + bal + '</td><td>' + m.upcoming + '</td><td><span style="color:#475569; font-size:0.85em;">—</span></td></tr>';
+          return '<tr><td class="sb-admin-cust"><b>' + m.name + '</b></td><td>' + bal + '</td><td>' + m.upcoming + '</td><td><span style="color:var(--muted); font-size:0.85em;">—</span></td></tr>';
         }).join('');
       }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -15,7 +15,13 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://steadydevs.com/my-account.html">
 
-  <link rel="stylesheet" href="assets/style.css?v=85">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/f.css?v=4">
+  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <style>
     /* The Freemius portal renders as a fixed panel; sit it just below the
@@ -34,7 +40,7 @@
       text-align: center;
       padding: 0 24px;
     }
-    .ma-fallback h1 { font-size: 1.6em; color: #f8fafc; margin: 0 0 10px; }
+    .ma-fallback h1 { font-size: 1.6em; color: var(--text); margin: 0 0 10px; }
     .ma-fallback p { color: var(--sd-muted); margin: 8px 0; }
     .ma-fallback .sd-btn { margin-top: 18px; }
   </style>
@@ -49,8 +55,11 @@
 
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js"></script>
+  <script src="assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <main id="main">
 
   <!-- Fallback: visible until the portal loads over it, or if it can't load. -->
   <div class="ma-fallback">
@@ -112,5 +121,46 @@
       });
     }
   </script>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="solutions.html">Engineering services</a></li>
+            <li><a href="einvoice.html">EInvoice Platform</a></li>
+            <li><a href="venue-booking.html">Venue Booking</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Case studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="pricing-terms.html">Pricing terms</a></li>
+            <li><a href="my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

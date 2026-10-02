@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory | SteadyDevs</title>
-  <meta name="description" content="Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.">
+  <title>How to Integrate Your POS with Accounting Software (Malaysia SME Guide) | SteadyDevs</title>
+  <meta name="description" content="How small businesses connect their POS to accounting and inventory software: API, database and file-based integration options, LHDN e-invoice considerations, and realistic costs from RM8,000.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,21 +14,26 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/system-integration-guide-pos-accounting-inventory.html">
-  <meta property="og:title" content="The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory">
-  <meta property="og:description" content="Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.">
+  <meta property="og:title" content="How to Integrate Your POS with Accounting Software (Malaysia SME Guide)">
+  <meta property="og:description" content="How small businesses connect their POS to accounting and inventory software: API, database and file-based integration options, LHDN e-invoice considerations, and realistic costs from RM8,000.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/system-integration-guide.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory">
-  <meta name="twitter:description" content="Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.">
+  <meta name="twitter:title" content="How to Integrate Your POS with Accounting Software (Malaysia SME Guide)">
+  <meta name="twitter:description" content="How small businesses connect their POS to accounting and inventory software: API, database and file-based integration options, LHDN e-invoice considerations, and realistic costs from RM8,000.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/system-integration-guide.jpg">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/system-integration-guide-pos-accounting-inventory.html">
   
-  <link rel="stylesheet" href="../assets/style.css?v=316e8821">
-  <link rel="stylesheet" href="blog-styles.css?v=75bd046f">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="../assets/f.css?v=8b5bdcfa">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -39,7 +44,7 @@
     "alternativeHeadline": "Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how sys",
     "image": "https://steadydevs.com/images/blog/system-integration-guide.jpg",
     "datePublished": "2026-06-13T00:00:00+08:00",
-    "dateModified": "2026-06-13T00:00:00+08:00",
+    "dateModified": "2026-10-02T00:00:00+08:00",
     "author": {
       "@type": "Person",
       "name": "SteadyDevs",
@@ -54,10 +59,10 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.",
+    "description": "How small businesses connect their POS to accounting and inventory software: API, database and file-based integration options, LHDN e-invoice considerations, and realistic costs from RM8,000.",
     "articleSection": "Software Development",
     "articleBody": "Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.",
-    "wordCount": 2496,
+    "wordCount": 2704,
     "inLanguage": "en-MY",
     "about": [
       {
@@ -181,10 +186,92 @@
     ]
   }
   </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How can small businesses integrate their POS with accounting software?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are three common routes: a ready-made connector if both systems offer one, a custom integration through each system's API, or a scheduled file export and import when one side has no API. Most SMEs start by syncing daily sales, payments and tax into accounting, then add inventory and customer data once that flow is reliable. The right route depends on what your specific POS and accounting software actually support."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which accounting software can my POS integrate with in Malaysia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cloud accounting tools such as Xero and QuickBooks Online offer public APIs, which makes integration straightforward. Desktop packages widely used in Malaysia, such as AutoCount and SQL Account, can usually be integrated too, typically through their own SDK or API add-ons or through structured data import. The limiting factor is often the POS side: older or vendor-locked POS systems may only offer file exports."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does integrating POS and accounting help with LHDN e-invoicing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually, yes. When sales flow automatically into one system of record, you can generate consolidated or individual e-invoices for MyInvois from clean, consistent data instead of re-keying it. That also reduces validation errors such as tax or total mismatches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a typical integration project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simple integrations: 3-4 weeks. Moderate complexity: 6-8 weeks. Complex multi-system integrations: 10-12 weeks or more. Timeline depends on system complexity, API availability, data mapping requirements, and testing thoroughness. We'll provide a specific timeline after understanding your systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if one of our systems doesn't have an API?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We can still integrate using database-level integration (if we can access the database) or file-based integration (if the system can export/import files). Many legacy systems lack APIs—we have extensive experience working around this limitation. The integration may be less real-time but still highly effective."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will integration break if we update one of our systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Properly built integration is resilient to minor updates. API-based integrations are most stable. Database integrations may need adjustment if schema changes significantly. Part of our service includes documentation and support to handle updates. We also build integrations with abstraction layers that minimize the impact of changes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can integration be bi-directional (data flowing both ways)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, but bi-directional sync is more complex and expensive than one-way sync. It requires conflict resolution logic (what happens if the same record changes in both systems simultaneously?) and more sophisticated error handling. We'll help you determine if bi-directional sync is necessary or if one-way sync with manual exceptions is more practical and cost-effective."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What ongoing costs should we expect after integration is built?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Maintenance and support: typically RM500-1,500/month depending on complexity, covers monitoring, minor adjustments, troubleshooting. One-time costs if systems change significantly: RM2,000-8,000 depending on extent of changes. Many clients choose retainer support for peace of mind; others only engage when issues arise or changes are needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if the integration breaks? How quickly can it be fixed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All integrations include comprehensive logging and monitoring. When something breaks, we can usually identify the issue within hours. Simple fixes (API endpoint changed, credential expired) can be resolved same-day. Complex issues (major system update, business logic change needed) take longer. This is why ongoing support relationships are valuable—we can respond quickly because we already understand your integration."
+        }
+      }
+    ]
+  }
+  </script>
   
   <!-- Article Metadata -->
   <meta property="article:published_time" content="2026-06-13T00:00:00+08:00">
-  <meta property="article:modified_time" content="2026-06-13T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-10-02T00:00:00+08:00">
   <meta property="article:author" content="SteadyDevs">
   <meta property="article:section" content="Software Development">
   <meta property="article:tag" content="System Integration, POS, Accounting, Automation, .NET, SME Malaysia">
@@ -203,17 +290,14 @@
   </script>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="../assets/site-nav.js"></script>
+  <script src="../assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <!-- Breadcrumb Navigation -->
-  <div class="container" style="padding-top: 115px; padding-bottom: 0;">
-    <nav aria-label="Breadcrumb" style="font-size: 0.95em; color: #D1D5DB; background: rgba(31, 41, 55, 0.5); padding: 10px 15px; border-radius: 6px; margin-bottom: 20px;">
-      <a href="../index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Home</a> 
-      <span style="color: #6B7280; margin: 0 8px;">/</span>
-      <a href="index.html" style="color: #60A5FA; text-decoration: none; font-weight: 500;">Blog</a> 
-      <span style="color: #6B7280; margin: 0 8px;">/</span>
-      <span style="color: #F3F4F6;">The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</span>
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</span>
     </nav>
   </div>
   
@@ -245,11 +329,9 @@
   }
   </script>
 
-  <div class="container">
-    <!-- TOC Toggle Button for Mobile/Tablet -->
-    <button class="toc-toggle-btn" id="tocToggle" aria-label="Toggle table of contents">
-      ☰
-    </button>
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
     
     <!-- Table of Contents -->
     <aside class="blog-toc" id="blogToc" style="display: none;">
@@ -257,7 +339,7 @@
       <ul class="blog-toc-list" id="tocList"></ul>
     </aside>
     
-    <main class="blog-content">
+    <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/system-integration-guide.jpg" alt="Business systems connecting through integration" class="blog-hero-image">
         <div class="blog-header">
@@ -381,14 +463,44 @@
 
           <div class="cta-box">
             <h3>Tired of Manual Data Entry Between Systems?</h3>
-            <p style="color: #D1D5DB;">SteadyDevs builds custom integrations for Malaysian SMEs—connecting POS, accounting, inventory, e-commerce, and business systems. We specialize in .NET-based systems and have extensive experience with Malaysian accounting software and e-invoice requirements. Get a free consultation to discuss your specific integration needs.</p>
-            <a href="../contact.html" class="cta-button">Get Your FREE Consultation</a>
+            <p>SteadyDevs builds custom integrations for Malaysian SMEs—connecting POS, accounting, inventory, e-commerce, and business systems. We specialize in .NET-based systems and have extensive experience with Malaysian accounting software and e-invoice requirements. Get a free consultation to discuss your specific integration needs.</p>
+            <a href="../contact.html" class="f-btn f-btn--primary cta-button">Get Your FREE Consultation</a>
           </div>
 
           <div class="faq-section">
             <h2>Frequently Asked Questions</h2>
             
               <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How can small businesses integrate their POS with accounting software?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>There are three common routes: a ready-made connector if both systems offer one, a custom integration through each system's API, or a scheduled file export and import when one side has no API. Most SMEs start by syncing daily sales, payments and tax into accounting, then add inventory and customer data once that flow is reliable. The right route depends on what your specific POS and accounting software actually support.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Which accounting software can my POS integrate with in Malaysia?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Cloud accounting tools such as Xero and QuickBooks Online offer public APIs, which makes integration straightforward. Desktop packages widely used in Malaysia, such as AutoCount and SQL Account, can usually be integrated too, typically through their own SDK or API add-ons or through structured data import. The limiting factor is often the POS side: older or vendor-locked POS systems may only offer file exports.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does integrating POS and accounting help with LHDN e-invoicing?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Usually, yes. When sales flow automatically into one system of record, you can generate consolidated or individual e-invoices for MyInvois from clean, consistent data instead of re-keying it. That also reduces validation errors such as tax or total mismatches.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
                 <div class="faq-question">
                   <span class="faq-question-text">How long does a typical integration project take?</span>
                   <span class="faq-toggle">+</span>
@@ -398,7 +510,7 @@
                 </div>
               </div>
             
-              <div class="faq-item" data-faq-index="1">
+              <div class="faq-item" data-faq-index="4">
                 <div class="faq-question">
                   <span class="faq-question-text">What if one of our systems doesn't have an API?</span>
                   <span class="faq-toggle">+</span>
@@ -408,7 +520,7 @@
                 </div>
               </div>
             
-              <div class="faq-item" data-faq-index="2">
+              <div class="faq-item" data-faq-index="5">
                 <div class="faq-question">
                   <span class="faq-question-text">Will integration break if we update one of our systems?</span>
                   <span class="faq-toggle">+</span>
@@ -418,7 +530,7 @@
                 </div>
               </div>
             
-              <div class="faq-item" data-faq-index="3">
+              <div class="faq-item" data-faq-index="6">
                 <div class="faq-question">
                   <span class="faq-question-text">Can integration be bi-directional (data flowing both ways)?</span>
                   <span class="faq-toggle">+</span>
@@ -428,7 +540,7 @@
                 </div>
               </div>
             
-              <div class="faq-item" data-faq-index="4">
+              <div class="faq-item" data-faq-index="7">
                 <div class="faq-question">
                   <span class="faq-question-text">What ongoing costs should we expect after integration is built?</span>
                   <span class="faq-toggle">+</span>
@@ -438,7 +550,7 @@
                 </div>
               </div>
             
-              <div class="faq-item" data-faq-index="5">
+              <div class="faq-item" data-faq-index="8">
                 <div class="faq-question">
                   <span class="faq-question-text">What happens if the integration breaks? How quickly can it be fixed?</span>
                   <span class="faq-toggle">+</span>
@@ -458,22 +570,56 @@
     </main>
   </div>
 
-  <footer>
-    <p>&copy; 2026 Steady Devs Solutions (SSM: 202603092285) | <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">LinkedIn</a></p>
-    <p style="margin-top: 8px;">Reliable solutions. Clear guidance. Less stress.</p>
-    <p style="margin-top: 12px; font-size: 0.9em;">
-      <a href="index.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">All Articles</a> |
-      <a href="topics.html" style="color: #9CA3AF; margin: 0 8px; text-decoration: underline;">Browse Topics</a>
-    </p>
-  </footer>
-  
-  <!-- Sticky Mobile CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="../contact.html">FREE Consultation →</a>
-  </div>
-  
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
 
   <script>
     // Generate Table of Contents
@@ -512,7 +658,7 @@
       tocContainer.style.display = 'block';
       
       const tocToggleBtn = document.getElementById('tocToggle');
-      if (window.innerWidth <= 1400) {
+      if (window.innerWidth < 1100) {
         tocToggleBtn.style.display = 'block';
       }
       
@@ -525,7 +671,7 @@
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (window.innerWidth <= 1400) {
+            if (window.innerWidth < 1100) {
               tocContainer.classList.remove('toc-visible');
             }
           }
@@ -663,7 +809,7 @@
       });
       
       document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 1400 && 
+        if (window.innerWidth < 1100 && 
             !tocContainer.contains(e.target) && 
             !tocToggleBtn.contains(e.target) &&
             tocContainer.classList.contains('toc-visible')) {
@@ -672,7 +818,7 @@
       });
       
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 1400) {
+        if (window.innerWidth >= 1100) {
           tocToggleBtn.style.display = 'none';
           tocContainer.classList.remove('toc-visible');
         } else if (tocContainer.style.display === 'block') {

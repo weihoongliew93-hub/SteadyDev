@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -95,7 +95,13 @@
   }
   </script>
 
-  <link rel="stylesheet" href="assets/style.css?v=85">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/f.css?v=4">
+  <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
   <style>
     /* ── Page-specific overrides ───────────────────────────────────────── */
@@ -103,7 +109,7 @@
     .ei-hero-badge {
       display: inline-block;
       background: rgba(16, 185, 129, 0.15);
-      color: #34D399;
+      color: var(--ok);
       border: 1px solid rgba(52, 211, 153, 0.3);
       border-radius: 20px;
       padding: 6px 18px;
@@ -131,13 +137,13 @@
       letter-spacing: 0.1em;
       color: #374151;
       padding: 4px 0 2px;
-      border-top: 1px solid #1F2937;
+      border-top: 1px solid var(--border);
       margin-top: 6px;
     }
 
     .pricing-card {
-      background: #121821;
-      border: 1px solid #1F2937;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 30px 24px;
       display: flex;
@@ -146,13 +152,13 @@
     }
 
     .pricing-card:hover {
-      border-color: #3B82F6;
+      border-color: var(--system);
       transform: translateY(-3px);
     }
 
     .pricing-card.featured {
-      border: 2px solid #3B82F6;
-      background: linear-gradient(160deg, #0f1c30 0%, #121821 100%);
+      border: 2px solid var(--system);
+      background: linear-gradient(160deg, #0f1c30 0%, var(--surface) 100%);
       position: relative;
     }
 
@@ -176,14 +182,14 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #9CA3AF;
+      color: var(--muted);
       margin-bottom: 8px;
     }
 
     .pricing-card .tier-price {
       font-size: 2.2em;
       font-weight: 800;
-      color: #F9FAFB;
+      color: var(--text);
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -191,12 +197,12 @@
     .pricing-card .tier-price span {
       font-size: 0.45em;
       font-weight: 500;
-      color: #9CA3AF;
+      color: var(--muted);
     }
 
     .pricing-card .tier-invoices {
       font-size: 0.88em;
-      color: #60A5FA;
+      color: var(--system);
       margin-bottom: 20px;
       font-weight: 500;
     }
@@ -207,7 +213,7 @@
       margin: 0 0 24px;
       flex: 1;
       font-size: 0.88em;
-      color: #D1D5DB;
+      color: var(--text-soft);
     }
 
     .pricing-card .tier-features li {
@@ -221,13 +227,13 @@
       content: "✓";
       position: absolute;
       left: 0;
-      color: #10B981;
+      color: var(--ok);
       font-weight: 700;
     }
 
     .pricing-card .tier-features li.limited::before {
       content: "–";
-      color: #6B7280;
+      color: var(--muted);
     }
 
     .tier-cta {
@@ -239,8 +245,8 @@
       font-size: 0.92em;
       text-decoration: none;
       transition: all 0.2s;
-      border: 2px solid #3B82F6;
-      color: #60A5FA;
+      border: 2px solid var(--system);
+      color: var(--system);
       background: transparent;
     }
 
@@ -267,8 +273,8 @@
     }
 
     .feature-card {
-      background: #121821;
-      border: 1px solid #1F2937;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 28px 24px;
       transition: border-color 0.2s;
@@ -284,13 +290,13 @@
 
     .feature-card h3 {
       font-size: 1em;
-      color: #E5E7EB;
+      color: var(--text);
       margin: 0 0 10px;
     }
 
     .feature-card p {
       font-size: 0.9em;
-      color: #9CA3AF;
+      color: var(--muted);
       margin: 0;
       line-height: 1.65;
     }
@@ -308,8 +314,8 @@
       display: flex;
       align-items: flex-start;
       gap: 20px;
-      background: #121821;
-      border: 1px solid #1F2937;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 22px 26px;
       position: relative;
@@ -347,8 +353,8 @@
     .vf-step:nth-child(2) .vf-num { background: linear-gradient(135deg, #D97706, #F59E0B); }
     .vf-step:nth-child(3) .vf-num { background: linear-gradient(135deg, #059669, #10B981); }
 
-    .vf-body h4 { margin: 0 0 4px; font-size: 0.95em; color: #E5E7EB; }
-    .vf-body p  { margin: 0; font-size: 0.87em; color: #9CA3AF; line-height: 1.55; }
+    .vf-body h4 { margin: 0 0 4px; font-size: 0.95em; color: var(--text); }
+    .vf-body p  { margin: 0; font-size: 0.87em; color: var(--muted); line-height: 1.55; }
 
     .vf-reject {
       font-size: 0.78em;
@@ -360,13 +366,13 @@
       align-self: center;
     }
 
-    .vf-reject.hard   { background: rgba(239,68,68,0.15); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.3); }
-    .vf-reject.soft   { background: rgba(245,158,11,0.15); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3); }
+    .vf-reject.hard   { background: rgba(239,68,68,0.15); color: var(--crimson-text); border: 1px solid rgba(239,68,68,0.3); }
+    .vf-reject.soft   { background: rgba(245,158,11,0.15); color: var(--warn); border: 1px solid rgba(245,158,11,0.3); }
     .vf-reject.pass   { background: rgba(16,185,129,0.15); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.3); }
 
     /* FAQ */
     .faq-item {
-      border-bottom: 1px solid #1F2937;
+      border-bottom: 1px solid var(--border);
       padding: 20px 0;
     }
 
@@ -374,7 +380,7 @@
 
     .faq-q {
       font-weight: 600;
-      color: #E5E7EB;
+      color: var(--text);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -383,20 +389,20 @@
       user-select: none;
     }
 
-    .faq-q:hover { color: #60A5FA; }
+    .faq-q:hover { color: var(--system); }
 
     .faq-toggle {
-      color: #9CA3AF;
+      color: var(--muted);
       font-size: 1.2em;
       transition: transform 0.2s;
       flex-shrink: 0;
     }
 
-    .faq-item.open .faq-toggle { transform: rotate(45deg); color: #60A5FA; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); color: var(--system); }
 
     .faq-a {
       display: none;
-      color: #9CA3AF;
+      color: var(--muted);
       font-size: 0.95em;
       line-height: 1.75;
       margin-top: 12px;
@@ -415,13 +421,13 @@
       padding: 5px 12px;
       font-size: 0.8em;
       font-weight: 600;
-      color: #93C5FD;
+      color: var(--system);
     }
 
     /* ── Slideshow ──────────────────────────────────────────────────── */
     .slideshow-frame {
-      background: #0d1117;
-      border: 1px solid #1F2937;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
       margin: 32px 0 0;
@@ -429,7 +435,7 @@
 
     .slideshow-titlebar {
       background: #161b27;
-      border-bottom: 1px solid #1F2937;
+      border-bottom: 1px solid var(--border);
       padding: 10px 16px;
       display: flex;
       align-items: center;
@@ -444,12 +450,12 @@
     }
 
     .ss-urlbar {
-      background: #0d1117;
-      border: 1px solid #1F2937;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 4px;
       padding: 3px 12px;
       font-size: 0.78em;
-      color: #6B7280;
+      color: var(--muted);
       margin-left: 8px;
       flex: 1;
       max-width: 320px;
@@ -497,7 +503,7 @@
       justify-content: center;
       gap: 14px;
       font-size: 0.9em;
-      color: #6B7280;
+      color: var(--muted);
       position: relative;
       overflow: hidden;
     }
@@ -506,15 +512,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+      background-image: linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
       background-size: 40px 40px;
     }
 
     .ss-placeholder-inner { position: relative; text-align: center; }
     .ss-placeholder-icon  { font-size: 2.4em; margin-bottom: 10px; }
-    .ss-placeholder-title { color: #9CA3AF; font-weight: 600; font-size: 1em; margin-bottom: 4px; }
+    .ss-placeholder-title { color: var(--muted); font-weight: 600; font-size: 1em; margin-bottom: 4px; }
     .ss-placeholder-note  { color: #4B5563; font-size: 0.82em; }
 
     .slideshow-footer {
@@ -527,14 +532,14 @@
     }
 
     .ss-caption {
-      color: #9CA3AF;
+      color: var(--muted);
       font-size: 0.88em;
       line-height: 1.5;
       flex: 1;
       min-width: 0;
     }
 
-    .ss-caption strong { color: #E5E7EB; }
+    .ss-caption strong { color: var(--text); }
 
     .ss-nav {
       display: flex;
@@ -544,9 +549,9 @@
     }
 
     .ss-arrow {
-      background: #1F2937;
+      background: var(--surface);
       border: 1px solid #374151;
-      color: #9CA3AF;
+      color: var(--muted);
       width: 32px;
       height: 32px;
       border-radius: 6px;
@@ -559,7 +564,7 @@
       padding: 0;
     }
 
-    .ss-arrow:hover { background: #374151; color: #E5E7EB; }
+    .ss-arrow:hover { background: #374151; color: var(--text); }
 
     .ss-dots {
       display: flex;
@@ -601,7 +606,7 @@
 
     /* Demo section */
     .demo-section {
-      background: linear-gradient(135deg, #0f0c29 0%, #16103a 50%, #121821 100%);
+      background: linear-gradient(135deg, #0f0c29 0%, #16103a 50%, var(--surface) 100%);
       border: 1px solid rgba(99, 102, 241, 0.3);
       border-radius: 10px;
       padding: 50px 40px;
@@ -638,8 +643,8 @@
     }
 
     .demo-card .demo-card-icon { font-size: 1.7em; margin-bottom: 10px; }
-    .demo-card .demo-card-title { color: #E5E7EB; font-weight: 600; font-size: 0.92em; margin-bottom: 6px; }
-    .demo-card .demo-card-desc { color: #9CA3AF; font-size: 0.83em; line-height: 1.6; }
+    .demo-card .demo-card-title { color: var(--text); font-weight: 600; font-size: 0.92em; margin-bottom: 6px; }
+    .demo-card .demo-card-desc { color: var(--muted); font-size: 0.83em; line-height: 1.6; }
 
     .demo-credentials {
       background: rgba(0, 0, 0, 0.4);
@@ -649,7 +654,7 @@
     }
 
     .demo-credentials .cred-label {
-      color: #6B7280;
+      color: var(--muted);
       font-size: 0.78em;
       font-weight: 700;
       text-transform: uppercase;
@@ -666,7 +671,7 @@
     }
 
     .demo-credentials .cred-row:last-child { margin-bottom: 0; }
-    .demo-credentials .cred-key { color: #6B7280; min-width: 70px; }
+    .demo-credentials .cred-key { color: var(--muted); min-width: 70px; }
     .demo-credentials .cred-val { color: #A5B4FC; font-family: 'Courier New', monospace; }
 
     .demo-launch-btn {
@@ -709,242 +714,176 @@
     gtag('config', 'G-5LRWB31H8T');
   </script>
 
+  <style>
+    /* EInvoice page (design F). Uses f.css tokens only. */
+    .ei-btn-invert { background: var(--text-strong); color: var(--bg); }
+    .ei-btn-invert:hover { color: var(--bg); opacity: .9; }
+    .ei-preview { margin: 64px auto 0; max-width: 980px; text-align: left; }
+    .ei-window { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; }
+    .ei-window__bar { display: flex; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); }
+    .ei-window__bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+    .ei-window__body { padding: 24px; display: flex; flex-wrap: wrap; gap: 20px; }
+    .ei-window__main { flex: 2 1 420px; min-width: 0; }
+    .ei-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .ei-tiles div { background: var(--surface-inset); border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px 14px; }
+    .ei-tiles span { display: block; font-size: 12px; color: var(--faint); }
+    .ei-tiles b { font-size: 22px; font-weight: 600; color: var(--text-strong); }
+    .ei-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .ei-table th { text-align: left; font-weight: 500; color: var(--faint); padding: 8px 0; border-bottom: 1px solid var(--border-soft); }
+    .ei-table td { padding: 10px 0; border-bottom: 1px solid var(--border-soft); color: var(--text); }
+    .ei-table tr:last-child td { border-bottom: 0; }
+    .ei-table td.f-ok, .ei-tiles b.f-ok { color: var(--ok); } .ei-table td.f-warn, .ei-tiles b.f-warn { color: var(--warn); } .ei-table td.f-info { color: var(--info); }
+    .ei-alert { flex: 1 1 240px; align-self: flex-start; }
+    .ei-alert .f-sys__body { padding: 16px; }
+    .ei-tiers { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; }
+    .ei-tiers li { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+    .ei-tiers b { color: var(--text-strong); font-weight: 600; }
+    .ei-tiers p { color: var(--muted); font-size: 15px; margin-top: 4px; }
+    .ei-tiers .f-badge { flex: none; }
+    .ei-badge-warn { color: var(--warn); border-color: currentColor; }
+    .ei-notes { margin: 14px 0 0; padding-left: 1.3em; color: var(--muted); font-size: 15px; display: grid; gap: 10px; }
+    .ei-notes b, .f-note b { color: var(--text-strong); font-weight: 600; }
+    .ei-facts { margin: 28px 0 0; }
+    .ei-facts div { display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--border-soft); }
+    .ei-facts dt { flex: 0 0 180px; font-weight: 500; color: var(--text-strong); }
+    .ei-facts dd { margin: 0; flex: 1 1 320px; color: var(--muted); font-size: 16px; }
+    .f-price-card a[href="#premium-notes"] { color: var(--crimson-text); text-decoration: none; }
+    @media (max-width: 560px) { .ei-tiles { grid-template-columns: 1fr; } .ei-tiers li { flex-direction: column; } }
+  </style>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js"></script>
+  <script src="assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <main id="main">
 
-  <!-- ===================== PAGE HERO ===================== -->
-  <section class="sd-page-hero">
-    <div class="sd-page-hero-inner">
-      <div class="ei-hero-badge">Platform in Beta · Early Access Partners Welcome</div>
-      <h1>Your LHDN e-Invoice Compliance, <span class="accent">Fully Automated</span>.</h1>
-      <p class="sd-page-hero-lead">
-        Connect your POS, ERP, or accounting system once.
-        Every invoice validated against LHDN rules, digitally signed, and submitted to MyInvois — automatically.
-        <strong style="color: #60A5FA;">No manual work. No cryptic rejection codes. No missed posting deadlines.</strong>
-      </p>
-      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 24px 0 4px; justify-content: center;">
-        <span class="lhdn-badge">✓ MyInvois API v1.1</span>
-        <span class="lhdn-badge">✓ All 8 Invoice Types</span>
-        <span class="lhdn-badge">✓ Digital Signature</span>
-        <span class="lhdn-badge">✓ RM 10k Enforcement</span>
-        <span class="lhdn-badge" style="background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.35); color: #A5B4FC;">✓ Live Demo Available</span>
-      </div>
-      <div class="sd-hero-cta">
-        <a href="contact.html?ref=einvoice" class="sd-btn sd-btn--primary">Request Early Access <span aria-hidden="true">→</span></a>
-        <a href="#demo" class="sd-btn sd-btn--ghost">Try Live Demo →</a>
-      </div>
-      <p style="margin-top: 14px; font-size: 0.87em; color: #6B7280;">or <a href="#pricing" style="color: #60A5FA;">compare plans</a></p>
-    </div>
-  </section>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">The Reality</p>
-      <h2 class="sd-section-title">LHDN E-Invoicing, <span class="accent">As Most Experience It</span></h2>
-      <div class="sd-title-rule"></div>
-      <div class="animate-on-scroll" style="background: rgba(239, 68, 68, 0.08); padding: 30px 35px; border-radius: 12px; margin: 0; border: 1px solid rgba(239,68,68,0.2);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-          <div style="color: #D1D5DB; font-size: 0.95em; line-height: 1.7;">
-            <strong style="color: #FCA5A5;">Cryptic rejection codes</strong><br>
-            LHDN returns E1–E12 errors. Nobody explains what to fix or why it failed.
-          </div>
-          <div style="color: #D1D5DB; font-size: 0.95em; line-height: 1.7;">
-            <strong style="color: #FCA5A5;">Silent certificate expiry</strong><br>
-            Your digital certificate expires. Submissions stop. You find out when a client complains.
-          </div>
-          <div style="color: #D1D5DB; font-size: 0.95em; line-height: 1.7;">
-            <strong style="color: #FCA5A5;">The 7th-of-month panic</strong><br>
-            March invoices must be submitted by April 7. Every month, the same last-minute rush.
-          </div>
-          <div style="color: #D1D5DB; font-size: 0.95em; line-height: 1.7;">
-            <strong style="color: #FCA5A5;">Missing buyer TIN above RM 10k</strong><br>
-            LHDN blocks generic TINs for high-value sales. Most systems don't catch this before submission.
-          </div>
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero" style="text-align: center">
+        <p class="f-pill">EInvoice Platform · in beta, early-access partners welcome</p>
+        <h1 class="f-h1" style="margin-left: auto; margin-right: auto">LHDN e-invoicing that runs <span class="f-dim">quietly in the background.</span></h1>
+        <p class="f-lead" style="margin: 0 auto">Connect your POS, ERP or accounting system once. Every invoice is validated against LHDN rules, digitally signed and submitted to MyInvois automatically. No manual work, no cryptic rejection codes, no missed posting deadlines.</p>
+        <div class="f-actions" style="justify-content: center">
+          <a class="f-btn ei-btn-invert" href="contact.html?ref=einvoice-cta">Request early access</a>
+          <a class="f-btn f-btn--secondary" href="#demo">Try the live demo</a>
         </div>
-      </div>
+        <p class="f-note" style="margin-top: 16px">From RM 99/month · 30-day free trial on paid plans · no setup fee · <a href="#pricing">compare plans</a></p>
 
-    </div>
-  </section>
-
-  <!-- ===================== STATS ===================== -->
-  <section class="sd-section sd-section--light">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">By the Numbers</p>
-      <h2 class="sd-section-title">Built for Malaysian <span class="accent">LHDN Compliance</span></h2>
-      <div class="sd-title-rule"></div>
-      <div class="sd-stats-grid">
-        <div class="sd-stat-card">
-          <div class="sd-stat-num">8</div>
-          <div class="sd-stat-label">LHDN Invoice Types Supported (01–04, 11–14)</div>
-        </div>
-        <div class="sd-stat-card">
-          <div class="sd-stat-num">3-Tier</div>
-          <div class="sd-stat-label">Validation Before Any Submission Reaches LHDN</div>
-        </div>
-        <div class="sd-stat-card">
-          <div class="sd-stat-num">5 min</div>
-          <div class="sd-stat-label">Auto Status Sync from MyInvois</div>
-        </div>
-        <div class="sd-stat-card">
-          <div class="sd-stat-num">RM 99</div>
-          <div class="sd-stat-label">Starting Price — No Setup Fee</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== THREE-TIER VALIDATION ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Validation</p>
-      <h2 class="sd-section-title">Three-Tier Validation — Caught <span class="accent">Before They Reach LHDN</span></h2>
-      <div class="sd-title-rule"></div>
-      <p class="sd-section-sub">Every invoice passes three layers of checks before we attempt a submission. You fix issues in your dashboard — LHDN never sees a bad invoice.</p>
-
-      <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; margin: 36px 0;">
-        <div class="validation-flow" style="flex: 1; min-width: 280px;">
-          <div class="vf-step">
-            <div class="vf-num">1</div>
-            <div class="vf-body">
-              <h4>Structural Validation</h4>
-              <p>Invoice number present? Items array valid? Quantities positive? Dates parseable?</p>
+        <figure class="ei-preview" aria-label="Illustration of the EInvoice dashboard">
+          <div class="ei-window">
+            <div class="ei-window__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="ei-window__body">
+              <div class="ei-window__main">
+                <div class="ei-tiles">
+                  <div><span>Approved this month</span><b>1,284</b></div>
+                  <div><span>In queue</span><b>12</b></div>
+                  <div><span>Needs attention</span><b class="f-warn">1</b></div>
+                </div>
+                <table class="ei-table">
+                  <tr><th scope="col">Invoice</th><th scope="col">Amount</th><th scope="col">Status</th></tr>
+                  <tr><td class="f-mono">INV-10482</td><td>RM 1,240.00</td><td class="f-ok">Approved</td></tr>
+                  <tr><td class="f-mono">INV-10484</td><td>RM 13,905.00</td><td class="f-warn">Held</td></tr>
+                  <tr><td class="f-mono">CONS-0930</td><td>RM 18,377.20</td><td class="f-info">Submitted</td></tr>
+                </table>
+              </div>
+              <div class="f-sys ei-alert">
+                <span class="f-sys__c f-sys__c--tl" aria-hidden="true"></span><span class="f-sys__c f-sys__c--br" aria-hidden="true"></span>
+                <div class="f-sys__head"><span class="f-sys__title">ALERT</span><span class="f-sys__tag">VALIDATION</span></div>
+                <div class="f-sys__body">
+                  <p class="f-sys__lead" style="font-size: 16px">INV-10484 held before submission</p>
+                  <p>Sales above RM 10,000 need the buyer's TIN. Add it and resubmit. LHDN has not seen this invoice.</p>
+                </div>
+              </div>
             </div>
-            <div class="vf-reject hard">400 Hard Reject</div>
           </div>
-          <div class="vf-step">
-            <div class="vf-num">2</div>
-            <div class="vf-body">
-              <h4>LHDN Completeness Check</h4>
-              <p>Seller TIN, MSIC, address? Buyer TIN for sales above RM 10,000? Classification codes?</p>
-            </div>
-            <div class="vf-reject soft">Staged for Fix</div>
-          </div>
-          <div class="vf-step">
-            <div class="vf-num">3</div>
-            <div class="vf-body">
-              <h4>Product Master Enrichment</h4>
-              <p>Tax type, tax rate, and classification codes auto-filled from your product catalogue.</p>
-            </div>
-            <div class="vf-reject pass">201 Created</div>
-          </div>
+          <figcaption class="f-note" style="margin-top: 12px">Illustration with sample data. See the real dashboard in the screenshots and live demo below.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="f-strip">
+      <div class="f-container f-strip__inner" style="justify-content: space-between">
+        <strong>MyInvois API v1.1</strong><strong>All 8 invoice types</strong><strong>Three-tier validation</strong><strong>Status sync every 5 minutes</strong><strong>Digital signature handled</strong><strong>RM 10k buyer-TIN rule enforced</strong>
+      </div>
+    </div>
+
+    <section class="f-section">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">The reality</p>
+          <h2 class="f-h2">The parts of e-invoicing that cause trouble, handled</h2>
+          <p class="f-sub">What LHDN e-invoicing looks like for most businesses, and what the platform does about each one.</p>
         </div>
-        <div style="flex: 1; min-width: 260px;">
-          <div style="background: #121821; border: 1px solid #1F2937; border-radius: 8px; padding: 28px 24px;">
-            <h4 style="color: #60A5FA; margin-top: 0;">What this means for you</h4>
-            <ul style="color: #D1D5DB; font-size: 0.92em; line-height: 1.8; margin: 0; padding-left: 20px;">
-              <li>Bad data is caught <em>before</em> submission — not after LHDN rejects it</li>
-              <li>Tier 2 soft-rejects land in your dashboard for easy correction</li>
-              <li>Your product catalogue auto-fills tax codes — no manual entry per invoice</li>
-              <li>All 12 LHDN error codes mapped to plain-English fix instructions</li>
-              <li>RM 10,000 threshold enforced automatically — generic walk-in TINs blocked</li>
-            </ul>
-          </div>
+        <div class="f-grid">
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Cryptic rejection codes</h3><p class="f-card__text">LHDN returns E1–E12 errors without explaining the fix. All 12 codes are mapped to plain-English instructions, with one-click resubmit.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Silent certificate expiry</h3><p class="f-card__text">When a certificate expires, submissions stop. Upload it once; you're warned 60 days and 7 days before it affects you.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">The 7th-of-month panic</h3><p class="f-card__text">March invoices must be submitted by 7 April, 23:59 MYT. You're warned days ahead, and nothing is sent after the cut-off.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Missing buyer TIN above RM 10k</h3><p class="f-card__text">LHDN blocks generic TINs on high-value sales. The platform catches it before submission, so the invoice never bounces.</p></article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="f-section f-section--alt">
+      <div class="f-container f-split">
+        <div class="f-split__main">
+          <p class="f-eyebrow">Validation</p>
+          <h2 class="f-h2">Three checks before anything reaches LHDN</h2>
+          <p class="f-sub">Every invoice passes three layers of checks before a submission is attempted. You fix issues in your dashboard; LHDN never sees a bad invoice.</p>
+          <ol class="ei-tiers">
+            <li><div><b>1 · Structural validation</b><p>Invoice number present? Items valid? Quantities positive? Dates parseable?</p></div><span class="f-badge f-badge--crimson">400 Hard reject</span></li>
+            <li><div><b>2 · LHDN completeness check</b><p>Seller TIN, MSIC and address? Buyer TIN for sales above RM 10,000? Classification codes?</p></div><span class="f-badge ei-badge-warn">Staged for fix</span></li>
+            <li><div><b>3 · Product master enrichment</b><p>Tax type, tax rate and classification codes filled in from your product catalogue.</p></div><span class="f-badge f-badge--ok">201 Created</span></li>
+          </ol>
+        </div>
+        <aside class="f-split__aside f-card">
+          <h3 class="f-h3">What this means for you</h3>
+          <ul class="f-checks" style="margin-top: 12px">
+            <li>Bad data is caught before submission, not after LHDN rejects it</li>
+            <li>Tier 2 soft-rejects land in your dashboard for easy correction</li>
+            <li>Your product catalogue fills in tax codes, with no manual entry per invoice</li>
+            <li>All 12 LHDN error codes mapped to plain-English fix instructions</li>
+            <li>RM 10,000 threshold enforced automatically; generic walk-in TINs blocked</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
 
-  <!-- ===================== FEATURES ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Features</p>
-      <h2 class="sd-section-title">Everything You Need to <span class="accent">Stay Compliant</span></h2>
-      <div class="sd-title-rule"></div>
-
-      <div class="feature-grid">
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🔐</span>
-          <h3>Digital Signature Handled</h3>
-          <p>Upload your X.509 certificate once. Every submission is signed automatically. Certificate expiry warnings at 60 and 7 days before it affects you.</p>
+    <section class="f-section">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Features</p>
+          <h2 class="f-h2">Everything you need to stay compliant</h2>
         </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">📅</span>
-          <h3>Posting Cycle Enforcement</h3>
-          <p>March invoices must be submitted by April 7 at 23:59 MYT. The platform blocks late submissions and warns you days before the deadline — never miss it again.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🔄</span>
-          <h3>Real-Time Status Sync</h3>
-          <p>Every submitted invoice is polled from MyInvois every 5 minutes. APPROVED or REJECTED status updates automatically — no manual checking.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🔌</span>
-          <h3>Connect Any System</h3>
-          <p>Plugin adapter architecture supports any POS, ERP, or accounting system. REST API + API keys for machine-to-machine integration without human login.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">📦</span>
-          <h3>All 8 LHDN Invoice Types</h3>
-          <p>Normal invoice, credit note, debit note, refund note, and all four self-billed variants (11–14). Correct type applied automatically by your adapter.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🏢</span>
-          <h3>Multi-Company Ready</h3>
-          <p>Run multiple business TINs under one account (Premium). Each entity has its own credentials, certificate, and submission history — fully isolated.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🔔</span>
-          <h3>Webhook Callbacks</h3>
-          <p>Your system notified the moment an invoice is approved or rejected. HMAC-SHA256 signed payloads, 4-attempt retry — no polling required.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🛡️</span>
-          <h3>Cancellation Window Guard</h3>
-          <p>LHDN only allows cancellation within 72 hours. The platform enforces this with a clear countdown and automatically suggests a credit note when the window closes.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">📋</span>
-          <h3>Dashboard with Action Cards</h3>
-          <p>Incomplete invoices, staging rejections, and LHDN errors surfaced with plain-English fix instructions — not raw error codes. Your team knows exactly what to do.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <span class="feature-icon">🧪</span>
-          <h3>Battle-Tested & Validated</h3>
-          <p>722 automated tests with 61.9% code coverage. Every LHDN scenario validated before deployment — rejection codes, validation tiers, status sync, cancellation windows.</p>
+        <div class="f-grid">
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Digital signature handled</h3><p class="f-card__text">Upload your X.509 certificate once. Every submission is signed automatically, with expiry warnings at 60 and 7 days.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Posting cycle enforcement</h3><p class="f-card__text">Late submissions are blocked and you're warned days before the deadline, so the cut-off is never missed.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Real-time status sync</h3><p class="f-card__text">Every submitted invoice is polled from MyInvois every 5 minutes. Approved or rejected status updates automatically.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Connect any system</h3><p class="f-card__text">A plugin adapter architecture for any POS, ERP or accounting system, plus a REST API with API keys for machine-to-machine use.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">All 8 LHDN invoice types</h3><p class="f-card__text">Invoice, credit note, debit note, refund note and all four self-billed variants (11–14), applied automatically by your adapter.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Multi-company ready</h3><p class="f-card__text">Multiple business TINs under one account (Premium), each with its own credentials, certificate and history, fully isolated.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Webhook callbacks</h3><p class="f-card__text">Your system is notified the moment an invoice is approved or rejected. HMAC-SHA256 signed payloads, 4-attempt retry.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Cancellation window guard</h3><p class="f-card__text">LHDN allows cancellation within 72 hours only. A countdown enforces it, and a credit note is suggested once it closes.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Dashboard action cards</h3><p class="f-card__text">Incomplete invoices, staging rejections and LHDN errors surfaced with plain-English instructions, so your team knows what to do.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Tested against every scenario</h3><p class="f-card__text">722 automated tests with 61.9% code coverage across rejection codes, validation tiers, status sync and cancellation windows.</p></article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">How It Works</p>
-      <h2 class="sd-section-title">From Connect to <span class="accent">Compliant</span></h2>
-      <div class="sd-title-rule"></div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 40px 0;">
-        <div style="text-align: center;" class="animate-on-scroll">
-          <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 26px; font-weight: 700; color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">1</div>
-          <h3 style="font-size: 1.05em; margin-bottom: 10px; color: #E5E7EB;">Connect</h3>
-          <p style="color: #9CA3AF; font-size: 0.9em; line-height: 1.65;">Install the adapter plugin for your POS or ERP, or generate an API key and start pushing invoices to the REST endpoint.</p>
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">How it works</p>
+          <h2 class="f-h2">From connect to compliant</h2>
         </div>
-        <div style="text-align: center;" class="animate-on-scroll">
-          <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 26px; font-weight: 700; color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">2</div>
-          <h3 style="font-size: 1.05em; margin-bottom: 10px; color: #E5E7EB;">Validate</h3>
-          <p style="color: #9CA3AF; font-size: 0.9em; line-height: 1.65;">Every invoice passes all three validation tiers. Issues land in your dashboard with plain-English instructions. Clean invoices queue automatically.</p>
-        </div>
-        <div style="text-align: center;" class="animate-on-scroll">
-          <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 26px; font-weight: 700; color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">3</div>
-          <h3 style="font-size: 1.05em; margin-bottom: 10px; color: #E5E7EB;">Sign & Submit</h3>
-          <p style="color: #9CA3AF; font-size: 0.9em; line-height: 1.65;">The platform applies your digital signature and submits to MyInvois. The posting cycle deadline is checked — nothing is sent after the LHDN cutoff.</p>
-        </div>
-        <div style="text-align: center;" class="animate-on-scroll">
-          <div style="background: linear-gradient(135deg, #1E40AF, #3B82F6); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 26px; font-weight: 700; color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">4</div>
-          <h3 style="font-size: 1.05em; margin-bottom: 10px; color: #E5E7EB;">Sync & Notify</h3>
-          <p style="color: #9CA3AF; font-size: 0.9em; line-height: 1.65;">Status polled from MyInvois every 5 minutes. APPROVED or REJECTED updates your dashboard instantly and fires a webhook back to your system.</p>
-        </div>
+        <ol class="f-steps">
+          <li><div class="f-steps__n">01</div><div class="f-steps__t">Connect</div><div class="f-steps__d">Install the adapter plugin for your POS or ERP, or generate an API key and push invoices to the REST endpoint.</div></li>
+          <li><div class="f-steps__n">02</div><div class="f-steps__t">Validate</div><div class="f-steps__d">Every invoice passes all three tiers. Issues land in your dashboard with instructions; clean invoices queue automatically.</div></li>
+          <li><div class="f-steps__n">03</div><div class="f-steps__t">Sign &amp; submit</div><div class="f-steps__d">Your digital signature is applied and the invoice is sent to MyInvois. Nothing is sent after the LHDN cut-off.</div></li>
+          <li><div class="f-steps__n">04</div><div class="f-steps__t">Sync &amp; notify</div><div class="f-steps__d">Status is checked every 5 minutes, your dashboard updates, and a webhook fires back to your system.</div></li>
+        </ol>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ===================== SCREENSHOTS ===================== -->
   <section class="sd-section sd-section--dark">
     <div class="sd-inner">
       <p class="sd-eyebrow">Screenshots</p>
@@ -1012,20 +951,19 @@
     </div>
   </section>
 
-  <!-- ===================== LIVE DEMO ===================== -->
-  <section class="sd-section sd-section--dark">
+  <section class="sd-section sd-section--light">
     <div class="sd-inner">
       <div id="demo" class="demo-section animate-on-scroll" style="scroll-margin-top: 90px;">
 
         <div style="text-align: center; margin-bottom: 8px;">
           <div class="demo-badge">Live Demo — No Signup Required</div>
-          <h2 style="color: #F9FAFB; margin: 0 0 16px; border: none; padding: 0;">See the Dashboard Before You Commit</h2>
-          <p style="color: #9CA3AF; font-size: 1.05em; max-width: 640px; margin: 0 auto 10px; line-height: 1.7;">
+          <h2 style="color: var(--surface-inset); margin: 0 0 16px; border: none; padding: 0;">See the Dashboard Before You Commit</h2>
+          <p style="color: var(--muted); font-size: 1.05em; max-width: 640px; margin: 0 auto 10px; line-height: 1.7;">
             The full platform is live right now, pre-loaded with realistic Malaysian invoices and data.
             No account needed. No LHDN calls are made. Explore everything — then decide.
           </p>
-          <p style="color: #6B7280; font-size: 0.88em; max-width: 640px; margin: 0 auto; line-height: 1.6;">
-            <strong style="color: #60A5FA;">Demo vs Production:</strong> The live demo runs in sandbox mode with mock LHDN API calls. For production deployments, the platform connects directly to LHDN MyInvois production API (api.myinvois.hasil.gov.my) with real submission capability.
+          <p style="color: var(--muted); font-size: 0.88em; max-width: 640px; margin: 0 auto; line-height: 1.6;">
+            <strong style="color: var(--system);">Demo vs Production:</strong> The live demo runs in sandbox mode with mock LHDN API calls. For production deployments, the platform connects directly to LHDN MyInvois production API (api.myinvois.hasil.gov.my) with real submission capability.
           </p>
         </div>
 
@@ -1068,7 +1006,7 @@
             <a href="https://einvoice-platform.onrender.com/" target="_blank" rel="noopener" class="demo-launch-btn">
               Launch Demo →
             </a>
-            <p style="color: #6B7280; font-size: 0.82em; margin: 10px 0 0;">No real LHDN submissions are made in demo mode</p>
+            <p style="color: var(--muted); font-size: 0.82em; margin: 10px 0 0;">No real LHDN submissions are made in demo mode</p>
           </div>
         </div>
 
@@ -1076,310 +1014,204 @@
     </div>
   </section>
 
-  <!-- ===================== PRICING ===================== -->
-  <section class="sd-section sd-section--dark" id="pricing" style="scroll-margin-top: 90px;">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Pricing</p>
-      <h2 class="sd-section-title">Simple, <span class="accent">Predictable Pricing</span></h2>
-      <div class="sd-title-rule"></div>
-      <p class="sd-section-sub">All paid plans include a 30-day free trial. No credit card required to start. Upgrade, downgrade, or cancel any time.</p>
+    <section id="pricing" class="f-section" style="scroll-margin-top: 90px">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Pricing</p>
+          <h2 class="f-h2">Simple, predictable pricing</h2>
+          <p class="f-sub">All paid plans include a 30-day free trial, with no credit card required to start. Upgrade, downgrade or cancel any time.</p>
+        </div>
 
-      <div class="pricing-grid animate-on-scroll" style="margin-top: 40px;">
+        <p class="f-mono f-small f-muted" style="margin-bottom: 14px">FOR INDIVIDUALS &amp; GROWING BUSINESSES</p>
+        <div class="f-grid">
+          <article class="f-card f-price-card">
+            <h3 class="f-card__title">Free</h3>
+            <div class="f-price">RM 0</div>
+            <p class="f-price-meta">10 invoices/month · 1 user</p>
+            <ul class="f-checks"><li>3-tier validation</li><li>LHDN sandbox access</li><li>Dashboard</li><li>90-day data retention</li></ul>
+            <p class="f-price-meta">No API keys · no webhooks</p>
+            <a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-free">Get started free</a>
+          </article>
+          <article class="f-card f-price-card">
+            <h3 class="f-card__title">Starter</h3>
+            <div class="f-price">RM 99<small> /mo</small></div>
+            <p class="f-price-meta">150 invoices + RM 0.80 overage · 2 users</p>
+            <ul class="f-checks"><li>1 API key</li><li>Background queue</li><li>Product master enrichment</li><li>Email support (5 business days)</li><li>3-year data retention</li></ul>
+            <p class="f-price-meta">No webhooks</p>
+            <a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-starter">Start trial</a>
+          </article>
+          <article class="f-card f-price-card">
+            <h3 class="f-card__title">Business</h3>
+            <div class="f-price">RM 199<small> /mo</small></div>
+            <p class="f-price-meta">500 invoices + RM 0.50 overage · 5 users</p>
+            <ul class="f-checks"><li>5 API keys · 3 webhooks</li><li>Background queue + auto-retry</li><li>1 private adapter</li><li>Submission history export</li><li>Email support (2 business days)</li><li>5-year data retention</li></ul>
+            <a class="f-btn f-btn--primary" href="contact.html?ref=einvoice-business">Start trial</a>
+          </article>
+        </div>
 
-        <div class="pricing-row-label">For individuals &amp; growing businesses</div>
+        <p class="f-mono f-small f-muted" style="margin: 40px 0 14px">FOR HIGH-VOLUME &amp; ENTERPRISE</p>
+        <div class="f-grid">
+          <article class="f-card f-price-card">
+            <h3 class="f-card__title">Growth</h3>
+            <div class="f-price">RM 399<small> /mo</small></div>
+            <p class="f-price-meta">2,000 invoices + RM 0.40 overage · 15 users</p>
+            <ul class="f-checks"><li>10 API keys · 10 webhooks</li><li>High-concurrency queue</li><li>3 private adapters</li><li>Advanced analytics</li><li>Email support (1 business day)</li><li>5-year data retention</li></ul>
+            <a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-growth">Start trial</a>
+          </article>
+          <article class="f-card f-price-card">
+            <h3 class="f-card__title">Premium</h3>
+            <div class="f-price">RM 799<small> /mo</small></div>
+            <p class="f-price-meta">10,000 invoices/month + RM 0.30 overage <a href="#premium-notes">①</a></p>
+            <ul class="f-checks">
+              <li>Unlimited users and API keys</li>
+              <li>Unlimited webhook endpoints <a href="#premium-notes">②</a></li>
+              <li>Dedicated queue worker (4 vCPU / 8 GB) <a href="#premium-notes">③</a></li>
+              <li>Multi-entity (multiple TINs) · white-label option</li>
+              <li>SSO (SAML 2.0)</li>
+              <li>99.9% uptime target + service credits <a href="#premium-notes">④</a></li>
+              <li>Priority support contact <a href="#premium-notes">⑤</a></li>
+              <li>7-year data retention</li>
+            </ul>
+            <a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-premium">Contact us</a>
+          </article>
+          <article class="f-card f-price-card">
+            <h3 class="f-card__title">Custom</h3>
+            <div class="f-price">Let's talk</div>
+            <p class="f-price-meta">More than 10,000 invoices/month · volume pricing</p>
+            <ul class="f-checks"><li>Everything in Premium</li><li>Volume-based pricing per contract</li><li>Dedicated infrastructure allocation</li><li>Enterprise SLA with named support contact</li><li>Multi-entity across unlimited TINs</li><li>Custom data retention period</li><li>Direct LHDN escalation channel</li></ul>
+            <a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-custom">Get in touch</a>
+          </article>
+        </div>
 
-        <!-- Free -->
-        <div class="pricing-card">
-          <div class="tier-name">Free</div>
-          <div class="tier-price">RM 0</div>
-          <div class="tier-invoices">10 invoices/month</div>
-          <ul class="tier-features">
-            <li>1 user</li>
-            <li>3-tier validation</li>
-            <li>LHDN sandbox access</li>
-            <li>Dashboard</li>
-            <li class="limited">No API keys</li>
-            <li class="limited">No webhooks</li>
-            <li class="limited">90-day data retention</li>
+        <div id="premium-notes" class="f-card" style="margin-top: 28px; scroll-margin-top: 90px">
+          <h3 class="f-h3">Premium plan: important notes</h3>
+          <ol class="ei-notes">
+            <li><b>Invoice limit &amp; overage:</b> RM 799/month includes 10,000 invoice submissions per month. Usage above 10,000 is billed at RM 0.30 per invoice, calculated and charged at the start of the following month. If your volume consistently exceeds 10,000/month, consider the Custom plan.</li>
+            <li><b>Webhook delivery:</b> Unlimited endpoints, with up to 10 concurrent delivery jobs per tenant. Endpoints that fail 50 consecutive deliveries are paused automatically and you're notified to investigate.</li>
+            <li><b>Dedicated worker spec:</b> A fixed-spec worker node (4 vCPU / 8 GB RAM) is provisioned per account. API requests are rate-limited to 300/minute and 5,000 invoice submissions/hour to protect submission quality.</li>
+            <li><b>Service credits:</b> In the event of a downtime breach, service credits of up to one month's subscription fee (RM 799) are applied to your next billing period. Credits are the sole remedy; we do not accept liability for missed LHDN deadlines or consequential losses arising from unavailability.</li>
+            <li><b>Priority support:</b> A named support contact is assigned. Until our support team reaches full capacity (6+ Premium subscribers), response times may be longer than the 4-hour target for non-critical issues; we'll always be clear about expected response times at onboarding.</li>
+            <li><b>Email alerts:</b> Certificate expiry warnings and system notifications are sent via configured SMTP. During onboarding, we help you connect your email service (SendGrid, AWS SES or your company SMTP). Demo accounts show alerts in-dashboard only.</li>
+          </ol>
+          <p class="f-note" style="margin-top: 14px"><b>Overage billing:</b> when you exceed your monthly limit you're charged per extra invoice (RM 0.30–0.80 depending on plan), not blocked. Overages are billed at the start of the following month via Stripe, and you're warned at 80% and 95% of your limit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Integrations</p>
+          <h2 class="f-h2">Works with the systems you already have</h2>
+          <p class="f-sub">The adapter plugin system connects to any source, with no full system rewrite.</p>
+        </div>
+        <div class="f-grid">
+          <article class="f-card f-card--compact"><h3 class="f-card__title">POS systems</h3><p class="f-card__text">StoreHub or any custom POS. Push invoices via the REST API or install a pre-built adapter plugin.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">ERP / accounting</h3><p class="f-card__text">SQL Accounting, AutoCount, SAP, or any ERP with an export function. CSV batch upload is also supported.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">E-commerce</h3><p class="f-card__text">WooCommerce, Shopify or custom checkout flows. A webhook-triggered adapter fires on every completed order.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Custom systems</h3><p class="f-card__text">Anything that can make an HTTP POST can integrate, with API key authentication and no OAuth dance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="f-section">
+      <div class="f-container f-split">
+        <div class="f-split__main">
+          <p class="f-eyebrow">Security &amp; infrastructure</p>
+          <h2 class="f-h2">Your credentials and data, handled carefully</h2>
+          <dl class="ei-facts">
+            <div><dt>Credential storage</dt><dd>LHDN client ID, client secret, certificate and private key are encrypted at rest with AES-256-GCM. The master key is stored separately from the database, credentials are decrypted in memory only during submission, and the dashboard never shows the secret.</dd></div>
+            <div><dt>Audit log</dt><dd>Every submission, approval, rejection and settings change is recorded with time, user and detail.</dd></div>
+            <div><dt>Separate companies</dt><dd>Each TIN has its own credentials, certificate and history, fully isolated (Premium).</dd></div>
+            <div><dt>Platform</dt><dd>.NET 8 / ASP.NET Core 8 with EF Core on containerised (Docker) infrastructure. Production accounts get PostgreSQL with proper data retention, production LHDN endpoints (api.myinvois.hasil.gov.my), SMTP alerts and paid infrastructure tiers.</dd></div>
+            <div><dt>Onboarding</dt><dd>Every production deployment includes a technical onboarding session to verify your LHDN credentials and certificate setup. The live demo runs in sandbox mode on a free tier with SQLite.</dd></div>
+          </dl>
+        </div>
+        <aside class="f-split__aside f-card">
+          <h3 class="f-h3">Built by a .NET team</h3>
+          <p class="f-muted" style="margin-top: 8px">If your POS or ERP is an older or custom .NET system, SteadyDevs can build a tight integration with your existing codebase.</p>
+          <a class="f-btn f-btn--secondary" style="margin-top: 16px" href="solutions.html#einvoice">Engineering options</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Good to know</p>
+          <h2 class="f-h2">Common questions</h2>
+        </div>
+        <div class="f-faq">
+          <details><summary>Is this platform officially approved by LHDN?</summary><div>The platform submits invoices via the official LHDN MyInvois REST API using your business's own registered credentials and digital certificate. Each business must obtain its own LHDN intermediary authorisation; the platform guides you through this during onboarding. All invoice formats follow the LHDN e-Invoice specification v1.1.</div></details>
+          <details><summary>Do I need to get my own digital certificate?</summary><div>Yes. Each business TIN needs its own LHDN-approved X.509 digital certificate from an approved Certificate Authority in Malaysia, typically RM 500–2,000/year depending on the CA. You upload it once in Settings; the platform signs every invoice automatically from then on and alerts you 60 days before expiry.</div></details>
+          <details><summary>What happens if LHDN rejects an invoice?</summary><div>Rejected invoices appear under "LHDN Rejections" with the specific error code (E1–E12) translated into plain English with a suggested fix, for example "E7 — Tax calculation mismatch: Recalculate line-item tax amounts, check rounding." You correct the data and resubmit with one click.</div></details>
+          <details><summary>Can I manage multiple companies under one account?</summary><div>Yes. The Premium plan supports multi-entity: each entity has its own TIN, LHDN credentials, digital certificate and submission history, under one login. The 10,000 invoice limit applies to the account total across all entities; usage above that is billed at RM 0.30 per invoice. For high-volume clients above this, the Custom plan is the right fit.</div></details>
+          <details><summary>How does the 10,000 invoice limit on the Premium plan work?</summary><div>Premium includes 10,000 submissions a month, over 450 every working day. If you exceed it, extra invoices are billed at RM 0.30 each and you're never blocked. Overage is charged at the start of the following month, and you're notified at 80% and 95%. If you consistently exceed 10,000, contact us about the Custom plan.</div></details>
+          <details><summary>My POS system is quite old or custom-built. Can it still connect?</summary><div>Almost certainly. The adapter system was designed for legacy and custom-built systems. If your POS can export a daily invoice file (CSV, JSON, XML) or make an HTTP POST, it can connect. For .NET systems, SteadyDevs can build a tight integration with your existing codebase.</div></details>
+          <details><summary>What is the 30-day trial and what happens after?</summary><div>All paid plans (Starter through Premium) start with a 30-day free trial, no credit card required, with every feature active. After 30 days you're asked to add a payment method; if you don't, the account switches to the Free tier (10 invoices/month). No invoices are deleted.</div></details>
+          <details><summary>Is my LHDN client secret and certificate stored securely?</summary><div>Yes. All LHDN credentials are encrypted at rest with AES-256-GCM before being written to the database, with the master key stored separately. They're decrypted in memory only when a submission is made and are never exposed in API responses; the dashboard masks the secret.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="f-section--line f-glow-bottom">
+      <div class="f-container f-cta">
+        <h2 class="f-h2">Ready to automate your LHDN submissions?</h2>
+        <p>Try the live demo first, no sign-up needed. When you're ready, we'll walk you through connecting your system and setting up your LHDN credentials.</p>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="contact.html?ref=einvoice-cta">Request early access</a>
+          <a class="f-btn f-btn--secondary" href="#demo">Try the demo first</a>
+        </div>
+        <p class="f-note" style="margin-top: 18px">30-day free trial on all paid plans · no setup fee · cancel any time</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="solutions.html">Engineering services</a></li>
+            <li><a href="einvoice.html">EInvoice Platform</a></li>
+            <li><a href="venue-booking.html">Venue Booking</a></li>
           </ul>
-          <a href="contact.html?ref=einvoice-free" class="tier-cta">Get Started Free</a>
         </div>
-
-        <!-- Starter -->
-        <div class="pricing-card">
-          <div class="tier-name">Starter</div>
-          <div class="tier-price">RM 99<span>/mo</span></div>
-          <div class="tier-invoices">150 invoices + RM 0.80 overage</div>
-          <ul class="tier-features">
-            <li>2 users</li>
-            <li>1 API key</li>
-            <li>Background queue</li>
-            <li>Product master enrichment</li>
-            <li>Email support (5BD)</li>
-            <li>3-year data retention</li>
-            <li class="limited">No webhooks</li>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Case studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
-          <a href="contact.html?ref=einvoice-starter" class="tier-cta">Start Trial</a>
         </div>
-
-        <!-- Business — featured -->
-        <div class="pricing-card featured">
-          <div class="tier-name">Business</div>
-          <div class="tier-price">RM 199<span>/mo</span></div>
-          <div class="tier-invoices">500 invoices + RM 0.50 overage</div>
-          <ul class="tier-features">
-            <li>5 users</li>
-            <li>5 API keys</li>
-            <li>3 webhooks</li>
-            <li>Background queue + auto-retry</li>
-            <li>1 private adapter</li>
-            <li>Submission history export</li>
-            <li>Email support (2BD)</li>
-            <li>5-year data retention</li>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="pricing-terms.html">Pricing terms</a></li>
+            <li><a href="my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
           </ul>
-          <a href="contact.html?ref=einvoice-business" class="tier-cta primary">Start Trial</a>
-        </div>
-
-        <div class="pricing-row-label">For high-volume &amp; enterprise</div>
-
-        <!-- Growth -->
-        <div class="pricing-card">
-          <div class="tier-name">Growth</div>
-          <div class="tier-price">RM 399<span>/mo</span></div>
-          <div class="tier-invoices">2,000 invoices + RM 0.40 overage</div>
-          <ul class="tier-features">
-            <li>15 users</li>
-            <li>10 API keys</li>
-            <li>10 webhooks</li>
-            <li>High-concurrency queue</li>
-            <li>3 private adapters</li>
-            <li>Advanced analytics</li>
-            <li>Email support (1BD)</li>
-            <li>5-year data retention</li>
-          </ul>
-          <a href="contact.html?ref=einvoice-growth" class="tier-cta">Start Trial</a>
-        </div>
-
-        <!-- Premium -->
-        <div class="pricing-card">
-          <div class="tier-name">Premium</div>
-          <div class="tier-price">RM 799<span>/mo</span></div>
-          <div class="tier-invoices">10,000 invoices/month + RM 0.30 overage <a href="#premium-notes" style="color: #6B7280; font-size: 0.85em;">①</a></div>
-          <ul class="tier-features">
-            <li>Unlimited users</li>
-            <li>Unlimited API keys</li>
-            <li>Unlimited webhook endpoints <a href="#premium-notes" style="color: #6B7280; font-size: 0.85em;">②</a></li>
-            <li>Dedicated queue worker (4 vCPU / 8 GB) <a href="#premium-notes" style="color: #6B7280; font-size: 0.85em;">③</a></li>
-            <li>Multi-entity (multiple TINs)</li>
-            <li>White-label option</li>
-            <li>SSO (SAML 2.0)</li>
-            <li>99.9% uptime target + service credits <a href="#premium-notes" style="color: #6B7280; font-size: 0.85em;">④</a></li>
-            <li>Priority support contact <a href="#premium-notes" style="color: #6B7280; font-size: 0.85em;">⑤</a></li>
-            <li>7-year data retention</li>
-          </ul>
-          <a href="contact.html?ref=einvoice-premium" class="tier-cta">Contact Us</a>
-        </div>
-
-        <!-- Custom / Enterprise -->
-        <div class="pricing-card" style="background: linear-gradient(135deg, #0f0c29 0%, #1a1640 100%); border-color: rgba(99,102,241,0.4);">
-          <div class="tier-name" style="color: #a5b4fc;">Custom</div>
-          <div class="tier-price" style="font-size: 1.6em; color: #e0e7ff;">Let's talk</div>
-          <div class="tier-invoices" style="color: #a5b4fc;">&gt;10,000 invoices/month · volume pricing</div>
-          <ul class="tier-features">
-            <li>Everything in Premium</li>
-            <li>Volume-based pricing negotiated per contract</li>
-            <li>Dedicated infrastructure allocation</li>
-            <li>Enterprise SLA with named support contact</li>
-            <li>Multi-entity across unlimited TINs</li>
-            <li>Custom data retention period</li>
-            <li>Direct LHDN escalation channel</li>
-          </ul>
-          <a href="contact.html?ref=einvoice-custom" class="tier-cta" style="background: rgba(99,102,241,0.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.4);">Get in touch →</a>
-        </div>
-
-      </div>
-
-      <!-- Premium notes -->
-      <div id="premium-notes" class="animate-on-scroll" style="background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.15); border-radius: 8px; padding: 22px 26px; margin-top: 0; margin-bottom: 20px;">
-        <p style="margin: 0 0 6px; color: #34D399; font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Premium plan — important notes</p>
-        <ul style="margin: 0; padding-left: 18px; color: #9CA3AF; font-size: 0.85em; line-height: 1.85;">
-          <li><strong style="color: #D1D5DB;">① Invoice limit &amp; overage:</strong> RM 799/month includes 10,000 invoice submissions per month. Usage above 10,000 is billed at RM 0.30 per invoice, calculated and charged at the start of the following month. If your volume consistently exceeds 10,000/month, consider the Custom plan — contact us to discuss enterprise pricing.</li>
-          <li><strong style="color: #D1D5DB;">② Webhook delivery:</strong> Unlimited endpoints, with a built-in delivery rate of up to 10 concurrent delivery jobs per tenant. Endpoints that fail 50 consecutive deliveries are automatically paused and you're notified to investigate.</li>
-          <li><strong style="color: #D1D5DB;">③ Dedicated worker spec:</strong> A fixed-spec worker node (4 vCPU / 8 GB RAM) is provisioned per account. API requests are rate-limited to 300/minute and 5,000 invoice submissions/hour to protect submission quality.</li>
-          <li><strong style="color: #D1D5DB;">④ Service credits:</strong> In the event of a downtime breach, service credits of up to one month's subscription fee (RM 799) are applied to your next billing period. Credits are the sole remedy; we do not accept liability for missed LHDN deadlines or consequential losses arising from unavailability.</li>
-          <li><strong style="color: #D1D5DB;">⑤ Priority support:</strong> A named support contact is assigned. Until our support team reaches full capacity (6+ Premium subscribers), response times may be longer than the 4-hour target for non-critical issues — we'll always communicate clearly about expected response times at onboarding.</li>
-          <li><strong style="color: #D1D5DB;">⑥ Email alerts:</strong> Certificate expiry warnings and system notifications are sent via configured SMTP. During onboarding, we help you connect your email service (SendGrid, AWS SES, or your company SMTP). Demo accounts show alerts in-dashboard only.</li>
-        </ul>
-      </div>
-
-      <!-- Overage note -->
-      <div class="animate-on-scroll" style="background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 20px 26px; margin-top: 0; margin-bottom: 40px;">
-        <p style="margin: 0; color: #9CA3AF; font-size: 0.9em; line-height: 1.7;">
-          <strong style="color: #60A5FA;">Overage billing:</strong> When you exceed your monthly invoice limit, you're charged per extra invoice (RM 0.30–0.80 depending on plan) — not blocked. Overages are automatically calculated and billed at the start of the following month via Stripe. The platform warns you at 80% and 95% of your limit so you can upgrade before you hit the ceiling.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================== INTEGRATION ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Integrations</p>
-      <h2 class="sd-section-title">Works With the Systems <span class="accent">You Already Have</span></h2>
-      <div class="sd-title-rule"></div>
-      <p class="sd-section-sub">The adapter plugin system connects to any source — no full system rewrite required.</p>
-
-      <div style="background: #121821; border: 1px solid #1F2937; border-radius: 8px; padding: 36px; margin: 36px 0;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
-          <div>
-            <div style="color: #60A5FA; font-weight: 700; margin-bottom: 8px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">POS Systems</div>
-            <p style="color: #9CA3AF; font-size: 0.9em; margin: 0; line-height: 1.65;">StoreHub, or any custom POS — push invoices via REST API or install a pre-built adapter plugin.</p>
-          </div>
-          <div>
-            <div style="color: #60A5FA; font-weight: 700; margin-bottom: 8px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">ERP / Accounting</div>
-            <p style="color: #9CA3AF; font-size: 0.9em; margin: 0; line-height: 1.65;">SQL Accounting, AutoCount, SAP, or any ERP with an export function. CSV batch upload also supported.</p>
-          </div>
-          <div>
-            <div style="color: #60A5FA; font-weight: 700; margin-bottom: 8px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">E-Commerce</div>
-            <p style="color: #9CA3AF; font-size: 0.9em; margin: 0; line-height: 1.65;">WooCommerce, Shopify, or custom checkout flows. Webhook-triggered adapter fires on every completed order.</p>
-          </div>
-          <div>
-            <div style="color: #60A5FA; font-weight: 700; margin-bottom: 8px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">Custom Systems</div>
-            <p style="color: #9CA3AF; font-size: 0.9em; margin: 0; line-height: 1.65;">Any system that can make an HTTP POST can integrate. API key authentication — no OAuth dance required.</p>
-          </div>
         </div>
       </div>
-
-    </div>
-  </section>
-
-  <!-- ===================== FAQ ===================== -->
-  <section class="sd-section sd-section--light">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Good to Know</p>
-      <h2 class="sd-section-title">Common <span class="accent">Questions</span></h2>
-      <div class="sd-title-rule"></div>
-
-      <div class="sd-faq">
-        <details class="sd-faq-item">
-          <summary>Is this platform officially approved by LHDN?</summary>
-          <div class="sd-faq-answer"><p>The platform submits invoices via the official LHDN MyInvois REST API using your business's own registered credentials and digital certificate. Each business must obtain their own LHDN intermediary authorization — the platform guides you through this during onboarding. All invoice formats follow the LHDN e-Invoice specification v1.1.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Do I need to get my own digital certificate?</summary>
-          <div class="sd-faq-answer"><p>Yes — each business TIN requires its own LHDN-approved X.509 digital certificate, obtained from an approved Certificate Authority (CA) in Malaysia. The cost is typically RM 500–2,000/year depending on the CA. Once obtained, you upload it once in your dashboard Settings. The platform handles signing every invoice automatically from then on — and alerts you 60 days before expiry.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>What happens if LHDN rejects an invoice?</summary>
-          <div class="sd-faq-answer"><p>Rejected invoices appear in your dashboard under "LHDN Rejections" with the specific error code (E1–E12) translated into plain English with a suggested fix. For example: "E7 — Tax calculation mismatch: Recalculate line-item tax amounts, check rounding." You correct the data and resubmit with one click — no need to call LHDN or decipher their documentation.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Can I manage multiple companies under one account?</summary>
-          <div class="sd-faq-answer">
-            <p>Yes — Premium plan supports multi-entity. Each entity has its own TIN, LHDN credentials, digital certificate, and submission history, all managed under one login. Useful for accounting firms handling multiple clients, or holding companies with several registered subsidiaries.</p>
-            <p>Note that the 10,000 invoice limit applies to the account total across all entities. Usage above 10,000/month is billed at RM 0.30 per invoice. If you're managing high-volume clients above this threshold, the Custom plan is the right fit — let us know at onboarding.</p>
-          </div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>How does the 10,000 invoice limit on the Premium plan work?</summary>
-          <div class="sd-faq-answer">
-            <p>Premium includes 10,000 invoice submissions per month — that's over 450 invoices every working day. For most high-volume businesses and accounting firms, this is more than sufficient.</p>
-            <p>If you exceed 10,000 in a given month, the extra invoices are billed at RM 0.30 each — you're never blocked. Overage is calculated and charged at the start of the following month. The platform notifies you at 80% and 95% of your limit so there are no surprises.</p>
-            <p>If your volume consistently exceeds 10,000/month, the <strong>Custom plan</strong> is the right fit — contact us for volume-based pricing and a dedicated enterprise contract.</p>
-          </div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>My POS system is quite old / custom built. Can it still connect?</summary>
-          <div class="sd-faq-answer"><p>Almost certainly yes. The adapter system was designed specifically for legacy and custom-built systems. If your POS can export a daily invoice file (CSV, JSON, XML) or make an HTTP POST, it can connect. For .NET systems specifically, SteadyDevs can help build a tight integration with your existing codebase.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>What is the 30-day trial and what happens after?</summary>
-          <div class="sd-faq-answer"><p>All paid plans (Starter through Premium) start with a 30-day free trial — no credit card required. During the trial your invoice limits and all features are active. At the end of 30 days, you're prompted to add a payment method to continue. If you don't, your account switches to Free tier (10 invoices/month). No invoices are deleted — your history is preserved.</p></div>
-        </details>
-        <details class="sd-faq-item">
-          <summary>Is my LHDN client secret and certificate stored securely?</summary>
-          <div class="sd-faq-answer"><p>Yes. All LHDN credentials (client ID, client secret, certificate, private key) are encrypted at rest using AES-256-GCM before being written to the database. The encryption master key is stored separately from the database. Credentials are decrypted in memory only when a submission is being made and are never exposed in API responses — the dashboard masks the secret as "••••••••".</p></div>
-        </details>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================== TECHNICAL TRANSPARENCY ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <p class="sd-eyebrow">Under the Hood</p>
-      <h2 class="sd-section-title">Platform Configuration for <span class="accent">Production Use</span></h2>
-      <div class="sd-title-rule"></div>
-
-      <div class="animate-on-scroll" style="background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 28px 32px; margin: 32px 0;">
-        <p style="color: #9CA3AF; line-height: 1.75; margin-bottom: 18px; font-size: 0.95em;">
-          <strong style="color: #60A5FA;">Technical Transparency:</strong> 
-          The platform is built on .NET 8 / ASP.NET Core 8 with EF Core, deployed on containerized infrastructure (Docker). The live demo runs on Render's free tier with SQLite and sandbox LHDN API mode for testing purposes.
-        </p>
-        <p style="color: #9CA3AF; line-height: 1.75; margin: 0; font-size: 0.95em;">
-          For production accounts, we provision PostgreSQL with proper data retention, enable production LHDN API endpoints (api.myinvois.hasil.gov.my), configure SMTP for alerts, and deploy on paid infrastructure tiers with guaranteed uptime. All production deployments include a technical onboarding session to verify your LHDN credentials and certificate setup.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================== FINAL CTA ===================== -->
-  <section class="sd-section sd-section--dark">
-    <div class="sd-inner">
-      <div class="sd-cta-band">
-        <div class="ei-hero-badge" style="margin-bottom: 18px;">Platform in Beta — Early Access Partners Welcome</div>
-        <h2>Ready to automate your LHDN submissions?</h2>
-        <p>Try the live demo first — no signup needed. When you're ready, drop us a message and we'll walk you through connecting your existing system and setting up your LHDN credentials.</p>
-        <div class="sd-hero-cta" style="justify-content: center;">
-          <a href="contact.html?ref=einvoice-cta" class="sd-btn sd-btn--primary">Request Early Access <span aria-hidden="true">→</span></a>
-          <a href="#demo" class="sd-btn sd-btn--ghost">Try Demo First</a>
-        </div>
-        <p style="color: #6B7280; font-size: 0.85em; margin-top: 20px; margin-bottom: 0;">
-          30-day free trial on all paid plans · No setup fee · Cancel any time
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="sd-footer">
-    <div class="sd-footer-inner">
-      <div class="sd-footer-brand">
-        <img src="images/SteadyDevsLogo.svg" alt="SteadyDevs">
-        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
-        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <p><a href="about.html">About</a></p>
-        <p><a href="solutions.html">Solutions</a></p>
-        <p><a href="portfolio.html">Portfolio</a></p>
-        <p><a href="blog/index.html">Blog</a></p>
-        <p><a href="contact.html">Contact</a></p>
-      </div>
-      <div>
-        <h4>Get In Touch</h4>
-        <ul class="sd-footer-contact">
-          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
-          <li>📍 Malaysia · Singapore · International</li>
-          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <a href="contact.html?ref=einvoice" class="sd-btn sd-btn--primary" style="margin-top:8px;">Request Early Access <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-    <div class="sd-footer-bottom">
-      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
-      <span>
-        <a href="pricing-terms.html" style="color:#64748b;">Pricing Terms</a>
-      </span>
     </div>
   </footer>
 
   <!-- Sticky CTA -->
   <div class="sticky-cta" id="stickyCta" style="display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap;">
-    <a href="https://einvoice-platform.onrender.com/" target="_blank" rel="noopener" style="background: #4F46E5; color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">Try Demo →</a>
-    <a href="contact.html?ref=einvoice-sticky" style="color: #60A5FA; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">Request Access →</a>
+    <a href="https://einvoice-platform.onrender.com/" target="_blank" rel="noopener" style="background: var(--system); color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">Try Demo →</a>
+    <a href="contact.html?ref=einvoice-sticky" style="color: var(--system); font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">Request Access →</a>
   </div>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top" style="z-index: 9999;">↑</button>

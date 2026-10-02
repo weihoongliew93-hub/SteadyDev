@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design="f">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -17,8 +17,13 @@
   <!-- RSS Feed -->
   <link rel="alternate" type="application/rss+xml" title="SteadyDevs Blog RSS Feed" href="https://steadydevs.com/blog/feed.xml">
   
-  <link rel="stylesheet" href="../assets/style.css?v=85">
-  <link rel="stylesheet" href="blog-styles.css?v=1">
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="../assets/f.css?v=2">
+  <link rel="stylesheet" href="../assets/f-legacy.css?v=4">
   
   <style>
     /* Override any inherited container styles */
@@ -40,13 +45,13 @@
     }
     
     .topics-header h1 {
-      color: #60A5FA;
+      color: var(--system);
       font-size: 2.5em;
       margin-bottom: 15px;
     }
     
     .topics-header p {
-      color: #9CA3AF;
+      color: var(--muted);
       font-size: 1.15em;
       max-width: 700px;
       margin: 0 auto;
@@ -54,7 +59,7 @@
     
     /* Quick Navigation */
     .quick-nav {
-      background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
       border-radius: 12px;
       padding: 30px 35px;
       margin: 40px 0;
@@ -63,7 +68,7 @@
     }
     
     .quick-nav h3 {
-      color: #60A5FA;
+      color: var(--system);
       font-size: 1.2em;
       margin: 0 0 20px 0;
       text-align: center;
@@ -76,7 +81,7 @@
     }
     
     .quick-nav-item {
-      background: #0B0F14;
+      background: var(--surface);
       border: 1px solid #2D3748;
       border-radius: 8px;
       padding: 12px 16px;
@@ -90,8 +95,8 @@
     }
     
     .quick-nav-item:hover {
-      background: #121821;
-      border-color: #3b82f6;
+      background: var(--surface);
+      border-color: var(--system);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
     }
@@ -101,12 +106,12 @@
     }
     
     .quick-nav-item .label {
-      color: #D1D5DB;
+      color: var(--text-soft);
       font-weight: 500;
     }
     
     .quick-nav-item .count {
-      color: #9CA3AF;
+      color: var(--muted);
       font-size: 0.85em;
       margin-left: auto;
     }
@@ -150,7 +155,7 @@
     }
     
     .topic-category {
-      background: linear-gradient(135deg, #1A202C 0%, #121821 100%);
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
       border-radius: 12px;
       padding: 40px;
       margin-bottom: 50px;
@@ -160,7 +165,7 @@
     }
     
     .topic-category h2 {
-      color: #60A5FA;
+      color: var(--system);
       font-size: 1.8em;
       margin-top: 0;
       margin-bottom: 12px;
@@ -174,7 +179,7 @@
     }
     
     .topic-category .category-description {
-      color: #9CA3AF;
+      color: var(--muted);
       margin-bottom: 35px;
       line-height: 1.6;
       max-width: 600px;
@@ -191,8 +196,8 @@
     }
     
     .article-item {
-      background: #0B0F14;
-      border-left: 3px solid #3b82f6;
+      background: var(--surface);
+      border-left: 3px solid var(--system);
       border-radius: 6px;
       padding: 20px 24px;
       text-decoration: none;
@@ -207,8 +212,8 @@
     .article-item:hover {
       transform: translateX(8px);
       box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
-      border-left-color: #60A5FA;
-      background: #121821;
+      border-left-color: var(--system);
+      background: var(--surface);
     }
     
     .article-item-header {
@@ -220,7 +225,7 @@
     }
     
     .article-item h3 {
-      color: #60A5FA;
+      color: var(--system);
       font-size: 1.1em;
       margin: 0;
       line-height: 1.4;
@@ -228,14 +233,14 @@
     }
     
     .article-item .article-date {
-      color: #6B7280;
+      color: var(--muted);
       font-size: 0.85em;
       white-space: nowrap;
       margin-top: 2px;
     }
     
     .article-item .article-excerpt {
-      color: #9CA3AF;
+      color: var(--muted);
       font-size: 0.9em;
       line-height: 1.6;
       margin-bottom: 12px;
@@ -248,8 +253,8 @@
     }
     
     .article-tag {
-      background: #1A202C;
-      color: #60A5FA;
+      background: var(--surface);
+      color: var(--system);
       padding: 3px 10px;
       border-radius: 4px;
       font-size: 0.75em;
@@ -336,7 +341,7 @@
 
     .topics-container { padding-top: 130px; max-width: 1040px; }
 
-    .topics-header h1 { color: #f8fafc; font-weight: 800; letter-spacing: -0.02em; }
+    .topics-header h1 { color: var(--text); font-weight: 800; letter-spacing: -0.02em; }
     .topics-header h1 .accent { color: var(--sd-blue-light); }
     .topics-header p { color: var(--sd-muted); }
 
@@ -346,7 +351,7 @@
       border: 1px solid var(--sd-border);
       box-shadow: none;
     }
-    .quick-nav h3 { color: #f1f5f9; }
+    .quick-nav h3 { color: var(--text); }
     .quick-nav-item {
       background: var(--sd-bg-2);
       border: 1px solid var(--sd-border);
@@ -356,10 +361,10 @@
       border-color: var(--sd-blue-light);
       box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
     }
-    .quick-nav-item .label { color: #e2e8f0; }
+    .quick-nav-item .label { color: var(--text); }
     .quick-nav-item .count { color: var(--sd-muted); }
 
-    .topic-category h2 { color: #f1f5f9; }
+    .topic-category h2 { color: var(--text); }
     .topic-category h2 .category-icon { color: var(--sd-blue-light); }
     .topic-category .category-description { color: var(--sd-muted); }
 
@@ -374,13 +379,13 @@
       border-left-color: var(--sd-blue-light);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
     }
-    .article-item h3 { color: #f1f5f9; }
+    .article-item h3 { color: var(--text); }
     .article-item:hover h3 { color: var(--sd-blue-light); }
-    .article-item .article-date { color: #64748b; }
+    .article-item .article-date { color: var(--muted); }
     .article-item .article-excerpt { color: var(--sd-muted); }
     .article-tag {
       background: rgba(148, 163, 184, 0.12);
-      color: #cbd5e1;
+      color: var(--text-soft);
       border: 1px solid transparent;
     }
 
@@ -401,30 +406,12 @@
   </script>
 </head>
 <body>
+  <a class="f-skip" href="#main">Skip to content</a>
   <!-- Mobile Menu Overlay -->
-  <div class="nav-overlay" id="navOverlay"></div>
-  
-  <header>
-    <div class="header-content">
-      <a href="../index.html" class="logo-link">
-        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs - Legacy .NET System Specialist Malaysia" class="site-logo">
-      </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-            <nav id="mainNav">
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../solutions.html">Solutions</a>
-        <a href="../portfolio.html">Portfolio</a>
-        <a href="index.html" class="active">Blog</a>
-        <a href="../contact.html">Contact</a>
-        <a href="../contact.html" class="nav-cta">Book Free Assessment</a>
-      </nav>
-    </div>
-  </header>
+<div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div></div>
+  <main id="main">
 
   <div class="topics-container">
     <div class="topics-header">
@@ -445,8 +432,7 @@
       <!-- Content will be generated by JavaScript -->
     </div>
     
-    <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+<button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
     
     <div class="sd-cta-band" style="margin-top: 60px;">
       <h2>Can't Find What You're Looking For?</h2>
@@ -455,39 +441,45 @@
     </div>
   </div>
 
-    <footer class="sd-footer">
-    <div class="sd-footer-inner">
-      <div class="sd-footer-brand">
-        <img src="../images/SteadyDevsLogo.svg" alt="SteadyDevs">
-        <p>We help businesses keep their critical .NET systems stable, modern and future-ready — without the risk of a full rewrite.</p>
-        <p style="font-size:0.85em; color:#64748b;">Steady Devs Solutions · SSM: 202603092285</p>
+    </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="../solutions.html">Engineering services</a></li>
+            <li><a href="../einvoice.html">EInvoice Platform</a></li>
+            <li><a href="../venue-booking.html">Venue Booking</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../portfolio.html">Case studies</a></li>
+            <li><a href="../blog/index.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="../pricing-terms.html">Pricing terms</a></li>
+            <li><a href="../my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <p><a href="../about.html">About</a></p>
-        <p><a href="../solutions.html">Solutions</a></p>
-        <p><a href="../portfolio.html">Portfolio</a></p>
-        <p><a href="index.html">Blog</a></p>
-        <p><a href="../contact.html">Contact</a></p>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
       </div>
-      <div>
-        <h4>Get In Touch</h4>
-        <ul class="sd-footer-contact">
-          <li>✉️ <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a></li>
-          <li>📍 Malaysia · Singapore · International</li>
-          <li>🔗 <a href="https://www.linkedin.com/company/steadydevs" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <a href="../contact.html" class="sd-btn sd-btn--primary" style="margin-top:8px;">Book Free Assessment <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-    <div class="sd-footer-bottom">
-      <span>&copy; 2026 Steady Devs Solutions. All rights reserved.</span>
-      <span>
-        <a href="index.html" style="color:#64748b;">All Articles</a> ·
-        <a href="topics.html" style="color:#64748b;">Browse Topics</a> ·
-        <a href="../author.html" style="color:#64748b;">About the Author</a> ·
-        <a href="../company.html" style="color:#64748b;">Company Info</a>
-      </span>
     </div>
   </footer>
 
@@ -583,7 +575,7 @@
       })
       .catch(error => {
         console.error('Error loading blog posts:', error);
-        document.getElementById('topicsContent').innerHTML = '<p style="color: #9CA3AF; text-align: center;">Unable to load topics. Please try again later.</p>';
+        document.getElementById('topicsContent').innerHTML = '<p style="color: var(--muted); text-align: center;">Unable to load topics. Please try again later.</p>';
       });
 
     function renderQuickNav(posts) {
@@ -673,7 +665,7 @@
             <h2>
               <span class="category-icon">${category.icon}</span>
               <span>${category.title}</span>
-              <span style="font-size: 0.6em; color: #9CA3AF; font-weight: normal;">(${categoryPosts.length} article${categoryPosts.length !== 1 ? 's' : ''})</span>
+              <span style="font-size: 0.6em; color: var(--muted); font-weight: normal;">(${categoryPosts.length} article${categoryPosts.length !== 1 ? 's' : ''})</span>
             </h2>
             <p class="category-description">${category.description}</p>
             <div class="articles-list">

@@ -63,24 +63,18 @@
    * Render related posts section
    */
   function renderRelatedPosts(posts) {
-    const section = document.createElement('section');
-    section.style.cssText = 'margin-top: 60px; padding: 40px 30px; background: linear-gradient(135deg, #0f1729 0%, #0a0f1a 100%); border-radius: 12px; border: 1px solid #2D3748; box-shadow: 0 4px 16px rgba(0,0,0,0.3);';
-    section.className = 'related-posts-section';
-    
-    const heading = document.createElement('h2');
-    heading.style.cssText = 'color: #60A5FA; margin-top: 0; margin-bottom: 30px; font-size: 1.6em; text-align: center;';
-    heading.textContent = '📖 Continue Reading';
+    const section = document.createElement("section");
+    section.className = "related-posts-section";
+
+    const heading = document.createElement("h2");
+    heading.className = "related-posts-title";
+    heading.textContent = "Continue reading";
     section.appendChild(heading);
-    
-    const grid = document.createElement('div');
-    grid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;';
-    grid.className = 'related-posts-grid';
-    
-    posts.forEach(post => {
-      const card = createPostCard(post);
-      grid.appendChild(card);
-    });
-    
+
+    const grid = document.createElement("div");
+    grid.className = "f-grid related-posts-grid";
+    posts.forEach(post => grid.appendChild(createPostCard(post)));
+
     section.appendChild(grid);
     container.appendChild(section);
   }
@@ -89,93 +83,45 @@
    * Create individual post card
    */
   function createPostCard(post) {
-    const card = document.createElement('a');
+    // Styled by blog-styles.css / f.css so it follows the light and dark themes.
+    const card = document.createElement("a");
     card.href = `${post.slug}.html`;
-    card.style.cssText = 'display: flex; flex-direction: column; background: #1A202C; border-radius: 10px; overflow: hidden; border: 1px solid #2D3748; text-decoration: none; transition: all 0.3s ease; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.2);';
-    
-    // Hover effects
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'translateY(-8px)';
-      card.style.boxShadow = '0 12px 24px rgba(59,130,246,0.3)';
-      card.style.borderColor = '#3b82f6';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translateY(0)';
-      card.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-      card.style.borderColor = '#2D3748';
-    });
-    
-    // Image section
+    card.className = "f-card f-card--link related-card";
+
     if (post.heroImage) {
-      const imageContainer = document.createElement('div');
-      imageContainer.style.cssText = 'width: 100%; height: 180px; overflow: hidden; background: #0B0F14;';
-      
-      const img = document.createElement('img');
+      const img = document.createElement("img");
       img.src = `../${post.heroImage}`;
       img.alt = post.heroImageAlt || post.title;
-      img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;';
-      
-      img.addEventListener('mouseenter', () => {
-        img.style.transform = 'scale(1.05)';
-      });
-      
-      img.addEventListener('mouseleave', () => {
-        img.style.transform = 'scale(1)';
-      });
-      
-      imageContainer.appendChild(img);
-      card.appendChild(imageContainer);
+      img.className = "related-card__img";
+      img.loading = "lazy";
+      card.appendChild(img);
     }
-    
-    // Content section
-    const content = document.createElement('div');
-    content.style.cssText = 'padding: 20px; display: flex; flex-direction: column; flex-grow: 1;';
-    
-    // Title
-    const title = document.createElement('h3');
-    title.style.cssText = 'color: #60A5FA; margin: 0 0 12px 0; font-size: 1.05em; line-height: 1.4; font-weight: 600;';
+
+    const title = document.createElement("h3");
+    title.className = "f-card__title related-card__title";
     title.textContent = post.title;
-    content.appendChild(title);
-    
-    // Excerpt
-    const excerpt = document.createElement('p');
-    excerpt.style.cssText = 'color: #9CA3AF; font-size: 0.88em; margin: 0 0 15px 0; line-height: 1.6; flex-grow: 1;';
-    const excerptText = post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + '...' : post.excerpt;
-    excerpt.textContent = excerptText;
-    content.appendChild(excerpt);
-    
-    // Tags
-    const tagsContainer = document.createElement('div');
-    tagsContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;';
-    
+    card.appendChild(title);
+
+    const excerpt = document.createElement("p");
+    excerpt.className = "f-card__text";
+    excerpt.textContent = post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + "..." : post.excerpt;
+    card.appendChild(excerpt);
+
+    const tags = document.createElement("div");
+    tags.className = "f-tags";
     post.sharedTags.slice(0, 2).forEach(tag => {
-      const tagSpan = document.createElement('span');
-      tagSpan.style.cssText = 'background: #0B0F14; color: #60A5FA; padding: 4px 10px; border-radius: 4px; font-size: 0.75em; border: 1px solid #2D3748;';
-      tagSpan.textContent = tag;
-      tagsContainer.appendChild(tagSpan);
+      const t = document.createElement("span");
+      t.className = "f-tag";
+      t.textContent = tag;
+      tags.appendChild(t);
     });
-    
-    content.appendChild(tagsContainer);
-    
-    // Footer with read time and CTA
-    const footer = document.createElement('div');
-    footer.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #2D3748;';
-    
-    const readTime = document.createElement('span');
-    readTime.style.cssText = 'color: #6B7280; font-size: 0.8em;';
-    readTime.textContent = post.readTime;
-    
-    const cta = document.createElement('span');
-    cta.style.cssText = 'color: #3b82f6; font-size: 0.85em; font-weight: 600;';
-    cta.textContent = 'Read article →';
-    
-    footer.appendChild(readTime);
-    footer.appendChild(cta);
-    content.appendChild(footer);
-    
-    card.appendChild(content);
-    
+    card.appendChild(tags);
+
+    const foot = document.createElement("div");
+    foot.className = "f-card__foot related-card__foot";
+    foot.innerHTML = `<span>${post.readTime}</span><span>Read article →</span>`;
+    card.appendChild(foot);
+
     return card;
   }
   
