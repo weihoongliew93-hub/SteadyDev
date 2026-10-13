@@ -1,0 +1,78 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59,130,246,0.10)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="82%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0B0F14"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- eyebrow pill -->
+  <rect x="80" y="86" width="230" height="38" rx="19" fill="rgba(59,130,246,0.12)" stroke="rgba(96,165,250,0.5)" stroke-width="1"/>
+  <text x="195" y="111" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#93C5FD" text-anchor="middle" letter-spacing="1.2">VENUE BOOKING</text>
+
+  <!-- title -->
+  <text x="80" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="50" font-weight="800" fill="#F8FAFC">
+    <tspan x="80" dy="0">The Same Slot Can</tspan>
+    <tspan x="80" dy="62">Never Be Sold Twice</tspan>
+  </text>
+
+  <!-- subtitle -->
+  <text x="80" y="345" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#94A3B8">
+    <tspan x="80" dy="0">How double-booking protection actually works</tspan>
+  </text>
+
+  <rect x="80" y="385" width="64" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <text x="80" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#E2E8F0">SteadyDevs</text>
+  <text x="80" y="586" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#64748B">Venue Booking for WordPress</text>
+
+  <!-- illustration: slot grid, one slot blocked -->
+  <g transform="translate(790,150)" filter="url(#soft)">
+    <rect x="0" y="0" width="330" height="330" rx="20" fill="#121821" stroke="rgba(96,165,250,0.35)" stroke-width="2"/>
+    <text x="24" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#64748B" letter-spacing="1">SATURDAY · BAYS 1–4</text>
+
+    <!-- row labels -->
+    <text x="24" y="86" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#64748B">09:00</text>
+    <text x="24" y="146" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#64748B">10:00</text>
+    <text x="24" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#64748B">11:00</text>
+    <text x="24" y="266" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#64748B">12:00</text>
+
+    <!-- row 1 -->
+    <rect x="76" y="66" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="136" y="66" width="52" height="34" rx="8" fill="url(#accent)"/>
+    <rect x="196" y="66" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="256" y="66" width="52" height="34" rx="8" fill="#1A2230"/>
+    <!-- row 2 -->
+    <rect x="76" y="126" width="52" height="34" rx="8" fill="url(#accent)"/>
+    <rect x="136" y="126" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="196" y="126" width="52" height="34" rx="8" fill="#1A2230" stroke="rgba(248,113,113,0.9)" stroke-width="2"/>
+    <path d="M214 135 L230 151 M230 135 L214 151" stroke="#F87171" stroke-width="3" stroke-linecap="round"/>
+    <rect x="256" y="126" width="52" height="34" rx="8" fill="#1A2230"/>
+    <!-- row 3 -->
+    <rect x="76" y="186" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="136" y="186" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="196" y="186" width="52" height="34" rx="8" fill="url(#accent)"/>
+    <rect x="256" y="186" width="52" height="34" rx="8" fill="#1A2230"/>
+    <!-- row 4 -->
+    <rect x="76" y="246" width="52" height="34" rx="8" fill="url(#accent)"/>
+    <rect x="136" y="246" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="196" y="246" width="52" height="34" rx="8" fill="#1A2230"/>
+    <rect x="256" y="246" width="52" height="34" rx="8" fill="url(#accent)"/>
+
+    <text x="24" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#F87171" font-weight="700">Bay 3 · 10:00 — second approval blocked</text>
+  </g>
+</svg>

@@ -2,103 +2,109 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://steadydevs.com/</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/index.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/solutions.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/portfolio.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/einvoice.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/pricing-terms.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/services.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/contact.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/about.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-airport-retail-pos-compliance.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://steadydevs.com/case-cloud-cost-reduction.html</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-developer-productivity-framework.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-high-volume-performance-crisis.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-offline-pos-sync-optimization.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-payment-terminal-middleware.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-pet-grooming-booking-automation.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-retail-pos-refactoring.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/case-wallhub-sales-inventory-system.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -110,19 +116,19 @@
   </url>
   <url>
     <loc>https://steadydevs.com/blog/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/blog/index.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://steadydevs.com/blog/topics.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -219,6 +225,12 @@
   <url>
     <loc>https://steadydevs.com/blog/hidden-cost-manual-invoicing-malaysian-smes.html</loc>
     <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://steadydevs.com/blog/how-double-booking-protection-works-venue-booking-plugin.html</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -377,17 +389,5 @@
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://steadydevs.com/cloud-cost-audit.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://steadydevs.com/case-cloud-cost-reduction.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

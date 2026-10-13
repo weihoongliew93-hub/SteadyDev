@@ -1,0 +1,63 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59,130,246,0.10)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="82%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0B0F14"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <rect x="80" y="86" width="230" height="38" rx="19" fill="rgba(59,130,246,0.12)" stroke="rgba(96,165,250,0.5)" stroke-width="1"/>
+  <text x="195" y="111" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#93C5FD" text-anchor="middle" letter-spacing="1.2">VENUE BOOKING</text>
+
+  <text x="80" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="50" font-weight="800" fill="#F8FAFC">
+    <tspan x="80" dy="0">Nothing Is Confirmed</tspan>
+    <tspan x="80" dy="62">Until You Say So</tspan>
+  </text>
+
+  <text x="80" y="345" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#94A3B8">
+    <tspan x="80" dy="0">Why every booking needs your approval</tspan>
+  </text>
+
+  <rect x="80" y="385" width="64" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <text x="80" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#E2E8F0">SteadyDevs</text>
+  <text x="80" y="586" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#64748B">Venue Booking for WordPress</text>
+
+  <!-- illustration: approval queue -->
+  <g transform="translate(790,140)" filter="url(#soft)">
+    <!-- pending -->
+    <rect x="0" y="0" width="330" height="96" rx="16" fill="#121821" stroke="rgba(251,191,36,0.6)" stroke-width="2"/>
+    <text x="20" y="34" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#F1F5F9">Bay 3 · Sat 10:00</text>
+    <text x="20" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94A3B8">Ahmad · 2 hrs</text>
+    <rect x="222" y="30" width="88" height="30" rx="15" fill="rgba(251,191,36,0.15)" stroke="#FBBF24" stroke-width="1.5"/>
+    <text x="266" y="50" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#FBBF24" text-anchor="middle" letter-spacing="0.8">PENDING</text>
+
+    <!-- approved -->
+    <rect x="0" y="120" width="330" height="96" rx="16" fill="#121821" stroke="rgba(74,222,128,0.6)" stroke-width="2"/>
+    <text x="20" y="154" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#F1F5F9">Court 1 · Sat 11:00</text>
+    <text x="20" y="178" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94A3B8">Mei Ling · 1 hr</text>
+    <rect x="212" y="150" width="98" height="30" rx="15" fill="rgba(74,222,128,0.15)" stroke="#4ADE80" stroke-width="1.5"/>
+    <text x="261" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#4ADE80" text-anchor="middle" letter-spacing="0.8">APPROVED</text>
+
+    <!-- rejected -->
+    <rect x="0" y="240" width="330" height="96" rx="16" fill="#121821" stroke="rgba(248,113,113,0.6)" stroke-width="2"/>
+    <text x="20" y="274" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#F1F5F9">Studio B · Sun 09:00</text>
+    <text x="20" y="298" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94A3B8">Raj · 3 hrs</text>
+    <rect x="216" y="270" width="94" height="30" rx="15" fill="rgba(248,113,113,0.15)" stroke="#F87171" stroke-width="1.5"/>
+    <text x="263" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F87171" text-anchor="middle" letter-spacing="0.8">REJECTED</text>
+  </g>
+</svg>
