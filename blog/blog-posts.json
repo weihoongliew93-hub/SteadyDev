@@ -11602,8 +11602,8 @@
         "type": "cta",
         "title": "Not Sure If Your System Is Healthy or Just Quiet?",
         "text": "SteadyDevs runs a practical health check on your system—performance trends, backup integrity, unsupported components, and single points of failure—so you know where you actually stand. Catch the problems while they're still cheap to fix.",
-        "buttonText": "Get Your FREE Health Check",
-        "buttonLink": "../contact.html"
+        "buttonText": "Book a Health Check (RM399)",
+        "buttonLink": "../contact.html?package=System%20Health%20Check"
       },
       {
         "type": "faq",

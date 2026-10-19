@@ -376,6 +376,7 @@ a.f-tag:hover { color: var(--text-strong); border-color: var(--border-strong); }
 .f-price-card--featured { border-color: var(--crimson-line); background: linear-gradient(180deg, var(--crimson-soft), var(--surface) 55%); }
 .f-price { font-size: 40px; font-weight: 600; letter-spacing: -0.03em; color: var(--text-strong); line-height: 1.1; }
 .f-price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.f-price-alt { display: block; margin-top: 6px; font-size: 14px; font-weight: 500; color: var(--faint); letter-spacing: 0; }
 .f-price--range { font-size: clamp(26px, 2.4vw, 30px); letter-spacing: -0.02em; }
 
 /* Callouts (tips, warnings, notes) */
