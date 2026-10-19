@@ -199,12 +199,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -261,18 +255,6 @@
   <url>
     <loc>https://steadydevs.com/blog/pdpa-compliance-legacy-system-malaysian-guide.html</loc>
     <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://steadydevs.com/blog/pos-vendor-acquired-shut-down-survival-guide.html</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

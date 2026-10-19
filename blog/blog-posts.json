@@ -13598,5 +13598,1370 @@
         ]
       }
     ]
+  },
+  {
+    "id": "pos-vendor-acquired-shut-down-survival-guide",
+    "title": "Your POS Vendor Got Acquired (or Shut Down): A Survival Guide",
+    "slug": "pos-vendor-acquired-shut-down-survival-guide",
+    "excerpt": "The company behind your POS or business system was bought out, pivoted, or quietly disappeared. Support emails bounce, updates stopped, and you're locked in. Here's how to assess your real exposure and protect your business—calmly and in the right order.",
+    "date": "2026-11-03",
+    "dateDisplay": "November 3, 2026",
+    "readTime": "11 min read",
+    "tags": [
+      "POS Systems",
+      "Vendor Risk",
+      "Business Continuity",
+      "Legacy Systems"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/pos-vendor-acquired-cover.svg",
+    "heroImageAlt": "Cover graphic of a POS terminal whose vendor connection has been cut, with a survival checklist",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "It usually starts small. An update that never comes. A support ticket that goes unanswered for a week, then a month. A renewal notice from a company name you don't recognise. Then the realisation: the vendor who built and ran your point-of-sale or business system has been acquired, has pivoted away from your product, or has simply shut down."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is one of the most common—and most quietly dangerous—situations a small business can face. Your system still works today, so it doesn't feel like an emergency. But the safety net under it is gone, and every day of inaction narrows your options. Here's how to handle it properly."
+      },
+      {
+        "type": "heading2",
+        "text": "First, Figure Out Which Situation You're Actually In"
+      },
+      {
+        "type": "paragraph",
+        "text": "\"My vendor is gone\" covers several very different scenarios, and your response depends on which one you're facing."
+      },
+      {
+        "type": "heading3",
+        "text": "Acquired and Still Supported"
+      },
+      {
+        "type": "paragraph",
+        "text": "Another company bought your vendor and is continuing the product. This is the least dangerous case—but watch for the slow death: price hikes, forced migrations to the acquirer's newer platform, and degrading support as the old product is wound down. You have time, but you should start planning."
+      },
+      {
+        "type": "heading3",
+        "text": "Acquired and Being Sunset"
+      },
+      {
+        "type": "paragraph",
+        "text": "The acquirer wants their platform, not yours. They'll keep the lights on briefly, then announce an end-of-life date and push you to migrate—on their timeline and their terms. You have a deadline whether or not anyone told you the date yet."
+      },
+      {
+        "type": "heading3",
+        "text": "Pivoted Away"
+      },
+      {
+        "type": "paragraph",
+        "text": "The company still exists but has moved on—different market, different product. Your system is now an orphan they no longer invest in. Support may technically exist but is hollow. Treat this like a slow shutdown."
+      },
+      {
+        "type": "heading3",
+        "text": "Genuinely Shut Down"
+      },
+      {
+        "type": "paragraph",
+        "text": "The company is gone. No support, no updates, possibly no access to your own data export tools or license servers. This is the highest-risk case and the one that demands action now—especially if the software phones home to a license server that may someday go dark."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>The license-server trap.</strong> Some POS and business systems validate their license against the vendor's server. If that server goes offline after a shutdown, your software can stop working entirely—even though it's installed on your own hardware. If you suspect this, it is the single most urgent thing to investigate."
+      },
+      {
+        "type": "heading2",
+        "text": "The 48-Hour Triage: Secure What You Have"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before you think about replacements or rewrites, lock down your position. These steps cost little and dramatically reduce your risk."
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Back up your database—now, and on a schedule.</strong> Get a full copy of your data off the machine it lives on. If you don't know how, this is the first thing to pay someone to do.",
+          "<strong>Find out where your data physically lives.</strong> Local SQL Server? A cloud database the vendor controls? If it's in the vendor's cloud, your data export options may vanish with them.",
+          "<strong>Export everything you can while you still can:</strong> customers, products, transaction history, outstanding invoices, reports. Use the system's own export features before they become unavailable.",
+          "<strong>Locate your license keys, install media, and credentials.</strong> Document admin passwords, database connection strings, and any license files. Don't leave them in one ex-employee's head.",
+          "<strong>Check for a license-server dependency</strong> (see the warning above). Find out whether the software will keep running if the vendor's servers disappear.",
+          "<strong>Stop auto-updates if the vendor is unstable.</strong> A final \"update\" from a collapsing company can do more harm than good. Freeze a known-good version."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "<strong>Owning your data is everything.</strong> A working backup you control turns a five-alarm fire into a manageable project. Without it, every other option is built on sand. Do this first, even before reading the rest of this article."
+      },
+      {
+        "type": "heading2",
+        "text": "Then Assess: How Exposed Are You Really?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Not every orphaned system is a crisis. Work through these questions honestly:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Does it still do the job?</strong> A stable system that meets your needs can run for years without the vendor—if you control the data and it has no kill switch.",
+          "<strong>Is it on supported infrastructure?</strong> Software stuck on an unsupported Windows version or an ancient SQL Server is a security and compliance problem independent of the vendor.",
+          "<strong>Do upcoming requirements need changes?</strong> E-invoicing, tax changes, or new integrations may demand updates the dead vendor can never provide.",
+          "<strong>How locked-in is the data?</strong> Open, exportable database vs. proprietary encrypted format changes everything about your options.",
+          "<strong>Who understands it?</strong> Is there documentation, source code access, or anyone who knows how it works?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The answers sort you into one of three positions: comfortable (stable system, data owned, no near-term changes needed), watchful (works now but changes are coming), or urgent (kill-switch risk, locked data, or imminent compliance needs)."
+      },
+      {
+        "type": "heading2",
+        "text": "Your Options, From Cheapest to Most Drastic"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Keep Running It—Deliberately"
+      },
+      {
+        "type": "paragraph",
+        "text": "If the system is stable, the data is yours, and there's no kill switch, \"do nothing\" is a legitimate strategy—but only as a <em>conscious decision</em> with backups and a documented fallback. Many businesses run orphaned systems productively for years this way. The danger is drifting into it by accident instead of choosing it on purpose."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Take Over Maintenance with an Independent Developer"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you have source code access (or can obtain it), an independent specialist can take over support: fix bugs, make small changes, keep it running on current infrastructure, and add compliance features like e-invoicing. This is often dramatically cheaper than replacement and keeps the system your staff already know."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Bridge It with Integration"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sometimes the core system is fine but it can't do one new thing (e-invoicing, an online ordering channel, an accounting sync). Rather than replace it, build a focused integration layer around it. The old system stays; the new capability bolts on."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Migrate to a New System—Planned, Not Panicked"
+      },
+      {
+        "type": "paragraph",
+        "text": "If the system is genuinely at the end of its life—kill switch, locked data, unsupportable—replacement is the answer. But do it as a planned migration with a clean data export and parallel running, not a weekend scramble. The worst replacements are the ones done in panic the week the old system died."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Don't let a sales rep set your timeline.</strong> A vendor going under is exactly when replacement vendors smell urgency and push expensive, rushed deals. Your job in the first weeks is to remove the urgency—secure your data and stabilise—so you can choose your next system on your terms, not theirs."
+      },
+      {
+        "type": "heading2",
+        "text": "How to Avoid This Next Time"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whatever system you end up on, build in protection so the next vendor's troubles aren't your crisis:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Insist on data portability.</strong> Before buying any system, confirm exactly how you export all your data in an open format—and test it.",
+          "<strong>Prefer systems where you control the database.</strong> Self-hosted or open-format data beats a black-box cloud you can't extract from.",
+          "<strong>Negotiate a source code escrow</strong> for custom-built systems, so code is released to you if the vendor fails.",
+          "<strong>Keep your own backups</strong> independent of the vendor, always.",
+          "<strong>Document the essentials:</strong> what the system is, where data lives, how to access it, and who to call.",
+          "<strong>Watch for warning signs:</strong> slowing updates, support delays, staff departures, and ownership changes are early signals worth taking seriously."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "A vendor disappearing feels like a catastrophe, but it's almost always a manageable project—if you act in the right order. Secure your data first. Diagnose which scenario you're actually in. Assess your real exposure honestly. Then choose the cheapest option that solves your problem, on a timeline you control."
+      },
+      {
+        "type": "paragraph",
+        "text": "The businesses that get hurt are the ones who either panic-buy a replacement under pressure or ignore the problem until a kill switch flips. You don't have to be either."
+      },
+      {
+        "type": "cta",
+        "title": "Vendor Gone? Get an Independent Assessment First.",
+        "text": "Before you replace anything, SteadyDevs can help you secure your data, check for kill-switch risks, and tell you honestly whether your orphaned system can be kept alive—usually for far less than a rushed replacement.",
+        "buttonText": "Assess My Orphaned System",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "My POS still works fine. Why should I do anything if the vendor is gone?",
+            "answer": "Because \"works fine today\" and \"protected\" are different things. Without the vendor, you have no one to fix a future bug, no support if it breaks, and possibly a license server that could one day shut it off. At minimum, secure independent backups and confirm there's no kill switch. Then you can choose to keep running it deliberately—which is fine—rather than discovering the problem at the worst possible moment."
+          },
+          {
+            "question": "How do I get the source code if the vendor shut down?",
+            "answer": "If you have a source code escrow agreement, the shutdown should trigger release—check your contract. Without one, it's harder: you may be able to negotiate with whoever acquired the assets, or with former staff. If the code is truly unrecoverable, an independent developer can often still maintain or extend a system by working with the database and compiled application, though it's more limited. This is exactly why escrow matters before you need it."
+          },
+          {
+            "question": "Is it safe to keep using software whose vendor no longer exists?",
+            "answer": "It can be, under specific conditions: you control the data with independent backups, there's no license-server kill switch, it runs on supported infrastructure, and no upcoming regulation forces a change you can't make. If any of those aren't true, the risk rises. Treat it as a deliberate decision to review periodically, not a permanent set-and-forget."
+          },
+          {
+            "question": "The acquirer is forcing me to migrate to their new platform. Do I have to?",
+            "answer": "Not necessarily on their timeline. If you own your data and your current version still runs without the vendor's servers, you may be able to stay put while you evaluate alternatives—including independent maintenance of what you have. Read the fine print on license terms and kill switches first. Don't let a forced-migration email stampede you into a deal you haven't compared."
+          },
+          {
+            "question": "How much does it cost to take over an orphaned system versus replacing it?",
+            "answer": "It varies, but taking over maintenance of a working system is frequently a fraction of full replacement cost—you're paying for stabilization and specific changes, not a ground-up rebuild plus data migration plus retraining. Replacement makes sense when the system is genuinely end-of-life. The honest answer requires looking at your specific system, which is why an independent assessment before deciding usually pays for itself."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pos-vendor-wont-support-customizations",
+    "title": "Why Your POS/ERP Vendor Won't Support Your Customizations (And What to Do About It)",
+    "slug": "pos-vendor-wont-support-customizations",
+    "excerpt": "You paid for a POS or ERP system, added essential customizations, and now the vendor refuses support. This is a common trap for Malaysian SMEs. Here's why it happens, how to avoid it, and what to do if you're already stuck.",
+    "date": "2026-11-10",
+    "dateDisplay": "November 10, 2026",
+    "readTime": "10 min read",
+    "tags": [
+      "POS Systems",
+      "ERP",
+      "Vendor Management",
+      "Customization"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/vendor-customizations-cover.svg",
+    "heroImageAlt": "Cover graphic of a standard software box with a custom module bolted on and support marked unavailable",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "\"We customized our POS system to match our business process. Now when we call for support, the vendor says our customizations void the warranty and they can't help. We're stuck.\""
+      },
+      {
+        "type": "paragraph",
+        "text": "This scenario plays out regularly across Malaysian SMEs. A business buys commercial POS or ERP software, discovers it doesn't quite fit their specific needs, pays for customizations, and then finds themselves trapped: the vendor won't support the customized system, but the business can't operate without the customizations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Here's why this happens, how to avoid the trap, and what your options are if you're already in it."
+      },
+      {
+        "type": "heading2",
+        "text": "Why Vendors Refuse to Support Customized Systems"
+      },
+      {
+        "type": "paragraph",
+        "text": "This isn't vendors being difficult—it's a legitimate technical and business problem:"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Customizations Break Standard Troubleshooting"
+      },
+      {
+        "type": "paragraph",
+        "text": "When you report a bug to a vendor, their support process assumes standard software. They've documented behavior, test cases, and known issues for the out-of-box product. Customizations invalidate all of that."
+      },
+      {
+        "type": "paragraph",
+        "text": "Is the bug in the vendor's core code or in your custom modifications? Support can't tell without understanding your customizations—which requires time and expertise they don't have budget for."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Updates Become Unsupported"
+      },
+      {
+        "type": "paragraph",
+        "text": "Software vendors release updates for bug fixes, security patches, and new features. These updates assume standard software. When customizations exist, updates can break custom code unpredictably."
+      },
+      {
+        "type": "paragraph",
+        "text": "Vendors can't test updates against every possible customization. So they declare: \"If you customize, updates are your responsibility.\" This means you either skip updates (security risk) or pay someone to retrofit customizations after each update (expensive)."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Support Costs Explode"
+      },
+      {
+        "type": "paragraph",
+        "text": "Supporting customized systems requires understanding custom code, which is different for every customer. Support time per ticket increases 3-10x. Vendors can't provide this level of support at standard pricing."
+      },
+      {
+        "type": "paragraph",
+        "text": "So they exclude customized systems from standard support contracts to avoid unpredictable support costs."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Liability Concerns"
+      },
+      {
+        "type": "paragraph",
+        "text": "If a vendor provides support guidance on a customized system and something breaks, who's responsible? The uncertainty creates legal and warranty complications vendors prefer to avoid."
+      },
+      {
+        "type": "paragraph",
+        "text": "Easiest solution from vendor perspective: \"We don't support customized systems.\""
+      },
+      {
+        "type": "heading2",
+        "text": "How Businesses Fall Into This Trap"
+      },
+      {
+        "type": "paragraph",
+        "text": "The customization trap develops through a predictable sequence:"
+      },
+      {
+        "type": "heading3",
+        "text": "Stage 1: Software Purchase"
+      },
+      {
+        "type": "paragraph",
+        "text": "Business evaluates POS/ERP systems, chooses one that's \"80% fit,\" and assumes the 20% gap can be customized. Vendor says \"yes, we can customize\" without clearly explaining support implications."
+      },
+      {
+        "type": "heading3",
+        "text": "Stage 2: Customization Implementation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Business pays RM 15,000-40,000 for customizations. System now works perfectly for their specific needs. Everything seems great."
+      },
+      {
+        "type": "heading3",
+        "text": "Stage 3: First Support Issue"
+      },
+      {
+        "type": "paragraph",
+        "text": "Six months later, something breaks. Business calls vendor support. Vendor asks: \"Is this a customized system?\" When business says yes, vendor responds: \"We can't support customized systems. Contact whoever did your customizations.\""
+      },
+      {
+        "type": "heading3",
+        "text": "Stage 4: Realization of Lock-In"
+      },
+      {
+        "type": "paragraph",
+        "text": "Business realizes they're dependent on the customization developer. If that developer is unavailable, unresponsive, or expensive, business is stuck. They can't get vendor support, and they can't maintain customizations themselves."
+      },
+      {
+        "type": "paragraph",
+        "text": "Meanwhile, business operations depend on those customizations—reverting to standard software means losing critical functionality."
+      },
+      {
+        "type": "heading2",
+        "text": "Common Customization Scenarios That Cause Problems"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Custom Reporting"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why businesses need it:</strong> Standard reports don't match how they need to analyze data. Custom reports for specific business metrics, compliance formats, or management dashboards."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why it causes problems:</strong> Custom reports query the database directly. When vendor updates database schema, custom reports break. Vendor won't fix them because they're custom code."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Workflow Modifications"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why businesses need it:</strong> Standard software has generic workflows. Businesses customize to match their specific operational process—approval chains, notification triggers, status workflows."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why it causes problems:</strong> Workflow changes modify core application logic. When vendor releases updates, conflicts emerge. Determining whether issues come from core code or custom workflow requires deep analysis."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Third-Party Integration"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why businesses need it:</strong> Need to connect POS/ERP to accounting software, e-commerce platforms, payment gateways, loyalty systems that aren't natively supported."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why it causes problems:</strong> Integrations depend on specific software versions and data formats. Vendor updates can break integration connectors. Vendor can't support the integration because they don't control the third-party system."
+      },
+      {
+        "type": "heading3",
+        "text": "4. User Interface Changes"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why businesses need it:</strong> Staff find standard UI confusing or inefficient. Customize to simplify workflows, hide unused features, add shortcuts."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why it causes problems:</strong> UI customizations modify application code directly. Vendor updates overwrite UI changes, requiring reapplication after every update."
+      },
+      {
+        "type": "heading3",
+        "text": "5. Pricing or Calculation Logic"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why businesses need it:</strong> Complex pricing rules, tier-based discounts, loyalty point calculations, commission structures not supported by standard software."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Why it causes problems:</strong> This is core business logic modification. When bugs occur, impossible to determine if they're in vendor code or custom calculation logic. Vendor refuses to touch it."
+      },
+      {
+        "type": "heading2",
+        "text": "How to Avoid the Customization Trap"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you're evaluating POS/ERP systems now, here's how to avoid this trap:"
+      },
+      {
+        "type": "heading3",
+        "text": "Strategy 1: Choose Software That Fits (Not Customize What Doesn't)"
+      },
+      {
+        "type": "paragraph",
+        "text": "If software needs heavy customization to work for your business, it's the wrong software. Better to find software that matches your needs 95%+ out-of-box, even if it costs more upfront."
+      },
+      {
+        "type": "paragraph",
+        "text": "Customization should be for edge cases, not core functionality."
+      },
+      {
+        "type": "heading3",
+        "text": "Strategy 2: Adapt Process to Software (When Reasonable)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sometimes your business process should change to match industry standard software, rather than customizing software to match your process."
+      },
+      {
+        "type": "paragraph",
+        "text": "If your process is truly unique and provides competitive advantage, customization makes sense. If it's just \"how we've always done it,\" adapting to software's standard workflow is often cheaper and more maintainable."
+      },
+      {
+        "type": "heading3",
+        "text": "Strategy 3: Use Configuration, Not Customization"
+      },
+      {
+        "type": "paragraph",
+        "text": "Good commercial software offers configuration options—settings, toggles, parameters—without code modification. Configured systems remain supportable because no code changed."
+      },
+      {
+        "type": "paragraph",
+        "text": "Prioritize configurable solutions over ones requiring code customization."
+      },
+      {
+        "type": "heading3",
+        "text": "Strategy 4: Build Custom Separately, Integrate via API"
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of customizing vendor software, build separate custom components that integrate via API. For example: use standard POS for core operations, build separate custom reporting system that pulls data via API."
+      },
+      {
+        "type": "paragraph",
+        "text": "This keeps vendor software standard (and supportable) while giving you custom functionality independently maintained."
+      },
+      {
+        "type": "heading3",
+        "text": "Strategy 5: Get Support Terms in Writing Before Customizing"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before paying for customizations, get clear written answers:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Will vendor support remain valid after customization?",
+          "Who supports custom code vs. core software?",
+          "How do updates work with customizations?",
+          "Who's responsible for fixing conflicts between updates and customizations?",
+          "What happens if customization developer becomes unavailable?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "If vendor says \"we don't support customized systems,\" know that upfront before committing."
+      },
+      {
+        "type": "heading2",
+        "text": "What to Do If You're Already Stuck"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you already have customized system without vendor support:"
+      },
+      {
+        "type": "heading3",
+        "text": "Option 1: Maintain Relationship with Customization Developer"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whoever did your customizations understands the custom code. Maintain ongoing relationship for support and updates. Budget RM 2,000-5,000/month retainer for maintenance."
+      },
+      {
+        "type": "paragraph",
+        "text": "This only works if developer is reliable and responsive. If they disappear, you're back in crisis."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 2: Document Customizations Thoroughly"
+      },
+      {
+        "type": "paragraph",
+        "text": "Get comprehensive documentation of what was customized, how it works, and how to maintain it. This allows transitioning to different developer if original becomes unavailable."
+      },
+      {
+        "type": "paragraph",
+        "text": "Also get source code for all customizations stored independently (not just on developer's machine)."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 3: Freeze Version (Skip Updates)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Stay on current software version indefinitely to avoid update conflicts. This works short-term but creates security and compatibility risks long-term."
+      },
+      {
+        "type": "paragraph",
+        "text": "Acceptable for 2-3 years, not sustainable longer than that."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 4: Reverse Customizations"
+      },
+      {
+        "type": "paragraph",
+        "text": "Remove customizations and return to standard software. Only viable if you can operate without custom functionality (adapt processes, use workarounds, build separate tools)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Painful transition but regains vendor support."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 5: Migrate to Different Software"
+      },
+      {
+        "type": "paragraph",
+        "text": "If current customized system is unmaintainable and vendor won't support it, migration might be necessary. Look for software that natively supports what you currently achieve through customization."
+      },
+      {
+        "type": "paragraph",
+        "text": "Expensive (RM 40,000-100,000+ typically) but breaks vendor lock-in."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 6: Custom-Built Replacement"
+      },
+      {
+        "type": "paragraph",
+        "text": "If your needs are truly unique and no commercial software fits, commission custom-built system. At least you control it entirely."
+      },
+      {
+        "type": "paragraph",
+        "text": "Most expensive option (RM 80,000-200,000+) but eliminates vendor dependency. Only makes sense if customization needs are extensive and no commercial alternative exists."
+      },
+      {
+        "type": "heading2",
+        "text": "Red Flags During Software Evaluation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Warning signs that customization trap is likely:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Vendor says \"yes we can customize that\" without discussing support implications",
+          "Vendor's standard software matches only 60-70% of your needs",
+          "Vendor doesn't clearly distinguish configuration vs. customization",
+          "No written policy on customization support",
+          "Vendor recommends extensive customization during sales process",
+          "Update process isn't clearly explained",
+          "Other customers report support difficulties after customizing",
+          "Vendor doesn't offer API or integration capabilities (forcing direct code modification)"
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "Questions to Ask Before Customizing"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Can this be achieved through configuration instead of customization?",
+          "Can we adapt our process instead of customizing the software?",
+          "Can this be built separately and integrated via API?",
+          "What happens to vendor support after customization?",
+          "How do updates work with customizations?",
+          "Who owns the custom code?",
+          "What's the long-term maintenance cost?",
+          "What's our exit strategy if customization becomes unmaintainable?",
+          "Have other customers with similar customizations had support problems?",
+          "Can we get source code for customizations?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "If you can't get satisfactory answers, customizing is risky."
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "Commercial software customization creates a lock-in trap: you become dependent on the customization developer while losing vendor support. You're stuck between a vendor who won't help and a developer who might not always be available."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before customizing:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Exhaust configuration options",
+          "Consider adapting process to software",
+          "Look for better-fitting alternatives",
+          "Build custom components separately via API integration",
+          "Understand exactly what you're giving up (vendor support, easy updates)"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "If you customize anyway, protect yourself:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Get everything in writing",
+          "Own the source code",
+          "Document thoroughly",
+          "Maintain developer relationship long-term",
+          "Budget for ongoing custom code maintenance"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The customizations that feel essential today often become the technical debt that limits your business tomorrow. Choose carefully."
+      },
+      {
+        "type": "cta",
+        "title": "Stuck With Unsupported Customizations?",
+        "text": "SteadyDevs can assess your customized POS/ERP situation, document existing customizations, and help you create a sustainable maintenance plan or migration strategy.",
+        "buttonText": "Get Assessment",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Can we sue the vendor for refusing support after we paid for customizations?",
+            "answer": "Depends on what your contract says. If contract explicitly excludes customized systems from support (most do), you don't have legal grounds. Before customizing, review support contract carefully. If customization support isn't guaranteed in writing, assume it won't be available."
+          },
+          {
+            "question": "What if the vendor themselves did the customizations?",
+            "answer": "Better situation than third-party customization—vendor understands their own custom work. However, vendor still faces update conflicts and support complexity. Ask whether custom work will be maintained through updates and if it's covered by standard support or requires separate maintenance contract."
+          },
+          {
+            "question": "Can AI tools help maintain customizations without the original developer?",
+            "answer": "AI can help understand custom code faster than traditional reverse-engineering, but it's not a complete substitute for human expertise. AI is a productivity tool for capable developers, not a replacement for development skill. You'll still need developer support, just potentially less of it."
+          },
+          {
+            "question": "How much should we budget for maintaining customizations long-term?",
+            "answer": "Rule of thumb: 20-30% of original customization cost annually. If customizations cost RM 30,000, budget RM 6,000-9,000/year for maintenance (fixing bugs, updating after vendor upgrades, adjusting for changing business needs). More complex customizations require higher percentage."
+          },
+          {
+            "question": "Is there a way to keep vendor support while having custom features?",
+            "answer": "Yes: API-based integration. Build custom features as separate applications that connect to vendor software via API rather than modifying vendor code. Vendor software stays standard (and supportable), while you get custom functionality independently. Costs more upfront but avoids support trap."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year-end-change-freeze-legacy-system",
+    "title": "The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)",
+    "slug": "year-end-change-freeze-legacy-system",
+    "excerpt": "December is when your systems carry the most load and your developer is hardest to reach. A short, deliberate change freeze—with the right few fixes done first—is the cheapest insurance a business running an older system can buy.",
+    "date": "2026-11-17",
+    "dateDisplay": "November 17, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "Legacy Systems",
+      "Risk Management",
+      "Retail",
+      "Maintenance"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/year-end-change-freeze-cover.svg",
+    "heroImageAlt": "Cover graphic of a December calendar with a padlock marking the change freeze window",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "For most retailers, F&B operators and distributors, the last six weeks of the year carry more transactions than any other stretch. They are also the weeks when staff take leave, suppliers close early, and the one developer who understands your system is on a plane."
+      },
+      {
+        "type": "paragraph",
+        "text": "That combination is why so many \"the system went down during the sale\" stories happen in December. Not because something new broke on its own, but because something was changed in a hurry the week before."
+      },
+      {
+        "type": "paragraph",
+        "text": "A change freeze is the simple answer: pick a date, finish the essential work before it, and stop changing production until the peak is over. Here's how to do it without freezing in the wrong things."
+      },
+      {
+        "type": "heading2",
+        "text": "Why changes are riskier in December"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Load is highest.</strong> A slow query that nobody notices in March can lock the checkout when transaction volume doubles.",
+          "<strong>Recovery is slowest.</strong> The people who can diagnose and roll back a change are least likely to be available.",
+          "<strong>The cost of downtime is highest.</strong> An hour offline on a peak Saturday is worth many ordinary weekdays.",
+          "<strong>Pressure produces shortcuts.</strong> \"Just push the promo pricing change tonight\" is how untested code reaches the till."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "None of these mean you should never touch the system in Q4. They mean the threshold for \"worth the risk\" should rise sharply as the peak approaches."
+      },
+      {
+        "type": "heading2",
+        "text": "Before the freeze: the short list worth doing"
+      },
+      {
+        "type": "paragraph",
+        "text": "The weeks before the freeze are for reducing risk, not adding features. In our experience the useful list is short:"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Prove your backup actually restores"
+      },
+      {
+        "type": "paragraph",
+        "text": "Not \"the backup job shows green\"—an actual restore onto another machine, with someone checking the data is complete. If the worst happens on 20 December, this is the thing you'll need. We've written about <a href=\"backup-restore-testing-legacy-systems.html\">why a backup isn't a backup until you've restored it</a>."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Check disk space and database growth"
+      },
+      {
+        "type": "paragraph",
+        "text": "Peak volume grows transaction tables and log files faster than usual. A database server that runs out of disk mid-December stops taking sales. Check free space, how fast it has been shrinking, and whether log files are being trimmed."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Fix the known, recurring problems"
+      },
+      {
+        "type": "paragraph",
+        "text": "If there's an error the team already works around—\"if the receipt printer hangs, restart the terminal\"—now is the time to fix it properly or at least write the workaround down where every shift can find it."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Renew anything that expires over the holidays"
+      },
+      {
+        "type": "paragraph",
+        "text": "SSL certificates, domain names, software licences, payment gateway credentials and API keys all expire on a date, and that date does not check your calendar. List them, and renew anything due before mid-January now."
+      },
+      {
+        "type": "heading3",
+        "text": "5. Get promotional configuration in early"
+      },
+      {
+        "type": "paragraph",
+        "text": "Year-end promotions, price changes and new SKUs are the most common reason for a late change. Agree the promotions early, load them before the freeze, and test them on a non-production copy."
+      },
+      {
+        "type": "tip",
+        "text": "<strong>A useful rule:</strong> if a change can't be tested and rolled back before the freeze date, it waits until January. \"We'll be careful\" is not a rollback plan."
+      },
+      {
+        "type": "heading2",
+        "text": "During the freeze: what is still allowed"
+      },
+      {
+        "type": "paragraph",
+        "text": "A freeze isn't a ban on all work. It's a ban on <em>optional</em> change. Write down what still qualifies:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Fixes for an active outage</strong> or a bug that is losing money right now.",
+          "<strong>Security patches</strong> for a vulnerability being actively exploited—applied carefully, with a rollback ready.",
+          "<strong>Data and configuration changes</strong> that have been pre-approved, such as switching on a promotion that was loaded and tested earlier."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Everything else—new reports, UI tweaks, \"while we're in there\" refactoring, version upgrades—waits. If someone asks for an exception, the question is simple: what happens if we wait until January? If the honest answer is \"nothing much,\" it waits."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Watch for the urgent-looking feature.</strong> \"The boss wants a new sales dashboard for the year-end review\" feels pressing, but it touches the same database the checkout uses. Build it in January, or build it against a copy of the data."
+      },
+      {
+        "type": "heading2",
+        "text": "Have a plan for when something breaks anyway"
+      },
+      {
+        "type": "paragraph",
+        "text": "A freeze lowers the odds of an incident; it doesn't remove them. Before the peak starts, make sure the business can answer these without a phone call to someone on leave:"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Who is on call each day of the peak period, and how do we reach them?",
+          "If the system is down, can we keep selling? Offline mode, manual receipts, a card terminal that works without the POS?",
+          "Where are the admin passwords, server addresses and vendor support numbers kept?",
+          "Who has authority to decide to roll something back?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Fifteen minutes spent writing this down in November is worth hours of panic on a crowded Saturday."
+      },
+      {
+        "type": "heading2",
+        "text": "After the peak: the change backlog"
+      },
+      {
+        "type": "paragraph",
+        "text": "Keep a running list of everything that was deferred during the freeze. In the first two weeks of January, review it calmly: some items will have turned out not to matter, and the ones that do can be scheduled, tested and released properly—when your systems and your people are under the least pressure of the year."
+      },
+      {
+        "type": "cta",
+        "title": "Want a Pre-Peak Health Check?",
+        "text": "We review backups, disk and database growth, expiring certificates and known recurring errors on older systems—so the busiest month of the year isn't the riskiest one.",
+        "buttonText": "Book a Health Check",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "When should a year-end change freeze start?",
+            "answer": "For most retail and F&B businesses, one to two weeks before trading peaks—typically late November or the first week of December—and running until the first full week of January. The exact dates matter less than agreeing them in advance and telling everyone."
+          },
+          {
+            "question": "Does a change freeze apply to SaaS tools we don't control?",
+            "answer": "You can't stop a vendor from releasing, but you can avoid switching on new features, changing integrations or migrating plans during the peak. Ask key vendors whether they run their own freeze; many do."
+          },
+          {
+            "question": "What if a security patch arrives during the freeze?",
+            "answer": "Assess it: is the vulnerability being actively exploited, and is your system exposed to it? If yes, apply it carefully with a tested rollback. If it's routine, schedule it for the first maintenance window in January."
+          },
+          {
+            "question": "We only have one developer. Is a freeze still worth it?",
+            "answer": "Even more so. With one person, every change during the peak depends on them being reachable. A freeze means their absence is an inconvenience rather than a risk."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "inherited-cloud-bill-where-money-leaks",
+    "title": "Your Cloud Bill Keeps Climbing: Six Places Inherited Cloud Setups Quietly Leak Money",
+    "slug": "inherited-cloud-bill-where-money-leaks",
+    "excerpt": "If you took over a Google Cloud or AWS account from a previous developer, you are probably paying for things nobody remembers creating. Here are the six places we most often find waste—and why cutting them blindly is how production breaks.",
+    "date": "2026-11-24",
+    "dateDisplay": "November 24, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "Cloud Costs",
+      "Google Cloud",
+      "AWS",
+      "Legacy Systems"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/cloud-bill-leaks-cover.svg",
+    "heroImageAlt": "Cover graphic of a monthly cloud bill bar chart rising each month with leak points highlighted",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Cloud accounts rarely get expensive in one go. They get expensive the way a storeroom gets full: one test server here, a snapshot \"just in case\" there, a logging setting nobody switched back. Each item is small. Together, after a year or two and a change of developer, they can make up a large share of the bill."
+      },
+      {
+        "type": "paragraph",
+        "text": "The problem is worst in <em>inherited</em> accounts—set up by an agency, a freelancer or an employee who has since moved on. The people paying the bill can't tell which resources matter, so nobody dares delete anything, and the bill only goes one way."
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are the six places we look first."
+      },
+      {
+        "type": "heading2",
+        "text": "1. Machines sized for a launch that never needed it"
+      },
+      {
+        "type": "paragraph",
+        "text": "Servers are often created large \"to be safe\" and never revisited. A virtual machine running at a small fraction of its CPU all month is a common sight. Right-sizing is usually the biggest single saving."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>CPU isn't the whole story.</strong> A machine can look idle on CPU and still need its memory. Before shrinking anything, check its memory and swap history under real load. In one of our audits, a server that had already been \"right-sized\" was killing its own database under load—the cause was a cache configured to use most of the machine's memory. You can read the details in our <a href=\"../case-cloud-cost-reduction.html\">cloud cost case study</a>."
+      },
+      {
+        "type": "heading2",
+        "text": "2. Things that are switched off but still billed"
+      },
+      {
+        "type": "paragraph",
+        "text": "Stopping a virtual machine stops the compute charge. It doesn't stop the charges for what's attached to it:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Disks</strong> from deleted or stopped servers, still billed every month.",
+          "<strong>Reserved IP addresses</strong> that aren't attached to anything—providers charge for these precisely because they're idle.",
+          "<strong>Snapshots and machine images</strong> taken before a change years ago and never cleaned up.",
+          "<strong>Load balancers</strong> pointing at nothing."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "These are usually the safest savings, because nothing running depends on them. \"Usually\" is doing some work in that sentence—confirm before deleting, especially with IP addresses that DNS records might still point to."
+      },
+      {
+        "type": "heading2",
+        "text": "3. Storage that only grows"
+      },
+      {
+        "type": "paragraph",
+        "text": "Container image registries, log buckets, backups and uploaded files grow every day and are almost never pruned. Every deploy can push a new image; every image is kept forever unless someone sets a retention rule. Lifecycle policies that move old data to cheaper storage classes, or delete it after a set period, stop the growth without touching anything live."
+      },
+      {
+        "type": "heading2",
+        "text": "4. Logging and monitoring set to \"everything\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Verbose logging is useful while debugging and expensive forever after. Debug-level logs from a busy application, ingested and retained by default, can cost more than the servers that produce them. Check what's being ingested, at what level, and how long it's kept."
+      },
+      {
+        "type": "heading2",
+        "text": "5. The wrong service for the workload"
+      },
+      {
+        "type": "paragraph",
+        "text": "Some older setups run a small API on a platform priced for always-on capacity, when a scale-to-zero service would cost a fraction for the same traffic. In the case study above, moving one API from App Engine to Cloud Run cut that line of spend by 99%, with a rollback kept ready. That kind of move is more involved than deleting a disk—but it's often where the largest structural savings sit."
+      },
+      {
+        "type": "heading2",
+        "text": "6. Leftovers nobody owns"
+      },
+      {
+        "type": "paragraph",
+        "text": "Test environments, staging copies, a proof-of-concept database, a scheduled job that exports data to a bucket nobody reads. The tell-tale sign is a resource with no label, no documentation and no one who can say what it does."
+      },
+      {
+        "type": "tip",
+        "text": "<strong>The test for \"can we delete it?\"</strong> isn't \"does anyone know what this is?\"—the honest answer is often no. It's \"what do the audit logs show using it, and do we have a snapshot and a way back if we're wrong?\""
+      },
+      {
+        "type": "heading2",
+        "text": "Why provider recommendations aren't enough"
+      },
+      {
+        "type": "paragraph",
+        "text": "Google Cloud and AWS both offer free resize suggestions. They're a good starting point, but they only see utilisation numbers. They don't know that the \"idle\" server is your month-end batch job, that a migration listed in your plan already happened, or that you're a few deploys away from a hard version limit. The savings are real; the risk is in applying them without that context."
+      },
+      {
+        "type": "heading2",
+        "text": "A safe order of operations"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Look before touching.</strong> Read-only access first. Explain every line of the bill before changing any of it.",
+          "<strong>Take the zero-risk items</strong>—unattached disks, idle IPs, stale snapshots—with confirmation and a record of what was removed.",
+          "<strong>Right-size carefully,</strong> one machine at a time, after checking memory, with a snapshot and a rollback step written down.",
+          "<strong>Set a budget alert.</strong> Costs drift back on their own. An alert at a sensible threshold catches the next leak in weeks rather than a year."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "One thing worth doing today if you're on Google Cloud: turn on detailed billing export to BigQuery. It's free, takes minutes, and only records from the day you switch it on—so every week it stays off is detail you can never recover."
+      },
+      {
+        "type": "cta",
+        "title": "Not Sure What You're Paying For?",
+        "text": "Our free cloud cost triage uses read-only access to explain your three biggest spend lines and estimate what's realistically recoverable—with an honest answer on whether it's worth going further.",
+        "buttonText": "Get a Free Triage",
+        "buttonLink": "../cloud-cost-audit.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "How much can a cloud cost review typically save?",
+            "answer": "It depends entirely on how the account has been run. Accounts that have been reviewed recently may have little to recover; inherited accounts that have never been reviewed often have substantial waste. A triage of the bill is the only honest way to estimate it for your account."
+          },
+          {
+            "question": "Is it safe to delete resources we don't recognise?",
+            "answer": "Not without checking. Look at audit logs for recent use, check whether anything references the resource (DNS records, configuration files, scheduled jobs), and take a snapshot where possible before removing it."
+          },
+          {
+            "question": "Should we buy committed-use or reserved discounts?",
+            "answer": "Only after right-sizing. Committing to a year of capacity on oversized machines locks the waste in at a discount. Clean up first, observe steady usage, then commit."
+          },
+          {
+            "question": "Do we need to give a consultant full admin access?",
+            "answer": "No. A proper review starts with read-only viewer and billing roles. Changes should only be made later, item by item, with your approval."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "peak-off-peak-pricing-fill-dead-hours-venue",
+    "title": "Peak and Off-Peak Pricing for Courts, Studios and Rooms: How to Fill the Dead Hours",
+    "slug": "peak-off-peak-pricing-fill-dead-hours-venue",
+    "excerpt": "Most venues are fully booked a few evenings a week and half-empty the rest of the time. Peak and off-peak pricing is the simplest lever for evening that out—if you set it from your own booking data rather than a guess.",
+    "date": "2026-12-01",
+    "dateDisplay": "December 1, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "Venue Booking",
+      "Pricing",
+      "Revenue",
+      "Operations"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/peak-off-peak-pricing-cover.svg",
+    "heroImageAlt": "Cover graphic of a weekly booking heatmap with busy evening slots marked peak and quiet daytime slots marked off-peak",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ask any futsal centre, badminton hall, padel club or studio owner when they're busy and the answer is the same: weekday evenings and weekend mornings. Ask when they're quiet and it's also the same: weekday afternoons and late nights."
+      },
+      {
+        "type": "paragraph",
+        "text": "The quiet hours cost almost as much to run as the busy ones. The lights, the rent and the staff are there either way. Every empty slot is revenue you can never get back—and every overbooked evening is a customer you turned away."
+      },
+      {
+        "type": "paragraph",
+        "text": "Peak and off-peak pricing doesn't create demand from nowhere. What it does is move some of it: the flexible customers who would happily play at 3pm for less, and the regulars who will pay a little more for the 8pm slot they always want."
+      },
+      {
+        "type": "heading2",
+        "text": "Start with your own numbers, not a hunch"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before changing any prices, look at what actually happens across your week. The most useful view is a simple grid: days across, hours down, each cell showing how often that slot is booked. Patterns jump out immediately."
+      },
+      {
+        "type": "paragraph",
+        "text": "What you're looking for:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Slots that are nearly always full.</strong> These are your peak candidates. If you regularly turn people away, you have room to charge more.",
+          "<strong>Slots that are nearly always empty.</strong> These are your off-peak candidates. A discount here costs you little, because the alternative is usually nothing.",
+          "<strong>The in-between slots.</strong> Leave these at the standard rate to start with."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "We covered the measures worth tracking—including revenue per available hour—in <a href=\"venue-booking-numbers-owners-should-track.html\">the five numbers every venue owner should know</a>."
+      },
+      {
+        "type": "heading2",
+        "text": "Setting the rates"
+      },
+      {
+        "type": "heading3",
+        "text": "Keep it simple"
+      },
+      {
+        "type": "paragraph",
+        "text": "Two or three price levels are plenty. Customers need to understand your pricing at a glance; a grid with seven rates feels like a trap. A typical starting point is a standard rate, a peak surcharge for the busiest evenings and weekends, and optionally an off-peak rate for the quietest daytime hours."
+      },
+      {
+        "type": "heading3",
+        "text": "Move in small steps"
+      },
+      {
+        "type": "paragraph",
+        "text": "A modest peak surcharge is easier for regulars to accept than a large one, and it's easier to raise later than to walk back. Change one thing at a time and give it a month before judging the result—weekly patterns are noisy."
+      },
+      {
+        "type": "heading3",
+        "text": "Price the slot, not the customer"
+      },
+      {
+        "type": "paragraph",
+        "text": "The fairness of peak pricing comes from applying it to <em>when</em> you book, consistently, for everyone. Publish the times clearly on your booking page so nobody discovers the surcharge at checkout."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Don't let the label and the price disagree.</strong> If your booking form says \"peak\" but staff then apply the rate by hand, mistakes and awkward conversations follow. The surcharge should be calculated automatically from the booked day and time."
+      },
+      {
+        "type": "heading2",
+        "text": "Making off-peak slots attractive"
+      },
+      {
+        "type": "paragraph",
+        "text": "A cheaper price on its own doesn't always fill an afternoon. It helps to think about who could actually come at that time:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Shift workers, students and retirees</strong> are often free during weekday daytime.",
+          "<strong>Coaches and academies</strong> may want regular block bookings for training sessions.",
+          "<strong>Corporate groups</strong> sometimes look for weekday afternoon team activities.",
+          "<strong>Regulars</strong> who play weekly may move to a quieter slot for a consistent saving."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Mention the off-peak rate wherever those people will see it—on the booking page, on your social channels, and to anyone you turn away for a full peak slot."
+      },
+      {
+        "type": "heading2",
+        "text": "Measure whether it worked"
+      },
+      {
+        "type": "paragraph",
+        "text": "After a month or two, compare against your starting grid:"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Did off-peak utilisation go up?",
+          "Did peak slots stay full at the higher rate, or did customers drop away?",
+          "Did total revenue per available hour improve?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "If peak slots are still turning people away, you have room to nudge the rate up. If they've started emptying, you've gone a little too far. Either way, you're now adjusting from evidence."
+      },
+      {
+        "type": "heading2",
+        "text": "Doing this in SteadyDevs Venue Booking"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you run your bookings on WordPress, SteadyDevs Venue Booking lets you set peak days and rates per resource, and applies them automatically when the customer books—so the price on the form is the price they pay. Its utilisation reports include a weekday-by-hour busy grid, revenue per available hour and a peak versus off-peak comparison, which is exactly the before-and-after view described above."
+      },
+      {
+        "type": "cta",
+        "title": "Try Peak Pricing on Your Own Venue",
+        "text": "SteadyDevs Venue Booking includes peak and off-peak pricing per resource and utilisation reports to show what it changed. Start a free 14-day trial—no credit card needed.",
+        "buttonText": "See Venue Booking",
+        "buttonLink": "https://steadydevs.com/venue-booking.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Will regular customers be upset by peak pricing?",
+            "answer": "Some may grumble at first, especially with a large jump. Small, clearly published surcharges applied consistently to everyone tend to be accepted—particularly when there's a cheaper off-peak option they can choose instead."
+          },
+          {
+            "question": "Should weekends be peak all day?",
+            "answer": "Not necessarily. Many venues find weekend mornings are packed while weekend late afternoons are not. Let your booking data decide rather than assuming the whole day is busy."
+          },
+          {
+            "question": "How often should we review our pricing?",
+            "answer": "Look at the numbers monthly, but change prices less often—once a quarter is reasonable. School holidays, festive seasons and the weather all shift demand, so compare like with like."
+          },
+          {
+            "question": "Is discounting off-peak slots just giving money away?",
+            "answer": "Only if those slots would have been booked at full price anyway. If your data shows they are mostly empty, a discounted booking is extra revenue rather than lost revenue."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-server-sql-server-2016-end-of-support",
+    "title": "SQL Server 2016 Support Has Ended and Windows Server 2016 Is Next: What It Means for Your Business System",
+    "slug": "windows-server-sql-server-2016-end-of-support",
+    "excerpt": "Microsoft ended extended support for SQL Server 2016 in July 2026, and Windows Server 2016 follows in January 2027. Many older POS, ERP and in-house systems run on exactly this pair. Here's what actually changes, and how to choose between paying for extra updates, upgrading or migrating.",
+    "date": "2026-12-08",
+    "dateDisplay": "December 8, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "Legacy Systems",
+      "SQL Server",
+      "Windows Server",
+      "Security"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/server-2016-end-of-support-cover.svg",
+    "heroImageAlt": "Cover graphic showing a timeline with SQL Server 2016 support ended in July 2026 and Windows Server 2016 ending in January 2027",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "A lot of business software built or installed between 2016 and 2019—point-of-sale back offices, ERP add-ons, in-house order systems—runs on the same foundation: Windows Server 2016 with SQL Server 2016 underneath."
+      },
+      {
+        "type": "paragraph",
+        "text": "That foundation is now reaching the end of its supported life. <strong>SQL Server 2016 left extended support on 14 July 2026.</strong> <strong>Windows Server 2016 leaves extended support in January 2027.</strong> If your system sits on either, this post explains what that means in practice and how to decide what to do."
+      },
+      {
+        "type": "heading2",
+        "text": "What \"end of support\" actually means"
+      },
+      {
+        "type": "paragraph",
+        "text": "First, the reassuring part: nothing switches off. Your server will boot, your database will run, and your system will keep processing transactions the day after support ends, exactly as it did the day before."
+      },
+      {
+        "type": "paragraph",
+        "text": "What stops is Microsoft's side of the arrangement:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>No more security updates</strong> for newly discovered vulnerabilities (unless you pay for Extended Security Updates—more on that below).",
+          "<strong>No bug fixes</strong> and no technical support from Microsoft.",
+          "<strong>Growing incompatibility</strong> as newer software, drivers, backup tools and security products drop support for older versions."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The risk doesn't arrive on the deadline. It grows over the following months, with each vulnerability that's found and never patched."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>The danger is the combination.</strong> An unpatched database server that is reachable from the internet, or shares a network with staff PCs that browse the web and open email, is a far more attractive target than one isolated on a locked-down internal network. Your real exposure depends as much on how the server is connected as on its version number."
+      },
+      {
+        "type": "heading2",
+        "text": "Why it matters beyond security"
+      },
+      {
+        "type": "heading3",
+        "text": "Compliance and customer requirements"
+      },
+      {
+        "type": "paragraph",
+        "text": "Unsupported software can be hard to justify when a customer, auditor, insurer or card payment provider asks how you protect data. Under Malaysia's PDPA, businesses must take practical steps to protect personal data; running an unpatched database holding customer records makes that harder to demonstrate. We covered this in <a href=\"pdpa-compliance-legacy-system-malaysian-guide.html\">our PDPA guide for legacy systems</a>."
+      },
+      {
+        "type": "heading3",
+        "text": "Integrations quietly breaking"
+      },
+      {
+        "type": "paragraph",
+        "text": "New integrations—e-invoicing connectors, payment gateways, cloud backup agents—increasingly assume modern TLS and recent database versions. Being two versions behind often shows up first as \"the new connector won't install on our server.\""
+      },
+      {
+        "type": "heading2",
+        "text": "Your three realistic options"
+      },
+      {
+        "type": "heading3",
+        "text": "Option 1: Buy Extended Security Updates (ESU)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Microsoft sells Extended Security Updates for both products, giving you critical security patches for up to three more years, purchased one year at a time. This buys time, not a solution: there are no new features and no general bug fixes, and the price rises each year by design."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Good fit when:</strong> the system is stable, a replacement or upgrade is already planned, and you need a safe bridge while it happens. Check licensing requirements carefully—ESU eligibility depends on how your licences were bought."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 2: Upgrade in place"
+      },
+      {
+        "type": "paragraph",
+        "text": "Move the database to a supported version of SQL Server and the operating system to a supported Windows Server, keeping the application itself. For many systems this is the most cost-effective route."
+      },
+      {
+        "type": "paragraph",
+        "text": "The catch is the application on top. Older software sometimes depends on deprecated database features, specific drivers or compatibility settings. The upgrade needs to be tested against a full copy of production data before anyone touches the live server."
+      },
+      {
+        "type": "tip",
+        "text": "<strong>Ask your vendor or developer one direct question:</strong> \"Has this application been tested on SQL Server 2022 and Windows Server 2022 or later?\" If nobody knows, that's the first piece of work—not the upgrade itself."
+      },
+      {
+        "type": "heading3",
+        "text": "Option 3: Migrate or replace"
+      },
+      {
+        "type": "paragraph",
+        "text": "If the application can't run on a supported platform—or the vendor that built it is gone—this is the moment to consider moving the database to a managed cloud service, or replacing the system. It's the most involved option and shouldn't be decided under deadline pressure; ESU can buy the time to do it properly."
+      },
+      {
+        "type": "heading2",
+        "text": "A sensible order of work"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Inventory.</strong> List every server and what runs on it. Check the exact versions—many businesses discover a second, forgotten server during this step.",
+          "<strong>Assess exposure.</strong> Is the server internet-facing? Who and what can reach it on the network?",
+          "<strong>Test a restore</strong> of your current database onto a supported version in a test environment. This answers the compatibility question with evidence.",
+          "<strong>Decide:</strong> upgrade, bridge with ESU while you migrate, or replace.",
+          "<strong>Schedule the cutover</strong> outside your peak trading period, with a rollback plan."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "If your system runs on both products, remember they're separate clocks: the database is already out of support, and the operating system follows in a few months."
+      },
+      {
+        "type": "cta",
+        "title": "Still Running on 2016?",
+        "text": "We assess older Windows and SQL Server systems, test the upgrade path against a copy of your real data, and tell you plainly whether to upgrade, bridge with ESU or plan a replacement.",
+        "buttonText": "Get an Assessment",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Will my system stop working when support ends?",
+            "answer": "No. The software keeps running normally. What stops is security patching and Microsoft support, so the risk grows gradually as new vulnerabilities are discovered and left unpatched."
+          },
+          {
+            "question": "How do I check which SQL Server version we're running?",
+            "answer": "Your developer or IT provider can check in seconds by running <code>SELECT @@VERSION</code> against the database. Version 13.x is SQL Server 2016. For Windows, the \"About\" page in Settings shows the edition and version."
+          },
+          {
+            "question": "Is it safe to keep running SQL Server 2016 if the server isn't on the internet?",
+            "answer": "Safer, but not safe indefinitely. Attacks often start on a staff PC and move across the internal network. Network isolation reduces risk while you plan; it doesn't replace patching."
+          },
+          {
+            "question": "Can we skip straight from 2016 to the newest versions?",
+            "answer": "Often yes—SQL Server supports restoring older databases onto newer versions. The deciding factor is whether your application works on the newer platform, which is why testing on a copy of production data comes first."
+          }
+        ]
+      }
+    ]
   }
 ]

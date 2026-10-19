@@ -242,18 +242,6 @@
       <category>Infrastructure</category>
     </item>
 
-    <item>
-      <title>Why Your POS/ERP Vendor Won't Support Your Customizations (And What to Do About It)</title>
-      <link>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</link>
-      <description>You paid for a POS or ERP system, added essential customizations, and now the vendor refuses support. This is a common trap for Malaysian SMEs. Here's why it happens, how to avoid it, and what to do if you're already stuck.</description>
-      <pubDate>Fri, 19 Jun 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/pos-vendor-wont-support-customizations.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>POS Systems</category>
-      <category>ERP</category>
-      <category>Vendor Management</category>
-      <category>Customization</category>
-    </item>
 
     <item>
       <title>LHDN E-Invoice Phase 3, 4 &amp; 5: What Small Businesses Must Do Before the Deadline (Mid-2026 Update)</title>
@@ -284,18 +272,6 @@
       <category>SME Malaysia</category>
     </item>
 
-    <item>
-      <title>Your POS Vendor Got Acquired (or Shut Down): A Survival Guide</title>
-      <link>https://steadydevs.com/blog/pos-vendor-acquired-shut-down-survival-guide.html</link>
-      <description>The company behind your POS or business system was bought out, pivoted, or quietly disappeared. Support emails bounce, updates stopped, and you're locked in. Here's how to assess your real exposure and protect your business—calmly and in the right order.</description>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/pos-vendor-acquired-shut-down-survival-guide.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>POS Systems</category>
-      <category>Vendor Risk</category>
-      <category>Business Continuity</category>
-      <category>Legacy Systems</category>
-    </item>
 
     <item>
       <title>How to Add Modern Features to a 10-Year-Old System (Without Breaking Everything)</title>
@@ -391,18 +367,6 @@
       <category>Developer Transition</category>
     </item>
 
-    <item>
-      <title>E-Invoice Mandate: What Happened to Businesses That Missed the Deadline</title>
-      <link>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</link>
-      <description>We're now deep into Malaysia's e-invoice rollout. Some businesses met their deadlines, others didn't. Here's what actually happened to the ones who missed it—the real consequences, recovery paths, and lessons learned.</description>
-      <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
-      <guid>https://steadydevs.com/blog/e-invoice-mandate-what-happened-businesses-missed-deadline.html</guid>
-      <dc:creator>SteadyDevs</dc:creator>
-      <category>E-Invoice</category>
-      <category>Compliance</category>
-      <category>Malaysia</category>
-      <category>Case Study</category>
-    </item>
 
     <item>
       <title>The Excel Trap: When Spreadsheets Cost More Than Proper Software</title>
