@@ -8,13 +8,27 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Tue, 13 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>LHDN Moves the E-Invoice Goalposts Again: RM3 Million Exemption and a 2028 Deadline</title>
+      <link>https://steadydevs.com/blog/lhdn-einvoice-rm3-million-exemption-2028-deadline.html</link>
+      <description>LHDN has raised the e-invoice exemption to RM3 million turnover, dropped the planned RM500k–RM1m phase, and extended Phase 4's relaxation to 31 December 2027. Here's what changed, who it affects, and what to do with the extra time.</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/lhdn-einvoice-rm3-million-exemption-2028-deadline.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>E-Invoice</category>
+      <category>LHDN</category>
+      <category>Compliance</category>
+      <category>Malaysia</category>
+      <category>Update</category>
+    </item>
 
     <item>
       <title>How Double-Booking Protection Actually Works in SteadyDevs Venue Booking</title>
@@ -242,11 +256,10 @@
       <category>Infrastructure</category>
     </item>
 
-
     <item>
-      <title>LHDN E-Invoice Phase 3, 4 &amp; 5: What Small Businesses Must Do Before the Deadline (Mid-2026 Update)</title>
+      <title>LHDN E-Invoice Phase 3 &amp; 4: What Small Businesses Must Do Before the Deadline (October 2026 Update)</title>
       <link>https://steadydevs.com/blog/lhdn-einvoice-phase-3-4-small-business-2026.html</link>
-      <description>The e-invoice net has reached small businesses. If your annual turnover is between RM500,000 and RM25 million, your mandatory date has either passed or is about to. Here's the current rollout schedule, what the grace period really means, and exactly what to do now.</description>
+      <description>The e-invoice mandate now covers every business turning over RM3 million or more, plus many smaller companies in larger groups. Here's the current schedule, what Phase 4's relaxation until 31 December 2027 really allows, and what to do now.</description>
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
       <guid>https://steadydevs.com/blog/lhdn-einvoice-phase-3-4-small-business-2026.html</guid>
       <dc:creator>SteadyDevs</dc:creator>
@@ -271,7 +284,6 @@
       <category>.NET</category>
       <category>SME Malaysia</category>
     </item>
-
 
     <item>
       <title>How to Add Modern Features to a 10-Year-Old System (Without Breaking Everything)</title>
@@ -366,7 +378,6 @@
       <category>Business Continuity</category>
       <category>Developer Transition</category>
     </item>
-
 
     <item>
       <title>The Excel Trap: When Spreadsheets Cost More Than Proper Software</title>

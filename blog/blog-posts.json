@@ -3147,7 +3147,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Here's the reality Malaysian SMEs need to face: <strong>Malaysia's e-invoice mandate has already rolled out in phases since August 2024</strong>. If your invoicing process is still manual Excel files and you're in the RM1M+ revenue range, you're either already non-compliant or about to be."
+        "text": "Here's the reality Malaysian SMEs need to face: <strong>Malaysia's e-invoice mandate has already rolled out in phases since August 2024</strong>. If your invoicing process is still manual Excel files and you're in the RM3M+ revenue range, you're either already non-compliant or about to be."
       },
       {
         "type": "paragraph",
@@ -3272,7 +3272,7 @@
           },
           {
             "question": "Does invoice automation help with Malaysia's e-invoice compliance requirements?",
-            "answer": "Yes, and this is increasingly important. Modern invoice automation systems can be designed to support e-invoice compliance by capturing required data fields, generating XML in the correct format, integrating with LHDN's MyInvois API, and maintaining proper audit trails. If you're automating now, you can build e-invoice compliance into the solution from the start—far easier and cheaper than retrofitting manual processes later. For businesses in the RM1M+ range, automation that includes e-invoice compliance isn't optional anymore; it's essential."
+            "answer": "Yes, and this is increasingly important. Modern invoice automation systems can be designed to support e-invoice compliance by capturing required data fields, generating XML in the correct format, integrating with LHDN's MyInvois API, and maintaining proper audit trails. If you're automating now, you can build e-invoice compliance into the solution from the start—far easier and cheaper than retrofitting manual processes later. For businesses turning over RM3M or more, automation that includes e-invoice compliance isn't optional anymore; it's essential."
           }
         ]
       }
@@ -3299,7 +3299,7 @@
     "content": [
       {
         "type": "warning",
-        "text": "<strong>Update, 19 October 2026:</strong> LHDN has changed the rules since this was written. Businesses with annual turnover under RM3 million are now exempt, and the planned Phase 5 (RM500,000 to RM1 million) will not happen. For Phase 4 (up to RM5 million), the interim relaxation now runs to 31 December 2027: consolidated e-invoices are allowed for all transactions and there is no prosecution, provided you issue them. Full enforcement starts 1 January 2028. A Special Voluntary Disclosure Programme also runs until 31 December 2027. Sources: <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">LHDN implementation timeline</a> and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a>."
+        "text": "<strong>Updated 19 October 2026</strong> for LHDN's latest changes: businesses under RM3 million are exempt (with conditions), and Phase 4's relaxation runs until 31 December 2027. Sources: <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">LHDN implementation timeline</a> and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a>."
       },
       {
         "type": "paragraph",
@@ -3311,7 +3311,7 @@
       },
       {
         "type": "paragraph",
-        "text": "If you're in the RM1M-5M revenue range, your deadline is now (with some relaxation through 2026). If you're below RM1M, you have more time—but not as much as you think. Here's what you need to know and do immediately."
+        "text": "If you're in the RM3M-5M revenue range, your mandatory date has passed and your relaxation runs until 31 December 2027. If you're below RM3M you're exempt, unless your group structure brings you back in. Here's what you need to know and do immediately."
       },
       {
         "type": "heading2",
@@ -3327,8 +3327,8 @@
           "<strong>August 2024:</strong> Large businesses with annual revenue > RM 100 million (ALREADY MANDATED)",
           "<strong>January 2025:</strong> Mid-large businesses (RM 25M – RM 100M) (ALREADY MANDATED)",
           "<strong>July 2025:</strong> Medium businesses (RM 5M – RM 25M) (ALREADY MANDATED)",
-          "<strong>January 2026:</strong> Small-medium businesses (RM 1M – RM 5M) (CURRENT WAVE with relaxation into 2026)",
-          "<strong>Below RM 1M:</strong> Currently exempt, but likely to be included in future phases"
+          "<strong>January 2026:</strong> Businesses up to RM 5M (CURRENT WAVE, relaxation until 31 December 2027)",
+          "<strong>Below RM 3M:</strong> Exempt, unless a corporate shareholder, holding company or related company turns over RM 3M or more"
         ]
       },
       {
@@ -3530,11 +3530,11 @@
       },
       {
         "type": "heading3",
-        "text": "If You're RM1M-5M Revenue"
+        "text": "If You're RM3M-5M Revenue"
       },
       {
         "type": "paragraph",
-        "text": "You're in the current wave (January 2026 mandate with relaxation through 2026). You have 3 scenarios:"
+        "text": "You're in the current wave (January 2026 mandate with relaxation until 31 December 2027). You have 3 scenarios:"
       },
       {
         "type": "list",
@@ -3546,7 +3546,7 @@
       },
       {
         "type": "heading3",
-        "text": "If You're Below RM1M Revenue"
+        "text": "If You're Below RM3M Revenue"
       },
       {
         "type": "paragraph",
@@ -3723,7 +3723,7 @@
       },
       {
         "type": "heading3",
-        "text": "If You're RM1M-5M and Haven't Started: URGENT"
+        "text": "If You're RM3M-5M and Haven't Started: URGENT"
       },
       {
         "type": "orderedList",
@@ -3733,7 +3733,7 @@
           "<strong>Month 1-2:</strong> Begin implementation with experienced developer/consultant",
           "<strong>Month 2-3:</strong> Intensive testing in sandbox environment",
           "<strong>Month 3-4:</strong> Staff training and parallel operations",
-          "<strong>By End of 2026:</strong> Full compliance before relaxation period ends"
+          "<strong>By End of 2027:</strong> Full compliance before the relaxation period ends on 31 December 2027"
         ]
       },
       {
@@ -3742,7 +3742,7 @@
       },
       {
         "type": "heading3",
-        "text": "If You're Below RM1M: PREPARE SMARTLY"
+        "text": "If You're Below RM3M: PREPARE SMARTLY"
       },
       {
         "type": "orderedList",
@@ -3782,11 +3782,11 @@
       },
       {
         "type": "paragraph",
-        "text": "If you're in the RM1M-5M range and haven't started, you're in crisis mode. You need help NOW, not next month."
+        "text": "If you're in the RM3M-5M range and haven't started, start now: monthly consolidated e-invoices are already due, even during the relaxation."
       },
       {
         "type": "paragraph",
-        "text": "If you're below RM1M, you're watching this unfold in real-time. Learn from it. Don't repeat their mistakes when your deadline comes."
+        "text": "If you're below RM3M, you're watching this unfold in real-time. Learn from it. Don't repeat their mistakes when your deadline comes."
       },
       {
         "type": "paragraph",
@@ -3803,8 +3803,8 @@
         "type": "faq",
         "items": [
           {
-            "question": "I'm RM1M-5M and haven't started yet. Am I too late?",
-            "answer": "Not too late, but you're cutting it close. With the relaxation period through 2026, you likely have 6-8 months. That's enough time IF you start immediately and work with experienced help. Don't try to DIY this under time pressure—get professional assessment and implementation this month."
+            "question": "I'm RM3M-5M and haven't started yet. Am I too late?",
+            "answer": "Not too late. With Phase 4's relaxation running until 31 December 2027, you have time to integrate properly, but monthly consolidated e-invoices are due in the meantime. Start them now, and use LHDN's voluntary disclosure programme for any months you missed. Don't try to DIY this under time pressure—get professional assessment and implementation this month."
           },
           {
             "question": "What's the biggest mistake businesses made during the rollout so far?",
@@ -3815,7 +3815,7 @@
             "answer": "Extensions are not guaranteed and depend on LHDN's discretion. Some businesses have received short extensions during the relaxation periods, but you shouldn't plan on it. Better to treat your deadline as hard and be pleasantly surprised if flexibility exists than to miss it and face penalties."
           },
           {
-            "question": "I'm below RM1M. Should I implement e-invoicing anyway?",
+            "question": "I'm below RM3M. Should I implement e-invoicing anyway?",
             "answer": "Not necessarily right now, but start preparing. Use this time to: 1) Assess your system's readiness, 2) Fix known issues before compliance pressure hits, 3) Budget for eventual implementation. If your customers are asking for e-invoices, that's a sign to implement sooner. Also watch for B2B requirements—larger customers may require e-invoices even if you're not mandated yet."
           },
           {
@@ -10297,9 +10297,9 @@
   },
   {
     "id": "lhdn-einvoice-phase-3-4-small-business-2026",
-    "title": "LHDN E-Invoice Phase 3, 4 & 5: What Small Businesses Must Do Before the Deadline (Mid-2026 Update)",
+    "title": "LHDN E-Invoice Phase 3 & 4: What Small Businesses Must Do Before the Deadline (October 2026 Update)",
     "slug": "lhdn-einvoice-phase-3-4-small-business-2026",
-    "excerpt": "The e-invoice net has reached small businesses. If your annual turnover is between RM500,000 and RM25 million, your mandatory date has either passed or is about to. Here's the current rollout schedule, what the grace period really means, and exactly what to do now.",
+    "excerpt": "The e-invoice mandate now covers every business turning over RM3 million or more, plus many smaller companies in larger groups. Here's the current schedule, what Phase 4's relaxation until 31 December 2027 really allows, and what to do now.",
     "date": "2026-06-17",
     "dateDisplay": "June 17, 2026",
     "readTime": "12 min read",
@@ -10317,11 +10317,11 @@
     "content": [
       {
         "type": "warning",
-        "text": "<strong>Update, 19 October 2026:</strong> LHDN has changed the rules since this was written. Businesses with annual turnover under RM3 million are now exempt, and the planned Phase 5 (RM500,000 to RM1 million) will not happen. For Phase 4 (up to RM5 million), the interim relaxation now runs to 31 December 2027: consolidated e-invoices are allowed for all transactions and there is no prosecution, provided you issue them. Full enforcement starts 1 January 2028. A Special Voluntary Disclosure Programme also runs until 31 December 2027. Sources: <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">LHDN implementation timeline</a> and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a>."
+        "text": "<strong>Updated 19 October 2026</strong> for LHDN's latest changes: the RM3 million exemption, the cancellation of the planned RM500,000 to RM1 million phase, and Phase 4's relaxation until 31 December 2027. Sources: <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">LHDN implementation timeline</a> and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a>."
       },
       {
         "type": "paragraph",
-        "text": "If you run a small Malaysian business and have been treating e-invoicing as \"a big-company problem,\" that assumption expired some time ago. As of mid-2026, the LHDN mandate has worked its way down to businesses with turnover as low as RM500,000—and the grace periods that softened earlier phases are running out."
+        "text": "If you run a small Malaysian business and have been treating e-invoicing as \"a big-company problem,\" check that assumption carefully. The mandate now covers every business turning over RM3 million or more, plus smaller companies that belong to a larger group, and Phase 4's grace period has a firm end date: 31 December 2027."
       },
       {
         "type": "paragraph",
@@ -10333,7 +10333,7 @@
       },
       {
         "type": "heading2",
-        "text": "Where the Rollout Stands in Mid-2026"
+        "text": "Where the Rollout Stands in Late 2026"
       },
       {
         "type": "paragraph",
@@ -10345,14 +10345,13 @@
           "<strong>Phase 1 — 1 August 2024:</strong> Annual turnover above RM100 million.",
           "<strong>Phase 2 — 1 January 2025:</strong> Annual turnover RM25 million to RM100 million.",
           "<strong>Phase 3 — 1 July 2025:</strong> Annual turnover RM5 million to RM25 million.",
-          "<strong>Phase 4 — 1 January 2026:</strong> Annual turnover RM1 million to RM5 million.",
-          "<strong>Phase 5 — 1 July 2026:</strong> Annual turnover RM500,000 to RM1 million.",
-          "<strong>Currently exempt:</strong> Businesses with annual turnover below RM500,000 (verify—this threshold has been adjusted before)."
+          "<strong>Phase 4 — 1 January 2026</strong> (1 July 2026 for some): Annual turnover up to RM5 million, with interim relaxation until 31 December 2027.",
+          "<strong>Exempt:</strong> Annual turnover below RM3 million, unless a corporate shareholder, holding company or related company turns over RM3 million or more. The previously planned RM500,000 to RM1 million phase is not going ahead."
         ]
       },
       {
         "type": "paragraph",
-        "text": "Read that again and find your band. If your turnover is RM5M–RM25M, you've been mandated since mid-2025. If you're RM1M–RM5M, your date was 1 January 2026. If you're RM500k–RM1M, you're in the newest wave starting 1 July 2026—weeks away as of this writing."
+        "text": "Find your band. RM5M–RM25M: mandated since mid-2025, and your relaxation is over. RM3M–RM5M: mandated since 1 January 2026, with relaxation until 31 December 2027. Under RM3M: exempt, unless your group structure brings you back in."
       },
       {
         "type": "heading2",
@@ -10360,7 +10359,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Each phase comes with an interim relaxation period—commonly six months from the phase start date—during which LHDN applies a softer touch. This is where most small businesses get a false sense of security."
+        "text": "Each phase comes with an interim relaxation period during which LHDN applies a softer touch. For the first three phases it lasted six months. For Phase 4 it runs until 31 December 2027. This is where most small businesses get a false sense of security."
       },
       {
         "type": "paragraph",
@@ -10369,18 +10368,19 @@
       {
         "type": "list",
         "items": [
-          "Issue <strong>consolidated e-invoices</strong> for all transactions (instead of a separate validated e-invoice per transaction), even when a buyer requests an individual one.",
-          "Avoid prosecution under Section 120 of the Income Tax Act for non-compliance, provided you're making a genuine effort.",
-          "Use the period to test, fix integrations, and train staff without immediate penalties."
+          "Issue <strong>monthly consolidated e-invoices</strong> for all transactions, including those normally excluded from consolidation, such as single sales above RM10,000.",
+          "Decline a buyer's request for an individual e-invoice, as long as you issue consolidated e-invoices.",
+          "Put any description in the product or service field, instead of listing receipt numbers.",
+          "Avoid prosecution under Section 120 of the Income Tax Act, <strong>provided</strong> you issue those consolidated e-invoices."
         ]
       },
       {
         "type": "warning",
-        "text": "<strong>The grace period is not an extension of your deadline.</strong> Your mandatory date is still your mandatory date. The relaxation only softens enforcement for roughly six months after it. For Phase 4 businesses (RM1M–RM5M) mandated 1 January 2026, that softer window closes around mid-2026—right now. After it, individual validated e-invoices on request and full compliance are expected."
+        "text": "<strong>The relaxation still has a condition.</strong> Consolidated e-invoices must be submitted every month, within seven days after the month ends. And it ends: from 1 January 2028, Phase 4 businesses must issue individual e-invoices on request and stop consolidating sales above RM10,000."
       },
       {
         "type": "paragraph",
-        "text": "If you've been quietly issuing consolidated monthly e-invoices and hoping the topic goes away, the end of your grace period is the moment that strategy stops working."
+        "text": "If you've been issuing nothing and hoping the topic goes away, you're outside the no-prosecution condition. LHDN's Special Voluntary Disclosure Programme, open until 31 December 2027, is the way back in without penalties on what you disclose."
       },
       {
         "type": "heading2",
@@ -10447,8 +10447,8 @@
       {
         "type": "list",
         "items": [
-          "<strong>Assuming you're exempt.</strong> Owners routinely underestimate turnover or forget that the threshold dropped. Check your actual figure against the current band.",
-          "<strong>Treating the grace period as the deadline.</strong> It isn't. Enforcement tightens after it.",
+          "<strong>Assuming you're exempt.</strong> The RM3 million exemption doesn't apply if a corporate shareholder, holding company or related company turns over RM3 million or more. Check your group, not just your own figure.",
+          "<strong>Treating the relaxation as nothing-required.</strong> Monthly consolidated e-invoices are still due, and full rules apply from 1 January 2028.",
           "<strong>Not collecting buyer TINs.</strong> If a B2B customer needs to claim the expense, they'll demand a proper validated e-invoice with their TIN—and your point-of-sale flow needs to capture it.",
           "<strong>Ignoring self-billed scenarios.</strong> Paying foreign suppliers or commissions can trigger self-billed e-invoice obligations people forget entirely.",
           "<strong>Leaving it to the last week.</strong> TIN issues, portal onboarding, and integration testing all take longer than expected. Surprises surface during testing, not planning.",
@@ -10468,7 +10468,7 @@
           "<strong>Estimate your monthly invoice volume</strong> and B2B vs. walk-in split. This drives which path you choose.",
           "<strong>Ask your POS/accounting vendor one direct question:</strong> \"Do you support MyInvois e-invoice submission, and what does it cost?\" Get the answer in writing.",
           "<strong>If your system can't comply and the vendor can't help,</strong> get an independent assessment before assuming you need a replacement.",
-          "<strong>Run a real test:</strong> issue and validate a live e-invoice end to end before your grace period closes—not after."
+          "<strong>Run a real test:</strong> issue and validate a live e-invoice end to end during 2027, not in the last week of December."
         ]
       },
       {
@@ -10477,11 +10477,11 @@
       },
       {
         "type": "paragraph",
-        "text": "E-invoicing is no longer coming for small businesses—it has arrived. The phases reach down to RM500,000 turnover, and the grace periods that made early phases forgiving are expiring. The businesses that struggle aren't the ones with the oldest systems; they're the ones who waited until the last week and discovered their TIN, their vendor, or their integration wasn't ready."
+        "text": "E-invoicing has arrived for every business turning over RM3 million or more, and for many smaller companies in larger groups. Phase 4's relaxation buys time until 31 December 2027, but only for businesses that keep submitting monthly. The businesses that struggle aren't the ones with the oldest systems; they're the ones who wait until the last week and discover their TIN, their vendor, or their integration wasn't ready."
       },
       {
         "type": "paragraph",
-        "text": "You have more options than panic-buying a new system. Confirm your date, pick the path that matches your volume, and test it for real before enforcement tightens."
+        "text": "You have more options than panic-buying a new system. Confirm your status, pick the path that matches your volume, and test it for real before 1 January 2028."
       },
       {
         "type": "cta",
@@ -10494,16 +10494,16 @@
         "type": "faq",
         "items": [
           {
-            "question": "My turnover is below RM500,000. Am I really exempt?",
-            "answer": "As the rollout stands, businesses below the RM500,000 threshold are currently outside the mandate—but this exemption has been adjusted before and could change. Don't treat it as permanent. Confirm on the MyInvois portal, and start collecting clean buyer data now so you're ready if the threshold drops again."
+            "question": "My turnover is below RM3 million. Am I really exempt?",
+            "answer": "Usually, but check your group. LHDN's FAQ says the exemption doesn't apply if a non-individual shareholder, your holding company, or a related company or joint venture has turnover of at least RM3 million. If your own turnover later reaches RM3 million, you must start from 1 January of the second year after that year of assessment."
           },
           {
             "question": "I missed my mandatory date. What happens now?",
-            "answer": "If you're still within your phase's interim relaxation period, you have breathing room to get compliant without prosecution—use it immediately. If the relaxation window has closed, you're exposed to penalties under the Income Tax Act. Either way, the fix is the same: get onto MyInvois (even manually via the portal) right away, then sort out proper integration. Acting now is far cheaper than waiting to be flagged."
+            "answer": "If you're in Phase 4, you're within the relaxation until 31 December 2027: start issuing monthly consolidated e-invoices now. For months you missed, LHDN's Special Voluntary Disclosure Programme, also open until 31 December 2027, lets you submit them without penalties on what you disclose. Either way, get onto MyInvois right away, even manually through the portal, then sort out proper integration."
           },
           {
             "question": "Do I need a separate e-invoice for every cash sale at my shop?",
-            "answer": "Not for ordinary walk-in customers who don't request one. You can issue a consolidated e-invoice covering those sales (typically monthly). But if a buyer asks for an individual validated e-invoice—common for businesses claiming expenses—you must be able to produce one with their TIN. Your point-of-sale process needs to handle both."
+            "answer": "Not for ordinary walk-in customers who don't request one: you issue a consolidated e-invoice covering those sales each month. During Phase 4's relaxation you may even decline individual requests if you consolidate. From 1 January 2028, if a buyer asks for an individual validated e-invoice with their TIN, you must be able to produce one."
           },
           {
             "question": "My POS vendor is gone or won't add e-invoicing. Do I have to replace the whole system?",
@@ -14967,6 +14967,570 @@
           {
             "question": "Can we skip straight from 2016 to the newest versions?",
             "answer": "Often yes—SQL Server supports restoring older databases onto newer versions. The deciding factor is whether your application works on the newer platform, which is why testing on a copy of production data comes first."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lhdn-einvoice-rm3-million-exemption-2028-deadline",
+    "title": "LHDN Moves the E-Invoice Goalposts Again: RM3 Million Exemption and a 2028 Deadline",
+    "slug": "lhdn-einvoice-rm3-million-exemption-2028-deadline",
+    "excerpt": "LHDN has raised the e-invoice exemption to RM3 million turnover, dropped the planned RM500k–RM1m phase, and extended Phase 4's relaxation to 31 December 2027. Here's what changed, who it affects, and what to do with the extra time.",
+    "date": "2026-10-19",
+    "dateDisplay": "October 19, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "E-Invoice",
+      "LHDN",
+      "Compliance",
+      "Malaysia",
+      "Update"
+    ],
+    "author": "SteadyDevs",
+    "published": true,
+    "heroImage": "images/blog/einvoice-rm3m-2028-cover.svg",
+    "heroImageAlt": "Cover graphic: e-invoice exemption raised to RM3 million, Phase 4 relaxation until 31 December 2027",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "If you've been following Malaysia's e-invoice rollout, you'll know the dates don't stay still. The latest round of changes is the biggest yet for small businesses, and most of the advice written earlier this year, including some of ours, is now out of date."
+      },
+      {
+        "type": "paragraph",
+        "text": "Three things changed. The exemption threshold went up to <strong>RM3 million</strong>. The planned phase for businesses turning over RM500,000 to RM1 million <strong>no longer exists</strong>. And Phase 4's interim relaxation now runs to <strong>31 December 2027</strong>, which means full enforcement for those businesses starts on 1 January 2028."
+      },
+      {
+        "type": "warning",
+        "text": "Sources: LHDN's <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">e-Invoice implementation timeline</a> (updated 30 August 2026), the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a> (7 September 2026) and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf\">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent."
+      },
+      {
+        "type": "heading2",
+        "text": "The Schedule as It Stands Now"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Above RM100 million:</strong> mandatory from 1 August 2024. Relaxation ended 31 January 2025.",
+          "<strong>RM25 million to RM100 million:</strong> mandatory from 1 January 2025. Relaxation ended 30 June 2025.",
+          "<strong>RM5 million to RM25 million:</strong> mandatory from 1 July 2025. Relaxation ended 31 December 2025.",
+          "<strong>Up to RM5 million (Phase 4):</strong> mandatory from 1 January 2026, or 1 July 2026 for some businesses. Relaxation runs until 31 December 2027.",
+          "<strong>Below RM3 million:</strong> exempt, subject to conditions covered below."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "In practice, the businesses that must e-invoice now are those turning over RM3 million or more, plus some smaller ones that don't qualify for the exemption."
+      },
+      {
+        "type": "heading2",
+        "text": "Who Is Actually Exempt"
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN's FAQ says taxpayers of every type, from sole proprietors to companies and cooperatives, are exempt if their annual turnover or revenue is below RM3 million. But the exemption has conditions that catch many small companies out. It does <strong>not</strong> apply if your business:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "has a non-individual shareholder (or equivalent) with annual turnover or revenue of at least RM3 million;",
+          "is a subsidiary of a holding company with annual turnover or revenue of at least RM3 million; or",
+          "has a related company or joint venture with annual turnover or revenue of at least RM3 million."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN's own example is a subsidiary with RM400,000 in revenue. Because its parent is required to e-invoice, the subsidiary must implement from 1 July 2026, the concessionary date, despite being far below RM3 million."
+      },
+      {
+        "type": "heading2",
+        "text": "What Happens When You Grow Past RM3 Million"
+      },
+      {
+        "type": "paragraph",
+        "text": "Crossing the threshold doesn't make you liable immediately. According to the FAQ, you must implement e-invoicing from <strong>1 January of the second year</strong> after the year of assessment in which your turnover reached RM3 million. LHDN's example: a company that passed RM3 million in 2026 must start on 1 January 2028."
+      },
+      {
+        "type": "paragraph",
+        "text": "Turnover is taken from your audited financial statements where you have them, or from the revenue in your tax return where you don't."
+      },
+      {
+        "type": "heading2",
+        "text": "What the Relaxation Lets Phase 4 Businesses Do"
+      },
+      {
+        "type": "paragraph",
+        "text": "Until 31 December 2027, Phase 4 businesses that aren't ready to issue an e-invoice per transaction may issue <strong>monthly consolidated e-invoices for everything</strong>, including transactions that normally can't be consolidated. LHDN won't prosecute under section 120 of the Income Tax Act during this period, provided those consolidated e-invoices are issued. We cover the details in our guide to the relaxation period."
+      },
+      {
+        "type": "tip",
+        "text": "The relaxation isn't a holiday. Consolidated e-invoices must still be submitted <strong>monthly</strong>, not once at the end. A business that issues nothing until 2028 isn't covered by the no-prosecution promise."
+      },
+      {
+        "type": "heading2",
+        "text": "There's Also a Way to Fix Past Gaps"
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN has opened an <strong>e-Invoice Special Voluntary Disclosure Programme (SVDP)</strong>, running from 7 July 2026 to 31 December 2027. Businesses that missed submissions or submitted e-invoices with errors can correct them without compliance reviews or penalties on what they disclose. No registration is needed. We explain how it works in a separate post."
+      },
+      {
+        "type": "heading2",
+        "text": "What to Do With the Extra Time"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Work out which group you're in.</strong> Check your turnover and your shareholders, parent and related companies against the RM3 million test, not just your own revenue.",
+          "<strong>If you're Phase 4, make sure monthly consolidated e-invoices are going out.</strong> That's the condition for the no-prosecution promise.",
+          "<strong>Use 2027 to get transaction-level e-invoicing working.</strong> From 1 January 2028 the normal rules apply, including individual e-invoices on request and no consolidation for sales above RM10,000.",
+          "<strong>If you've already slipped, use the SVDP before 31 December 2027.</strong>",
+          "<strong>If you're exempt but your customers are large companies, expect to be asked anyway.</strong> Big buyers need validated e-invoices to support their own expense claims, and voluntary adoption is allowed."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Want E-Invoicing Handled Without the Guesswork?",
+        "text": "Our MyInvois platform validates every invoice against LHDN's rules before submission, consolidates monthly, and warns you before the 7th-of-the-month cut-off. From RM29/month, no contract, and you can export all your data any time.",
+        "buttonText": "See the E-Invoice Platform",
+        "buttonLink": "../einvoice.html"
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "For many small businesses the deadline has moved further away, and for those under RM3 million it has gone altogether. But the exemption is narrower than it looks, the relaxation still requires monthly submissions, and January 2028 will arrive faster than it seems. The businesses that use this time to get their systems ready will have the calmest 2028."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "My turnover is RM2 million. Am I exempt?",
+            "answer": "Probably, unless a shareholder that is a company, your holding company, or a related company or joint venture has turnover of at least RM3 million. If any of those apply, the exemption doesn't, and LHDN's FAQ treats you as implementing from 1 July 2026."
+          },
+          {
+            "question": "When does Phase 4 enforcement start?",
+            "answer": "The interim relaxation for businesses with turnover up to RM5 million runs until 31 December 2027, so the normal rules and penalties apply from 1 January 2028."
+          },
+          {
+            "question": "Is the RM500,000 to RM1 million phase still happening?",
+            "answer": "No. With the exemption now at RM3 million, there is no separate phase for that band."
+          },
+          {
+            "question": "Can an exempt business still issue e-invoices?",
+            "answer": "Yes. LHDN's FAQ says businesses that are ready may implement earlier than their timeline, and many will be asked to by larger customers."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "einvoice-rm3-million-exemption-who-still-must-comply",
+    "title": "Under RM3 Million but Not Exempt: The E-Invoice Rule Catching Small Companies Out",
+    "slug": "einvoice-rm3-million-exemption-who-still-must-comply",
+    "excerpt": "The RM3 million e-invoice exemption sounds simple, but it doesn't apply to subsidiaries, companies with corporate shareholders, or businesses with large related companies. Here's how to check whether you really qualify.",
+    "date": "2026-10-23",
+    "dateDisplay": "October 23, 2026",
+    "readTime": "6 min read",
+    "tags": [
+      "E-Invoice",
+      "LHDN",
+      "Compliance",
+      "SME Malaysia"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/einvoice-exemption-check-cover.svg",
+    "heroImageAlt": "Cover graphic: checking whether a business under RM3 million is really exempt from e-invoicing",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "When LHDN raised the e-invoice exemption to RM3 million, a lot of small business owners relaxed. If you turn over less than that, the reasoning goes, e-invoicing isn't your problem."
+      },
+      {
+        "type": "paragraph",
+        "text": "For many businesses that's right. But the exemption comes with conditions, and they're exactly the conditions that apply to small companies that are part of a larger group. If yours is one of them, you may have been required to e-invoice since <strong>1 July 2026</strong>."
+      },
+      {
+        "type": "warning",
+        "text": "Sources: LHDN's <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">e-Invoice implementation timeline</a> (updated 30 August 2026), the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a> (7 September 2026) and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf\">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent."
+      },
+      {
+        "type": "heading2",
+        "text": "The Three Conditions That Cancel the Exemption"
+      },
+      {
+        "type": "paragraph",
+        "text": "According to LHDN's FAQ, the RM3 million exemption does not apply to a taxpayer that:"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Has a non-individual shareholder with turnover of at least RM3 million.</strong> If a company, rather than a person, owns shares in your business and that company turns over RM3 million or more, you don't qualify.",
+          "<strong>Is a subsidiary of a holding company with turnover of at least RM3 million.</strong>",
+          "<strong>Has a related company or joint venture with turnover of at least RM3 million.</strong> \"Related company\" follows the definition in the Promotion of Investments Act 1986."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN's own example makes the point. A subsidiary with RM400,000 in annual revenue doesn't qualify, because its parent is required to e-invoice. It must implement from 1 July 2026, the concessionary implementation date."
+      },
+      {
+        "type": "heading2",
+        "text": "Who This Usually Catches"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Small operating companies inside a family group</strong>, where a larger trading or holding company owns the shares.",
+          "<strong>New ventures set up by an established business</strong>, such as a second brand, outlet or service arm.",
+          "<strong>Joint ventures</strong> where one partner is a substantial company.",
+          "<strong>Franchise or distribution companies</strong> owned by, or related to, a larger principal."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "A quick test: look at your company's shareholder register. If any shareholder is a company rather than a person, check that company's turnover before assuming you're exempt."
+      },
+      {
+        "type": "heading2",
+        "text": "How Turnover Is Measured"
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN uses the turnover or revenue in the statement of comprehensive income of your audited financial statements. If you don't have audited accounts, it uses the revenue declared in your tax return for the relevant year of assessment."
+      },
+      {
+        "type": "heading2",
+        "text": "If You Grow Past RM3 Million"
+      },
+      {
+        "type": "paragraph",
+        "text": "An exempt business that later reaches RM3 million must implement from <strong>1 January of the second year</strong> after the year of assessment in which it crossed the threshold. LHDN's example is a company that passed RM3 million in 2026 and must start on 1 January 2028. That's useful notice, but only if someone is watching the number."
+      },
+      {
+        "type": "heading2",
+        "text": "If You've Discovered You Weren't Exempt"
+      },
+      {
+        "type": "paragraph",
+        "text": "Don't panic, and don't ignore it. If you fall within Phase 4, the interim relaxation until 31 December 2027 lets you issue monthly consolidated e-invoices for all transactions. Past months you missed can be regularised through the e-Invoice Special Voluntary Disclosure Programme, which runs until 31 December 2027 and needs no registration."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Confirm your status with your tax agent, using your group structure, not just your own revenue.",
+          "Start issuing monthly consolidated e-invoices from the current month.",
+          "Use the SVDP to submit the months you missed, one consolidated e-invoice per month.",
+          "Plan for transaction-level e-invoicing before 1 January 2028."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Want E-Invoicing Handled Without the Guesswork?",
+        "text": "Our MyInvois platform validates every invoice against LHDN's rules before submission, consolidates monthly, and warns you before the 7th-of-the-month cut-off. From RM29/month, no contract, and you can export all your data any time.",
+        "buttonText": "See the E-Invoice Platform",
+        "buttonLink": "../einvoice.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "I'm a sole proprietor under RM3 million. Am I exempt?",
+            "answer": "Generally yes. The group conditions are about corporate shareholders, holding companies and related companies, which a sole proprietorship usually doesn't have. LHDN's FAQ uses a sole proprietor below RM3 million as its example of an exempt business."
+          },
+          {
+            "question": "Does a director's personal shareholding count?",
+            "answer": "The condition refers to non-individual shareholders, meaning companies and similar entities. Individual shareholders don't remove the exemption under that rule."
+          },
+          {
+            "question": "We're under RM3 million but our customers keep asking for e-invoices. Can we issue them?",
+            "answer": "Yes. Voluntary adoption is allowed, and it's often the practical answer when larger customers need validated e-invoices for their own records."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "einvoice-interim-relaxation-2027-what-you-can-do",
+    "title": "E-Invoice Relaxation Until 2027: What Phase 4 Businesses Can and Can't Do",
+    "slug": "einvoice-interim-relaxation-2027-what-you-can-do",
+    "excerpt": "Phase 4 businesses have until 31 December 2027 before full e-invoice enforcement. The relaxation is generous, but it has conditions. Here's exactly what it allows, what it still requires, and how to use it well.",
+    "date": "2026-10-30",
+    "dateDisplay": "October 30, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "E-Invoice",
+      "LHDN",
+      "Compliance",
+      "MyInvois",
+      "SME Malaysia"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/einvoice-relaxation-2027-cover.svg",
+    "heroImageAlt": "Cover graphic: Phase 4 e-invoice interim relaxation until 31 December 2027",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "If your business turns over up to RM5 million and you're not exempt, you're in Phase 4 of Malaysia's e-invoice mandate. Your implementation date was 1 January 2026, or 1 July 2026 for some, and you now have an <strong>interim relaxation period until 31 December 2027</strong>."
+      },
+      {
+        "type": "paragraph",
+        "text": "The relaxation is often described as a grace period, which makes it sound like nothing is required yet. That's not quite right. It's a simpler way to comply, with one condition you can't skip."
+      },
+      {
+        "type": "warning",
+        "text": "Sources: LHDN's <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">e-Invoice implementation timeline</a> (updated 30 August 2026), the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a> (7 September 2026) and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf\">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent."
+      },
+      {
+        "type": "heading2",
+        "text": "What the Relaxation Allows"
+      },
+      {
+        "type": "paragraph",
+        "text": "Section 16.2 of LHDN's e-Invoice Specific Guideline lets taxpayers in the relaxation period:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Issue consolidated e-invoices for all activities and transactions</strong>, including the industries and transaction types normally barred from consolidation, such as single sales above RM10,000.",
+          "<strong>Issue consolidated self-billed e-invoices</strong> for every self-billing situation.",
+          "<strong>Put any description in the \"Description of Product or Service\" field</strong>, instead of the receipt or bill reference numbers normally required.",
+          "<strong>Decline a request for an individual e-invoice</strong> from a buyer, or an individual self-billed e-invoice from a supplier, as long as consolidated e-invoices are issued."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "In return, section 16.3 says LHDN won't prosecute under section 120 of the Income Tax Act for non-compliance with e-invoice requirements during the relaxation, <strong>provided</strong> you issue those consolidated e-invoices."
+      },
+      {
+        "type": "heading2",
+        "text": "What It Still Requires"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Monthly submission.</strong> LHDN's FAQ is explicit: consolidated e-invoices must be issued monthly, following the normal timing rules for consolidation, not once at the end of the period.",
+          "<strong>All your transactions, every month.</strong> If you later find transactions left out of a consolidated e-invoice, you need to correct it. The FAQ points to the voluntary disclosure programme for this.",
+          "<strong>Correct submissions.</strong> A consolidated e-invoice still has to pass MyInvois validation."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "Consolidated e-invoices for a month are normally due within seven days after the month ends. Treat the 7th as a fixed monthly deadline in your calendar or your system."
+      },
+      {
+        "type": "heading2",
+        "text": "What You Don't Have to Do"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Share consolidated e-invoices with buyers.</strong> The FAQ says validated consolidated e-invoices don't need to be shared with buyers, and consolidated self-billed ones don't need to be shared with suppliers.",
+          "<strong>List receipt numbers</strong> in the description field."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "You Can Choose Not to Use It"
+      },
+      {
+        "type": "paragraph",
+        "text": "The relaxation is for businesses whose systems aren't ready yet. LHDN's FAQ confirms that if your system can already issue individual e-invoices for each transaction, you may follow the full rules instead. Many businesses selling to larger customers will want to, because those customers need individual e-invoices to support their own expenses."
+      },
+      {
+        "type": "heading2",
+        "text": "How to Use the Time Well"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Now:</strong> make sure a monthly consolidated e-invoice goes out by the 7th, every month. This is what keeps you inside the no-prosecution condition.",
+          "<strong>Early 2027:</strong> get your POS, accounting or invoicing system producing the data MyInvois needs per transaction: buyer TIN and identification, classification codes and tax details.",
+          "<strong>Mid 2027:</strong> run transaction-level e-invoicing in parallel and fix rejections while mistakes are cheap.",
+          "<strong>By December 2027:</strong> switch over fully, so 1 January 2028 is a normal working day."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Running an Older System That Can't Talk to MyInvois?",
+        "text": "We connect legacy .NET, SQL Server and custom POS systems to MyInvois without a rebuild. Get an honest view of what your system needs and what it costs.",
+        "buttonText": "Talk to Us",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "heading2",
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "The relaxation buys Phase 4 businesses more than a year, and it makes compliance much simpler in the meantime. But it only protects businesses that keep submitting monthly consolidated e-invoices, and from 1 January 2028 the full rules apply. Use 2027 to get ready, not to wait."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Can I submit nothing until December 2027 and catch up then?",
+            "answer": "No. LHDN's FAQ says consolidated e-invoices must be issued monthly during the relaxation. The no-prosecution condition depends on issuing them."
+          },
+          {
+            "question": "A buyer asked for an individual e-invoice. Must I issue one?",
+            "answer": "During the relaxation, section 16.2(d) lets you decline, provided you issue consolidated e-invoices. You may still choose to issue one if your system can."
+          },
+          {
+            "question": "Does the RM10,000 consolidation limit apply during the relaxation?",
+            "answer": "Section 16.2(a) allows consolidated e-invoices for all transactions, including those normally excluded under section 3.7, which is where the rule on single transactions above RM10,000 sits. It applies again from 1 January 2028."
+          },
+          {
+            "question": "I left some sales out of an earlier consolidated e-invoice. What now?",
+            "answer": "LHDN's FAQ suggests either a credit note and a new, complete consolidated e-invoice for that period, or a separate consolidated e-invoice for the omitted transactions, through the voluntary disclosure programme."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "einvoice-svdp-voluntary-disclosure-fix-past-mistakes",
+    "title": "The E-Invoice Voluntary Disclosure Programme: How to Fix Past Mistakes Before 2028",
+    "slug": "einvoice-svdp-voluntary-disclosure-fix-past-mistakes",
+    "excerpt": "Missed e-invoice submissions or sent ones with errors? LHDN's Special Voluntary Disclosure Programme lets you correct them without penalties until 31 December 2027. Here's how it works and the details that trip people up.",
+    "date": "2026-11-06",
+    "dateDisplay": "November 6, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "E-Invoice",
+      "LHDN",
+      "Compliance",
+      "MyInvois"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/einvoice-svdp-cover.svg",
+    "heroImageAlt": "Cover graphic: LHDN e-Invoice Special Voluntary Disclosure Programme until 31 December 2027",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Almost every business that has gone live with e-invoicing has a month it would rather forget. A consolidated e-invoice that went out late, or not at all. A batch with the wrong classification code. Buyer addresses that were never complete."
+      },
+      {
+        "type": "paragraph",
+        "text": "LHDN has given businesses a clean way to put that right. The <strong>e-Invoice Special Voluntary Disclosure Programme (SVDP)</strong> runs from <strong>7 July 2026 to 31 December 2027</strong>. Under it, LHDN won't carry out compliance reviews or impose penalties or prosecution on the e-invoices you disclose."
+      },
+      {
+        "type": "warning",
+        "text": "Sources: LHDN's <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">e-Invoice implementation timeline</a> (updated 30 August 2026), the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a> (7 September 2026) and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf\">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent."
+      },
+      {
+        "type": "heading2",
+        "text": "Who It's For"
+      },
+      {
+        "type": "paragraph",
+        "text": "Section 17 of the e-Invoice Specific Guideline covers taxpayers who:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "didn't submit, or missed submitting, e-invoices for any period since their mandatory date;",
+          "submitted e-invoices that contain errors or don't meet the specifications;",
+          "haven't submitted any e-invoices at all since their mandatory date; or",
+          "are undergoing, or have been told they will undergo, an LHDN e-invoice compliance review."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "How It Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>There's no registration or application.</strong> You take part simply by correcting the non-compliance within the programme period, in the way LHDN specifies:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>For e-invoices with errors:</strong> issue a credit note e-invoice to reverse the incorrect one, then issue a new e-invoice with the correct details. LHDN's FAQ gives the example of a bookstore that used a default classification code and corrects it this way.",
+          "<strong>For missed consolidated e-invoices:</strong> submit them <strong>one per month</strong>, for the month the transactions happened. LHDN's example of a company that missed January to April 2026 needs four separate consolidated e-invoices, not one covering all four months.",
+          "<strong>For transactions left out of a consolidated e-invoice:</strong> either credit the original and issue a complete replacement, or issue a separate consolidated e-invoice for the omitted transactions."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "The Technical Detail That Trips People Up"
+      },
+      {
+        "type": "paragraph",
+        "text": "SVDP submissions must use special e-invoice document versions: <strong>\"SVDP 1.2\"</strong> if you submit without a digital signature, or <strong>\"SVDP 1.3\"</strong> with one. These versions are only for voluntary disclosures and can't be used for normal submissions."
+      },
+      {
+        "type": "paragraph",
+        "text": "That matters if your e-invoices come from software. A system built to send the standard versions won't produce SVDP submissions on its own. Check with your provider or developer before you assume you can disclose through your usual system."
+      },
+      {
+        "type": "tip",
+        "text": "An e-invoice still within its 72-hour cancellation window doesn't need the SVDP. You can cancel it and issue a corrected one in the normal way."
+      },
+      {
+        "type": "heading2",
+        "text": "When the Protection Doesn't Apply"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>If the disclosed e-invoices themselves don't comply</strong> with the requirements. A disclosure has to be done properly to count.",
+          "<strong>If the case involves fraud, wilful default or negligence.</strong>",
+          "<strong>If you rely on your vendor to take the blame.</strong> LHDN's FAQ is clear that responsibility stays with the taxpayer even when a service provider or system vendor caused the problem, though you can still use the SVDP to fix it."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Each company in a group must make its own disclosure; there's no single group submission. You can make further disclosures if you find more problems later, as long as they're within the programme period."
+      },
+      {
+        "type": "heading2",
+        "text": "A Practical Clean-Up Plan"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Reconcile.</strong> Compare your sales and purchase records month by month against what MyInvois shows as validated. Gaps and mismatches are your disclosure list.",
+          "<strong>Check the data, not just the totals.</strong> Classification codes, buyer details and tax types are common silent errors.",
+          "<strong>Fix the cause first.</strong> Disclosing past months while the same error continues just creates next month's disclosure.",
+          "<strong>Submit month by month</strong> in the SVDP versions, and keep a record of what you disclosed and when.",
+          "<strong>Finish well before 31 December 2027.</strong> Validation problems take time to resolve, and the year-end will be busy for everyone."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Running an Older System That Can't Talk to MyInvois?",
+        "text": "We connect legacy .NET, SQL Server and custom POS systems to MyInvois without a rebuild. Get an honest view of what your system needs and what it costs.",
+        "buttonText": "Talk to Us",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Do I need to apply to join the SVDP?",
+            "answer": "No. LHDN's FAQ says no separate registration or application is required. You correct the non-compliance within the programme period using the specified method and document versions."
+          },
+          {
+            "question": "I fixed some errors before 7 July 2026. Do I need to redo them?",
+            "answer": "No. Corrections made before the programme started continue to be recognised, provided they were made in good faith and are accurate."
+          },
+          {
+            "question": "Can I lump several missed months into one consolidated e-invoice?",
+            "answer": "No. Missed consolidated e-invoices must be submitted per month of transaction, not as a lump sum across months."
+          },
+          {
+            "question": "Our software vendor caused the errors. Are we still responsible?",
+            "answer": "Yes. LHDN treats compliance as the taxpayer's responsibility even when a vendor is involved, but you can use the SVDP to correct the errors."
           }
         ]
       }
