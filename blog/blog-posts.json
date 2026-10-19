@@ -3298,6 +3298,10 @@
     "heroImageAlt": "Digital invoice compliance and business systems",
     "content": [
       {
+        "type": "warning",
+        "text": "<strong>Update, 19 October 2026:</strong> LHDN has changed the rules since this was written. Businesses with annual turnover under RM3 million are now exempt, and the planned Phase 5 (RM500,000 to RM1 million) will not happen. For Phase 4 (up to RM5 million), the interim relaxation now runs to 31 December 2027: consolidated e-invoices are allowed for all transactions and there is no prosecution, provided you issue them. Full enforcement starts 1 January 2028. A Special Voluntary Disclosure Programme also runs until 31 December 2027. Sources: <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">LHDN implementation timeline</a> and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a>."
+      },
+      {
         "type": "paragraph",
         "text": "Malaysia's e-invoice mandate isn't coming—it's already here. The rollout began in August 2024, and if you're running a legacy system that barely handles your current invoicing process, you're either already non-compliant or about to be."
       },
@@ -10311,6 +10315,10 @@
     "heroImage": "images/blog/e-invoice-compliance.jpg",
     "heroImageAlt": "LHDN MyInvois e-invoice compliance for small Malaysian businesses",
     "content": [
+      {
+        "type": "warning",
+        "text": "<strong>Update, 19 October 2026:</strong> LHDN has changed the rules since this was written. Businesses with annual turnover under RM3 million are now exempt, and the planned Phase 5 (RM500,000 to RM1 million) will not happen. For Phase 4 (up to RM5 million), the interim relaxation now runs to 31 December 2027: consolidated e-invoices are allowed for all transactions and there is no prosecution, provided you issue them. Full enforcement starts 1 January 2028. A Special Voluntary Disclosure Programme also runs until 31 December 2027. Sources: <a href=\"https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/\">LHDN implementation timeline</a> and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a>."
+      },
       {
         "type": "paragraph",
         "text": "If you run a small Malaysian business and have been treating e-invoicing as \"a big-company problem,\" that assumption expired some time ago. As of mid-2026, the LHDN mandate has worked its way down to businesses with turnover as low as RM500,000—and the grace periods that softened earlier phases are running out."
