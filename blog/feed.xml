@@ -8,13 +8,26 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections</title>
+      <link>https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html</link>
+      <description>The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through WordPress itself. No third-party service, no account, no phoning home. Here's why we built it that way and what it means for your venue.</description>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Venue Booking</category>
+      <category>WordPress</category>
+      <category>Data Privacy</category>
+      <category>Product</category>
+    </item>
 
     <item>
       <title>LHDN Moves the E-Invoice Goalposts Again: RM3 Million Exemption and a 2028 Deadline</title>

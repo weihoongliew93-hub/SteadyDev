@@ -13359,7 +13359,7 @@
       "Product"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/no-external-connections-cover.svg",
     "heroImageAlt": "Cover graphic of a padlock over a WordPress site with no outgoing connections",
     "content": [

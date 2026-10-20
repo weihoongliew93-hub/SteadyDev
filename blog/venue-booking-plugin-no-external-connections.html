@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections | SteadyDevs</title>
+  <meta name="description" content="The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through WordPress itself. No third-party service, no account, no phoning home. Here's why we built it that way and what it means for your venue.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html">
+  <meta property="og:title" content="Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections">
+  <meta property="og:description" content="The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through WordPress itself. No third-party service, no account, no phoning home. Here's why we built it that way and what it means for your venue.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/no-external-connections-cover.svg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections">
+  <meta name="twitter:description" content="The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through WordPress itself. No third-party service, no account, no phoning home. Here's why we built it that way and what it means for your venue.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/no-external-connections-cover.svg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html">
+  
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections",
+    "alternativeHeadline": "The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email t",
+    "image": "https://steadydevs.com/images/blog/no-external-connections-cover.svg",
+    "datePublished": "2026-10-20T00:00:00+08:00",
+    "dateModified": "2026-10-20T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through WordPress itself. No third-party service, no account, no phoning home. Here's why we built it that way and what it means for your venue.",
+    "articleSection": "Software Development",
+    "articleBody": "The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through WordPress itself. No third-party service, no account, no phoning home. Here's why we built it that way and what it means for your venue.",
+    "wordCount": 807,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Venue Booking"
+      },
+      {
+        "@type": "Thing",
+        "name": "WordPress"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data Privacy"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "venue booking, wordpress, data privacy, product",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the free plugin send any data to SteadyDevs at all?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It makes no outbound connections: no usage statistics, no error reports, no update checks beyond what WordPress itself does for every plugin in the directory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do customer confirmation emails get sent, then?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Through WordPress's built-in mail function on your server, the same mechanism your contact form or password-reset emails use. If you already use an SMTP plugin, those emails go through it too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my bookings if I ever stop using the plugin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your bookings are ordinary rows in your WordPress database, so they're included in any normal site backup and can be exported with standard database tools. The Pro edition also adds CSV export from the Reports screen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Pro edition phone home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It checks its licence key against our licensing service and, if you use the Class Portal's online credit packages, it connects to the payment gateway you configure. That's the full list. Your booking data still stays in your own database."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-10-20T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-10-20T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Venue Booking, WordPress, Data Privacy, Product">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+  </script>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=2"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections",
+        "item": "https://steadydevs.com/blog/venue-booking-plugin-no-external-connections.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content" id="main">
+      <article>
+        <img src="../images/blog/no-external-connections-cover.svg" alt="Cover graphic of a padlock over a WordPress site with no outgoing connections" class="blog-hero-image">
+        <div class="blog-header">
+          <h1>Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections</h1>
+          <div class="blog-meta">October 20, 2026 | 6 min read</div>
+        </div>
+        <p>There's one line in the <a href="https://wordpress.org/plugins/steadydevs-venue-booking/" rel="noopener">WordPress.org listing</a> for SteadyDevs Venue Booking that we're quietly proud of:</p>
+<p><em>"It makes no external connections: no third-party services, no analytics, no phoning home, no account required. Nothing leaves your server."</em></p>
+<p>That isn't a privacy policy. It's a description of what the code does. This post explains what that means in practice, why we think it matters for a venue, and where the line sits between the free plugin and the Pro edition.</p>
+<h2>What "no external connections" actually covers</h2>
+<ul><li><strong>Bookings</strong> are stored in your own WordPress database, in tables the plugin creates on your site.</li><li><strong>Customer emails</strong>—pending, approved, rejected—are sent through WordPress's own mail function, the same way your contact form sends mail.</li><li><strong>Availability checks</strong> run on your server against your database. The form never asks another service whether a slot is free.</li><li><strong>No account</strong> with us is needed. There is no API key to paste in and no dashboard on our side that mirrors your data.</li><li><strong>No analytics or telemetry.</strong> The plugin doesn't report usage, installs or errors back to us.</li></ul>
+<p>If you were to block all outbound traffic from your web server tomorrow, the free plugin would keep taking bookings exactly as it does today.</p>
+<h2>Why this matters for a venue specifically</h2>
+<h3>Your customer list is your business</h3>
+<p>For a driving range, a racket club or a studio, the booking history <em>is</em> the customer relationship: who comes, how often, which slots they prefer, what they spend. A booking tool that stores that on someone else's servers is holding your most valuable asset on your behalf. We'd rather it stayed on yours.</p>
+<h3>Nothing depends on us staying in business</h3>
+<p>A lot of "free" booking tools are free because the real product is a hosted service you'll pay for later, or data you don't control. If that company pivots or shuts down, your booking page goes with it. The free plugin has no such dependency. If SteadyDevs disappeared tomorrow, your site would keep taking bookings.</p>
+<h3>Fewer things to explain to customers</h3>
+<p>When a customer asks where their details go, the honest answer is "into the same database as the rest of my website." No list of sub-processors, no third-party terms to link to.</p>
+<div class="warning-box"><p><strong>What we're not claiming:</strong> "no external connections" is a statement about the plugin's code, not a legal certification. Your overall PDPA or GDPR position still depends on your hosting, your other plugins and how you handle data. We've written separately about <a href="pdpa-compliance-legacy-system-malaysian-guide.html">PDPA for business systems</a> if that's your concern.</p></div>
+<h2>Why it also made the WordPress.org review simpler</h2>
+<p>Every plugin on WordPress.org goes through a manual review. A plugin that calls out to external services has to document each one, explain what data is sent, and link to the relevant privacy policies. A plugin that calls out to nothing has a much shorter conversation with the reviewer. Keeping the free edition self-contained wasn't only a privacy decision—it kept the listing honest and easy to verify.</p>
+<h2>Where the Pro edition differs</h2>
+<p>The Pro edition is a separate plugin, downloaded from our site rather than WordPress.org, and it's licensed, so it does talk to a licensing service to check that your key is valid. Features like the Class Portal's online credit packages also connect to a payment gateway, because taking a card payment without one isn't possible. Your bookings themselves still live in your own database either way.</p>
+<p>We think that's the right line: the free plugin is fully self-contained, and the Pro edition connects to exactly the services its extra features need, and nothing else.</p>
+
+          <div class="cta-box">
+            <h3>Bookings That Stay on Your Own Site</h3>
+            <p>SteadyDevs Venue Booking is free on the WordPress.org plugin directory—unlimited resources, no account, nothing expires. The Pro edition adds reminders, the Class Portal and more, with a 14-day free trial and no credit card required.</p>
+            <a href="https://steadydevs.com/venue-booking.html" class="f-btn f-btn--primary cta-button">See Plans and Pro Features</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does the free plugin send any data to SteadyDevs at all?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. It makes no outbound connections: no usage statistics, no error reports, no update checks beyond what WordPress itself does for every plugin in the directory.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">How do customer confirmation emails get sent, then?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Through WordPress's built-in mail function on your server, the same mechanism your contact form or password-reset emails use. If you already use an SMTP plugin, those emails go through it too.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I export my bookings if I ever stop using the plugin?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Your bookings are ordinary rows in your WordPress database, so they're included in any normal site backup and can be exported with standard database tools. The Pro edition also adds CSV export from the Reports screen.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does the Pro edition phone home?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It checks its licence key against our licensing service and, if you use the Class Portal's online credit packages, it connects to the payment gateway you configure. That's the full list. Your booking data still stays in your own database.</p>
+                </div>
+              </div>
+            
+          </div>
+
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="venue-booking-plugin-no-external-connections" data-current-tags='["Venue Booking","WordPress","Data Privacy","Product"]'></div>
+    </main>
+  </div>
+
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth < 1100) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth < 1100) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1100 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1100) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
