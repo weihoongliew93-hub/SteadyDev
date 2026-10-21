@@ -773,7 +773,7 @@
 
     <div class="f-strip">
       <div class="f-container f-strip__inner" style="justify-content: space-between">
-        <strong>MyInvois API v1.1</strong><strong>All 8 invoice types</strong><strong>Three-tier validation</strong><strong>Status sync every 5 minutes</strong><strong>Digital signature handled</strong><strong>RM 10k buyer-TIN rule enforced</strong>
+        <strong>MyInvois API v1.1</strong><strong>All 8 invoice types</strong><strong>Three-tier validation</strong><strong>Status sync every 5 minutes</strong><strong>Digital signature handled</strong><strong>Free resubmissions</strong>
       </div>
     </div>
 
@@ -785,10 +785,10 @@
           <p class="f-sub">What LHDN e-invoicing looks like for most businesses, and what the platform does about each one.</p>
         </div>
         <div class="f-grid">
-          <article class="f-card f-card--compact"><h3 class="f-card__title">Cryptic rejection codes</h3><p class="f-card__text">LHDN returns E1–E12 errors without explaining the fix. All 12 codes are mapped to plain-English instructions, with one-click resubmit.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Cryptic rejection codes</h3><p class="f-card__text">LHDN's rejections name a rule, not a fix. The common causes are caught before sending; anything LHDN still rejects is shown with its reason and the field at fault. Fix it and resubmit in one click, free.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Silent certificate expiry</h3><p class="f-card__text">When a certificate expires, submissions stop. Upload it once; you're warned 60 days and 7 days before it affects you.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">The 7th-of-month panic</h3><p class="f-card__text">March invoices must be submitted by 7 April, 23:59 MYT. You're warned days ahead, and nothing is sent after the cut-off.</p></article>
-          <article class="f-card f-card--compact"><h3 class="f-card__title">Missing buyer TIN above RM 10k</h3><p class="f-card__text">LHDN blocks generic TINs on high-value sales. The platform catches it before submission, so the invoice never bounces.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Missing buyer TIN above RM 10k</h3><p class="f-card__text">LHDN blocks generic TINs on high-value sales. The platform catches it before submission, so the invoice never bounces. Phase 4 businesses can switch on LHDN's relaxation, which lifts the rule until 31 December 2027.</p></article>
         </div>
       </div>
     </section>
@@ -811,8 +811,8 @@
             <li>Bad data is caught before submission, not after LHDN rejects it</li>
             <li>Tier 2 soft-rejects land in your dashboard for easy correction</li>
             <li>Your product catalogue fills in tax codes, with no manual entry per invoice</li>
-            <li>All 12 LHDN error codes mapped to plain-English fix instructions</li>
-            <li>RM 10,000 threshold enforced automatically; generic walk-in TINs blocked</li>
+            <li>LHDN's own rejection reason kept with every rejected invoice</li>
+            <li>RM 10,000 buyer-TIN rule checked automatically, or relaxed for Phase 4 businesses until 31 December 2027</li>
           </ul>
         </aside>
       </div>
@@ -834,7 +834,7 @@
           <article class="f-card f-card--compact"><h3 class="f-card__title">Webhook callbacks</h3><p class="f-card__text">Your system is notified the moment an invoice is approved or rejected. HMAC-SHA256 signed payloads, 4-attempt retry. Add-on.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Cancellation window guard</h3><p class="f-card__text">LHDN allows cancellation within 72 hours only. A countdown enforces it, and a credit note is suggested once it closes.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Dashboard action cards</h3><p class="f-card__text">Incomplete invoices, staging rejections and LHDN errors surfaced with plain-English instructions, so your team knows what to do.</p></article>
-          <article class="f-card f-card--compact"><h3 class="f-card__title">Tested against every scenario</h3><p class="f-card__text">722 automated tests with 61.9% code coverage across rejection codes, validation tiers, status sync and cancellation windows.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Tested against LHDN itself</h3><p class="f-card__text">Over 1,300 automated tests, plus real submissions, cancellations and status checks against LHDN's MyInvois sandbox.</p></article>
         </div>
       </div>
     </section>
@@ -1069,7 +1069,7 @@
             <li><b>Priority support:</b> A named support contact is assigned. Until our support team reaches full capacity, response times may be longer than the 4-hour target for non-critical issues; we'll always be clear about expected response times at onboarding.</li>
             <li><b>Email alerts:</b> Certificate expiry warnings and system notifications are sent via configured SMTP. During onboarding, we help you connect your email service (SendGrid, AWS SES or your company SMTP). Demo accounts show alerts in-dashboard only.</li>
           </ol>
-          <p class="f-note" style="margin-top: 14px"><b>Overage billing:</b> when you pass your monthly limit you're charged per extra invoice (RM 0.09–0.30 depending on plan), never blocked from filing. You're warned at 80% and 95% of your limit, and overage is billed at the start of the following month.</p>
+          <p class="f-note" style="margin-top: 14px"><b>Overage billing:</b> when you pass your monthly limit you're charged per extra invoice (RM 0.09–0.30 depending on plan), never blocked from filing. You're warned at 80% and 95% of your limit. Overage is worked out on the 1st of each month and added to your next payment: your next monthly charge, or your renewal on an annual plan. <b>Resubmissions are free:</b> an invoice counts once, however many times you correct and resend it.</p>
         </div>
       </div>
     </section>
@@ -1135,9 +1135,9 @@
         <div class="f-faq">
           <details><summary>Is this platform officially approved by LHDN?</summary><div>The platform submits invoices via the official LHDN MyInvois REST API using your business's own registered credentials and digital certificate. Each business must obtain its own LHDN intermediary authorisation; the platform guides you through this during onboarding. All invoice formats follow the LHDN e-Invoice specification v1.1.</div></details>
           <details><summary>Do I need to get my own digital certificate?</summary><div>Yes. Each business TIN needs its own LHDN-approved X.509 digital certificate from an approved Certificate Authority in Malaysia, typically RM 500–2,000/year depending on the CA. You upload it once in Settings; the platform signs every invoice automatically from then on and alerts you 60 days before expiry.</div></details>
-          <details><summary>What happens if LHDN rejects an invoice?</summary><div>Rejected invoices appear under "LHDN Rejections" with the specific error code (E1–E12) translated into plain English with a suggested fix, for example "E7 — Tax calculation mismatch: Recalculate line-item tax amounts, check rounding." You correct the data and resubmit with one click.</div></details>
+          <details><summary>What happens if LHDN rejects an invoice?</summary><div>Rejected invoices appear under "LHDN Rejections" with LHDN's reason and the field it objected to, for example "Enter valid e-mail address - BUYER". You correct the data and resubmit with one click. Resubmitting is free: an invoice uses your monthly quota once, however many times it is corrected and resent. Most common causes, such as a missing buyer TIN or an invalid industry (MSIC) code, are caught before the invoice is sent at all.</div></details>
           <details><summary>Can I manage multiple companies under one account?</summary><div>On the Custom plan, yes: each company has its own TIN, LHDN credentials, digital certificate and submission history under one login. On the other plans, each company is its own account. <a href="contact.html?ref=einvoice-multi-entity">Talk to us</a> if you run several entities.</div></details>
-          <details><summary>Does my business have to e-invoice, and by when?</summary><div>If your annual turnover is RM3 million or more, yes. Businesses with turnover up to RM5 million (Phase 4) are in an interim relaxation period until 31 December 2027: you may issue monthly consolidated e-invoices for all sales, and full rules apply from 1 January 2028. Below RM3 million you're exempt, unless a corporate shareholder, holding company or related company turns over RM3 million or more. Exempt businesses may still opt in, which is common when large customers ask for e-invoices. Source: <a href="https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/" target="_blank" rel="noopener">LHDN implementation timeline</a> and <a href="blog/lhdn-einvoice-rm3-million-exemption-2028-deadline.html">our October 2026 summary</a>.</div></details>
+          <details><summary>Does my business have to e-invoice, and by when?</summary><div>If your annual turnover is RM3 million or more, yes. Businesses with turnover up to RM5 million (Phase 4) are in an interim relaxation period until 31 December 2027: you may issue monthly consolidated e-invoices for all sales, and full rules apply from 1 January 2028. If that's you, switch on "Phase 4 relaxation" under Settings &gt; Business Profile and the platform stops applying the RM 10,000 buyer-TIN rule to invoices dated up to 31 December 2027. Below RM3 million you're exempt, unless a corporate shareholder, holding company or related company turns over RM3 million or more. Exempt businesses may still opt in, which is common when large customers ask for e-invoices. Source: <a href="https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/" target="_blank" rel="noopener">LHDN implementation timeline</a> and <a href="blog/lhdn-einvoice-rm3-million-exemption-2028-deadline.html">our October 2026 summary</a>.</div></details>
           <details><summary>Is Premium really unlimited?</summary><div>Yes, there is no invoice cap and no overage on Premium. Fair use applies: if an account passes 20,000 submissions in a month we'll contact you about a Custom plan, and sustained volume above 40,000 a month needs one.</div></details>
           <details><summary>What happens to my data if I stop using the platform?</summary><div>You can download all of it at any time, on any plan, including after you stop paying: invoices, line items, buyers, products, settings and logs, as JSON plus a CSV. If you close your account, everything it holds with us is permanently deleted after a 7-day cooling-off period, in line with the PDPA, and we email you when it's done. Your validated e-invoices remain available from LHDN on MyInvois. Keep your export: the Income Tax Act requires business records to be retained for seven years.</div></details>
           <details><summary>Are webhooks and POS connectors included?</summary><div>They're add-ons, so businesses that don't need them don't pay for them: Webhooks RM 19/month, POS &amp; ERP connectors RM 29/month, Buyer claim portal RM 19/month. Sending invoices by REST API or CSV upload is included in every plan.</div></details>
