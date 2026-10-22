@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>SteadyDevs Venue Booking — WordPress Booking Plugin | From $299/year</title>
-  <meta name="description" content="SteadyDevs Venue Booking is a versatile WordPress booking plugin: live availability, a clean multi-step booking flow, and an admin approval workflow with double-booking protection. Automatic reminders cut no-shows — plus peak/off-peak pricing, online payments for prepaid class credits, and utilisation &amp; revenue reports. For bays, courts, rooms, tables, equipment and more. Free 14-day trial, no credit card. Plans from $299/year for 1 site up to 25 sites.">
+  <title>Venue Booking Plugin for WordPress | SteadyDevs</title>
+  <meta name="description" content="WordPress booking plugin for courts, rooms, studios and bays: live availability, approvals, deposits and reminders. 14-day free trial.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -31,7 +31,7 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
   <link rel="stylesheet" href="assets/f.css?v=9">
   <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
@@ -39,12 +39,18 @@
   <script src="https://checkout.freemius.com/js/v1/"></script>
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 
   <!-- Page-scoped styles (all .sb- prefixed so they never collide with the shared system) -->

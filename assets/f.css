@@ -270,12 +270,17 @@ p { margin: 0; }
 .fh__icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; text-decoration: none; }
 .fh__icon:hover { color: var(--text-strong); border-color: var(--border-strong); }
 .fh__icon svg { width: 18px; height: 18px; }
-.fh__cta { min-height: 40px; padding: 9px 16px; font-size: 15px; }
+.fh__cta { min-height: 40px; padding: 9px 16px; font-size: 15px; white-space: nowrap; }
 .fh__menu { display: none; }
 .fh__sun { display: none; }
 :root[data-theme="light"] .fh__sun { display: block; }
 :root[data-theme="light"] .fh__moon { display: none; }
 
+/* Language switch (EN · BM · 中文), shown on pages that exist in all three. */
+.fh__lang { display: inline-flex; align-items: center; gap: 2px; margin-right: 4px; font-size: 13px; font-family: var(--mono); }
+.fh__lang a { white-space: nowrap; padding: 6px 7px; border-radius: 6px; color: var(--faint); text-decoration: none; }
+.fh__lang a:hover { color: var(--text-strong); }
+.fh__lang a[aria-current="true"] { color: var(--text-strong); background: var(--surface-2); }
 /* WordPress Plugins menu: a button opening a short list of plugin pages (assets/site-nav.js, PLUGINS). */
 .fh__group { position: relative; }
 .fh__group-btn { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; padding: 0; border: 0; background: none; font: inherit; color: var(--muted); cursor: pointer; }

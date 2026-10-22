@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>EInvoice Platform — LHDN e-Invoice Compliance, Automated | SteadyDevs</title>
-  <meta name="description" content="Stop dreading e-invoice deadlines. Cloud-based SaaS platform for automated LHDN MyInvois submission with three-tier validation, digital signing, and real-time status sync. Connect any POS or ERP. From RM 29/month.">
+  <title>LHDN e-Invoice Platform for Any POS or ERP | SteadyDevs</title>
+  <meta name="description" content="Send e-invoices to LHDN MyInvois from any POS, ERP or spreadsheet. Checked before sending, consolidated monthly, from RM29/month, no lock-in.">
   <meta name="keywords" content="e-invoice malaysia, lhdn myinvois, einvoice saas, malaysia e-invoice platform, e-invoice compliance, myinvois integration, lhdn e-invoice submission, automated invoicing malaysia, e-invoice software">
 
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -71,7 +71,7 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
   <link rel="stylesheet" href="assets/f.css?v=10">
   <link rel="stylesheet" href="assets/f-legacy.css?v=4">
 
@@ -678,12 +678,18 @@
     }
   </style>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 
   <style>

@@ -13,8 +13,26 @@
 (function () {
   var path = location.pathname;
   var inBlog = /\/blog\//.test(path);
-  var base = inBlog ? '../' : '';
+  // Translated pages live one folder down, in /ms/ (Bahasa Malaysia) and /zh/ (Chinese).
+  var langMatch = path.match(/\/(ms|zh)\//);
+  var lang = langMatch ? langMatch[1] : 'en';
+  var base = (inBlog || lang !== 'en') ? '../' : '';
   var file = (path.split('/').pop() || 'index.html').toLowerCase();
+
+  // Pages that exist in every language. A nav link to one of these goes to the visitor's
+  // language; every other link goes to the English page. Add a page here once its /ms/ and
+  // /zh/ copies are published.
+  var TRANSLATED = ['einvoice.html'];
+  var T = {
+    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language' },
+    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa' },
+    zh: { engineering: '工程服务', plugins: 'WordPress 插件', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言' }
+  }[lang];
+  // Link to a page in the current language when it exists in that language.
+  var page = function (href) {
+    var f = href.split('#')[0].split('?')[0];
+    return lang !== 'en' && TRANSLATED.indexOf(f) !== -1 ? href : base + href;
+  };
   // Pages on the new design set <html data-design="f"> and load assets/f.css.
   var isF = document.documentElement.getAttribute('data-design') === 'f';
 
@@ -22,8 +40,14 @@
   // menu, the mobile list, the highlight for its page and the older design's Products menu
   // all follow. `file` is the page; its URL may also be served without ".html".
   var PLUGINS = [
-    { file: 'venue-booking.html', name: 'Venue Booking', tagline: 'Bookings, approvals and reminders for courts, rooms and studios' },
-    { file: 'steadypost.html', name: 'SteadyPost', tagline: 'Bulk-import posts from Excel or CSV \u2014 free' }
+    { file: 'venue-booking.html', name: 'Venue Booking', tagline: {
+        en: 'Bookings, approvals and reminders for courts, rooms and studios',
+        ms: 'Tempahan, kelulusan dan peringatan untuk gelanggang, bilik dan studio',
+        zh: '球场、房间和工作室的预约、审批与提醒' } },
+    { file: 'steadypost.html', name: 'SteadyPost', tagline: {
+        en: 'Bulk-import posts from Excel or CSV \u2014 free',
+        ms: 'Import siaran secara pukal daripada Excel atau CSV \u2014 percuma',
+        zh: '从 Excel 或 CSV 批量导入文章，免费' } }
   ];
   var pageFile = /\.html$/.test(file) ? file : file + '.html';
   var currentPlugin = PLUGINS.filter(function (p) { return p.file === pageFile; })[0];
@@ -58,8 +82,23 @@
   // ---- Design F header (styles live in assets/f.css) ----
   if (isF) {
     var fLink = function (href, label, key) {
-      return '<a href="' + base + href + '"' + (active === key ? ' aria-current="page"' : '') + '>' + label + '</a>';
+      return '<a href="' + page(href) + '"' + (active === key ? ' aria-current="page"' : '') + '>' + label + '</a>';
     };
+    // EN · BM · 中文, from the page's own <link rel="alternate" hreflang> tags: a page shows
+    // the switch only once it declares its translations, so an English page never links to
+    // a translation that has not been published.
+    var langSwitch = '';
+    var alts = {};
+    Array.prototype.forEach.call(document.querySelectorAll('link[rel="alternate"][hreflang]'), function (l) {
+      alts[l.getAttribute('hreflang')] = new URL(l.getAttribute('href'), location.href).pathname;
+    });
+    if (alts.ms && alts['zh-Hans']) {
+      langSwitch = '<nav class="fh__lang" aria-label="' + T.language + '">' +
+        [['en', 'EN', alts.en], ['ms', 'BM', alts.ms], ['zh', '\u4e2d\u6587', alts['zh-Hans']]].map(function (l) {
+          return '<a href="' + l[2] + '" hreflang="' + (l[0] === 'zh' ? 'zh-Hans' : l[0]) + '"' +
+            (l[0] === lang ? ' aria-current="true"' : '') + '>' + l[1] + '</a>';
+        }).join('') + '</nav>';
+    }
     var icon = function (d) {
       return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
     };
@@ -68,13 +107,13 @@
     // the menu, so nothing has to be tapped twice.
     var pluginsMenu =
       '<div class="fh__group' + (active === 'plugins' ? ' is-current' : '') + '">' +
-        '<button type="button" class="fh__group-btn" id="fhPluginsBtn" aria-expanded="false" aria-controls="fhPlugins">WordPress Plugins' +
+        '<button type="button" class="fh__group-btn" id="fhPluginsBtn" aria-expanded="false" aria-controls="fhPlugins">' + T.plugins +
           '<svg class="fh__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
         '</button>' +
         '<div class="fh__panel" id="fhPlugins">' +
           PLUGINS.map(function (p) {
             return '<a href="' + base + p.file + '"' + (p === currentPlugin ? ' aria-current="page"' : '') + '>' +
-              '<span class="fh__panel-name">' + p.name + '</span><span class="fh__panel-desc">' + p.tagline + '</span></a>';
+              '<span class="fh__panel-name">' + p.name + '</span><span class="fh__panel-desc">' + p.tagline[lang] + '</span></a>';
           }).join('') +
         '</div>' +
       '</div>';
@@ -83,21 +122,21 @@
         '<div class="fh__inner">' +
           '<a href="' + base + 'index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>' +
           '<nav class="fh__nav" id="fhNav" aria-label="Main">' +
-            fLink('solutions.html', 'Engineering', 'solutions') +
+            fLink('solutions.html', T.engineering, 'solutions') +
             fLink('einvoice.html', 'EInvoice', 'einvoice') +
             pluginsMenu +
-            fLink('portfolio.html', 'Case studies', 'portfolio') +
-            fLink('blog/index.html', 'Blog', 'blog') +
-            fLink('about.html', 'About', 'about') +
-            '<a href="' + base + 'contact.html" class="f-btn f-btn--primary fh__cta-mobile">Book a consultation</a>' +
+            fLink('portfolio.html', T.cases, 'portfolio') +
+            fLink('blog/index.html', T.blog, 'blog') +
+            fLink('about.html', T.about, 'about') +
+            '<a href="' + base + 'contact.html" class="f-btn f-btn--primary fh__cta-mobile">' + T.cta + '</a>' +
           '</nav>' +
-          '<div class="fh__tools">' +
+          '<div class="fh__tools">' + langSwitch +
             '<button type="button" class="fh__icon" id="fhTheme" aria-label="Switch to light theme">' +
               '<span class="fh__moon">' + icon('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>') + '</span>' +
               '<span class="fh__sun">' + icon('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>') + '</span>' +
             '</button>' +
             '<a href="' + base + 'my-account.html" class="fh__icon" aria-label="My account">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>') + '</a>' +
-            '<a href="' + base + 'contact.html" class="f-btn f-btn--primary fh__cta fh__cta-desktop">Book a consultation</a>' +
+            '<a href="' + base + 'contact.html" class="f-btn f-btn--primary fh__cta fh__cta-desktop">' + T.cta + '</a>' +
             '<button type="button" class="fh__icon fh__menu" id="fhMenu" aria-label="Open menu" aria-expanded="false" aria-controls="fhNav">' + icon('<path d="M4 7h16M4 12h16M4 17h16"/>') + '</button>' +
           '</div>' +
         '</div>' +
@@ -179,7 +218,7 @@
           '<div class="dropdown-content">' +
             '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
             PLUGINS.map(function (p) {
-              return '<a href="' + base + p.file + '">' + p.name + ' \u2014 WordPress plugin</a>';
+              return '<a href="' + base + p.file + '">' + p.name + ' \u2014 WordPress plugin</a>'; // older design: English only
             }).join('') +
           '</div>' +
         '</div>' +
