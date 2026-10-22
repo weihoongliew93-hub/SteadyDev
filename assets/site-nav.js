@@ -18,7 +18,7 @@
   // Pages on the new design set <html data-design="f"> and load assets/f.css.
   var isF = document.documentElement.getAttribute('data-design') === 'f';
 
-  // WordPress plugins, listed under one "Plugins" menu. A new plugin is one line here: the
+  // WordPress plugins, listed under one "WordPress Plugins" menu. A new plugin is one line here: the
   // menu, the mobile list, the highlight for its page and the older design's Products menu
   // all follow. `file` is the page; its URL may also be served without ".html".
   var PLUGINS = [
@@ -68,7 +68,7 @@
     // the menu, so nothing has to be tapped twice.
     var pluginsMenu =
       '<div class="fh__group' + (active === 'plugins' ? ' is-current' : '') + '">' +
-        '<button type="button" class="fh__group-btn" id="fhPluginsBtn" aria-expanded="false" aria-controls="fhPlugins">Plugins' +
+        '<button type="button" class="fh__group-btn" id="fhPluginsBtn" aria-expanded="false" aria-controls="fhPlugins">WordPress Plugins' +
           '<svg class="fh__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
         '</button>' +
         '<div class="fh__panel" id="fhPlugins">' +

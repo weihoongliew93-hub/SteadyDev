@@ -264,7 +264,7 @@ p { margin: 0; }
 :root[data-theme="light"] .sd-b1 { fill: #93C5FD; stroke: #60A5FA; } :root[data-theme="light"] .sd-b2 { fill: #60A5FA; stroke: #3B82F6; }
 :root[data-theme="light"] .sd-b3 { fill: #3B82F6; stroke: #2563EB; } :root[data-theme="light"] .sd-b4 { fill: #1E40AF; stroke: #1E3A8A; }
 .fh__nav { display: flex; align-items: center; gap: 24px; font-size: 15px; }
-.fh__nav a { color: var(--muted); text-decoration: none; }
+.fh__nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .fh__nav a:hover, .fh__nav a[aria-current="page"] { color: var(--text-strong); }
 .fh__tools { display: flex; align-items: center; gap: 8px; }
 .fh__icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; text-decoration: none; }
@@ -276,9 +276,9 @@ p { margin: 0; }
 :root[data-theme="light"] .fh__sun { display: block; }
 :root[data-theme="light"] .fh__moon { display: none; }
 
-/* Plugins menu: a button opening a short list of plugin pages (assets/site-nav.js, PLUGINS). */
+/* WordPress Plugins menu: a button opening a short list of plugin pages (assets/site-nav.js, PLUGINS). */
 .fh__group { position: relative; }
-.fh__group-btn { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; color: var(--muted); cursor: pointer; }
+.fh__group-btn { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; padding: 0; border: 0; background: none; font: inherit; color: var(--muted); cursor: pointer; }
 .fh__group-btn:hover, .fh__group.is-open .fh__group-btn, .fh__group.is-current .fh__group-btn { color: var(--text-strong); }
 .fh__caret { width: 12px; height: 12px; transition: transform .15s ease; }
 .fh__group.is-open .fh__caret { transform: rotate(180deg); }
@@ -307,6 +307,12 @@ p { margin: 0; }
   .fh__panel-desc { display: none; }
 }
 @media (min-width: 961px) { .fh__cta-mobile { display: none; } }
+/* Narrow desktops: with "WordPress Plugins" in the bar, the default spacing ran the
+   "Book a consultation" button off the edge just above the phone breakpoint. */
+@media (min-width: 961px) and (max-width: 1180px) {
+  .fh__nav { gap: 16px; font-size: 14px; }
+  .fh__cta { padding: 9px 12px; font-size: 14px; white-space: nowrap; }
+}
 .fh__cta-mobile { margin-top: 16px; }
 .fh .fh__cta-mobile, .fh .fh__cta-mobile:hover { color: #FFFFFF; border-bottom: 0; }
 
