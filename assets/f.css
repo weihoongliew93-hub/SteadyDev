@@ -158,7 +158,8 @@ p { margin: 0; }
 
 /* ---------- Strip ---------- */
 .f-strip { border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
-.f-strip__inner { display: flex; flex-wrap: wrap; gap: 10px 36px; padding: 20px 0; font-size: 14px; color: var(--faint); }
+/* Vertical padding only: the element is also an .f-container, whose side padding keeps it aligned with the page. */
+.f-strip__inner { display: flex; flex-wrap: wrap; gap: 10px 36px; padding-top: 20px; padding-bottom: 20px; font-size: 14px; color: var(--faint); }
 .f-strip__inner strong { font-weight: 400; color: var(--text); }
 
 /* ---------- Cards ---------- */
