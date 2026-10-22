@@ -453,7 +453,9 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Concerned about your PDPA compliance? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Get in touch</a> for a free consultation and initial assessment.</em>"
       }
-    ]
+    ],
+    "seoTitle": "PDPA Compliance for Legacy Systems in Malaysia",
+    "metaDescription": "Your older system probably wasn't built with PDPA in mind. How to audit it, find the gaps and comply without a costly rebuild."
   },
   {
     "id": "add-modern-features-legacy-system-without-breaking",
@@ -944,13 +946,15 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Want to explore modernization options for your system? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Get in touch</a> for a free consultation.</em>"
       }
-    ]
+    ],
+    "seoTitle": "Add Modern Features to an Old System, Safely",
+    "metaDescription": "Mobile apps, APIs and real-time features for a 10-year-old system: how to modernise step by step without a risky rewrite, with real examples."
   },
   {
     "id": "system-integration-guide-pos-accounting-inventory",
     "title": "The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory",
-    "seoTitle": "How to Integrate Your POS with Accounting Software (Malaysia SME Guide)",
-    "metaDescription": "How small businesses connect their POS to accounting and inventory software: API, database and file-based integration options, LHDN e-invoice considerations, and realistic costs from RM8,000.",
+    "seoTitle": "POS and Accounting Integration Guide for Malaysia",
+    "metaDescription": "Connect your POS to accounting and inventory software: API, database and file options, LHDN e-invoice points and realistic costs from RM8,000.",
     "slug": "system-integration-guide-pos-accounting-inventory",
     "excerpt": "Tired of manually transferring data between your POS, accounting software, and inventory system? Learn how system integration works, what's actually involved, and realistic costs—based on real integration projects for Malaysian SMEs.",
     "date": "2026-06-13",
@@ -1715,7 +1719,9 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Have questions about your specific situation? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Get in touch</a> for a free consultation.</em>"
       }
-    ]
+    ],
+    "seoTitle": "When the Developer Who Knows Your System Leaves",
+    "metaDescription": "How much of your system lives in one person's head? What really happens when they go, and how to protect your business before it's a crisis."
   },
   {
     "id": "5-signs-business-ready-for-automation",
@@ -1929,7 +1935,9 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Curious what could be automated in your business? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Get in touch</a> for a free consultation.</em>"
       }
-    ]
+    ],
+    "seoTitle": "5 Signs Your Business Is Ready for Automation",
+    "metaDescription": "Automation stops people doing work software should do. Five clear signs your business is ready, and which processes to automate first."
   },
   {
     "id": "ai-assisted-development-real-world-pet-booking-system",
@@ -2327,7 +2335,9 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Have questions about AI-assisted development or want to discuss your project? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Let's talk</a>.</em>"
       }
-    ]
+    ],
+    "seoTitle": "AI-Assisted Development Without the Code Chaos",
+    "metaDescription": "Can AI tools speed up development without unmaintainable code? What happened building a real booking system with AI, and the pitfalls to avoid."
   },
   {
     "id": "when-to-refactor-vs-rewrite-legacy-dotnet-system",
@@ -2662,7 +2672,9 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Facing this decision in your own system? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Let's talk</a> about what makes sense for your specific situation.</em>"
       }
-    ]
+    ],
+    "seoTitle": "Refactor or Rewrite a Legacy .NET System?",
+    "metaDescription": "When refactoring a legacy .NET system makes sense and when a rewrite is justified, from 11 years of keeping production systems running."
   },
   {
     "id": "5-warning-signs-your-legacy-dotnet-system-needs-attention",
@@ -2943,7 +2955,9 @@
         "type": "paragraph",
         "text": "<em style=\"color: #9CA3AF;\">Have questions about your specific situation? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Get in touch</a> for a free consultation.</em>"
       }
-    ]
+    ],
+    "seoTitle": "5 Warning Signs Your Legacy .NET System Needs Help",
+    "metaDescription": "The five signs a legacy .NET system needs professional attention, caught before small issues turn into outages and expensive emergencies."
   },
   {
     "id": "hidden-cost-manual-invoicing-malaysian-smes",
@@ -3276,7 +3290,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "The Hidden Cost of Manual Invoicing for SMEs",
+    "metaDescription": "What manual invoicing really costs Malaysian SMEs in time, errors and slow cash flow, and why e-invoicing makes automation no longer optional."
   },
   {
     "id": "e-invoice-malaysia-legacy-system-ready",
@@ -3824,7 +3840,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "E-Invoice Malaysia: Is Your Legacy System Ready?",
+    "metaDescription": "LHDN's e-invoice mandate is live. What your older POS or ERP must do to comply, the options if it can't, and what to do now."
   },
   {
     "id": "manual-to-automated-invoice-real-business-impact",
@@ -4382,7 +4400,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Invoice Automation: What to Really Expect",
+    "metaDescription": "Three Malaysian businesses that automated invoicing: time saved, errors removed, faster cash flow and the benefits nobody expected."
   },
   {
     "id": "price-ignoring-small-bug-production-system",
@@ -4878,7 +4898,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "The Real Cost of Ignoring a 'Small' Bug",
+    "metaDescription": "Real examples of small production bugs that turned into expensive problems, and why fixing them now always costs less than fixing them later."
   },
   {
     "id": "legacy-system-saved-honest-assessment-framework",
@@ -5467,7 +5489,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Can Your Legacy System Be Saved? An Honest Test",
+    "metaDescription": "A practical framework to decide whether a legacy system should be fixed, replaced or both, drawn from 11 years of stabilisation projects."
   },
   {
     "id": "what-happens-delay-legacy-system-maintenance",
@@ -5990,7 +6014,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "What Delaying Legacy System Maintenance Costs",
+    "metaDescription": "Every month of delay compounds the problems. The predictable chain of consequences, and why early fixes cost a fraction of late ones."
   },
   {
     "id": "developer-says-system-too-old-to-fix",
@@ -6707,7 +6733,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "'Too Old to Fix'? How to Check Your Developer's Call",
+    "metaDescription": "When a developer says your system can't be fixed, how to verify the diagnosis, spot a lazy assessment and get a real answer."
   },
   {
     "id": "3-month-system-stabilization-sprint",
@@ -7515,7 +7543,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "The 3-Month System Stabilisation Sprint",
+    "metaDescription": "A proven 90-day framework for taking a legacy system from crisis to manageable, without a complete rewrite."
   },
   {
     "id": "excel-trap-when-spreadsheets-cost-more-than-software",
@@ -7902,7 +7932,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "When Excel Costs More Than Proper Software",
+    "metaDescription": "Spreadsheets are free until they aren't. When Excel stops being cost-effective for a growing Malaysian SME and becomes a liability."
   },
   {
     "id": "developer-left-emergency-recovery-guide",
@@ -8462,7 +8494,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Your Developer Left. Now What? Recovery Guide",
+    "metaDescription": "Your only developer is gone and nobody knows how the system works. An immediate, step-by-step plan to recover without hurting the business."
   },
   {
     "id": "should-you-add-features-to-failing-system",
@@ -8865,7 +8899,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Add Features to an Unstable System? Read First",
+    "metaDescription": "Adding features to a fragile system usually backfires. How to decide between stabilising first and building new features, and the trade-offs."
   },
   {
     "id": "cloud-migration-vs-onpremise-modernization-dotnet",
@@ -9362,7 +9398,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Cloud or On-Premise for Your Legacy .NET System?",
+    "metaDescription": "Azure migration or on-premise modernisation? Both cost RM40,000-80,000+ and solve different problems. A decision framework for Malaysian SMEs."
   },
   {
     "id": "true-cost-free-technical-support",
@@ -9859,7 +9897,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "The True Cost of 'Free' Developer Support",
+    "metaDescription": "\"Just call me when it breaks\" sounds cheap. What an informal support arrangement with your developer really costs in downtime and risk."
   },
   {
     "id": "questions-before-hiring-developer-legacy-system",
@@ -10293,7 +10333,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "5 Questions Before Hiring a Legacy System Developer",
+    "metaDescription": "Not every developer can handle legacy systems. Five questions that separate real specialists from those who will make things worse."
   },
   {
     "id": "lhdn-einvoice-phase-3-4-small-business-2026",
@@ -10515,13 +10557,15 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "LHDN E-Invoice Phase 3 & 4: SME Guide (2026)",
+    "metaDescription": "Who must e-invoice now, the current LHDN schedule, what Phase 4's relaxation to 31 December 2027 allows, and what small businesses should do next."
   },
   {
     "id": "system-handover-documentation-checklist",
     "title": "What a Proper System Handover Document Should Contain (Free Checklist)",
-    "seoTitle": "System Handover Document: Checklist and Template for IT and Developer Handovers",
-    "metaDescription": "What a system handover document should contain when a developer or system administrator leaves: system overview, access and credentials, source code and build, deployment, database, known issues and support contacts.",
+    "seoTitle": "System Handover Document: Checklist & Template",
+    "metaDescription": "What a handover document needs when a developer or IT admin leaves: access, source code, deployment, database, known issues and contacts.",
     "slug": "system-handover-documentation-checklist",
     "excerpt": "When a developer leaves, the difference between a smooth transition and a crisis is one thing: documentation. Here's exactly what a proper handover document should contain—a practical checklist you can hand to any developer before they walk out the door.",
     "date": "2026-06-24",
@@ -10945,13 +10989,15 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "MyInvois API Integration for Legacy Systems",
+    "metaDescription": "What connecting an older .NET system to LHDN's MyInvois API really involves: authentication, digital signing, validation and common pitfalls."
   },
   {
     "id": "einvoice-b2c-consolidation-retail-guide",
     "title": "E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices",
-    "seoTitle": "Consolidated E-Invoice for B2C Retail in Malaysia: LHDN Rules for Walk-In Customers",
-    "metaDescription": "Do Malaysian retailers need an e-invoice for every walk-in sale? How LHDN consolidated e-invoicing works for B2C, how often to submit through MyInvois, what your POS must support, and common compliance mistakes.",
+    "seoTitle": "Consolidated E-Invoice for Retail: LHDN Rules",
+    "metaDescription": "Do walk-in sales need an e-invoice each? How LHDN's consolidated e-invoice works for B2C retail, when to submit and what your POS must do.",
     "slug": "einvoice-b2c-consolidation-retail-guide",
     "excerpt": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.",
     "date": "2026-07-01",
@@ -11131,8 +11177,8 @@
   {
     "id": "einvoice-validation-errors-rejections-fix-guide",
     "title": "E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them",
-    "seoTitle": "MyInvois E-Invoice Rejected? Common LHDN Validation Errors and How to Fix Them",
-    "metaDescription": "E-invoice rejected or marked Invalid in MyInvois? The most common LHDN validation errors in Malaysia (TIN mismatch, digital signature, classification codes, tax totals, duplicates) and how to fix each one.",
+    "seoTitle": "MyInvois E-Invoice Rejected? How to Fix It",
+    "metaDescription": "The most common LHDN validation errors (TIN mismatch, signature, classification codes, totals, duplicates) and how to fix each one.",
     "slug": "einvoice-validation-errors-rejections-fix-guide",
     "excerpt": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
     "date": "2026-07-07",
@@ -11496,7 +11542,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Why Your Developer Wants to Rewrite Everything",
+    "metaDescription": "Almost every developer who inherits a legacy system proposes a rewrite. How to tell when they're right before you commit a year and six figures."
   },
   {
     "id": "working-fine-about-to-break-warning-signs",
@@ -11635,7 +11683,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "'It's Working Fine': Signs a System Is About to Fail",
+    "metaDescription": "Systems rarely fail without warning. The quiet symptoms, months ahead, that a stable-looking business system is closer to failure than it seems."
   },
   {
     "id": "rm30000-mistake-add-feature-complexity",
@@ -11791,7 +11841,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Why 'Just Add That Feature' Costs RM30,000",
+    "metaDescription": "Why simple-sounding feature requests turn into major projects, and how to scope them before they surprise your budget."
   },
   {
     "id": "ai-tools-legacy-system-maintenance-hype-reality",
@@ -11967,7 +12019,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "AI Tools for Legacy System Maintenance: Reality",
+    "metaDescription": "Where AI coding tools really help maintain old, undocumented business systems, and where they make things worse. An honest look."
   },
   {
     "id": "stop-taking-bookings-over-whatsapp-venue-booking",
@@ -12122,7 +12176,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Stop Taking Venue Bookings Over WhatsApp",
+    "metaDescription": "WhatsApp and spreadsheets cost venues bookings through double entries and slow replies. What online booking fixes and how to add it to WordPress."
   },
   {
     "id": "prevent-double-bookings-courts-studios-rental-spaces",
@@ -12273,7 +12329,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "How to Stop Double Bookings for Courts and Studios",
+    "metaDescription": "Why double bookings keep happening even with a shared calendar, and how a proper booking system for courts, studios and rooms ends them."
   },
   {
     "id": "reduce-no-shows-venue-booking-deposits-reminders",
@@ -12443,7 +12501,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "How to Reduce No-Shows at Your Venue",
+    "metaDescription": "Why customers don't turn up, what actually reduces no-shows, and how to add deposits and reminders without putting off your regulars."
   },
   {
     "id": "self-billed-einvoice-malaysia-guide",
@@ -12637,7 +12697,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Self-Billed E-Invoices in Malaysia: When You Must",
+    "metaDescription": "When LHDN requires you to issue an e-invoice to yourself, the transactions that trigger it, and what your system needs to handle them."
   },
   {
     "id": "backup-restore-testing-legacy-systems",
@@ -12838,7 +12900,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "A Backup Isn't a Backup Until You've Restored It",
+    "metaDescription": "Most businesses have backups; few have ever restored one. How to find out whether yours would save you, before the day you need them."
   },
   {
     "id": "who-owns-your-source-code-legacy-system",
@@ -13016,7 +13080,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Who Really Owns Your Business System's Source Code?",
+    "metaDescription": "Paying for software isn't the same as owning it or being able to hand it over. What to check before you need the answer."
   },
   {
     "id": "venue-booking-numbers-owners-should-track",
@@ -13191,7 +13257,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "5 Numbers Every Venue Owner Should Track",
+    "metaDescription": "Which slots make money, who your best customers are and how much capacity goes unsold: five numbers that change how you run a venue."
   },
   {
     "id": "how-double-booking-protection-works-venue-booking-plugin",
@@ -13342,7 +13410,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "How Double-Booking Protection Works in WordPress",
+    "metaDescription": "Most booking forms check availability once and hope. How our WordPress plugin makes sure a slot can never be sold twice, even at the same moment."
   },
   {
     "id": "venue-booking-plugin-no-external-connections",
@@ -13474,7 +13544,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "A Booking Plugin With No External Connections",
+    "metaDescription": "Every booking stays in your own WordPress database, with no third-party service or account. Why we built the Venue Booking plugin that way."
   },
   {
     "id": "why-every-booking-needs-approval-venue-booking-plugin",
@@ -13605,7 +13677,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Why Every Venue Booking Needs Your Approval",
+    "metaDescription": "Why SteadyDevs Venue Booking asks you to approve each booking, what the approval queue looks like day to day, and who it suits."
   },
   {
     "id": "pos-vendor-acquired-shut-down-survival-guide",
@@ -13827,7 +13901,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "POS Vendor Acquired or Shut Down? What to Do",
+    "metaDescription": "Support emails bounce and updates have stopped. How to assess your real exposure when your POS vendor disappears, and what to do, in order."
   },
   {
     "id": "pos-vendor-wont-support-customizations",
@@ -14299,7 +14375,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "POS/ERP Vendor Won't Support Your Customisations?",
+    "metaDescription": "Why vendors refuse to support customised POS and ERP systems, how Malaysian SMEs avoid the trap, and what to do if you're already stuck."
   },
   {
     "id": "year-end-change-freeze-legacy-system",
@@ -14483,7 +14561,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Year-End Change Freeze: What to Fix First",
+    "metaDescription": "December brings peak load and an unreachable developer. Which few fixes to make first, and why a short change freeze is cheap insurance."
   },
   {
     "id": "inherited-cloud-bill-where-money-leaks",
@@ -14639,7 +14719,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Inherited Cloud Bill? 6 Places Money Leaks",
+    "metaDescription": "Took over an AWS or Google Cloud account? The six places we most often find waste, and why cutting them blindly breaks production."
   },
   {
     "id": "peak-off-peak-pricing-fill-dead-hours-venue",
@@ -14806,7 +14888,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Peak and Off-Peak Pricing for Courts and Studios",
+    "metaDescription": "Full some evenings, half-empty the rest? How to set peak and off-peak prices from your own booking data to fill the dead hours."
   },
   {
     "id": "windows-server-sql-server-2016-end-of-support",
@@ -14970,7 +15054,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "SQL Server & Windows Server 2016 End of Support",
+    "metaDescription": "SQL Server 2016 support ended July 2026; Windows Server 2016 follows January 2027. What changes for your system and how to choose your next step."
   },
   {
     "id": "lhdn-einvoice-rm3-million-exemption-2028-deadline",
@@ -15125,7 +15211,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "LHDN E-Invoice: RM3 Million Exemption, 2028 Date",
+    "metaDescription": "LHDN raised the e-invoice exemption to RM3 million and extended Phase 4's relaxation to 2027. What changed, who it affects and what to do."
   },
   {
     "id": "einvoice-rm3-million-exemption-who-still-must-comply",
@@ -15253,7 +15341,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "Under RM3 Million but Still Must E-Invoice?",
+    "metaDescription": "The RM3 million exemption doesn't cover subsidiaries, companies with corporate shareholders or large groups. How to check if you really qualify."
   },
   {
     "id": "einvoice-interim-relaxation-2027-what-you-can-do",
@@ -15393,7 +15483,9 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "E-Invoice Relaxation to 2027: What's Allowed",
+    "metaDescription": "What Phase 4 businesses can and can't do before full e-invoice enforcement on 1 January 2028, and how to use the relaxation well."
   },
   {
     "id": "einvoice-svdp-voluntary-disclosure-fix-past-mistakes",
@@ -15534,6 +15626,8 @@
           }
         ]
       }
-    ]
+    ],
+    "seoTitle": "E-Invoice SVDP: Fix Past Mistakes Before 2028",
+    "metaDescription": "LHDN's Special Voluntary Disclosure Programme lets you correct missed or wrong e-invoices without penalties until 31 December 2027. How it works."
   }
 ]

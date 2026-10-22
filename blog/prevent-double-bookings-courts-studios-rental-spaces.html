@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces | SteadyDevs</title>
-  <meta name="description" content="A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else already there. Here's why double bookings keep happening even with a shared calendar, and how a proper booking system removes the problem entirely.">
+  <title>How to Stop Double Bookings for Courts and Studios | SteadyDevs</title>
+  <meta name="description" content="Why double bookings keep happening even with a shared calendar, and how a proper booking system for courts, studios and rooms ends them.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/prevent-double-bookings-courts-studios-rental-spaces.html">
-  <meta property="og:title" content="Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces">
-  <meta property="og:description" content="A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else already there. Here's why double bookings keep happening even with a shared calendar, and how a proper booking system removes the problem entirely.">
+  <meta property="og:title" content="How to Stop Double Bookings for Courts and Studios">
+  <meta property="og:description" content="Why double bookings keep happening even with a shared calendar, and how a proper booking system for courts, studios and rooms ends them.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/prevent-double-bookings-cover.svg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces">
-  <meta name="twitter:description" content="A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else already there. Here's why double bookings keep happening even with a shared calendar, and how a proper booking system removes the problem entirely.">
+  <meta name="twitter:title" content="How to Stop Double Bookings for Courts and Studios">
+  <meta name="twitter:description" content="Why double bookings keep happening even with a shared calendar, and how a proper booking system for courts, studios and rooms ends them.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/prevent-double-bookings-cover.svg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/prevent-double-bookings-cover.svg" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else already there. Here's why double bookings keep happening even with a shared calendar, and how a proper booking system removes the problem entirely.",
+    "description": "Why double bookings keep happening even with a shared calendar, and how a proper booking system for courts, studios and rooms ends them.",
     "articleSection": "Software Development",
     "articleBody": "A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else already there. Here's why double bookings keep happening even with a shared calendar, and how a proper booking system removes the problem entirely.",
     "wordCount": 1120,
@@ -158,12 +159,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/prevent-double-bookings-courts-studios-rental-spaces.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -218,7 +225,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/prevent-double-bookings-cover.svg" alt="Cover graphic showing two colliding court bookings resolving into a single confirmed booking" class="blog-hero-image">
+        <img src="../images/blog/prevent-double-bookings-cover.svg" alt="Cover graphic showing two colliding court bookings resolving into a single confirmed booking" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</h1>
           <div class="blog-meta">August 27, 2026 | 7 min read</div>
@@ -307,6 +314,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Taking bookings for courts, rooms or studios?</span>
+        <p>SteadyDevs Venue Booking is a WordPress plugin with live availability, approvals, deposits and automatic reminders, so double bookings and no-shows stop costing you. <a href="../venue-booking.html">See Venue Booking &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -338,6 +350,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

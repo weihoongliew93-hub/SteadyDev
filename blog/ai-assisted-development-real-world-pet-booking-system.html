@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>AI-Assisted Development Without the Code Chaos: Building a Pet Booking System | SteadyDevs</title>
-  <meta name="description" content="Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.">
+  <title>AI-Assisted Development Without the Code Chaos | SteadyDevs</title>
+  <meta name="description" content="Can AI tools speed up development without unmaintainable code? What happened building a real booking system with AI, and the pitfalls to avoid.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/ai-assisted-development-real-world-pet-booking-system.html">
-  <meta property="og:title" content="AI-Assisted Development Without the Code Chaos: Building a Pet Booking System">
-  <meta property="og:description" content="Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.">
+  <meta property="og:title" content="AI-Assisted Development Without the Code Chaos">
+  <meta property="og:description" content="Can AI tools speed up development without unmaintainable code? What happened building a real booking system with AI, and the pitfalls to avoid.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/ai-assisted-development.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI-Assisted Development Without the Code Chaos: Building a Pet Booking System">
-  <meta name="twitter:description" content="Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.">
+  <meta name="twitter:title" content="AI-Assisted Development Without the Code Chaos">
+  <meta name="twitter:description" content="Can AI tools speed up development without unmaintainable code? What happened building a real booking system with AI, and the pitfalls to avoid.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/ai-assisted-development.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/ai-assisted-development.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.",
+    "description": "Can AI tools speed up development without unmaintainable code? What happened building a real booking system with AI, and the pitfalls to avoid.",
     "articleSection": "Software Development",
     "articleBody": "Can AI tools like Claude actually speed up development without creating unmaintainable code? Here's what happened when I used AI to build a complex booking system—and how to avoid the common pitfalls.",
     "wordCount": 1716,
@@ -158,12 +159,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/ai-assisted-development-real-world-pet-booking-system.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -218,7 +225,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/ai-assisted-development.jpg" alt="Developer using AI tools for coding" class="blog-hero-image">
+        <img src="../images/blog/ai-assisted-development.webp" alt="Developer using AI tools for coding" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>AI-Assisted Development Without the Code Chaos: Building a Pet Booking System</h1>
           <div class="blog-meta">April 12, 2026 | 9 min read</div>
@@ -359,6 +366,11 @@
           </div>
 <p><em style="color: #9CA3AF;">Have questions about AI-assisted development or want to discuss your project? <a href="../contact.html" style="color: #60A5FA;">Let's talk</a>.</em></p>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Keeping a business-critical system running?</span>
+        <p>Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite. <a href="../solutions.html">See how we work &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -390,6 +402,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

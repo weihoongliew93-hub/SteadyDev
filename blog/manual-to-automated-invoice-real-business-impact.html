@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>From Manual to Automated: What to Expect from Invoice Automation | SteadyDevs</title>
-  <meta name="description" content="Three Malaysian business scenarios that show what happens when you automate invoicing—measurable time savings, error elimination, cash flow improvement, and unexpected benefits most businesses don't anticipate.">
+  <title>Invoice Automation: What to Really Expect | SteadyDevs</title>
+  <meta name="description" content="Three Malaysian businesses that automated invoicing: time saved, errors removed, faster cash flow and the benefits nobody expected.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/manual-to-automated-invoice-real-business-impact.html">
-  <meta property="og:title" content="From Manual to Automated: What to Expect from Invoice Automation">
-  <meta property="og:description" content="Three Malaysian business scenarios that show what happens when you automate invoicing—measurable time savings, error elimination, cash flow improvement, and unexpected benefits most businesses don't anticipate.">
+  <meta property="og:title" content="Invoice Automation: What to Really Expect">
+  <meta property="og:description" content="Three Malaysian businesses that automated invoicing: time saved, errors removed, faster cash flow and the benefits nobody expected.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/invoice-automation-impact.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="From Manual to Automated: What to Expect from Invoice Automation">
-  <meta name="twitter:description" content="Three Malaysian business scenarios that show what happens when you automate invoicing—measurable time savings, error elimination, cash flow improvement, and unexpected benefits most businesses don't anticipate.">
+  <meta name="twitter:title" content="Invoice Automation: What to Really Expect">
+  <meta name="twitter:description" content="Three Malaysian businesses that automated invoicing: time saved, errors removed, faster cash flow and the benefits nobody expected.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/invoice-automation-impact.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/invoice-automation-impact.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Three Malaysian business scenarios that show what happens when you automate invoicing—measurable time savings, error elimination, cash flow improvement, and unexpected benefits most businesses don't anticipate.",
+    "description": "Three Malaysian businesses that automated invoicing: time saved, errors removed, faster cash flow and the benefits nobody expected.",
     "articleSection": "Business Automation",
     "articleBody": "Three Malaysian business scenarios that show what happens when you automate invoicing—measurable time savings, error elimination, cash flow improvement, and unexpected benefits most businesses don't anticipate.",
     "wordCount": 1870,
@@ -158,12 +159,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/manual-to-automated-invoice-real-business-impact.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -218,7 +225,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/invoice-automation-impact.jpg" alt="Business transformation through invoice automation" class="blog-hero-image">
+        <img src="../images/blog/invoice-automation-impact.webp" alt="Business transformation through invoice automation" class="blog-hero-image" width="1600" height="986" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>From Manual to Automated: What to Expect from Invoice Automation</h1>
           <div class="blog-meta">May 5, 2026 | 11 min read</div>
@@ -381,6 +388,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Filing e-invoices with LHDN?</span>
+        <p>SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN's rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in. <a href="../einvoice.html">See the e-Invoice platform &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -412,6 +424,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>AI Tools for Legacy System Maintenance: Hype vs Reality | SteadyDevs</title>
-  <meta name="description" content="AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.">
+  <title>AI Tools for Legacy System Maintenance: Reality | SteadyDevs</title>
+  <meta name="description" content="Where AI coding tools really help maintain old, undocumented business systems, and where they make things worse. An honest look.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/ai-tools-legacy-system-maintenance-hype-reality.html">
-  <meta property="og:title" content="AI Tools for Legacy System Maintenance: Hype vs Reality">
-  <meta property="og:description" content="AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.">
+  <meta property="og:title" content="AI Tools for Legacy System Maintenance: Reality">
+  <meta property="og:description" content="Where AI coding tools really help maintain old, undocumented business systems, and where they make things worse. An honest look.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/ai-tools-legacy-maintenance.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Tools for Legacy System Maintenance: Hype vs Reality">
-  <meta name="twitter:description" content="AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.">
+  <meta name="twitter:title" content="AI Tools for Legacy System Maintenance: Reality">
+  <meta name="twitter:description" content="Where AI coding tools really help maintain old, undocumented business systems, and where they make things worse. An honest look.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/ai-tools-legacy-maintenance.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/ai-tools-legacy-maintenance.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.",
+    "description": "Where AI coding tools really help maintain old, undocumented business systems, and where they make things worse. An honest look.",
     "articleSection": "Software Development",
     "articleBody": "AI coding tools promise to make maintaining old systems faster and cheaper. Some of that is real. A lot of it isn't—especially for the messy, undocumented legacy systems most businesses actually run. Here's an honest look at where AI helps and where it hurts.",
     "wordCount": 1111,
@@ -150,12 +151,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/ai-tools-legacy-system-maintenance-hype-reality.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -210,7 +217,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/ai-tools-legacy-maintenance.jpg" alt="AI coding tools applied to legacy system maintenance" class="blog-hero-image">
+        <img src="../images/blog/ai-tools-legacy-maintenance.webp" alt="AI coding tools applied to legacy system maintenance" class="blog-hero-image" width="1200" height="809" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>AI Tools for Legacy System Maintenance: Hype vs Reality</h1>
           <div class="blog-meta">August 06, 2026 | 10 min read</div>
@@ -297,6 +304,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Keeping a business-critical system running?</span>
+        <p>Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite. <a href="../solutions.html">See how we work &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -328,6 +340,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

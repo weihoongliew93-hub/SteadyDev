@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>E-Invoice Malaysia: Is Your Legacy System Ready? | SteadyDevs</title>
-  <meta name="description" content="Malaysia's e-invoice mandate is already rolling out. Large and medium businesses are already mandated. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now.">
+  <meta name="description" content="LHDN's e-invoice mandate is live. What your older POS or ERP must do to comply, the options if it can't, and what to do now.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -15,13 +15,13 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/e-invoice-malaysia-legacy-system-ready.html">
   <meta property="og:title" content="E-Invoice Malaysia: Is Your Legacy System Ready?">
-  <meta property="og:description" content="Malaysia's e-invoice mandate is already rolling out. Large and medium businesses are already mandated. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now.">
+  <meta property="og:description" content="LHDN's e-invoice mandate is live. What your older POS or ERP must do to comply, the options if it can't, and what to do now.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/e-invoice-compliance.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="E-Invoice Malaysia: Is Your Legacy System Ready?">
-  <meta name="twitter:description" content="Malaysia's e-invoice mandate is already rolling out. Large and medium businesses are already mandated. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now.">
+  <meta name="twitter:description" content="LHDN's e-invoice mandate is live. What your older POS or ERP must do to comply, the options if it can't, and what to do now.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/e-invoice-compliance.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/e-invoice-compliance.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Malaysia's e-invoice mandate is already rolling out. Large and medium businesses are already mandated. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now.",
+    "description": "LHDN's e-invoice mandate is live. What your older POS or ERP must do to comply, the options if it can't, and what to do now.",
     "articleSection": "Compliance & Regulation",
     "articleBody": "Malaysia's e-invoice mandate is already rolling out. Large and medium businesses are already mandated. If your legacy system can't adapt, you're facing compliance crisis. Here's what you need to know and do now.",
     "wordCount": 2075,
@@ -158,12 +159,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/e-invoice-malaysia-legacy-system-ready.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -218,7 +225,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/e-invoice-compliance.jpg" alt="Digital invoice compliance and business systems" class="blog-hero-image">
+        <img src="../images/blog/e-invoice-compliance.webp" alt="Digital invoice compliance and business systems" class="blog-hero-image" width="1200" height="800" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>E-Invoice Malaysia: Is Your Legacy System Ready?</h1>
           <div class="blog-meta">April 15, 2026 | 10 min read</div>
@@ -380,6 +387,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Filing e-invoices with LHDN?</span>
+        <p>SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN's rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in. <a href="../einvoice.html">See the e-Invoice platform &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -411,6 +423,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

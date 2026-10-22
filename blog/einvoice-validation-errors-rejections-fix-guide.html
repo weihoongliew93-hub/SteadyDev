@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>MyInvois E-Invoice Rejected? Common LHDN Validation Errors and How to Fix Them | SteadyDevs</title>
-  <meta name="description" content="E-invoice rejected or marked Invalid in MyInvois? The most common LHDN validation errors in Malaysia (TIN mismatch, digital signature, classification codes, tax totals, duplicates) and how to fix each one.">
+  <title>MyInvois E-Invoice Rejected? How to Fix It | SteadyDevs</title>
+  <meta name="description" content="The most common LHDN validation errors (TIN mismatch, signature, classification codes, totals, duplicates) and how to fix each one.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html">
-  <meta property="og:title" content="MyInvois E-Invoice Rejected? Common LHDN Validation Errors and How to Fix Them">
-  <meta property="og:description" content="E-invoice rejected or marked Invalid in MyInvois? The most common LHDN validation errors in Malaysia (TIN mismatch, digital signature, classification codes, tax totals, duplicates) and how to fix each one.">
+  <meta property="og:title" content="MyInvois E-Invoice Rejected? How to Fix It">
+  <meta property="og:description" content="The most common LHDN validation errors (TIN mismatch, signature, classification codes, totals, duplicates) and how to fix each one.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/einvoice-validation-errors.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MyInvois E-Invoice Rejected? Common LHDN Validation Errors and How to Fix Them">
-  <meta name="twitter:description" content="E-invoice rejected or marked Invalid in MyInvois? The most common LHDN validation errors in Malaysia (TIN mismatch, digital signature, classification codes, tax totals, duplicates) and how to fix each one.">
+  <meta name="twitter:title" content="MyInvois E-Invoice Rejected? How to Fix It">
+  <meta name="twitter:description" content="The most common LHDN validation errors (TIN mismatch, signature, classification codes, totals, duplicates) and how to fix each one.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/einvoice-validation-errors.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/einvoice-validation-errors.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "E-invoice rejected or marked Invalid in MyInvois? The most common LHDN validation errors in Malaysia (TIN mismatch, digital signature, classification codes, tax totals, duplicates) and how to fix each one.",
+    "description": "The most common LHDN validation errors (TIN mismatch, signature, classification codes, totals, duplicates) and how to fix each one.",
     "articleSection": "Compliance & Regulation",
     "articleBody": "A rejected e-invoice isn't just an inconvenience—it can hold up payments and trigger compliance gaps. Here are the validation errors Malaysian businesses hit most often with MyInvois, what each one really means, and how to resolve them.",
     "wordCount": 1226,
@@ -213,12 +214,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/einvoice-validation-errors-rejections-fix-guide.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -273,7 +280,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/einvoice-validation-errors.jpg" alt="Troubleshooting MyInvois e-invoice validation errors" class="blog-hero-image">
+        <img src="../images/blog/einvoice-validation-errors.webp" alt="Troubleshooting MyInvois e-invoice validation errors" class="blog-hero-image" width="1600" height="1068" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>E-Invoice Rejected by LHDN? The Most Common Validation Errors and How to Fix Them</h1>
           <div class="blog-meta">July 07, 2026 | 11 min read</div>
@@ -373,6 +380,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Filing e-invoices with LHDN?</span>
+        <p>SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN's rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in. <a href="../einvoice.html">See the e-Invoice platform &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -404,6 +416,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

@@ -30,6 +30,58 @@ const BLOG_STYLE_VER = assetVersion('../blog-styles.css');  // blog-specific sty
 console.log(`🚀 Building ${blogPosts.length} blog post(s)...`);
 console.log(`   f.css?v=${STYLE_VER} · blog-styles.css?v=${BLOG_STYLE_VER}`);
 
+// Pixel size of a WebP or SVG hero, so the <img> reserves its space and nothing jumps
+// when it loads. Read from the file's header; null when it cannot be read.
+function imageSize(relPath) {
+  try {
+    const file = path.join(__dirname, '../..', relPath);
+    if (relPath.endsWith('.svg')) {
+      const vb = fs.readFileSync(file, 'utf8').match(/viewBox="[\d.\s-]*?\s([\d.]+)\s+([\d.]+)"/);
+      return vb ? { w: Math.round(+vb[1]), h: Math.round(+vb[2]) } : null;
+    }
+    const b = fs.readFileSync(file);
+    if (b.toString('ascii', 0, 4) !== 'RIFF' || b.toString('ascii', 8, 12) !== 'WEBP') return null;
+    const chunk = b.toString('ascii', 12, 16);
+    if (chunk === 'VP8 ') return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+    if (chunk === 'VP8L') { const v = b.readUInt32LE(21); return { w: (v & 0x3fff) + 1, h: ((v >> 14) & 0x3fff) + 1 }; }
+    if (chunk === 'VP8X') return { w: b.readUIntLE(24, 3) + 1, h: b.readUIntLE(27, 3) + 1 };
+  } catch (e) { /* fall through: no size, the image still shows */ }
+  return null;
+}
+
+// The page shows a WebP beside the JPEG when one exists (a tenth of the weight); the JPEG
+// stays for og:image, which not every network reads as WebP.
+function displayImage(relPath) {
+  const webp = relPath.replace(/\.(jpe?g|png)$/i, '.webp');
+  return webp !== relPath && fs.existsSync(path.join(__dirname, '../..', webp)) ? webp : relPath;
+}
+
+// Each post ends by pointing at what SteadyDevs offers on its topic. Before this, posts
+// linked only to the home and contact pages: a reader of an e-invoice guide was never
+// shown the e-invoice platform, and search engines saw no link from the topic to it.
+function productCallout(post) {
+  const tags = (post.tags || []).map(t => t.toLowerCase());
+  const has = (...t) => t.some(x => tags.includes(x));
+  let c;
+  if (has('e-invoice', 'lhdn', 'myinvois', 'invoice')) c = {
+    label: 'Filing e-invoices with LHDN?', href: '../einvoice.html', link: 'See the e-Invoice platform',
+    text: 'SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN\'s rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in.' };
+  else if (has('venue booking', 'double booking')) c = {
+    label: 'Taking bookings for courts, rooms or studios?', href: '../venue-booking.html', link: 'See Venue Booking',
+    text: 'SteadyDevs Venue Booking is a WordPress plugin with live availability, approvals, deposits and automatic reminders, so double bookings and no-shows stop costing you.' };
+  else if (/cloud/.test(post.slug)) c = {
+    label: 'Cloud bill higher than it should be?', href: '../cloud-cost-audit.html', link: 'See the cloud cost audit',
+    text: 'We review what you run and what you pay for, and show where the money goes, before you commit to a migration or a bigger plan.' };
+  else c = {
+    label: 'Keeping a business-critical system running?', href: '../solutions.html', link: 'See how we work',
+    text: 'Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite.' };
+  return `
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">${c.label}</span>
+        <p>${c.text} <a href="${c.href}">${c.link} &rarr;</a></p>
+      </aside>`;
+}
+
 // Helper: Estimate word count from content blocks
 function estimateWordCount(content) {
   if (!content || !Array.isArray(content)) return 0;
@@ -175,8 +227,11 @@ function generateHTML(post) {
   });
 
   // Hero image HTML
-  const heroImageHTML = post.heroImage 
-    ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" class="blog-hero-image">`
+  // The hero is the largest thing painted: fetched first, at its real size.
+  const heroSrc = post.heroImage ? displayImage(post.heroImage) : null;
+  const heroSize = heroSrc ? imageSize(heroSrc) : null;
+  const heroImageHTML = heroSrc
+    ? `<img src="../${heroSrc}" alt="${post.heroImageAlt || post.title}" class="blog-hero-image"${heroSize ? ` width="${heroSize.w}" height="${heroSize.h}"` : ''} fetchpriority="high" decoding="async">`
     : '';
 
   // Calculate word count
@@ -282,7 +337,8 @@ function generateHTML(post) {
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
+  ${heroSrc ? `<link rel="preload" as="image" href="../${heroSrc}" fetchpriority="high">` : ''}
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
   <link rel="stylesheet" href="../assets/f.css?v=${STYLE_VER}">
   <link rel="stylesheet" href="blog-styles.css?v=${BLOG_STYLE_VER}">
   
@@ -351,12 +407,18 @@ function generateHTML(post) {
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/${post.slug}.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -417,6 +479,7 @@ function generateHTML(post) {
           <div class="blog-meta">${post.dateDisplay} | ${post.readTime}</div>
         </div>
         ${contentHTML}
+        ${productCallout(post)}
       </article>
       
       ${relatedPostsHTML}
@@ -447,6 +510,7 @@ function generateHTML(post) {
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">
@@ -717,6 +781,12 @@ blogPosts.forEach(post => {
   console.log(`✅ Generated: ${post.slug}.html`);
   generatedCount++;
 });
+
+// The blog index, topics page and related-posts box need titles, tags and excerpts, not
+// bodies. Read from blog-posts.json they downloaded 200 KB of article text on every post.
+const index = blogPosts.map(({ content, ...rest }) => rest);
+fs.writeFileSync('../blog-index.json', JSON.stringify(index));
+console.log(`✅ Generated: blog-index.json (${Math.round(JSON.stringify(index).length / 1024)} KB)`);
 
 console.log(`\n🎉 Done! Generated ${generatedCount} blog post(s), skipped ${skippedCount} standalone post(s).`);
 console.log('\n📝 Next steps:');

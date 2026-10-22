@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>When 'It's Working Fine' Actually Means 'It's About to Break' | SteadyDevs</title>
-  <meta name="description" content="The most dangerous phrase in software is 'it's working fine.' Systems rarely fail without warning—they send signals for months first. Here are the quiet symptoms that a stable-looking system is closer to failure than you think.">
+  <title>'It's Working Fine': Signs a System Is About to Fail | SteadyDevs</title>
+  <meta name="description" content="Systems rarely fail without warning. The quiet symptoms, months ahead, that a stable-looking business system is closer to failure than it seems.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/working-fine-about-to-break-warning-signs.html">
-  <meta property="og:title" content="When 'It's Working Fine' Actually Means 'It's About to Break'">
-  <meta property="og:description" content="The most dangerous phrase in software is 'it's working fine.' Systems rarely fail without warning—they send signals for months first. Here are the quiet symptoms that a stable-looking system is closer to failure than you think.">
+  <meta property="og:title" content="'It's Working Fine': Signs a System Is About to Fail">
+  <meta property="og:description" content="Systems rarely fail without warning. The quiet symptoms, months ahead, that a stable-looking business system is closer to failure than it seems.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/working-fine-about-to-break.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="When 'It's Working Fine' Actually Means 'It's About to Break'">
-  <meta name="twitter:description" content="The most dangerous phrase in software is 'it's working fine.' Systems rarely fail without warning—they send signals for months first. Here are the quiet symptoms that a stable-looking system is closer to failure than you think.">
+  <meta name="twitter:title" content="'It's Working Fine': Signs a System Is About to Fail">
+  <meta name="twitter:description" content="Systems rarely fail without warning. The quiet symptoms, months ahead, that a stable-looking business system is closer to failure than it seems.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/working-fine-about-to-break.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/working-fine-about-to-break.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "The most dangerous phrase in software is 'it's working fine.' Systems rarely fail without warning—they send signals for months first. Here are the quiet symptoms that a stable-looking system is closer to failure than you think.",
+    "description": "Systems rarely fail without warning. The quiet symptoms, months ahead, that a stable-looking business system is closer to failure than it seems.",
     "articleSection": "Software Development",
     "articleBody": "The most dangerous phrase in software is 'it's working fine.' Systems rarely fail without warning—they send signals for months first. Here are the quiet symptoms that a stable-looking system is closer to failure than you think.",
     "wordCount": 986,
@@ -150,12 +151,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/working-fine-about-to-break-warning-signs.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -210,7 +217,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/working-fine-about-to-break.jpg" alt="Business system showing early warning signs of failure" class="blog-hero-image">
+        <img src="../images/blog/working-fine-about-to-break.webp" alt="Business system showing early warning signs of failure" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>When 'It's Working Fine' Actually Means 'It's About to Break'</h1>
           <div class="blog-meta">July 17, 2026 | 9 min read</div>
@@ -288,6 +295,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Keeping a business-critical system running?</span>
+        <p>Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite. <a href="../solutions.html">See how we work &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -319,6 +331,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

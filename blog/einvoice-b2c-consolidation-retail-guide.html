@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Consolidated E-Invoice for B2C Retail in Malaysia: LHDN Rules for Walk-In Customers | SteadyDevs</title>
-  <meta name="description" content="Do Malaysian retailers need an e-invoice for every walk-in sale? How LHDN consolidated e-invoicing works for B2C, how often to submit through MyInvois, what your POS must support, and common compliance mistakes.">
+  <title>Consolidated E-Invoice for Retail: LHDN Rules | SteadyDevs</title>
+  <meta name="description" content="Do walk-in sales need an e-invoice each? How LHDN's consolidated e-invoice works for B2C retail, when to submit and what your POS must do.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html">
-  <meta property="og:title" content="Consolidated E-Invoice for B2C Retail in Malaysia: LHDN Rules for Walk-In Customers">
-  <meta property="og:description" content="Do Malaysian retailers need an e-invoice for every walk-in sale? How LHDN consolidated e-invoicing works for B2C, how often to submit through MyInvois, what your POS must support, and common compliance mistakes.">
+  <meta property="og:title" content="Consolidated E-Invoice for Retail: LHDN Rules">
+  <meta property="og:description" content="Do walk-in sales need an e-invoice each? How LHDN's consolidated e-invoice works for B2C retail, when to submit and what your POS must do.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/einvoice-b2c-consolidation.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Consolidated E-Invoice for B2C Retail in Malaysia: LHDN Rules for Walk-In Customers">
-  <meta name="twitter:description" content="Do Malaysian retailers need an e-invoice for every walk-in sale? How LHDN consolidated e-invoicing works for B2C, how often to submit through MyInvois, what your POS must support, and common compliance mistakes.">
+  <meta name="twitter:title" content="Consolidated E-Invoice for Retail: LHDN Rules">
+  <meta name="twitter:description" content="Do walk-in sales need an e-invoice each? How LHDN's consolidated e-invoice works for B2C retail, when to submit and what your POS must do.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/einvoice-b2c-consolidation.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/einvoice-b2c-consolidation.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Do Malaysian retailers need an e-invoice for every walk-in sale? How LHDN consolidated e-invoicing works for B2C, how often to submit through MyInvois, what your POS must support, and common compliance mistakes.",
+    "description": "Do walk-in sales need an e-invoice each? How LHDN's consolidated e-invoice works for B2C retail, when to submit and what your POS must do.",
     "articleSection": "Compliance & Regulation",
     "articleBody": "Most walk-in customers don't ask for an e-invoice—so do you really have to issue one for every sale? Here's how consolidated e-invoicing works for B2C retail, what your POS needs to support, and the mistakes that trigger compliance problems.",
     "wordCount": 1004,
@@ -150,12 +151,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/einvoice-b2c-consolidation-retail-guide.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -210,7 +217,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/einvoice-b2c-consolidation.jpg" alt="Retail point of sale handling consolidated B2C e-invoices" class="blog-hero-image">
+        <img src="../images/blog/einvoice-b2c-consolidation.webp" alt="Retail point of sale handling consolidated B2C e-invoices" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</h1>
           <div class="blog-meta">July 01, 2026 | 10 min read</div>
@@ -294,6 +301,11 @@
             
           </div>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Filing e-invoices with LHDN?</span>
+        <p>SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN's rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in. <a href="../einvoice.html">See the e-Invoice platform &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -325,6 +337,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

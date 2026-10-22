@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>When to Refactor vs. Rewrite Your Legacy .NET System: A Practical Guide | SteadyDevs</title>
-  <meta name="description" content="Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.">
+  <title>Refactor or Rewrite a Legacy .NET System? | SteadyDevs</title>
+  <meta name="description" content="When refactoring a legacy .NET system makes sense and when a rewrite is justified, from 11 years of keeping production systems running.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/when-to-refactor-vs-rewrite-legacy-dotnet-system.html">
-  <meta property="og:title" content="When to Refactor vs. Rewrite Your Legacy .NET System: A Practical Guide">
-  <meta property="og:description" content="Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.">
+  <meta property="og:title" content="Refactor or Rewrite a Legacy .NET System?">
+  <meta property="og:description" content="When refactoring a legacy .NET system makes sense and when a rewrite is justified, from 11 years of keeping production systems running.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/refactor-vs-rewrite.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="When to Refactor vs. Rewrite Your Legacy .NET System: A Practical Guide">
-  <meta name="twitter:description" content="Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.">
+  <meta name="twitter:title" content="Refactor or Rewrite a Legacy .NET System?">
+  <meta name="twitter:description" content="When refactoring a legacy .NET system makes sense and when a rewrite is justified, from 11 years of keeping production systems running.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/refactor-vs-rewrite.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/refactor-vs-rewrite.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.",
+    "description": "When refactoring a legacy .NET system makes sense and when a rewrite is justified, from 11 years of keeping production systems running.",
     "articleSection": "Legacy Systems Management",
     "articleBody": "Facing a difficult legacy .NET system? Learn when refactoring makes sense versus when a full rewrite is justified, based on 11 years of real-world experience with production systems.",
     "wordCount": 1790,
@@ -249,12 +250,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/when-to-refactor-vs-rewrite-legacy-dotnet-system.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -309,7 +316,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/refactor-vs-rewrite.jpg" alt="Developer reviewing code architecture decisions" class="blog-hero-image">
+        <img src="../images/blog/refactor-vs-rewrite.webp" alt="Developer reviewing code architecture decisions" class="blog-hero-image" width="1600" height="1068" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>When to Refactor vs. Rewrite Your Legacy .NET System: A Practical Guide</h1>
           <div class="blog-meta">April 9, 2026 | 10 min read</div>
@@ -441,6 +448,11 @@
           </div>
 <p><em style="color: #9CA3AF;">Facing this decision in your own system? <a href="../contact.html" style="color: #60A5FA;">Let's talk</a> about what makes sense for your specific situation.</em></p>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Keeping a business-critical system running?</span>
+        <p>Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite. <a href="../solutions.html">See how we work &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -472,6 +484,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

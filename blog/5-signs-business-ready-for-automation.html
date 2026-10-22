@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>5 Signs Your Business Is Ready for Automation (And What to Automate First) | SteadyDevs</title>
-  <meta name="description" content="Business automation isn't about replacing people — it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.">
+  <title>5 Signs Your Business Is Ready for Automation | SteadyDevs</title>
+  <meta name="description" content="Automation stops people doing work software should do. Five clear signs your business is ready, and which processes to automate first.">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -14,14 +14,14 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/5-signs-business-ready-for-automation.html">
-  <meta property="og:title" content="5 Signs Your Business Is Ready for Automation (And What to Automate First)">
-  <meta property="og:description" content="Business automation isn't about replacing people — it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.">
+  <meta property="og:title" content="5 Signs Your Business Is Ready for Automation">
+  <meta property="og:description" content="Automation stops people doing work software should do. Five clear signs your business is ready, and which processes to automate first.">
   <meta property="og:image" content="https://steadydevs.com/images/blog/business-automation-signs.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="5 Signs Your Business Is Ready for Automation (And What to Automate First)">
-  <meta name="twitter:description" content="Business automation isn't about replacing people — it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.">
+  <meta name="twitter:title" content="5 Signs Your Business Is Ready for Automation">
+  <meta name="twitter:description" content="Automation stops people doing work software should do. Five clear signs your business is ready, and which processes to automate first.">
   <meta name="twitter:image" content="https://steadydevs.com/images/blog/business-automation-signs.jpg">
   
   <!-- Canonical URL -->
@@ -31,9 +31,10 @@
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap">
-  <link rel="stylesheet" href="../assets/f.css?v=74093a11">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="preload" as="image" href="../images/blog/business-automation-signs.webp" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=135642ff">
+  <link rel="stylesheet" href="blog-styles.css?v=9d255bcb">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -59,7 +60,7 @@
         "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
       }
     },
-    "description": "Business automation isn't about replacing people — it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.",
+    "description": "Automation stops people doing work software should do. Five clear signs your business is ready, and which processes to automate first.",
     "articleSection": "Business Automation",
     "articleBody": "Business automation isn't about replacing people — it's about stopping them from doing work that software should be doing. Here are 5 clear signs your business is ready, and what to automate first.",
     "wordCount": 1458,
@@ -158,12 +159,18 @@
   <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/5-signs-business-ready-for-automation.html" />
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
@@ -218,7 +225,7 @@
     
     <main class="blog-content" id="main">
       <article>
-        <img src="../images/blog/business-automation-signs.jpg" alt="Business workflow automation illustration" class="blog-hero-image">
+        <img src="../images/blog/business-automation-signs.webp" alt="Business workflow automation illustration" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
         <div class="blog-header">
           <h1>5 Signs Your Business Is Ready for Automation (And What to Automate First)</h1>
           <div class="blog-meta">April 28, 2026 | 7 min read</div>
@@ -321,6 +328,11 @@
           </div>
 <p><em style="color: #9CA3AF;">Curious what could be automated in your business? <a href="../contact.html" style="color: #60A5FA;">Get in touch</a> for a free consultation.</em></p>
 
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Keeping a business-critical system running?</span>
+        <p>Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite. <a href="../solutions.html">See how we work &rarr;</a></p>
+      </aside>
       </article>
       
       
@@ -352,6 +364,7 @@
               <li><a href="../solutions.html">Engineering services</a></li>
               <li><a href="../einvoice.html">EInvoice Platform</a></li>
               <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
             </ul>
           </div>
           <div class="ff__col">

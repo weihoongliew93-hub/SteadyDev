@@ -13,7 +13,7 @@
   const currentTags = JSON.parse(container.dataset.currentTags || '[]');
   
   // Load blog posts and find related articles
-  fetch('blog-posts.json')
+  fetch('blog-index.json')
     .then(response => response.json())
     .then(posts => {
       const relatedPosts = findRelatedPosts(currentPostId, currentTags, posts, 3);
