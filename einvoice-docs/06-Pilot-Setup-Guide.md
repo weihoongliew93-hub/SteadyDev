@@ -74,8 +74,9 @@ The wizard opens on first login. It has five steps.
    Option B a pass is what marks the authorisation as done.
 
 **Digital certificate.** Option B needs none from the pilot: Steady Devs' certificate
-signs. Option A still needs the pilot's own certificate, and the app has no screen to
-upload one (the settings API accepts it, but nothing checks it or reads its expiry).
+signs. Option A needs the pilot's own: upload the .p12/.pfx file and its password under
+Settings > LHDN Credentials > Signing Certificate. The platform checks the password, the key
+and the expiry, and warns if the certificate is self-signed or names a different TIN.
 
 ---
 
@@ -88,7 +89,7 @@ portal as well as in the platform:
 |---|---|---|
 | 1 | A normal invoice to a buyer with a real TIN | **Valid** at LHDN within a minute, then **Approved** in the platform within 5 minutes, with a share link |
 | 2 | Cancel invoice 1 (reason: "Sandbox test") | Shows **Cancelled** on the portal. Cancelling is only possible within 72 hours |
-| 3 | A consolidated invoice for walk-in sales (general buyer TIN `EI00000000010`, buyer ID "NA", classification 004) | **Valid** at LHDN |
+| 3 | Walk-in sales: record two or three sales with no buyer TIN (API, or a CSV from Invoices > Import CSV), then Settings > Monthly Consolidated e-Invoice > Consolidate last month now | One consolidated e-invoice (`CONS-…`), **Valid** at LHDN. The shape was proved on preprod on 22 October 2026 |
 
 **Common rejections seen in the sandbox, and the fix:**
 
@@ -119,6 +120,6 @@ Found while writing this guide (21 October 2026). Each of these stops a pilot or
    Steady Devs. That needs Steady Devs' own sandbox ERP login and certificate configured.
    Note whether LHDN refuses at sign-in or only at submission when no authorisation
    exists, and whether a sole proprietor needs `TIN:ROB` instead of the TIN alone.
-2. **Option A has no certificate upload screen.** Either add one or steer pilots to
-   Option B.
+2. Done 22 October 2026: certificate upload for Option A; monthly consolidated e-invoice
+   (automatic or by hand); CSV import for pilots with no integration.
 3. Done 21 October 2026: intermediary mode built; wizard step 3 is no longer a tick-box.
