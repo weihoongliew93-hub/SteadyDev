@@ -26,6 +26,7 @@
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file === 'cloud-cost-audit.html' || file.indexOf('packages') === 0) return 'solutions';
     if (file === 'einvoice.html') return isF ? 'einvoice' : 'products';
     if (file === 'venue-booking.html') return isF ? 'venue' : 'products';
+    if (file === 'steadypost.html') return isF ? 'steadypost' : 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
     if (file === 'my-account.html') return 'account';
@@ -61,6 +62,7 @@
             fLink('solutions.html', 'Engineering', 'solutions') +
             fLink('einvoice.html', 'EInvoice', 'einvoice') +
             fLink('venue-booking.html', 'Venue Booking', 'venue') +
+            fLink('steadypost.html', 'SteadyPost', 'steadypost') +
             fLink('portfolio.html', 'Case studies', 'portfolio') +
             fLink('blog/index.html', 'Blog', 'blog') +
             fLink('about.html', 'About', 'about') +
@@ -139,6 +141,7 @@
           '<div class="dropdown-content">' +
             '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
             '<a href="' + base + 'venue-booking.html">SteadyDevs Venue Booking — WordPress Plugin</a>' +
+            '<a href="' + base + 'steadypost.html">SteadyPost — Bulk Import Plugin (free)</a>' +
           '</div>' +
         '</div>' +
         link('portfolio.html', 'Portfolio', 'portfolio') +
