@@ -50,6 +50,10 @@ const MAIN = [
   { file: 'solutions.html',     loc: '/solutions.html',     changefreq: 'monthly', priority: '0.95' },
   { file: 'portfolio.html',     loc: '/portfolio.html',     changefreq: 'monthly', priority: '0.9' },
   { file: 'einvoice.html',      loc: '/einvoice.html',      changefreq: 'monthly', priority: '0.9' },
+  // Product pages served without ".html": the loc matches each page's canonical URL.
+  { file: 'venue-booking.html', loc: '/venue-booking',      changefreq: 'monthly', priority: '0.9' },
+  { file: 'steadypost.html',    loc: '/steadypost',         changefreq: 'monthly', priority: '0.8' },
+  { file: 'cloud-cost-audit.html', loc: '/cloud-cost-audit.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'pricing-terms.html', loc: '/pricing-terms.html', changefreq: 'monthly', priority: '0.9' },
   { file: 'services.html',      loc: '/services.html',      changefreq: 'monthly', priority: '0.8' },
   { file: 'contact.html',       loc: '/contact.html',       changefreq: 'monthly', priority: '0.8' },
