@@ -18,6 +18,16 @@
   // Pages on the new design set <html data-design="f"> and load assets/f.css.
   var isF = document.documentElement.getAttribute('data-design') === 'f';
 
+  // WordPress plugins, listed under one "Plugins" menu. A new plugin is one line here: the
+  // menu, the mobile list, the highlight for its page and the older design's Products menu
+  // all follow. `file` is the page; its URL may also be served without ".html".
+  var PLUGINS = [
+    { file: 'venue-booking.html', name: 'Venue Booking', tagline: 'Bookings, approvals and reminders for courts, rooms and studios' },
+    { file: 'steadypost.html', name: 'SteadyPost', tagline: 'Bulk-import posts from Excel or CSV \u2014 free' }
+  ];
+  var pageFile = /\.html$/.test(file) ? file : file + '.html';
+  var currentPlugin = PLUGINS.filter(function (p) { return p.file === pageFile; })[0];
+
   // Which top-level nav item should be highlighted for the current page.
   var active = (function () {
     if (inBlog) return 'blog';
@@ -25,8 +35,7 @@
     if (file === 'about.html') return 'about';
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file === 'cloud-cost-audit.html' || file.indexOf('packages') === 0) return 'solutions';
     if (file === 'einvoice.html') return isF ? 'einvoice' : 'products';
-    if (file === 'venue-booking.html') return isF ? 'venue' : 'products';
-    if (file === 'steadypost.html') return isF ? 'steadypost' : 'products';
+    if (currentPlugin) return isF ? 'plugins' : 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
     if (file === 'my-account.html') return 'account';
@@ -54,6 +63,21 @@
     var icon = function (d) {
       return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
     };
+    // A button, not a link: it opens the list, it does not go anywhere. Opens on click (and
+    // keyboard), closes on Escape or a click elsewhere; on phones the list sits open inside
+    // the menu, so nothing has to be tapped twice.
+    var pluginsMenu =
+      '<div class="fh__group' + (active === 'plugins' ? ' is-current' : '') + '">' +
+        '<button type="button" class="fh__group-btn" id="fhPluginsBtn" aria-expanded="false" aria-controls="fhPlugins">Plugins' +
+          '<svg class="fh__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '</button>' +
+        '<div class="fh__panel" id="fhPlugins">' +
+          PLUGINS.map(function (p) {
+            return '<a href="' + base + p.file + '"' + (p === currentPlugin ? ' aria-current="page"' : '') + '>' +
+              '<span class="fh__panel-name">' + p.name + '</span><span class="fh__panel-desc">' + p.tagline + '</span></a>';
+          }).join('') +
+        '</div>' +
+      '</div>';
     mount(
       '<header class="fh" id="fh">' +
         '<div class="fh__inner">' +
@@ -61,8 +85,7 @@
           '<nav class="fh__nav" id="fhNav" aria-label="Main">' +
             fLink('solutions.html', 'Engineering', 'solutions') +
             fLink('einvoice.html', 'EInvoice', 'einvoice') +
-            fLink('venue-booking.html', 'Venue Booking', 'venue') +
-            fLink('steadypost.html', 'SteadyPost', 'steadypost') +
+            pluginsMenu +
             fLink('portfolio.html', 'Case studies', 'portfolio') +
             fLink('blog/index.html', 'Blog', 'blog') +
             fLink('about.html', 'About', 'about') +
@@ -93,6 +116,21 @@
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('sd-theme', next); } catch (e) { /* storage blocked: theme still switches */ }
       syncThemeLabel();
+    });
+
+    var group = document.querySelector('.fh__group');
+    var groupBtn = document.getElementById('fhPluginsBtn');
+    var setGroup = function (open) {
+      group.classList.toggle('is-open', open);
+      groupBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    groupBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setGroup(!group.classList.contains('is-open'));
+    });
+    document.addEventListener('click', function (e) { if (!group.contains(e.target)) setGroup(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && group.classList.contains('is-open')) { setGroup(false); groupBtn.focus(); }
     });
 
     var header = document.getElementById('fh');
@@ -140,8 +178,9 @@
           '<span class="nav-toggle' + (active === 'products' ? ' active' : '') + '" tabindex="0" role="button" aria-haspopup="true">Products</span>' +
           '<div class="dropdown-content">' +
             '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
-            '<a href="' + base + 'venue-booking.html">SteadyDevs Venue Booking — WordPress Plugin</a>' +
-            '<a href="' + base + 'steadypost.html">SteadyPost — Bulk Import Plugin (free)</a>' +
+            PLUGINS.map(function (p) {
+              return '<a href="' + base + p.file + '">' + p.name + ' \u2014 WordPress plugin</a>';
+            }).join('') +
           '</div>' +
         '</div>' +
         link('portfolio.html', 'Portfolio', 'portfolio') +

@@ -276,6 +276,18 @@ p { margin: 0; }
 :root[data-theme="light"] .fh__sun { display: block; }
 :root[data-theme="light"] .fh__moon { display: none; }
 
+/* Plugins menu: a button opening a short list of plugin pages (assets/site-nav.js, PLUGINS). */
+.fh__group { position: relative; }
+.fh__group-btn { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; color: var(--muted); cursor: pointer; }
+.fh__group-btn:hover, .fh__group.is-open .fh__group-btn, .fh__group.is-current .fh__group-btn { color: var(--text-strong); }
+.fh__caret { width: 12px; height: 12px; transition: transform .15s ease; }
+.fh__group.is-open .fh__caret { transform: rotate(180deg); }
+.fh__panel { display: none; position: absolute; top: calc(100% + 14px); left: -16px; min-width: 340px; padding: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); z-index: 1001; }
+.fh__group.is-open .fh__panel { display: block; }
+.fh__panel a { display: block; padding: 10px 12px; border-radius: 8px; }
+.fh__panel a:hover, .fh__panel a[aria-current="page"] { background: var(--surface-2); }
+.fh__panel-name { display: block; color: var(--text-strong); font-weight: 500; }
+.fh__panel-desc { display: block; margin-top: 2px; font-size: 13px; color: var(--faint); line-height: 1.4; }
 @media (max-width: 960px) {
   .fh__menu { display: inline-flex; }
   .fh__nav {
@@ -286,6 +298,13 @@ p { margin: 0; }
   .fh.is-open .fh__nav { display: flex; }
   .fh__nav a { padding: 14px 0; border-bottom: 1px solid var(--border-soft); font-size: 16px; }
   .fh__cta-desktop { display: none; }
+  /* In the phone menu the plugins are listed under their heading, already open. */
+  .fh__group-btn { width: 100%; padding: 14px 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); cursor: default; pointer-events: none; }
+  .fh__caret { display: none; }
+  .fh__panel { display: block; position: static; min-width: 0; padding: 0 0 0 12px; background: none; border: 0; box-shadow: none; }
+  .fh__panel a { padding: 12px 0; border-radius: 0; }
+  .fh__panel a:hover, .fh__panel a[aria-current="page"] { background: none; }
+  .fh__panel-desc { display: none; }
 }
 @media (min-width: 961px) { .fh__cta-mobile { display: none; } }
 .fh__cta-mobile { margin-top: 16px; }
