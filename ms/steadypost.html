@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>SteadyPost: Import Siaran WordPress daripada Excel atau CSV</title>
+<meta content="Pemalam WordPress percuma yang menukar hamparan kepada siaran, dengan pratonton, larian percubaan, buat asal satu klik dan eksport untuk suntingan pukal." name="description"/>
+<!-- Favicons -->
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<!-- Open Graph / Social Media Meta Tags -->
+<meta content="product" property="og:type"/>
+<meta content="https://steadydevs.com/ms/steadypost" property="og:url"/>
+<meta content="SteadyPost: Import Siaran WordPress daripada Excel atau CSV" property="og:title"/>
+<meta content="Pemalam WordPress percuma yang menukar hamparan kepada siaran, dengan pratonton, larian percubaan, buat asal satu klik dan eksport untuk suntingan pukal." property="og:description"/>
+<meta content="https://steadydevs.com/images/steadypost/og-steadypost.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Twitter Card Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="SteadyPost: Import Siaran WordPress daripada Excel atau CSV" name="twitter:title"/>
+<meta content="Pemalam WordPress percuma yang menukar hamparan kepada siaran, dengan pratonton, larian percubaan, buat asal satu klik dan eksport untuk suntingan pukal." name="twitter:description"/>
+<meta content="https://steadydevs.com/images/steadypost/og-steadypost.png" name="twitter:image"/>
+<!-- Canonical URL (also the plugin's Plugin URI header) -->
+<link href="https://steadydevs.com/ms/steadypost" rel="canonical"/><link href="https://steadydevs.com/steadypost" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/steadypost" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/steadypost" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/steadypost" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SteadyPost",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "WordPress plugin",
+    "operatingSystem": "WordPress 6.0+",
+    "softwareVersion": "1.3.0",
+    "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
+    "url": "https://steadydevs.com/steadypost",
+    "downloadUrl": "https://steadydevs.com/downloads/steadypost-1.3.0.zip",
+    "image": "https://steadydevs.com/images/steadypost/og-steadypost.png",
+    "screenshot": "https://steadydevs.com/images/steadypost/preview.webp",
+    "license": "https://www.gnu.org/licenses/gpl-2.0.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Steady Devs Solutions", "url": "https://steadydevs.com" },
+    "featureList": [
+      "Import posts from Excel (.xlsx) or CSV",
+      "Blank and sample templates with your custom fields",
+      "Row-by-row preview with tickboxes",
+      "Dry run that saves nothing",
+      "Import history and one-click undo",
+      "Export posts to a spreadsheet for bulk editing",
+      "Plain text, Markdown or HTML content",
+      "Images by filename from a zip or the media library",
+      "Yoast SEO, Rank Math and SEOPress fields",
+      "Optional Google Sheets and Google Docs import"
+    ]
+  }
+  </script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* SteadyPost page (design F). Uses f.css tokens only; everything is sp- prefixed. */
+
+    /* Hero: a spreadsheet becoming posts */
+    .sp-hero-visual { display: flex; flex-direction: column; gap: 16px; }
+    .sp-sheet { padding: 0; overflow: hidden; }
+    .sp-sheet__bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+    .sp-sheet__bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: inline-block; }
+    .sp-sheet__bar span { margin-left: 6px; }
+    .sp-sheet table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .sp-sheet th, .sp-sheet td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+    .sp-sheet th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--faint); background: var(--surface-inset); }
+    .sp-sheet td { color: var(--text-soft); }
+    .sp-sheet td:first-child, .sp-sheet th:first-child { width: 28px; color: var(--faint); font-family: var(--mono); font-size: 11.5px; }
+    .sp-sheet tr:last-child td { border-bottom: 0; }
+    .sp-sheet .sp-title { color: var(--text-strong); white-space: normal; }
+    .sp-chip { display: inline-block; font-family: var(--mono); font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .sp-chip--ok { color: var(--ok); border-color: currentColor; }
+    .sp-chip--new { color: var(--crimson-text); border-color: var(--crimson-line); background: var(--crimson-soft); }
+    .sp-notice { align-self: flex-end; width: min(100%, 360px); }
+    @media (max-width: 480px) { .sp-sheet th:last-child, .sp-sheet td:last-child { display: none; } }
+    .sp-notice .f-sys__body { padding: 16px; }
+
+    /* Feature tour: copy beside a real screenshot, alternating sides */
+    .sp-tour { display: grid; gap: 112px; }
+    .sp-feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+    .sp-feature--flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .sp-feature--flip .sp-feature__copy { order: 2; }
+    .sp-feature__copy .f-h3 { font-size: 26px; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px; }
+    .sp-feature__copy > p { color: var(--muted); margin-bottom: 18px; }
+    .sp-shot { display: block; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .sp-shot img { width: 100%; }
+    .sp-shot + .sp-shot { margin-top: 16px; }
+    .sp-shot--crop { max-height: 520px; position: relative; }
+    .sp-shot--crop::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(transparent, var(--surface)); pointer-events: none; }
+    .sp-caption { margin-top: 10px; font-size: 13px; color: var(--faint); font-family: var(--mono); }
+    @media (max-width: 900px) {
+      .sp-tour { gap: 72px; }
+      .sp-feature, .sp-feature--flip { grid-template-columns: 1fr; gap: 28px; }
+      .sp-feature--flip .sp-feature__copy { order: 0; }
+    }
+
+    /* Before / after cell edit in the export section */
+    .sp-diff { margin-top: 20px; padding: 16px 18px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-inset); }
+    .sp-diff .f-code > div { white-space: pre-wrap; }
+
+    /* "Works with" tags sit a bit larger than inline tags */
+    .sp-works .f-tag { font-size: 13px; padding: 6px 12px; }
+
+    /* Price card */
+    .sp-free { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    @media (max-width: 860px) { .sp-free { grid-template-columns: 1fr; } }
+    .sp-free .f-price small { margin-left: 4px; }
+
+    /* Enquiry form */
+    .sp-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; }
+    .sp-enquiry .f-card { padding: 28px; }
+    .sp-enquiry h3 { margin-bottom: 8px; }
+    .sp-enquiry > .f-card > p { color: var(--muted); margin-bottom: 20px; }
+    .sp-note { border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+    .sp-note--ok { border: 1px solid var(--ok); color: var(--ok); }
+    .sp-note--err { border: 1px solid var(--crimson-line); background: var(--crimson-soft); color: var(--crimson-text); }
+    .sp-note--err a { color: var(--crimson-text); }
+    .f-faq details a, .f-faq details code { color: var(--text-strong); }
+    .f-faq details code { font-family: var(--mono); font-size: 0.9em; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=3"></script>
+<main id="main">
+<!-- ============================================================ HERO -->
+<section class="f-glow-top">
+<div class="f-container f-hero">
+<div class="f-hero__grid">
+<div class="f-hero__copy">
+<p class="f-eyebrow">SteadyPost · pemalam WordPress percuma</p>
+<h1 class="f-h1">Hamparan anda, <span class="f-dim">diterbitkan.</span></h1>
+<p class="f-lead">Rancang siaran dalam Excel, CSV atau Google Sheets. SteadyPost menukar setiap baris kepada siaran WordPress — kandungan, kategori, imej dan medan SEO — dan membolehkan anda menyemaknya, membuat asal dan menyuntingnya secara pukal kemudian.</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="hero" download="" href="../downloads/steadypost-1.3.0.zip">Muat turun SteadyPost — percuma</a>
+<a class="f-btn f-btn--secondary" href="#tour">Lihat cara ia berfungsi</a></div>
+<p class="f-note" style="margin-top: 16px">Versi 1.3.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">cuba dengan hamparan contoh kami</a></p>
+</div>
+<div aria-label="Ilustrasi: baris hamparan menjadi siaran WordPress" class="f-hero__aside sp-hero-visual">
+<div class="f-card sp-sheet">
+<div class="sp-sheet__bar"><i></i><i></i><i></i><span>content-calendar-q4.xlsx</span></div>
+<table aria-hidden="true">
+<thead><tr><th></th><th>Title</th><th>Status</th><th>Categories</th></tr></thead>
+<tbody>
+<tr><td>2</td><td class="sp-title">Menu musim luruh baharu kami sudah tiba</td><td><span class="sp-chip sp-chip--ok">publish</span></td><td>Menu, Berita</td></tr>
+<tr><td>3</td><td class="sp-title">Cara kami memanggang kopi campuran istimewa kami</td><td><span class="sp-chip sp-chip--ok">publish</span></td><td>Kopi</td></tr>
+<tr><td>4</td><td class="sp-title">Kelas seni latte — Disember</td><td><span class="sp-chip">scheduled</span></td><td>Acara</td></tr>
+<tr><td>5</td><td class="sp-title">Tempahan awal Krismas kini dibuka</td><td><span class="sp-chip">draft</span></td><td>Bermusim <span class="sp-chip sp-chip--new">baharu</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-sys sp-notice">
+<span aria-hidden="true" class="f-sys__c f-sys__c--tl"></span><span aria-hidden="true" class="f-sys__c f-sys__c--br"></span>
+<div class="f-sys__head"><span class="f-sys__title">LARIAN PERCUBAAN</span><span class="f-sys__tag">TIADA YANG DISIMPAN</span></div>
+<div class="f-sys__body">
+<p class="f-sys__lead" style="font-size: 16px">2 akan dicipta · 8 akan dikemas kini</p>
+<p>Kategori “Bermusim” akan dicipta. Sedia apabila anda sedia.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="f-strip">
+<div class="f-container f-strip__inner"><span>Dibina untuk</span>
+<strong>Kalendar kandungan</strong><strong>Kemas kini SEO secara pukal</strong><strong>Senarai produk &amp; direktori</strong><strong>Senarai acara</strong><strong>Pemindahan laman</strong><strong>Serahan agensi</strong></div>
+</div>
+<!-- ============================================================ TOUR -->
+<section class="f-section" id="tour">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Cara ia berfungsi</p>
+<h2 class="f-h2">Daripada hamparan kepada siaran yang diterbitkan, tanpa meneka</h2>
+<p class="f-sub">Setiap langkah berlaku dalam papan pemuka WordPress anda. Ini tangkapan skrin sebenar pemalam tersebut.</p>
+</div>
+<div class="sp-tour">
+<div class="sp-feature">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">01 · Templat</p>
+<h3 class="f-h3">Mulakan dengan templat, bukan halaman kosong</h3>
+<p>Muat turun hamparan kosong atau contoh, isi satu baris bagi setiap siaran, dan muat naik semula. Lajur dipadankan dengan sendirinya.</p>
+<ul class="f-checks">
+<li>Templat Excel dengan senarai juntai bawah Status dan helaian Arahan</li>
+<li>Lajur untuk medan tersuai anda sendiri, medan ACF dan taksonomi</li>
+<li>Hanya Title diwajibkan — yang lain semuanya pilihan</li>
+<li>Fail Excel, Numbers, LibreOffice dan Google Sheets semuanya boleh digunakan</li>
+</ul>
+</div>
+<a class="sp-shot" href="../images/steadypost/import.webp" rel="noopener" target="_blank">
+<img alt="Skrin Import SteadyPost: muat turun templat, isikan, muat naik, dengan pemetaan lajur dan panel Run an import di bawah." height="1035" loading="lazy" src="../images/steadypost/import.webp" width="1600"/>
+</a>
+</div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">02 · Pratonton</p>
+<h3 class="f-h3">Lihat setiap baris sebelum ia menjadi siaran</h3>
+<p>Pratonton menunjukkan setiap baris dan lajur dengan kotak semak. Import kesemuanya, beberapa sahaja, atau hanya baris yang diluluskan oleh lajur "ready" anda.</p>
+<ul class="f-checks">
+<li>Tanda, nyahtanda dan tapis baris sebelum apa-apa berlaku</li>
+<li>Lajur penapis baris — kotak semak, status, atau "belum diimport"</li>
+<li>Baris yang tidak dapat diimport ditandakan berserta sebabnya</li>
+</ul>
+</div>
+<a class="sp-shot sp-shot--crop" href="../images/steadypost/preview.webp" rel="noopener" target="_blank">
+<img alt="Pratonton SteadyPost: setiap baris hamparan dengan kotak semak, menunjukkan tajuk, kandungan, slug, status, kategori dan tag." height="1399" loading="lazy" src="../images/steadypost/preview.webp" width="1600"/>
+</a>
+</div>
+<div class="sp-feature">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">03 · Larian percubaan</p>
+<h3 class="f-h3">Ketahui apa yang akan berlaku. Kemudian laksanakannya.</h3>
+<p>Larian percubaan menyemak setiap baris yang ditanda dan memberitahu anda dengan tepat apa yang akan dilakukan oleh import sebenar — dan tidak menyimpan apa-apa.</p>
+<ul class="f-checks">
+<li>Siaran mana yang akan dicipta, dan mana yang akan dikemas kini</li>
+<li>Kategori dan tag yang belum wujud</li>
+<li>Pengarang, imej dan tarikh yang tidak dapat ditemui atau dibaca</li>
+</ul>
+</div>
+<a class="sp-shot sp-shot--crop" href="../images/steadypost/dryrun.webp" rel="noopener" target="_blank">
+<img alt="Keputusan larian percubaan SteadyPost: 2 akan dicipta, 8 akan dikemas kini, tiada yang disimpan, dengan satu baris bagi setiap baris hamparan yang menerangkan apa yang akan berlaku." height="1022" loading="lazy" src="../images/steadypost/dryrun.webp" width="1600"/>
+</a>
+</div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">04 · Sejarah &amp; buat asal</p>
+<h3 class="f-h3">Ubah fikiran? Buat asal keseluruhan larian.</h3>
+<p>Setiap import disimpan bersama log penuhnya. Buat asal menghantar siaran yang dicipta oleh sesuatu larian ke Tong Sampah, dan mengembalikan siaran yang dikemas kininya tepat seperti asal.</p>
+<ul class="f-checks">
+<li>Semakan disimpan sejurus sebelum setiap siaran diubah</li>
+<li>Anda melihat apa yang akan dilakukan oleh buat asal sebelum mengesahkannya</li>
+<li>Siaran dalam Tong Sampah masih boleh dipulihkan</li>
+</ul>
+</div>
+<div>
+<a class="sp-shot" href="../images/steadypost/history.webp" rel="noopener" target="_blank">
+<img alt="Sejarah import SteadyPost: setiap larian dengan fail sumbernya, bilangan baris, bilangan dicipta dan dikemas kini, keadaan, serta butang View log dan Undo." height="459" loading="lazy" src="../images/steadypost/history.webp" width="1600"/>
+</a>
+<a class="sp-shot" href="../images/steadypost/undo.webp" rel="noopener" target="_blank">
+<img alt="Pengesahan buat asal SteadyPost yang menyenaraikan berapa banyak siaran akan dipindahkan ke Tong Sampah dan berapa banyak dipulihkan kepada semakan terdahulu." height="399" loading="lazy" src="../images/steadypost/undo.webp" width="1600"/>
+</a>
+</div>
+</div>
+<div class="sp-feature">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">05 · Suntingan pukal</p>
+<h3 class="f-h3">Sunting ratusan siaran sedia ada dalam Excel</h3>
+<p>Eksport siaran — sebarang jenis siaran, ditapis mengikut status, kategori atau tarikh — sunting sel yang anda perlukan, dan muat naik fail tersebut. Setiap baris mengemas kini siaran asalnya, termasuk siaran yang tidak pernah dicipta oleh SteadyPost.</p>
+<div aria-label="Contoh: satu sel diubah dalam hamparan yang dieksport" class="sp-diff">
+<div class="f-code">
+<div class="del">- Meta Title: Menu Musim Luruh | Harbour Lane Café</div>
+<div class="add">+ Meta Title: Menu Musim Luruh 2026 — Roti Labu &amp; Latte Berempah</div>
+</div>
+</div>
+<p class="f-note" style="margin-top: 12px">Betulkan 200 tajuk SEO sekali duduk, kemudian muat naik sekali sahaja.</p>
+</div>
+<a class="sp-shot" href="../images/steadypost/export.webp" rel="noopener" target="_blank">
+<img alt="Skrin Eksport SteadyPost: pilih jenis siaran, status, kategori dan julat tarikh, sertakan medan tersuai, dan muat turun sebagai Excel atau CSV." height="1048" loading="lazy" src="../images/steadypost/export.webp" width="1600"/>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== FEATURES -->
+<section class="f-section f-section--alt" id="features">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Apa yang ada di dalamnya</p>
+<h2 class="f-h2">Semua yang sepatutnya ada pada import pukal</h2>
+<p class="f-sub">Dibina untuk mereka yang benar-benar menguruskan kandungan: pemasar, editor dan agensi yang membina laman mereka.</p>
+</div>
+<div class="f-grid">
+<article class="f-card f-card--compact"><h3 class="f-card__title">Excel &amp; CSV, dengan betul</h3><p class="f-card__text">.xlsx dan .csv, termasuk keanehan fail sebenar: pengekodan Windows Excel, pemisah koma bertitik, tarikh bertaip dan sel berpautan.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Teks biasa, Markdown atau HTML</h3><p class="f-card__text">Tulis kandungan mengikut cara anda; ia dikesan bagi setiap baris. Kandungan editor blok dikekalkan tepat seperti asal.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Imej mengikut nama fail</h3><p class="f-card__text">Muat naik fail zip berisi imej dan tulis <span class="f-mono">hero.jpg</span> dalam satu baris — atau guna semula imej yang sudah ada dalam pustaka media anda. Setiap imej ditambah sekali sahaja.</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Import semula tanpa pendua</h3><p class="f-card__text">Jalankan helaian yang sama sekali lagi dan siaran yang telah diciptanya dikemas kini di tempat yang sama. Tiada yang berganda.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Kategori, tag &amp; taksonomi</h3><p class="f-card__text">Dipisahkan dengan koma, dicipta jika belum ada. Sebarang taksonomi tersuai boleh digunakan melalui lajur <span class="f-mono">tax:</span>.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Medan tersuai &amp; ACF</h3><p class="f-card__text">Meta siaran yang didaftarkan dan medan Advanced Custom Fields yang ringkas muncul sebagai lajur templat secara automatik.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Medan SEO ditulis untuk anda</h3><p class="f-card__text">Tajuk meta, penerangan dan kata kunci terus masuk ke Yoast SEO, Rank Math atau SEOPress — atau kunci meta yang anda namakan.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Penjadualan mengikut zon waktu anda</h3><p class="f-card__text">Tetapkan tarikh terbit dan status "scheduled". 9:00 bermaksud pukul sembilan pagi di zon waktu laman anda.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Google Sheets &amp; Docs, pilihan</h3><p class="f-card__text">Lebih suka Google? Baca baris terus dari Sheet mengikut jadual, dan ambil kandungan siaran dari Google Doc, termasuk imejnya.</p></article>
+</div>
+</div>
+</section>
+<!-- ===================================================== WORKS WITH -->
+<section class="f-section">
+<div class="f-container">
+<div class="f-split">
+<div class="f-split__main">
+<p class="f-eyebrow">Serasi dengan</p>
+<h2 class="f-h2">Sesuai dengan sistem yang anda sudah ada</h2>
+<p class="f-sub">Tiada apa-apa yang perlu diganti. SteadyPost menulis siaran WordPress biasa, jadi tema, editor dan pemalam anda terus berfungsi seperti biasa.</p>
+<div class="f-tags sp-works" style="margin-top: 28px"><span class="f-tag">Microsoft Excel</span><span class="f-tag">Google Sheets</span><span class="f-tag">Apple Numbers</span><span class="f-tag">LibreOffice</span>
+<span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span>
+<span class="f-tag">Editor blok</span><span class="f-tag">Editor klasik</span><span class="f-tag">Google Docs</span><span class="f-tag">Sebarang jenis siaran</span></div>
+</div>
+<aside class="f-split__aside">
+<div class="f-callout f-callout--tip" style="margin: 0"><span class="f-callout__label">Kandungan anda kekal milik anda</span>
+              Tiada akaun, tiada penjejakan, tiada perkhidmatan awan di tengah-tengah. Hamparan yang dimuat naik disimpan dalam folder peribadi di server anda sendiri, disekat daripada web. Google hanya dihubungi jika anda memilih sumber Google.</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- ========================================================== GET IT -->
+<section class="f-section f-section--alt" id="get">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Mulakan</p>
+<h2 class="f-h2">Percuma. Setiap ciri. Tiada syarat tersembunyi.</h2>
+</div>
+<div class="sp-free">
+<div class="f-card f-price-card f-price-card--featured">
+<span class="f-ribbon">SteadyPost 1.3.0</span>
+<div class="f-price">$0 <small>selama-lamanya</small></div>
+<ul class="f-checks">
+<li>Setiap ciri di halaman ini — tiada yang dikunci, tiada yang dihadkan</li>
+<li>Baris, siaran dan laman tanpa had</li>
+<li>Sumber terbuka di bawah GPL</li>
+<li>Akan datang ke direktori pemalam WordPress.org</li>
+</ul>
+<a class="f-btn f-btn--primary" data-sp-download="pricing" download="" href="../downloads/steadypost-1.3.0.zip">Muat turun pemalam (.zip)</a>
+</div>
+<div class="f-card">
+<h3 class="f-card__title" style="margin-bottom: 18px">Sedia digunakan dalam lima minit</h3>
+<ol class="f-steps" style="grid-template-columns: 1fr; border-top: 0">
+<li><div class="f-steps__n">01</div><div class="f-steps__t">Pasang</div><div class="f-steps__d">Plugins → Add New → Upload Plugin, pilih fail zip, kemudian aktifkan.</div></li>
+<li><div class="f-steps__n">02</div><div class="f-steps__t">Muat turun contoh</div><div class="f-steps__d">SteadyPost → Overview → Download sample spreadsheet.</div></li>
+<li><div class="f-steps__n">03</div><div class="f-steps__t">Isi dan muat naik</div><div class="f-steps__d">Satu baris bagi setiap siaran. Lajur dipadankan dengan sendirinya.</div></li>
+<li><div class="f-steps__n">04</div><div class="f-steps__t">Larian percubaan, kemudian import</div><div class="f-steps__d">Semak apa yang akan berlaku, jalankannya, dan buat asal dari History jika perlu.</div></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================== DONE-FOR-YOU -->
+<section class="f-section">
+<div class="f-container">
+<article class="f-card f-card--accent" style="padding: 36px">
+<div class="f-split" style="gap: 32px; align-items: center">
+<div class="f-split__main">
+<p class="f-eyebrow">Lebih besar daripada hamparan?</p>
+<h2 class="f-h2" style="font-size: clamp(26px, 3vw, 32px)">Memindahkan beribu-ribu siaran keluar dari sistem lama?</h2>
+<p class="f-sub">Hamparan sudah memadai untuk kebanyakan import. Jika anda meninggalkan CMS lama, pangkalan data lama atau laman yang tiada siapa berani usik, jurutera kami boleh merancang dan menjalankan pemindahan untuk anda — termasuk ubah hala, imej dan SEO.</p>
+</div>
+<div class="f-actions"><a class="f-btn f-btn--secondary" href="contact.html">Bercakap dengan jurutera</a></div>
+</div>
+</article>
+</div>
+</section>
+<!-- ============================================================= FAQ -->
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Soalan lazim</p>
+<h2 class="f-h2">Soalan biasa</h2>
+</div>
+<div class="f-faq">
+<details><summary>Adakah SteadyPost benar-benar percuma?</summary><div>Ya. Setiap ciri di halaman ini ada dalam pemalam percuma, tanpa had baris, siaran atau laman, dan ia sumber terbuka di bawah GPL. Tiada versi berbayar. Jika anda lebih suka orang lain melakukan pemindahan besar untuk anda, itu <a href="../solutions.html">perkhidmatan kejuruteraan</a> yang berasingan.</div></details>
+<details><summary>Format fail apa yang boleh saya muat naik?</summary><div><code>.xlsx</code> dan <code>.csv</code>. Excel, Apple Numbers, LibreOffice dan Google Sheets semuanya boleh menyimpan salah satu daripadanya. Fail Excel dibaca daripada helaian pertamanya. Fail CSV yang disimpan oleh Excel dalam pengekodan Windows, atau dengan koma bertitik sebagai pemisah, dikesan secara automatik.</div></details>
+<details><summary>Adakah mengimport fail yang sama dua kali akan mencipta siaran pendua?</summary><div>Tidak. Setiap baris dipadankan dengan siaran yang diciptanya — melalui lajur Ref, slug, atau tajuk — dan dikemas kini di tempat yang sama. Anda boleh mematikannya dalam Settings jika lebih suka melangkau baris yang sudah diimport.</div></details>
+<details><summary>Bolehkah saya membuat asal sesuatu import?</summary><div>Ya, dari SteadyPost → History. Siaran yang dicipta oleh larian itu dihantar ke Tong Sampah, dan anda masih boleh memulihkannya dari situ. Siaran yang dikemas kininya mendapat semula tajuk, kandungan dan petikan yang ada sejurus sebelum import, daripada semakan yang disimpan oleh SteadyPost pada ketika itu. Kategori, medan tersuai dan medan SEO tidak dikembalikan.</div></details>
+<details><summary>Bolehkah saya menyunting secara pukal siaran yang sudah wujud?</summary><div>Ya. Eksportnya di bawah SteadyPost → Export, sunting hamparan tersebut dan muat naik semula. Lajur Post ID memberitahu SteadyPost siaran mana milik setiap baris, jadi ia berfungsi untuk mana-mana siaran, bukan hanya yang dicipta oleh SteadyPost.</div></details>
+<details><summary>Bagaimana saya menulis kandungan siaran?</summary><div>Dalam lajur Content, sebagai teks biasa (baris kosong memulakan perenggan baharu), Markdown seperti <code>## Heading</code> dan <code>**bold**</code>, atau HTML. SteadyPost mengesan yang mana satu bagi setiap baris. Atau letakkan pautan Google Doc dalam lajur Google Doc dan dokumen itu menjadi kandungan siaran.</div></details>
+<details><summary>Bagaimana imej berfungsi?</summary><div>Letakkan URL imej dalam lajur Featured Image dan ia dimuat turun ke pustaka media anda. Atau muat naik fail zip berisi imej pada skrin Import dan rujuk imej mengikut nama fail — <code>hero.jpg</code> sebagai imej pilihan, atau <code>![alt](photo.png)</code> dalam kandungan. Nama fail yang tiada dalam zip akan dicari dalam pustaka media anda. Setiap imej ditambah sekali sahaja, walau berapa banyak baris yang menggunakannya.</div></details>
+<details><summary>Adakah saya memerlukan akaun Google?</summary><div>Tidak. SteadyPost berfungsi sepenuhnya daripada fail yang anda muat naik. Google Sheets dan Google Docs ialah tambahan pilihan untuk pasukan yang sudah merancang kandungan di sana.</div></details>
+<details><summary>Adakah ia serasi dengan pemalam SEO saya?</summary><div>Tajuk meta, penerangan dan kata kunci ditulis ke dalam Yoast SEO, Rank Math atau SEOPress — mana-mana yang aktif — serta medan SEO tema Mikado/Qode, atau mana-mana kunci meta yang anda namakan. All in One SEO menyimpan datanya dalam jadualnya sendiri, jadi ia tidak disokong.</div></details>
+<details><summary>Apakah keperluannya?</summary><div>WordPress 6.0 atau lebih baharu dan PHP 7.4 atau lebih baharu. Fail Excel memerlukan sambungan Zip PHP, yang ada pada hampir semua hos; tanpanya, CSV masih berfungsi.</div></details>
+<details><summary>Adakah ia ada di WordPress.org?</summary><div>Ia sedang diserahkan ke direktori pemalam WordPress.org. Sehingga ia disenaraikan, muat turunnya dari halaman ini — ia pemalam yang sama. Setelah ia ada di sana, kemas kini akan tiba secara automatik dalam papan pemuka anda.</div></details>
+</div>
+</div>
+</section>
+<!-- ============================================================= CTA -->
+<section class="f-glow-bottom">
+<div class="f-container f-cta" id="enquire">
+<h2 class="f-h2">Berhenti menyalin dan menampal siaran.</h2>
+<p>Muat turun SteadyPost, cuba dengan hamparan contoh kami, dan terbitkan kelompok siaran seterusnya dalam beberapa minit.</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="footer" download="" href="../downloads/steadypost-1.3.0.zip">Muat turun SteadyPost — percuma</a>
+<a class="f-btn f-btn--secondary" href="#spEnquiryForm">Tanya soalan</a></div>
+<!-- Questions and feature requests land in the same inbox as the main
+             contact form, tagged with the product and the visit's UTM
+             attribution so plugin leads can be read per channel. -->
+<div class="sp-enquiry">
+<div class="f-card">
+<h3 class="f-h3">Soalan, bug atau permintaan ciri?</h3>
+<p>Beritahu kami apa yang anda import dan apa yang menghalang anda. Kami biasanya membalas dalam satu hari bekerja.</p>
+<div class="sp-note sp-note--ok" hidden="" id="spEnquiryOk">Diterima — terima kasih! Kami akan menghubungi anda semula dalam satu hari bekerja.</div>
+<div class="sp-note sp-note--err" hidden="" id="spEnquiryErr">Berlaku ralat semasa menghantarnya. Sila e-mel kepada kami di <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>.</div>
+<form action="https://formspree.io/f/xpqooaea" class="f-form" id="spEnquiryForm" method="POST"><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<input name="_subject" type="hidden" value="SteadyPost enquiry"/>
+<input name="product" type="hidden" value="SteadyPost"/>
+<input id="spEnquiryAttr" name="attribution" type="hidden" value=""/>
+<div class="f-form__row">
+<div class="f-field"><label for="spEnqName">Nama anda</label><input autocomplete="name" id="spEnqName" name="name" required="" type="text"/></div>
+<div class="f-field"><label for="spEnqEmail">E-mel</label><input autocomplete="email" id="spEnqEmail" name="email" required="" type="email"/></div>
+</div>
+<div class="f-field">
+<label for="spEnqUse">Apa yang anda import?</label>
+<select id="spEnqUse" name="use_case">
+<option value="">Pilih satu (pilihan)…</option>
+<option>Blog / kalendar kandungan</option>
+<option>Produk atau senarai</option>
+<option>Acara</option>
+<option>Berpindah dari sistem lain</option>
+<option>Kemas kini SEO secara pukal</option>
+<option>Lain-lain</option>
+</select>
+</div>
+<div class="f-field">
+<label for="spEnqMsg">Soalan atau permintaan anda</label>
+<textarea id="spEnqMsg" name="message" placeholder="cth. Bolehkah saya import produk WooCommerce juga?" required=""></textarea>
+</div>
+<div><button class="f-btn f-btn--primary" id="spEnqSubmit" type="submit">Hantar</button></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col">
+<h2>Tawaran</h2>
+<ul>
+<li><a href="../solutions.html">Perkhidmatan kejuruteraan</a></li>
+<li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="../venue-booking.html">Venue Booking</a></li>
+<li><a href="../steadypost.html">SteadyPost</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>Syarikat</h2>
+<ul>
+<li><a href="../about.html">Tentang kami</a></li>
+<li><a href="../portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li>
+<li><a href="contact.html">Hubungi</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>Lagi</h2>
+<ul>
+<li><a href="../pricing-terms.html">Terma harga</a></li>
+<li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+<div class="ff__base">
+<span>© 2026 Steady Devs Solutions · SSM 202603092285</span>
+<span>Malaysia · Singapore</span>
+</div>
+</div>
+</footer>
+<script>
+    (function () {
+      // UTM attribution for this visit, carried into GA4 events and the
+      // enquiry email so downloads and leads can be read per channel.
+      var params = new URLSearchParams(location.search);
+      var attr = {
+        source: params.get('utm_source') || '(none)',
+        medium: params.get('utm_medium') || '(none)',
+        campaign: params.get('utm_campaign') || '(none)'
+      };
+
+      function track(name, extra) {
+        if (typeof gtag !== 'function') { return; }
+        var payload = { utm_source: attr.source, utm_medium: attr.medium, utm_campaign: attr.campaign, product: 'steadypost' };
+        Object.keys(extra || {}).forEach(function (k) { payload[k] = extra[k]; });
+        try { gtag('event', name, payload); } catch (e) { /* analytics blocked: carry on */ }
+      }
+
+      // Downloads are the conversion for a free plugin.
+      document.querySelectorAll('[data-sp-download]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          track(link.getAttribute('href').indexOf('.xlsx') !== -1 ? 'sample_download' : 'plugin_download', { placement: link.getAttribute('data-sp-download') });
+        });
+      });
+
+      var form = document.getElementById('spEnquiryForm');
+      if (!form) { return; }
+      document.getElementById('spEnquiryAttr').value = attr.source + ' / ' + attr.medium + ' / ' + attr.campaign;
+
+      // Submitted over fetch so the visitor stays on the page; on failure
+      // they get the email address rather than a dead end.
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('spEnqSubmit');
+        var ok = document.getElementById('spEnquiryOk');
+        var err = document.getElementById('spEnquiryErr');
+        ok.hidden = true;
+        err.hidden = true;
+        btn.disabled = true;
+        btn.textContent = 'Menghantar…';
+
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+          .then(function (res) {
+            if (!res.ok) { throw new Error('formspree ' + res.status); }
+            track('enquiry_submit', { use_case: form.use_case.value || '(none)' });
+            form.reset();
+            form.hidden = true;
+            ok.hidden = false;
+            ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .catch(function () { err.hidden = false; })
+          .then(function () { btn.disabled = false; btn.textContent = 'Hantar'; });
+      });
+    })();
+  </script>
+</body>
+</html>

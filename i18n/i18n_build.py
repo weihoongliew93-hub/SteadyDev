@@ -77,8 +77,10 @@ for tag in soup.find_all(True):
 # Placeholders and labels carried in attributes.
 for el in soup.find_all(attrs={'placeholder': True}):
     el['placeholder'] = getattr(tr, 'ATTR', {}).get(el['placeholder'], el['placeholder'])
-for el in soup.find_all(attrs={'aria-label': True}):
-    el['aria-label'] = getattr(tr, 'ATTR', {}).get(el['aria-label'], el['aria-label'])
+for name in ('aria-label', 'alt', 'title'):
+    for el in soup.find_all(attrs={name: True}):
+        if el.name != 'link':
+            el[name] = getattr(tr, 'ATTR', {}).get(el[name], el[name])
 
 # Enquiries say which language they were written from, so the reply can match.
 for form in soup.find_all('form'):

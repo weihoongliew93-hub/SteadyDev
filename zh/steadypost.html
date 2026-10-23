@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>SteadyPost：从 Excel 或 CSV 导入 WordPress 文章</title>
+<meta content="免费 WordPress 插件，把电子表格变成文章，支持预览、试运行、一键撤销和导出批量编辑。" name="description"/>
+<!-- Favicons -->
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<!-- Open Graph / Social Media Meta Tags -->
+<meta content="product" property="og:type"/>
+<meta content="https://steadydevs.com/zh/steadypost" property="og:url"/>
+<meta content="SteadyPost：从 Excel 或 CSV 导入 WordPress 文章" property="og:title"/>
+<meta content="免费 WordPress 插件，把电子表格变成文章，支持预览、试运行、一键撤销和导出批量编辑。" property="og:description"/>
+<meta content="https://steadydevs.com/images/steadypost/og-steadypost.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Twitter Card Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="SteadyPost：从 Excel 或 CSV 导入 WordPress 文章" name="twitter:title"/>
+<meta content="免费 WordPress 插件，把电子表格变成文章，支持预览、试运行、一键撤销和导出批量编辑。" name="twitter:description"/>
+<meta content="https://steadydevs.com/images/steadypost/og-steadypost.png" name="twitter:image"/>
+<!-- Canonical URL (also the plugin's Plugin URI header) -->
+<link href="https://steadydevs.com/zh/steadypost" rel="canonical"/><link href="https://steadydevs.com/steadypost" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/steadypost" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/steadypost" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/steadypost" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SteadyPost",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "WordPress plugin",
+    "operatingSystem": "WordPress 6.0+",
+    "softwareVersion": "1.3.0",
+    "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
+    "url": "https://steadydevs.com/steadypost",
+    "downloadUrl": "https://steadydevs.com/downloads/steadypost-1.3.0.zip",
+    "image": "https://steadydevs.com/images/steadypost/og-steadypost.png",
+    "screenshot": "https://steadydevs.com/images/steadypost/preview.webp",
+    "license": "https://www.gnu.org/licenses/gpl-2.0.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Steady Devs Solutions", "url": "https://steadydevs.com" },
+    "featureList": [
+      "Import posts from Excel (.xlsx) or CSV",
+      "Blank and sample templates with your custom fields",
+      "Row-by-row preview with tickboxes",
+      "Dry run that saves nothing",
+      "Import history and one-click undo",
+      "Export posts to a spreadsheet for bulk editing",
+      "Plain text, Markdown or HTML content",
+      "Images by filename from a zip or the media library",
+      "Yoast SEO, Rank Math and SEOPress fields",
+      "Optional Google Sheets and Google Docs import"
+    ]
+  }
+  </script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* SteadyPost page (design F). Uses f.css tokens only; everything is sp- prefixed. */
+
+    /* Hero: a spreadsheet becoming posts */
+    .sp-hero-visual { display: flex; flex-direction: column; gap: 16px; }
+    .sp-sheet { padding: 0; overflow: hidden; }
+    .sp-sheet__bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+    .sp-sheet__bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: inline-block; }
+    .sp-sheet__bar span { margin-left: 6px; }
+    .sp-sheet table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .sp-sheet th, .sp-sheet td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+    .sp-sheet th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--faint); background: var(--surface-inset); }
+    .sp-sheet td { color: var(--text-soft); }
+    .sp-sheet td:first-child, .sp-sheet th:first-child { width: 28px; color: var(--faint); font-family: var(--mono); font-size: 11.5px; }
+    .sp-sheet tr:last-child td { border-bottom: 0; }
+    .sp-sheet .sp-title { color: var(--text-strong); white-space: normal; }
+    .sp-chip { display: inline-block; font-family: var(--mono); font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .sp-chip--ok { color: var(--ok); border-color: currentColor; }
+    .sp-chip--new { color: var(--crimson-text); border-color: var(--crimson-line); background: var(--crimson-soft); }
+    .sp-notice { align-self: flex-end; width: min(100%, 360px); }
+    @media (max-width: 480px) { .sp-sheet th:last-child, .sp-sheet td:last-child { display: none; } }
+    .sp-notice .f-sys__body { padding: 16px; }
+
+    /* Feature tour: copy beside a real screenshot, alternating sides */
+    .sp-tour { display: grid; gap: 112px; }
+    .sp-feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+    .sp-feature--flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .sp-feature--flip .sp-feature__copy { order: 2; }
+    .sp-feature__copy .f-h3 { font-size: 26px; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px; }
+    .sp-feature__copy > p { color: var(--muted); margin-bottom: 18px; }
+    .sp-shot { display: block; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .sp-shot img { width: 100%; }
+    .sp-shot + .sp-shot { margin-top: 16px; }
+    .sp-shot--crop { max-height: 520px; position: relative; }
+    .sp-shot--crop::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(transparent, var(--surface)); pointer-events: none; }
+    .sp-caption { margin-top: 10px; font-size: 13px; color: var(--faint); font-family: var(--mono); }
+    @media (max-width: 900px) {
+      .sp-tour { gap: 72px; }
+      .sp-feature, .sp-feature--flip { grid-template-columns: 1fr; gap: 28px; }
+      .sp-feature--flip .sp-feature__copy { order: 0; }
+    }
+
+    /* Before / after cell edit in the export section */
+    .sp-diff { margin-top: 20px; padding: 16px 18px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-inset); }
+    .sp-diff .f-code > div { white-space: pre-wrap; }
+
+    /* "Works with" tags sit a bit larger than inline tags */
+    .sp-works .f-tag { font-size: 13px; padding: 6px 12px; }
+
+    /* Price card */
+    .sp-free { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    @media (max-width: 860px) { .sp-free { grid-template-columns: 1fr; } }
+    .sp-free .f-price small { margin-left: 4px; }
+
+    /* Enquiry form */
+    .sp-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; }
+    .sp-enquiry .f-card { padding: 28px; }
+    .sp-enquiry h3 { margin-bottom: 8px; }
+    .sp-enquiry > .f-card > p { color: var(--muted); margin-bottom: 20px; }
+    .sp-note { border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+    .sp-note--ok { border: 1px solid var(--ok); color: var(--ok); }
+    .sp-note--err { border: 1px solid var(--crimson-line); background: var(--crimson-soft); color: var(--crimson-text); }
+    .sp-note--err a { color: var(--crimson-text); }
+    .f-faq details a, .f-faq details code { color: var(--text-strong); }
+    .f-faq details code { font-family: var(--mono); font-size: 0.9em; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳至内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=3"></script>
+<main id="main">
+<!-- ============================================================ HERO -->
+<section class="f-glow-top">
+<div class="f-container f-hero">
+<div class="f-hero__grid">
+<div class="f-hero__copy">
+<p class="f-eyebrow">SteadyPost · 免费 WordPress 插件</p>
+<h1 class="f-h1">您的电子表格，<span class="f-dim">直接发布。</span></h1>
+<p class="f-lead">在 Excel、CSV 或 Google Sheets 里规划文章。SteadyPost 把每一行变成一篇 WordPress 文章——内容、分类、图片和 SEO 字段——之后还能检查、撤销和批量编辑。</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="hero" download="" href="../downloads/steadypost-1.3.0.zip">免费下载 SteadyPost</a>
+<a class="f-btn f-btn--secondary" href="#tour">看看如何运作</a></div>
+<p class="f-note" style="margin-top: 16px">版本 1.3.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">用我们的示例电子表格试试</a></p>
+</div>
+<div aria-label="示意图：电子表格的每一行变成 WordPress 文章" class="f-hero__aside sp-hero-visual">
+<div class="f-card sp-sheet">
+<div class="sp-sheet__bar"><i></i><i></i><i></i><span>content-calendar-q4.xlsx</span></div>
+<table aria-hidden="true">
+<thead><tr><th></th><th>Title</th><th>Status</th><th>Categories</th></tr></thead>
+<tbody>
+<tr><td>2</td><td class="sp-title">全新秋季菜单上线了</td><td><span class="sp-chip sp-chip--ok">publish</span></td><td>菜单, 新闻</td></tr>
+<tr><td>3</td><td class="sp-title">我们如何烘焙招牌拼配咖啡</td><td><span class="sp-chip sp-chip--ok">publish</span></td><td>咖啡</td></tr>
+<tr><td>4</td><td class="sp-title">拉花课程——12 月</td><td><span class="sp-chip">scheduled</span></td><td>活动</td></tr>
+<tr><td>5</td><td class="sp-title">圣诞预订现已开放</td><td><span class="sp-chip">draft</span></td><td>季节限定 <span class="sp-chip sp-chip--new">新</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-sys sp-notice">
+<span aria-hidden="true" class="f-sys__c f-sys__c--tl"></span><span aria-hidden="true" class="f-sys__c f-sys__c--br"></span>
+<div class="f-sys__head"><span class="f-sys__title">试运行</span><span class="f-sys__tag">不会保存任何内容</span></div>
+<div class="f-sys__body">
+<p class="f-sys__lead" style="font-size: 16px">将新建 2 篇 · 将更新 8 篇</p>
+<p>将新建分类“季节限定”。随时可以开始。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="f-strip">
+<div class="f-container f-strip__inner"><span>适用于</span>
+<strong>内容日历</strong><strong>批量更新 SEO</strong><strong>产品与名录列表</strong><strong>活动列表</strong><strong>网站迁移</strong><strong>代理商交接</strong></div>
+</div>
+<!-- ============================================================ TOUR -->
+<section class="f-section" id="tour">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">如何运作</p>
+<h2 class="f-h2">从电子表格到已发布的文章，无需猜测</h2>
+<p class="f-sub">每一步都在您的 WordPress 后台完成。以下都是插件的真实截图。</p>
+</div>
+<div class="sp-tour">
+<div class="sp-feature">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">01 · 模板</p>
+<h3 class="f-h3">从模板开始，而不是一张白纸</h3>
+<p>下载空白或示例电子表格，每篇文章填一行，再上传回来。列会自动对应。</p>
+<ul class="f-checks">
+<li>Excel 模板附带 Status 下拉列表和一张说明工作表</li>
+<li>可加入您自己的自定义字段、ACF 字段和分类法的列</li>
+<li>只有 Title 是必填的，其他全部可选</li>
+<li>Excel、Numbers、LibreOffice 和 Google Sheets 的文件都可以使用</li>
+</ul>
+</div>
+<a class="sp-shot" href="../images/steadypost/import.webp" rel="noopener" target="_blank">
+<img alt="SteadyPost 导入页面：下载模板、填写、上传，下方是列映射和 Run an import 面板。" height="1035" loading="lazy" src="../images/steadypost/import.webp" width="1600"/>
+</a>
+</div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">02 · 预览</p>
+<h3 class="f-h3">每一行变成文章之前，都能先看到</h3>
+<p>预览会显示每一行和每一列，并附有勾选框。您可以全部导入、只导入几行，或只导入 "ready" 列批准的行。</p>
+<ul class="f-checks">
+<li>在任何操作发生之前，勾选、取消勾选和筛选行</li>
+<li>行筛选列——勾选框、状态，或“尚未导入”</li>
+<li>无法导入的行会被标出，并注明原因</li>
+</ul>
+</div>
+<a class="sp-shot sp-shot--crop" href="../images/steadypost/preview.webp" rel="noopener" target="_blank">
+<img alt="SteadyPost 预览：表格的每一行都有勾选框，显示标题、内容、slug、状态、分类和标签。" height="1399" loading="lazy" src="../images/steadypost/preview.webp" width="1600"/>
+</a>
+</div>
+<div class="sp-feature">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">03 · 试运行</p>
+<h3 class="f-h3">先知道会发生什么，再动手。</h3>
+<p>试运行会检查每一个已勾选的行，准确告诉您正式导入会做什么——而且不保存任何内容。</p>
+<ul class="f-checks">
+<li>哪些文章会新建，哪些会更新</li>
+<li>尚不存在的分类和标签</li>
+<li>找不到或无法读取的作者、图片和日期</li>
+</ul>
+</div>
+<a class="sp-shot sp-shot--crop" href="../images/steadypost/dryrun.webp" rel="noopener" target="_blank">
+<img alt="SteadyPost 试运行结果：将新建 2 篇、更新 8 篇，未保存任何内容，并逐行说明会发生什么。" height="1022" loading="lazy" src="../images/steadypost/dryrun.webp" width="1600"/>
+</a>
+</div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">04 · 历史记录与撤销</p>
+<h3 class="f-h3">改变主意了？整次导入一键撤销。</h3>
+<p>每次导入都会连同完整日志保存下来。撤销会把该次导入新建的文章移到回收站，并把它更新过的文章完全恢复原样。</p>
+<ul class="f-checks">
+<li>每篇文章被修改之前，都会先保存一个修订版本</li>
+<li>确认之前，您能看到撤销将会做什么</li>
+<li>移到回收站的文章仍可从回收站恢复</li>
+</ul>
+</div>
+<div>
+<a class="sp-shot" href="../images/steadypost/history.webp" rel="noopener" target="_blank">
+<img alt="SteadyPost 导入记录：每次运行的源文件、行数、新建和更新数量、状态，以及 View log 和 Undo 按钮。" height="459" loading="lazy" src="../images/steadypost/history.webp" width="1600"/>
+</a>
+<a class="sp-shot" href="../images/steadypost/undo.webp" rel="noopener" target="_blank">
+<img alt="SteadyPost 撤销确认：列出将有多少篇文章移至回收站，多少篇恢复到之前的版本。" height="399" loading="lazy" src="../images/steadypost/undo.webp" width="1600"/>
+</a>
+</div>
+</div>
+<div class="sp-feature">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">05 · 批量编辑</p>
+<h3 class="f-h3">在 Excel 里编辑数百篇现有文章</h3>
+<p>导出文章——任何文章类型，可按状态、分类或日期筛选——修改需要的单元格，再上传文件。每一行都会更新它来自的那篇文章，即使那篇文章并非由 SteadyPost 创建。</p>
+<div aria-label="示例：在导出的电子表格中修改了一个单元格" class="sp-diff">
+<div class="f-code">
+<div class="del">- Meta Title: 秋季菜单 | Harbour Lane Café</div>
+<div class="add">+ Meta Title: 2026 秋季菜单——南瓜面包与香料拿铁</div>
+</div>
+</div>
+<p class="f-note" style="margin-top: 12px">一次坐下来修好 200 个 SEO 标题，然后只需上传一次。</p>
+</div>
+<a class="sp-shot" href="../images/steadypost/export.webp" rel="noopener" target="_blank">
+<img alt="SteadyPost 导出页面：选择文章类型、状态、分类和日期范围，可包含自定义字段，并下载为 Excel 或 CSV。" height="1048" loading="lazy" src="../images/steadypost/export.webp" width="1600"/>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== FEATURES -->
+<section class="f-section f-section--alt" id="features">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">功能一览</p>
+<h2 class="f-h2">批量导入该有的，全都有</h2>
+<p class="f-sub">为真正负责内容的人而做：营销人员、编辑，以及为他们建站的代理商。</p>
+</div>
+<div class="f-grid">
+<article class="f-card f-card--compact"><h3 class="f-card__title">Excel 与 CSV，处理得当</h3><p class="f-card__text">.xlsx 和 .csv，包括真实文件的各种怪癖：Excel 的 Windows 编码、分号分隔符、带类型的日期和含超链接的单元格。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">纯文本、Markdown 或 HTML</h3><p class="f-card__text">正文随您怎么写，每一行会自动识别。区块编辑器的内容会原样保留。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">按文件名引用图片</h3><p class="f-card__text">上传一个图片 zip 包，在某一行写上 <span class="f-mono">hero.jpg</span>——或重复使用媒体库中已有的图片。每张图片只会添加一次。</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">重新导入不会重复</h3><p class="f-card__text">再次导入同一张表，之前新建的文章会在原处更新，不会出现重复。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">分类、标签与分类法</h3><p class="f-card__text">用逗号分隔，不存在时自动创建。任何自定义分类法都可通过 <span class="f-mono">tax:</span> 列使用。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">自定义字段与 ACF</h3><p class="f-card__text">已注册的文章元数据和简单的 Advanced Custom Fields 字段，会自动作为模板列出现。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">SEO 字段自动写好</h3><p class="f-card__text">Meta 标题、描述和关键词直接写入 Yoast SEO、Rank Math 或 SEOPress——或您指定的 meta 键。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">按您的时区排程</h3><p class="f-card__text">设定发布日期并把状态设为 "scheduled"。9:00 就是您网站所在时区的早上九点。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Google Sheets 与 Docs，可选</h3><p class="f-card__text">更喜欢 Google？可按排程直接从 Sheet 读取行，并从 Google Doc 获取文章正文，连图片一起。</p></article>
+</div>
+</div>
+</section>
+<!-- ===================================================== WORKS WITH -->
+<section class="f-section">
+<div class="f-container">
+<div class="f-split">
+<div class="f-split__main">
+<p class="f-eyebrow">兼容</p>
+<h2 class="f-h2">配合您现有的工具</h2>
+<p class="f-sub">无需替换任何东西。SteadyPost 写入的是普通的 WordPress 文章，您的主题、编辑器和插件照常运作。</p>
+<div class="f-tags sp-works" style="margin-top: 28px"><span class="f-tag">Microsoft Excel</span><span class="f-tag">Google Sheets</span><span class="f-tag">Apple Numbers</span><span class="f-tag">LibreOffice</span>
+<span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span>
+<span class="f-tag">区块编辑器</span><span class="f-tag">经典编辑器</span><span class="f-tag">Google Docs</span><span class="f-tag">任何文章类型</span></div>
+</div>
+<aside class="f-split__aside">
+<div class="f-callout f-callout--tip" style="margin: 0"><span class="f-callout__label">您的内容始终属于您</span>
+              无需账户，没有追踪，中间也没有云服务。上传的电子表格存放在您自己服务器上的私有文件夹中，外部无法通过网络访问。只有当您选择 Google 来源时，才会连接 Google。</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- ========================================================== GET IT -->
+<section class="f-section f-section--alt" id="get">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">开始使用</p>
+<h2 class="f-h2">免费。全部功能。没有附加条件。</h2>
+</div>
+<div class="sp-free">
+<div class="f-card f-price-card f-price-card--featured">
+<span class="f-ribbon">SteadyPost 1.3.0</span>
+<div class="f-price">$0 <small>永久</small></div>
+<ul class="f-checks">
+<li>本页所列的每项功能——不锁定，不设上限</li>
+<li>行数、文章和网站数量不限</li>
+<li>以 GPL 开源</li>
+<li>即将上架 WordPress.org 插件目录</li>
+</ul>
+<a class="f-btn f-btn--primary" data-sp-download="pricing" download="" href="../downloads/steadypost-1.3.0.zip">下载插件（.zip）</a>
+</div>
+<div class="f-card">
+<h3 class="f-card__title" style="margin-bottom: 18px">五分钟即可上手</h3>
+<ol class="f-steps" style="grid-template-columns: 1fr; border-top: 0">
+<li><div class="f-steps__n">01</div><div class="f-steps__t">安装</div><div class="f-steps__d">Plugins → Add New → Upload Plugin，选择 zip 文件，然后启用。</div></li>
+<li><div class="f-steps__n">02</div><div class="f-steps__t">下载示例</div><div class="f-steps__d">SteadyPost → Overview → Download sample spreadsheet。</div></li>
+<li><div class="f-steps__n">03</div><div class="f-steps__t">填写并上传</div><div class="f-steps__d">每篇文章一行。列会自动对应。</div></li>
+<li><div class="f-steps__n">04</div><div class="f-steps__t">先试运行，再导入</div><div class="f-steps__d">检查会发生什么，执行导入，有需要时从 History 撤销。</div></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================== DONE-FOR-YOU -->
+<section class="f-section">
+<div class="f-container">
+<article class="f-card f-card--accent" style="padding: 36px">
+<div class="f-split" style="gap: 32px; align-items: center">
+<div class="f-split__main">
+<p class="f-eyebrow">超出电子表格的规模？</p>
+<h2 class="f-h2" style="font-size: clamp(26px, 3vw, 32px)">要把数千篇文章从旧系统搬出来？</h2>
+<p class="f-sub">大多数导入，一张电子表格就够了。如果您要离开旧的 CMS、旧数据库，或一个没人敢碰的网站，我们的工程师可以为您规划并执行迁移——包括重定向、图片和 SEO。</p>
+</div>
+<div class="f-actions"><a class="f-btn f-btn--secondary" href="contact.html">与工程师沟通</a></div>
+</div>
+</article>
+</div>
+</section>
+<!-- ============================================================= FAQ -->
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">常见问题</p>
+<h2 class="f-h2">大家常问的问题</h2>
+</div>
+<div class="f-faq">
+<details><summary>SteadyPost 真的免费吗？</summary><div>是的。本页的每项功能都在免费插件里，行数、文章和网站数量都不受限制，并以 GPL 开源。没有付费版本。如果您更希望有人帮您完成大型迁移，那是另外的<a href="../solutions.html">工程服务</a>。</div></details>
+<details><summary>可以上传哪些文件格式？</summary><div><code>.xlsx</code> 和 <code>.csv</code>。Excel、Apple Numbers、LibreOffice 和 Google Sheets 都能保存成其中一种。Excel 文件读取的是第一张工作表。Excel 以 Windows 编码保存、或以分号作分隔符的 CSV 文件，都会自动识别。</div></details>
+<details><summary>同一个文件导入两次，会产生重复的文章吗？</summary><div>不会。每一行都会对应到它新建的那篇文章——通过 Ref 列、slug 或标题——并在原处更新。如果您更想跳过已经导入过的行，可以在 Settings 里关闭这个功能。</div></details>
+<details><summary>可以撤销导入吗？</summary><div>可以，在 SteadyPost → History。该次导入新建的文章会移到回收站，您仍可从那里恢复。被它更新过的文章，会取回导入前一刻的标题、内容和摘要，来自 SteadyPost 当时保存的修订版本。分类、自定义字段和 SEO 字段不会回滚。</div></details>
+<details><summary>可以批量编辑已有的文章吗？</summary><div>可以。在 SteadyPost → Export 导出，编辑电子表格后再上传。Post ID 列会告诉 SteadyPost 每一行属于哪篇文章，所以适用于任何文章，不只是 SteadyPost 新建的。</div></details>
+<details><summary>文章正文怎么写？</summary><div>写在 Content 列里，可以是纯文本（空一行即开始新段落）、Markdown（例如 <code>## Heading</code> 和 <code>**bold**</code>）或 HTML。SteadyPost 会逐行识别是哪一种。也可以在 Google Doc 列放一个 Google Doc 链接，该文档就会成为正文。</div></details>
+<details><summary>图片怎么处理？</summary><div>在 Featured Image 列放图片 URL，图片就会下载到您的媒体库。也可以在 Import 页面上传图片 zip 包，再按文件名引用——<code>hero.jpg</code> 作为特色图片，或在内容中写 <code>![alt](photo.png)</code>。zip 包里没有的文件名，会到您的媒体库中查找。无论多少行用到同一张图片，它都只会添加一次。</div></details>
+<details><summary>需要 Google 账户吗？</summary><div>不需要。SteadyPost 完全靠您上传的文件运作。Google Sheets 和 Google Docs 是可选功能，适合本来就在那里规划内容的团队。</div></details>
+<details><summary>能配合我的 SEO 插件吗？</summary><div>Meta 标题、描述和关键词会写入 Yoast SEO、Rank Math 或 SEOPress（以启用中的为准），也支持 Mikado/Qode 主题的 SEO 字段，或您指定的任何 meta 键。All in One SEO 把数据存放在自己的数据表中，因此不支持。</div></details>
+<details><summary>有什么系统要求？</summary><div>WordPress 6.0 或更新版本，以及 PHP 7.4 或更新版本。Excel 文件需要 PHP 的 Zip 扩展，几乎所有主机都有；没有它，CSV 仍然可用。</div></details>
+<details><summary>在 WordPress.org 上有吗？</summary><div>正在提交到 WordPress.org 插件目录。上架之前，请从本页下载——是同一个插件。上架后，更新会自动出现在您的后台。</div></details>
+</div>
+</div>
+</section>
+<!-- ============================================================= CTA -->
+<section class="f-glow-bottom">
+<div class="f-container f-cta" id="enquire">
+<h2 class="f-h2">别再复制粘贴文章了。</h2>
+<p>下载 SteadyPost，用我们的示例电子表格试一试，几分钟内就能发布下一批文章。</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="footer" download="" href="../downloads/steadypost-1.3.0.zip">免费下载 SteadyPost</a>
+<a class="f-btn f-btn--secondary" href="#spEnquiryForm">提个问题</a></div>
+<!-- Questions and feature requests land in the same inbox as the main
+             contact form, tagged with the product and the visit's UTM
+             attribution so plugin leads can be read per channel. -->
+<div class="sp-enquiry">
+<div class="f-card">
+<h3 class="f-h3">有问题、发现 bug 或想要新功能？</h3>
+<p>告诉我们您要导入什么，以及遇到了什么阻碍。我们通常在一个工作日内回复。</p>
+<div class="sp-note sp-note--ok" hidden="" id="spEnquiryOk">收到了，谢谢！我们会在一个工作日内回复您。</div>
+<div class="sp-note sp-note--err" hidden="" id="spEnquiryErr">发送时出了点问题。请发电邮至 <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>。</div>
+<form action="https://formspree.io/f/xpqooaea" class="f-form" id="spEnquiryForm" method="POST"><input name="language" type="hidden" value="Chinese"/>
+<input name="_subject" type="hidden" value="SteadyPost enquiry"/>
+<input name="product" type="hidden" value="SteadyPost"/>
+<input id="spEnquiryAttr" name="attribution" type="hidden" value=""/>
+<div class="f-form__row">
+<div class="f-field"><label for="spEnqName">您的姓名</label><input autocomplete="name" id="spEnqName" name="name" required="" type="text"/></div>
+<div class="f-field"><label for="spEnqEmail">电邮</label><input autocomplete="email" id="spEnqEmail" name="email" required="" type="email"/></div>
+</div>
+<div class="f-field">
+<label for="spEnqUse">您要导入什么？</label>
+<select id="spEnqUse" name="use_case">
+<option value="">请选择一项（可选）……</option>
+<option>博客 / 内容日历</option>
+<option>产品或列表</option>
+<option>活动</option>
+<option>从其他系统迁移</option>
+<option>批量更新 SEO</option>
+<option>其他</option>
+</select>
+</div>
+<div class="f-field">
+<label for="spEnqMsg">您的问题或需求</label>
+<textarea id="spEnqMsg" name="message" placeholder="例如：也可以导入 WooCommerce 产品吗？" required=""></textarea>
+</div>
+<div><button class="f-btn f-btn--primary" id="spEnqSubmit" type="submit">发送</button></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col">
+<h2>产品与服务</h2>
+<ul>
+<li><a href="../solutions.html">工程服务</a></li>
+<li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="../venue-booking.html">Venue Booking</a></li>
+<li><a href="../steadypost.html">SteadyPost</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>公司</h2>
+<ul>
+<li><a href="../about.html">关于我们</a></li>
+<li><a href="../portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li>
+<li><a href="contact.html">联系我们</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>更多</h2>
+<ul>
+<li><a href="../pricing-terms.html">价格条款</a></li>
+<li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+<div class="ff__base">
+<span>© 2026 Steady Devs Solutions · SSM 202603092285</span>
+<span>Malaysia · Singapore</span>
+</div>
+</div>
+</footer>
+<script>
+    (function () {
+      // UTM attribution for this visit, carried into GA4 events and the
+      // enquiry email so downloads and leads can be read per channel.
+      var params = new URLSearchParams(location.search);
+      var attr = {
+        source: params.get('utm_source') || '(none)',
+        medium: params.get('utm_medium') || '(none)',
+        campaign: params.get('utm_campaign') || '(none)'
+      };
+
+      function track(name, extra) {
+        if (typeof gtag !== 'function') { return; }
+        var payload = { utm_source: attr.source, utm_medium: attr.medium, utm_campaign: attr.campaign, product: 'steadypost' };
+        Object.keys(extra || {}).forEach(function (k) { payload[k] = extra[k]; });
+        try { gtag('event', name, payload); } catch (e) { /* analytics blocked: carry on */ }
+      }
+
+      // Downloads are the conversion for a free plugin.
+      document.querySelectorAll('[data-sp-download]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          track(link.getAttribute('href').indexOf('.xlsx') !== -1 ? 'sample_download' : 'plugin_download', { placement: link.getAttribute('data-sp-download') });
+        });
+      });
+
+      var form = document.getElementById('spEnquiryForm');
+      if (!form) { return; }
+      document.getElementById('spEnquiryAttr').value = attr.source + ' / ' + attr.medium + ' / ' + attr.campaign;
+
+      // Submitted over fetch so the visitor stays on the page; on failure
+      // they get the email address rather than a dead end.
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('spEnqSubmit');
+        var ok = document.getElementById('spEnquiryOk');
+        var err = document.getElementById('spEnquiryErr');
+        ok.hidden = true;
+        err.hidden = true;
+        btn.disabled = true;
+        btn.textContent = '发送中……';
+
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+          .then(function (res) {
+            if (!res.ok) { throw new Error('formspree ' + res.status); }
+            track('enquiry_submit', { use_case: form.use_case.value || '(none)' });
+            form.reset();
+            form.hidden = true;
+            ok.hidden = false;
+            ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .catch(function () { err.hidden = false; })
+          .then(function () { btn.disabled = false; btn.textContent = '发送'; });
+      });
+    })();
+  </script>
+</body>
+</html>

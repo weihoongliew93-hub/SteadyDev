@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>安全降低 Google Cloud 或 AWS 账单 | SteadyDevs</title>
+<meta content="在不影响正式环境的前提下降低 GCP 或 AWS 账单：先只读审查，每项改动都有依据。优化调整 RM1,999 起。" name="description"/>
+<!-- Favicons -->
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<!-- Open Graph / Social Media Meta Tags -->
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/cloud-cost-audit.html" property="og:url"/>
+<meta content="安全降低 Google Cloud 或 AWS 账单" property="og:title"/>
+<meta content="在不影响正式环境的前提下降低 GCP 或 AWS 账单：先只读审查，每项改动都有依据。优化调整 RM1,999 起。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<!-- Twitter Card Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="安全降低 Google Cloud 或 AWS 账单" name="twitter:title"/>
+<meta content="在不影响正式环境的前提下降低 GCP 或 AWS 账单：先只读审查，每项改动都有依据。优化调整 RM1,999 起。" name="twitter:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" name="twitter:image"/>
+<!-- Canonical URL -->
+<link href="https://steadydevs.com/zh/cloud-cost-audit.html" rel="canonical"/><link href="https://steadydevs.com/cloud-cost-audit.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/cloud-cost-audit.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/cloud-cost-audit.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/cloud-cost-audit.html" hreflang="en" rel="alternate"/>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+<a class="f-skip" href="#main">跳至内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=2"></script>
+<div hidden="" id="sd-legacy-stubs"><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">云成本优化 · Google Cloud 与 AWS</p>
+<h1 class="f-h1">降低云账单，<span class="f-dim">不影响正式运行的系统。</span></h1>
+<p class="f-lead">大多数云账户都在为过大的机器、没人用的服务和只增不减的存储付费。我们找出浪费，用您自己的账单数据加以证明，再安全地清除。未经您批准，什么都不会改动。</p>
+<div class="f-actions"><a class="f-btn f-btn--primary" href="contact.html?package=Cloud%20Cost%20Triage">获取免费初步诊断</a>
+<a class="f-btn f-btn--secondary" href="#packages">查看价格</a></div>
+<div class="f-kpi" style="margin-top: 32px; max-width: 760px">
+<div><div class="f-kpi__label">近期客户账单</div><div class="f-kpi__value">一个月内 −33%</div></div>
+<div><div class="f-kpi__label">造成的停机</div><div class="f-kpi__value">无</div></div>
+<div><div class="f-kpi__label">开始所需权限</div><div class="f-kpi__value">只读</div></div>
+</div>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">真正的问题</p>
+<h2 class="f-h2">可怕的不是云账单本身。</h2>
+<p class="f-sub">大多数企业早就怀疑自己花多了。让他们迟迟不动手的，是担心负责削减账单的人会在三个星期后把网站搞垮。</p>
+</div>
+<div class="f-grid f-grid--2">
+<article class="f-card">
+<h3 class="f-card__title">通常的情况</h3>
+<ul class="f-checks" style="margin-top: 12px">
+<li>控制面板建议换用更小的机器，却不知道上面运行着什么</li>
+<li>服务器规格调小，账单下降，之后却没人检查内存</li>
+<li>一次重启丢失了公网 IP 地址，网站随即下线</li>
+<li>成本计划只写一次，从不对照实际做了什么</li>
+<li>六个月后，账单又悄悄涨了回去</li>
+</ul>
+</article>
+<article class="f-card f-card--accent">
+<h3 class="f-card__title">我们的做法</h3>
+<ul class="f-checks" style="margin-top: 12px">
+<li>每项改动都对照您账户自身的审计日志核实</li>
+<li>缩小任何机器之前，先检查内存和 swap 的历史记录</li>
+<li>动手之前，先确认地址、快照和回滚步骤</li>
+<li>先建议免费的配置调整，再考虑付费升级</li>
+<li>保留预算提醒，因为成本会自己慢慢涨回去</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<section class="f-section">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">案例研究</p>
+<h2 class="f-h2">四周内账单减少三分之一</h2>
+<p class="f-sub">一个投资研究平台沿用前任开发人员留下的架构，Google Cloud 账单每个月都在上涨。</p>
+</div>
+<div class="f-row">
+<div class="f-card">
+<div class="f-stat__value">−33%</div>
+<div class="f-stat__label">每月云账单，8 月至 9 月，数据来自客户自己的账单报告</div>
+</div>
+<div class="f-card">
+<div class="f-stat__value">−99%</div>
+<div class="f-stat__label">把 API 迁移到 Cloud Run 后的 App Engine 支出，并随时备有一条命令即可回滚的方案</div>
+</div>
+<div class="f-card">
+<div class="f-stat__value">0</div>
+<div class="f-stat__label">分钟停机，每项改动都对照该账户自身的审计日志核实</div>
+</div>
+</div>
+<p style="margin-top: 24px"><a href="../case-cloud-cost-reduction.html">阅读完整案例 →</a></p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">审计能发现什么</p>
+<h2 class="f-h2">成本控制面板不会告诉您的事</h2>
+<p class="f-sub">云服务商会免费给您调整规格的建议，但它们不知道这些改动会弄坏什么，也不知道您的账户里已经改过什么。</p>
+</div>
+<div class="f-grid">
+<article class="f-card">
+<h3 class="f-card__title">一项正在拖垮正式环境的“节省”</h3>
+<p class="f-card__text" style="margin-top: 10px">一台服务器几个月前被调小了规格，内存减半。账单降了，随后这台机器在负载高时开始自行终止自己的数据库。真正的原因是缓存被设为占用 78% 的内存。修正它不花一分钱，而那台较小的机器其实够用。</p>
+</article>
+<article class="f-card">
+<h3 class="f-card__title">建立在错误事实上的成本计划</h3>
+<p class="f-card__text" style="margin-top: 10px">列入迁移清单的服务其实早已迁移。被归咎于主 API 的一笔费用，其实来自一台批处理服务器。不读审计日志，这些都看不出来。</p>
+</article>
+<article class="f-card">
+<h3 class="f-card__title">离部署失败只剩几周</h3>
+<p class="f-card__text" style="margin-top: 10px">旧的应用版本已堆积到 200 个，而硬性上限是 210 个。没人注意到，因为在您无法发布修复的那一天之前，什么都不会出错。</p>
+</article>
+</div>
+</div>
+</section>
+<section class="f-section" id="packages">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">价格</p>
+<h2 class="f-h2">固定收费，不从您节省的钱里抽成</h2>
+<p class="f-sub">节省多少取决于流量和时机，按节省金额的百分比收费，只会让工作变成一场数字争论。您支付固定价格，省下的每一令吉都归您。</p>
+</div>
+<div class="f-card f-card--accent" style="margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between">
+<div style="max-width: 760px">
+<span class="f-ribbon">从这里开始</span>
+<h3 class="f-h3" style="margin-top: 10px">云成本：免费初步诊断 · 1 个工作日</h3>
+<p class="f-muted" style="margin-top: 6px">只读权限，无需任何承诺。为您解释三大支出项目，给出预计可节省的范围，并坦诚告诉您是否值得进一步处理。</p>
+</div>
+<a class="f-btn f-btn--primary" href="contact.html?package=Cloud%20Cost%20Triage">获取免费初步诊断</a>
+</div>
+<div class="f-grid">
+<article class="f-card f-price-card">
+<h3 class="f-card__title">云成本：优化调整</h3>
+<div class="f-price">RM1,999<small> 固定价格</small></div>
+<p class="f-price-meta">适合每月账单约 RM1,000–6,000 · 3 个工作日</p>
+<ul class="f-checks">
+<li>清除未使用的 IP 地址、无主磁盘和过期快照</li>
+<li>检查内存后，把过大的机器调整到合适规格</li>
+<li>为监控和镜像存储设上限，不再持续增长</li>
+<li>保留预算提醒</li>
+</ul>
+<a class="f-btn f-btn--secondary" href="contact.html?package=Cloud%20Tune-up">预约优化调整</a>
+</article>
+<article class="f-card f-price-card f-price-card--featured">
+<span class="f-ribbon">最全面</span>
+<h3 class="f-card__title">云成本：全面审计</h3>
+<div class="f-price f-price--range">RM5,999–9,999</div>
+<p class="f-price-meta">适合每月账单超过约 RM6,000 · 5 个工作日</p>
+<ul class="f-checks">
+<li>成本台账：逐项解释每一行账单，并附证据</li>
+<li>之前的每一项“节省”都对照实际发生的情况核查</li>
+<li>逐台检查内存和容量</li>
+<li>列出所有未知事项，写成问题，绝不猜测</li>
+<li>经您批准，在当周内完成零风险项目</li>
+</ul>
+<a class="f-btn f-btn--primary" href="contact.html?package=Cloud%20Cost%20Audit">预约审计</a>
+</article>
+<article class="f-card f-price-card">
+<h3 class="f-card__title">云成本：落实执行</h3>
+<div class="f-price f-price--range">RM2,999–5,999</div>
+<p class="f-price-meta">根据审计台账确定范围 · 2–3 天</p>
+<ul class="f-checks">
+<li>已批准的改动逐项执行</li>
+<li>与您一起安排维护时段</li>
+<li>每项改动前都做好快照和书面回滚方案</li>
+<li>每完成一项即更新台账</li>
+</ul>
+<a class="f-btn f-btn--secondary" href="contact.html?package=Cloud%20Cost%20Implementation">商讨落实执行</a>
+</article>
+</div>
+<p class="f-note" style="margin-top: 24px">希望每月有人盯着？支出异常、新出现的无主资源和容量余量，都可以纳入任何一个<a href="../solutions.html#retainer-section">每月聘请工程师配套</a>。以上述近期客户为例，优化调整的费用不到四个月就能靠节省的金额回本。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">流程</p>
+<h2 class="f-h2">始终先只读</h2>
+</div>
+<ol class="f-steps">
+<li><div class="f-steps__n">01</div><div class="f-steps__t">查看者权限</div><div class="f-steps__d">在项目和账单账户上只开放只读角色。我们无法改动任何东西，即使不小心也不会。</div></li>
+<li><div class="f-steps__n">02</div><div class="f-steps__t">免费初步诊断</div><div class="f-steps__d">一天之内：为您解释最大的几项成本。您可以到此为止，无需付费。</div></li>
+<li><div class="f-steps__n">03</div><div class="f-steps__t">优化调整或审计</div><div class="f-steps__d">收集证据，核查每项发现，确认容量。</div></li>
+<li><div class="f-steps__n">04</div><div class="f-steps__t">每项改动由您批准</div><div class="f-steps__d">在您批准该具体项目之前，什么都不会执行，并且事先备好快照和回滚方案。</div></li>
+</ol>
+<div class="f-card" style="margin-top: 32px">
+<h3 class="f-h3">无论是否聘请我们，今天都值得做的一件事</h3>
+<p class="f-muted" style="margin-top: 6px">在 Google Cloud 上，开启导出到 BigQuery 的详细账单数据。它免费，只需两分钟，而且只从您开启的那天起记录。每拖一周不开，就少了一周再也找不回来的明细。</p>
+</div>
+</div>
+</section>
+<section class="f-section--line f-glow-bottom">
+<div class="f-container f-cta">
+<h2 class="f-h2">不确定您的账单值不值得检查？</h2>
+<p>先从免费初步诊断开始。如果数字不值得进一步处理，我们会如实告诉您，了解这一点不花您一分钱。</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" href="contact.html?package=Cloud%20Cost%20Triage">获取免费初步诊断</a>
+<a class="f-btn f-btn--secondary" href="../solutions.html">所有工程服务</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col">
+<h2>产品与服务</h2>
+<ul>
+<li><a href="../solutions.html">工程服务</a></li>
+<li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="../venue-booking.html">Venue Booking</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>公司</h2>
+<ul>
+<li><a href="../about.html">关于我们</a></li>
+<li><a href="../portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li>
+<li><a href="contact.html">联系我们</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>更多</h2>
+<ul>
+<li><a href="../pricing-terms.html">价格条款</a></li>
+<li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+<div class="ff__base">
+<span>© 2026 Steady Devs Solutions · SSM 202603092285</span>
+<span>Malaysia · Singapore</span>
+</div>
+</div>
+</footer>
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+
+    // Dropdown toggle
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+      const dropdownToggle = dropdown.querySelector(':scope > a');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdowns.forEach(d => {
+            if (d !== dropdown) d.classList.remove('open');
+          });
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+
+    const navLinks = mainNav.querySelectorAll('a:not(.nav-dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+
+    const stickyCta = document.getElementById('stickyCta');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 300) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+
+      if (currentScroll > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

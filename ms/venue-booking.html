@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Pemalam Tempahan Venue untuk WordPress | SteadyDevs</title>
+<meta content="Pemalam tempahan WordPress untuk gelanggang, bilik, studio dan petak pukulan: kekosongan langsung, kelulusan, harga waktu puncak dan peringatan. Cuba percuma 14 hari." name="description"/>
+<!-- Favicons -->
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<!-- Open Graph / Social Media Meta Tags -->
+<meta content="product" property="og:type"/>
+<meta content="https://steadydevs.com/ms/venue-booking" property="og:url"/>
+<meta content="Pemalam Tempahan Venue untuk WordPress" property="og:title"/>
+<meta content="Pemalam tempahan WordPress untuk gelanggang, bilik, studio dan petak pukulan: kekosongan langsung, kelulusan, harga waktu puncak dan peringatan. Cuba percuma 14 hari." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<!-- Twitter Card Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Pemalam Tempahan Venue untuk WordPress" name="twitter:title"/>
+<meta content="Pemalam tempahan WordPress untuk gelanggang, bilik, studio dan petak pukulan: kekosongan langsung, kelulusan, harga waktu puncak dan peringatan. Cuba percuma 14 hari." name="twitter:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" name="twitter:image"/>
+<!-- Canonical URL -->
+<link href="https://steadydevs.com/ms/venue-booking" rel="canonical"/><link href="https://steadydevs.com/venue-booking" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/venue-booking" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/venue-booking" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/venue-booking" hreflang="en" rel="alternate"/>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<link href="../assets/f-legacy.css?v=4" rel="stylesheet"/>
+<!-- Freemius Checkout (loads the buy popup). Safe to keep; does nothing until clicked. -->
+<script src="https://checkout.freemius.com/js/v1/"></script>
+<!-- Google Analytics -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<!-- Page-scoped styles (all .sb- prefixed so they never collide with the shared system) -->
+<style>
+    .sb-price-wrap { display: flex; align-items: baseline; justify-content: center; gap: 10px; margin: 6px 0 4px; }
+    .sb-price { font-size: 3.1em; font-weight: 800; color: var(--text); letter-spacing: -0.02em; line-height: 1; }
+    .sb-price-cycle { color: var(--sd-muted); font-weight: 600; font-size: 1em; }
+    .sb-price-note { color: var(--sd-muted); font-size: 0.9em; margin: 0 0 26px; }
+
+    .sb-plan {
+      max-width: 480px;
+      margin: 0 auto;
+      background: linear-gradient(160deg, rgba(37,99,235,0.10), rgba(15,26,39,0.35));
+      border: 1px solid rgba(96,165,250,0.4);
+      border-radius: 18px;
+      padding: 40px 34px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .sb-plan-badge {
+      display: inline-block;
+      background: var(--sd-blue);
+      color: #fff;
+      font-size: 0.74em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .sb-plan-name { color: var(--text); font-size: 1.3em; font-weight: 700; margin: 0 0 4px; }
+    .sb-feature-list { list-style: none; margin: 26px 0 30px; padding: 0; text-align: left; }
+    .sb-feature-list li {
+      display: flex; align-items: flex-start; gap: 11px;
+      color: var(--text-soft); font-size: 0.96em; padding: 9px 0;
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+    }
+    .sb-feature-list li:last-child { border-bottom: none; }
+    .sb-feature-list li::before {
+      content: "✓"; flex-shrink: 0;
+      width: 20px; height: 20px; margin-top: 2px;
+      border-radius: 50%; background: var(--sd-green); color: #052e1c;
+      font-size: 0.72em; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sb-plan .sd-btn { width: 100%; justify-content: center; font-size: 1.05em; }
+    .sb-guarantee { color: var(--sd-muted); font-size: 0.85em; margin: 16px 0 0; }
+
+    /* Four-plan layout (Starter / Professional / Agency / Custom) */
+    .sb-plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; max-width: 1240px; margin: 0 auto; align-items: start; }
+    .sb-plans .sb-plan { max-width: none; margin: 0; padding: 32px 22px; }
+    .sb-plans .sb-price { font-size: 2.4em; }
+    .sb-plan--featured { border-color: rgba(96,165,250,0.75); box-shadow: 0 24px 60px rgba(37,99,235,0.28); }
+    .sb-save { display: inline-block; margin: 8px 0 0; color: var(--sd-green-light); font-weight: 700; font-size: 0.9em; }
+    .sb-plan-badge--muted { background: #334155; }
+    .sb-sites { color: var(--system); font-weight: 700; font-size: 0.95em; margin: 0 0 2px; }
+    .sb-alt-cycle { color: var(--sd-muted); font-size: 0.86em; margin: 12px 0 0; }
+    .sb-alt-cycle a { color: var(--system); text-decoration: underline; cursor: pointer; }
+    .sb-trial-note { color: var(--sd-muted); font-size: 0.88em; margin: 14px 0 0; }
+    .sb-trial-cta { margin-top: 12px; }
+    .sb-trial-cta .sd-btn { width: 100%; justify-content: center; }
+    .sb-trial-badge {
+      display: inline-block; margin: 0 0 14px;
+      background: rgba(34,197,94,0.14); color: var(--sd-green-light);
+      border: 1px solid rgba(34,197,94,0.38); border-radius: 999px;
+      font-size: 0.76em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 6px 14px;
+    }
+    .sb-more { text-align: center; margin-top: 26px; color: var(--sd-muted); font-size: 0.95em; }
+    .sb-plan--custom { background: linear-gradient(160deg, rgba(148,163,184,0.08), rgba(15,26,39,0.35)); border-color: rgba(148,163,184,0.3); }
+    .sb-price--custom { font-size: 1.9em !important; }
+    @media (max-width: 1080px) { .sb-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; } }
+    @media (max-width: 700px) { .sb-plans { grid-template-columns: 1fr; max-width: 480px; } }
+
+    .sb-usecases { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+    .sb-usecases span {
+      font-size: 0.86em; font-weight: 600; color: var(--text-soft);
+      padding: 7px 15px; border: 1px solid var(--sd-border); border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .sb-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .sb-step .n {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: var(--sd-blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1em; margin-bottom: 16px;
+    }
+    .sb-step h3 { color: var(--sd-ink); font-size: 1.12em; margin: 0 0 8px; font-weight: 700; }
+    .sb-step p { color: var(--sd-ink-muted); font-size: 0.94em; line-height: 1.6; margin: 0; }
+
+    @media (max-width: 700px) {
+      .sb-steps { grid-template-columns: 1fr; }
+      .sb-price { font-size: 2.5em; }
+    }
+
+    /* ===================== LIVE DEMO WIDGET ===================== */
+    .sb-demo-shell {
+      max-width: 760px; margin: 0 auto;
+      background: var(--sd-card);
+      border: 1px solid var(--sd-border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .sb-demo-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 18px;
+      background: var(--sd-bg-2);
+      border-bottom: 1px solid var(--sd-border);
+    }
+    .sb-demo-dot { width: 10px; height: 10px; border-radius: 50%; background: #334155; }
+    .sb-demo-bar-label {
+      margin-left: 8px; color: var(--sd-muted); font-size: 0.82em; font-weight: 600;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .sb-demo-live {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 6px;
+      color: var(--sd-green-light); font-size: 0.76em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .sb-demo-live::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--sd-green); box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+    }
+    .sb-demo-body { padding: 30px 28px 32px; }
+
+    .sb-demo-steps {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; margin-bottom: 26px; flex-wrap: wrap;
+    }
+    .sb-demo-step-pill {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--sd-muted); font-size: 0.82em; font-weight: 600;
+    }
+    .sb-demo-step-pill .num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85em; font-weight: 800; color: var(--sd-muted);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .sb-demo-step-pill.is-active { color: var(--text); }
+    .sb-demo-step-pill.is-active .num { background: var(--sd-blue); border-color: var(--sd-blue); color: #fff; }
+    .sb-demo-step-pill.is-done .num { background: var(--sd-green); border-color: var(--sd-green); color: #052e1c; }
+    .sb-demo-step-sep { width: 22px; height: 1px; background: var(--sd-border); }
+
+    .sb-demo-h { color: var(--text); font-size: 1.08em; font-weight: 700; margin: 0 0 4px; }
+    .sb-demo-sub { color: var(--sd-muted); font-size: 0.88em; margin: 0 0 20px; }
+
+    .sb-demo-resources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .sb-demo-res {
+      cursor: pointer; text-align: center;
+      border: 1px solid var(--sd-border); border-radius: 12px;
+      background: var(--sd-bg-2); padding: 16px 8px;
+      color: var(--text-soft); font-size: 0.86em; font-weight: 600;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    }
+    .sb-demo-res .ic { font-size: 1.6em; display: block; margin-bottom: 8px; }
+    .sb-demo-res:hover { border-color: var(--sd-blue-light); transform: translateY(-1px); }
+    .sb-demo-res.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: var(--text-strong); }
+
+    .sb-demo-dates { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+    .sb-demo-date {
+      cursor: pointer; flex-shrink: 0; text-align: center; min-width: 58px;
+      border: 1px solid var(--sd-border); border-radius: 10px;
+      background: var(--sd-bg-2); padding: 10px 4px;
+      color: var(--text-soft); font-size: 0.8em; font-weight: 600;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .sb-demo-date .dow { display: block; color: var(--sd-muted); font-size: 0.82em; margin-bottom: 3px; }
+    .sb-demo-date .dnum { display: block; font-size: 1.15em; font-weight: 800; }
+    .sb-demo-date:hover { border-color: var(--sd-blue-light); }
+    .sb-demo-date.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: var(--text-strong); }
+    .sb-demo-date.is-sel .dow { color: var(--system); }
+
+    .sb-demo-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-top: 18px; }
+    .sb-demo-slot {
+      cursor: pointer; text-align: center; border-radius: 9px;
+      border: 1px solid var(--sd-border); background: var(--sd-bg-2);
+      padding: 10px 4px; font-size: 0.84em; font-weight: 700; color: var(--text-soft);
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .sb-demo-slot:hover { border-color: var(--sd-blue-light); }
+    .sb-demo-slot.is-sel { border-color: var(--sd-blue); background: rgba(37,99,235,0.16); color: var(--text-strong); }
+    .sb-demo-slot.is-peak { position: relative; }
+    .sb-demo-slot.is-peak::after {
+      content: "Peak"; position: absolute; top: -8px; right: -6px;
+      background: var(--sd-blue); color: #fff; font-size: 0.62em; font-weight: 800;
+      padding: 2px 6px; border-radius: 999px; letter-spacing: 0.03em;
+    }
+    .sb-demo-slot.is-taken {
+      cursor: not-allowed; color: var(--muted); text-decoration: line-through;
+      background: rgba(148,163,184,0.04);
+    }
+    .sb-demo-slot.is-taken:hover { border-color: var(--sd-border); }
+
+    .sb-demo-summary {
+      margin-top: 20px; border: 1px solid var(--sd-border); border-radius: 12px;
+      background: var(--sd-bg-2); padding: 14px 16px;
+      display: flex; flex-wrap: wrap; gap: 8px 22px;
+      font-size: 0.85em; color: var(--sd-muted);
+    }
+    .sb-demo-summary b { color: var(--text); font-weight: 700; }
+
+    .sb-demo-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+    .sb-demo-nav .sd-btn { padding: 11px 24px; font-size: 0.94em; }
+    .sb-demo-back { background: none; border: none; color: var(--sd-muted); font-size: 0.88em; font-weight: 600; cursor: pointer; padding: 8px 4px; }
+    .sb-demo-back:hover { color: var(--text); }
+
+    .sb-demo-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .sb-demo-field { display: flex; flex-direction: column; gap: 6px; }
+    .sb-demo-field.full { grid-column: 1 / -1; }
+    .sb-demo-field label { color: var(--text-soft); font-size: 0.82em; font-weight: 600; }
+    .sb-demo-field input {
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
+      padding: 10px 12px; color: var(--text); font-size: 0.92em; font-family: inherit;
+    }
+    .sb-demo-field input:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-demo-field input::placeholder { color: var(--muted); }
+
+    .sb-demo-done { text-align: center; padding: 10px 0 4px; }
+    .sb-demo-done .tick {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 18px;
+      background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.4);
+      display: flex; align-items: center; justify-content: center; font-size: 1.6em;
+    }
+    .sb-demo-done h3 { color: var(--text); font-size: 1.15em; margin: 0 0 8px; }
+    .sb-demo-done p { color: var(--sd-muted); font-size: 0.9em; max-width: 420px; margin: 0 auto 20px; line-height: 1.6; }
+    .sb-demo-pending-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(245,158,11,0.12); color: var(--warn);
+      border: 1px solid rgba(245,158,11,0.35); border-radius: 999px;
+      font-size: 0.78em; font-weight: 700; padding: 6px 14px; margin-bottom: 16px;
+    }
+    .sb-demo-restart { margin-top: 4px; }
+
+    .sb-demo-caption { text-align: center; color: var(--sd-muted); font-size: 0.86em; margin-top: 18px; }
+    .sb-demo-ref { color: var(--muted); font-size: 0.78em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 0 0 20px; }
+    .sb-demo-done-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .sb-demo-done-actions .sd-btn { min-width: 280px; justify-content: center; }
+
+    @media (max-width: 640px) {
+      .sb-demo-body { padding: 24px 18px 26px; }
+      .sb-demo-resources { grid-template-columns: repeat(2, 1fr); }
+      .sb-demo-slots { grid-template-columns: repeat(3, 1fr); }
+      .sb-demo-form { grid-template-columns: 1fr; }
+      .sb-demo-step-pill span.lbl { display: none; }
+      .sb-demo-done-actions .sd-btn { min-width: 0; width: 100%; }
+    }
+
+    /* ===================== ADMIN DEMO WIDGET ===================== */
+    .sb-admin-shell {
+      max-width: 920px; margin: 0 auto;
+      background: var(--sd-card);
+      border: 1px solid var(--sd-border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .sb-admin-topbar {
+      display: flex; align-items: center; gap: 16px;
+      padding: 13px 20px;
+      background: var(--surface); border-bottom: 1px solid var(--sd-border);
+    }
+    .sb-admin-wp { color: var(--text); font-size: 0.86em; font-weight: 700; }
+    .sb-admin-crumb { color: var(--muted); font-size: 0.84em; }
+
+    .sb-admin-nav { display: flex; gap: 2px; padding: 0 20px; background: var(--surface); border-bottom: 1px solid var(--sd-border); overflow-x: auto; }
+    .sb-admin-navbtn {
+      cursor: pointer; background: none; border: none; white-space: nowrap;
+      color: var(--sd-muted); font-size: 0.85em; font-weight: 600;
+      padding: 12px 14px; border-bottom: 2px solid transparent;
+    }
+    .sb-admin-navbtn:hover { color: var(--text); }
+    .sb-admin-navbtn.is-active { color: var(--text-strong); border-bottom-color: var(--sd-blue); }
+
+    .sb-admin-body { padding: 24px 24px 28px; }
+    .sb-admin-hint { color: var(--sd-muted); font-size: 0.88em; margin: 0 0 18px; line-height: 1.6; max-width: 640px; }
+
+    .sb-admin-tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid var(--sd-border); }
+    .sb-admin-tab {
+      cursor: pointer; background: none; border: none;
+      color: var(--sd-muted); font-size: 0.86em; font-weight: 600;
+      padding: 9px 14px; border-bottom: 2px solid transparent;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .sb-admin-tab span { background: var(--sd-bg-2); border-radius: 999px; padding: 1px 7px; font-size: 0.86em; color: var(--text-soft); }
+    .sb-admin-tab:hover { color: var(--text); }
+    .sb-admin-tab.is-active { color: var(--text-strong); border-bottom-color: var(--sd-blue); }
+    .sb-admin-tab.is-active span { background: var(--sd-blue); color: #fff; }
+
+    .sb-admin-table-wrap { overflow-x: auto; }
+    .sb-admin-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    .sb-admin-table th {
+      text-align: left; color: var(--sd-muted); font-size: 0.76em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0 12px 10px;
+      border-bottom: 1px solid var(--sd-border);
+    }
+    .sb-admin-table td {
+      padding: 13px 12px; font-size: 0.88em; color: var(--text-soft);
+      border-bottom: 1px solid rgba(148,163,184,0.1);
+      vertical-align: middle;
+    }
+    .sb-admin-table tr:last-child td { border-bottom: none; }
+    .sb-admin-table tr.is-new { animation: sbRowIn 1.4s ease; }
+    @keyframes sbRowIn { 0% { background: rgba(37,99,235,0.22); } 100% { background: transparent; } }
+    .sb-admin-cust b { display: block; color: var(--text); font-weight: 700; }
+    .sb-admin-cust span { color: var(--muted); font-size: 0.9em; }
+
+    .sb-admin-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.78em; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .sb-admin-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
+    .sb-admin-badge--pending { background: rgba(245,158,11,0.14); color: var(--warn); }
+    .sb-admin-badge--pending::before { background: #fbbf24; }
+    .sb-admin-badge--confirmed { background: rgba(16,185,129,0.14); color: var(--sd-green-light); }
+    .sb-admin-badge--confirmed::before { background: var(--sd-green); }
+    .sb-admin-badge--rejected { background: rgba(248,113,113,0.14); color: var(--crimson-text); }
+    .sb-admin-badge--rejected::before { background: #f87171; }
+
+    .sb-admin-actions { display: flex; gap: 6px; white-space: nowrap; }
+    .sb-admin-btn {
+      cursor: pointer; border-radius: 7px; font-size: 0.8em; font-weight: 700;
+      padding: 6px 11px; border: 1px solid var(--sd-border); background: var(--sd-bg-2); color: var(--text-soft);
+    }
+    .sb-admin-btn:hover { border-color: var(--sd-blue-light); color: var(--text-strong); }
+    .sb-admin-btn--approve { border-color: rgba(16,185,129,0.4); color: var(--sd-green-light); }
+    .sb-admin-btn--approve:hover { background: rgba(16,185,129,0.14); border-color: var(--sd-green); }
+    .sb-admin-btn--reject { border-color: rgba(248,113,113,0.35); color: var(--crimson-text); }
+    .sb-admin-btn--reject:hover { background: rgba(248,113,113,0.14); border-color: var(--crimson-text); }
+    .sb-admin-empty { color: var(--sd-muted); font-size: 0.9em; text-align: center; padding: 30px 0; }
+
+    /* ---- Resources panel ---- */
+    .sb-res-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .sb-res-row {
+      display: grid; grid-template-columns: 40px 1.6fr 1fr 1fr 90px;
+      gap: 12px; align-items: center;
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px;
+      padding: 11px 14px;
+    }
+    .sb-res-row .icon-pick {
+      text-align: center; font-size: 1.2em; background: none; border: 1px solid var(--sd-border);
+      border-radius: 8px; padding: 5px 0; cursor: pointer; color: var(--text);
+    }
+    .sb-res-row input[type="text"], .sb-res-row input[type="number"], .sb-res-row select {
+      background: var(--sd-card); border: 1px solid var(--sd-border); border-radius: 7px;
+      padding: 8px 10px; color: var(--text); font-size: 0.88em; font-family: inherit; width: 100%;
+    }
+    .sb-res-row input:focus, .sb-res-row select:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-res-row select {
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
+      cursor: pointer;
+    }
+    .sb-res-row select option { background: var(--sd-card); color: var(--text); }
+    .sb-res-field { display: flex; flex-direction: column; gap: 4px; }
+    .sb-res-field span { color: var(--muted); font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+    .sb-res-row .sb-admin-btn--reject { justify-self: end; }
+
+    /* ---- Branding panel ---- */
+    .sb-brand-layout { display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: start; }
+    .sb-brand-controls { display: flex; flex-direction: column; gap: 12px; }
+    .sb-brand-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .sb-brand-row label { color: var(--text-soft); font-size: 0.87em; font-weight: 600; }
+    .sb-brand-row input[type="color"] {
+      width: 40px; height: 30px; border: 1px solid var(--sd-border); border-radius: 7px;
+      background: none; cursor: pointer; padding: 0;
+    }
+    .sb-brand-preview { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 12px; padding: 20px; }
+    .sb-brand-preview-label { color: var(--muted); font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 12px; }
+    .sb-bp-card { border-radius: 12px; padding: 18px; transition: background 0.15s; }
+    .sb-bp-h { font-weight: 700; margin-bottom: 12px; transition: color 0.15s; }
+    .sb-bp-slots { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .sb-bp-slot {
+      position: relative; font-size: 0.84em; font-weight: 700; padding: 8px 12px; border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.25); transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .sb-bp-slot.taken { opacity: 0.4; text-decoration: line-through; }
+    .sb-bp-slot i { position: absolute; top: -9px; right: -6px; font-style: normal; font-size: 0.7em; font-weight: 800; color: var(--text-strong); padding: 1px 6px; border-radius: 999px; }
+    .sb-bp-btn { border: none; border-radius: 9px; padding: 11px 18px; font-weight: 700; font-size: 0.9em; cursor: default; transition: background 0.15s, color 0.15s; }
+
+    /* ---- Emails panel ---- */
+    .sb-mail-layout { display: grid; grid-template-columns: 210px 1fr; gap: 20px; }
+    .sb-mail-list { display: flex; flex-direction: column; gap: 6px; }
+    .sb-mail-item {
+      cursor: pointer; text-align: left; background: var(--sd-bg-2); border: 1px solid var(--sd-border);
+      border-radius: 9px; padding: 10px 12px; color: var(--text-soft); font-size: 0.86em; font-weight: 600;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .sb-mail-item:hover { border-color: var(--sd-blue-light); }
+    .sb-mail-item.is-active { border-color: var(--sd-blue); background: rgba(37,99,235,0.14); color: var(--text-strong); }
+    .sb-mail-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sd-green); flex-shrink: 0; }
+    .sb-mail-item.is-off .dot { background: #475569; }
+    .sb-mail-item.is-off { color: var(--muted); }
+
+    .sb-mail-editor-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .sb-mail-subject {
+      flex: 1; background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
+      padding: 9px 12px; color: var(--text); font-size: 0.92em; font-weight: 700; font-family: inherit;
+    }
+    .sb-mail-subject:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-mail-toggle { display: flex; align-items: center; gap: 6px; color: var(--sd-muted); font-size: 0.82em; font-weight: 600; white-space: nowrap; }
+    .sb-mail-body {
+      width: 100%; resize: vertical; background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 8px;
+      padding: 12px; color: var(--text-soft); font-size: 0.88em; font-family: inherit; line-height: 1.6;
+    }
+    .sb-mail-body:focus { outline: none; border-color: var(--sd-blue-light); }
+    .sb-mail-tags { color: var(--muted); font-size: 0.78em; margin: 8px 0 16px; }
+    .sb-mail-tags code { background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 5px; padding: 1px 5px; color: var(--system); }
+    .sb-mail-preview-label { color: var(--muted); font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 8px; }
+    .sb-mail-preview {
+      background: var(--surface-inset); color: #1e293b; border-radius: 10px; padding: 18px 20px;
+      font-size: 0.9em; line-height: 1.7; white-space: pre-wrap;
+    }
+
+    @media (max-width: 640px) {
+      .sb-admin-body { padding: 18px 14px 22px; }
+      .sb-admin-tabs { overflow-x: auto; }
+      .sb-res-row { grid-template-columns: 1fr; }
+      .sb-brand-layout { grid-template-columns: 1fr; }
+      .sb-mail-layout { grid-template-columns: 1fr; }
+    }
+
+    /* ===================== DEMO HUB SWITCHER ===================== */
+    .sb-pro-tag {
+      display: inline-block; background: rgba(96,165,250,0.16); color: var(--system);
+      border: 1px solid rgba(96,165,250,0.4); border-radius: 999px;
+      font-size: 0.68em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 2px 8px; margin-left: 8px; vertical-align: middle;
+    }
+    .sb-demo-switch {
+      display: inline-flex; gap: 4px; margin: 8px 0 0;
+      background: var(--sd-card); border: 1px solid var(--sd-border); border-radius: 999px; padding: 4px;
+    }
+    .sb-demo-switch button {
+      cursor: pointer; background: none; border: none; border-radius: 999px;
+      color: var(--sd-muted); font-size: 0.9em; font-weight: 700;
+      padding: 10px 20px;
+    }
+    .sb-demo-switch button:hover { color: var(--text); }
+    .sb-demo-switch button.is-active { background: var(--sd-blue); color: #fff; }
+    .sb-demo-switch .sb-pro-tag { margin-left: 6px; }
+
+    /* ===================== CLASS PORTAL: MEMBER SIDE ===================== */
+    .sb-cp-nav { display: flex; gap: 6px; margin-bottom: 22px; flex-wrap: wrap; }
+    .sb-cp-nav button {
+      cursor: pointer; background: var(--sd-bg-2); border: 1px solid var(--sd-border); color: var(--text-soft);
+      font-size: 0.86em; font-weight: 700; padding: 9px 16px; border-radius: 999px;
+    }
+    .sb-cp-nav button:hover { border-color: var(--sd-blue-light); }
+    .sb-cp-nav button.is-active { background: var(--sd-blue); border-color: var(--sd-blue); color: #fff; }
+
+    .sb-cp-subhead { color: var(--text-soft); font-size: 0.9em; font-weight: 700; margin: 22px 0 12px; }
+    .sb-cp-balances { display: flex; gap: 10px; flex-wrap: wrap; }
+    .sb-cp-balchip {
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 12px;
+      padding: 14px 18px; min-width: 140px;
+    }
+    .sb-cp-balchip .lvl { color: var(--muted); font-size: 0.74em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .sb-cp-balchip .n { color: var(--text); font-size: 1.6em; font-weight: 800; margin-top: 4px; }
+    .sb-cp-balchip .n span { font-size: 0.5em; color: var(--sd-muted); font-weight: 700; }
+
+    .sb-cp-upcoming { display: flex; flex-direction: column; gap: 8px; }
+    .sb-cp-uitem {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px; padding: 12px 16px;
+    }
+    .sb-cp-uitem b { color: var(--text); }
+    .sb-cp-uitem span { color: var(--sd-muted); font-size: 0.86em; }
+    .sb-cp-uitem .sb-admin-btn { flex-shrink: 0; }
+    .sb-cp-empty { color: var(--sd-muted); font-size: 0.88em; padding: 10px 0; }
+
+    .sb-cp-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .sb-cp-day { display: flex; flex-direction: column; gap: 8px; }
+    .sb-cp-day-h { text-align: center; color: var(--sd-muted); font-size: 0.76em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 4px; }
+    .sb-cp-class {
+      border: 1px solid var(--sd-border); border-radius: 10px; padding: 9px 8px;
+      background: var(--sd-bg-2); font-size: 0.78em; text-align: center;
+    }
+    .sb-cp-class .t { color: var(--text); font-weight: 700; display: block; }
+    .sb-cp-class .n { color: var(--text-soft); display: block; margin: 2px 0 6px; line-height: 1.3; }
+    .sb-cp-class .spots { display: block; font-size: 0.86em; color: var(--sd-green-light); margin-bottom: 6px; }
+    .sb-cp-class .spots.full { color: var(--crimson-text); }
+    .sb-cp-class button {
+      width: 100%; cursor: pointer; border: none; border-radius: 7px; padding: 6px 0;
+      font-size: 0.86em; font-weight: 700; background: var(--sd-blue); color: #fff;
+    }
+    .sb-cp-class button.is-wait { background: #334155; }
+    .sb-cp-class button.is-booked { background: rgba(16,185,129,0.18); color: var(--sd-green-light); cursor: default; }
+    .sb-cp-class.is-empty { opacity: 0.35; }
+
+    .sb-cp-packs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .sb-cp-pack { border: 1px solid var(--sd-border); border-radius: 12px; padding: 18px; background: var(--sd-bg-2); text-align: center; }
+    .sb-cp-pack .lvl { color: var(--muted); font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .sb-cp-pack h4 { color: var(--text); font-size: 1.05em; margin: 6px 0 2px; }
+    .sb-cp-pack .credits { color: var(--sd-blue-light); font-size: 0.86em; font-weight: 700; margin-bottom: 10px; }
+    .sb-cp-pack .price { color: var(--text); font-size: 1.6em; font-weight: 800; margin-bottom: 14px; }
+    .sb-cp-pack button { width: 100%; }
+
+    .sb-cp-pay-methods { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .sb-cp-pay-method {
+      cursor: pointer; text-align: left; border: 1px solid var(--sd-border); border-radius: 10px;
+      background: var(--sd-bg-2); padding: 13px 16px; color: var(--text-soft);
+    }
+    .sb-cp-pay-method:hover { border-color: var(--sd-blue-light); }
+    .sb-cp-pay-method b { display: block; color: var(--text); font-size: 0.94em; }
+    .sb-cp-pay-method span { color: var(--sd-muted); font-size: 0.84em; }
+    .sb-cp-pay-instructions {
+      background: var(--sd-bg-2); border: 1px solid var(--sd-border); border-radius: 10px;
+      padding: 14px 16px; color: var(--text-soft); font-size: 0.88em; line-height: 1.6; margin: 14px 0;
+    }
+
+    /* ===================== CLASS PORTAL: ADMIN SIDE ===================== */
+    .sb-cp-classlist .sb-res-row, .sb-cp-packlist .sb-res-row {
+      grid-template-columns: 1.4fr 0.8fr 0.7fr 0.7fr 90px;
+    }
+    .sb-cp-timetable { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .sb-cp-tt-day { display: flex; flex-direction: column; gap: 6px; }
+    .sb-cp-tt-h { text-align: center; color: var(--sd-muted); font-size: 0.76em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 4px; }
+    .sb-cp-tt-slot { border: 1px solid var(--sd-border); border-radius: 8px; padding: 8px 6px; background: var(--sd-bg-2); font-size: 0.76em; text-align: center; }
+    .sb-cp-tt-slot .t { display: block; color: var(--system); font-weight: 700; }
+    .sb-cp-tt-slot .n { display: block; color: var(--text-soft); margin-top: 2px; }
+    .sb-cp-tt-empty { color: var(--muted); font-size: 0.76em; text-align: center; padding: 10px 0; }
+
+    @media (max-width: 900px) {
+      .sb-cp-week, .sb-cp-timetable { grid-template-columns: repeat(7, minmax(90px, 1fr)); overflow-x: auto; }
+    }
+    @media (max-width: 640px) {
+      .sb-cp-week, .sb-cp-timetable { display: flex; overflow-x: auto; padding-bottom: 6px; }
+      .sb-cp-day, .sb-cp-tt-day { min-width: 110px; }
+    }
+
+    /* ===================== ENQUIRY FORM ===================== */
+    .sb-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .sb-enquiry h3 { margin: 0 0 8px; color: var(--text); }
+    .sb-enquiry > p { margin: 0 0 20px; color: var(--muted); }
+    .sb-enquiry label { display: block; margin: 14px 0 6px; color: var(--text-soft); font-size: 0.92em; font-weight: 600; }
+    .sb-enquiry input, .sb-enquiry select, .sb-enquiry textarea {
+      width: 100%; box-sizing: border-box; padding: 11px 12px; border-radius: 8px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text);
+      font: inherit; font-size: 0.95em;
+    }
+    .sb-enquiry input:focus, .sb-enquiry select:focus, .sb-enquiry textarea:focus { outline: none; border-color: var(--system); }
+    .sb-enquiry select option { color: #0f172a; }
+    .sb-enquiry textarea { resize: vertical; }
+    .sb-enquiry button[type="submit"] { margin-top: 18px; }
+    .sb-enquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .sb-enquiry-row { grid-template-columns: 1fr; } }
+    .sb-enquiry-note { padding: 14px 16px; border-radius: 8px; margin-bottom: 14px; }
+    .sb-enquiry-note--ok { background: rgba(16,185,129,0.15); border: 1px solid var(--ok); color: var(--ok); }
+    .sb-enquiry-note--err { background: rgba(239,68,68,0.15); border: 1px solid var(--crimson-text); color: var(--crimson-text); }
+    .sb-enquiry-note--err a { color: var(--crimson-text); }
+  </style>
+<style>
+    /* Venue Booking page (design F). Uses f.css tokens only. */
+    .vb-hero-visual { display: flex; flex-direction: column; gap: 16px; }
+    .vb-grid-card { padding: 20px; }
+    .vb-grid-head { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 14px; color: var(--text-strong); }
+    .vb-grid { display: grid; grid-template-columns: 64px repeat(5, minmax(0, 1fr)); gap: 5px; font-family: var(--mono); font-size: 11.5px; color: var(--faint); align-items: center; }
+    .vb-grid i, .vb-legend i { display: block; height: 24px; border-radius: 4px; border: 1px solid var(--border); }
+    .vb-grid i.b, .vb-legend i.b { background: var(--border-strong); border-color: var(--border-strong); }
+    .vb-grid i.p, .vb-legend i.p { background: var(--crimson); border-color: var(--crimson); }
+    .vb-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 13px; color: var(--muted); }
+    .vb-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .vb-legend i { width: 12px; height: 12px; }
+    .vb-notice { align-self: flex-end; width: min(100%, 340px); }
+    .vb-notice .f-sys__body { padding: 16px; }
+    .f-card__title .f-badge { margin-left: 6px; vertical-align: middle; }
+    .f-faq details a { color: var(--text-strong); }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=2"></script>
+<div hidden="" id="sd-legacy-stubs"><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-hero">
+<div class="f-hero__grid">
+<div class="f-hero__copy">
+<p class="f-eyebrow">Venue Booking · pemalam WordPress</p>
+<h1 class="f-h1">Setiap slot masa, <span class="f-dim">dilindungi.</span></h1>
+<p class="f-lead">Biarkan pelanggan menempah apa sahaja yang anda sewakan mengikut masa, dengan kekosongan langsung dan kelulusan anda bagi setiap tempahan. Peringatan automatik mengurangkan pelanggan yang tidak hadir, dan harga waktu puncak, pembayaran dalam talian untuk kredit kelas serta laporan penggunaan sudah tersedia.</p>
+<div class="f-actions"><a class="f-btn f-btn--primary" href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free">Mula percubaan percuma 14 hari</a>
+<a class="f-btn f-btn--secondary" href="#demo-hub">Cuba demo langsung</a></div>
+<p class="f-note" style="margin-top: 16px">$299/tahun untuk 1 laman web · semua ciri, kemas kini &amp; sokongan termasuk · pelan sehingga 25 laman web · tiada kad kredit untuk percubaan · <a href="#buy">lihat harga</a></p>
+</div>
+<div aria-label="Ilustrasi kalendar tempahan" class="f-hero__aside vb-hero-visual">
+<div class="f-card vb-grid-card">
+<div class="vb-grid-head"><span>Sabtu · gelanggang</span><span class="f-muted">4 sumber</span></div>
+<div aria-hidden="true" class="vb-grid"><span></span><span>4pm</span><span>5pm</span><span>6pm</span><span>7pm</span><span>8pm</span>
+<span>Gelanggang 1</span><i class="b"></i><i class="b"></i><i></i><i class="p"></i><i class="b"></i>
+<span>Gelanggang 2</span><i></i><i class="b"></i><i class="b"></i><i></i><i></i>
+<span>Gelanggang 3</span><i class="b"></i><i></i><i class="p"></i><i class="b"></i><i class="b"></i>
+<span>Gelanggang 4</span><i></i><i></i><i class="b"></i><i class="b"></i><i></i></div>
+<div class="vb-legend"><span><i class="b"></i>Disahkan</span><span><i class="p"></i>Menunggu kelulusan anda</span><span><i></i>Kosong</span></div>
+</div>
+<div class="f-sys vb-notice">
+<span aria-hidden="true" class="f-sys__c f-sys__c--tl"></span><span aria-hidden="true" class="f-sys__c f-sys__c--br"></span>
+<div class="f-sys__head"><span class="f-sys__title">NOTIS</span><span class="f-sys__tag">TEMPAHAN</span></div>
+<div class="f-sys__body">
+<p class="f-sys__lead" style="font-size: 16px">Tempahan bertindih dihalang</p>
+<p>Gelanggang 3, 6pm sudah disahkan. Permintaan kedua tidak boleh diluluskan.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="f-strip">
+<div class="f-container f-strip__inner"><span>Tempah apa sahaja yang anda sewakan mengikut masa</span>
+<strong>Gelanggang</strong><strong>Petak pukulan</strong><strong>Bilik</strong><strong>Meja</strong><strong>Peralatan</strong><strong>Kerusi</strong><strong>Kelas (Pro)</strong></div>
+</div>
+<section class="sd-section sd-section--dark" id="demo-hub" style="padding-bottom:0;">
+<div class="sd-inner" style="text-align:center;">
+<p class="sd-eyebrow">Lihat Cara Ia Berfungsi</p>
+<h2 class="sd-section-title">Dua demo langsung. <span class="accent">Cuba sendiri.</span></h2>
+<div class="sd-title-rule"></div>
+<p class="sd-section-sub">Aliran tempahan mengikut jam yang termasuk dalam setiap pelan, dan tambahan Class Portal untuk kelas berulang yang dijual sebagai kredit prabayar. Tiada apa-apa di sini yang sebenar — klik sesuka hati.</p>
+<div class="sb-demo-switch" id="sbDemoSwitch">
+<button class="is-active" data-demo="venue">🏟️ Venue Booking</button>
+<button data-demo="classportal">🧘 Class Portal <span class="sb-pro-tag">Pro</span></button>
+</div>
+</div>
+</section>
+<div id="demoGroup-venue">
+<!-- ===================== LIVE DEMO ===================== -->
+<section class="sd-section sd-section--dark" id="demo">
+<div class="sd-inner">
+<p class="sd-eyebrow">Paparan Pelanggan</p>
+<h2 class="sd-section-title">Cuba <span class="accent">aliran tempahan</span> sendiri</h2>
+<div class="sd-title-rule"></div>
+<p class="sd-section-sub">Ini simulasi langsung bagi langkah sebenar yang dilalui pelanggan di laman web anda — pilih sumber, tarikh, masa, kemudian sahkan. Tiada apa-apa di sini yang sebenar; silakan klik.</p>
+<div class="sb-demo-shell">
+<div class="sb-demo-bar"><span class="sb-demo-dot"></span><span class="sb-demo-dot"></span><span class="sb-demo-dot"></span>
+<span class="sb-demo-bar-label">[steadybook]</span>
+<span class="sb-demo-live">Demo interaktif</span></div>
+<div class="sb-demo-body">
+<div class="sb-demo-steps" id="sbSteps">
+<div class="sb-demo-step-pill" data-step="1"><span class="num">1</span><span class="lbl">Sumber</span></div>
+<span class="sb-demo-step-sep"></span>
+<div class="sb-demo-step-pill" data-step="2"><span class="num">2</span><span class="lbl">Tarikh &amp; masa</span></div>
+<span class="sb-demo-step-sep"></span>
+<div class="sb-demo-step-pill" data-step="3"><span class="num">3</span><span class="lbl">Butiran anda</span></div>
+<span class="sb-demo-step-sep"></span>
+<div class="sb-demo-step-pill" data-step="4"><span class="num">4</span><span class="lbl">Selesai</span></div>
+</div>
+<!-- STEP 1: resource -->
+<div class="sb-demo-pane" data-pane="1">
+<h3 class="sb-demo-h">Pilih apa yang hendak ditempah</h3>
+<p class="sb-demo-sub">Sumber, nama dan ikon adalah mengikut tetapan anda — demo ini menggunakan kelab padel sebagai contoh.</p>
+<div class="sb-demo-resources" id="sbResources">
+<div class="sb-demo-res" data-name="Court 1" data-price="80"><span class="ic">🏸</span>Gelanggang 1</div>
+<div class="sb-demo-res" data-name="Court 2" data-price="80"><span class="ic">🏸</span>Gelanggang 2</div>
+<div class="sb-demo-res" data-name="Court 3 (Indoor)" data-price="110"><span class="ic">🏟️</span>Gelanggang 3 (Dalaman)</div>
+</div>
+<div class="sb-demo-nav">
+<span></span>
+<button class="sd-btn sd-btn--primary" disabled="" id="sbNext1">Seterusnya: pilih masa <span aria-hidden="true">→</span></button>
+</div>
+</div>
+<!-- STEP 2: date/time -->
+<div class="sb-demo-pane" data-pane="2" style="display:none;">
+<h3 class="sb-demo-h">Pilih tarikh &amp; masa</h3>
+<p class="sb-demo-sub">Slot dikemas kini secara langsung — apa sahaja yang sudah disahkan akan dikelabukan dan tidak boleh ditempah dua kali.</p>
+<div class="sb-demo-dates" id="sbDates"></div>
+<div class="sb-demo-slots" id="sbSlots"></div>
+<div class="sb-demo-summary" id="sbSummary2" style="display:none;"></div>
+<div class="sb-demo-nav">
+<button class="sb-demo-back" data-back="1">← Kembali</button>
+<button class="sd-btn sd-btn--primary" disabled="" id="sbNext2">Seterusnya: butiran anda <span aria-hidden="true">→</span></button>
+</div>
+</div>
+<!-- STEP 3: details -->
+<div class="sb-demo-pane" data-pane="3" style="display:none;">
+<h3 class="sb-demo-h">Butiran anda</h3>
+<p class="sb-demo-sub">Cuba apa-apa nilai — demo ini tidak menghantar apa-apa ke mana-mana.</p>
+<div class="sb-demo-form">
+<div class="sb-demo-field"><label>Nama penuh</label><input id="sbName" placeholder="Jamie Tan" type="text"/></div>
+<div class="sb-demo-field"><label>Telefon</label><input id="sbPhone" placeholder="012-345 6789" type="text"/></div>
+<div class="sb-demo-field full"><label>E-mel</label><input id="sbEmail" placeholder="jamie@example.com" type="email"/></div>
+<div class="sb-demo-field full"><label>Bilangan orang</label><input id="sbGroup" min="1" placeholder="4" type="number"/></div>
+</div>
+<div class="sb-demo-summary" id="sbSummary3"></div>
+<div class="sb-demo-nav">
+<button class="sb-demo-back" data-back="2">← Kembali</button>
+<button class="sd-btn sd-btn--primary" id="sbNext3">Sahkan tempahan <span aria-hidden="true">→</span></button>
+</div>
+</div>
+<!-- STEP 4: done -->
+<div class="sb-demo-pane" data-pane="4" style="display:none;">
+<div class="sb-demo-done">
+<div class="tick" id="sbDoneTick">⏳</div>
+<span class="sb-demo-pending-badge" id="sbStatusPill">● Menunggu kelulusan pentadbir</span>
+<h3 id="sbDoneTitle">Permintaan dihantar — menunggu pengesahan</h3>
+<p id="sbDoneText">Dalam pemasangan sebenar, pemilik laman web kini melihat tempahan ini dalam papan pemuka WordPress mereka dan meluluskan, menolak atau membatalkannya. Anda akan menerima e-mel sebaik sahaja mereka bertindak, serta peringatan sebelum slot tersebut.</p>
+<p class="sb-demo-ref" id="sbDoneRef"></p>
+<div class="sb-demo-done-actions">
+<button class="sd-btn sd-btn--primary" id="sbGoAdmin">Luluskannya dalam papan pemuka pentadbir <span aria-hidden="true">↓</span></button>
+<button class="sd-btn sd-btn--ghost sb-demo-restart" id="sbRestart">↺ Cuba lagi</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="sb-demo-caption">Ini simulasi bahagian hadapan untuk tujuan demo — pemalam sebenar berjalan di dalam laman WordPress anda dengan sumber, harga dan jenama anda sendiri.</p>
+</div>
+</section>
+<!-- ===================== LIVE DEMO: ADMIN DASHBOARD ===================== -->
+<section class="sd-section sd-section--dark" id="admin-demo">
+<div class="sd-inner">
+<p class="sd-eyebrow">Di Sebalik Tabir</p>
+<h2 class="sd-section-title">Apa yang <span class="accent">anda</span> lihat sebagai pemilik laman web</h2>
+<div class="sd-title-rule"></div>
+<p class="sd-section-sub">Setiap tempahan masuk ke sini dahulu sebagai <em>Menunggu</em> — tiada apa-apa disahkan sehingga anda meluluskannya. Di sini juga anda menetapkan sumber, warna dan e-mel, jadi cubalah klik tab di bawah.</p>
+<div class="sb-admin-shell">
+<div class="sb-admin-topbar"><span class="sb-admin-wp">🔷 WP Admin</span>
+<span class="sb-admin-crumb" id="sbAdminCrumb">Venue Booking ▸ All Bookings</span>
+<span class="sb-demo-live">Demo interaktif</span></div>
+<div class="sb-admin-nav" id="sbAdminNav">
+<button class="sb-admin-navbtn is-active" data-section="bookings">📋 Tempahan</button>
+<button class="sb-admin-navbtn" data-section="resources">🏟️ Sumber</button>
+<button class="sb-admin-navbtn" data-section="branding">🎨 Warna &amp; Jenama</button>
+<button class="sb-admin-navbtn" data-section="emails">✉️ E-mel</button>
+</div>
+<div class="sb-admin-body">
+<!-- SECTION: bookings -->
+<div class="sb-admin-section" data-section="bookings">
+<div class="sb-admin-tabs" id="sbAdminTabs">
+<button class="sb-admin-tab is-active" data-filter="all">Semua <span id="sbCountAll">0</span></button>
+<button class="sb-admin-tab" data-filter="pending">Menunggu <span id="sbCountPending">0</span></button>
+<button class="sb-admin-tab" data-filter="confirmed">Disahkan <span id="sbCountConfirmed">0</span></button>
+<button class="sb-admin-tab" data-filter="rejected">Ditolak <span id="sbCountRejected">0</span></button>
+</div>
+<div class="sb-admin-table-wrap">
+<table class="sb-admin-table">
+<thead>
+<tr>
+<th>Pelanggan</th>
+<th>Sumber</th>
+<th>Tarikh &amp; masa</th>
+<th>Jumlah</th>
+<th>Status</th>
+<th></th>
+</tr>
+</thead>
+<tbody id="sbAdminRows"></tbody>
+</table>
+</div>
+</div>
+<!-- SECTION: resources -->
+<div class="sb-admin-section" data-section="resources" style="display:none;">
+<p class="sb-admin-hint">Tentukan apa yang boleh ditempah oleh pelanggan — nama, ikon, harga asas dan caj tambahan waktu puncak. Tambah seberapa banyak yang anda perlukan: gelanggang, petak pukulan, bilik, meja, kerusi, peralatan.</p>
+<div class="sb-res-list" id="sbResList"></div>
+<button class="sd-btn sd-btn--ghost" id="sbResAdd" type="button">+ Tambah sumber</button>
+</div>
+<!-- SECTION: branding -->
+<div class="sb-admin-section" data-section="branding" style="display:none;">
+<p class="sb-admin-hint">Setiap warna dalam borang tempahan boleh anda tetapkan. Seret pemilih warna dan lihat pratonton dikemas kini — inilah tepat apa yang dilihat oleh pelanggan anda.</p>
+<div class="sb-brand-layout">
+<div class="sb-brand-controls">
+<div class="sb-brand-row"><label>Aksen / butang</label><input id="bcAccent" type="color" value="#2563eb"/></div>
+<div class="sb-brand-row"><label>Slot kosong</label><input id="bcAvail" type="color" value="#111a27"/></div>
+<div class="sb-brand-row"><label>Slot ditempah</label><input id="bcBooked" type="color" value="#3a2a2a"/></div>
+<div class="sb-brand-row"><label>Lencana waktu puncak</label><input id="bcPeak" type="color" value="#2563eb"/></div>
+<div class="sb-brand-row"><label>Latar belakang kad</label><input id="bcCard" type="color" value="#111a27"/></div>
+<div class="sb-brand-row"><label>Teks</label><input id="bcText" type="color" value="#e5e7eb"/></div>
+<button class="sd-btn sd-btn--ghost" id="bcReset" style="margin-top:6px;" type="button">↺ Set semula ke lalai</button>
+</div>
+<div class="sb-brand-preview" id="sbBrandPreview">
+<p class="sb-brand-preview-label">Pratonton langsung</p>
+<div class="sb-bp-card" id="bpCard">
+<div class="sb-bp-h" id="bpH">Gelanggang 2 · Sel 25</div>
+<div class="sb-bp-slots"><span class="sb-bp-slot" id="bpSlot1">10:00</span>
+<span class="sb-bp-slot is-sel" id="bpSlot2">14:00</span>
+<span class="sb-bp-slot peak" id="bpSlot3">17:00<i>Puncak</i></span>
+<span class="sb-bp-slot taken" id="bpSlot4">18:00</span></div>
+<button class="sb-bp-btn" id="bpBtn">Sahkan tempahan →</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: emails -->
+<div class="sb-admin-section" data-section="emails" style="display:none;">
+<p class="sb-admin-hint">Pelanggan dihantar e-mel secara automatik pada setiap peringkat. Ubah susunan kata, atau matikan templat sepenuhnya.</p>
+<div class="sb-mail-layout">
+<div class="sb-mail-list" id="sbMailList"></div>
+<div class="sb-mail-editor">
+<div class="sb-mail-editor-head">
+<input class="sb-mail-subject" id="mailSubject" type="text"/>
+<label class="sb-mail-toggle"><input checked="" id="mailEnabled" type="checkbox"/><span>Diaktifkan</span></label>
+</div>
+<textarea class="sb-mail-body" id="mailBody" rows="6"></textarea>
+<p class="sb-mail-tags">Tag gabungan: <code>{{customer_name}}</code> <code>{{resource}}</code> <code>{{date}}</code> <code>{{time}}</code></p>
+<p class="sb-mail-preview-label">Pratonton langsung</p>
+<div class="sb-mail-preview" id="sbMailPreview"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="sb-demo-caption">Dalam pemalam sebenar, skrin ini berada di dalam papan pemuka WordPress anda, dengan tempahan sebenar anda — meluluskan atau menolak di sini menghantar e-mel kepada pelanggan secara automatik.</p>
+</div>
+</section>
+</div><!-- /demoGroup-venue -->
+<div id="demoGroup-classportal" style="display:none;">
+<!-- ===================== LIVE DEMO: CLASS PORTAL (MEMBER) ===================== -->
+<section class="sd-section sd-section--dark" id="cp-demo">
+<div class="sd-inner">
+<p class="sd-eyebrow">Paparan Pelanggan <span class="sb-pro-tag">Tambahan Pro</span></p>
+<h2 class="sd-section-title">Tempah <span class="accent">kelas berulang</span> menggunakan kredit</h2>
+<div class="sd-title-rule"></div>
+<p class="sd-section-sub">Class Portal ialah tambahan untuk premis yang menjalankan kelas dan program, bukan slot sekali sahaja. Ahli membeli kredit, kemudian menggunakannya untuk mana-mana kelas yang masih dibuka dalam jadual mingguan.</p>
+<div class="sb-demo-shell">
+<div class="sb-demo-bar"><span class="sb-demo-dot"></span><span class="sb-demo-dot"></span><span class="sb-demo-dot"></span>
+<span class="sb-demo-bar-label">[steadybook_portal]</span>
+<span class="sb-demo-live">Demo interaktif</span></div>
+<div class="sb-demo-body">
+<div class="sb-cp-nav" id="cpMemberNav">
+<button class="is-active" data-tab="dashboard">Papan pemuka</button>
+<button data-tab="schedule">Jadual Mingguan</button>
+<button data-tab="buy">Beli Kredit</button>
+</div>
+<!-- MEMBER TAB: dashboard -->
+<div class="sb-cp-pane" data-tab="dashboard">
+<h3 class="sb-demo-h">Selamat kembali, Alex</h3>
+<p class="sb-demo-sub">Baki dan kelas akan datang anda, sepintas lalu.</p>
+<div class="sb-cp-balances" id="cpBalances"></div>
+<p class="sb-cp-subhead">Kelas akan datang</p>
+<div class="sb-cp-upcoming" id="cpUpcoming"></div>
+<button class="sd-btn sd-btn--primary" id="cpGoBuy" style="margin-top:16px;" type="button">+ Beli lagi kredit</button>
+</div>
+<!-- MEMBER TAB: schedule -->
+<div class="sb-cp-pane" data-tab="schedule" style="display:none;">
+<h3 class="sb-demo-h">Minggu ini</h3>
+<p class="sb-demo-sub">Ketik kelas yang dibuka untuk menempahnya — satu kredit ditolak serta-merta. Kelas yang penuh menawarkan senarai menunggu.</p>
+<div class="sb-cp-week" id="cpWeek"></div>
+</div>
+<!-- MEMBER TAB: buy credits -->
+<div class="sb-cp-pane" data-tab="buy" style="display:none;">
+<h3 class="sb-demo-h">Pakej kredit</h3>
+<p class="sb-demo-sub">Beli satu pek, kemudian gunakan kredit untuk mana-mana kelas yang layak.</p>
+<div class="sb-cp-packs" id="cpPacks"></div>
+</div>
+</div>
+</div>
+<p class="sb-demo-caption">Ini simulasi bahagian hadapan untuk tujuan demo — Class Portal sebenar berjalan di dalam laman WordPress anda dengan kelas, tahap dan harga anda sendiri.</p>
+</div>
+</section>
+<!-- ===================== LIVE DEMO: CLASS PORTAL (ADMIN) ===================== -->
+<section class="sd-section sd-section--dark" id="cp-admin-demo">
+<div class="sd-inner">
+<p class="sd-eyebrow">Paparan Pentadbir <span class="sb-pro-tag">Tambahan Pro</span></p>
+<h2 class="sd-section-title">Mengurus <span class="accent">Class Portal</span></h2>
+<div class="sd-title-rule"></div>
+<p class="sd-section-sub">Kelas, jadual waktu mingguan, pakej kredit, pengesahan pembayaran dan ahli — semuanya dalam satu skrin di dalam WordPress.</p>
+<div class="sb-admin-shell">
+<div class="sb-admin-topbar"><span class="sb-admin-wp">🔷 WP Admin</span>
+<span class="sb-admin-crumb" id="cpAdminCrumb">Class Portal ▸ Classes</span>
+<span class="sb-demo-live">Demo interaktif</span></div>
+<div class="sb-admin-nav" id="cpAdminNav">
+<button class="sb-admin-navbtn is-active" data-section="classes">🧘 Kelas</button>
+<button class="sb-admin-navbtn" data-section="timetable">🗓️ Jadual waktu</button>
+<button class="sb-admin-navbtn" data-section="packages">💳 Pakej</button>
+<button class="sb-admin-navbtn" data-section="orders">🧾 Pesanan Kredit</button>
+<button class="sb-admin-navbtn" data-section="members">👥 Ahli</button>
+</div>
+<div class="sb-admin-body">
+<!-- SECTION: classes -->
+<div class="sb-admin-section" data-section="classes">
+<p class="sb-admin-hint">Satu baris bagi setiap perkara yang anda ajar, bukan bagi setiap sesi — "Pemula Junior" ialah satu kelas walaupun ia berjalan tiga kali seminggu.</p>
+<div class="sb-res-list sb-cp-classlist" id="cpClassList"></div>
+<button class="sd-btn sd-btn--ghost" id="cpClassAdd" type="button">+ Tambah kelas</button>
+</div>
+<!-- SECTION: timetable -->
+<div class="sb-admin-section" data-section="timetable" style="display:none;">
+<p class="sb-admin-hint">Kelas dipetakan pada minggu. Sesi berulang setiap minggu; ahli melihatnya pada tarikh sebenar minggu semasa.</p>
+<div class="sb-cp-timetable" id="cpTimetable"></div>
+</div>
+<!-- SECTION: packages -->
+<div class="sb-admin-section" data-section="packages" style="display:none;">
+<p class="sb-admin-hint">Apa yang dibeli ahli sebelum mereka boleh menempah. Tetapkan tahap untuk memberi harga berbeza kepada sesuatu peringkat — biarkan sebagai "Umum" dan kredit itu boleh menempah apa sahaja.</p>
+<div class="sb-res-list sb-cp-packlist" id="cpPackList"></div>
+</div>
+<!-- SECTION: credit orders -->
+<div class="sb-admin-section" data-section="orders" style="display:none;">
+<p class="sb-admin-hint">Kaedah pembayaran manual memerlukan pengesahan anda sebelum kredit diberikan. Semak dengan rekod anda sendiri, kemudian sahkan — atau batalkan jika ia tidak pernah dibayar.</p>
+<div class="sb-admin-table-wrap">
+<table class="sb-admin-table">
+<thead>
+<tr><th>Ahli</th><th>Pakej</th><th>Kaedah</th><th>Jumlah</th><th>Status</th><th></th></tr>
+</thead>
+<tbody id="cpOrderRows"></tbody>
+</table>
+</div>
+</div>
+<!-- SECTION: members -->
+<div class="sb-admin-section" data-section="members" style="display:none;">
+<p class="sb-admin-hint">Semua orang yang boleh log masuk, termasuk mereka yang belum membeli sebarang kredit. Buka rekod ahli untuk melaraskan baki atau melihat sejarahnya.</p>
+<div class="sb-admin-table-wrap">
+<table class="sb-admin-table">
+<thead>
+<tr><th>Ahli</th><th>Baki mengikut tahap</th><th>Akan datang</th><th></th></tr>
+</thead>
+<tbody id="cpMemberRows"></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p class="sb-demo-caption">Dalam pemalam sebenar, peranan "Class Portal Staff" boleh mengurus seluruh skrin ini — mengesahkan pembayaran, mengambil kehadiran, mengedit ahli — tanpa akses pentadbir penuh.</p>
+</div>
+</section>
+</div><!-- /demoGroup-classportal -->
+<section class="f-section" id="features">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Apa yang disediakan</p>
+<h2 class="f-h2">Semua yang diperlukan premis anda untuk menerima tempahan</h2>
+<p class="f-sub">Pelanggan menempah dalam talian, peringatan dihantar secara automatik, dan anda kekal mengawal dengan kelulusan bagi setiap tempahan.</p>
+</div>
+<div class="f-grid">
+<article class="f-card f-card--compact"><h3 class="f-card__title">Tempahan berbilang langkah secara langsung</h3><p class="f-card__text">Pelanggan memilih tarikh dan masa, memilih sumber dan bilangan orang, kemudian mengesahkan, dengan kekosongan masa nyata supaya dua orang tidak boleh merebut slot yang sama.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Aliran kerja kelulusan pentadbir</h3><p class="f-card__text">Setiap tempahan tiba sebagai Menunggu. Luluskan, tolak atau batalkan dari papan pemuka anda; tiada apa-apa disahkan sehingga anda bersetuju.</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Perlindungan tempahan bertindih</h3><p class="f-card__text">Pemalam enggan meluluskan sumber, tarikh dan masa yang sudah disahkan, jadi slot yang sama tidak boleh ditempah dua kali.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Peringatan tempahan automatik</h3><p class="f-card__text">E-mel peringatan dihantar beberapa jam (mengikut tetapan anda) sebelum setiap tempahan yang disahkan, supaya pelanggan datang dan kes tidak hadir berkurang.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Pembayaran dalam talian <span class="f-badge f-badge--crimson">Class Portal</span></h3><p class="f-card__text">Ahli membeli pakej kredit prabayar melalui HitPay (kad, PayNow dan lain-lain), dengan kredit diberikan secara automatik. Kaedah manual seperti pindahan bank juga disokong, dengan pengesahan oleh anda.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Peranan kakitangan kaunter hadapan <span class="f-badge f-badge--crimson">Class Portal</span></h3><p class="f-card__text">Penyambut tetamu anda mengesahkan pembayaran, mengambil kehadiran kelas dan mengurus ahli tanpa akaun pentadbir penuh.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Templat e-mel boleh diedit</h3><p class="f-card__text">Pelanggan dihantar e-mel sebaik sahaja anda meluluskan atau menolak. Kawal susunan kata, warna dan logo dengan pratonton langsung, atau matikan mana-mana e-mel.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Harga waktu puncak &amp; luar puncak</h3><p class="f-card__text">Tetapkan hari dan kadar waktu puncak bagi setiap sumber; pemalam menggunakannya secara automatik semasa pembayaran, bukan sekadar pada label.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Laporan penggunaan &amp; hasil</h3><p class="f-card__text">Hasil bagi setiap jam yang tersedia, grid kesibukan hari × jam, prestasi setiap sumber, waktu puncak berbanding luar puncak dan median tempoh tempahan awal, dengan eksport CSV.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Tambahan Pro Class Portal</h3><p class="f-card__text">Jalankan kelas berulang dan bukannya slot sekali sahaja. Ahli log masuk, membeli kredit prabayar dan menempah daripada jadual waktu mingguan, dengan harga mengikut peringkat dan senarai menunggu.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Pertanyaan WhatsApp</h3><p class="f-card__text">Butang pilihan "Enquire via WhatsApp" mengisikan butiran penuh tempahan ke dalam mesej kepada nombor perniagaan anda.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Shortcode &amp; Elementor</h3><p class="f-card__text">Letakkan borang di mana-mana dengan [steadybook] atau widget Elementor terbina dalam. Sumber, harga dan tempoh tempahan boleh dikonfigurasi.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Kawalan warna penuh</h3><p class="f-card__text">Tetapkan aksen, butang, teks, sempadan, serta slot kosong dan slot ditempah sekali sahaja, dan seluruh aliran tempahan mengikut jenama anda, pada latar belakang cerah atau gelap.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Susun atur yang sesuai dengan halaman anda</h3><p class="f-card__text">Laraskan lebar, jarak, jejari sudut dan cara langkah serta slot disusun, supaya borang kelihatan semula jadi di dalam halaman anda.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Sepadan dengan mana-mana tema</h3><p class="f-card__text">Gaya diskopkan supaya tidak sekali-kali bercanggah dengan CSS tema anda, dan borang mengikut tipografi laman web anda. Ia kelihatan seperti sebahagian daripada laman, bukan ditampal kemudian.</p></article>
+</div>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Cara ia berfungsi</p>
+<h2 class="f-h2">Dari pembelian hingga tempahan pertama</h2>
+</div>
+<ol class="f-steps">
+<li><div class="f-steps__n">01</div><div class="f-steps__t">Beli &amp; muat turun</div><div class="f-steps__d">Buat pembayaran dengan selamat di bawah. Anda menerima fail ZIP pemalam dan kunci lesen anda serta-merta melalui e-mel.</div></li>
+<li><div class="f-steps__n">02</div><div class="f-steps__t">Pasang &amp; aktifkan</div><div class="f-steps__d">Muat naik fail ZIP dalam WordPress, aktifkan lesen anda, kemudian tetapkan sumber, harga dan waktu operasi anda.</div></li>
+<li><div class="f-steps__n">03</div><div class="f-steps__t">Terima tempahan</div><div class="f-steps__d">Tambah borang pada sebuah halaman. Pelanggan menempah, anda meluluskan, dan kemas kini tiba secara automatik dalam WordPress.</div></li>
+</ol>
+</div>
+</section>
+<section class="sd-section sd-section--dark" id="buy">
+<div class="sd-inner">
+<p class="sd-eyebrow">Harga</p>
+<h2 class="sd-section-title">Pemalam yang sama. <span class="accent">Pilih bilangan laman web anda.</span></h2>
+<div class="sd-title-rule"></div>
+<p class="sd-section-sub">Setiap pelan membuka semua ciri — satu-satunya perbezaan ialah bilangan laman web yang boleh anda aktifkan. Dibilkan setiap tahun, batalkan bila-bila masa.</p>
+<div class="sb-plans">
+<!-- Starter — 1 site -->
+<div class="sb-plan">
+<span class="sb-plan-badge sb-plan-badge--muted">Starter</span>
+<span class="sb-trial-badge">Percubaan percuma 14 hari</span>
+<p class="sb-sites">1 laman web</p>
+<div class="sb-price-wrap"><span class="sb-price">$299</span>
+<span class="sb-price-cycle">/ tahun</span></div>
+<p class="sb-price-note">Untuk satu laman web perniagaan</p>
+<ul class="sb-feature-list">
+<li>Sumber &amp; tempahan tanpa had</li>
+<li>Kelulusan pentadbir + perlindungan tempahan bertindih</li>
+<li>E-mel boleh diedit + peringatan automatik</li>
+<li>Class Portal — kelas, kredit &amp; log masuk ahli</li>
+<li>Pembayaran dalam talian untuk pakej kredit (HitPay)</li>
+<li>Peranan kakitangan kaunter hadapan untuk Class Portal</li>
+<li>Harga waktu puncak / luar puncak</li>
+<li>Laporan penggunaan &amp; hasil (eksport CSV)</li>
+<li>Sokongan WhatsApp, shortcode &amp; Elementor</li>
+<li>Laman staging &amp; pembangunan tidak dikira</li>
+<li>Kemas kini &amp; sokongan selama setahun penuh</li>
+</ul>
+<a class="sd-btn sd-btn--ghost sb-buy" data-plan="57078" href="#">Dapatkan Starter — $299/tahun <span aria-hidden="true">→</span></a>
+<p class="sb-trial-cta"><a class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free" href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free">Atau cuba percuma selama 14 hari <span aria-hidden="true">→</span></a></p>
+<p class="sb-alt-cycle">Tiada kad kredit diperlukan · batalkan bila-bila masa</p>
+</div>
+<!-- Professional — 5 sites -->
+<div class="sb-plan sb-plan--featured">
+<span class="sb-plan-badge">Professional · Paling popular</span>
+<p class="sb-sites">5 laman web</p>
+<div class="sb-price-wrap"><span class="sb-price">$699</span>
+<span class="sb-price-cycle">/ tahun</span></div>
+<p class="sb-price-note">Hanya $140 setiap laman web · dibilkan setiap tahun</p>
+<span class="sb-save">Jimat $796 berbanding 5 × Starter</span>
+<ul class="sb-feature-list">
+<li>Semua dalam Starter</li>
+<li>Aktifkan pada sehingga 5 laman web</li>
+<li>Laman staging &amp; pembangunan tidak dikira</li>
+<li>Urus semua lesen dari satu akaun</li>
+<li>Kemas kini &amp; sokongan selama setahun penuh</li>
+</ul>
+<a class="sd-btn sd-btn--primary sb-buy" data-plan="57602" href="#">Dapatkan Professional — $699/tahun <span aria-hidden="true">→</span></a>
+<p class="sb-guarantee">Pembayaran selamat oleh Freemius</p>
+</div>
+<!-- Agency — 25 sites -->
+<div class="sb-plan">
+<span class="sb-plan-badge sb-plan-badge--muted">Agency</span>
+<p class="sb-sites">25 laman web</p>
+<div class="sb-price-wrap"><span class="sb-price">$1,499</span>
+<span class="sb-price-cycle">/ tahun</span></div>
+<p class="sb-price-note">Hanya $60 setiap laman web · dibilkan setiap tahun</p>
+<span class="sb-save">Jimat $5,976 berbanding 25 × Starter</span>
+<ul class="sb-feature-list">
+<li>Semua dalam Professional</li>
+<li>Aktifkan pada sehingga 25 laman web pelanggan</li>
+<li>Laman staging &amp; pembangunan tidak dikira</li>
+<li>Sokongan keutamaan</li>
+<li>Kemas kini &amp; sokongan selama setahun penuh</li>
+</ul>
+<a class="sd-btn sd-btn--ghost sb-buy" data-plan="57603" href="#">Dapatkan Agency — $1,499/tahun <span aria-hidden="true">→</span></a>
+<p class="sb-guarantee">Pembayaran selamat oleh Freemius</p>
+</div>
+<!-- Custom — talk to us -->
+<div class="sb-plan sb-plan--custom">
+<span class="sb-plan-badge sb-plan-badge--muted">Khas</span>
+<p class="sb-sites">26+ laman web</p>
+<div class="sb-price-wrap"><span class="sb-price sb-price--custom">Mari berbincang</span></div>
+<p class="sb-price-note">Susunan volum, pengehosan &amp; penjual semula</p>
+<ul class="sb-feature-list">
+<li>Semua dalam Agency</li>
+<li>Harga mengikut bilangan laman web anda</li>
+<li>Pelesenan penjual semula &amp; label putih</li>
+<li>Ciri khas dibina mengikut tempahan</li>
+<li>Hubungan terus dengan pembangun</li>
+</ul>
+<a class="sd-btn sd-btn--ghost" href="#sbEnquiryForm">Hubungi kami <span aria-hidden="true">→</span></a>
+<p class="sb-guarantee">Kami biasanya membalas dalam satu hari bekerja</p>
+</div>
+</div>
+<p class="sb-more">Sudah menjadi pelanggan? <a href="../my-account.html">Urus langganan anda →</a></p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">Soalan Lazim</p>
+<h2 class="f-h2">Soalan biasa</h2>
+</div>
+<div class="f-faq">
+<details><summary>Untuk jenis perniagaan apakah SteadyDevs Venue Booking?</summary><div>Apa sahaja yang ditempah mengikut slot masa: gelanggang sukan dan petak simulator, studio dan bilik rawatan, meja restoran, sewaan peralatan atau kelengkapan, kerusi salun, bilik mesyuarat dan banyak lagi. Anda menentukan sumber, harga dan waktu operasi.</div></details>
+<details><summary>Bolehkah pelanggan membayar dalam talian?</summary><div>Untuk kelas, ya. Ahli Class Portal membeli pakej kredit prabayar dalam talian melalui gerbang pembayaran HitPay (kad, PayNow dan apa-apa kaedah yang ditawarkan oleh akaun HitPay anda), dengan kredit diberikan secara automatik selepas pembayaran. Kaedah manual seperti pindahan bank atau bayar di kaunter turut disokong; anda mengesahkannya sebelum kredit diberikan. Untuk tempahan mengikut jam sekali sahaja, pembayaran buat masa ini diuruskan dengan cara anda sendiri di luar pemalam (di premis, melalui pindahan atau melalui invois). Mengambil deposit semasa tempahan ada dalam pelan hala tuju.</div></details>
+<details><summary>Adakah ini termasuk kelas berulang, bukan sekadar slot sekali sahaja?</summary><div>Ya. Class Portal termasuk dalam setiap pelan di halaman ini: mod tempahan kedua di samping borang mengikut jam anda, di mana ahli log masuk, membeli pakej kredit prabayar dan menempah daripada jadual waktu mingguan. Ia disertakan dengan harga pilihan mengikut peringkat (tahap), senarai menunggu untuk kelas yang penuh, daftar kehadiran yang boleh dicetak, dan peranan "Class Portal Staff" supaya kaunter hadapan boleh menguruskannya tanpa akses pentadbir penuh. Cuba demo langsung di atas. (Terdapat pemalam percuma berasingan di WordPress.org yang tidak termasuk Class Portal; halaman ini menjual edisi Pro, yang termasuk Class Portal.)</div></details>
+<details><summary>Adakah percubaan percuma?</summary><div>Ya: 14 hari percuma pada pelan Starter, tanpa kad kredit. Anda mendapat pemalam lengkap dengan semua ciri dibuka, jadi anda boleh menyediakan sumber sebenar anda dan menerima tempahan sebenar sementara anda membuat keputusan. Jika anda tidak berbuat apa-apa pada akhir 14 hari, ia akan berhenti begitu sahaja dan anda tidak akan dicaj. Professional dan Agency tidak termasuk percubaan, tetapi anda boleh bermula dengan Starter dan menaik taraf apabila anda berpuas hati.</div></details>
+<details><summary>Apa sebenarnya yang saya terima selepas membeli?</summary><div>Sebaik sahaja selesai pembayaran, anda mendapat fail ZIP pemalam untuk dimuat turun serta kunci lesen, kedua-duanya dipaparkan pada halaman pengesahan dan dihantar kepada anda melalui e-mel. Anda memuat naik fail ZIP ke WordPress dan mengaktifkannya dengan kunci tersebut.</div></details>
+<details><summary>Apa yang diliputi oleh lesen?</summary><div>Semua ciri pemalam, serta kemas kini dan sokongan selagi langganan anda aktif, pada seberapa banyak laman web yang dibenarkan oleh pelan anda (1, 5 atau 25). Kemas kini dipasang secara automatik di dalam papan pemuka WordPress anda.</div></details>
+<details><summary>Pelan mana yang saya perlukan?</summary><div>Semua pelan membuka pemalam yang sama; satu-satunya perbezaan ialah bilangan laman web yang boleh anda aktifkan. Starter ($299/tahun) meliputi satu laman web perniagaan. Professional ($699/tahun) meliputi 5 laman web pada $140 setiap satu. Agency ($1,499/tahun) meliputi 25 laman web pelanggan pada $60 setiap satu. Perlukan lebih daripada 25? Hubungi kami dan kami akan menyediakan pelan mengikut bilangan laman web anda. Anda boleh menaik taraf pada bila-bila masa dan hanya membayar perbezaannya.</div></details>
+<details><summary>Adakah laman staging dan pembangunan menggunakan lesen?</summary><div>Tidak. Pemasangan staging, pembangunan dan tempatan (contohnya staging.yoursite.com atau yoursite.local) tidak dikira dalam had laman web anda; hanya laman web pengeluaran yang aktif dikira.</div></details>
+<details><summary>Bolehkah saya membayar secara bulanan?</summary><div>Semua pelan dibilkan setiap tahun. Jika anda ingin mencubanya sebelum membuat komitmen, mulakan percubaan percuma 14 hari: tiada kad kredit, semua ciri dibuka, dan tiada apa-apa perlu dibatalkan jika anda memutuskan ia tidak sesuai untuk anda.</div></details>
+<details><summary>Apakah keperluannya?</summary><div>WordPress 5.0+ dan PHP 7.2+. Supaya e-mel kelulusan sampai dengan boleh dipercayai, kami mengesyorkan pemalam SMTP yang ringkas (contohnya WP Mail SMTP), yang merupakan amalan biasa bagi mana-mana laman WordPress yang menghantar e-mel.</div></details>
+<details><summary>Ada ciri yang diperlukan oleh premis anda tetapi tiada?</summary><div>Beritahu kami: <a href="#sbEnquiryForm">hantar permintaan ciri di bawah</a> dan kami biasanya membalas dalam satu hari bekerja. Pelan hala tuju dipandu oleh apa yang diminta oleh premis sebenar, dan permintaan daripada pelanggan berbayar diberi keutamaan. Jika anda menggunakan versi percuma, <a href="https://wordpress.org/support/plugin/steadydevs-venue-booking/">forum sokongan WordPress.org</a> juga boleh digunakan.</div></details>
+<details><summary>Apa yang berlaku jika saya tidak memperbaharui?</summary><div>Tempahan dan data sedia ada anda kekal dalam WordPress. Anda cuma tidak lagi menerima kemas kini dan sokongan baharu sehingga anda memperbaharui.</div></details>
+</div>
+</div>
+</section>
+<section class="sd-section sd-section--dark" id="enquire">
+<div class="sd-inner" style="text-align:center;">
+<h2 class="sd-section-title">Bersedia menerima tempahan dalam talian?</h2>
+<p class="sd-section-sub" style="margin-top:14px;">Sediakannya dalam satu petang dan biarkan pelanggan menempah sepanjang masa.</p>
+<div class="sd-hero-cta" style="justify-content:center;"><a class="sd-btn sd-btn--primary sb-buy" data-plan="57078" data-trial="free" href="https://checkout.freemius.com/plugin/34678/plan/57078/?trial=free">Mula percubaan percuma 14 hari <span aria-hidden="true">→</span></a>
+<a class="sd-btn sd-btn--ghost" href="#sbEnquiryForm">Tanya soalan</a></div>
+<!-- Enquiry / feature request form. Every message lands in the same
+           inbox as the main contact form, tagged as a plugin lead and
+           carrying the funnel attribution, so enquiries can be read per
+           channel the same way purchases are. -->
+<div class="sb-enquiry">
+<h3>Tidak pasti ia sesuai untuk premis anda — atau ada ciri yang anda perlukan tetapi tiada?</h3>
+<p>Beritahu kami apa yang anda jalankan dan apa yang menghalang anda. Permintaan ciri membentuk pelan hala tuju secara langsung, dan kami biasanya membalas dalam satu hari bekerja.</p>
+<div class="sb-enquiry-note sb-enquiry-note--ok" hidden="" id="sbEnquiryOk">✅ Diterima — terima kasih! Kami akan menghubungi anda dalam satu hari bekerja.</div>
+<div class="sb-enquiry-note sb-enquiry-note--err" hidden="" id="sbEnquiryErr">Berlaku masalah semasa menghantarnya. Sila e-mel terus kepada kami di <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>.</div>
+<form action="https://formspree.io/f/xpqooaea" id="sbEnquiryForm" method="POST"><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<input name="_subject" type="hidden" value="Venue Booking enquiry"/>
+<input name="product" type="hidden" value="SteadyDevs Venue Booking"/>
+<input id="sbEnquiryAttr" name="attribution" type="hidden" value=""/>
+<div class="sb-enquiry-row">
+<div>
+<label for="sbEnqName">Nama anda</label>
+<input autocomplete="name" id="sbEnqName" name="name" required="" type="text"/>
+</div>
+<div>
+<label for="sbEnqEmail">E-mel</label>
+<input autocomplete="email" id="sbEnqEmail" name="email" required="" type="email"/>
+</div>
+</div>
+<div>
+<label for="sbEnqVenue">Apakah jenis premis yang anda jalankan?</label>
+<select id="sbEnqVenue" name="venue_type">
+<option value="">Pilih satu (pilihan)…</option>
+<option>Driving range / simulator golf</option>
+<option>Kelab sukan atau raket</option>
+<option>Studio / kesejahteraan / kelas</option>
+<option>Salun / kedai gunting rambut</option>
+<option>Ruang kerja bersama / bilik mesyuarat</option>
+<option>Sewaan peralatan</option>
+<option>Restoran / meja</option>
+<option>Lain-lain</option>
+</select>
+</div>
+<div>
+<label for="sbEnqMsg">Soalan atau permintaan ciri anda</label>
+<textarea id="sbEnqMsg" name="message" placeholder="cth. Kami mahu pelanggan membayar deposit semasa menempah — adakah ciri itu akan datang?" required="" rows="4"></textarea>
+</div>
+<button class="sd-btn sd-btn--primary" id="sbEnqSubmit" type="submit">Hantar <span aria-hidden="true">→</span></button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col">
+<h2>Tawaran</h2>
+<ul>
+<li><a href="../solutions.html">Perkhidmatan kejuruteraan</a></li>
+<li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="../venue-booking.html">Venue Booking</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>Syarikat</h2>
+<ul>
+<li><a href="../about.html">Tentang kami</a></li>
+<li><a href="../portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li>
+<li><a href="contact.html">Hubungi</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>Lagi</h2>
+<ul>
+<li><a href="../pricing-terms.html">Terma harga</a></li>
+<li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+<div class="ff__base">
+<span>© 2026 Steady Devs Solutions · SSM 202603092285</span>
+<span>Malaysia · Singapore</span>
+</div>
+</div>
+</footer>
+<script>
+    // ---- Shared site chrome (nav, sticky CTA, back-to-top) ----
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    }
+    menuToggle.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    const stickyCta = document.getElementById('stickyCta');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      const y = window.pageYOffset;
+      stickyCta.classList.toggle('visible', y > 300);
+      backToTop.classList.toggle('visible', y > 500);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ============================================================
+       ADMIN DASHBOARD DEMO — a front-end-only simulation of the
+       plugin's "All Bookings" screen. Seeded with a few sample rows
+       so the table doesn't look empty, plus whatever the customer
+       widget below adds when someone completes the booking demo.
+       Exposed on window.SBAdmin so the customer widget can push a
+       booking into it and read its status back.
+       ============================================================ */
+    window.SBAdmin = (function () {
+      var rows = document.getElementById('sbAdminRows');
+      var tabs = document.querySelectorAll('#sbAdminTabs .sb-admin-tab');
+      var activeFilter = 'all';
+      var nextId = 1042;
+
+      var bookings = [
+        { id: 1039, name: 'Priya Nair', contact: 'priya.n@example.com', resource: 'Gelanggang 1', date: 'Sel 25', time: '18:00', price: 100, status: 'confirmed' },
+        { id: 1040, name: 'Marcus Lee', contact: 'marcus.lee@example.com', resource: 'Gelanggang 3 (Dalaman)', date: 'Rab 26', time: '09:00', price: 110, status: 'pending' },
+        { id: 1041, name: 'Farah Aziz', contact: '012-778 4410', resource: 'Gelanggang 2', date: 'Kha 27', time: '15:00', price: 100, status: 'rejected' }
+      ];
+
+      function badge(status) {
+        var label = {pending:'Menunggu',confirmed:'Disahkan',rejected:'Ditolak',voided:'Dibatalkan'}[status] || status;
+        return '<span class="sb-admin-badge sb-admin-badge--' + status + '">' + label + '</span>';
+      }
+
+      function actionsFor(b) {
+        if (b.status === 'pending') {
+          return '<div class="sb-admin-actions">' +
+            '<button class="sb-admin-btn sb-admin-btn--approve" data-act="approve" data-id="' + b.id + '">Luluskan</button>' +
+            '<button class="sb-admin-btn sb-admin-btn--reject" data-act="reject" data-id="' + b.id + '">Tolak</button>' +
+            '</div>';
+        }
+        if (b.status === 'confirmed') {
+          return '<div class="sb-admin-actions"><button class="sb-admin-btn" data-act="cancel" data-id="' + b.id + '">Batalkan</button></div>';
+        }
+        return '<div class="sb-admin-actions"><span style="color:var(--muted); font-size:0.85em;">—</span></div>';
+      }
+
+      function render() {
+        var list = bookings.filter(function (b) { return activeFilter === 'all' || b.status === activeFilter; });
+
+        tabs.forEach(function (t) {
+          t.classList.toggle('is-active', t.dataset.filter === activeFilter);
+        });
+        document.getElementById('sbCountAll').textContent = bookings.length;
+        document.getElementById('sbCountPending').textContent = bookings.filter(function (b) { return b.status === 'pending'; }).length;
+        document.getElementById('sbCountConfirmed').textContent = bookings.filter(function (b) { return b.status === 'confirmed'; }).length;
+        document.getElementById('sbCountRejected').textContent = bookings.filter(function (b) { return b.status === 'rejected'; }).length;
+
+        if (!list.length) {
+          rows.innerHTML = '<tr><td colspan="6"><p class="sb-admin-empty">Tiada tempahan dalam paparan ini.</p></td></tr>';
+          return;
+        }
+
+        rows.innerHTML = list.map(function (b) {
+          return '<tr' + (b._new ? ' class="is-new"' : '') + ' data-row="' + b.id + '">' +
+            '<td class="sb-admin-cust"><b>' + b.name + '</b><span>' + b.contact + '</span></td>' +
+            '<td>' + b.resource + '</td>' +
+            '<td>' + b.date + ' · ' + b.time + '</td>' +
+            '<td>$' + b.price + '</td>' +
+            '<td>' + badge(b.status) + '</td>' +
+            '<td>' + actionsFor(b) + '</td>' +
+            '</tr>';
+        }).join('');
+        list.forEach(function (b) { b._new = false; });
+      }
+
+      rows.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-act]');
+        if (!btn) { return; }
+        var id = +btn.dataset.id;
+        var b = bookings.find(function (x) { return x.id === id; });
+        if (!b) { return; }
+        if (btn.dataset.act === 'approve') { b.status = 'confirmed'; }
+        else if (btn.dataset.act === 'reject') { b.status = 'rejected'; }
+        else if (btn.dataset.act === 'cancel') { b.status = 'rejected'; }
+        render();
+        document.dispatchEvent(new CustomEvent('sb:statusChange', { detail: { id: id, status: b.status } }));
+      });
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { activeFilter = t.dataset.filter; render(); });
+      });
+
+      render();
+
+      return {
+        add: function (b) {
+          b.id = nextId++;
+          b.status = 'pending';
+          b._new = true;
+          bookings.unshift(b);
+          activeFilter = 'all';
+          render();
+          return b.id;
+        },
+        getStatus: function (id) {
+          var b = bookings.find(function (x) { return x.id === id; });
+          return b ? b.status : null;
+        },
+        highlight: function (id) {
+          window.sbAdminShowSection('bookings');
+          var row = rows.querySelector('[data-row="' + id + '"]');
+          if (row) { row.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+      };
+    })();
+
+    /* ============================================================
+       ADMIN NAV — switches between Bookings / Resources / Branding /
+       Emails inside the admin demo shell.
+       ============================================================ */
+    (function () {
+      var navBtns = document.querySelectorAll('#sbAdminNav .sb-admin-navbtn');
+      var sections = document.querySelectorAll('.sb-admin-section');
+      var crumb = document.getElementById('sbAdminCrumb');
+      var CRUMBS = {
+        bookings: 'Venue Booking ▸ All Bookings',
+        resources: 'Venue Booking ▸ Resources',
+        branding: 'Venue Booking ▸ Settings ▸ Colours &amp; Branding',
+        emails: 'Venue Booking ▸ Settings ▸ Emails'
+      };
+
+      function show(name) {
+        navBtns.forEach(function (b) { b.classList.toggle('is-active', b.dataset.section === name); });
+        sections.forEach(function (s) { s.style.display = (s.dataset.section === name) ? '' : 'none'; });
+        crumb.innerHTML = CRUMBS[name] || CRUMBS.bookings;
+      }
+
+      navBtns.forEach(function (b) {
+        b.addEventListener('click', function () { show(b.dataset.section); });
+      });
+
+      window.sbAdminShowSection = show;
+    })();
+
+    /* ============================================================
+       RESOURCES PANEL DEMO — editable list of bookable resources.
+       Purely cosmetic (nothing persists), it exists so a visitor can
+       feel how configuring resources, prices and peak rates works.
+       ============================================================ */
+    (function () {
+      var list = document.getElementById('sbResList');
+      var addBtn = document.getElementById('sbResAdd');
+      var icons = ['🏸','🏟️','🧖','🍽️','🎛️','💇','🏌️','🏋️'];
+      var seed = [
+        { icon: '🏸', name: 'Gelanggang 1', price: 80, peak: 20 },
+        { icon: '🏸', name: 'Gelanggang 2', price: 80, peak: 20 },
+        { icon: '🏟️', name: 'Gelanggang 3 (Dalaman)', price: 110, peak: 20 }
+      ];
+
+      function addRow(data) {
+        var row = document.createElement('div');
+        row.className = 'sb-res-row';
+        row.innerHTML =
+          '<button type="button" class="icon-pick">' + data.icon + '</button>' +
+          '<div class="sb-res-field"><span>Nama</span><input type="text" value="' + data.name + '"></div>' +
+          '<div class="sb-res-field"><span>Harga asas / jam</span><input type="number" value="' + data.price + '" min="0"></div>' +
+          '<div class="sb-res-field"><span>Caj tambahan waktu puncak</span><input type="number" value="' + data.peak + '" min="0"></div>' +
+          '<button type="button" class="sb-admin-btn sb-admin-btn--reject">Buang</button>';
+
+        row.querySelector('.icon-pick').addEventListener('click', function () {
+          var i = (icons.indexOf(this.textContent) + 1) % icons.length;
+          this.textContent = icons[i];
+        });
+        row.querySelector('.sb-admin-btn--reject').addEventListener('click', function () { row.remove(); });
+        list.appendChild(row);
+      }
+
+      seed.forEach(addRow);
+      addBtn.addEventListener('click', function () {
+        addRow({ icon: '🎛️', name: 'Sumber baharu', price: 50, peak: 10 });
+      });
+    })();
+
+    /* ============================================================
+       BRANDING PANEL DEMO — colour pickers drive a live preview of
+       the booking widget's slot grid so the effect is immediate.
+       ============================================================ */
+    (function () {
+      var accent = document.getElementById('bcAccent');
+      var avail = document.getElementById('bcAvail');
+      var booked = document.getElementById('bcBooked');
+      var peak = document.getElementById('bcPeak');
+      var card = document.getElementById('bcCard');
+      var text = document.getElementById('bcText');
+      var reset = document.getElementById('bcReset');
+
+      var defaults = { accent: '#2563eb', avail: '#111a27', booked: '#3a2a2a', peak: '#2563eb', card: '#111a27', text: '#e5e7eb' };
+
+      function apply() {
+        var bp = document.getElementById('bpCard');
+        bp.style.background = card.value;
+        document.getElementById('bpH').style.color = text.value;
+
+        var s1 = document.getElementById('bpSlot1'), s2 = document.getElementById('bpSlot2'),
+            s3 = document.getElementById('bpSlot3'), s4 = document.getElementById('bpSlot4');
+
+        [s1, s2, s3].forEach(function (s) { s.style.color = text.value; });
+        s1.style.background = avail.value;
+        s2.style.background = accent.value; s2.style.color = '#fff'; s2.style.borderColor = accent.value;
+        s3.style.background = avail.value;
+        s3.querySelector('i').style.background = peak.value;
+        s4.style.background = booked.value; s4.style.color = text.value;
+
+        var btn = document.getElementById('bpBtn');
+        btn.style.background = accent.value;
+        btn.style.color = '#fff';
+      }
+
+      [accent, avail, booked, peak, card, text].forEach(function (input) {
+        input.addEventListener('input', apply);
+      });
+
+      reset.addEventListener('click', function () {
+        accent.value = defaults.accent; avail.value = defaults.avail; booked.value = defaults.booked;
+        peak.value = defaults.peak; card.value = defaults.card; text.value = defaults.text;
+        apply();
+      });
+
+      apply();
+    })();
+
+    /* ============================================================
+       EMAILS PANEL DEMO — pick a template, edit subject/body, see a
+       merge-tag-rendered preview update live.
+       ============================================================ */
+    (function () {
+      var TEMPLATES = [
+        { id: 'received', label: 'Tempahan diterima', on: true,
+          subject: 'Kami telah menerima permintaan tempahan anda',
+          body: 'Hai {{customer_name}},\n\nTerima kasih kerana menempah {{resource}} pada {{date}} jam {{time}}. Kami akan mengesahkannya sebentar lagi.\n\n— Pasukan kami' },
+        { id: 'approved', label: 'Tempahan diluluskan', on: true,
+          subject: 'Tempahan anda untuk {{date}} telah disahkan',
+          body: 'Hai {{customer_name}},\n\nBerita baik — tempahan anda untuk {{resource}} pada {{date}} jam {{time}} telah disahkan. Jumpa nanti!\n\n— Pasukan kami' },
+        { id: 'rejected', label: 'Tempahan ditolak', on: true,
+          subject: 'Mengenai permintaan tempahan anda',
+          body: 'Hai {{customer_name}},\n\nMaaf, kami tidak dapat menyediakan {{resource}} pada {{date}} jam {{time}}. Sila cuba slot lain.\n\n— Pasukan kami' },
+        { id: 'reminder', label: 'Peringatan', on: false,
+          subject: 'Peringatan: {{resource}} hari ini jam {{time}}',
+          body: 'Hai {{customer_name}},\n\nSekadar peringatan bahawa tempahan anda untuk {{resource}} adalah pada {{date}} jam {{time}}.\n\n— Pasukan kami' }
+      ];
+      var SAMPLE = { customer_name: 'Alex Wong', resource: 'Gelanggang 2', date: 'Sel 25', time: '18:00' };
+
+      var listEl = document.getElementById('sbMailList');
+      var subjectEl = document.getElementById('mailSubject');
+      var bodyEl = document.getElementById('mailBody');
+      var enabledEl = document.getElementById('mailEnabled');
+      var previewEl = document.getElementById('sbMailPreview');
+      var activeId = 'received';
+
+      function merge(str) {
+        return str.replace(/\{\{(\w+)\}\}/g, function (m, k) { return SAMPLE[k] || m; });
+      }
+
+      function renderList() {
+        listEl.innerHTML = TEMPLATES.map(function (t) {
+          return '<button type="button" class="sb-mail-item' + (t.id === activeId ? ' is-active' : '') + (t.on ? '' : ' is-off') + '" data-id="' + t.id + '">' +
+            '<span class="dot"></span>' + t.label + '</button>';
+        }).join('');
+        listEl.querySelectorAll('.sb-mail-item').forEach(function (btn) {
+          btn.addEventListener('click', function () { activeId = btn.dataset.id; renderEditor(); renderList(); });
+        });
+      }
+
+      function renderPreview() {
+        previewEl.textContent = 'Subjek: ' + merge(subjectEl.value) + '\n\n' + merge(bodyEl.value);
+      }
+
+      function renderEditor() {
+        var t = TEMPLATES.find(function (x) { return x.id === activeId; });
+        subjectEl.value = t.subject;
+        bodyEl.value = t.body;
+        enabledEl.checked = t.on;
+        renderPreview();
+      }
+
+      subjectEl.addEventListener('input', function () {
+        TEMPLATES.find(function (x) { return x.id === activeId; }).subject = subjectEl.value;
+        renderPreview();
+      });
+      bodyEl.addEventListener('input', function () {
+        TEMPLATES.find(function (x) { return x.id === activeId; }).body = bodyEl.value;
+        renderPreview();
+      });
+      enabledEl.addEventListener('change', function () {
+        TEMPLATES.find(function (x) { return x.id === activeId; }).on = enabledEl.checked;
+        renderList();
+      });
+
+      renderList();
+      renderEditor();
+    })();
+
+    /* ============================================================
+       LIVE DEMO WIDGET — a front-end-only simulation of the
+       [steadybook] booking flow. Nothing here talks to a server;
+       it exists purely so a visitor can feel the UX before buying.
+       ============================================================ */
+    (function () {
+      var state = { resource: null, price: 0, date: null, time: null, isPeak: false };
+      var currentBookingId = null;
+
+      var panes = document.querySelectorAll('.sb-demo-pane');
+      var stepPills = document.querySelectorAll('#sbSteps .sb-demo-step-pill');
+
+      function showStep(n) {
+        panes.forEach(function (p) { p.style.display = (+p.dataset.pane === n) ? '' : 'none'; });
+        stepPills.forEach(function (pill) {
+          var s = +pill.dataset.step;
+          pill.classList.toggle('is-active', s === n);
+          pill.classList.toggle('is-done', s < n);
+        });
+      }
+
+      document.querySelectorAll('.sb-demo-back').forEach(function (btn) {
+        btn.addEventListener('click', function () { showStep(+btn.dataset.back); });
+      });
+
+      // ---- Step 1: resource ----
+      var resourceEls = document.querySelectorAll('#sbResources .sb-demo-res');
+      var next1 = document.getElementById('sbNext1');
+      resourceEls.forEach(function (el) {
+        el.addEventListener('click', function () {
+          resourceEls.forEach(function (r) { r.classList.remove('is-sel'); });
+          el.classList.add('is-sel');
+          state.resource = el.lastChild.textContent.trim();
+          state.price = +el.dataset.price;
+          next1.disabled = false;
+        });
+      });
+      next1.addEventListener('click', function () {
+        if (next1.disabled) { return; }
+        buildDates();
+        showStep(2);
+      });
+
+      // ---- Step 2: date + time ----
+      var datesWrap = document.getElementById('sbDates');
+      var slotsWrap = document.getElementById('sbSlots');
+      var summary2 = document.getElementById('sbSummary2');
+      var next2 = document.getElementById('sbNext2');
+      var DOW = ['Ahd','Isn','Sel','Rab','Kha','Jum','Sab'];
+      var TIMES = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+
+      // Deterministic-ish "already booked" slots per date index, so the
+      // grid feels alive without being random on every render.
+      function takenForDate(idx) {
+        var sets = [[2,7], [1,5,9], [0,4,8,11], [3,6], [2,5,10], [1,7,8], [0,3,6,9]];
+        return sets[idx % sets.length];
+      }
+
+      function buildDates() {
+        datesWrap.innerHTML = '';
+        var today = new Date();
+        for (var i = 0; i < 7; i++) {
+          var d = new Date(today);
+          d.setDate(today.getDate() + i);
+          var el = document.createElement('div');
+          el.className = 'sb-demo-date' + (i === 0 ? ' is-sel' : '');
+          el.dataset.idx = i;
+          el.innerHTML = '<span class="dow">' + DOW[d.getDay()] + '</span><span class="dnum">' + d.getDate() + '</span>';
+          el.addEventListener('click', function () {
+            document.querySelectorAll('.sb-demo-date').forEach(function (x) { x.classList.remove('is-sel'); });
+            this.classList.add('is-sel');
+            state.date = this.querySelector('.dow').textContent + ' ' + this.querySelector('.dnum').textContent;
+            state.time = null;
+            next2.disabled = true;
+            summary2.style.display = 'none';
+            buildSlots(+this.dataset.idx);
+          });
+          datesWrap.appendChild(el);
+        }
+        state.date = DOW[today.getDay()] + ' ' + today.getDate();
+        buildSlots(0);
+      }
+
+      function buildSlots(dateIdx) {
+        slotsWrap.innerHTML = '';
+        var taken = takenForDate(dateIdx);
+        TIMES.forEach(function (t, i) {
+          var el = document.createElement('div');
+          var isTaken = taken.indexOf(i) !== -1;
+          var isPeak = (i >= 4 && i <= 8); // 13:00–17:00 treated as peak in this demo
+          el.className = 'sb-demo-slot' + (isTaken ? ' is-taken' : '') + (isPeak ? ' is-peak' : '');
+          el.textContent = t;
+          if (!isTaken) {
+            el.addEventListener('click', function () {
+              document.querySelectorAll('.sb-demo-slot').forEach(function (x) { x.classList.remove('is-sel'); });
+              el.classList.add('is-sel');
+              state.time = t;
+              state.isPeak = isPeak;
+              next2.disabled = false;
+              var total = state.price + (isPeak ? 20 : 0);
+              summary2.style.display = 'flex';
+              summary2.innerHTML =
+                '<span>Sumber <b>' + state.resource + '</b></span>' +
+                '<span>Tarikh <b>' + state.date + '</b></span>' +
+                '<span>Masa <b>' + t + (isPeak ? ' · Puncak' : '') + '</b></span>' +
+                '<span>Anggaran jumlah <b>$' + total + '</b></span>';
+            });
+          }
+          slotsWrap.appendChild(el);
+        });
+      }
+
+      next2.addEventListener('click', function () {
+        if (next2.disabled) { return; }
+        var total = state.price + (state.isPeak ? 20 : 0);
+        document.getElementById('sbSummary3').innerHTML =
+          '<span>Sumber <b>' + state.resource + '</b></span>' +
+          '<span>Tarikh <b>' + state.date + '</b></span>' +
+          '<span>Masa <b>' + state.time + (state.isPeak ? ' · Puncak' : '') + '</b></span>' +
+          '<span>Anggaran jumlah <b>$' + total + '</b></span>';
+        showStep(3);
+      });
+
+      // ---- Step 3: details ----
+      var statusPill = document.getElementById('sbStatusPill');
+      var doneTick = document.getElementById('sbDoneTick');
+      var doneTitle = document.getElementById('sbDoneTitle');
+      var doneRef = document.getElementById('sbDoneRef');
+
+      function setPending() {
+        statusPill.className = 'sb-demo-pending-badge';
+        statusPill.textContent = '● Menunggu kelulusan pentadbir';
+        doneTick.textContent = '⏳';
+        doneTitle.textContent = 'Permintaan dihantar — menunggu pengesahan';
+      }
+
+      document.getElementById('sbNext3').addEventListener('click', function () {
+        var name = document.getElementById('sbName').value.trim() || 'Tetamu';
+        var contact = document.getElementById('sbEmail').value.trim() || document.getElementById('sbPhone').value.trim() || 'tiada maklumat hubungan';
+        var total = state.price + (state.isPeak ? 20 : 0);
+
+        currentBookingId = window.SBAdmin.add({
+          name: name, contact: contact, resource: state.resource,
+          date: state.date, time: state.time, price: total
+        });
+
+        setPending();
+        document.getElementById('sbDoneText').textContent =
+          'Terima kasih, ' + name + ' — dalam pemasangan sebenar, pemilik laman web kini melihat tempahan ini dalam papan pemuka WordPress mereka dan meluluskan, menolak atau membatalkannya. Anda akan menerima e-mel sebaik sahaja mereka bertindak, serta peringatan sebelum slot tersebut.';
+        doneRef.textContent = 'Rujukan tempahan #' + currentBookingId;
+        showStep(4);
+      });
+
+      document.getElementById('sbGoAdmin').addEventListener('click', function () {
+        document.getElementById('admin-demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (currentBookingId) { setTimeout(function () { window.SBAdmin.highlight(currentBookingId); }, 350); }
+      });
+
+      document.addEventListener('sb:statusChange', function (e) {
+        if (!currentBookingId || e.detail.id !== currentBookingId) { return; }
+        if (e.detail.status === 'confirmed') {
+          statusPill.className = 'sb-admin-badge sb-admin-badge--confirmed';
+          statusPill.textContent = 'Disahkan';
+          doneTick.textContent = '✅';
+          doneTitle.textContent = 'Diluluskan — tempahan anda telah disahkan';
+        } else if (e.detail.status === 'rejected') {
+          statusPill.className = 'sb-admin-badge sb-admin-badge--rejected';
+          statusPill.textContent = 'Ditolak';
+          doneTick.textContent = '❌';
+          doneTitle.textContent = 'Permintaan ini telah ditolak';
+        }
+      });
+
+      // ---- Step 4: restart ----
+      document.getElementById('sbRestart').addEventListener('click', function () {
+        state = { resource: null, price: 0, date: null, time: null, isPeak: false };
+        currentBookingId = null;
+        setPending();
+        doneRef.textContent = '';
+        resourceEls.forEach(function (r) { r.classList.remove('is-sel'); });
+        next1.disabled = true;
+        ['sbName','sbPhone','sbEmail','sbGroup'].forEach(function (id) { document.getElementById(id).value = ''; });
+        showStep(1);
+      });
+
+      showStep(1);
+    })();
+
+    /* ============================================================
+       FUNNEL INSTRUMENTATION
+       ============================================================
+       The plugin already tags every upgrade link it renders:
+
+         ?utm_source=plugin&utm_medium=upsell&utm_campaign=<where>
+
+       where <where> is the screen the visitor clicked from - 'bays',
+       'reports', 'upgrade-page', 'account', 'billing'. GA4 records
+       those automatically as the session source, so arrivals were
+       already being counted. What was missing is everything after the
+       arrival: nothing recorded whether a visitor reached the pricing
+       table, opened checkout, or bought. That is the part that turns
+       traffic into a conversion rate.
+
+       So four steps are recorded, each carrying the prompt that
+       brought the visitor, so any of them can be read per prompt:
+
+         plugin_upsell_arrival  landed here from an in-plugin prompt
+         view_pricing           actually saw the pricing table
+         begin_checkout         opened the checkout overlay
+         purchase               completed payment
+
+       Two notes on why it is written this way.
+
+       The campaign is stashed in sessionStorage on arrival. The
+       overlay checkout does not change the URL, but a visitor may
+       navigate within the site before buying, and the query string
+       does not survive that - without stashing it, purchases would
+       attribute to (direct) and the whole point would be lost.
+
+       Everything degrades to nothing if gtag is missing - blocked by
+       an ad blocker, or simply not loaded yet. Analytics must never
+       be able to break a checkout button: a failed purchase costs
+       more than a missing data point. Hence the no-op guard and the
+       try/catch around every call.
+       ============================================================ */
+    var SB_ATTR_KEY = 'sb_attr';
+
+    var sbAttr = (function () {
+      var qs = new URLSearchParams(window.location.search);
+      var fromUrl = {
+        source:   qs.get('utm_source')   || '',
+        medium:   qs.get('utm_medium')   || '',
+        campaign: qs.get('utm_campaign') || ''
+      };
+
+      // A freshly tagged arrival always wins over a stashed one, so a
+      // second visit from a different prompt is not credited to the
+      // first one the visitor happened to click.
+      if (fromUrl.source) {
+        try { sessionStorage.setItem(SB_ATTR_KEY, JSON.stringify(fromUrl)); } catch (e) {}
+        return fromUrl;
+      }
+
+      try {
+        var saved = sessionStorage.getItem(SB_ATTR_KEY);
+        if (saved) { return JSON.parse(saved); }
+      } catch (e) {}
+
+      return fromUrl;
+    })();
+
+    function sbTrack(name, params) {
+      if (typeof gtag !== 'function') { return; }
+
+      var payload = params || {};
+      payload.utm_source  = sbAttr.source || '(none)';
+      payload.utm_medium  = sbAttr.medium || '(none)';
+      // The prompt the visitor came from. Named plainly rather than
+      // utm_campaign so it reads as its own dimension in GA4.
+      payload.upsell_from = sbAttr.campaign || '(none)';
+
+      try { gtag('event', name, payload); } catch (e) {}
+    }
+
+    // Arrival from an in-plugin prompt: the denominator for "did that
+    // prompt work".
+    if (sbAttr.source === 'plugin') {
+      sbTrack('plugin_upsell_arrival');
+    }
+
+    // Reaching the pricing table is the step between arriving and
+    // buying, and the likeliest place to lose people. Observed rather
+    // than tied to a click, because the hero and the sticky bar both
+    // scroll here and plenty of visitors just scroll on their own.
+    (function () {
+      var pricing = document.getElementById('buy');
+      if (!pricing || !('IntersectionObserver' in window)) { return; }
+
+      var io = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) { return; }
+          sbTrack('view_pricing');
+          observer.disconnect();
+        });
+      }, { threshold: 0.4 });
+
+      io.observe(pricing);
+    })();
+
+    /* ============================================================
+       ENQUIRY FORM — same idea as the purchase funnel: every
+       enquiry is a lead, so it carries the same attribution and is
+       recorded as its own GA4 step. Submitted over fetch so the
+       visitor stays on the page; if that fails they get a mailto
+       fallback rather than a dead end.
+       ============================================================ */
+    (function () {
+      var form = document.getElementById('sbEnquiryForm');
+      if (!form) { return; }
+
+      // The enquiry inherits the same attribution as a purchase would,
+      // so "which prompt produces enquiries" is readable in GA4 AND in
+      // the email itself.
+      var attr = document.getElementById('sbEnquiryAttr');
+      if (attr) {
+        attr.value = (sbAttr.source || '(none)') + ' / ' + (sbAttr.medium || '(none)') + ' / ' + (sbAttr.campaign || '(none)');
+      }
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) { return; }
+            sbTrack('enquiry_view');
+            observer.disconnect();
+          });
+        }, { threshold: 0.4 });
+        io.observe(form);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var btn = document.getElementById('sbEnqSubmit');
+        var ok = document.getElementById('sbEnquiryOk');
+        var err = document.getElementById('sbEnquiryErr');
+        ok.hidden = true;
+        err.hidden = true;
+        btn.disabled = true;
+        btn.textContent = 'Menghantar…';
+
+        var restore = function () {
+          btn.disabled = false;
+          btn.innerHTML = 'Hantar <span aria-hidden="true">→</span>';
+        };
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (!res.ok) { throw new Error('formspree ' + res.status); }
+          sbTrack('enquiry_submit', { venue_type: form.venue_type.value || '(none)' });
+          form.reset();
+          form.hidden = true;
+          ok.hidden = false;
+          ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          restore();
+        }).catch(function () {
+          err.hidden = false;
+          restore();
+        });
+      });
+    })();
+
+    /* ============================================================
+       FREEMIUS CHECKOUT — SteadyBook (product 34678).
+       Each tier is its OWN Freemius plan, so the plan id is what
+       switches between them — not a licenses/quantity parameter:
+         57078 = Starter      (1 site)
+         57602 = Professional (5 sites)
+         57603 = Agency       (25 sites)
+       Opens the overlay checkout on click; if the checkout script is
+       blocked, buttons fall back to the hosted checkout page.
+       ============================================================ */
+    var SB_PRODUCT_ID  = '34678';
+    var SB_PUBLIC_KEY  = 'pk_e2d277144cc1c1879c64dd097d991';
+    var SB_PLANS       = { starter: '57078', pro: '57602', agency: '57603' };
+    var SB_VALID_PLANS = [SB_PLANS.starter, SB_PLANS.pro, SB_PLANS.agency];
+
+    // Plan id -> what GA4 needs to report revenue. These are list
+    // prices, not what Freemius actually charged: a coupon or a
+    // proration is not reflected here. Good enough to compare tiers
+    // and prompts against each other, which is the question being
+    // asked; Freemius remains the source of truth for money.
+    var SB_PLAN_META = {
+      '57078': { name: 'Starter',      value: 299 },
+      '57602': { name: 'Professional', value: 699 },
+      '57603': { name: 'Agency',       value: 1499 }
+    };
+
+    // Hosted checkout URL — used as a fallback if the overlay script is blocked.
+    function sbCheckoutUrl(planId) {
+      return 'https://checkout.freemius.com/plugin/' + SB_PRODUCT_ID + '/plan/' + planId + '/';
+    }
+
+    var sbHandler = null;
+    if (typeof FS !== 'undefined' && FS.Checkout) {
+      sbHandler = new FS.Checkout({
+        product_id: SB_PRODUCT_ID,
+        plan_id:    SB_PLANS.starter,
+        public_key: SB_PUBLIC_KEY,
+
+        // The only place a completed sale is observable from this
+        // page - the overlay never navigates, so there is no thank-you
+        // URL to hang a conversion on. Freemius remains the record of
+        // what was actually charged; this exists so the sale can be
+        // attributed back to the prompt that started it.
+        purchaseCompleted: function (response) {
+          var plan = (response && (response.plan_id || (response.plan && response.plan.id))) || '';
+          var meta = SB_PLAN_META[String(plan)] || {};
+
+          sbTrack('purchase', {
+            transaction_id: (response && (response.id || response.license_id)) || '',
+            currency: 'USD',
+            value: meta.value || 0,
+            items: [{ item_id: String(plan), item_name: meta.name || 'SteadyDevs Venue Booking' }]
+          });
+        }
+      });
+    }
+
+    // Only buttons that name a specific plan open checkout. Every other .sb-buy
+    // on the page (hero, final CTA, footer, sticky bar) keeps its href="#buy"
+    // and just scrolls to the pricing table so the visitor picks a tier first.
+    document.querySelectorAll('.sb-buy[data-plan]').forEach(function (btn) {
+      var planId = btn.getAttribute('data-plan');
+      if (SB_VALID_PLANS.indexOf(planId) === -1) { planId = SB_PLANS.starter; }
+
+      // The free 14-day trial is offered on Starter only.
+      var trial = btn.getAttribute('data-trial') === 'free';
+      if (trial) { planId = SB_PLANS.starter; }
+
+      // Give every button a real fallback link to the hosted checkout, so a
+      // click always works even if the overlay script fails to load.
+      btn.setAttribute('href', sbCheckoutUrl(planId) + (trial ? '?trial=free' : ''));
+
+      btn.addEventListener('click', function (e) {
+        var meta = SB_PLAN_META[planId] || {};
+
+        // Recorded before the branch below, so a click still counts
+        // when the overlay is blocked and the browser leaves for the
+        // hosted checkout. Those visitors buy too, and dropping them
+        // would quietly understate every prompt.
+        sbTrack('begin_checkout', {
+          currency: 'USD',
+          value: meta.value || 0,
+          trial: trial ? 'yes' : 'no',
+          items: [{ item_id: planId, item_name: meta.name || 'SteadyDevs Venue Booking' }]
+        });
+
+        if (!sbHandler) {
+          return; // Let the browser follow the href to the hosted checkout.
+        }
+        e.preventDefault();
+        var opts = { name: 'SteadyDevs Venue Booking', plan_id: planId };
+        if (trial) { opts.trial = 'free'; }
+        else { opts.billing_cycle = 'annual'; }
+        sbHandler.open(opts);
+      });
+    });
+
+    /* ============================================================
+       DEMO HUB SWITCHER — toggles between the Venue Booking demo
+       group and the Class Portal demo group.
+       ============================================================ */
+    (function () {
+      var btns = document.querySelectorAll('#sbDemoSwitch button');
+      var venue = document.getElementById('demoGroup-venue');
+      var cp = document.getElementById('demoGroup-classportal');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          var isVenue = b.dataset.demo === 'venue';
+          venue.style.display = isVenue ? '' : 'none';
+          cp.style.display = isVenue ? 'none' : '';
+        });
+      });
+    })();
+
+    /* ============================================================
+       CLASS PORTAL DEMO — a front-end-only simulation of the
+       Pro add-on: recurring classes sold as prepaid credits.
+       Shared store on window.SBClassPortal so the member widget and
+       the admin widget can read and update the same state, the same
+       way SBAdmin bridges the venue-booking demo pair above.
+       ============================================================ */
+    window.SBClassPortal = (function () {
+      var DAYS = ['Isn','Sel','Rab','Kha','Jum','Sab','Ahd'];
+
+      var classes = [
+        { id: 1, name: 'Pemula Junior', level: 'Any', duration: '45 min', credits: 1, capacity: 8, status: 'active' },
+        { id: 2, name: 'Pertengahan Dewasa', level: 'Any', duration: '60 min', credits: 1, capacity: 6, status: 'active' },
+        { id: 3, name: 'Skuad Elit', level: 'Elite', duration: '90 min', credits: 2, capacity: 4, status: 'active' }
+      ];
+      var nextClassId = 4;
+
+      var packages = [
+        { id: 1, name: 'Permulaan', level: 'Any', credits: 5, price: 60 },
+        { id: 2, name: 'Standard', level: 'Any', credits: 10, price: 110 },
+        { id: 3, name: 'Pek Skuad Elit', level: 'Elite', credits: 10, price: 150 },
+        { id: 4, name: 'Percubaan Percuma', level: 'Any', credits: 1, price: 0 }
+      ];
+
+      var sessions = [
+        { id: 1, day: 0, time: '16:00', classId: 1, capacity: 8, booked: 5, coach: 'Jurulatih Mel' },
+        { id: 2, day: 0, time: '18:00', classId: 3, capacity: 4, booked: 4, coach: 'Jurulatih Rui' },
+        { id: 3, day: 1, time: '17:00', classId: 2, capacity: 6, booked: 3, coach: 'Jurulatih Sam' },
+        { id: 4, day: 2, time: '16:00', classId: 1, capacity: 8, booked: 8, coach: 'Jurulatih Mel' },
+        { id: 5, day: 3, time: '18:00', classId: 3, capacity: 4, booked: 2, coach: 'Jurulatih Rui' },
+        { id: 6, day: 4, time: '17:00', classId: 2, capacity: 6, booked: 6, coach: 'Jurulatih Sam' },
+        { id: 7, day: 5, time: '10:00', classId: 1, capacity: 8, booked: 1, coach: 'Jurulatih Mel' },
+        { id: 8, day: 5, time: '11:30', classId: 3, capacity: 4, booked: 1, coach: 'Jurulatih Rui' }
+      ];
+      var nextSessionBookingState = {}; // sessionId -> 'booked' | 'waitlisted'
+
+      var member = { name: 'Alex Wong', balances: { Any: 4, Elite: 1 } };
+      var upcoming = []; // { sessionId, cancelRequested }
+
+      var otherMembers = [
+        { name: 'Priya Nair', balances: { Any: 6, Elite: 0 }, upcoming: 2 },
+        { name: 'Marcus Lee', balances: { Any: 2, Elite: 3 }, upcoming: 1 }
+      ];
+
+      var orders = [
+        { id: 5001, member: 'Priya Nair', packageName: 'Standard', method: 'Pindahan bank', amount: 110, status: 'confirmed' },
+        { id: 5002, member: 'Marcus Lee', packageName: 'Pek Skuad Elit', method: 'Pindahan bank', amount: 150, status: 'pending' }
+      ];
+      var nextOrderId = 5003;
+
+      function classById(id) { return classes.find(function (c) { return c.id === id; }); }
+
+      function spotsLeft(s) { return s.capacity - s.booked; }
+
+      function canAfford(level) {
+        if (level === 'Any') { return member.balances.Any > 0 || member.balances.Elite > 0; }
+        return (member.balances[level] || 0) > 0;
+      }
+
+      function charge(level) {
+        if (level === 'Any') {
+          if (member.balances.Any > 0) { member.balances.Any -= 1; }
+          else { member.balances.Elite -= 1; }
+        } else {
+          member.balances[level] -= 1;
+        }
+      }
+
+      function refund(level) {
+        if (level === 'Any') { member.balances.Any += 1; }
+        else { member.balances[level] = (member.balances[level] || 0) + 1; }
+      }
+
+      return {
+        DAYS: DAYS,
+        classes: classes,
+        packages: packages,
+        sessions: sessions,
+        member: member,
+        otherMembers: otherMembers,
+        orders: orders,
+
+        classById: classById,
+        spotsLeft: spotsLeft,
+
+        addClass: function (c) {
+          c.id = nextClassId++;
+          c.status = 'active';
+          classes.push(c);
+        },
+
+        bookingStateOf: function (sessionId) { return nextSessionBookingState[sessionId] || null; },
+
+        book: function (sessionId) {
+          var s = sessions.find(function (x) { return x.id === sessionId; });
+          if (!s || nextSessionBookingState[sessionId]) { return { ok: false, reason: 'already' }; }
+          var cls = classById(s.classId);
+          if (spotsLeft(s) <= 0) { return { ok: false, reason: 'full' }; }
+          if (!canAfford(cls.level)) { return { ok: false, reason: 'credits' }; }
+          charge(cls.level);
+          s.booked += 1;
+          nextSessionBookingState[sessionId] = 'booked';
+          upcoming.push({ sessionId: sessionId, cancelRequested: false });
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          return { ok: true };
+        },
+
+        waitlist: function (sessionId) {
+          nextSessionBookingState[sessionId] = 'waitlisted';
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          return { ok: true };
+        },
+
+        requestCancel: function (sessionId) {
+          var u = upcoming.find(function (x) { return x.sessionId === sessionId; });
+          if (u) { u.cancelRequested = true; }
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+        },
+
+        upcomingList: function () {
+          return upcoming.map(function (u) {
+            var s = sessions.find(function (x) { return x.id === u.sessionId; });
+            var cls = s ? classById(s.classId) : null;
+            return { session: s, cls: cls, cancelRequested: u.cancelRequested };
+          }).filter(function (x) { return x.session; });
+        },
+
+        buyInstant: function (pkg) {
+          member.balances[pkg.level] = (member.balances[pkg.level] || 0) + pkg.credits;
+          orders.unshift({ id: nextOrderId++, member: member.name, packageName: pkg.name, method: 'Kad / PayNow', amount: pkg.price, status: 'confirmed', _new: true });
+          document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+        },
+
+        buyManual: function (pkg) {
+          var order = { id: nextOrderId++, member: member.name, packageName: pkg.name, method: 'Pindahan bank', amount: pkg.price, status: 'pending', _new: true, level: pkg.level, credits: pkg.credits };
+          orders.unshift(order);
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+          return order.id;
+        },
+
+        confirmOrder: function (id) {
+          var o = orders.find(function (x) { return x.id === id; });
+          if (!o || o.status !== 'pending') { return; }
+          o.status = 'confirmed';
+          if (o.member === member.name && o.level) {
+            member.balances[o.level] = (member.balances[o.level] || 0) + o.credits;
+            document.dispatchEvent(new CustomEvent('cp:memberChange'));
+          }
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+          document.dispatchEvent(new CustomEvent('cp:orderStatusChange', { detail: { id: id, status: 'confirmed' } }));
+        },
+
+        voidOrder: function (id) {
+          var o = orders.find(function (x) { return x.id === id; });
+          if (!o || o.status !== 'pending') { return; }
+          o.status = 'voided';
+          document.dispatchEvent(new CustomEvent('cp:ordersChange'));
+          document.dispatchEvent(new CustomEvent('cp:orderStatusChange', { detail: { id: id, status: 'voided' } }));
+        }
+      };
+    })();
+
+    /* ============================================================
+       CLASS PORTAL — MEMBER WIDGET
+       ============================================================ */
+    (function () {
+      var CP = window.SBClassPortal;
+      var navBtns = document.querySelectorAll('#cpMemberNav button');
+      var panes = document.querySelectorAll('#cp-demo .sb-cp-pane');
+
+      function showTab(name) {
+        navBtns.forEach(function (b) { b.classList.toggle('is-active', b.dataset.tab === name); });
+        panes.forEach(function (p) { p.style.display = (p.dataset.tab === name) ? '' : 'none'; });
+      }
+      navBtns.forEach(function (b) { b.addEventListener('click', function () { showTab(b.dataset.tab); }); });
+      document.getElementById('cpGoBuy').addEventListener('click', function () { showTab('buy'); });
+
+      function renderBalances() {
+        var el = document.getElementById('cpBalances');
+        var chips = [];
+        Object.keys(CP.member.balances).forEach(function (lvl) {
+          chips.push('<div class="sb-cp-balchip"><div class="lvl">Kredit ' + ({Any:'Umum'}[lvl]||lvl) + '</div><div class="n">' + CP.member.balances[lvl] + '</div></div>');
+        });
+        el.innerHTML = chips.join('');
+      }
+
+      function renderUpcoming() {
+        var el = document.getElementById('cpUpcoming');
+        var list = CP.upcomingList();
+        if (!list.length) {
+          el.innerHTML = '<p class="sb-cp-empty">Belum ada kelas ditempah — cuba tab Jadual Mingguan.</p>';
+          return;
+        }
+        el.innerHTML = list.map(function (item) {
+          var s = item.session, cls = item.cls;
+          var status = item.cancelRequested
+            ? '<span class="sb-admin-badge sb-admin-badge--pending">Pembatalan diminta</span>'
+            : '<button class="sb-admin-btn" data-cancel="' + s.id + '">Minta pembatalan</button>';
+          return '<div class="sb-cp-uitem"><div><b>' + cls.name + '</b><br><span>' + CP.DAYS[s.day] + ' · ' + s.time + ' · ' + s.coach + '</span></div>' + status + '</div>';
+        }).join('');
+        el.querySelectorAll('[data-cancel]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.requestCancel(+btn.dataset.cancel); });
+        });
+      }
+
+      function renderWeek() {
+        var el = document.getElementById('cpWeek');
+        el.innerHTML = CP.DAYS.map(function (day, dIdx) {
+          var sessions = CP.sessions.filter(function (s) { return s.day === dIdx; });
+          var body = sessions.length ? sessions.map(function (s) {
+            var cls = CP.classById(s.classId);
+            var left = CP.spotsLeft(s);
+            var state = CP.bookingStateOf(s.id);
+            var spotsHtml = left > 0 ? 'Baki ' + left : 'Penuh';
+            var btnHtml;
+            if (state === 'booked') { btnHtml = '<button class="is-booked" disabled>✓ Ditempah</button>'; }
+            else if (state === 'waitlisted') { btnHtml = '<button class="is-wait" disabled>Dalam senarai menunggu</button>'; }
+            else if (left > 0) { btnHtml = '<button data-book="' + s.id + '">Tempah · ' + cls.credits + ' kredit</button>'; }
+            else { btnHtml = '<button class="is-wait" data-wait="' + s.id + '">Sertai senarai menunggu</button>'; }
+            return '<div class="sb-cp-class' + (left <= 0 && state !== 'booked' ? '' : '') + '">' +
+              '<span class="t">' + s.time + '</span>' +
+              '<span class="n">' + cls.name + (cls.level !== 'Any' ? ' <em>(' + cls.level + ')</em>' : '') + '</span>' +
+              '<span class="spots' + (left <= 0 ? ' full' : '') + '">' + spotsHtml + '</span>' +
+              btnHtml + '</div>';
+          }).join('') : '<p class="sb-cp-empty" style="font-size:0.78em;">—</p>';
+          return '<div class="sb-cp-day"><div class="sb-cp-day-h">' + day + '</div>' + body + '</div>';
+        }).join('');
+
+        el.querySelectorAll('[data-book]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var res = CP.book(+btn.dataset.book);
+            if (!res.ok && res.reason === 'credits') {
+              btn.textContent = 'Kredit tidak mencukupi';
+              setTimeout(renderAll, 1100);
+            }
+          });
+        });
+        el.querySelectorAll('[data-wait]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.waitlist(+btn.dataset.wait); });
+        });
+      }
+
+      function renderPacks() {
+        var el = document.getElementById('cpPacks');
+        el.innerHTML = CP.packages.map(function (p) {
+          return '<div class="sb-cp-pack">' +
+            '<div class="lvl">Tahap ' + ({Any:'Umum'}[p.level]||p.level) + '</div>' +
+            '<h4>' + p.name + '</h4>' +
+            '<div class="credits">' + p.credits + ' kredit' + '</div>' +
+            '<div class="price">' + (p.price ? '$' + p.price : 'Percuma') + '</div>' +
+            '<button class="sd-btn sd-btn--primary" data-buy="' + p.id + '" type="button">Beli</button>' +
+            '<div class="sb-cp-pay-methods" data-methods="' + p.id + '" style="display:none;">' +
+              '<button type="button" class="sb-cp-pay-method" data-pay="instant" data-pkg="' + p.id + '"><b>Kad / PayNow</b><span>Segera — kredit ditambah sebaik sahaja pembayaran berjaya</span></button>' +
+              '<button type="button" class="sb-cp-pay-method" data-pay="manual" data-pkg="' + p.id + '"><b>Pindahan bank</b><span>Anda membuat pindahan sendiri — kredit ditambah sebaik sahaja pemilik meluluskannya</span></button>' +
+            '</div>' +
+            '<div class="sb-cp-pay-instructions" data-instructions="' + p.id + '" style="display:none;"></div>' +
+          '</div>';
+        }).join('');
+
+        el.querySelectorAll('[data-buy]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var m = el.querySelector('[data-methods="' + btn.dataset.buy + '"]');
+            m.style.display = m.style.display === 'none' ? 'flex' : 'none';
+          });
+        });
+        el.querySelectorAll('[data-pay="instant"]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var pkg = CP.packages.find(function (p) { return p.id === +btn.dataset.pkg; });
+            CP.buyInstant(pkg);
+            var box = el.querySelector('[data-instructions="' + pkg.id + '"]');
+            box.style.display = 'block';
+            box.textContent = '✅ Pembayaran berjaya — ' + pkg.credits + ' kredit ' + ({Any:'Umum'}[pkg.level]||pkg.level) + ' telah ditambah ke akaun anda.';
+          });
+        });
+        el.querySelectorAll('[data-pay="manual"]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var pkg = CP.packages.find(function (p) { return p.id === +btn.dataset.pkg; });
+            CP.buyManual(pkg);
+            var box = el.querySelector('[data-instructions="' + pkg.id + '"]');
+            box.style.display = 'block';
+            box.innerHTML = '⏳ Pesanan dihantar. Pindahkan $' + pkg.price + ' ke <b>Maybank 1234-5678-9012</b> dan pemilik akan mengesahkannya — kredit akan muncul di sini sebaik sahaja mereka berbuat demikian. Cuba luluskannya dalam demo pentadbir di bawah.';
+          });
+        });
+      }
+
+      function renderAll() {
+        renderBalances();
+        renderUpcoming();
+        renderWeek();
+        renderPacks();
+      }
+
+      document.addEventListener('cp:memberChange', renderAll);
+      document.addEventListener('cp:orderStatusChange', function (e) {
+        if (e.detail.status === 'confirmed') { renderAll(); }
+      });
+
+      renderAll();
+    })();
+
+    /* ============================================================
+       CLASS PORTAL — ADMIN WIDGET
+       ============================================================ */
+    (function () {
+      var CP = window.SBClassPortal;
+      var navBtns = document.querySelectorAll('#cpAdminNav .sb-admin-navbtn');
+      var sections = document.querySelectorAll('#cp-admin-demo .sb-admin-section');
+      var crumb = document.getElementById('cpAdminCrumb');
+      var CRUMBS = { classes: 'Class Portal ▸ Classes', timetable: 'Class Portal ▸ Timetable', packages: 'Class Portal ▸ Packages', orders: 'Class Portal ▸ Credit Orders', members: 'Class Portal ▸ Members' };
+
+      navBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          navBtns.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          sections.forEach(function (s) { s.style.display = (s.dataset.section === b.dataset.section) ? '' : 'none'; });
+          crumb.textContent = CRUMBS[b.dataset.section] || CRUMBS.classes;
+        });
+      });
+
+      var LEVEL_OPTS = ['Any', 'Elite'];
+      function levelSelect(value) {
+        return '<select class="cp-level-select">' + LEVEL_OPTS.map(function (l) {
+          return '<option' + (l === value ? ' selected' : '') + '>' + ({Any:'Umum'}[l]||l) + '</option>';
+        }).join('') + '</select>';
+      }
+
+      function renderClasses() {
+        var el = document.getElementById('cpClassList');
+        el.innerHTML = CP.classes.map(function (c) {
+          return '<div class="sb-res-row">' +
+            '<div class="sb-res-field"><span>Nama</span><input type="text" value="' + c.name + '"></div>' +
+            '<div class="sb-res-field"><span>Tahap</span>' + levelSelect(c.level) + '</div>' +
+            '<div class="sb-res-field"><span>Kredit / tempahan</span><input type="number" value="' + c.credits + '" min="1"></div>' +
+            '<div class="sb-res-field"><span>Kapasiti</span><input type="number" value="' + c.capacity + '" min="1"></div>' +
+            '<button type="button" class="sb-admin-btn sb-admin-btn--reject">Buang</button>' +
+            '</div>';
+        }).join('');
+        el.querySelectorAll('.sb-admin-btn--reject').forEach(function (btn) {
+          btn.addEventListener('click', function () { btn.closest('.sb-res-row').remove(); });
+        });
+      }
+
+      document.getElementById('cpClassAdd').addEventListener('click', function () {
+        CP.addClass({ name: 'Kelas baharu', level: 'Any', duration: '60 min', credits: 1, capacity: 6 });
+        renderClasses();
+      });
+
+      function renderTimetable() {
+        var el = document.getElementById('cpTimetable');
+        el.innerHTML = CP.DAYS.map(function (day, dIdx) {
+          var sessions = CP.sessions.filter(function (s) { return s.day === dIdx; });
+          var body = sessions.length ? sessions.map(function (s) {
+            var cls = CP.classById(s.classId);
+            return '<div class="sb-cp-tt-slot"><span class="t">' + s.time + '</span><span class="n">' + cls.name + '</span></div>';
+          }).join('') : '<p class="sb-cp-tt-empty">—</p>';
+          return '<div class="sb-cp-tt-day"><div class="sb-cp-tt-h">' + day + '</div>' + body + '</div>';
+        }).join('');
+      }
+
+      function renderPackages() {
+        var el = document.getElementById('cpPackList');
+        el.innerHTML = CP.packages.map(function (p) {
+          return '<div class="sb-res-row">' +
+            '<div class="sb-res-field"><span>Nama</span><input type="text" value="' + p.name + '"></div>' +
+            '<div class="sb-res-field"><span>Tahap</span>' + levelSelect(p.level) + '</div>' +
+            '<div class="sb-res-field"><span>Kredit</span><input type="number" value="' + p.credits + '" min="1"></div>' +
+            '<div class="sb-res-field"><span>Harga ($)</span><input type="number" value="' + p.price + '" min="0"></div>' +
+            '<button type="button" class="sb-admin-btn sb-admin-btn--reject">Buang</button>' +
+            '</div>';
+        }).join('');
+        el.querySelectorAll('.sb-admin-btn--reject').forEach(function (btn) {
+          btn.addEventListener('click', function () { btn.closest('.sb-res-row').remove(); });
+        });
+      }
+
+      function orderBadge(status) {
+        var map = { pending: 'pending', confirmed: 'confirmed', voided: 'rejected' };
+        var label = {pending:'Menunggu',confirmed:'Disahkan',rejected:'Ditolak',voided:'Dibatalkan'}[status] || status;
+        return '<span class="sb-admin-badge sb-admin-badge--' + map[status] + '">' + label + '</span>';
+      }
+
+      function renderOrders() {
+        var el = document.getElementById('cpOrderRows');
+        if (!CP.orders.length) {
+          el.innerHTML = '<tr><td colspan="6"><p class="sb-admin-empty">Belum ada pesanan kredit.</p></td></tr>';
+          return;
+        }
+        el.innerHTML = CP.orders.map(function (o) {
+          var actions = o.status === 'pending'
+            ? '<div class="sb-admin-actions"><button class="sb-admin-btn sb-admin-btn--approve" data-confirm="' + o.id + '">Sahkan</button><button class="sb-admin-btn sb-admin-btn--reject" data-void="' + o.id + '">Batalkan</button></div>'
+            : '<span style="color:var(--muted); font-size:0.85em;">—</span>';
+          return '<tr' + (o._new ? ' class="is-new"' : '') + '>' +
+            '<td>' + o.member + '</td><td>' + o.packageName + '</td><td>' + o.method + '</td><td>$' + o.amount + '</td><td>' + orderBadge(o.status) + '</td><td>' + actions + '</td>' +
+            '</tr>';
+        }).join('');
+        CP.orders.forEach(function (o) { o._new = false; });
+
+        el.querySelectorAll('[data-confirm]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.confirmOrder(+btn.dataset.confirm); });
+        });
+        el.querySelectorAll('[data-void]').forEach(function (btn) {
+          btn.addEventListener('click', function () { CP.voidOrder(+btn.dataset.void); });
+        });
+      }
+
+      function renderMembers() {
+        var el = document.getElementById('cpMemberRows');
+        var rows = [{ name: CP.member.name, balances: CP.member.balances, upcoming: CP.upcomingList().length }]
+          .concat(CP.otherMembers.map(function (m) { return { name: m.name, balances: m.balances, upcoming: m.upcoming }; }));
+        el.innerHTML = rows.map(function (m) {
+          var bal = Object.keys(m.balances).map(function (l) { return ({Any:'Umum'}[l]||l) + ': ' + m.balances[l]; }).join(' · ');
+          return '<tr><td class="sb-admin-cust"><b>' + m.name + '</b></td><td>' + bal + '</td><td>' + m.upcoming + '</td><td><span style="color:var(--muted); font-size:0.85em;">—</span></td></tr>';
+        }).join('');
+      }
+
+      renderClasses();
+      renderTimetable();
+      renderPackages();
+      renderOrders();
+      renderMembers();
+
+      document.addEventListener('cp:ordersChange', function () { renderOrders(); renderMembers(); });
+      document.addEventListener('cp:memberChange', renderMembers);
+    })();
+  </script>
+</body>
+</html>

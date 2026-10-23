@@ -362,7 +362,7 @@ p { margin: 0; }
 /* Two-column layout: main content + sticky aside */
 .f-split { display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start; }
 .f-split__main { flex: 1 1 560px; min-width: 0; }
-.f-split__aside { flex: 0 1 320px; position: sticky; top: 96px; }
+.f-split__aside { flex: 0 1 320px; min-width: 0; position: sticky; top: 96px; } /* min-width: a wide table scrolls inside its wrap instead of widening the page */
 @media (max-width: 960px) { .f-split__aside { position: static; flex-basis: 100%; } }
 
 /* Inner page header */
