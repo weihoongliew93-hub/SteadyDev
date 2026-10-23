@@ -15281,7 +15281,7 @@
       },
       {
         "type": "tip",
-        "text": "A quick test: look at your company's shareholder register. If any shareholder is a company rather than a person, check that company's turnover before assuming you're exempt."
+        "text": "A quick test: look at your company's shareholder register. If any shareholder is a company rather than a person, check that company's turnover before assuming you're exempt. Or <a href=\"../e-invoice-checker.html\">check your situation in three questions</a>."
       },
       {
         "type": "heading2",
