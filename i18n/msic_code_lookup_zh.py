@@ -30,7 +30,7 @@ B = {
  'b4': '搜索', 'b5': '类别', 'b6': '全部类别',
  'b28': '1,175 个代码', 'b29': '代码', 'b30': '业务活动', 'b31': '类别',
  'b3557': '点击代码即可复制。来源：<a href="https://sdk.myinvois.hasil.gov.my/codes/msic-codes/">LHDN MyInvois SDK，MSIC 子类别代码</a>，于 2026 年 10 月 22 日获取。',
- 'b3558': '<span class="f-callout__label">在送达 LHDN 之前就检查</span> SteadyDevs 电子发票平台会在发票发送前，拒绝任何不在此列表中的 MSIC 代码，并检查 LHDN 的其他规则。<a href="einvoice.html">了解电子发票平台 →</a>',
+ 'b3558': '<span class="f-callout__label">在送达 LHDN 之前就检查</span> SteadyDevs 电子发票平台会在发票发送前，拒绝任何不在此列表中的 MSIC 代码，并检查 LHDN 的其他规则。<a href="einvoice.html">了解电子发票平台 →</a>还不确定是否需要开电子发票？<a href="e-invoice-checker.html">三个问题帮您确认 →</a>',
  'b3559': '常见问题',
 }
 for i, s in enumerate(SECTIONS):

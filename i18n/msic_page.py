@@ -131,7 +131,7 @@ page = f'''<!DOCTYPE html>
       <div class="f-container">
         <div class="f-callout f-callout--tip" style="margin-top: 0">
           <span class="f-callout__label">Checked before LHDN sees it</span>
-          The SteadyDevs e-Invoice platform refuses any MSIC code that isn't on this list, along with LHDN's other rules, before an invoice is sent. <a href="einvoice.html">See the e-Invoice platform &rarr;</a>
+          The SteadyDevs e-Invoice platform refuses any MSIC code that isn't on this list, along with LHDN's other rules, before an invoice is sent. <a href="einvoice.html">See the e-Invoice platform &rarr;</a> Not sure you have to e-invoice yet? <a href="e-invoice-checker.html">Check in three questions &rarr;</a>
         </div>
         <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
         <div class="f-faq">{faq_html}</div>

@@ -54,7 +54,11 @@ for sel, attr, val in [
 canon['href'] = url
 
 # One alternate per language plus x-default, the same set on every language's copy.
-for old in soup.find_all('link', rel='alternate', hreflang=True): old.decompose()
+for old in soup.find_all('link', rel='alternate', hreflang=True):
+    # Drop the line break after it too, or every rebuild leaves another blank line behind.
+    if old.next_sibling is not None and isinstance(old.next_sibling, str) and not old.next_sibling.strip():
+        old.next_sibling.extract()
+    old.decompose()
 for code, (hl, prefix) in LANGS.items():
     canon.insert_after(soup.new_tag('link', rel='alternate', hreflang=hl, href=lang_url(code)))
 canon.insert_after(soup.new_tag('link', rel='alternate', hreflang='x-default', href=lang_url('en')))

@@ -51,6 +51,7 @@ const MAIN = [
   { file: 'portfolio.html',     loc: '/portfolio.html',     changefreq: 'monthly', priority: '0.9' },
   { file: 'einvoice.html',      loc: '/einvoice.html',      changefreq: 'monthly', priority: '0.9' },
   { file: 'msic-code-lookup.html', loc: '/msic-code-lookup.html', changefreq: 'monthly', priority: '0.8' },
+  { file: 'e-invoice-checker.html', loc: '/e-invoice-checker.html', changefreq: 'monthly', priority: '0.8' },
   // Product pages served without ".html": the loc matches each page's canonical URL.
   { file: 'venue-booking.html', loc: '/venue-booking',      changefreq: 'monthly', priority: '0.9' },
   { file: 'steadypost.html',    loc: '/steadypost',         changefreq: 'monthly', priority: '0.8' },
@@ -68,7 +69,7 @@ MAIN.forEach(p => { if (fs.existsSync(path.join(ROOT, p.file))) add(p.loc, mtime
 ['ms', 'zh'].forEach(lang => MAIN.forEach(p => {
   const file = lang + '/' + p.file;
   if (p.loc === '/index.html' || !fs.existsSync(path.join(ROOT, file))) return;
-  if (/<meta name="robots" content="noindex/.test(fs.readFileSync(path.join(ROOT, file), 'utf8'))) return;
+  if (/<meta(?=[^>]*name="robots")(?=[^>]*content="noindex)/.test(fs.readFileSync(path.join(ROOT, file), 'utf8'))) return;
   add('/' + lang + p.loc, mtime(file), p.changefreq, p.priority);
 }));
 

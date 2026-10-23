@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>我需要开电子发票吗？免费 LHDN 自查工具 | SteadyDevs</title>
+<meta content="三个问题，查清 LHDN 电子发票是否适用于您的企业、何时开始，以及 RM300 万豁免是否涵盖您。免费使用。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/e-invoice-checker.html" property="og:url"/>
+<meta content="我需要开电子发票吗？免费 LHDN 自查工具" property="og:title"/>
+<meta content="三个问题，查清 LHDN 电子发票是否适用于您的企业、何时开始，以及 RM300 万豁免是否涵盖您。免费使用。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/e-invoice-checker.html" rel="canonical"/><link href="https://steadydevs.com/e-invoice-checker.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/e-invoice-checker.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/e-invoice-checker.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/e-invoice-checker.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "营业额低于 RM300 万，就可以豁免吗？", "acceptedAnswer": {"@type": "Answer", "text": "通常可以。年营业额低于 RM300 万的企业获得豁免，除非持有该企业股份的公司、其控股公司、关联公司或合资企业的营业额达 RM300 万或以上。无需申请。"}}, {"@type": "Question", "name": "以哪个营业额为准？", "acceptedAnswer": {"@type": "Answer", "text": "2022 年已在营业的企业，以 2022 财政年经审计账目中的营业额为准；没有经审计账目的，以 2022 课税年的报税表为准。独资经营者须把以其名义注册的所有生意合并计算。"}}, {"@type": "Question", "name": "营业额之后才达到 RM300 万，会怎样？", "acceptedAnswer": {"@type": "Answer", "text": "您必须在营业额达到 RM300 万的课税年之后第二年的 1 月 1 日开始开立电子发票。例如在 2026 课税年达到，就从 2028 年 1 月 1 日开始。一旦开始，即使营业额回落，也须继续开立。"}}, {"@type": "Question", "name": "至 2027 年 12 月 31 日的宽松期允许什么？", "acceptedAnswer": {"@type": "Answer", "text": "电子发票实施日期为 2026 年 1 月 1 日或 7 月 1 日的企业，可以每月为所有销售开立一张合并电子发票，在月底后 7 天内提交；只要照做，就不会依第 120 条被起诉。2028 年 1 月 1 日起，全面规则生效。"}}, {"@type": "Question", "name": "不开电子发票有什么罚则？", "acceptedAnswer": {"@type": "Answer", "text": "这是《1967 年所得税法令》第 120(1)(d) 条下的罪行：每一次违规可被罚款 RM200 至 RM20,000，或监禁最多 6 个月，或两者兼施。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* e-invoice checker (design F): questions on the left, the answer beside them; every answer is in the HTML so it can be translated. */
+    .eic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .eic { grid-template-columns: 1fr; } }
+    .eic-result { display: grid; gap: 12px; }
+    .eic-result > div { display: grid; gap: 10px; }
+    .eic [hidden] { display: none; }
+    .eic-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .eic-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .eic-dim { color: var(--faint); font-size: 14px; }
+    .eic + .f-note { margin-top: 24px; }
+    .eic-result [data-r="relax"] { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=4"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · LHDN 电子发票</p>
+<h1 class="f-h1">我需要开电子发票吗？</h1>
+<p class="f-lead">回答三个关于您企业的问题，了解 LHDN 电子发票规则何时适用于您、RM300 万豁免是否涵盖您，以及至 2027 年 12 月 31 日的宽松期允许什么。</p>
+<div class="eic">
+<form class="f-form eic-form" id="eicForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="f-field">
+<label for="eicStart">企业何时开始营业？</label>
+<select class="f-input" id="eicStart">
+<option value="">请选择…</option>
+<option value="old">2023 年以前</option>
+<option value="mid">2023、2024 或 2025 年</option>
+<option value="new">2026 年或以后</option>
+</select>
+</div>
+<div class="f-field" hidden="" id="eicBandField">
+<label for="eicBand">2022 年账目中的年营业额</label>
+<select class="f-input" id="eicBand">
+<option value="">请选择…</option>
+<option value="p1">超过 RM1 亿</option>
+<option value="p2">超过 RM2,500 万，最高 RM1 亿</option>
+<option value="p3">超过 RM500 万，最高 RM2,500 万</option>
+<option value="p4">RM300 万至 RM500 万</option>
+<option value="u3">低于 RM300 万</option>
+</select>
+<span class="f-hint">以 2022 财政年经审计财务报表为准；没有经审计账目的，以 2022 课税年报税表为准。独资经营者须把以其名义注册的所有生意合并计算。</span>
+</div>
+<div class="f-field" hidden="" id="eicReachField">
+<label for="eicReach">此后年营业额是否曾达到 RM300 万？</label>
+<select class="f-input" id="eicReach">
+<option value="">请选择…</option>
+<option value="no">还没有</option>
+<option value="early">有，在 2023、2024 或 2025 课税年</option>
+<option value="2026">有，首次在 2026 课税年</option>
+<option value="2027">有，首次在 2027 课税年</option>
+<option value="2028">有，首次在 2028 课税年</option>
+<option value="2029">有，首次在 2029 课税年</option>
+</select>
+<span class="f-hint">课税年通常与您的财政年一致。独资经营者须把以其名义注册的所有生意合并计算。</span>
+</div>
+<div class="f-field" hidden="" id="eicGroupField">
+<label for="eicGroup">您的集团内是否有公司年营业额达 RM300 万或以上？</label>
+<select class="f-input" id="eicGroup">
+<option value="">请选择…</option>
+<option value="no">没有</option>
+<option value="yes">有</option>
+<option value="unsure">不确定</option>
+</select>
+<span class="f-hint">包括持有您公司股份的公司、您的控股公司、关联公司或合资企业。一家公司持有另一家公司 20% 或以上股份，或控制其运营，即属关联公司。仅仅共用同一位个人股东或董事，并不构成关联。</span>
+</div>
+</form>
+<div aria-live="polite" class="f-card eic-result" id="eicResult">
+<p class="eic-label">您的结果</p>
+<div data-r="start"><p class="eic-dim">回答以上问题即可查看结果。</p></div>
+<div data-r="p1" hidden=""><p class="eic-head">您自 2024 年 8 月 1 日起就必须开立电子发票。</p><p>营业额超过 RM1 亿，属于第一阶段。其宽松期已于 2025 年 1 月 31 日结束，因此全面规则适用。</p></div>
+<div data-r="p2" hidden=""><p class="eic-head">您自 2025 年 1 月 1 日起就必须开立电子发票。</p><p>营业额超过 RM2,500 万、最高 RM1 亿，属于第二阶段。其宽松期已于 2025 年 6 月 30 日结束，因此全面规则适用。</p></div>
+<div data-r="p3" hidden=""><p class="eic-head">您自 2025 年 7 月 1 日起就必须开立电子发票。</p><p>营业额超过 RM500 万、最高 RM2,500 万，属于第三阶段。其宽松期已于 2025 年 12 月 31 日结束，因此全面规则适用。</p></div>
+<div data-r="p4" hidden=""><p class="eic-head">您自 2026 年 1 月 1 日起就必须开立电子发票。</p><p>营业额 RM300 万至 RM500 万，属于第四阶段。</p></div>
+<div data-r="jul" hidden=""><p class="eic-head">您自 2026 年 7 月 1 日起就必须开立电子发票。</p><p data-why="reached">您的营业额在 2023、2024 或 2025 课税年达到 RM300 万，因此豁免不适用。</p><p data-why="group">您的营业额低于 RM300 万，但如果集团内有营业额达 RM300 万或以上的公司，豁免就不适用。</p></div>
+<div data-r="newgroup" hidden=""><p class="eic-head">您必须从企业开始营业当天起开立电子发票；如果在 2026 年 7 月 1 日之前开始营业，则从 2026 年 7 月 1 日起。</p><p>您的营业额低于 RM300 万，但如果集团内有营业额达 RM300 万或以上的公司，豁免就不适用。</p><p>LHDN 的宽松期涵盖实施日期为 2026 年 1 月 1 日或 7 月 1 日的企业，但尚未说明是否涵盖较迟开始营业的企业，请向您的税务代理咨询。</p></div>
+<div data-r="later" hidden=""><p class="eic-head">您必须从 <span class="eic-year"></span> 年 1 月 1 日起开立电子发票。</p><p>即营业额首次达到 RM300 万的课税年之后第二年的 1 月 1 日。在此之前您获得豁免。一旦开始，即使营业额回落到 RM300 万以下，也须继续开立。</p></div>
+<div data-r="exempt" hidden=""><p class="eic-head">您目前获得豁免。</p><p>您的营业额低于 RM300 万，集团内也没有使您须遵守规定的公司。豁免无需申请。如果营业额在某个课税年达到 RM300 万，您必须在之后第二年的 1 月 1 日开始。</p><p>您仍可自愿开立电子发票。如果您通过电商平台销售，电子发票由平台开立，平台可能会向您索取资料。</p></div>
+<div data-r="unsure" hidden=""><p class="eic-head">取决于您的集团。</p><p>如果集团内没有公司营业额达 RM300 万或以上，您获得豁免。如果有，豁免不适用，您必须从 2026 年 7 月 1 日起开立电子发票；如果企业开始营业的日期更迟，则从开始营业当天起。</p><p>判断标准是持有 20% 或以上股份、或控制运营的公司。您的税务代理或公司秘书可根据股东名册告诉您。</p></div>
+<div data-r="relax" hidden=""><p><strong>宽松期至 2027 年 12 月 31 日。</strong>在此之前，您可以每月为所有销售（包括超过 RM10,000 的单笔销售）开立一张合并电子发票，在月底后 7 天内提交。只要照做，LHDN 就不会依第 120 条起诉。2028 年 1 月 1 日起，全面规则生效。</p><p>漏了几个月？LHDN 的特别自愿披露计划开放至 2027 年 12 月 31 日。</p></div>
+<div data-r="penalty" hidden=""><p class="eic-dim">在必须开立电子发票时没有开立，是《1967 年所得税法令》第 120(1)(d) 条下的罪行：每一次违规可被罚款 RM200 至 RM20,000，或监禁最多 6 个月，或两者兼施。</p></div>
+<div data-r="cta" hidden=""><p><a href="einvoice.html">直接从您现有的系统把电子发票提交给 LHDN →</a></p></div>
+</div>
+</div>
+<p class="f-note">本工具是对 LHDN 已公布规则的指南，并非税务建议。已于 2026 年 10 月 23 日对照 <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN 电子发票常见问题（2026 年 9 月 4 日更新）</a>核对。LHDN 曾多次更改这些日期，请向 LHDN 或您的税务代理确认。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>营业额低于 RM300 万，就可以豁免吗？</summary><div>通常可以。年营业额低于 RM300 万的企业获得豁免，除非持有该企业股份的公司、其控股公司、关联公司或合资企业的营业额达 RM300 万或以上。无需申请。</div></details><details><summary>以哪个营业额为准？</summary><div>2022 年已在营业的企业，以 2022 财政年经审计账目中的营业额为准；没有经审计账目的，以 2022 课税年的报税表为准。独资经营者须把以其名义注册的所有生意合并计算。</div></details><details><summary>营业额之后才达到 RM300 万，会怎样？</summary><div>您必须在营业额达到 RM300 万的课税年之后第二年的 1 月 1 日开始开立电子发票。例如在 2026 课税年达到，就从 2028 年 1 月 1 日开始。一旦开始，即使营业额回落，也须继续开立。</div></details><details><summary>至 2027 年 12 月 31 日的宽松期允许什么？</summary><div>电子发票实施日期为 2026 年 1 月 1 日或 7 月 1 日的企业，可以每月为所有销售开立一张合并电子发票，在月底后 7 天内提交；只要照做，就不会依第 120 条被起诉。2028 年 1 月 1 日起，全面规则生效。</div></details><details><summary>不开电子发票有什么罚则？</summary><div>这是《1967 年所得税法令》第 120(1)(d) 条下的罪行：每一次违规可被罚款 RM200 至 RM20,000，或监禁最多 6 个月，或两者兼施。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">更多免费工具</span>每张电子发票都需要填写卖方的 MSIC 代码，而 LHDN 只接受其清单上的代码。<a href="msic-code-lookup.html">查找您的 MSIC 代码 →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var start = $('eicStart'), band = $('eicBand'), reach = $('eicReach'), group = $('eicGroup');
+      var parts = Array.prototype.slice.call(document.querySelectorAll('#eicResult [data-r]'));
+      var early = reach.querySelector('option[value="early"]');
+      function result() {
+        var s = start.value, b = band.value, r = reach.value, g = group.value;
+        var needBand = s === 'old', needReach = (s === 'old' && b === 'u3') || s === 'mid' || s === 'new';
+        // A business that started in 2026 cannot have had a YA2023-2025.
+        early.hidden = early.disabled = s === 'new'; if (s === 'new' && r === 'early') reach.value = r = '';
+        var needGroup = needReach && r !== '' && r !== 'early';
+        $('eicBandField').hidden = !needBand; $('eicReachField').hidden = !needReach; $('eicGroupField').hidden = !needGroup;
+        if (!s || (needBand && !b)) return { show: ['start'] };
+        if (s === 'old' && b !== 'u3') return { show: [b].concat(b === 'p4' ? ['relax'] : []).concat(['penalty', 'cta']) };
+        if (!r) return { show: ['start'] };
+        if (r === 'early') return { show: ['jul', 'relax', 'penalty', 'cta'], why: 'reached' };
+        if (!g) return { show: ['start'] };
+        if (g === 'unsure') return { show: ['unsure', 'penalty', 'cta'] };
+        if (g === 'yes') return s === 'new' ? { show: ['newgroup', 'penalty', 'cta'] } : { show: ['jul', 'relax', 'penalty', 'cta'], why: 'group' };
+        if (r === 'no') return { show: ['exempt', 'cta'] };
+        return { show: ['later', 'penalty', 'cta'], year: +r + 2 };
+      }
+      function apply() {
+        var res = result();
+        parts.forEach(function (p) { p.hidden = res.show.indexOf(p.getAttribute('data-r')) === -1; });
+        document.querySelectorAll('#eicResult [data-why]').forEach(function (p) { p.hidden = p.getAttribute('data-why') !== res.why; });
+        document.querySelector('#eicResult .eic-year').textContent = res.year || '';
+        if (res.show[0] !== 'start' && typeof gtag === 'function') gtag('event', 'einvoice_check', { result: res.show[0] + (res.year ? '_' + res.year : '') });
+      }
+      [start, band, reach, group].forEach(function (el) { el.addEventListener('change', apply); });
+      $('eicForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

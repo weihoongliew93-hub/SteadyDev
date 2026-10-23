@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Do I Need to Issue e-Invoices? Free LHDN Checker | SteadyDevs</title>
+  <meta name="description" content="Check whether LHDN e-invoicing applies to your business, when you must start, and whether the RM3 million exemption covers you. Free, in three questions.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/e-invoice-checker.html">
+  <meta property="og:title" content="Do I need to issue e-invoices? LHDN e-invoice checker">
+  <meta property="og:description" content="Check whether LHDN e-invoicing applies to your business, when you must start, and whether the RM3 million exemption covers you. Free, in three questions.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/e-invoice-checker.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my business exempt if turnover is under RM3 million?", "acceptedAnswer": {"@type": "Answer", "text": "Usually, yes. Businesses with annual turnover under RM3 million are exempt, unless a company that holds shares in the business, its holding company, a related company or a joint venture turns over RM3 million or more. No application is needed."}}, {"@type": "Question", "name": "Which turnover figure counts?", "acceptedAnswer": {"@type": "Answer", "text": "For a business already operating in 2022, the turnover in its financial year 2022 audited accounts or, without audited accounts, its YA2022 tax return. A sole proprietor adds up every business registered in their name."}}, {"@type": "Question", "name": "What happens when turnover reaches RM3 million later?", "acceptedAnswer": {"@type": "Answer", "text": "You must start issuing e-invoices on 1 January in the second year after the year of assessment in which turnover reached RM3 million. Reach it in YA2026 and you start on 1 January 2028. Once you have started, you stay in, even if turnover falls again."}}, {"@type": "Question", "name": "What does the relaxation until 31 December 2027 allow?", "acceptedAnswer": {"@type": "Answer", "text": "Businesses whose e-invoicing started on 1 January or 1 July 2026 may issue one consolidated e-invoice a month for all their sales, within 7 days after the month ends, and won't be prosecuted under section 120 while they do. From 1 January 2028 the full rules apply."}}, {"@type": "Question", "name": "What is the penalty for not issuing e-invoices?", "acceptedAnswer": {"@type": "Answer", "text": "It is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=11">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* e-invoice checker (design F): questions on the left, the answer beside them; every answer is in the HTML so it can be translated. */
+    .eic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .eic { grid-template-columns: 1fr; } }
+    .eic-result { display: grid; gap: 12px; }
+    .eic-result > div { display: grid; gap: 10px; }
+    .eic [hidden] { display: none; }
+    .eic-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .eic-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .eic-dim { color: var(--faint); font-size: 14px; }
+    .eic + .f-note { margin-top: 24px; }
+    .eic-result [data-r="relax"] { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=4"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; LHDN e-invoice</p>
+        <h1 class="f-h1">Do I need to issue e-invoices?</h1>
+        <p class="f-lead">Answer three questions about your business and see when LHDN's e-invoice rules apply to you, whether the RM3 million exemption covers you, and what the relaxation until 31 December 2027 allows.</p>
+        <div class="eic">
+          <form class="f-form eic-form" id="eicForm" novalidate>
+            <div class="f-field">
+              <label for="eicStart">When did the business start operating?</label>
+              <select class="f-input" id="eicStart">
+                <option value="">Choose&hellip;</option>
+                <option value="old">Before 2023</option>
+                <option value="mid">In 2023, 2024 or 2025</option>
+                <option value="new">In 2026 or later</option>
+              </select>
+            </div>
+            <div class="f-field" id="eicBandField" hidden>
+              <label for="eicBand">Annual turnover in your 2022 accounts</label>
+              <select class="f-input" id="eicBand">
+                <option value="">Choose&hellip;</option>
+                <option value="p1">More than RM100 million</option>
+                <option value="p2">More than RM25 million, up to RM100 million</option>
+                <option value="p3">More than RM5 million, up to RM25 million</option>
+                <option value="p4">RM3 million to RM5 million</option>
+                <option value="u3">Under RM3 million</option>
+              </select>
+              <span class="f-hint">From your audited financial statements for financial year 2022 or, without audited accounts, your YA2022 tax return. A sole proprietor adds up every business registered in their name.</span>
+            </div>
+            <div class="f-field" id="eicReachField" hidden>
+              <label for="eicReach">Has annual turnover reached RM3 million in any year since?</label>
+              <select class="f-input" id="eicReach">
+                <option value="">Choose&hellip;</option>
+                <option value="no">Not yet</option>
+                <option value="early">Yes, in YA2023, YA2024 or YA2025</option>
+                <option value="2026">Yes, first in YA2026</option>
+                <option value="2027">Yes, first in YA2027</option>
+                <option value="2028">Yes, first in YA2028</option>
+                <option value="2029">Yes, first in YA2029</option>
+              </select>
+              <span class="f-hint">A year of assessment usually matches your financial year. A sole proprietor adds up every business registered in their name.</span>
+            </div>
+            <div class="f-field" id="eicGroupField" hidden>
+              <label for="eicGroup">Does a company in your group turn over RM3 million or more?</label>
+              <select class="f-input" id="eicGroup">
+                <option value="">Choose&hellip;</option>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+                <option value="unsure">Not sure</option>
+              </select>
+              <span class="f-hint">Count a company that holds shares in yours, your holding company, a related company or a joint venture. Companies are related when one holds 20% or more of another, or controls its operations. Sharing an individual owner or a director doesn't make them related.</span>
+            </div>
+          </form>
+
+          <div class="f-card eic-result" id="eicResult" aria-live="polite">
+            <p class="eic-label">Your result</p>
+            <div data-r="start"><p class="eic-dim">Answer the questions to see your result.</p></div>
+            <div data-r="p1" hidden><p class="eic-head">You've had to issue e-invoices since 1 August 2024.</p><p>Turnover above RM100 million puts you in Phase 1. Its relaxation period ended on 31 January 2025, so the full rules apply.</p></div>
+            <div data-r="p2" hidden><p class="eic-head">You've had to issue e-invoices since 1 January 2025.</p><p>Turnover above RM25 million, up to RM100 million, puts you in Phase 2. Its relaxation period ended on 30 June 2025, so the full rules apply.</p></div>
+            <div data-r="p3" hidden><p class="eic-head">You've had to issue e-invoices since 1 July 2025.</p><p>Turnover above RM5 million, up to RM25 million, puts you in Phase 3. Its relaxation period ended on 31 December 2025, so the full rules apply.</p></div>
+            <div data-r="p4" hidden><p class="eic-head">You've had to issue e-invoices since 1 January 2026.</p><p>Turnover of RM3 million to RM5 million puts you in Phase 4.</p></div>
+            <div data-r="jul" hidden><p class="eic-head">You've had to issue e-invoices since 1 July 2026.</p><p data-why="reached">Your turnover reached RM3 million in YA2023, YA2024 or YA2025, so the exemption doesn't apply.</p><p data-why="group">Your turnover is under RM3 million, but the exemption doesn't apply to a business whose group includes a company turning over RM3 million or more.</p></div>
+            <div data-r="newgroup" hidden><p class="eic-head">You must issue e-invoices from the day the business started operating, or 1 July 2026 if it started before then.</p><p>Your turnover is under RM3 million, but the exemption doesn't apply to a business whose group includes a company turning over RM3 million or more.</p><p>LHDN's relaxation covers businesses whose date was 1 January or 1 July 2026. It hasn't said whether it covers one that started later, so ask your tax agent.</p></div>
+            <div data-r="later" hidden><p class="eic-head">You must issue e-invoices from 1 January <span class="eic-year"></span>.</p><p>That is 1 January in the second year after the year of assessment in which turnover first reached RM3 million. Until then you're exempt. Once you have started, you stay in, even if turnover falls back under RM3 million.</p></div>
+            <div data-r="exempt" hidden><p class="eic-head">You're exempt, for now.</p><p>Your turnover is under RM3 million and nothing in your group brings you in. You don't need to apply for the exemption. If turnover reaches RM3 million in a year of assessment, you must start on 1 January in the second year after it.</p><p>You can still issue e-invoices voluntarily. If you sell through an e-commerce platform, the platform issues the e-invoices and may ask you for details.</p></div>
+            <div data-r="unsure" hidden><p class="eic-head">It depends on your group.</p><p>If no company in your group turns over RM3 million or more, you're exempt. If one does, the exemption doesn't apply and you must issue e-invoices from 1 July 2026, or from the day the business started operating if that was later.</p><p>The test is about companies holding 20% or more of the shares, or controlling operations. Your tax agent or company secretary can tell you from your share register.</p></div>
+            <div data-r="relax" hidden><p><strong>Relaxation until 31 December 2027.</strong> Until then you may issue one consolidated e-invoice a month for all your sales, including single sales over RM10,000, within 7 days after the month ends. Do that and LHDN won't prosecute under section 120. From 1 January 2028 the full rules apply.</p><p>Missed some months? LHDN's Special Voluntary Disclosure Programme runs until 31 December 2027.</p></div>
+            <div data-r="penalty" hidden><p class="eic-dim">Not issuing an e-invoice when you must is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance.</p></div>
+            <div data-r="cta" hidden><p><a href="einvoice.html">Send e-invoices to LHDN from the system you already use &rarr;</a></p></div>
+          </div>
+        </div>
+        <p class="f-note">A guide to LHDN's published rules, not tax advice. Checked on 23 October 2026 against <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN's e-Invoice FAQ (updated 4 September 2026)</a>. LHDN has changed these dates more than once, so confirm yours with LHDN or your tax agent.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>Is my business exempt if turnover is under RM3 million?</summary><div>Usually, yes. Businesses with annual turnover under RM3 million are exempt, unless a company that holds shares in the business, its holding company, a related company or a joint venture turns over RM3 million or more. No application is needed.</div></details><details><summary>Which turnover figure counts?</summary><div>For a business already operating in 2022, the turnover in its financial year 2022 audited accounts or, without audited accounts, its YA2022 tax return. A sole proprietor adds up every business registered in their name.</div></details><details><summary>What happens when turnover reaches RM3 million later?</summary><div>You must start issuing e-invoices on 1 January in the second year after the year of assessment in which turnover reached RM3 million. Reach it in YA2026 and you start on 1 January 2028. Once you have started, you stay in, even if turnover falls again.</div></details><details><summary>What does the relaxation until 31 December 2027 allow?</summary><div>Businesses whose e-invoicing started on 1 January or 1 July 2026 may issue one consolidated e-invoice a month for all their sales, within 7 days after the month ends, and won't be prosecuted under section 120 while they do. From 1 January 2028 the full rules apply.</div></details><details><summary>What is the penalty for not issuing e-invoices?</summary><div>It is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">More free tools</span>
+          Every e-invoice needs the seller's MSIC code, and LHDN only accepts codes on its own list. <a href="msic-code-lookup.html">Look up your MSIC code &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var start = $('eicStart'), band = $('eicBand'), reach = $('eicReach'), group = $('eicGroup');
+      var parts = Array.prototype.slice.call(document.querySelectorAll('#eicResult [data-r]'));
+      var early = reach.querySelector('option[value="early"]');
+      function result() {
+        var s = start.value, b = band.value, r = reach.value, g = group.value;
+        var needBand = s === 'old', needReach = (s === 'old' && b === 'u3') || s === 'mid' || s === 'new';
+        // A business that started in 2026 cannot have had a YA2023-2025.
+        early.hidden = early.disabled = s === 'new'; if (s === 'new' && r === 'early') reach.value = r = '';
+        var needGroup = needReach && r !== '' && r !== 'early';
+        $('eicBandField').hidden = !needBand; $('eicReachField').hidden = !needReach; $('eicGroupField').hidden = !needGroup;
+        if (!s || (needBand && !b)) return { show: ['start'] };
+        if (s === 'old' && b !== 'u3') return { show: [b].concat(b === 'p4' ? ['relax'] : []).concat(['penalty', 'cta']) };
+        if (!r) return { show: ['start'] };
+        if (r === 'early') return { show: ['jul', 'relax', 'penalty', 'cta'], why: 'reached' };
+        if (!g) return { show: ['start'] };
+        if (g === 'unsure') return { show: ['unsure', 'penalty', 'cta'] };
+        if (g === 'yes') return s === 'new' ? { show: ['newgroup', 'penalty', 'cta'] } : { show: ['jul', 'relax', 'penalty', 'cta'], why: 'group' };
+        if (r === 'no') return { show: ['exempt', 'cta'] };
+        return { show: ['later', 'penalty', 'cta'], year: +r + 2 };
+      }
+      function apply() {
+        var res = result();
+        parts.forEach(function (p) { p.hidden = res.show.indexOf(p.getAttribute('data-r')) === -1; });
+        document.querySelectorAll('#eicResult [data-why]').forEach(function (p) { p.hidden = p.getAttribute('data-why') !== res.why; });
+        document.querySelector('#eicResult .eic-year').textContent = res.year || '';
+        if (res.show[0] !== 'start' && typeof gtag === 'function') gtag('event', 'einvoice_check', { result: res.show[0] + (res.year ? '_' + res.year : '') });
+      }
+      [start, band, reach, group].forEach(function (el) { el.addEventListener('change', apply); });
+      $('eicForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

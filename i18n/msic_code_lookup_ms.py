@@ -34,7 +34,7 @@ B = {
  'b4': 'Cari', 'b5': 'Seksyen', 'b6': 'Semua seksyen',
  'b28': '1,175 kod', 'b29': 'Kod', 'b30': 'Aktiviti', 'b31': 'Seksyen',
  'b3557': 'Klik kod untuk menyalinnya. Sumber: <a href="https://sdk.myinvois.hasil.gov.my/codes/msic-codes/">LHDN MyInvois SDK, kod subkategori MSIC</a>, diperoleh pada 22 Oktober 2026.',
- 'b3558': '<span class="f-callout__label">Disemak sebelum sampai ke LHDN</span> Platform e-Invois SteadyDevs menolak sebarang kod MSIC yang tiada dalam senarai ini, bersama peraturan LHDN yang lain, sebelum invois dihantar. <a href="einvoice.html">Lihat platform e-Invois →</a>',
+ 'b3558': '<span class="f-callout__label">Disemak sebelum sampai ke LHDN</span> Platform e-Invois SteadyDevs menolak sebarang kod MSIC yang tiada dalam senarai ini, bersama peraturan LHDN yang lain, sebelum invois dihantar. <a href="einvoice.html">Lihat platform e-Invois →</a> Belum pasti sama ada anda perlu mengeluarkan e-Invois? <a href="e-invoice-checker.html">Semak dengan tiga soalan →</a>',
  'b3559': 'Soalan lazim',
 }
 for i, s in enumerate(SECTIONS):
