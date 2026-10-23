@@ -308,7 +308,10 @@ p { margin: 0; }
 /* The Free tools menu: every tool in two columns by topic, opening leftwards from its
    button so it stays on screen, then a link to the hub page. */
 .fh__group--tools .fh__panel { left: auto; right: -160px; width: 640px; min-width: 0; }
-.fh__panel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8px; }
+/* Nav links are nowrap; in this fixed-width panel that pushed the second column out past the
+   edge, so the links wrap here and the columns may shrink below their content. */
+.fh__group--tools .fh__panel a { white-space: normal; }
+.fh__panel-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8px; }
 .fh__panel-cols .fh__panel-label { border-top: 0; padding-top: 4px; }
 .fh__panel-all { margin-top: 6px; border-top: 1px solid var(--border-soft); border-radius: 0 0 8px 8px; color: var(--text-strong); font-weight: 500; }
 /* The header becomes the phone menu below 1180px, not 960px like the page layout: with the
