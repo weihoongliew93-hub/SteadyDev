@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Venue No-Show Calculator: Courts, Rooms, Studios | SteadyDevs</title>
+  <meta name="description" content="Estimate what no-shows cost your courts, rooms or studios each month, and what cutting them by a few points would bring back. Free, with the formula shown.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/venue-no-show-calculator.html">
+  <meta property="og:title" content="Venue no-show calculator">
+  <meta property="og:description" content="Estimate what no-shows cost your courts, rooms or studios each month, and what cutting them by a few points would bring back. Free, with the formula shown.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/venue-no-show-calculator.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is the revenue lost to no-shows worked out?", "acceptedAnswer": {"@type": "Answer", "text": "Sellable hours a month are your units times open hours a day times days a week, times 52 and divided by 12. Booked hours are that times your utilisation. No-show hours are booked hours times your no-show rate, and each one is valued at your hourly price."}}, {"@type": "Question", "name": "What counts as a no-show here?", "acceptedAnswer": {"@type": "Answer", "text": "A booking where the customer didn't turn up, didn't pay, and the hour wasn't sold to anyone else. A cancellation early enough for you to resell the slot isn't a no-show. If you take payment upfront, a no-show doesn't cost you that money, but the hour still sits empty."}}, {"@type": "Question", "name": "Where do I find my utilisation?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the hours you sold in a month by the hours you could have sold. Venue Booking's Reports screen shows this for any period, counting approved bookings against the hours your resources are open."}}, {"@type": "Question", "name": "How do I find my no-show rate?", "acceptedAnswer": {"@type": "Answer", "text": "Count it. For four weeks, mark every booking as used, cancelled in advance, or a no-show, then divide the no-shows by all bookings. Split it by peak and off-peak hours if you can, because no-shows at peak times cost the most."}}, {"@type": "Question", "name": "Does Venue Booking take deposits?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. Taking a deposit at booking time is on the roadmap. Today it sends reminder emails before approved bookings, and you approve every booking before it is confirmed."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=12">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* Venue no-show calculator (design F): the venue's numbers on the left, the monthly cost beside them. */
+    .vns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .vns { grid-template-columns: 1fr; } }
+    .vns [hidden] { display: none; }
+    .vns + .f-note { margin-top: 24px; }
+    .vns-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+    @media (max-width: 480px) { .vns-pair { grid-template-columns: 1fr; } }
+    .vns-result { display: grid; gap: 12px; }
+    .vns-result > div { display: grid; gap: 10px; }
+    .vns-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .vns-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .vns-head--calm { color: var(--text-strong); }
+    .vns-dim { color: var(--faint); font-size: 14px; }
+    .vns-back { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .vns-back strong { color: var(--ok); }
+    .vns-formula { margin: 0; padding: 14px 16px 14px 34px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-inset); display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+    .vns-formula span { font-variant-numeric: tabular-nums; color: var(--text-strong); }
+    .vns-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; Venue bookings</p>
+        <h1 class="f-h1">Venue no-show calculator</h1>
+        <p class="f-lead">A booked court that nobody turns up for earns nothing, and it was turned away from someone else. Enter your venue's numbers to see what no-shows cost you each month, and what cutting them would bring back.</p>
+        <div class="vns">
+          <form class="f-form" id="vnsForm" novalidate>
+            <div class="vns-pair">
+              <div class="f-field">
+                <label for="vnsUnits">Courts, rooms or bays</label>
+                <input class="f-input" id="vnsUnits" type="number" inputmode="numeric" min="0" max="10000" step="1" value="4">
+              </div>
+              <div class="f-field">
+                <label for="vnsPrice">Price per hour (RM)</label>
+                <input class="f-input" id="vnsPrice" type="number" inputmode="decimal" min="0" max="1000000" step="any" value="40">
+              </div>
+            </div>
+            <div class="vns-pair">
+              <div class="f-field">
+                <label for="vnsHours">Open hours a day</label>
+                <input class="f-input" id="vnsHours" type="number" inputmode="decimal" min="0" max="24" step="any" value="14">
+              </div>
+              <div class="f-field">
+                <label for="vnsDays">Days open a week</label>
+                <input class="f-input" id="vnsDays" type="number" inputmode="numeric" min="0" max="7" step="1" value="7">
+              </div>
+            </div>
+            <div class="f-field">
+              <label for="vnsUtil">Utilisation (%)</label>
+              <input class="f-input" id="vnsUtil" type="number" inputmode="decimal" min="0" max="100" step="any" value="50">
+              <span class="f-hint">The share of your open hours that get booked. Count no-shows as booked.</span>
+            </div>
+            <div class="f-field">
+              <label for="vnsRate">No-show rate (%)</label>
+              <input class="f-input" id="vnsRate" type="number" inputmode="decimal" min="0" max="100" step="any" value="8">
+              <span class="f-hint">Of the hours booked, the share nobody turned up or paid for. Not sure? Count it for four weeks.</span>
+            </div>
+            <div class="f-field">
+              <label for="vnsCut">Cut no-shows by (percentage points)</label>
+              <input class="f-input" id="vnsCut" type="number" inputmode="decimal" min="0" max="100" step="any" value="3">
+              <span class="f-hint">Your own target. From 8% to 5% is 3 points. We don't promise any reduction.</span>
+            </div>
+          </form>
+
+          <div class="f-card vns-result" aria-live="polite">
+            <p class="vns-label">Each month</p>
+            <div data-r="empty" hidden><p class="vns-head vns-head--calm">Nothing booked, so nothing lost.</p><p class="vns-dim">Enter your units, opening hours, price and utilisation to see the estimate.</p></div>
+            <div data-r="none" hidden><p class="vns-head vns-head--calm">No no-shows, nothing lost.</p><p>You book about RM <span data-o="booked2"></span> a month. If you haven't counted no-shows for a few weeks, it's worth doing before you trust a zero.</p></div>
+            <div data-r="loss" hidden>
+              <p class="vns-head">About RM <span data-o="lost"></span> lost to no-shows</p>
+              <p>Out of RM <span data-o="booked"></span> booked. That is <span data-o="nshours"></span> booked hours nobody used, or about RM <span data-o="lostyear"></span> a year.</p>
+              <div class="vns-back">
+                <p data-c="cut">Cutting no-shows by <span data-o="cut"></span> points, to <span data-o="newrate"></span>%, would bring back about <strong>RM <span data-o="back"></span> a month</strong>, or RM <span data-o="backyear"></span> a year.</p>
+                <p class="vns-dim" data-c="capped">You can't cut no-shows below zero, so this uses your whole rate of <span data-o="rate"></span> points.</p>
+                <p class="vns-dim" data-c="nocut">Enter how many points you'd like to cut no-shows by to see what that brings back.</p>
+              </div>
+            </div>
+            <p><a href="venue-booking.html">See how Venue Booking handles reminders and approvals &rarr;</a></p>
+          </div>
+        </div>
+        <p class="f-note">An estimate from your own figures, not a forecast. It assumes a no-show pays nothing and the hour isn't resold, and uses 52 &divide; 12 weeks a month. Product details checked on 23 October 2026 against the Venue Booking plugin code (free version 1.11.3) and our <a href="venue-booking.html">Venue Booking page</a>.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">How the estimate works</h2></div>
+        <ol class="vns-formula">
+          <li>Sellable hours a month = units &times; open hours a day &times; days a week &times; 52 &divide; 12 = <span data-o="sellable"></span></li>
+          <li>Booked hours = sellable hours &times; utilisation = <span data-o="bookedhours"></span></li>
+          <li>Revenue booked = booked hours &times; price per hour = RM <span data-o="booked3"></span></li>
+          <li>No-show hours = booked hours &times; no-show rate = <span data-o="nshours2"></span></li>
+          <li>Lost to no-shows = no-show hours &times; price per hour = RM <span data-o="lost2"></span></li>
+          <li>Brought back = booked hours &times; points cut &times; price per hour = RM <span data-o="back2"></span></li>
+        </ol>
+        <p style="margin-top: 16px">A single price per hour is a simplification. No-shows tend to cluster at peak times, when your price is highest and the slot was hardest to get, so if your peak rate is higher, the real figure is likely to be higher too.</p>
+
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">What Venue Booking does about no-shows</h2></div>
+        <div class="vns-cards">
+          <div class="f-card">
+            <h3 class="f-card__title">Reminder emails</h3>
+            <p class="f-card__text">One email before each approved booking, sent at a time you choose, from 1 to 168 hours ahead. Pending, rejected and cancelled bookings are never reminded. Reminders come with the edition sold on our Venue Booking page, not the free plugin on WordPress.org.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Approval on every booking</h3>
+            <p class="f-card__text">Every booking arrives as pending. You approve or reject it, and the customer is emailed either way. A pending request holds its slot until you decide, so decide quickly.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Cancelled slots go back on sale</h3>
+            <p class="f-card__text">When you cancel or reject a booking, its slot can be booked again straight away. Customers can't cancel an hourly booking online themselves: they contact you, and you cancel it in the dashboard.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Deposits: not yet</h3>
+            <p class="f-card__text">Taking a deposit at booking time is on the roadmap, not in the plugin. Today, payment for hourly bookings is handled your own way, outside the plugin.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Reports for your inputs</h3>
+            <p class="f-card__text">Utilisation, revenue per available hour and bookings by status, for any period. That gives you the utilisation figure above. No-shows aren't recorded for hourly bookings, so count those yourself.</p>
+          </div>
+        </div>
+
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>How is the revenue lost to no-shows worked out?</summary><div>Sellable hours a month are your units times open hours a day times days a week, times 52 and divided by 12. Booked hours are that times your utilisation. No-show hours are booked hours times your no-show rate, and each one is valued at your hourly price.</div></details><details><summary>What counts as a no-show here?</summary><div>A booking where the customer didn't turn up, didn't pay, and the hour wasn't sold to anyone else. A cancellation early enough for you to resell the slot isn't a no-show. If you take payment upfront, a no-show doesn't cost you that money, but the hour still sits empty.</div></details><details><summary>Where do I find my utilisation?</summary><div>Divide the hours you sold in a month by the hours you could have sold. Venue Booking's Reports screen shows this for any period, counting approved bookings against the hours your resources are open.</div></details><details><summary>How do I find my no-show rate?</summary><div>Count it. For four weeks, mark every booking as used, cancelled in advance, or a no-show, then divide the no-shows by all bookings. Split it by peak and off-peak hours if you can, because no-shows at peak times cost the most.</div></details><details><summary>Does Venue Booking take deposits?</summary><div>Not yet. Taking a deposit at booking time is on the roadmap. Today it sends reminder emails before approved bookings, and you approve every booking before it is confirmed.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Further reading</span>
+          Why customers don't turn up, and what reduces it: <a href="blog/reduce-no-shows-venue-booking-deposits-reminders.html">How to cut no-shows without annoying customers &rarr;</a> The figures behind this calculator, and three more: <a href="blog/venue-booking-numbers-owners-should-track.html">5 numbers every venue owner should track &rarr;</a> Ready to take bookings online? <a href="venue-booking.html">See Venue Booking &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* core:start */
+      var WEEKS_PER_MONTH = 52 / 12;
+      // A field's value clamped to [0, max]; anything empty, negative or not a number counts as 0.
+      function clamp(raw, max, whole) {
+        var v = parseFloat(raw);
+        if (!isFinite(v) || v < 0) return 0;
+        if (whole) v = Math.floor(v);
+        return Math.min(v, max);
+      }
+      function estimate(units, hours, days, price, util, rate, cut) {
+        var sellable = units * hours * days * WEEKS_PER_MONTH;
+        var booked = sellable * util / 100;
+        var noShow = booked * rate / 100;
+        var points = Math.min(cut, rate);
+        return {
+          sellable: sellable, bookedHours: booked, booked: booked * price,
+          noShowHours: noShow, lost: noShow * price,
+          points: points, capped: cut > rate, newRate: rate - points,
+          back: booked * points / 100 * price
+        };
+      }
+      /* core:end */
+
+      if (typeof document === 'undefined') return;
+      var ids = ['vnsUnits', 'vnsHours', 'vnsDays', 'vnsPrice', 'vnsUtil', 'vnsRate', 'vnsCut'];
+      var els = ids.map(function (id) { return document.getElementById(id); });
+      var LIMITS = [[10000, true], [24, false], [7, true], [1000000, false], [100, false], [100, false], [100, false]];
+      function outs(k) { return document.querySelectorAll('[data-o="' + k + '"]'); }
+      function put(k, v) { Array.prototype.forEach.call(outs(k), function (el) { el.textContent = v; }); }
+      function rm(x) { return Math.round(x).toLocaleString('en-MY'); }
+      function hrs(x) { return (Math.round(x * 10) / 10).toLocaleString('en-MY', { maximumFractionDigits: 1 }); }
+      function pct(x) { return (Math.round(x * 100) / 100).toLocaleString('en-MY', { maximumFractionDigits: 2 }); }
+      function show(sel, on) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) { el.hidden = !on; }); }
+      function values() { return els.map(function (el, i) { return clamp(el.value, LIMITS[i][0], LIMITS[i][1]); }); }
+
+      function apply() {
+        var v = values(), r = estimate.apply(null, v), rate = v[5], cut = v[6];
+        put('sellable', hrs(r.sellable)); put('bookedhours', hrs(r.bookedHours));
+        put('booked', rm(r.booked)); put('booked2', rm(r.booked)); put('booked3', rm(r.booked));
+        put('nshours', hrs(r.noShowHours)); put('nshours2', hrs(r.noShowHours));
+        put('lost', rm(r.lost)); put('lost2', rm(r.lost)); put('lostyear', rm(r.lost * 12));
+        put('cut', pct(r.points)); put('newrate', pct(r.newRate)); put('rate', pct(rate));
+        put('back', rm(r.back)); put('back2', rm(r.back)); put('backyear', rm(r.back * 12));
+        var state = r.booked <= 0 ? 'empty' : r.lost <= 0 ? 'none' : 'loss';
+        show('[data-r="empty"]', state === 'empty'); show('[data-r="none"]', state === 'none'); show('[data-r="loss"]', state === 'loss');
+        show('[data-c="cut"]', cut > 0); show('[data-c="capped"]', cut > 0 && r.capped); show('[data-c="nocut"]', cut <= 0);
+      }
+
+      var sent = false;
+      els.forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', function () {
+          if (sent || typeof gtag !== 'function') return;
+          sent = true;
+          var v = values();
+          // Only the venue's sizing figures: nothing that identifies the business.
+          gtag('event', 'venue_no_show', { units: v[0], utilisation: v[4], no_show_rate: v[5], cut_points: v[6] });
+        });
+      });
+      document.getElementById('vnsForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

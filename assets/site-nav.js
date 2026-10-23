@@ -26,11 +26,11 @@
     'pricing-terms.html', 'about.html', 'portfolio.html', 'cloud-cost-audit.html', 'venue-booking.html', 'steadypost.html',
     'e-invoice-checker.html'];
   var T = {
-    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', tools: 'Free tools', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
+    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', tools: 'Free tools', allTools: 'All free tools', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
           langNote: 'This page is in English only. Other languages open their home page.' },
-    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', tools: 'Alat percuma', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
+    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', tools: 'Alat percuma', allTools: 'Semua alat percuma', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
           langNote: 'Halaman ini dalam Bahasa Inggeris sahaja. Bahasa lain membuka laman utamanya.' },
-    zh: { engineering: '工程服务', plugins: 'WordPress 插件', tools: '免费工具', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
+    zh: { engineering: '工程服务', plugins: 'WordPress 插件', tools: '免费工具', allTools: '全部免费工具', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
           langNote: '此页面仅有英文版。选择其他语言将打开该语言的首页。' }
   }[lang];
   // Link to a page in the current language when it exists in that language.
@@ -54,26 +54,44 @@
         ms: 'Import siaran secara pukal daripada Excel atau CSV \u2014 percuma',
         zh: '从 Excel 或 CSV 批量导入文章，免费' } }
   ];
-  // The EInvoice menu: the platform, then the free tools that lead to it. A new tool is one
-  // line here; the footer's "Free tools" column is static HTML on every page and needs it too.
+  // The EInvoice menu: the platform, then the e-invoice tools.
   var EINVOICE = { file: 'einvoice.html', name: { en: 'EInvoice Platform', ms: 'Platform EInvoice', zh: 'EInvoice 平台' }, tagline: {
       en: 'Send e-invoices to LHDN from the system you already use',
       ms: 'Hantar e-Invois ke LHDN daripada sistem yang anda gunakan sekarang',
       zh: '直接从您现有的系统把电子发票提交给 LHDN' } };
-  var TOOLS = [
-    { file: 'e-invoice-checker.html', name: { en: 'Do I need to e-invoice?', ms: 'Perlukah saya e-Invois?', zh: '我需要开电子发票吗？' }, tagline: {
-        en: 'Your start date and the RM3 million exemption, in three questions',
-        ms: 'Tarikh mula dan pengecualian RM3 juta, dalam tiga soalan',
-        zh: '三个问题，查清开始日期与 RM300 万豁免' } },
-    { file: 'e-invoice-penalty-calculator.html', name: { en: 'Penalty calculator', ms: 'Kalkulator penalti', zh: '罚款计算器' }, tagline: {
-        en: 'The fines the law allows for e-invoices not issued',
-        ms: 'Denda yang dibenarkan undang-undang bagi e-Invois yang tidak dikeluarkan',
-        zh: '漏开电子发票，法律允许的罚款范围' } },
-    { file: 'msic-code-lookup.html', name: { en: 'MSIC code lookup', ms: 'Carian kod MSIC', zh: 'MSIC 代码查询' }, tagline: {
-        en: 'All 1,175 codes LHDN accepts on e-invoices',
-        ms: 'Kesemua 1,175 kod yang diterima LHDN pada e-Invois',
-        zh: 'LHDN 接受的全部 1,175 个电子发票代码' } }
+  // Free tools, by topic. They make up the "Free tools" menu; the first group is also listed
+  // under EInvoice. A new tool is one line here, plus a card on free-tools.html. The footer's
+  // "Free tools" column is static HTML on every page and lists only a few, then the hub.
+  var tool = function (file, en, ms, zh, ten, tms, tzh) { return { file: file, name: { en: en, ms: ms, zh: zh }, tagline: { en: ten, ms: tms, zh: tzh } }; };
+  var TOOL_GROUPS = [
+    { label: { en: 'e-Invoice', ms: 'e-Invois', zh: '电子发票' }, tools: [
+      tool('e-invoice-checker.html', 'Do I need to e-invoice?', 'Perlukah saya e-Invois?', '我需要开电子发票吗？',
+        'Your start date and the RM3 million exemption, in three questions', 'Tarikh mula dan pengecualian RM3 juta, dalam tiga soalan', '三个问题，查清开始日期与 RM300 万豁免'),
+      tool('e-invoice-penalty-calculator.html', 'Penalty calculator', 'Kalkulator penalti', '罚款计算器',
+        'The fines the law allows for e-invoices not issued', 'Denda yang dibenarkan undang-undang bagi e-Invois yang tidak dikeluarkan', '漏开电子发票，法律允许的罚款范围'),
+      tool('e-invoice-tin-checker.html', 'TIN and field checker', 'Semakan TIN dan medan', 'TIN 与字段检查',
+        'Catch the buyer details LHDN rejects, before you submit', 'Kesan butiran pembeli yang ditolak LHDN, sebelum dihantar', '提交前找出会被 LHDN 退回的买家资料'),
+      tool('msic-code-lookup.html', 'MSIC code lookup', 'Carian kod MSIC', 'MSIC 代码查询',
+        'All 1,175 codes LHDN accepts on e-invoices', 'Kesemua 1,175 kod yang diterima LHDN pada e-Invois', 'LHDN 接受的全部 1,175 个电子发票代码')
+    ] },
+    { label: { en: 'Business systems', ms: 'Sistem perniagaan', zh: '业务系统' }, tools: [
+      tool('microsoft-end-of-support-lookup.html', 'Microsoft end-of-support lookup', 'Semakan tamat sokongan Microsoft', '微软支持终止日期查询',
+        'Windows Server, SQL Server and .NET support dates', 'Tarikh sokongan Windows Server, SQL Server dan .NET', 'Windows Server、SQL Server 与 .NET 的支持日期'),
+      tool('legacy-system-risk-scorecard.html', 'Legacy system risk scorecard', 'Kad skor risiko sistem lama', '旧系统风险评分',
+        'Ten questions on how exposed your core system is', 'Sepuluh soalan tentang tahap risiko sistem teras anda', '十个问题，看看核心系统的风险有多高'),
+      tool('downtime-cost-calculator.html', 'Downtime cost calculator', 'Kalkulator kos gangguan sistem', '停机成本计算器',
+        'What an hour of your system being down costs', 'Kos setiap jam sistem anda tergendala', '系统停机一小时的损失'),
+      tool('manual-invoicing-cost-calculator.html', 'Manual invoicing cost calculator', 'Kalkulator kos invois manual', '手工开票成本计算器',
+        'Staff hours and money spent keying invoices by hand', 'Jam kerja dan kos menaip invois secara manual', '手工录入发票耗费的工时与成本')
+    ] },
+    { label: { en: 'WordPress', ms: 'WordPress', zh: 'WordPress' }, tools: [
+      tool('wordpress-csv-import-checker.html', 'CSV import checker', 'Semakan import CSV', 'CSV 导入检查',
+        'Check a CSV before importing posts with SteadyPost', 'Semak CSV sebelum mengimport siaran dengan SteadyPost', '用 SteadyPost 导入文章前先检查 CSV'),
+      tool('venue-no-show-calculator.html', 'Venue no-show calculator', 'Kalkulator tidak hadir venue', '场地爽约损失计算器',
+        'Revenue lost to no-shows at courts, rooms and studios', 'Hasil yang hilang akibat pelanggan tidak hadir di gelanggang, bilik dan studio', '球场、房间与工作室因爽约损失的收入')
+    ] }
   ];
+  var TOOLS = TOOL_GROUPS.reduce(function (all, g) { return all.concat(g.tools); }, []);
   var pageFile = /\.html$/.test(file) ? file : file + '.html';
   var currentPlugin = PLUGINS.filter(function (p) { return p.file === pageFile; })[0];
   var currentTool = TOOLS.filter(function (t) { return t.file === pageFile; })[0];
@@ -84,7 +102,8 @@
     if (file === '' || file === 'index.html') return 'home';
     if (file === 'about.html') return 'about';
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file === 'cloud-cost-audit.html' || file.indexOf('packages') === 0) return 'solutions';
-    if (file === 'einvoice.html' || currentTool) return isF ? 'einvoice' : 'products';
+    if (file === 'einvoice.html') return isF ? 'einvoice' : 'products';
+    if (currentTool || pageFile === 'free-tools.html') return 'tools';
     if (currentPlugin) return isF ? 'plugins' : 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
@@ -145,7 +164,7 @@
         '<span class="fh__panel-name">' + name + '</span><span class="fh__panel-desc">' + desc + '</span></a>';
     };
     var group = function (id, label, key, body) {
-      return '<div class="fh__group' + (active === key ? ' is-current' : '') + '">' +
+      return '<div class="fh__group fh__group--' + key + (active === key ? ' is-current' : '') + '">' +
         '<button type="button" class="fh__group-btn" aria-expanded="false" aria-controls="' + id + '">' + label + caret + '</button>' +
         '<div class="fh__panel" id="' + id + '">' + body + '</div>' +
       '</div>';
@@ -156,7 +175,14 @@
     var einvoiceMenu = group('fhEinvoice', 'EInvoice', 'einvoice',
       item(page(EINVOICE.file), EINVOICE.name[lang], EINVOICE.tagline[lang], pageFile === EINVOICE.file) +
       '<p class="fh__panel-label">' + T.tools + '</p>' +
-      TOOLS.map(function (t) { return item(page(t.file), t.name[lang], t.tagline[lang], t === currentTool); }).join(''));
+      TOOL_GROUPS[0].tools.map(function (t) { return item(page(t.file), t.name[lang], t.tagline[lang], t === currentTool); }).join(''));
+    // Every tool, in its group; two columns on desktop. The hub page has them all with more detail.
+    var toolsMenu = group('fhTools', T.tools, 'tools',
+      '<div class="fh__panel-cols">' + TOOL_GROUPS.map(function (g) {
+        return '<div><p class="fh__panel-label">' + g.label[lang] + '</p>' +
+          g.tools.map(function (t) { return item(page(t.file), t.name[lang], t.tagline[lang], t === currentTool); }).join('') + '</div>';
+      }).join('') + '</div>' +
+      '<a class="fh__panel-all" href="' + page('free-tools.html') + '"' + (pageFile === 'free-tools.html' ? ' aria-current="page"' : '') + '>' + T.allTools + ' &rarr;</a>');
     mount(
       '<header class="fh" id="fh">' +
         '<div class="fh__inner">' +
@@ -165,6 +191,7 @@
             fLink('solutions.html', T.engineering, 'solutions') +
             einvoiceMenu +
             pluginsMenu +
+            toolsMenu +
             fLink('portfolio.html', T.cases, 'portfolio') +
             fLink('blog/index.html', T.blog, 'blog') +
             fLink('about.html', T.about, 'about') +

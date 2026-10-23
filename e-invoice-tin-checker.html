@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>e-Invoice TIN Checker Malaysia (LHDN) | SteadyDevs</title>
+  <meta name="description" content="Check a buyer's TIN, ID, phone and email against LHDN's e-invoice rules before you submit, with the general TINs explained. Free, runs in your browser.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/e-invoice-tin-checker.html">
+  <meta property="og:title" content="e-Invoice TIN and field checker for LHDN">
+  <meta property="og:description" content="Check a buyer's TIN, ID, phone and email against LHDN's e-invoice rules before you submit, with the general TINs explained. Free, runs in your browser.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/e-invoice-tin-checker.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What TIN do I use for a buyer who has none?", "acceptedAnswer": {"@type": "Answer", "text": "Use one of LHDN's general TINs. For a Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder, use EI00000000010 with that number. For a foreign individual with only a passport, or a foreign buyer on an export sale, use EI00000000020. For a government or statutory body, use EI00000000040. A Malaysian business that gives you its registration number can't take EI00000000010: ask it for its own TIN."}}, {"@type": "Question", "name": "What is EI00000000010?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN's general public TIN. It goes on an e-invoice to a Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder, and on a consolidated e-invoice as the buyer's TIN, with the buyer ID \"NA\". Beside a business registration number, or on an ordinary invoice with no buyer ID, LHDN takes the submission and then marks the e-invoice Invalid."}}, {"@type": "Question", "name": "Why was my e-invoice rejected for the phone number?", "acceptedAnswer": {"@type": "Answer", "text": "The contact number is mandatory, and LHDN refuses one shorter than 8 characters. \"N/A\" and \"-\" fail that check. Write the number with the country code, such as +60123456789. On a consolidated e-invoice, where the buyer is the general public, LHDN's placeholder is \"NA\", without the slash."}}, {"@type": "Question", "name": "Can a consolidated e-invoice exceed RM10,000?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in total. The RM10,000 rule is about a single sale: any one transaction above RM10,000 needs its own e-invoice and can't go into a consolidated one. Phase 4 businesses in the relaxation period, which runs to 31 December 2027, may consolidate all their sales, including those above RM10,000."}}, {"@type": "Question", "name": "Does this check tell me the TIN is real?", "acceptedAnswer": {"@type": "Answer", "text": "No. It checks the format and LHDN's rules on which TIN goes with which ID. Only LHDN can confirm that a TIN is registered and matches the ID number. The buyer can find their TIN in MyTax, and a system connected to MyInvois can check the TIN and ID pair with LHDN's Validate TIN API before sending."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=12">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* e-invoice TIN checker (design F): fields on the left, the problems beside them; every message is in the HTML so it can be translated. */
+    .tin { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .tin { grid-template-columns: 1fr; } }
+    .tin [hidden] { display: none; }
+    .tin + .f-note { margin-top: 24px; }
+    .tin-check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text); cursor: pointer; }
+    .tin-check input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--crimson); }
+    .tin-result { display: grid; gap: 12px; }
+    .tin-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .tin-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; font-variant-numeric: tabular-nums; }
+    .tin-dim { color: var(--faint); font-size: 14px; }
+    .tin-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .tin-list li { border-top: 1px solid var(--border-soft); padding-top: 12px; color: var(--text-soft); }
+    .tin-list .f-badge { margin-right: 6px; vertical-align: 1px; }
+    .tin-foot { border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 10px; }
+    .tin-code { font-family: var(--mono); white-space: nowrap; color: var(--text-strong); }
+    .tin-table td:first-child { white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; LHDN e-invoice</p>
+        <h1 class="f-h1">e-Invoice TIN and field checker</h1>
+        <p class="f-lead">Enter the buyer's TIN, ID, phone and email as they would go on the e-invoice. See which ones LHDN would refuse or mark Invalid, and how to fix each before you submit. Everything runs in your browser; nothing you type is sent anywhere.</p>
+        <div class="tin">
+          <form class="f-form" id="tinForm" novalidate autocomplete="off">
+            <div class="f-field">
+              <label for="tinRole">Whose details are these?</label>
+              <select class="f-input" id="tinRole">
+                <option value="buyer">The buyer's</option>
+                <option value="seller">The seller's (supplier's)</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="tinTin">TIN</label>
+              <input class="f-input" id="tinTin" type="text" maxlength="40" spellcheck="false" placeholder="e.g. C25845632020 or EI00000000010">
+              <span class="f-hint">The tax identification number LHDN assigned, or one of the general TINs in the table below.</span>
+            </div>
+            <div class="f-form__row">
+              <div class="f-field">
+                <label for="tinIdType">ID type</label>
+                <select class="f-input" id="tinIdType">
+                  <option value="nric">MyKad, MyPR or MyKAS (NRIC)</option>
+                  <option value="army">MyTentera (army)</option>
+                  <option value="passport">Passport</option>
+                  <option value="brn" selected>Business registration number (BRN)</option>
+                  <option value="none">None given</option>
+                </select>
+              </div>
+              <div class="f-field" id="tinIdField">
+                <label for="tinId">ID number</label>
+                <input class="f-input" id="tinId" type="text" maxlength="40" spellcheck="false" placeholder="e.g. 202001234567">
+              </div>
+            </div>
+            <div class="f-form__row">
+              <div class="f-field">
+                <label for="tinPhone">Contact number</label>
+                <input class="f-input" id="tinPhone" type="text" inputmode="tel" maxlength="40" placeholder="e.g. +60123456789">
+              </div>
+              <div class="f-field">
+                <label for="tinEmail">Email</label>
+                <input class="f-input" id="tinEmail" type="text" inputmode="email" maxlength="400" spellcheck="false" placeholder="Optional">
+              </div>
+            </div>
+            <div class="f-form" id="tinBuyerOnly">
+              <label class="tin-check"><input type="checkbox" id="tinCons"> <span>This is a consolidated e-invoice (the month's sales to the general public)</span></label>
+              <div class="f-field">
+                <label for="tinTotal"><span data-l="single">Invoice total (RM)</span><span data-l="cons" hidden>Largest single sale in it (RM)</span></label>
+                <input class="f-input" id="tinTotal" type="text" inputmode="decimal" maxlength="30" placeholder="e.g. 2500.00">
+              </div>
+              <label class="tin-check"><input type="checkbox" id="tinRelax"> <span>I'm a Phase 4 business in LHDN's relaxation period (e-invoicing started 1 January or 1 July 2026)</span></label>
+            </div>
+          </form>
+
+          <div class="f-card tin-result" id="tinResult" aria-live="polite">
+            <p class="tin-label">What LHDN would see</p>
+            <div data-s="start"><p class="tin-dim">Enter a TIN to start.</p></div>
+            <div data-s="ok" hidden><p class="tin-head">No problems found in what you entered.</p></div>
+            <div data-s="some" hidden><p class="tin-head">To fix: <span data-o="fix">0</span> &middot; To check: <span data-o="check">0</span></p></div>
+            <ul class="tin-list">
+              <li data-i="tin_empty" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>The TIN is missing.</strong> Every e-invoice needs a TIN for the seller and the buyer. If the buyer has none, use the general TIN that fits them, from the table below.</li>
+              <li data-i="tin_clean" hidden><span class="f-badge">Check</span> <strong>Remove spaces and hyphens.</strong> Enter the TIN in capitals with nothing between the characters. We checked it as <span class="tin-code" data-o="clean"></span>.</li>
+              <li data-i="tin_long" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Too long for a TIN.</strong> LHDN's TIN field holds at most 14 characters. Check you haven't pasted the ID number or two values together.</li>
+              <li data-i="tin_ei" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Not one of LHDN's four general TINs.</strong> They are EI followed by 11 digits: <span class="tin-code">EI00000000010</span>, <span class="tin-code">EI00000000020</span>, <span class="tin-code">EI00000000030</span> or <span class="tin-code">EI00000000040</span>. Count the zeros.</li>
+              <li data-i="tin_old" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Old individual prefix.</strong> SG and OG are older prefixes for individuals. LHDN asks individuals to use their TIN with the prefix IG. The buyer can see it in MyTax.</li>
+              <li data-i="tin_format" hidden><span class="f-badge">Check</span> <strong>This doesn't look like a TIN.</strong> We expect a prefix such as IG (individual) or C (company) and 10 or 11 digits, for example IG12345678901 or C25845632020. LHDN doesn't publish a full format, so treat this as a typo check and confirm the TIN with the buyer.</li>
+              <li data-i="gen_seller_no" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>A buyer-only general TIN.</strong> EI00000000020 and EI00000000040 are for buyers. As the seller, use your own TIN.</li>
+              <li data-i="gen_seller_sb" hidden><span class="f-badge">Check</span> <strong>Only on a self-billed e-invoice.</strong> A general TIN appears on the supplier's side only when the buyer issues a self-billed e-invoice: EI00000000010 for an individual supplier with only a MyKad or MyTentera number, or on a consolidated self-billed e-invoice, and EI00000000030 for a foreign supplier. On your own sales invoice, use your own TIN.</li>
+              <li data-i="g10_brn" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>The general TIN can't go with a BRN.</strong> A business buyer has its own TIN: ask for it. LHDN takes the submission, then marks the e-invoice Invalid.</li>
+              <li data-i="g10_pass" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Wrong general TIN for a passport.</strong> For a foreign buyer who gives only a passport number, LHDN's general TIN is EI00000000020. EI00000000010 goes with a MyKad, MyTentera, MyPR or MyKAS number.</li>
+              <li data-i="g10_noid" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>The general TIN needs an ID here.</strong> On an ordinary invoice, EI00000000010 must go with the buyer's MyKad or MyTentera number. Without one it is only allowed on a consolidated e-invoice. Ask for the buyer's IC, or leave the sale as a receipt for your month-end consolidated e-invoice if it is RM10,000 or less. LHDN takes the submission, then marks the e-invoice Invalid.</li>
+              <li data-i="cons_id" hidden><span class="f-badge">Check</span> <strong>Buyer ID on a consolidated e-invoice.</strong> LHDN's layout for a consolidated e-invoice has the buyer ID as NA. If this buyer gave you their IC, they can have an e-invoice of their own instead.</li>
+              <li data-i="g20_local" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Wrong general TIN for a local ID.</strong> EI00000000020 is for foreign buyers. A buyer with a MyKad, MyTentera, MyPR or MyKAS number takes EI00000000010.</li>
+              <li data-i="g20_noid" hidden><span class="f-badge">Check</span> <strong>Add the foreign buyer's ID.</strong> The ID field is mandatory. Enter the buyer's passport number, or the ID number they gave you.</li>
+              <li data-i="g30_buyer" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>EI00000000030 is a supplier's TIN.</strong> It is for a foreign supplier on a self-billed e-invoice. For a foreign buyer, use EI00000000020.</li>
+              <li data-i="g40_id" hidden><span class="f-badge">Check</span> <strong>Government buyers take BRN "NA".</strong> LHDN's FAQ says to enter EI00000000040 with the BRN as NA for government, state and local authorities and statutory bodies. Choose BRN as the ID type and enter NA.</li>
+              <li data-i="cons_tin" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>A consolidated e-invoice uses EI00000000010.</strong> On a consolidated e-invoice the buyer is "General Public", with TIN EI00000000010 and ID NA. A buyer who gave you their own TIN should get an e-invoice of their own.</li>
+              <li data-i="real_noid" hidden><span class="f-badge">Check</span> <strong>Add the ID that goes with this TIN.</strong> A business's registration number is a mandatory field, and LHDN's Validate TIN matches a TIN with its ID. Only an individual may give their TIN alone.</li>
+              <li data-i="id_na" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Write NA, not N/A.</strong> LHDN's placeholder for an empty value is NA. "N/A", "-" and "nil" are refused.</li>
+              <li data-i="id_nric_dash" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Remove the hyphens.</strong> The NRIC field holds 12 characters, so enter the 12 digits only, for example 770625015324.</li>
+              <li data-i="id_nric" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Not a 12-digit IC number.</strong> MyKad, MyPR and MyKAS numbers are 12 digits, for example 770625015324.</li>
+              <li data-i="id_long12" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Too long.</strong> LHDN's field for this ID type holds 12 characters at most. Check for spaces or an extra character.</li>
+              <li data-i="id_long20" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Too long for a BRN.</strong> LHDN's BRN field holds 20 characters at most.</li>
+              <li data-i="id_chars" hidden><span class="f-badge">Check</span> <strong>Letters and digits only.</strong> Remove spaces, hyphens and other symbols from the ID number.</li>
+              <li data-i="id_brn" hidden><span class="f-badge">Check</span> <strong>Use the new 12-digit BRN.</strong> Businesses registered with SSM must give the new 12-digit registration number, for example 202001234567, not the old one. Registered with another body? Its number is fine. LHDN has paused BRN validation since 19 July 2024, so this may not be refused today.</li>
+              <li data-i="phone_empty" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>The contact number is missing.</strong> It is mandatory for both parties. An individual buyer is expected to give one.</li>
+              <li data-i="phone_cons" hidden><span class="f-badge">Check</span> <strong>Enter NA.</strong> The field can't be empty. On a consolidated e-invoice, LHDN lets you put NA as the buyer's contact number.</li>
+              <li data-i="phone_slash" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>LHDN refuses this placeholder.</strong> "N/A" got e-invoices refused with "Enter valid phone number and the minimum length is 8 characters". Enter a real number, or NA on a consolidated e-invoice.</li>
+              <li data-i="phone_na" hidden><span class="f-badge">Check</span> <strong>NA is meant for consolidated e-invoices.</strong> LHDN's rules provide NA for the general-public buyer on a consolidated e-invoice. Here, ask for a real number.</li>
+              <li data-i="phone_short" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Too short.</strong> LHDN refuses contact numbers under 8 characters. Include the country and area code, for example +60123456789.</li>
+              <li data-i="phone_long" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Too long.</strong> LHDN's contact number field holds 20 characters at most. Enter one number only.</li>
+              <li data-i="phone_chars" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Not a phone number.</strong> Use digits and a leading + only. Put extensions and notes somewhere else.</li>
+              <li data-i="phone_e164" hidden><span class="f-badge">Check</span> <strong>Use the international form.</strong> LHDN asks for E.164: a +, the country code, then the number with no spaces and no leading 0. 012-345 6789 becomes +60123456789.</li>
+              <li data-i="email_slash" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Leave the email blank instead.</strong> Email is optional, but "N/A" and "-" got e-invoices refused with "Enter valid e-mail address".</li>
+              <li data-i="email_na" hidden><span class="f-badge">Check</span> <strong>NA isn't an email address.</strong> Email is optional, so leave it blank when the buyer has none.</li>
+              <li data-i="email_long" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Too long.</strong> LHDN's email field holds 320 characters at most.</li>
+              <li data-i="email_bad" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Not a valid email address.</strong> Enter one address, like name@company.com, with no spaces. Leave it blank if you don't have one.</li>
+              <li data-i="total_bad" hidden><span class="f-badge">Check</span> <strong>Enter the amount as a number.</strong> For example 12500.00. The RM10,000 checks are skipped until then.</li>
+              <li data-i="cons_hi" hidden><span class="f-badge f-badge--crimson">Fix</span> <strong>Over RM10,000: take it out of the consolidated e-invoice.</strong> Any single sale above RM10,000 needs its own e-invoice with the buyer's details. The rest of the month can stay consolidated.</li>
+              <li data-i="hi_general" hidden><span class="f-badge">Check</span> <strong>Over RM10,000 with the general TIN.</strong> This sale needs its own e-invoice, which it has. LHDN's guideline lets EI00000000010 go with a Malaysian individual's MyKad number, but where you can, get the buyer's own TIN. Our platform asks for it above RM10,000.</li>
+              <li data-i="relax_note" hidden><span class="f-badge">Check</span> <strong>Allowed until 31 December 2027.</strong> During the relaxation period, a Phase 4 business may consolidate every sale, including those above RM10,000. From 1 January 2028, a sale like this needs its own e-invoice with the buyer's details.</li>
+            </ul>
+            <div class="tin-foot" data-s="foot" hidden>
+              <p class="tin-dim" data-s="cons" hidden>On a consolidated e-invoice also put the buyer's name as General Public, the address as NA with state code 17, and classification code 004 on every line.</p>
+              <p class="tin-dim">This checks format and LHDN's rules only. It can't tell whether the TIN is registered or belongs to this buyer. The buyer can see their TIN in <a href="https://mytax.hasil.gov.my">MyTax</a>, and a system connected to MyInvois can check the TIN and ID pair with LHDN's Validate TIN API.</p>
+              <p><a href="einvoice.html">Run these checks on every invoice before it goes to LHDN &rarr;</a></p>
+            </div>
+          </div>
+        </div>
+        <p class="f-note">Format checks, not tax advice. Rules from LHDN's <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">e-Invoice Specific Guideline v4.9</a> (7 September 2026: section 3.7, section 16.2, Appendices 1, 2 and 4), <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Guideline.pdf">e-Invoice Guideline v4.8</a>, <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">e-Invoice FAQ</a> (4 September 2026, questions 32 to 36) and the MyInvois SDK's <a href="https://sdk.myinvois.hasil.gov.my/documents/invoice-v1-1/">invoice field rules</a> and <a href="https://sdk.myinvois.hasil.gov.my/einvoicingapi/01-validate-taxpayer-tin/">Validate TIN API</a>. The 8-character phone minimum, the refusal of "N/A", and LHDN marking general-TIN mistakes Invalid after accepting them come from our own submissions to LHDN's test environment in October 2026; the SDK doesn't state them. Checked on 23 October 2026.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Which general TIN to use</h2></div>
+        <p class="f-lead">When the other party has no TIN, LHDN gives four general TINs. Each fits specific cases, and using the wrong one gets the e-invoice marked Invalid.</p>
+        <div class="f-table-wrap">
+          <table class="f-table tin-table">
+            <thead><tr><th>General TIN</th><th>Use it for</th><th>Goes with</th></tr></thead>
+            <tbody>
+              <tr><td class="f-mono">EI00000000010</td><td>General public. A Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder. Also the buyer on a consolidated e-invoice, and the supplier on a consolidated self-billed e-invoice.</td><td>The MyKad, MyTentera, MyPR or MyKAS number. On a consolidated e-invoice, ID NA. Never a BRN.</td></tr>
+              <tr><td class="f-mono">EI00000000020</td><td>Foreign buyer. A foreign individual who gives only a passport number, a foreign buyer on an export sale with no Malaysian TIN, or a foreign shipping recipient.</td><td>The passport number, where that is all the buyer gives.</td></tr>
+              <tr><td class="f-mono">EI00000000030</td><td>Foreign supplier, on a self-billed e-invoice only. A foreign individual supplier with only a passport, or an import supplier with no Malaysian TIN.</td><td>The supplier's passport number, where that is all they give. Never as the buyer.</td></tr>
+              <tr><td class="f-mono">EI00000000040</td><td>Government buyers: the government, state governments and state authorities, government, local and statutory authorities, statutory bodies, and exempt institutions with no TIN.</td><td>BRN entered as NA.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="f-prose">
+          <h3>Why LHDN accepts some mistakes, then marks the e-invoice Invalid</h3>
+          <p>LHDN checks an e-invoice in two stages. When you submit, it checks the structure: mandatory fields, lengths and formats. A phone number of "N/A" fails here, and the document is refused straight away.</p>
+          <p>A document that passes is accepted and then validated against LHDN's own records and rules, including which general TIN may go with which ID. A general TIN beside a BRN, or EI00000000010 on an ordinary invoice with no buyer ID, gets through the first stage and comes back Invalid a moment later.</p>
+          <p>That second kind is the dangerous one. If your system only reads the submission response, it reports the e-invoice as sent while LHDN holds it as Invalid. Always read the document's final status. Our <a href="blog/einvoice-validation-errors-rejections-fix-guide.html">guide to LHDN validation errors</a> covers what each outcome means.</p>
+        </div>
+
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>What TIN do I use for a buyer who has none?</summary><div>Use one of LHDN's general TINs. For a Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder, use EI00000000010 with that number. For a foreign individual with only a passport, or a foreign buyer on an export sale, use EI00000000020. For a government or statutory body, use EI00000000040. A Malaysian business that gives you its registration number can't take EI00000000010: ask it for its own TIN.</div></details><details><summary>What is EI00000000010?</summary><div>LHDN's general public TIN. It goes on an e-invoice to a Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder, and on a consolidated e-invoice as the buyer's TIN, with the buyer ID "NA". Beside a business registration number, or on an ordinary invoice with no buyer ID, LHDN takes the submission and then marks the e-invoice Invalid.</div></details><details><summary>Why was my e-invoice rejected for the phone number?</summary><div>The contact number is mandatory, and LHDN refuses one shorter than 8 characters. "N/A" and "-" fail that check. Write the number with the country code, such as +60123456789. On a consolidated e-invoice, where the buyer is the general public, LHDN's placeholder is "NA", without the slash.</div></details><details><summary>Can a consolidated e-invoice exceed RM10,000?</summary><div>Yes, in total. The RM10,000 rule is about a single sale: any one transaction above RM10,000 needs its own e-invoice and can't go into a consolidated one. Phase 4 businesses in the relaxation period, which runs to 31 December 2027, may consolidate all their sales, including those above RM10,000.</div></details><details><summary>Does this check tell me the TIN is real?</summary><div>No. It checks the format and LHDN's rules on which TIN goes with which ID. Only LHDN can confirm that a TIN is registered and matches the ID number. The buyer can find their TIN in MyTax, and a system connected to MyInvois can check the TIN and ID pair with LHDN's Validate TIN API before sending.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Before every submission</span>
+          Our e-Invoice platform checks the general TIN and RM10,000 rules on every invoice before it reaches LHDN, holds walk-in receipts for your month-end consolidated e-invoice, and puts LHDN's NA where a walk-in buyer gave no phone number. <a href="einvoice.html">See the e-Invoice platform &rarr;</a> Not sure you have to e-invoice at all? <a href="e-invoice-checker.html">Check in three questions &rarr;</a> Need the seller's MSIC code? <a href="msic-code-lookup.html">Look it up &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // LHDN's four general TINs (Specific Guideline v4.9, Appendix 1), in order 10, 20, 30, 40.
+      var GEN = ['EI00000000010', 'EI00000000020', 'EI00000000030', 'EI00000000040'];
+      // The e-Invoice platform's typo check (TenantReadinessService): LHDN's prefixes, then 10 or
+      // 11 digits. LHDN publishes no full format, so a miss is "check", never "fix".
+      var TIN_RE = /^(IG|C|CS|D|E|F|FA|PT|TA|TC|TN|TR|TP|J|LE)\d{10,11}$/;
+      // Placeholders LHDN refused on preprod; its own empty value is "NA".
+      var SLASH_NA = /^(N\/A|N\.A\.?|-+|NIL|NONE|NULL)$/i;
+
+      // Pure: field values in, issue keys out. Each key names an <li data-i> in the result card.
+      function check(f) {
+        var fix = [], chk = [];
+        var raw = String(f.tin || '');
+        var t = raw.replace(/[\s-]/g, '').toUpperCase();
+        var buyer = f.role !== 'seller', cons = buyer && !!f.cons, relax = buyer && !!f.relax;
+        var idType = f.idType || 'none';
+        var id = idType === 'none' ? '' : String(f.id || '').trim();
+        var idNA = id === '' || id.toUpperCase() === 'NA';
+        var g = GEN.indexOf(t);
+
+        if (!t) fix.push('tin_empty');
+        else {
+          if (t !== raw.trim()) chk.push('tin_clean');
+          if (t.length > 14) fix.push('tin_long');
+          else if (g < 0) {
+            if (/^EI/.test(t)) fix.push('tin_ei');
+            else if (/^(SG|OG)\d/.test(t)) fix.push('tin_old');
+            else if (!TIN_RE.test(t)) chk.push('tin_format');
+          }
+        }
+
+        if (!buyer && g >= 0) (g === 1 || g === 3 ? fix : chk).push(g === 1 || g === 3 ? 'gen_seller_no' : 'gen_seller_sb');
+        if (buyer) {
+          if (g === 0) {
+            if (idType === 'brn' && !idNA) fix.push('g10_brn');
+            else if (idType === 'passport' && !idNA) fix.push('g10_pass');
+            else if (idNA && !cons) fix.push('g10_noid');
+            if (cons && !idNA) chk.push('cons_id');
+          } else if (g === 1) {
+            if (idType === 'nric' || idType === 'army') fix.push('g20_local');
+            else if (idNA) chk.push('g20_noid');
+          } else if (g === 2) fix.push('g30_buyer');
+          else if (g === 3 && !(idType === 'brn' && id.toUpperCase() === 'NA')) chk.push('g40_id');
+          if (cons && t && g !== 0) fix.push('cons_tin');
+        }
+        if (t && g < 0 && idNA && !cons) chk.push('real_noid');
+
+        if (id && id.toUpperCase() !== 'NA') {
+          if (SLASH_NA.test(id)) fix.push('id_na');
+          else if (idType === 'nric') {
+            if (!/^\d{12}$/.test(id)) fix.push(/^\d{12}$/.test(id.replace(/[\s-]/g, '')) ? 'id_nric_dash' : 'id_nric');
+          } else if (idType === 'brn') {
+            if (id.length > 20) fix.push('id_long20');
+            else if (!/^\d{12}$/.test(id)) chk.push('id_brn');
+          } else {
+            if (id.length > 12) fix.push('id_long12');
+            if (!/^[A-Za-z0-9]+$/.test(id)) chk.push('id_chars');
+          }
+        }
+
+        var p = String(f.phone || '').trim();
+        if (!p) (cons ? chk : fix).push(cons ? 'phone_cons' : 'phone_empty');
+        else if (SLASH_NA.test(p)) fix.push('phone_slash');
+        else if (p.toUpperCase() === 'NA') { if (!cons) chk.push('phone_na'); }
+        else {
+          if (p.length < 8) fix.push('phone_short');
+          if (p.length > 20) fix.push('phone_long');
+          if (/[^\d+\s\-().]/.test(p)) fix.push('phone_chars');
+          else if (p.length >= 8 && p.length <= 20 && !/^\+\d{8,15}$/.test(p)) chk.push('phone_e164');
+        }
+
+        var e = String(f.email || '').trim();
+        if (e) {
+          if (SLASH_NA.test(e)) fix.push('email_slash');
+          else if (e.toUpperCase() === 'NA') chk.push('email_na');
+          else if (e.length > 320) fix.push('email_long');
+          else if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(e)) fix.push('email_bad');
+        }
+
+        // The RM10,000 rule is per sale (Specific Guideline s.3.7), so a consolidated e-invoice
+        // is judged by its largest sale, as the platform judges it by line.
+        var s = buyer ? String(f.total || '').replace(/[\s,]/g, '').replace(/^RM/i, '') : '';
+        if (s) {
+          if (!/^\d+(\.\d+)?$/.test(s)) chk.push('total_bad');
+          else if (parseFloat(s) > 10000) {
+            if (relax) chk.push('relax_note');
+            else if (cons) fix.push('cons_hi');
+            else if (g === 0) chk.push('hi_general');
+          }
+        }
+        return { fix: fix, check: chk, clean: t };
+      }
+
+      var $ = function (id) { return document.getElementById(id); };
+      var els = ['tinRole', 'tinTin', 'tinIdType', 'tinId', 'tinPhone', 'tinEmail', 'tinCons', 'tinTotal', 'tinRelax'].map($);
+      var card = $('tinResult');
+      var items = Array.prototype.slice.call(card.querySelectorAll('[data-i]'));
+      var part = function (k) { return card.querySelector('[data-s="' + k + '"]'); };
+      var out = function (k) { return card.querySelector('[data-o="' + k + '"]'); };
+      var lastSent = -1;
+
+      function read() {
+        return { role: els[0].value, tin: els[1].value, idType: els[2].value, id: els[3].value, phone: els[4].value,
+          email: els[5].value, cons: els[6].checked, total: els[7].value, relax: els[8].checked };
+      }
+      function apply() {
+        var f = read(), r = check(f), started = !!String(f.tin).trim();
+        var shown = r.fix.concat(r.check), n = shown.length;
+        $('tinIdField').hidden = f.idType === 'none';
+        $('tinBuyerOnly').hidden = f.role === 'seller';
+        document.querySelector('[data-l="single"]').hidden = f.cons;
+        document.querySelector('[data-l="cons"]').hidden = !f.cons;
+        items.forEach(function (li) { li.hidden = !started || shown.indexOf(li.getAttribute('data-i')) === -1; });
+        part('start').hidden = started;
+        part('ok').hidden = !started || n > 0;
+        part('some').hidden = !started || n === 0;
+        part('foot').hidden = !started;
+        part('cons').hidden = !(f.cons && f.role !== 'seller');
+        out('fix').textContent = r.fix.length;
+        out('check').textContent = r.check.length;
+        out('clean').textContent = r.clean;
+        return started ? n : -1;
+      }
+      function send() {
+        var n = apply();
+        // The problem count only: never the TIN, the ID or anything else typed in.
+        if (n >= 0 && n !== lastSent && typeof gtag === 'function') { lastSent = n; gtag('event', 'tin_check', { problems: n }); }
+      }
+      els.forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', send);
+      });
+      $('tinForm').addEventListener('submit', function (ev) { ev.preventDefault(); send(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

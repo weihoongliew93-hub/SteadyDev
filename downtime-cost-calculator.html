@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Downtime Cost Calculator for Malaysian SMEs | SteadyDevs</title>
+  <meta name="description" content="Estimate what system downtime costs your business in RM: lost sales, idle staff and recovery, per incident and per year, with the formula shown. Free.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/downtime-cost-calculator.html">
+  <meta property="og:title" content="Downtime cost calculator">
+  <meta property="og:description" content="Estimate what system downtime costs your business in RM: lost sales, idle staff and recovery, per incident and per year, with the formula shown. Free.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/downtime-cost-calculator.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate the cost of downtime?", "acceptedAnswer": {"@type": "Answer", "text": "Add three things for each incident: the sales you lose while the system is down, the pay of staff who can't work, and any recovery cost such as overtime or an emergency fix. Multiply by the number of incidents a year. The calculator shows the formula with your numbers."}}, {"@type": "Question", "name": "What doesn't this calculator count?", "acceptedAnswer": {"@type": "Answer", "text": "Customers who don't come back, damage to your reputation, late deliveries, data that has to be re-entered or corrected, and the management time spent dealing with it. These are often larger than the direct cost, but they are too specific to each business to estimate here."}}, {"@type": "Question", "name": "Are all sales lost while the system is down?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Some customers wait or come back later. Lower the share of sales lost to reflect that. A shop with walk-in customers usually loses more than a supplier whose customers will reorder tomorrow."}}, {"@type": "Question", "name": "I don't know how often we go down. What should I enter?", "acceptedAnswer": {"@type": "Answer", "text": "Count the times in the last year that staff couldn't use the system, including slow restarts and the morning nobody could log in. If nobody tracks this, start keeping a simple log; it is the first number anyone fixing the system will ask for."}}, {"@type": "Question", "name": "How do I reduce downtime?", "acceptedAnswer": {"@type": "Answer", "text": "Fix the recurring problems behind it rather than restarting around them, test that backups actually restore, and know how long a recovery takes. Addressing warning signs on a schedule is cheaper than fixing a failure under pressure."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=12">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* Downtime cost calculator (design F): inputs on the left, the estimate and its formula beside them. */
+    .dtc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .dtc { grid-template-columns: 1fr; } }
+    .dtc [hidden] { display: none; }
+    .dtc + .f-note { margin-top: 24px; }
+    .dtc-result { display: grid; gap: 12px; }
+    .dtc-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .dtc-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .dtc-sub { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .dtc-formula { font-family: var(--mono); font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+    .dtc-formula p { margin: 0; }
+    .dtc-dim { color: var(--faint); font-size: 14px; }
+    .dtc-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; Legacy systems</p>
+        <h1 class="f-h1">Downtime cost calculator</h1>
+        <p class="f-lead">When the system your business runs on stops, sales stop and staff wait. Enter your own figures to estimate what each outage costs, and what that adds up to over a year.</p>
+        <div class="dtc">
+          <form class="f-form" id="dtcForm" novalidate>
+            <div class="f-field">
+              <label for="dtcMode">How do you know your sales?</label>
+              <select class="f-input" id="dtcMode">
+                <option value="day">Sales per day</option>
+                <option value="hour">Sales per hour</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="dtcRev">Sales, in RM</label>
+              <input class="f-input" id="dtcRev" type="number" inputmode="decimal" min="0" step="any" value="5000">
+              <span class="f-hint">Only the sales that depend on the system. The figures filled in are examples; replace them with yours.</span>
+            </div>
+            <div class="f-field" id="dtcHoursField">
+              <label for="dtcOpen">Trading hours a day</label>
+              <input class="f-input" id="dtcOpen" type="number" inputmode="decimal" min="1" max="24" step="any" value="10">
+            </div>
+            <div class="f-field">
+              <label for="dtcLost">Share of those sales lost during an outage, %</label>
+              <input class="f-input" id="dtcLost" type="number" inputmode="decimal" min="0" max="100" step="any" value="100">
+              <span class="f-hint">Lower it if customers wait or come back later.</span>
+            </div>
+            <div class="f-form__row">
+              <div class="f-field">
+                <label for="dtcStaff">Staff who can't work</label>
+                <input class="f-input" id="dtcStaff" type="number" inputmode="numeric" min="0" step="1" value="5">
+              </div>
+              <div class="f-field">
+                <label for="dtcPay">Cost per staff hour, RM</label>
+                <input class="f-input" id="dtcPay" type="number" inputmode="decimal" min="0" step="any" value="20">
+                <span class="f-hint">Pay plus employer contributions such as EPF and SOCSO, per hour.</span>
+              </div>
+            </div>
+            <div class="f-form__row">
+              <div class="f-field">
+                <label for="dtcDown">Hours down per incident</label>
+                <input class="f-input" id="dtcDown" type="number" inputmode="decimal" min="0" step="any" value="3">
+              </div>
+              <div class="f-field">
+                <label for="dtcCount">Incidents a year</label>
+                <input class="f-input" id="dtcCount" type="number" inputmode="numeric" min="0" step="1" value="4">
+              </div>
+            </div>
+            <div class="f-field">
+              <label for="dtcFix">Recovery cost per incident, RM (optional)</label>
+              <input class="f-input" id="dtcFix" type="number" inputmode="decimal" min="0" step="any" value="0">
+              <span class="f-hint">Overtime to catch up, an emergency call-out, data re-entry.</span>
+            </div>
+          </form>
+
+          <div class="f-card dtc-result" aria-live="polite">
+            <p class="dtc-label">Estimated cost</p>
+            <p class="dtc-head">RM <span data-o="year">0</span> a year</p>
+            <p class="dtc-sub">RM <span data-o="incident">0</span> per incident</p>
+            <div class="dtc-formula">
+              <p>Lost sales = RM <span data-o="rate">0</span>/hour &times; <span data-o="hours">0</span> h &times; <span data-o="lost">0</span>% = RM <span data-o="sales">0</span></p>
+              <p>Idle staff = <span data-o="staff">0</span> &times; RM <span data-o="pay">0</span>/hour &times; <span data-o="hours2">0</span> h = RM <span data-o="idle">0</span></p>
+              <p>Recovery = RM <span data-o="fix">0</span></p>
+              <p>Per year = RM <span data-o="incident2">0</span> &times; <span data-o="count">0</span> incidents</p>
+            </div>
+            <p data-c="perday" class="dtc-dim">Sales per hour = sales per day &divide; trading hours.</p>
+            <p class="dtc-dim">An estimate from your own figures, not a forecast. It leaves out customers who don't come back and the damage to your reputation, which are often larger.</p>
+            <p data-c="zero" class="dtc-dim" hidden>Enter your figures to see an estimate.</p>
+            <div class="dtc-cta">
+              <p>Outages that keep coming back usually have a cause that can be fixed. <a href="solutions.html">See how we stabilise legacy systems &rarr;</a></p>
+            </div>
+          </div>
+        </div>
+        <p class="f-note">How this counts: cost per incident = sales per hour &times; hours down &times; share lost + staff &times; cost per staff hour &times; hours down + recovery cost; cost per year = cost per incident &times; incidents a year. Every number is yours, so the result is only as good as what you enter. A rough estimate, not financial advice. Checked on 23 October 2026. For how small failures turn into large costs, read <a href="blog/price-ignoring-small-bug-production-system.html">the price of ignoring a small bug</a>.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">What this leaves out</h2></div>
+        <p>The direct cost is the part you can count. The rest rarely shows up in the accounts: the regular customer who goes elsewhere, orders delivered late, records re-entered by hand, and the hours a manager spends calming things down. Outages also tend to grow. A system that needs a restart once a quarter today can need one every week in two years, if the cause is left alone. <a href="blog/what-happens-delay-legacy-system-maintenance.html">What happens when you delay maintenance</a> walks through how that unfolds.</p>
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>How do I calculate the cost of downtime?</summary><div>Add three things for each incident: the sales you lose while the system is down, the pay of staff who can't work, and any recovery cost such as overtime or an emergency fix. Multiply by the number of incidents a year. The calculator shows the formula with your numbers.</div></details><details><summary>What doesn't this calculator count?</summary><div>Customers who don't come back, damage to your reputation, late deliveries, data that has to be re-entered or corrected, and the management time spent dealing with it. These are often larger than the direct cost, but they are too specific to each business to estimate here.</div></details><details><summary>Are all sales lost while the system is down?</summary><div>Not always. Some customers wait or come back later. Lower the share of sales lost to reflect that. A shop with walk-in customers usually loses more than a supplier whose customers will reorder tomorrow.</div></details><details><summary>I don't know how often we go down. What should I enter?</summary><div>Count the times in the last year that staff couldn't use the system, including slow restarts and the morning nobody could log in. If nobody tracks this, start keeping a simple log; it is the first number anyone fixing the system will ask for.</div></details><details><summary>How do I reduce downtime?</summary><div>Fix the recurring problems behind it rather than restarting around them, test that backups actually restore, and know how long a recovery takes. Addressing warning signs on a schedule is cheaper than fixing a failure under pressure.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Next step</span>
+          Find out where the risk sits with the <a href="legacy-system-risk-scorecard.html">legacy system risk scorecard</a>, or <a href="solutions.html">see how we stabilise legacy systems</a>, starting with a free written assessment.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var out = function (k) { return document.querySelector('.dtc [data-o="' + k + '"]'); };
+      var ids = ['dtcMode', 'dtcRev', 'dtcOpen', 'dtcLost', 'dtcStaff', 'dtcPay', 'dtcDown', 'dtcCount', 'dtcFix'];
+      var rm = function (x) { return x.toLocaleString('en-MY', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); };
+      var num = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 2 }); };
+      // Anything empty, negative or not a number counts as 0; caps keep the result finite and readable.
+      function val(id, max) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var perDay = $('dtcMode').value === 'day';
+        $('dtcHoursField').hidden = !perDay;
+        document.querySelector('.dtc [data-c="perday"]').hidden = !perDay;
+        var rev = val('dtcRev', 1e9), open = val('dtcOpen', 24);
+        var rate = perDay ? (open ? rev / open : 0) : rev;
+        var lost = val('dtcLost', 100), staff = Math.floor(val('dtcStaff', 1e5)), pay = val('dtcPay', 1e4);
+        var hours = val('dtcDown', 8760), count = Math.floor(val('dtcCount', 1e4)), fix = val('dtcFix', 1e9);
+        var sales = rate * hours * lost / 100, idle = staff * pay * hours;
+        var incident = sales + idle + fix, year = incident * count;
+        out('rate').textContent = num(rate); out('hours').textContent = num(hours); out('hours2').textContent = num(hours);
+        out('lost').textContent = num(lost); out('sales').textContent = rm(sales);
+        out('staff').textContent = num(staff); out('pay').textContent = num(pay); out('idle').textContent = rm(idle);
+        out('fix').textContent = rm(fix); out('incident').textContent = rm(incident); out('incident2').textContent = rm(incident);
+        out('count').textContent = num(count); out('year').textContent = rm(year);
+        document.querySelector('.dtc [data-c="zero"]').hidden = year > 0;
+      }
+      var sent = false;
+      ids.forEach(function (id) {
+        $(id).addEventListener('input', apply);
+        $(id).addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'downtime_cost'); }
+        });
+      });
+      $('dtcForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

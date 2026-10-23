@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Legacy System Risk Scorecard (10 Questions) | SteadyDevs</title>
+  <meta name="description" content="Ten questions about the system your business runs on. Get a rough risk score, your top three risks and one next step for each. Free, no sign-up.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/legacy-system-risk-scorecard.html">
+  <meta property="og:title" content="Legacy system risk scorecard">
+  <meta property="og:description" content="Ten questions about the system your business runs on. Get a rough risk score, your top three risks and one next step for each. Free, no sign-up.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/legacy-system-risk-scorecard.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this scorecard an audit of my system?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a rule of thumb built from the problems we see most often when we take over legacy systems. It can't see your code, your server or your backups, so a low score doesn't prove the system is safe and a high one doesn't mean it is about to fail. Use it to decide what to check first."}}, {"@type": "Question", "name": "Why does \"Not sure\" count against me?", "acceptedAnswer": {"@type": "Answer", "text": "Because not knowing is itself a finding. If nobody can say when a backup was last restored or which server version the system runs on, nobody is looking after it. \"Not sure\" scores half the weight of \"Yes\", and finding out is the first step."}}, {"@type": "Question", "name": "What should I fix first?", "acceptedAnswer": {"@type": "Answer", "text": "Usually access, code and data: make sure the business holds every login, a complete copy of the source code and a backup it has actually restored. Those are what you need on the day something goes wrong. The scorecard lists your top three in order of weight."}}, {"@type": "Question", "name": "The system works fine. Why should I worry?", "acceptedAnswer": {"@type": "Answer", "text": "Working fine and about to fail often look the same from outside. Systems send warning signs for months before they fail, and fixing them on your own schedule is far cheaper than fixing an outage."}}, {"@type": "Question", "name": "What does the free assessment involve?", "acceptedAnswer": {"@type": "Answer", "text": "You describe the system and the problem. We reply within 1 to 2 business days, hold a free 30-minute strategy session, and send a written assessment with a fixed quote. There is no charge and no obligation to proceed."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=12">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* Legacy system risk scorecard (design F): questions on the left, the score beside them; every risk and next step is in the HTML so it can be translated. */
+    .rsk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .rsk { grid-template-columns: 1fr; } }
+    .rsk [hidden] { display: none; }
+    .rsk + .f-note { margin-top: 24px; }
+    .rsk-result { display: grid; gap: 14px; }
+    .rsk-result > div { display: grid; gap: 10px; }
+    @media (min-width: 861px) { .rsk-result { position: sticky; top: 24px; } }
+    .rsk-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .rsk-dim { color: var(--faint); font-size: 14px; }
+    .rsk-score { font-size: 40px; font-weight: 600; line-height: 1; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .rsk-of { font-size: 18px; color: var(--faint); font-weight: 500; }
+    .rsk-meter { height: 8px; border-radius: 999px; background: var(--border-soft); overflow: hidden; }
+    .rsk-meter__bar { height: 100%; width: 0; border-radius: 999px; background: var(--ok); transition: width .2s ease; }
+    .rsk-result[data-level="moderate"] .rsk-meter__bar { background: var(--warn); }
+    .rsk-result[data-level="high"] .rsk-meter__bar, .rsk-result[data-level="critical"] .rsk-meter__bar { background: var(--crimson-text); }
+    .rsk-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .rsk-top { margin: 0; padding-left: 20px; display: grid; gap: 14px; }
+    .rsk-top li { padding-left: 4px; }
+    .rsk-top li p { margin: 4px 0 0; }
+    .rsk-risk { color: var(--text-strong); font-weight: 600; }
+    .rsk-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; Legacy systems</p>
+        <h1 class="f-h1">Legacy system risk scorecard</h1>
+        <p class="f-lead">Ten questions about the system your business runs on. Answer them honestly and see a rough risk score, your three biggest risks and one concrete next step for each. Most of these risks are cheap to close while the system still works.</p>
+        <div class="rsk">
+          <form class="f-form" id="rskForm" novalidate>
+            <div class="f-field">
+              <label for="rskDev">1. Has the developer who built the system left, or become hard to reach?</label>
+              <select class="f-input" id="rskDev" data-w="12">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="rskOne">2. Is there only one person who can make a change and put it live?</label>
+              <select class="f-input" id="rskOne" data-w="12">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+              <span class="f-hint">Count anyone, inside the business or out, who could do it safely next week without that person.</span>
+            </div>
+            <div class="f-field">
+              <label for="rskDocs">3. Is the code the only documentation, or is what's written down years out of date?</label>
+              <select class="f-input" id="rskDocs" data-w="10">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="rskBackup">4. Has nobody ever restored a backup to prove it works?</label>
+              <select class="f-input" id="rskBackup" data-w="14">
+                <option value="">Choose&hellip;</option><option value="yes">Yes, never restored</option><option value="no">No, we have restored one</option><option value="unsure">Not sure</option>
+              </select>
+              <span class="f-hint">Seeing that backup files exist doesn't count. A restore means bringing the system up from one on another machine.</span>
+            </div>
+            <div class="f-field">
+              <label for="rskCode">5. Is the source code held only by a developer or vendor, not in a repository the business controls?</label>
+              <select class="f-input" id="rskCode" data-w="12">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="rskEol">6. Does it run on an operating system or database past its end of support?</label>
+              <select class="f-input" id="rskEol" data-w="10">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+              <span class="f-hint">For example, Windows Server 2012 R2 (extended support ended October 2023) or SQL Server 2014 (July 2024).</span>
+            </div>
+            <div class="f-field">
+              <label for="rskMon">7. Would you only find out it's down when staff or a customer tells you?</label>
+              <select class="f-input" id="rskMon" data-w="8">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="rskTest">8. Do changes go straight onto the live system without being tried on a copy first?</label>
+              <select class="f-input" id="rskTest" data-w="8">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="rskServer">9. Does it all run on one server, with nothing ready to take over if it fails?</label>
+              <select class="f-input" id="rskServer" data-w="7">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="rskVendor">10. When something breaks, does it take days to get a response from whoever supports it?</label>
+              <select class="f-input" id="rskVendor" data-w="7">
+                <option value="">Choose&hellip;</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option>
+              </select>
+            </div>
+          </form>
+
+          <div class="f-card rsk-result" id="rskResult" aria-live="polite">
+            <p class="rsk-label">Your score</p>
+            <div data-r="start"><p class="rsk-dim">Answer all ten questions to see your score. <span data-o="done">0</span> of 10 answered.</p></div>
+            <div data-r="score" hidden>
+              <p class="rsk-score"><span data-o="score">0</span><span class="rsk-of"> / 100</span></p>
+              <div class="rsk-meter" aria-hidden="true"><div class="rsk-meter__bar"></div></div>
+              <p class="rsk-head" data-l="low">Low risk.</p>
+              <p data-l="low">The safety nets that usually fail first look to be in place. Check them again once a year: a restore that worked last year can fail this year.</p>
+              <p class="rsk-head" data-l="moderate">Moderate risk.</p>
+              <p data-l="moderate">A few gaps, each cheap to close now while the system still works. Start with the risks below.</p>
+              <p class="rsk-head" data-l="high">High risk.</p>
+              <p data-l="high">One bad day, such as a resignation or a failed disk, could stop the business with no tested way back. Close the three risks below first.</p>
+              <p class="rsk-head" data-l="critical">Critical risk.</p>
+              <p data-l="critical">Most of the safety nets are missing. This week, make sure the business holds every login, a copy of the code and a copy of the data, then work through the risks below.</p>
+            </div>
+            <div data-r="combo" hidden><p><strong>Watch this combination.</strong> Only one person who knows the system, with backups nobody has restored, means one absence or one hardware failure can take you down with no reliable way back.</p></div>
+            <div data-r="top" hidden>
+              <p class="rsk-label">Your top risks</p>
+              <ol class="rsk-top" id="rskTop"></ol>
+              <p class="rsk-dim" data-r="unsure">Where you answered &ldquo;Not sure&rdquo;, finding out is the first step. Not knowing is itself a finding.</p>
+            </div>
+            <div data-r="none" hidden><p>You answered &ldquo;No&rdquo; to every question, so no risk stands out. That is a good place to be. It's worth confirming each answer with whoever looks after the system, especially the backup restore.</p></div>
+            <div class="rsk-cta" data-r="cta" hidden>
+              <p>Want a second opinion? <a href="contact.html?package=Free%20Strategy%20Session">Get a free strategy session and written assessment &rarr;</a></p>
+              <p class="rsk-dim">Or see <a href="solutions.html">how we stabilise legacy systems</a>, from a RM399 health check upwards.</p>
+            </div>
+            <ol id="rskPool" hidden>
+              <li data-k="rskDev"><span class="rsk-risk">The developer who built it is gone or hard to reach.</span><p>While they are still reachable, pay for a handover session and get every login and the deployment steps written down. Ask yourself what would be at risk if they gave two weeks' notice today. <a href="blog/what-happens-when-developer-leaves-legacy-system.html">What happens when they leave &rarr;</a></p></li>
+              <li data-k="rskOne"><span class="rsk-risk">Only one person can change it.</span><p>Have a second developer put one small change live using only written steps. Wherever they get stuck is what to write down next. <a href="blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html">5 warning signs your system needs attention &rarr;</a></p></li>
+              <li data-k="rskDocs"><span class="rsk-risk">The knowledge lives in someone's head.</span><p>Ask whoever maintains the system for a handover document. Start with access and credentials, then how a change goes live and how to roll it back. <a href="blog/system-handover-documentation-checklist.html">The handover checklist &rarr;</a></p></li>
+              <li data-k="rskBackup"><span class="rsk-risk">Your backups are untested.</span><p>Restore a recent backup to a separate machine, bring the whole system up, open a recent record and time it. That time is your real recovery time. <a href="blog/backup-restore-testing-legacy-systems.html">How to run a restore test &rarr;</a></p></li>
+              <li data-k="rskCode"><span class="rsk-risk">The business doesn't hold its own source code.</span><p>Get a complete copy into a repository registered to the business, and have another developer confirm it builds and runs. Check that your contract assigns the code to you. <a href="blog/who-owns-your-source-code-legacy-system.html">Who owns your source code &rarr;</a></p></li>
+              <li data-k="rskEol"><span class="rsk-risk">It runs on unsupported software.</span><p>Find the exact Windows Server and SQL Server versions, and check them on Microsoft's lifecycle pages. If they are past end of support, plan the upgrade before an incident forces it. <a href="blog/windows-server-end-of-life-legacy-system-risk.html">Windows Server and SQL Server end of life &rarr;</a></p></li>
+              <li data-k="rskMon"><span class="rsk-risk">Nobody is warned when it fails.</span><p>Set up an alert for when the system or its backup job fails, sent to an address the business controls rather than one person's inbox. <a href="blog/working-fine-about-to-break-warning-signs.html">Warning signs of a system about to break &rarr;</a></p></li>
+              <li data-k="rskTest"><span class="rsk-risk">Changes go live untested.</span><p>Write down how a change goes live and how to roll it back, then try each change on a copy of the system before it reaches the live one. <a href="blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html">Living in fear of deployments &rarr;</a></p></li>
+              <li data-k="rskServer"><span class="rsk-risk">One server, no standby.</span><p>Decide how long the business can afford to be down. At the least, keep backups off that server and off the site, so one failure can't take the system and its copy together. <a href="blog/backup-restore-testing-legacy-systems.html">Two numbers every owner should know &rarr;</a></p></li>
+              <li data-k="rskVendor"><span class="rsk-risk">Support is slow to respond.</span><p>Make sure every login, from hosting and domain to database and code repository, is in the business's name and written down, so someone else could step in. <a href="blog/developer-left-emergency-recovery-guide.html">The emergency recovery guide &rarr;</a></p></li>
+            </ol>
+          </div>
+        </div>
+        <p class="f-note">A rule of thumb, not an audit. The questions, weights and next steps come from what we find when we take over legacy systems, written up in the <a href="blog/index.html">SteadyDevs blog</a>; the weights are our judgement, not an industry standard. Support dates checked on 23 October 2026 against Microsoft's lifecycle pages for <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2</a> and <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2014">SQL Server 2014</a>. Your answers stay in your browser.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">How the score works</h2></div>
+        <p>Each question has a weight, and the weights add up to 100. &ldquo;Yes&rdquo; scores the full weight, &ldquo;Not sure&rdquo; half of it and &ldquo;No&rdquo; nothing. Scores under 20 are low, 20 to 44 moderate, 45 to 69 high and 70 or more critical. The heaviest weights go to the risks that leave you with no way back on a bad day.</p>
+        <div class="f-table-wrap">
+          <table class="f-table">
+            <thead><tr><th>Risk</th><th>Weight</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>Backups never restored</td><td>14</td><td>An untested backup is a hope. Many businesses find theirs broken only when they need it.</td></tr>
+              <tr><td>Developer gone or hard to reach</td><td>12</td><td>A 20-minute fix becomes days while someone new learns the system.</td></tr>
+              <tr><td>Only one person can change it</td><td>12</td><td>You have a working person, not a working system.</td></tr>
+              <tr><td>Source code not in the business's hands</td><td>12</td><td>Without the code, bugs can't be fixed and nothing can change.</td></tr>
+              <tr><td>No usable documentation</td><td>10</td><td>A developer who has left can't explain what they meant.</td></tr>
+              <tr><td>Unsupported operating system or database</td><td>10</td><td>Security patches stop, while the software keeps running as if nothing changed.</td></tr>
+              <tr><td>No monitoring or alerts</td><td>8</td><td>Failures, including backup failures, go unnoticed for months.</td></tr>
+              <tr><td>Changes go live untested</td><td>8</td><td>Every change is a gamble on the live system.</td></tr>
+              <tr><td>One server, no standby</td><td>7</td><td>One hardware failure means days to rebuild, not an hour to switch over.</td></tr>
+              <tr><td>Slow support</td><td>7</td><td>Small problems wait, and grow while they wait.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>Is this scorecard an audit of my system?</summary><div>No. It is a rule of thumb built from the problems we see most often when we take over legacy systems. It can't see your code, your server or your backups, so a low score doesn't prove the system is safe and a high one doesn't mean it is about to fail. Use it to decide what to check first.</div></details><details><summary>Why does &ldquo;Not sure&rdquo; count against me?</summary><div>Because not knowing is itself a finding. If nobody can say when a backup was last restored or which server version the system runs on, nobody is looking after it. &ldquo;Not sure&rdquo; scores half the weight of &ldquo;Yes&rdquo;, and finding out is the first step.</div></details><details><summary>What should I fix first?</summary><div>Usually access, code and data: make sure the business holds every login, a complete copy of the source code and a backup it has actually restored. Those are what you need on the day something goes wrong. The scorecard lists your top three in order of weight.</div></details><details><summary>The system works fine. Why should I worry?</summary><div>Working fine and about to fail often look the same from outside. Systems send warning signs for months before they fail, and fixing them on your own schedule is far cheaper than fixing an outage. <a href="blog/working-fine-about-to-break-warning-signs.html">Read the warning signs</a>.</div></details><details><summary>What does the free assessment involve?</summary><div>You describe the system and the problem. We reply within 1 to 2 business days, hold a free 30-minute strategy session, and send a written assessment with a fixed quote. There is no charge and no obligation to proceed.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Next step</span>
+          Want someone to look at the system itself? The <a href="solutions.html">System Health Check</a> is a RM399 fixed-price review of your codebase and top risks, with a written assessment and prioritised recommendations. Or start with a <a href="contact.html?package=Free%20Strategy%20Session">free strategy session &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('rskForm'), card = document.getElementById('rskResult');
+      var qs = Array.prototype.slice.call(form.querySelectorAll('select[data-w]'));
+      var top = document.getElementById('rskTop'), pool = document.getElementById('rskPool');
+      var part = function (k) { return card.querySelector('[data-r="' + k + '"]'); };
+      var out = function (k) { return card.querySelector('[data-o="' + k + '"]'); };
+      var byKey = function (k) { return pool.querySelector('[data-k="' + k + '"]') || top.querySelector('[data-k="' + k + '"]'); };
+      var sent = '';
+      function level(score) { return score < 20 ? 'low' : score < 45 ? 'moderate' : score < 70 ? 'high' : 'critical'; }
+      function apply() {
+        var done = 0, score = 0, risks = [], val = {};
+        qs.forEach(function (s, i) {
+          var v = s.value, w = +s.getAttribute('data-w') || 0;
+          // "Not sure" scores half: not knowing whether the safety net exists is itself a finding.
+          var f = v === 'yes' ? 1 : v === 'unsure' ? 0.5 : 0;
+          val[s.id] = v;
+          if (v) done++;
+          if (f) { score += w * f; risks.push({ k: s.id, p: w * f, i: i, u: v === 'unsure' }); }
+        });
+        score = Math.round(score);
+        var complete = done === qs.length, lv = level(score);
+        out('done').textContent = done;
+        part('start').hidden = complete;
+        part('score').hidden = !complete;
+        part('cta').hidden = !complete;
+        // Move every risk back to the hidden pool, then bring out the top three by points, ties in question order.
+        Array.prototype.slice.call(top.children).forEach(function (li) { pool.appendChild(li); });
+        risks.sort(function (a, b) { return b.p - a.p || a.i - b.i; });
+        var shown = complete ? risks.slice(0, 3) : [];
+        shown.forEach(function (r) { top.appendChild(byKey(r.k)); });
+        part('top').hidden = !shown.length;
+        part('unsure').hidden = !shown.some(function (r) { return r.u; });
+        part('none').hidden = !complete || risks.length > 0;
+        part('combo').hidden = !complete || !((val.rskDev === 'yes' || val.rskOne === 'yes') && val.rskBackup === 'yes');
+        if (!complete) return;
+        out('score').textContent = score;
+        card.setAttribute('data-level', lv);
+        card.querySelector('.rsk-meter__bar').style.width = Math.max(0, Math.min(100, score)) + '%';
+        Array.prototype.slice.call(card.querySelectorAll('[data-l]')).forEach(function (p) { p.hidden = p.getAttribute('data-l') !== lv; });
+        if (sent !== lv && typeof gtag === 'function') { sent = lv; gtag('event', 'risk_scorecard', { level: lv }); }
+      }
+      qs.forEach(function (s) { s.addEventListener('change', apply); });
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

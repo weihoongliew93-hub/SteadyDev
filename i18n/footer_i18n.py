@@ -24,6 +24,12 @@ SHARED = {
     {'ms': '<a href="e-invoice-checker.html">Perlukah saya e-Invois?</a>', 'zh': '<a href="e-invoice-checker.html">我需要开电子发票吗？</a>'},
  '<a href="e-invoice-penalty-calculator.html">Penalty calculator</a>':
     {'ms': '<a href="e-invoice-penalty-calculator.html">Kalkulator penalti</a>', 'zh': '<a href="e-invoice-penalty-calculator.html">罚款计算器</a>'},
+ '<a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a>':
+    {'ms': '<a href="microsoft-end-of-support-lookup.html">Semakan tamat sokongan</a>', 'zh': '<a href="microsoft-end-of-support-lookup.html">支持终止日期查询</a>'},
+ '<a href="legacy-system-risk-scorecard.html">Risk scorecard</a>':
+    {'ms': '<a href="legacy-system-risk-scorecard.html">Kad skor risiko</a>', 'zh': '<a href="legacy-system-risk-scorecard.html">风险评分</a>'},
+ '<a href="free-tools.html">All free tools →</a>':
+    {'ms': '<a href="free-tools.html">Semua alat percuma →</a>', 'zh': '<a href="free-tools.html">全部免费工具 →</a>'},
  '<a href="msic-code-lookup.html">MSIC code lookup</a>':
     {'ms': '<a href="msic-code-lookup.html">Carian kod MSIC</a>', 'zh': '<a href="msic-code-lookup.html">MSIC 代码查询</a>'},
 }

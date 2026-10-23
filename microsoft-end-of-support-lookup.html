@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Windows Server &amp; SQL Server End of Support Lookup | SteadyDevs</title>
+  <meta name="description" content="When does Microsoft stop patching your Windows Server, SQL Server or .NET version? Microsoft's dates, months left and paid ESU options. Free.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/microsoft-end-of-support-lookup.html">
+  <meta property="og:title" content="Microsoft end-of-support lookup: Windows Server, SQL Server, .NET">
+  <meta property="og:description" content="When does Microsoft stop patching your Windows Server, SQL Server or .NET version? Microsoft's dates, months left and paid ESU options. Free.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/microsoft-end-of-support-lookup.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens when Windows Server reaches end of support?", "acceptedAnswer": {"@type": "Answer", "text": "It keeps running, but Microsoft stops sending security updates for it. Any security hole found after that date stays open, and Microsoft no longer fixes other bugs either. The only way to keep getting Microsoft's security fixes is paid Extended Security Updates, and only for versions where Microsoft offers them."}}, {"@type": "Question", "name": "Can I still run an unsupported server?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Nothing switches off on the end date. But you are then running it without security fixes. If it holds personal data, the PDPA's Security Principle expects you to take practical steps to protect that data, and cyber insurers and larger customers may ask whether your software is still supported. If you cannot move yet, take the server off the internet, restrict who can reach it and keep tested offline backups while you plan the move."}}, {"@type": "Question", "name": "What is ESU?", "acceptedAnswer": {"@type": "Answer", "text": "Extended Security Updates are a paid Microsoft programme that continues security fixes for some products after extended support ends, usually for up to three years, paid for yearly. They include no new features and no other fixes. For Windows Server 2012 and 2012 R2 they ended on 13 October 2026. For SQL Server 2014 they run until 12 July 2027, and for SQL Server 2016 until 17 July 2029. Some versions get them at no extra charge when they run in Microsoft Azure."}}, {"@type": "Question", "name": "Is .NET Framework 4.8 end of life?", "acceptedAnswer": {"@type": "Answer", "text": "No. .NET Framework 4.8 and 4.8.1 have no end date of their own: they are part of Windows and are supported for as long as the Windows version they run on. On Windows Server 2022 that is until 14 October 2031; on Windows Server 2016, until 12 January 2027. Microsoft does give 4.6.2 its own end date, 12 January 2027, and versions 4.5.2 to 4.6.1 ended on 26 April 2022."}}, {"@type": "Question", "name": "Is .NET 8 still supported?", "acceptedAnswer": {"@type": "Answer", "text": "Until 10 November 2026, the same day as .NET 9. .NET 10, released on 11 November 2025, is the current Long Term Support release and is supported until 14 November 2028."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=12">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* Microsoft end-of-support lookup (design F): pick a version on the left, its dates beside it.
+       Every date is in the tables below, so search engines read them; the script only reads them back. */
+    .eol { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .eol { grid-template-columns: 1fr; } }
+    .eol [hidden], .eol-tables [hidden] { display: none; }
+    .eol + .f-note { margin-top: 24px; }
+    .eol-result { display: grid; gap: 12px; }
+    .eol-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .eol-head { font-size: 22px; font-weight: 600; color: var(--text-strong); line-height: 1.3; }
+    .eol-dim { color: var(--faint); font-size: 14px; }
+    .eol-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .eol-badge--warn { color: var(--warn); border-color: currentColor; }
+    .eol-left { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .eol-left--gone { color: var(--crimson-text); }
+    .eol-more { display: grid; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .eol-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .eol-tables h3 { margin-top: 40px; }
+    .eol-tables .f-table-wrap { margin: 16px 0 10px; }
+    .eol-table td { font-variant-numeric: tabular-nums; }
+    .eol-table td:first-child { width: 34%; }
+    .eol-pick { font: inherit; text-align: left; padding: 0; border: 0; background: none; color: var(--text-strong); cursor: pointer; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+    .eol-pick:hover, .eol-pick:focus-visible { text-decoration-color: var(--crimson-text); }
+    .eol-table tr.is-on td { background: var(--surface-inset); }
+    .eol-table .eol-past { color: var(--crimson-text); }
+    .eol-none { color: var(--faint); }
+    .eol-src { font-size: 14px; color: var(--faint); }
+    .eol-src a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; Microsoft end of support</p>
+        <h1 class="f-h1">Microsoft end-of-support lookup</h1>
+        <p class="f-lead">Pick your Windows Server, SQL Server, .NET or Windows version and see when Microsoft stops sending security fixes for it, how long you have left, and whether paid Extended Security Updates can buy you time.</p>
+        <div class="eol" id="eolTool">
+          <form class="f-form" id="eolForm" novalidate>
+            <div class="f-field">
+              <label for="eolProduct">Product</label>
+              <select class="f-input" id="eolProduct">
+                <option value="">Choose&hellip;</option>
+                <option value="ws">Windows Server</option>
+                <option value="sql">SQL Server</option>
+                <option value="fx">.NET Framework</option>
+                <option value="net">.NET and .NET Core</option>
+                <option value="win">Windows 10 and 11 (Home and Pro)</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="eolVersion">Version</label>
+              <select class="f-input" id="eolVersion" disabled>
+                <option value="">Choose a version&hellip;</option>
+              </select>
+              <span class="f-hint">Not sure? On Windows, run <code class="f-code">winver</code>. In SQL Server, run <code class="f-code">SELECT @@VERSION</code>. For .NET, run <code class="f-code">dotnet --list-runtimes</code>.</span>
+            </div>
+            <p class="eol-dim">You can also pick any version from the tables further down. &ldquo;Today&rdquo; is your device's date.</p>
+          </form>
+
+          <div class="f-card eol-result" id="eolResult" aria-live="polite">
+            <p class="eol-label">Your result</p>
+            <div data-r="start"><p class="eol-dim">Choose a product and a version to see its dates.</p></div>
+            <p class="eol-head" data-r="name" hidden><span data-o="name"></span></p>
+            <div class="eol-badges" data-r="badges" hidden>
+              <span class="f-badge f-badge--ok" data-b="main">Mainstream support</span>
+              <span class="f-badge eol-badge--warn" data-b="ext">Extended support: security fixes only</span>
+              <span class="f-badge f-badge--ok" data-b="ok">Supported</span>
+              <span class="f-badge f-badge--crimson" data-b="ended">Out of support</span>
+              <span class="f-badge" data-b="os">Follows Windows</span>
+              <span class="f-badge eol-badge--warn" data-b="esu">Paid ESU still running</span>
+            </div>
+            <dl class="f-dl" data-r="dates" hidden>
+              <div data-d="main"><dt>Mainstream support ends</dt><dd data-o="main"></dd></div>
+              <div data-d="ext"><dt>Security updates end (extended support)</dt><dd data-o="ext"></dd></div>
+              <div data-d="end"><dt>Support ends</dt><dd data-o="end"></dd></div>
+              <div data-d="esu"><dt>Paid Extended Security Updates until</dt><dd data-o="esu"></dd></div>
+            </dl>
+            <p class="eol-left" data-r="left" hidden><span data-o="left"></span> <span data-u="1">month</span><span data-u="n">months</span> of security updates left.</p>
+            <p class="eol-left" data-r="left0" hidden>Less than a month of security updates left.</p>
+            <p class="eol-left eol-left--gone" data-r="since" hidden>No security updates for <span data-o="since"></span> <span data-u="1">month</span><span data-u="n">months</span>.</p>
+            <p class="eol-left eol-left--gone" data-r="since0" hidden>Security updates stopped less than a month ago.</p>
+            <div class="eol-more">
+              <p data-r="m-main" hidden>Microsoft still fixes bugs and security holes in this version. Keep installing its updates and you are covered.</p>
+              <p data-r="m-ext" hidden>Microsoft now sends security fixes only: no new features and no other bug fixes. It is safe while you keep patching, but start planning the move before the date above.</p>
+              <p data-r="m-ok" hidden>Microsoft still sends security fixes for this version, as long as you install them.</p>
+              <p data-r="soon" hidden><strong>Under a year to go.</strong> Testing an application on a newer version and moving it usually takes months, not days. Start now.</p>
+              <p data-r="m-ended" hidden>Microsoft no longer fixes security holes found in it. It keeps running, which is why the risk is easy to miss. If the system holds customer data, expect your auditor, insurer or customers to ask about it.</p>
+              <p data-r="esu-on" hidden>Microsoft still sells Extended Security Updates for it until <span data-o="esuDate"></span>: security fixes only, paid for a year at a time. A way to buy time to move, not a place to stay.</p>
+              <p data-r="esu-off" hidden>The paid Extended Security Updates have ended too, so there is no way left to get Microsoft's security fixes for it.</p>
+              <p data-r="esu-none" hidden>Microsoft's lifecycle page lists no paid Extended Security Updates for this version.</p>
+              <p data-r="n-os" hidden>.NET Framework 4.5.2 and later is part of Windows. It gets security fixes for as long as the Windows version it is installed on is supported. Look up that Windows version instead: on Windows Server 2016 that is until 12 January 2027, on Windows Server 2022 until 14 October 2031. Later 4.x versions install in place over earlier ones, and Microsoft expects applications built for an earlier 4.x to keep running on them.</p>
+              <p data-r="n-fx35" hidden>That date applies on Windows 10 version 1809, Windows Server 2019 and later, where 3.5 SP1 is a product of its own. On older Windows it is part of the operating system and ends when that Windows version does.</p>
+              <p data-r="n-fx462" hidden>Microsoft's .NET Framework page gives 4.6.2 its own end date. 4.8 and 4.8.1 install in place over it, and Microsoft expects applications built for 4.6.2 to keep running on them without being rebuilt.</p>
+              <p data-r="n-net" hidden>.NET is only supported on its latest patch, so keep the runtime updated. Long Term Support (LTS) releases get three years, Standard Term Support (STS) releases two.</p>
+              <p data-r="n-win" hidden>These are the dates for Home and Pro editions. Move to a newer Windows 11 version before the date to stay supported. Enterprise and Education editions have their own dates.</p>
+              <p data-r="n-w10" hidden>Organisations can buy Windows 10 Extended Security Updates a year at a time, for up to three years; Microsoft quoted US$61 per device for year one, doubling each year. Version 22H2 is required.</p>
+              <p data-r="cta" hidden><a href="solutions.html">Get help moving a legacy .NET or SQL Server system &rarr;</a></p>
+            </div>
+          </div>
+        </div>
+        <p class="f-note">Dates are from Microsoft: its <a href="https://learn.microsoft.com/en-us/lifecycle/products/">lifecycle pages</a> for each product (linked under each table below) and the <a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">.NET and .NET Core support policy</a> (last updated 13 October 2026). Microsoft gives them in US Pacific Time, so in Malaysia a last day ends on the following afternoon. Checked on 23 October 2026. Microsoft can change these dates, so confirm yours on its page before you plan around it. Not advice.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">What the dates mean</h2></div>
+        <div class="eol-cards">
+          <div class="f-card">
+            <h3 class="f-card__title">Mainstream support</h3>
+            <p class="f-card__text">At least the first five years. Microsoft sends security updates and other fixes, and still accepts requests for non-security fixes.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Extended support</h3>
+            <p class="f-card__text">Security updates only, at no extra cost. When it ends, so do the security fixes. For Windows Server and SQL Server this is the date that matters.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Paid Extended Security Updates</h3>
+            <p class="f-card__text">For some versions Microsoft sells up to three more years of security fixes, paid for yearly. Some versions get them at no extra charge when they run in Microsoft Azure.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">One date: .NET and Windows 11</h3>
+            <p class="f-card__text">These have a single end date per version. .NET LTS releases get three years and STS releases two; Windows 11 is supported version by version.</p>
+          </div>
+        </div>
+
+        <div class="f-head" style="margin-top: 56px; margin-bottom: 0"><h2 class="f-h2">Every version and its dates</h2></div>
+        <p class="eol-src">Click a version to see it in the lookup. Dates that have already passed, by your device's date, are shown in red.</p>
+        <div class="eol-tables">
+          <h3 class="f-h3">Windows Server</h3>
+          <div class="f-table-wrap">
+            <table class="f-table eol-table">
+              <thead><tr><th scope="col">Version</th><th scope="col">Mainstream support ends</th><th scope="col">Extended support ends</th><th scope="col">Paid ESU until</th></tr></thead>
+              <tbody>
+<tr data-p="ws" data-id="ws-2025" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2025</button></td><td data-c="main"><time datetime="2029-11-13">13 November 2029</time></td><td data-c="ext"><time datetime="2034-11-14">14 November 2034</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="ws" data-id="ws-2022" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2022</button></td><td data-c="main"><time datetime="2026-10-13">13 October 2026</time></td><td data-c="ext"><time datetime="2031-10-14">14 October 2031</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="ws" data-id="ws-2019" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2019</button></td><td data-c="main"><time datetime="2024-01-09">9 January 2024</time></td><td data-c="ext"><time datetime="2029-01-09">9 January 2029</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="ws" data-id="ws-2016" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2016</button></td><td data-c="main"><time datetime="2022-01-11">11 January 2022</time></td><td data-c="ext"><time datetime="2027-01-12">12 January 2027</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="ws" data-id="ws-2012r2" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2012 R2</button></td><td data-c="main"><time datetime="2018-10-09">9 October 2018</time></td><td data-c="ext"><time datetime="2023-10-10">10 October 2023</time></td><td data-c="esu"><time datetime="2026-10-13">13 October 2026</time></td></tr>
+<tr data-p="ws" data-id="ws-2012" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2012</button></td><td data-c="main"><time datetime="2018-10-09">9 October 2018</time></td><td data-c="ext"><time datetime="2023-10-10">10 October 2023</time></td><td data-c="esu"><time datetime="2026-10-13">13 October 2026</time></td></tr>
+<tr data-p="ws" data-id="ws-2008r2" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2008 R2</button></td><td data-c="main"><time datetime="2015-01-13">13 January 2015</time></td><td data-c="ext"><time datetime="2020-01-14">14 January 2020</time></td><td data-c="esu"><time datetime="2023-01-10">10 January 2023</time> (<time datetime="2024-01-09">9 January 2024</time> on Azure only)</td></tr>
+<tr data-p="ws" data-id="ws-2008" data-t="fixed"><td><button type="button" class="eol-pick">Windows Server 2008</button></td><td data-c="main"><time datetime="2015-01-13">13 January 2015</time></td><td data-c="ext"><time datetime="2020-01-14">14 January 2020</time></td><td data-c="esu"><time datetime="2023-01-10">10 January 2023</time> (<time datetime="2024-01-09">9 January 2024</time> on Azure only)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eol-src">Source: Microsoft lifecycle pages for Windows Server <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025">2025</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022">2022</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019">2019</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016">2016</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012-r2">2012 R2</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012">2012</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008-r2">2008 R2</a> and <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008">2008</a>.</p>
+
+          <h3 class="f-h3">SQL Server</h3>
+          <div class="f-table-wrap">
+            <table class="f-table eol-table">
+              <thead><tr><th scope="col">Version</th><th scope="col">Mainstream support ends</th><th scope="col">Extended support ends</th><th scope="col">Paid ESU until</th></tr></thead>
+              <tbody>
+<tr data-p="sql" data-id="sql-2025" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2025</button></td><td data-c="main"><time datetime="2031-01-06">6 January 2031</time></td><td data-c="ext"><time datetime="2036-01-06">6 January 2036</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="sql" data-id="sql-2022" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2022</button></td><td data-c="main"><time datetime="2028-01-11">11 January 2028</time></td><td data-c="ext"><time datetime="2033-01-11">11 January 2033</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="sql" data-id="sql-2019" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2019</button></td><td data-c="main"><time datetime="2025-02-28">28 February 2025</time></td><td data-c="ext"><time datetime="2030-01-08">8 January 2030</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="sql" data-id="sql-2017" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2017</button></td><td data-c="main"><time datetime="2022-10-11">11 October 2022</time></td><td data-c="ext"><time datetime="2027-10-12">12 October 2027</time></td><td data-c="esu" data-none><span class="eol-none">Not offered</span></td></tr>
+<tr data-p="sql" data-id="sql-2016" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2016</button></td><td data-c="main"><time datetime="2021-07-13">13 July 2021</time></td><td data-c="ext"><time datetime="2026-07-14">14 July 2026</time></td><td data-c="esu"><time datetime="2029-07-17">17 July 2029</time></td></tr>
+<tr data-p="sql" data-id="sql-2014" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2014</button></td><td data-c="main"><time datetime="2019-07-09">9 July 2019</time></td><td data-c="ext"><time datetime="2024-07-09">9 July 2024</time></td><td data-c="esu"><time datetime="2027-07-12">12 July 2027</time></td></tr>
+<tr data-p="sql" data-id="sql-2012" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2012</button></td><td data-c="main"><time datetime="2017-07-11">11 July 2017</time></td><td data-c="ext"><time datetime="2022-07-12">12 July 2022</time></td><td data-c="esu"><time datetime="2025-07-08">8 July 2025</time></td></tr>
+<tr data-p="sql" data-id="sql-2008r2" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2008 R2</button></td><td data-c="main"><time datetime="2014-07-08">8 July 2014</time></td><td data-c="ext"><time datetime="2019-07-09">9 July 2019</time></td><td data-c="esu"><time datetime="2022-07-12">12 July 2022</time> (<time datetime="2023-07-11">11 July 2023</time> on Azure only)</td></tr>
+<tr data-p="sql" data-id="sql-2008" data-t="fixed"><td><button type="button" class="eol-pick">SQL Server 2008</button></td><td data-c="main"><time datetime="2014-07-08">8 July 2014</time></td><td data-c="ext"><time datetime="2019-07-09">9 July 2019</time></td><td data-c="esu"><time datetime="2022-07-12">12 July 2022</time> (<time datetime="2023-07-11">11 July 2023</time> on Azure only)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eol-src">Source: Microsoft lifecycle pages for SQL Server <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2025">2025</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2022">2022</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2019">2019</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2017">2017</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016">2016</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2014">2014</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-sql-server-2012">2012</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-sql-server-2008-r2">2008 R2</a> and <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-sql-server-2008">2008</a>. Every edition of a version, Express included, has the same support dates; paid ESU is not offered for every edition.</p>
+
+          <h3 class="f-h3">.NET Framework</h3>
+          <div class="f-table-wrap">
+            <table class="f-table eol-table">
+              <thead><tr><th scope="col">Version</th><th scope="col">End of support</th></tr></thead>
+              <tbody>
+<tr data-p="fx" data-id="fx-4.8.1" data-t="os"><td><button type="button" class="eol-pick">.NET Framework 4.8.1</button></td><td data-c="end" data-none>Follows the Windows version it runs on</td></tr>
+<tr data-p="fx" data-id="fx-4.8" data-t="os"><td><button type="button" class="eol-pick">.NET Framework 4.8</button></td><td data-c="end" data-none>Follows the Windows version it runs on</td></tr>
+<tr data-p="fx" data-id="fx-4.7.2" data-t="os"><td><button type="button" class="eol-pick">.NET Framework 4.7.2</button></td><td data-c="end" data-none>Follows the Windows version it runs on</td></tr>
+<tr data-p="fx" data-id="fx-4.7.1" data-t="os"><td><button type="button" class="eol-pick">.NET Framework 4.7.1</button></td><td data-c="end" data-none>Follows the Windows version it runs on</td></tr>
+<tr data-p="fx" data-id="fx-4.7" data-t="os"><td><button type="button" class="eol-pick">.NET Framework 4.7</button></td><td data-c="end" data-none>Follows the Windows version it runs on</td></tr>
+<tr data-p="fx" data-id="fx-4.6.2" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.6.2</button></td><td data-c="end"><time datetime="2027-01-12">12 January 2027</time></td></tr>
+<tr data-p="fx" data-id="fx-4.6.1" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.6.1</button></td><td data-c="end"><time datetime="2022-04-26">26 April 2022</time></td></tr>
+<tr data-p="fx" data-id="fx-4.6" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.6</button></td><td data-c="end"><time datetime="2022-04-26">26 April 2022</time></td></tr>
+<tr data-p="fx" data-id="fx-4.5.2" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.5.2</button></td><td data-c="end"><time datetime="2022-04-26">26 April 2022</time></td></tr>
+<tr data-p="fx" data-id="fx-4.5.1" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.5.1</button></td><td data-c="end"><time datetime="2016-01-12">12 January 2016</time></td></tr>
+<tr data-p="fx" data-id="fx-4.5" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.5</button></td><td data-c="end"><time datetime="2016-01-12">12 January 2016</time></td></tr>
+<tr data-p="fx" data-id="fx-4.0" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 4.0</button></td><td data-c="end"><time datetime="2016-01-12">12 January 2016</time></td></tr>
+<tr data-p="fx" data-id="fx-3.5sp1" data-t="fx35"><td><button type="button" class="eol-pick">.NET Framework 3.5 SP1</button></td><td data-c="end"><time datetime="2029-01-09">9 January 2029</time> on Windows 10 version 1809, Windows Server 2019 and later. On older Windows, follows that Windows version.</td></tr>
+<tr data-p="fx" data-id="fx-3.0" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 3.0</button></td><td data-c="end"><time datetime="2011-07-12">12 July 2011</time></td></tr>
+<tr data-p="fx" data-id="fx-2.0" data-t="one"><td><button type="button" class="eol-pick">.NET Framework 2.0</button></td><td data-c="end"><time datetime="2011-07-12">12 July 2011</time></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eol-src">Source: Microsoft's <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-framework">.NET Framework lifecycle page</a> and <a href="https://learn.microsoft.com/en-us/lifecycle/faq/dotnet-framework">.NET Framework lifecycle FAQ</a>.</p>
+
+          <h3 class="f-h3">.NET and .NET Core</h3>
+          <div class="f-table-wrap">
+            <table class="f-table eol-table">
+              <thead><tr><th scope="col">Version</th><th scope="col">Release type</th><th scope="col">End of support</th></tr></thead>
+              <tbody>
+<tr data-p="net" data-id="net-10" data-t="one"><td><button type="button" class="eol-pick">.NET 10</button></td><td>LTS</td><td data-c="end"><time datetime="2028-11-14">14 November 2028</time></td></tr>
+<tr data-p="net" data-id="net-9" data-t="one"><td><button type="button" class="eol-pick">.NET 9</button></td><td>STS</td><td data-c="end"><time datetime="2026-11-10">10 November 2026</time></td></tr>
+<tr data-p="net" data-id="net-8" data-t="one"><td><button type="button" class="eol-pick">.NET 8</button></td><td>LTS</td><td data-c="end"><time datetime="2026-11-10">10 November 2026</time></td></tr>
+<tr data-p="net" data-id="net-7" data-t="one"><td><button type="button" class="eol-pick">.NET 7</button></td><td>&ndash;</td><td data-c="end"><time datetime="2024-05-14">14 May 2024</time></td></tr>
+<tr data-p="net" data-id="net-6" data-t="one"><td><button type="button" class="eol-pick">.NET 6</button></td><td>&ndash;</td><td data-c="end"><time datetime="2024-11-12">12 November 2024</time></td></tr>
+<tr data-p="net" data-id="net-5" data-t="one"><td><button type="button" class="eol-pick">.NET 5</button></td><td>&ndash;</td><td data-c="end"><time datetime="2022-05-10">10 May 2022</time></td></tr>
+<tr data-p="net" data-id="net-core-3.1" data-t="one"><td><button type="button" class="eol-pick">.NET Core 3.1</button></td><td>&ndash;</td><td data-c="end"><time datetime="2022-12-13">13 December 2022</time></td></tr>
+<tr data-p="net" data-id="net-core-3.0" data-t="one"><td><button type="button" class="eol-pick">.NET Core 3.0</button></td><td>&ndash;</td><td data-c="end"><time datetime="2020-03-03">3 March 2020</time></td></tr>
+<tr data-p="net" data-id="net-core-2.2" data-t="one"><td><button type="button" class="eol-pick">.NET Core 2.2</button></td><td>&ndash;</td><td data-c="end"><time datetime="2019-12-23">23 December 2019</time></td></tr>
+<tr data-p="net" data-id="net-core-2.1" data-t="one"><td><button type="button" class="eol-pick">.NET Core 2.1</button></td><td>&ndash;</td><td data-c="end"><time datetime="2021-08-21">21 August 2021</time></td></tr>
+<tr data-p="net" data-id="net-core-2.0" data-t="one"><td><button type="button" class="eol-pick">.NET Core 2.0</button></td><td>&ndash;</td><td data-c="end"><time datetime="2018-10-01">1 October 2018</time></td></tr>
+<tr data-p="net" data-id="net-core-1.1" data-t="one"><td><button type="button" class="eol-pick">.NET Core 1.1</button></td><td>&ndash;</td><td data-c="end"><time datetime="2019-06-27">27 June 2019</time></td></tr>
+<tr data-p="net" data-id="net-core-1.0" data-t="one"><td><button type="button" class="eol-pick">.NET Core 1.0</button></td><td>&ndash;</td><td data-c="end"><time datetime="2019-06-27">27 June 2019</time></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eol-src">Source: Microsoft's <a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">.NET and .NET Core support policy</a>, last updated 13 October 2026. .NET 11 is not out yet.</p>
+
+          <h3 class="f-h3">Windows 10 and 11, Home and Pro</h3>
+          <div class="f-table-wrap">
+            <table class="f-table eol-table">
+              <thead><tr><th scope="col">Version</th><th scope="col">End of support</th></tr></thead>
+              <tbody>
+<tr data-p="win" data-id="win-11-26h2" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 26H2</button></td><td data-c="end"><time datetime="2028-10-09">9 October 2028</time></td></tr>
+<tr data-p="win" data-id="win-11-26h1" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 26H1</button></td><td data-c="end"><time datetime="2028-03-14">14 March 2028</time></td></tr>
+<tr data-p="win" data-id="win-11-25h2" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 25H2</button></td><td data-c="end"><time datetime="2027-10-12">12 October 2027</time></td></tr>
+<tr data-p="win" data-id="win-11-24h2" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 24H2</button></td><td data-c="end"><time datetime="2026-10-13">13 October 2026</time></td></tr>
+<tr data-p="win" data-id="win-11-23h2" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 23H2</button></td><td data-c="end"><time datetime="2025-11-11">11 November 2025</time></td></tr>
+<tr data-p="win" data-id="win-11-22h2" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 22H2</button></td><td data-c="end"><time datetime="2024-10-08">8 October 2024</time></td></tr>
+<tr data-p="win" data-id="win-11-21h2" data-t="one"><td><button type="button" class="eol-pick">Windows 11 version 21H2</button></td><td data-c="end"><time datetime="2023-10-10">10 October 2023</time></td></tr>
+<tr data-p="win" data-id="win-10" data-t="w10"><td><button type="button" class="eol-pick">Windows 10 (version 22H2, the last)</button></td><td data-c="end"><time datetime="2025-10-14">14 October 2025</time></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eol-src">Source: Microsoft lifecycle pages for <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-11-home-and-pro">Windows 11 Home and Pro</a> and <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro">Windows 10 Home and Pro</a>, and the <a href="https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates">Windows 10 Extended Security Updates programme</a>.</p>
+        </div>
+
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>What happens when Windows Server reaches end of support?</summary><div>It keeps running, but Microsoft stops sending security updates for it. Any security hole found after that date stays open, and Microsoft no longer fixes other bugs either. The only way to keep getting Microsoft's security fixes is paid Extended Security Updates, and only for versions where Microsoft offers them.</div></details><details><summary>Can I still run an unsupported server?</summary><div>Yes. Nothing switches off on the end date. But you are then running it without security fixes. If it holds personal data, the PDPA's Security Principle expects you to take practical steps to protect that data, and cyber insurers and larger customers may ask whether your software is still supported. If you cannot move yet, take the server off the internet, restrict who can reach it and keep tested offline backups while you plan the move.</div></details><details><summary>What is ESU?</summary><div>Extended Security Updates are a paid Microsoft programme that continues security fixes for some products after extended support ends, usually for up to three years, paid for yearly. They include no new features and no other fixes. For Windows Server 2012 and 2012 R2 they ended on 13 October 2026. For SQL Server 2014 they run until 12 July 2027, and for SQL Server 2016 until 17 July 2029. Some versions get them at no extra charge when they run in Microsoft Azure.</div></details><details><summary>Is .NET Framework 4.8 end of life?</summary><div>No. .NET Framework 4.8 and 4.8.1 have no end date of their own: they are part of Windows and are supported for as long as the Windows version they run on. On Windows Server 2022 that is until 14 October 2031; on Windows Server 2016, until 12 January 2027. Microsoft does give 4.6.2 its own end date, 12 January 2027, and versions 4.5.2 to 4.6.1 ended on 26 April 2022.</div></details><details><summary>Is .NET 8 still supported?</summary><div>Until 10 November 2026, the same day as .NET 9. .NET 10, released on 11 November 2025, is the current Long Term Support release and is supported until 14 November 2028.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Stuck on an old version?</span>
+          SteadyDevs upgrades and stabilises legacy .NET and SQL Server systems, usually without rewriting them. <a href="solutions.html">See how we work &rarr;</a> Or read why an unsupported server is a business risk, not just an IT one: <a href="blog/windows-server-end-of-life-legacy-system-risk.html">Windows Server and SQL Server end of life &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var prod = $('eolProduct'), ver = $('eolVersion'), card = $('eolResult');
+      var rows = Array.prototype.slice.call(document.querySelectorAll('.eol-table tr[data-id]'));
+      var byId = {};
+      rows.forEach(function (r) { byId[r.getAttribute('data-id')] = r; });
+
+      // Dates are read as local calendar days, so "today" is the visitor's own date.
+      function parse(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+        return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+      }
+      var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      // Whole calendar months from a to b (a <= b); never negative.
+      function months(a, b) {
+        var n = (b.getFullYear() - a.getFullYear()) * 12 + b.getMonth() - a.getMonth();
+        if (b.getDate() < a.getDate()) n--;
+        return n > 0 ? n : 0;
+      }
+      function cell(row, c) {
+        var td = row.querySelector('[data-c="' + c + '"]');
+        if (!td || td.hasAttribute('data-none')) return null;
+        var t = td.querySelector('time');
+        var when = t && parse(t.getAttribute('datetime'));
+        return when ? { td: td, time: t, date: when } : null;
+      }
+      // Mark every date in the tables that is already behind us.
+      Array.prototype.slice.call(document.querySelectorAll('.eol-table time')).forEach(function (t) {
+        var when = parse(t.getAttribute('datetime'));
+        if (when && when < today) t.className = 'eol-past';
+      });
+
+      function fillVersions(p) {
+        while (ver.options.length > 1) ver.remove(1);
+        rows.forEach(function (r) {
+          if (r.getAttribute('data-p') !== p) return;
+          var o = document.createElement('option');
+          o.value = r.getAttribute('data-id');
+          o.textContent = r.querySelector('.eol-pick').textContent;
+          ver.appendChild(o);
+        });
+        ver.disabled = !p;
+        ver.value = '';
+      }
+
+      function put(key, node) {
+        var el = card.querySelector('[data-o="' + key + '"]');
+        while (el.firstChild) el.removeChild(el.firstChild);
+        if (node) el.appendChild(node.cloneNode(true));
+      }
+      function unit(block, n) {
+        block.querySelector('[data-u="1"]').hidden = n !== 1;
+        block.querySelector('[data-u="n"]').hidden = n === 1;
+      }
+
+      function show(row) {
+        var shown = {}, badge = null, deadline = null;
+        rows.forEach(function (r) { r.className = r === row ? 'is-on' : ''; });
+        ['left', 'since', 'esuDate'].forEach(function (k) { put(k, null); });
+        if (row) {
+          var p = row.getAttribute('data-p'), t = row.getAttribute('data-t');
+          shown.name = shown.cta = true;
+          put('name', document.createTextNode(row.querySelector('.eol-pick').textContent));
+          var dates = {};
+          if (t === 'fixed') {
+            var main = cell(row, 'main'), ext = cell(row, 'ext'), esu = cell(row, 'esu');
+            dates.main = main; dates.ext = ext;
+            put('main', main && main.time); put('ext', ext && ext.time);
+            // The ESU cell is copied whole: it may carry an "Azure only" final year.
+            var esuTd = row.querySelector('[data-c="esu"]');
+            put('esu', null);
+            Array.prototype.slice.call(esuTd.childNodes).forEach(function (n) { card.querySelector('[data-o="esu"]').appendChild(n.cloneNode(true)); });
+            dates.esu = true;
+            deadline = ext && ext.date;
+            if (main && today <= main.date) { badge = 'main'; shown['m-main'] = true; }
+            else if (ext && today <= ext.date) { badge = 'ext'; shown['m-ext'] = true; }
+            else {
+              badge = 'ended'; shown['m-ended'] = true;
+              if (!esu) shown['esu-none'] = true;
+              else if (today <= esu.date) { shown['esu-on'] = true; put('esuDate', esu.time); }
+              else shown['esu-off'] = true;
+            }
+          } else if (t === 'os') {
+            badge = 'os'; shown['n-os'] = true;
+          } else {
+            var end = cell(row, 'end');
+            dates.end = end; put('end', end && end.time);
+            deadline = end && end.date;
+            if (deadline && today <= deadline) { badge = 'ok'; shown['m-ok'] = true; }
+            else { badge = 'ended'; shown['m-ended'] = true; }
+            if (t === 'fx35') shown['n-fx35'] = true;
+            if (t === 'w10') shown['n-w10'] = true;
+            if (p === 'net') shown['n-net'] = true;
+            if (p === 'win' && t !== 'w10' && badge === 'ok') shown['n-win'] = true;
+            if (row.getAttribute('data-id') === 'fx-4.6.2') shown['n-fx462'] = true;
+          }
+          if (deadline) {
+            var gone = today > deadline;
+            var m = gone ? months(deadline, today) : months(today, deadline);
+            var key = (gone ? 'since' : 'left') + (m ? '' : '0');
+            shown[key] = true;
+            if (m) { card.querySelector('[data-o="' + (gone ? 'since' : 'left') + '"]').textContent = m.toLocaleString('en-MY'); unit(card.querySelector('[data-r="' + key + '"]'), m); }
+            if (!gone && m < 12) shown.soon = true;
+          }
+          shown.badges = !!badge;
+          shown.dates = !!(dates.main || dates.ext || dates.end);
+          card.querySelector('[data-d="main"]').hidden = !dates.main;
+          card.querySelector('[data-d="ext"]').hidden = !dates.ext;
+          card.querySelector('[data-d="esu"]').hidden = !dates.esu;
+          card.querySelector('[data-d="end"]').hidden = !dates.end;
+          Array.prototype.slice.call(card.querySelectorAll('[data-b]')).forEach(function (b) {
+            var k = b.getAttribute('data-b');
+            b.hidden = !(k === badge || (k === 'esu' && shown['esu-on']));
+          });
+        } else {
+          shown.start = true;
+        }
+        Array.prototype.slice.call(card.querySelectorAll('[data-r]')).forEach(function (el) {
+          el.hidden = !shown[el.getAttribute('data-r')];
+        });
+      }
+
+      var lastSent = '';
+      function choose(id, fromTable) {
+        var row = byId[id];
+        if (!row) { show(null); return; }
+        var p = row.getAttribute('data-p');
+        if (prod.value !== p) { prod.value = p; fillVersions(p); }
+        ver.value = id;
+        show(row);
+        if (window.history && history.replaceState) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+        if (fromTable && card.scrollIntoView) $('eolTool').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (id !== lastSent && typeof gtag === 'function') { lastSent = id; gtag('event', 'eol_lookup', { product: p, version: id }); }
+      }
+
+      prod.addEventListener('change', function () { fillVersions(prod.value); show(null); });
+      ver.addEventListener('change', function () { if (ver.value) choose(ver.value, false); else show(null); });
+      document.addEventListener('click', function (e) {
+        var b = e.target && e.target.closest ? e.target.closest('.eol-pick') : null;
+        if (!b) return;
+        var tr = b.closest('tr');
+        if (tr) choose(tr.getAttribute('data-id'), true);
+      });
+      $('eolForm').addEventListener('submit', function (e) { e.preventDefault(); });
+
+      var start = (location.hash || '').slice(1);
+      if (byId[start]) choose(start, false); else { fillVersions(''); show(null); }
+    })();
+  </script>
+</body>
+</html>

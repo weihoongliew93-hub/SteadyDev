@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Manual Invoicing Cost Calculator (Malaysia) | SteadyDevs</title>
+  <meta name="description" content="Work out the staff hours and RM your business spends keying, checking, sending and fixing invoices by hand, per month and per year. Free.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/manual-invoicing-cost-calculator.html">
+  <meta property="og:title" content="Manual invoicing cost calculator">
+  <meta property="og:description" content="Work out the staff hours and RM your business spends keying, checking, sending and fixing invoices by hand, per month and per year. Free.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/manual-invoicing-cost-calculator.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much time does manual invoicing really take?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your process. Time one ordinary invoice from start to finish: finding the customer's details, keying the lines, checking the totals, making the PDF, sending it and recording it. Add the time spent chasing payment. Most owners find the real figure is higher than they guessed."}}, {"@type": "Question", "name": "Why does the calculator count errors separately?", "acceptedAnswer": {"@type": "Answer", "text": "Because a wrong invoice costs more than the time to key it. Someone has to notice, issue a correction, reply to the customer and reconcile the accounts, and the payment waits meanwhile. Enter how often that happens and how long a fix takes."}}, {"@type": "Question", "name": "What doesn't the calculator count?", "acceptedAnswer": {"@type": "Answer", "text": "Payments that arrive later because invoices go out late, revenue lost to pricing mistakes, and what your staff could have done with the time instead. These can matter more than the hours, but they vary too much between businesses to estimate here."}}, {"@type": "Question", "name": "Does LHDN e-invoicing change this?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it adds a step. Each e-invoice has to be sent to LHDN's MyInvois system, through the MyInvois Portal or an API, and validated before you share it with the buyer. If you key invoices by hand today, entering them in the MyInvois Portal can mean keying them a second time."}}, {"@type": "Question", "name": "Will automating invoicing save me this whole amount?", "acceptedAnswer": {"@type": "Answer", "text": "No. Someone still has to review and approve invoices and deal with exceptions, and automation has its own cost. The figure here is what the manual process costs today, which is the number to weigh any change against."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=12">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* Manual invoicing cost calculator (design F): inputs on the left, hours and ringgit beside them. */
+    .mic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .mic { grid-template-columns: 1fr; } }
+    .mic [hidden] { display: none; }
+    .mic + .f-note { margin-top: 24px; }
+    .mic-result { display: grid; gap: 12px; }
+    .mic-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .mic-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .mic-sub { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .mic-formula { font-family: var(--mono); font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+    .mic-formula p { margin: 0; }
+    .mic-dim { color: var(--faint); font-size: 14px; }
+    .mic-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 10px; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; Invoicing</p>
+        <h1 class="f-h1">Manual invoicing cost calculator</h1>
+        <p class="f-lead">&ldquo;It only takes a few minutes&rdquo; adds up. Enter how your business invoices today to see the staff hours, and the ringgit, that keying, checking, sending, chasing and correcting invoices take each month and each year.</p>
+        <div class="mic">
+          <form class="f-form" id="micForm" novalidate>
+            <div class="f-field">
+              <label for="micN">Invoices a month</label>
+              <input class="f-input" id="micN" type="number" inputmode="numeric" min="0" step="1" value="50">
+              <span class="f-hint">The figures filled in are examples, not averages. Replace them with yours.</span>
+            </div>
+            <div class="f-field">
+              <label for="micMin">Minutes per invoice</label>
+              <input class="f-input" id="micMin" type="number" inputmode="decimal" min="0" step="any" value="10">
+              <span class="f-hint">Keying, checking, sending and recording it, plus chasing payment. Time one ordinary invoice to find out.</span>
+            </div>
+            <div class="f-field">
+              <label for="micPay">Staff cost per hour, RM</label>
+              <input class="f-input" id="micPay" type="number" inputmode="decimal" min="0" step="any" value="20">
+              <span class="f-hint">Pay plus employer contributions, per hour, for whoever does the invoicing.</span>
+            </div>
+            <div class="f-form__row">
+              <div class="f-field">
+                <label for="micErr">Invoices with an error, %</label>
+                <input class="f-input" id="micErr" type="number" inputmode="decimal" min="0" max="100" step="any" value="2">
+              </div>
+              <div class="f-field">
+                <label for="micFix">Minutes to fix an error</label>
+                <input class="f-input" id="micFix" type="number" inputmode="decimal" min="0" step="any" value="20">
+              </div>
+            </div>
+          </form>
+
+          <div class="f-card mic-result" aria-live="polite">
+            <p class="mic-label">Time spent by hand</p>
+            <p class="mic-head"><span data-o="hm">0</span> hours, RM <span data-o="rm">0</span> a month</p>
+            <p class="mic-sub"><span data-o="hy">0</span> hours, RM <span data-o="ry">0</span> a year</p>
+            <div class="mic-formula">
+              <p>Invoicing = <span data-o="n">0</span> &times; <span data-o="min">0</span> min = <span data-o="h1">0</span> h</p>
+              <p>Fixing errors = <span data-o="n2">0</span> &times; <span data-o="err">0</span>% &times; <span data-o="fix">0</span> min = <span data-o="h2">0</span> h</p>
+              <p>Cost = <span data-o="hm2">0</span> h &times; RM <span data-o="pay">0</span>/hour, &times; 12 for a year</p>
+            </div>
+            <p class="mic-dim">An estimate from your own figures. It leaves out slower payment from late invoices and revenue lost to pricing mistakes.</p>
+            <div class="mic-cta">
+              <p>LHDN e-invoicing adds a step: each e-invoice must be sent to MyInvois and validated before you share it with the buyer.</p>
+              <p data-c="plan">The SteadyDevs e-Invoice platform submits them from the system you already use, or from an Excel or CSV upload. At <span data-o="n3">0</span> invoices a month that is the <span data-o="plan"></span> plan, <strong>RM <span data-o="cost">0</span> a month</strong> including any overage. <a href="einvoice.html">See the e-Invoice platform &rarr;</a></p>
+              <p data-c="custom" hidden>Above 20,000 invoices a month, <a href="contact.html">talk to us</a> about a custom plan for the e-Invoice platform.</p>
+            </div>
+          </div>
+        </div>
+        <p class="f-note">How this counts: hours a month = invoices &times; minutes per invoice &divide; 60 + invoices &times; error rate &times; minutes per fix &divide; 60; cost = hours &times; staff cost per hour; a year is 12 months. A rough estimate, not financial advice. The e-invoice step checked on 23 October 2026 against <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN's e-Invoice FAQ (updated 4 September 2026)</a>; plan prices from the <a href="einvoice.html#pricing">e-Invoice platform's pricing</a>.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Where the time goes</h2></div>
+        <p>A &ldquo;simple&rdquo; invoice is rarely one step. Someone copies the customer's details, fills in the lines, checks the sums, makes a PDF, writes the email, records it in a spreadsheet and, later, chases the payment. Each mistake adds a correction, an apology and a payment that waits. <a href="blog/hidden-cost-manual-invoicing-malaysian-smes.html">The hidden cost of manual invoicing</a> breaks this down, and <a href="blog/manual-to-automated-invoice-real-business-impact.html">from manual to automated</a> shows what changes when the steps are automated, and what still needs a person.</p>
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>How much time does manual invoicing really take?</summary><div>It depends on your process. Time one ordinary invoice from start to finish: finding the customer's details, keying the lines, checking the totals, making the PDF, sending it and recording it. Add the time spent chasing payment. Most owners find the real figure is higher than they guessed.</div></details><details><summary>Why does the calculator count errors separately?</summary><div>Because a wrong invoice costs more than the time to key it. Someone has to notice, issue a correction, reply to the customer and reconcile the accounts, and the payment waits meanwhile. Enter how often that happens and how long a fix takes.</div></details><details><summary>What doesn't the calculator count?</summary><div>Payments that arrive later because invoices go out late, revenue lost to pricing mistakes, and what your staff could have done with the time instead. These can matter more than the hours, but they vary too much between businesses to estimate here.</div></details><details><summary>Does LHDN e-invoicing change this?</summary><div>Yes, it adds a step. Each e-invoice has to be sent to LHDN's MyInvois system, through the MyInvois Portal or an API, and validated before you share it with the buyer. If you key invoices by hand today, entering them in the MyInvois Portal can mean keying them a second time.</div></details><details><summary>Will automating invoicing save me this whole amount?</summary><div>No. Someone still has to review and approve invoices and deal with exceptions, and automation has its own cost. The figure here is what the manual process costs today, which is the number to weigh any change against.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Next step</span>
+          Send e-invoices to LHDN from the system you already use: the <a href="einvoice.html">e-Invoice platform</a> starts free for 10 invoices a month. Want invoices to create themselves from your orders? See <a href="solutions.html#automation">business automation &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var out = function (k) { return document.querySelector('.mic [data-o="' + k + '"]'); };
+      var ids = ['micN', 'micMin', 'micPay', 'micErr', 'micFix'];
+      // The e-Invoice platform's prices (einvoice.html): included invoices, monthly fee, overage per invoice.
+      var PLANS = [['Starter', 100, 29, 0.30], ['Business', 400, 59, 0.15], ['Growth', 1000, 89, 0.09], ['Premium', 20000, 199, 0]];
+      var rm = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 0 }); };
+      var num = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 1 }); };
+      // Anything empty, negative or not a number counts as 0; caps keep the result finite and readable.
+      function val(id, max) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var n = Math.floor(val('micN', 1e6)), min = val('micMin', 600), pay = val('micPay', 1e4);
+        var err = val('micErr', 100), fix = val('micFix', 600);
+        var h1 = n * min / 60, h2 = n * err / 100 * fix / 60, hm = h1 + h2;
+        out('n').textContent = rm(n); out('n2').textContent = rm(n); out('n3').textContent = rm(n);
+        out('min').textContent = num(min); out('err').textContent = num(err); out('fix').textContent = num(fix);
+        out('h1').textContent = num(h1); out('h2').textContent = num(h2);
+        out('hm').textContent = num(hm); out('hm2').textContent = num(hm); out('pay').textContent = num(pay);
+        out('rm').textContent = rm(hm * pay); out('hy').textContent = num(hm * 12); out('ry').textContent = rm(hm * pay * 12);
+        var best = n <= 10 ? ['Free', 0] : null;
+        PLANS.forEach(function (p) {
+          if (n > p[1] && !p[3]) return;
+          var cost = p[2] + Math.max(0, n - p[1]) * p[3];
+          if (!best || cost < best[1]) best = [p[0], cost];
+        });
+        // Above Premium's fair use, einvoice.html offers a custom plan rather than any listed price.
+        if (n > 20000) best = null;
+        document.querySelector('.mic [data-c="plan"]').hidden = !best || !n;
+        document.querySelector('.mic [data-c="custom"]').hidden = !!best;
+        if (best) { out('plan').textContent = best[0]; out('cost').textContent = (Math.round(best[1] * 100) / 100).toLocaleString('en-MY', { maximumFractionDigits: 2 }); }
+      }
+      var sent = false;
+      ids.forEach(function (id) {
+        $(id).addEventListener('input', apply);
+        $(id).addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'manual_invoicing_cost'); }
+        });
+      });
+      $('micForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>
