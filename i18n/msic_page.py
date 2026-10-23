@@ -155,6 +155,8 @@ page = f'''<!DOCTYPE html>
         <div class="ff__col"><h2>More</h2><ul>
           <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
           <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="e-invoice-penalty-calculator.html">Penalty calculator</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li></ul></div>
       </div>
       <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
     </div>

@@ -10,6 +10,7 @@ import os, sys, re, importlib.util
 from bs4 import BeautifulSoup
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n_extract import blocks
+from footer_i18n import SHARED
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://steadydevs.com"
@@ -24,9 +25,10 @@ els = blocks(soup)
 missing = []
 for i, el in enumerate(els):
     key = f'b{i}'
-    if key in tr.B:
+    shared = SHARED.get(el.decode_contents().strip(), {}).get(lang)
+    if key in tr.B or shared:
         el.clear()
-        el.append(BeautifulSoup(tr.B[key], 'html.parser'))
+        el.append(BeautifulSoup(tr.B[key] if key in tr.B else shared, 'html.parser'))
     elif re.search(r'[a-z]{3,}', el.get_text()):
         missing.append((key, el.get_text()[:60]))
 

@@ -26,11 +26,11 @@
     'pricing-terms.html', 'about.html', 'portfolio.html', 'cloud-cost-audit.html', 'venue-booking.html', 'steadypost.html',
     'e-invoice-checker.html'];
   var T = {
-    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
+    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', tools: 'Free tools', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
           langNote: 'This page is in English only. Other languages open their home page.' },
-    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
+    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', tools: 'Alat percuma', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
           langNote: 'Halaman ini dalam Bahasa Inggeris sahaja. Bahasa lain membuka laman utamanya.' },
-    zh: { engineering: '工程服务', plugins: 'WordPress 插件', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
+    zh: { engineering: '工程服务', plugins: 'WordPress 插件', tools: '免费工具', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
           langNote: '此页面仅有英文版。选择其他语言将打开该语言的首页。' }
   }[lang];
   // Link to a page in the current language when it exists in that language.
@@ -54,8 +54,29 @@
         ms: 'Import siaran secara pukal daripada Excel atau CSV \u2014 percuma',
         zh: '从 Excel 或 CSV 批量导入文章，免费' } }
   ];
+  // The EInvoice menu: the platform, then the free tools that lead to it. A new tool is one
+  // line here; the footer's "Free tools" column is static HTML on every page and needs it too.
+  var EINVOICE = { file: 'einvoice.html', name: { en: 'EInvoice Platform', ms: 'Platform EInvoice', zh: 'EInvoice 平台' }, tagline: {
+      en: 'Send e-invoices to LHDN from the system you already use',
+      ms: 'Hantar e-Invois ke LHDN daripada sistem yang anda gunakan sekarang',
+      zh: '直接从您现有的系统把电子发票提交给 LHDN' } };
+  var TOOLS = [
+    { file: 'e-invoice-checker.html', name: { en: 'Do I need to e-invoice?', ms: 'Perlukah saya e-Invois?', zh: '我需要开电子发票吗？' }, tagline: {
+        en: 'Your start date and the RM3 million exemption, in three questions',
+        ms: 'Tarikh mula dan pengecualian RM3 juta, dalam tiga soalan',
+        zh: '三个问题，查清开始日期与 RM300 万豁免' } },
+    { file: 'e-invoice-penalty-calculator.html', name: { en: 'Penalty calculator', ms: 'Kalkulator penalti', zh: '罚款计算器' }, tagline: {
+        en: 'The fines the law allows for e-invoices not issued',
+        ms: 'Denda yang dibenarkan undang-undang bagi e-Invois yang tidak dikeluarkan',
+        zh: '漏开电子发票，法律允许的罚款范围' } },
+    { file: 'msic-code-lookup.html', name: { en: 'MSIC code lookup', ms: 'Carian kod MSIC', zh: 'MSIC 代码查询' }, tagline: {
+        en: 'All 1,175 codes LHDN accepts on e-invoices',
+        ms: 'Kesemua 1,175 kod yang diterima LHDN pada e-Invois',
+        zh: 'LHDN 接受的全部 1,175 个电子发票代码' } }
+  ];
   var pageFile = /\.html$/.test(file) ? file : file + '.html';
   var currentPlugin = PLUGINS.filter(function (p) { return p.file === pageFile; })[0];
+  var currentTool = TOOLS.filter(function (t) { return t.file === pageFile; })[0];
 
   // Which top-level nav item should be highlighted for the current page.
   var active = (function () {
@@ -63,7 +84,7 @@
     if (file === '' || file === 'index.html') return 'home';
     if (file === 'about.html') return 'about';
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file === 'cloud-cost-audit.html' || file.indexOf('packages') === 0) return 'solutions';
-    if (file === 'einvoice.html') return isF ? 'einvoice' : 'products';
+    if (file === 'einvoice.html' || currentTool) return isF ? 'einvoice' : 'products';
     if (currentPlugin) return isF ? 'plugins' : 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
@@ -118,25 +139,31 @@
     // A button, not a link: it opens the list, it does not go anywhere. Opens on click (and
     // keyboard), closes on Escape or a click elsewhere; on phones the list sits open inside
     // the menu, so nothing has to be tapped twice.
-    var pluginsMenu =
-      '<div class="fh__group' + (active === 'plugins' ? ' is-current' : '') + '">' +
-        '<button type="button" class="fh__group-btn" id="fhPluginsBtn" aria-expanded="false" aria-controls="fhPlugins">' + T.plugins +
-          '<svg class="fh__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-        '</button>' +
-        '<div class="fh__panel" id="fhPlugins">' +
-          PLUGINS.map(function (p) {
-            return '<a href="' + base + p.file + '"' + (p === currentPlugin ? ' aria-current="page"' : '') + '>' +
-              '<span class="fh__panel-name">' + p.name + '</span><span class="fh__panel-desc">' + p.tagline[lang] + '</span></a>';
-          }).join('') +
-        '</div>' +
+    var caret = '<svg class="fh__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var item = function (href, name, desc, current) {
+      return '<a href="' + href + '"' + (current ? ' aria-current="page"' : '') + '>' +
+        '<span class="fh__panel-name">' + name + '</span><span class="fh__panel-desc">' + desc + '</span></a>';
+    };
+    var group = function (id, label, key, body) {
+      return '<div class="fh__group' + (active === key ? ' is-current' : '') + '">' +
+        '<button type="button" class="fh__group-btn" aria-expanded="false" aria-controls="' + id + '">' + label + caret + '</button>' +
+        '<div class="fh__panel" id="' + id + '">' + body + '</div>' +
       '</div>';
+    };
+    var pluginsMenu = group('fhPlugins', T.plugins, 'plugins', PLUGINS.map(function (p) {
+      return item(base + p.file, p.name, p.tagline[lang], p === currentPlugin);
+    }).join(''));
+    var einvoiceMenu = group('fhEinvoice', 'EInvoice', 'einvoice',
+      item(page(EINVOICE.file), EINVOICE.name[lang], EINVOICE.tagline[lang], pageFile === EINVOICE.file) +
+      '<p class="fh__panel-label">' + T.tools + '</p>' +
+      TOOLS.map(function (t) { return item(page(t.file), t.name[lang], t.tagline[lang], t === currentTool); }).join(''));
     mount(
       '<header class="fh" id="fh">' +
         '<div class="fh__inner">' +
           '<a href="' + page('index.html') + '" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>' +
           '<nav class="fh__nav" id="fhNav" aria-label="Main">' +
             fLink('solutions.html', T.engineering, 'solutions') +
-            fLink('einvoice.html', 'EInvoice', 'einvoice') +
+            einvoiceMenu +
             pluginsMenu +
             fLink('portfolio.html', T.cases, 'portfolio') +
             fLink('blog/index.html', T.blog, 'blog') +
@@ -170,12 +197,11 @@
       syncThemeLabel();
     });
 
-    // Both menus (plugins, language) open on click, close on Escape or a click elsewhere, and
-    // opening one closes the other.
-    var menus = [
-      [document.querySelector('.fh__group'), document.getElementById('fhPluginsBtn')],
-      [document.getElementById('fhLang'), document.getElementById('fhLangBtn')]
-    ];
+    // Every menu (EInvoice, plugins, language) opens on click, closes on Escape or a click
+    // elsewhere, and opening one closes the others.
+    var menus = Array.prototype.map.call(document.querySelectorAll('.fh__group'), function (g) {
+      return [g, g.querySelector('.fh__group-btn')];
+    }).concat([[document.getElementById('fhLang'), document.getElementById('fhLangBtn')]]);
     var setMenu = function (m, open) {
       m[0].classList.toggle('is-open', open);
       m[1].setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -241,6 +267,7 @@
           '<span class="nav-toggle' + (active === 'products' ? ' active' : '') + '" tabindex="0" role="button" aria-haspopup="true">Products</span>' +
           '<div class="dropdown-content">' +
             '<a href="' + base + 'einvoice.html">E-Invoice Platform</a>' +
+            TOOLS.map(function (t) { return '<a href="' + base + t.file + '">' + t.name.en + '</a>'; }).join('') +
             PLUGINS.map(function (p) {
               return '<a href="' + base + p.file + '">' + p.name + ' \u2014 WordPress plugin</a>'; // older design: English only
             }).join('') +

@@ -291,7 +291,7 @@ p { margin: 0; }
 .fh__lang-panel a[aria-current="true"] { color: var(--text-strong); font-weight: 500; background: var(--surface-2); }
 .fh__lang-note { margin: 6px 12px 6px; font-size: 12px; line-height: 1.45; color: var(--faint); }
 @media (max-width: 440px) { .fh__lang-btn > span { display: none; } .fh__lang-btn { padding: 0 8px; } }
-/* WordPress Plugins menu: a button opening a short list of plugin pages (assets/site-nav.js, PLUGINS). */
+/* EInvoice and WordPress Plugins menus: a button opening a short list of pages (assets/site-nav.js). */
 .fh__group { position: relative; }
 .fh__group-btn { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; padding: 0; border: 0; background: none; font: inherit; color: var(--muted); cursor: pointer; }
 .fh__group-btn:hover, .fh__group.is-open .fh__group-btn, .fh__group.is-current .fh__group-btn { color: var(--text-strong); }
@@ -303,6 +303,8 @@ p { margin: 0; }
 .fh__panel a:hover, .fh__panel a[aria-current="page"] { background: var(--surface-2); }
 .fh__panel-name { display: block; color: var(--text-strong); font-weight: 500; }
 .fh__panel-desc { display: block; margin-top: 2px; font-size: 13px; color: var(--faint); line-height: 1.4; }
+/* A heading inside a panel, such as "Free tools" under the EInvoice platform. */
+.fh__panel-label { margin: 8px 12px 2px; padding-top: 12px; border-top: 1px solid var(--border-soft); font: 500 12px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--faint); }
 /* The header becomes the phone menu below 1080px, not 960px like the page layout: with the
    language menu in the bar, the Malay labels no longer fit between the two. */
 @media (max-width: 1080px) {
@@ -322,6 +324,7 @@ p { margin: 0; }
   .fh__panel a { padding: 12px 0; border-radius: 0; }
   .fh__panel a:hover, .fh__panel a[aria-current="page"] { background: none; }
   .fh__panel-desc { display: none; }
+  .fh__panel-label { margin: 10px 0 0; padding-top: 0; border-top: 0; }
 }
 @media (min-width: 1081px) { .fh__cta-mobile { display: none; } }
 /* Narrow desktops: with "WordPress Plugins" in the bar, the default spacing ran the
@@ -339,10 +342,12 @@ p { margin: 0; }
 
 /* ---------- Footer ---------- */
 .ff { border-top: 1px solid var(--border-soft); padding: 56px 0 32px; font-size: 15px; }
-.ff__grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
-.ff__brand { flex: 1 1 280px; max-width: 360px; }
+/* A grid, not a wrapping row: with four link columns, a row wrapped the last one onto a line
+   of its own at laptop widths. Below 960px the brand spans the top and the columns go 2 x 2. */
+.ff__grid { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr)); gap: 40px 32px; }
+.ff__brand { max-width: 360px; }
 .ff__brand p { color: var(--muted); margin-top: 12px; }
-.ff__col { flex: 0 1 180px; }
+@media (max-width: 960px) { .ff__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ff__brand { grid-column: 1 / -1; } }
 .ff__col h2 { font-size: 13px; font-weight: 500; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; font-family: var(--mono); }
 .ff__col ul { list-style: none; margin: 0; padding: 0; }
 .ff__col li { margin-bottom: 10px; }

@@ -14,3 +14,16 @@ FOOT = {
 
 def footer(lang, first_id):
     return {f'b{first_id + i}': v for i, v in enumerate(FOOT[lang])}
+
+# Blocks that read the same on every page, matched by their English HTML rather than by block
+# id, so a page module needs no entry for them: the footer's "Free tools" column. A block a
+# module translates itself (in B) takes precedence.
+SHARED = {
+ 'Free tools': {'ms': 'Alat percuma', 'zh': '免费工具'},
+ '<a href="e-invoice-checker.html">Do I need to e-invoice?</a>':
+    {'ms': '<a href="e-invoice-checker.html">Perlukah saya e-Invois?</a>', 'zh': '<a href="e-invoice-checker.html">我需要开电子发票吗？</a>'},
+ '<a href="e-invoice-penalty-calculator.html">Penalty calculator</a>':
+    {'ms': '<a href="e-invoice-penalty-calculator.html">Kalkulator penalti</a>', 'zh': '<a href="e-invoice-penalty-calculator.html">罚款计算器</a>'},
+ '<a href="msic-code-lookup.html">MSIC code lookup</a>':
+    {'ms': '<a href="msic-code-lookup.html">Carian kod MSIC</a>', 'zh': '<a href="msic-code-lookup.html">MSIC 代码查询</a>'},
+}
