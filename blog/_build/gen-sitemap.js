@@ -50,6 +50,7 @@ const MAIN = [
   { file: 'solutions.html',     loc: '/solutions.html',     changefreq: 'monthly', priority: '0.95' },
   { file: 'portfolio.html',     loc: '/portfolio.html',     changefreq: 'monthly', priority: '0.9' },
   { file: 'einvoice.html',      loc: '/einvoice.html',      changefreq: 'monthly', priority: '0.9' },
+  { file: 'msic-code-lookup.html', loc: '/msic-code-lookup.html', changefreq: 'monthly', priority: '0.8' },
   // Product pages served without ".html": the loc matches each page's canonical URL.
   { file: 'venue-booking.html', loc: '/venue-booking',      changefreq: 'monthly', priority: '0.9' },
   { file: 'steadypost.html',    loc: '/steadypost',         changefreq: 'monthly', priority: '0.8' },

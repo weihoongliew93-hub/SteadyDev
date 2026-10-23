@@ -24,7 +24,7 @@
     "name": "SteadyDevs EInvoice Platform",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web-based",
-    "description": "Cloud-based SaaS platform for automated LHDN MyInvois e-invoice submission. Three-tier validation, digital signing, and real-time status sync for Malaysian businesses.",
+    "description": "Cloud-based SaaS platform for automated LHDN MyInvois e-invoice submission. Three-tier validation, monthly consolidated e-invoices and real-time status sync for Malaysian businesses.",
     "url": "https://steadydevs.com/einvoice.html",
     "offers": {
       "@type": "AggregateOffer",
@@ -42,7 +42,7 @@
     "featureList": [
       "Automated LHDN MyInvois submission",
       "Three-tier validation (format, business rules, LHDN)",
-      "Digital signing and certificate management",
+      "Certificate expiry alerts",
       "Real-time submission status sync",
       "POS and ERP integration",
       "Monthly consolidated e-invoice for walk-in sales",
@@ -740,7 +740,7 @@
       <div class="f-container f-page-hero" style="text-align: center">
         <p class="f-pill">EInvoice Platform · in beta, early-access partners welcome</p>
         <h1 class="f-h1" style="margin-left: auto; margin-right: auto">LHDN e-invoicing that runs <span class="f-dim">quietly in the background.</span></h1>
-        <p class="f-lead" style="margin: 0 auto">Connect your POS, ERP or accounting system once. Every invoice is validated against LHDN rules, digitally signed and submitted to MyInvois automatically. No manual work, no cryptic rejection codes, no missed posting deadlines.</p>
+        <p class="f-lead" style="margin: 0 auto">Connect your POS, ERP or accounting system once. Every invoice is validated against LHDN rules and submitted to MyInvois automatically. No manual work, no cryptic rejection codes, no missed posting deadlines.</p>
         <div class="f-actions" style="justify-content: center">
           <a class="f-btn ei-btn-invert" href="contact.html?ref=einvoice-cta">Request early access</a>
           <a class="f-btn f-btn--secondary" href="#demo">Try the live demo</a>
@@ -781,7 +781,7 @@
 
     <div class="f-strip">
       <div class="f-container f-strip__inner" style="justify-content: space-between">
-        <strong>MyInvois API v1.1</strong><strong>All 8 invoice types</strong><strong>Three-tier validation</strong><strong>Status sync every 5 minutes</strong><strong>Digital signature handled</strong><strong>Free resubmissions</strong>
+        <strong>Official MyInvois API</strong><strong>All 8 invoice types</strong><strong>Three-tier validation</strong><strong>Status sync every 5 minutes</strong><strong>Free resubmissions</strong>
       </div>
     </div>
 
@@ -833,7 +833,7 @@
           <h2 class="f-h2">Everything you need to stay compliant</h2>
         </div>
         <div class="f-grid">
-          <article class="f-card f-card--compact"><h3 class="f-card__title">Digital signature handled</h3><p class="f-card__text">Upload your X.509 certificate once. Every submission is signed automatically, with expiry warnings at 60 and 7 days.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Certificates looked after</h3><p class="f-card__text">If you connect with your own MyInvois credentials, upload your certificate once and you're warned 60 and 7 days before it expires.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Posting cycle enforcement</h3><p class="f-card__text">Late submissions are blocked and you're warned days before the deadline, so the cut-off is never missed.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Real-time status sync</h3><p class="f-card__text">Every submitted invoice is polled from MyInvois every 5 minutes. Approved or rejected status updates automatically.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Connect any system</h3><p class="f-card__text">A plugin adapter architecture for any POS, ERP or accounting system, plus a REST API with API keys for machine-to-machine use.</p></article>
@@ -858,7 +858,7 @@
         <ol class="f-steps">
           <li><div class="f-steps__n">01</div><div class="f-steps__t">Connect</div><div class="f-steps__d">Install the adapter plugin for your POS or ERP, or generate an API key and push invoices to the REST endpoint.</div></li>
           <li><div class="f-steps__n">02</div><div class="f-steps__t">Validate</div><div class="f-steps__d">Every invoice passes all three tiers. Issues land in your dashboard with instructions; clean invoices queue automatically.</div></li>
-          <li><div class="f-steps__n">03</div><div class="f-steps__t">Sign &amp; submit</div><div class="f-steps__d">Your digital signature is applied and the invoice is sent to MyInvois. Nothing is sent after the LHDN cut-off.</div></li>
+          <li><div class="f-steps__n">03</div><div class="f-steps__t">Submit</div><div class="f-steps__d">The invoice is sent to MyInvois under your TIN. Nothing is sent after the LHDN cut-off.</div></li>
           <li><div class="f-steps__n">04</div><div class="f-steps__t">Sync &amp; notify</div><div class="f-steps__d">Status is checked every 5 minutes, your dashboard updates, and a webhook fires back to your system.</div></li>
         </ol>
       </div>
@@ -1123,7 +1123,7 @@
           <dl class="ei-facts">
             <div><dt>Credential storage</dt><dd>LHDN client ID, client secret, certificate and private key are encrypted at rest with AES-256-GCM. The master key is stored separately from the database, credentials are decrypted in memory only during submission, and the dashboard never shows the secret.</dd></div>
             <div><dt>Audit log</dt><dd>Every submission, approval, rejection and settings change is recorded with time, user and detail.</dd></div>
-            <div><dt>Separate companies</dt><dd>Each TIN has its own credentials, certificate and history, fully isolated (Premium).</dd></div>
+            <div><dt>Separate companies</dt><dd>Each TIN has its own credentials, certificate and history, fully isolated (Custom plan).</dd></div>
             <div><dt>Platform</dt><dd>.NET 8 / ASP.NET Core 8 with EF Core on containerised (Docker) infrastructure. Production accounts get PostgreSQL with proper data retention, production LHDN endpoints (api.myinvois.hasil.gov.my), SMTP alerts and paid infrastructure tiers.</dd></div>
             <div><dt>Onboarding</dt><dd>Every production deployment includes a technical onboarding session to verify your LHDN credentials and certificate setup. The live demo runs in sandbox mode on a free tier with SQLite.</dd></div>
           </dl>
@@ -1143,8 +1143,8 @@
           <h2 class="f-h2">Common questions</h2>
         </div>
         <div class="f-faq">
-          <details><summary>Is this platform officially approved by LHDN?</summary><div>The platform submits invoices via the official LHDN MyInvois REST API using your business's own registered credentials and digital certificate. Each business must obtain its own LHDN intermediary authorisation; the platform guides you through this during onboarding. All invoice formats follow the LHDN e-Invoice specification v1.1.</div></details>
-          <details><summary>Do I need to get my own digital certificate?</summary><div>Yes. Each business TIN needs its own LHDN-approved X.509 digital certificate from an approved Certificate Authority in Malaysia, typically RM 500–2,000/year depending on the CA. You upload it once in Settings; the platform signs every invoice automatically from then on and alerts you 60 days before expiry.</div></details>
+          <details><summary>How does the platform connect to LHDN?</summary><div>Through LHDN's official MyInvois API, filing under your own TIN. There are two ways to connect: SteadyDevs files on your behalf as your intermediary, which you authorise once in MyInvois, or you connect with your own MyInvois credentials. We guide you through either during onboarding.</div></details>
+          <details><summary>Do I need my own digital certificate?</summary><div>Not if SteadyDevs files for you as your intermediary. If you connect with your own MyInvois credentials, you'll need a certificate from an LHDN-approved provider; you upload it once in Settings and are alerted 60 days before it expires.</div></details>
           <details><summary>What happens if LHDN rejects an invoice?</summary><div>Rejected invoices appear under "LHDN Rejections" with LHDN's reason and the field it objected to, for example "Enter valid e-mail address - BUYER". You correct the data and resubmit with one click. Resubmitting is free: an invoice uses your monthly quota once, however many times it is corrected and resent. Most common causes, such as a missing buyer TIN or an invalid industry (MSIC) code, are caught before the invoice is sent at all.</div></details>
           <details><summary>Can I manage multiple companies under one account?</summary><div>On the Custom plan, yes: each company has its own TIN, LHDN credentials, digital certificate and submission history under one login. On the other plans, each company is its own account. <a href="contact.html?ref=einvoice-multi-entity">Talk to us</a> if you run several entities.</div></details>
           <details><summary>Do I have to send every walk-in sale to LHDN?</summary><div>Not one by one. Record walk-in sales without a buyer TIN; a buyer who wants their own e-invoice can still ask for one. At the end of the month, everything unclaimed goes to LHDN as a single consolidated e-invoice, which LHDN expects within 7 days. Switch it on to run automatically on the 1st, or send it yourself with a preview first; you're reminded from the 3rd if it hasn't gone. A refund of a walk-in sale is filed against the consolidated e-invoice it went into. A single sale above RM 10,000 needs its own e-invoice with the buyer's details, unless your business uses the Phase 4 relaxation.</div></details>

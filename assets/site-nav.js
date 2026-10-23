@@ -22,7 +22,7 @@
   // Pages that exist in every language. A nav link to one of these goes to the visitor's
   // language; every other link goes to the English page. Add a page here once its /ms/ and
   // /zh/ copies are published.
-  var TRANSLATED = ['einvoice.html'];
+  var TRANSLATED = ['index.html', 'einvoice.html', 'contact.html', 'msic-code-lookup.html'];
   var T = {
     en: { engineering: 'Engineering', plugins: 'WordPress Plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language' },
     ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa' },
@@ -120,7 +120,7 @@
     mount(
       '<header class="fh" id="fh">' +
         '<div class="fh__inner">' +
-          '<a href="' + base + 'index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>' +
+          '<a href="' + page('index.html') + '" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>' +
           '<nav class="fh__nav" id="fhNav" aria-label="Main">' +
             fLink('solutions.html', T.engineering, 'solutions') +
             fLink('einvoice.html', 'EInvoice', 'einvoice') +
@@ -128,7 +128,7 @@
             fLink('portfolio.html', T.cases, 'portfolio') +
             fLink('blog/index.html', T.blog, 'blog') +
             fLink('about.html', T.about, 'about') +
-            '<a href="' + base + 'contact.html" class="f-btn f-btn--primary fh__cta-mobile">' + T.cta + '</a>' +
+            '<a href="' + page('contact.html') + '" class="f-btn f-btn--primary fh__cta-mobile">' + T.cta + '</a>' +
           '</nav>' +
           '<div class="fh__tools">' + langSwitch +
             '<button type="button" class="fh__icon" id="fhTheme" aria-label="Switch to light theme">' +
@@ -136,7 +136,7 @@
               '<span class="fh__sun">' + icon('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>') + '</span>' +
             '</button>' +
             '<a href="' + base + 'my-account.html" class="fh__icon" aria-label="My account">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>') + '</a>' +
-            '<a href="' + base + 'contact.html" class="f-btn f-btn--primary fh__cta fh__cta-desktop">' + T.cta + '</a>' +
+            '<a href="' + page('contact.html') + '" class="f-btn f-btn--primary fh__cta fh__cta-desktop">' + T.cta + '</a>' +
             '<button type="button" class="fh__icon fh__menu" id="fhMenu" aria-label="Open menu" aria-expanded="false" aria-controls="fhNav">' + icon('<path d="M4 7h16M4 12h16M4 17h16"/>') + '</button>' +
           '</div>' +
         '</div>' +
