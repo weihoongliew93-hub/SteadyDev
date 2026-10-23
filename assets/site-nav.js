@@ -23,7 +23,8 @@
   // language; every other link goes to the English page. Add a page here once its /ms/ and
   // /zh/ copies are published.
   var TRANSLATED = ['index.html', 'einvoice.html', 'contact.html', 'msic-code-lookup.html', 'solutions.html',
-    'pricing-terms.html', 'about.html', 'portfolio.html', 'cloud-cost-audit.html', 'venue-booking.html', 'steadypost.html'];
+    'pricing-terms.html', 'about.html', 'portfolio.html', 'cloud-cost-audit.html', 'venue-booking.html', 'steadypost.html',
+    'e-invoice-checker.html'];
   var T = {
     en: { engineering: 'Engineering', plugins: 'WordPress Plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
           langNote: 'This page is in English only. Other languages open their home page.' },
