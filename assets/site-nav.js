@@ -24,9 +24,12 @@
   // /zh/ copies are published.
   var TRANSLATED = ['index.html', 'einvoice.html', 'contact.html', 'msic-code-lookup.html'];
   var T = {
-    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language' },
-    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa' },
-    zh: { engineering: '工程服务', plugins: 'WordPress 插件', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言' }
+    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
+          langNote: 'This page is in English only. Other languages open their home page.' },
+    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
+          langNote: 'Halaman ini dalam Bahasa Inggeris sahaja. Bahasa lain membuka laman utamanya.' },
+    zh: { engineering: '工程服务', plugins: 'WordPress 插件', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
+          langNote: '此页面仅有英文版。选择其他语言将打开该语言的首页。' }
   }[lang];
   // Link to a page in the current language when it exists in that language.
   var page = function (href) {
@@ -84,21 +87,29 @@
     var fLink = function (href, label, key) {
       return '<a href="' + page(href) + '"' + (active === key ? ' aria-current="page"' : '') + '>' + label + '</a>';
     };
-    // EN · BM · 中文, from the page's own <link rel="alternate" hreflang> tags: a page shows
-    // the switch only once it declares its translations, so an English page never links to
-    // a translation that has not been published.
-    var langSwitch = '';
-    var alts = {};
-    Array.prototype.forEach.call(document.querySelectorAll('link[rel="alternate"][hreflang]'), function (l) {
-      alts[l.getAttribute('hreflang')] = new URL(l.getAttribute('href'), location.href).pathname;
-    });
-    if (alts.ms && alts['zh-Hans']) {
-      langSwitch = '<nav class="fh__lang" aria-label="' + T.language + '">' +
-        [['en', 'EN', alts.en], ['ms', 'BM', alts.ms], ['zh', '\u4e2d\u6587', alts['zh-Hans']]].map(function (l) {
-          return '<a href="' + l[2] + '" hreflang="' + (l[0] === 'zh' ? 'zh-Hans' : l[0]) + '"' +
-            (l[0] === lang ? ' aria-current="true"' : '') + '>' + l[1] + '</a>';
-        }).join('') + '</nav>';
-    }
+    // Language menu, on every page. It is built from TRANSLATED rather than the page's hreflang
+    // tags so that English pages can offer it before the translations are indexable: hreflang
+    // pointing at noindex drafts is an error to search engines, a menu link is not. A page
+    // with no translation sends the visitor to the home page in that language, and says so.
+    var LANGS = [['en', 'EN', 'English'], ['ms', 'BM', 'Bahasa Malaysia'], ['zh', '中文', '中文（简体）']];
+    var hasCopy = !inBlog && TRANSLATED.indexOf(pageFile) !== -1;
+    var langSwitch =
+      '<div class="fh__lang" id="fhLang">' +
+        '<button type="button" class="fh__lang-btn" id="fhLangBtn" aria-expanded="false" aria-controls="fhLangPanel" aria-label="' + T.language + '">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>' +
+          '<span>' + LANGS.filter(function (l) { return l[0] === lang; })[0][1] + '</span>' +
+          '<svg class="fh__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '</button>' +
+        '<div class="fh__lang-panel" id="fhLangPanel">' +
+          LANGS.map(function (l) {
+            var code = l[0] === 'zh' ? 'zh-Hans' : l[0];
+            var href = l[0] === lang ? '#' : base + (l[0] === 'en' ? '' : l[0] + '/') + (hasCopy ? pageFile : 'index.html');
+            return '<a href="' + href + '" hreflang="' + code + '" lang="' + code + '"' +
+              (l[0] === lang ? ' aria-current="true"' : '') + '>' + l[2] + '</a>';
+          }).join('') +
+          (hasCopy ? '' : '<p class="fh__lang-note">' + T.langNote + '</p>') +
+        '</div>' +
+      '</div>';
     var icon = function (d) {
       return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
     };
@@ -157,19 +168,30 @@
       syncThemeLabel();
     });
 
-    var group = document.querySelector('.fh__group');
-    var groupBtn = document.getElementById('fhPluginsBtn');
-    var setGroup = function (open) {
-      group.classList.toggle('is-open', open);
-      groupBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Both menus (plugins, language) open on click, close on Escape or a click elsewhere, and
+    // opening one closes the other.
+    var menus = [
+      [document.querySelector('.fh__group'), document.getElementById('fhPluginsBtn')],
+      [document.getElementById('fhLang'), document.getElementById('fhLangBtn')]
+    ];
+    var setMenu = function (m, open) {
+      m[0].classList.toggle('is-open', open);
+      m[1].setAttribute('aria-expanded', open ? 'true' : 'false');
     };
-    groupBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      setGroup(!group.classList.contains('is-open'));
+    menus.forEach(function (m) {
+      m[1].addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = !m[0].classList.contains('is-open');
+        menus.forEach(function (o) { setMenu(o, false); });
+        setMenu(m, open);
+      });
     });
-    document.addEventListener('click', function (e) { if (!group.contains(e.target)) setGroup(false); });
+    document.addEventListener('click', function (e) {
+      menus.forEach(function (m) { if (!m[0].contains(e.target)) setMenu(m, false); });
+    });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && group.classList.contains('is-open')) { setGroup(false); groupBtn.focus(); }
+      if (e.key !== 'Escape') return;
+      menus.forEach(function (m) { if (m[0].classList.contains('is-open')) { setMenu(m, false); m[1].focus(); } });
     });
 
     var header = document.getElementById('fh');
