@@ -33,7 +33,14 @@ for i, el in enumerate(els):
 html_tag = soup.html
 html_tag['lang'] = LANGS[lang][0]
 soup.title.string = tr.HEAD['title']
-url = f'{BASE}/{LANGS[lang][1]}{page}'
+# Every language's URL is the English canonical path under its folder, so a page served
+# without ".html" (/venue-booking) keeps that form in /ms/ and /zh/, and the alternates
+# below agree with each copy's own canonical.
+canon = soup.find('link', rel='canonical')
+en_path = canon['href'][len(BASE):] if canon and canon['href'].startswith(BASE) else '/' + page
+def lang_url(code):
+    return BASE + '/' + LANGS[code][1] + en_path.lstrip('/')
+url = lang_url(lang)
 for sel, attr, val in [
     ({'name': 'description'}, 'content', tr.HEAD['description']),
     ({'property': 'og:title'}, 'content', tr.HEAD['title'].split(' | ')[0]),
@@ -44,20 +51,21 @@ for sel, attr, val in [
 ]:
     m = soup.find('meta', attrs=sel)
     if m: m[attr] = val
-canon = soup.find('link', rel='canonical')
 canon['href'] = url
 
 # One alternate per language plus x-default, the same set on every language's copy.
 for old in soup.find_all('link', rel='alternate', hreflang=True): old.decompose()
 for code, (hl, prefix) in LANGS.items():
-    canon.insert_after(soup.new_tag('link', rel='alternate', hreflang=hl, href=f'{BASE}/{prefix}{page}'))
-canon.insert_after(soup.new_tag('link', rel='alternate', hreflang='x-default', href=f'{BASE}/{page}'))
+    canon.insert_after(soup.new_tag('link', rel='alternate', hreflang=hl, href=lang_url(code)))
+canon.insert_after(soup.new_tag('link', rel='alternate', hreflang='x-default', href=lang_url('en')))
 
 if draft and not soup.find('meta', attrs={'name': 'robots'}):
     soup.head.insert(0, soup.new_tag('meta', attrs={'name': 'robots', 'content': 'noindex'}))
 
 # Pages that exist in every language: links between them stay inside the language folder.
-TRANSLATED = {'index.html', 'einvoice.html', 'contact.html', 'msic-code-lookup.html'}
+# The list lives in assets/site-nav.js (TRANSLATED), which the language menu also reads.
+TRANSLATED = set(re.findall(r"'([\w.-]+\.html)'", re.search(r'var TRANSLATED = \[([^\]]*)\]',
+    open(os.path.join(SITE, 'assets', 'site-nav.js'), encoding='utf-8').read()).group(1)))
 def relative(u):
     return u and not re.match(r'^(https?:|mailto:|tel:|#|data:|/|\.\./|javascript:)', u)
 for tag in soup.find_all(True):

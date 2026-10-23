@@ -15,8 +15,18 @@ file, so a layout change to the English page carries over by rebuilding.
 - `msic_page.py`: generates `msic-code-lookup.html` from LHDN's MSIC file; rerun when LHDN
   updates it, then rebuild the translations.
 
-`--draft` adds noindex. Drop it, and add the page's hreflang alternates to the English
-page, only when a native reader has approved the translation; `assets/site-nav.js` shows the
-language switch on any page that declares them.
+`--draft` adds noindex: use it for a copy that is up for review.
+
+Publishing, once a native reader has approved a page:
+
+1. Add the page to `TRANSLATED` in `assets/site-nav.js`. That one list drives the language
+   menu, which links between pages stay inside a language folder, and what gets published.
+2. Run `python i18n/publish.py`. It rebuilds every listed page in both languages without
+   noindex, and gives each English page the matching hreflang alternates.
+3. Run `node blog/_build/gen-sitemap.js`. It adds every /ms/ and /zh/ copy that is not
+   noindex. The daily publish workflow reruns it, so it stays current.
+
+Module names follow the page: `pricing-terms.html` → `pricing_terms_ms.py`. URLs follow the
+English canonical, so `/venue-booking` becomes `/ms/venue-booking`.
 
 Needs Python 3 and `beautifulsoup4`.

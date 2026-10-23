@@ -62,6 +62,16 @@ const MAIN = [
 ];
 MAIN.forEach(p => { if (fs.existsSync(path.join(ROOT, p.file))) add(p.loc, mtime(p.file), p.changefreq, p.priority); });
 
+// --- Translations: /ms/ and /zh/ copies of main pages (built by i18n/publish.py) ---
+// Listed only once published, i.e. without the noindex that marks a draft. "/index.html"
+// is skipped: "/ms/" already stands for the translated home page.
+['ms', 'zh'].forEach(lang => MAIN.forEach(p => {
+  const file = lang + '/' + p.file;
+  if (p.loc === '/index.html' || !fs.existsSync(path.join(ROOT, file))) return;
+  if (/<meta name="robots" content="noindex/.test(fs.readFileSync(path.join(ROOT, file), 'utf8'))) return;
+  add('/' + lang + p.loc, mtime(file), p.changefreq, p.priority);
+}));
+
 // --- Portfolio case studies (auto-discovered) ---
 fs.readdirSync(ROOT)
   .filter(f => f.startsWith('case-') && f.endsWith('.html'))
