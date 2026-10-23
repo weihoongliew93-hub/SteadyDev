@@ -52,6 +52,7 @@ const MAIN = [
   { file: 'einvoice.html',      loc: '/einvoice.html',      changefreq: 'monthly', priority: '0.9' },
   { file: 'msic-code-lookup.html', loc: '/msic-code-lookup.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'e-invoice-checker.html', loc: '/e-invoice-checker.html', changefreq: 'monthly', priority: '0.8' },
+  { file: 'e-invoice-penalty-calculator.html', loc: '/e-invoice-penalty-calculator.html', changefreq: 'monthly', priority: '0.8' },
   // Product pages served without ".html": the loc matches each page's canonical URL.
   { file: 'venue-booking.html', loc: '/venue-booking',      changefreq: 'monthly', priority: '0.9' },
   { file: 'steadypost.html',    loc: '/steadypost',         changefreq: 'monthly', priority: '0.8' },

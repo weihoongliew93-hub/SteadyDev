@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>马来西亚电子发票罚款计算器（LHDN）| SteadyDevs</title>
+<meta content="算一算没有向 LHDN 开立电子发票，法律允许的罚款范围（每张 RM200 至 RM20,000），以及照规定开立需要多少费用。免费。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/e-invoice-penalty-calculator.html" property="og:url"/>
+<meta content="马来西亚电子发票罚款计算器（LHDN）| SteadyDevs" property="og:title"/>
+<meta content="算一算没有向 LHDN 开立电子发票，法律允许的罚款范围（每张 RM200 至 RM20,000），以及照规定开立需要多少费用。免费。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/e-invoice-penalty-calculator.html" rel="canonical"/><link href="https://steadydevs.com/e-invoice-penalty-calculator.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/e-invoice-penalty-calculator.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/e-invoice-penalty-calculator.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/e-invoice-penalty-calculator.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "在马来西亚不开电子发票有什么罚则？", "acceptedAnswer": {"@type": "Answer", "text": "这是《1967 年所得税法令》第 120(1)(d) 条下的罪行：每一次违规可被罚款 RM200 至 RM20,000，或监禁最多 6 个月，或两者兼施。"}}, {"@type": "Question", "name": "罚款是按每张发票计算吗？", "acceptedAnswer": {"@type": "Answer", "text": "LHDN 常见问题说明，罚款按每一次违规计算，但 LHDN 尚未公布实际如何计算次数，因此本计算器把每一张没有开立的发票算作一次。结果反映的是风险规模，而不是可能收到的罚单。"}}, {"@type": "Question", "name": "宽松期内会被罚款吗？", "acceptedAnswer": {"@type": "Answer", "text": "电子发票实施日期为 2026 年 1 月 1 日或 7 月 1 日的企业，只要每月在月底后 7 天内开立合并电子发票，在 2027 年 12 月 31 日前不会依第 120 条被起诉。完全没有开立的企业不符合这个条件。"}}, {"@type": "Question", "name": "我已经漏了几个月，怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "现在就开始开立电子发票，并在 2027 年 12 月 31 日前通过 LHDN 的特别自愿披露计划，补开漏开或更正后的电子发票，补正漏掉的月份。无需登记。"}}, {"@type": "Question", "name": "营业额低于 RM300 万的企业会被罚款吗？", "acceptedAnswer": {"@type": "Answer", "text": "如果符合豁免条件就不会。LHDN 不会对获豁免的企业采取电子发票合规行动。可以用我们的自查工具确认您是否获得豁免。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* e-invoice penalty calculator (design F): inputs on the left, the range beside them. */
+    .pen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .pen { grid-template-columns: 1fr; } }
+    .pen [hidden] { display: none; }
+    .pen + .f-note { margin-top: 24px; }
+    .pen-result { display: grid; gap: 12px; }
+    .pen-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .pen-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .pen-cost { display: grid; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .pen-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=5"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · LHDN 电子发票</p>
+<h1 class="f-h1">电子发票罚款计算器</h1>
+<p class="f-lead">在必须开立电子发票时没有开立是一项罪行，按每一次违规计算。输入您可能漏开的数量，看看法律允许的罚款范围，以及照规定开立需要多少费用。</p>
+<div class="pen">
+<form class="f-form" id="penForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="f-field">
+<label for="penN">每月应开立为电子发票的发票数量</label>
+<input class="f-input" id="penN" inputmode="numeric" max="1000000" min="0" step="1" type="number" value="50"/>
+<span class="f-hint">每一张您须以电子发票形式开立的发票、贷记单或自开发票。</span>
+</div>
+<div class="f-field">
+<label for="penM">没有开立电子发票的月数</label>
+<input class="f-input" id="penM" inputmode="numeric" max="120" min="1" step="1" type="number" value="12"/>
+<span class="f-hint">从您必须开始的日期算起。不确定？<a href="e-invoice-checker.html">查一查您的日期</a>。</span>
+</div>
+</form>
+<div aria-live="polite" class="f-card pen-result">
+<p class="pen-label">如果全部没有开立</p>
+<p class="pen-head">罚款 RM <span data-o="min"></span> 至 RM <span data-o="max"></span></p>
+<p>即 <span data-o="count"></span> 张漏开的电子发票，每张 RM200 至 RM20,000。法庭还可判处最多 6 个月监禁，并在此范围内决定罚款金额。</p>
+<div class="pen-cost">
+<p data-c="plan">通过 SteadyDevs 开立这些发票，<span data-o="plan"></span> 配套<strong>每月 RM <span data-o="cost"></span></strong>。</p>
+<p data-c="custom" hidden="">每月超过 20,000 张发票，请<a href="contact.html">联系我们</a>了解定制配套。</p>
+<p><a href="einvoice.html">了解电子发票平台 →</a></p>
+</div>
+</div>
+</div>
+<p class="f-note">计算方式：LHDN 常见问题说明，罚款按每一次违规计算，因此本计算器把每一张没有开立的发票算作一次。LHDN 尚未公布实际如何计算次数，请把结果视为风险规模，而不是可能收到的罚单。并非法律建议。已于 2026 年 10 月 23 日对照 <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN 电子发票常见问题（2026 年 9 月 4 日更新）</a>核对。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">先别担心</h2></div>
+<div class="pen-cards">
+<div class="f-card">
+<h3 class="f-card__title">第四阶段开立合并电子发票，可以到 2028 年</h3>
+<p class="f-card__text">电子发票实施日期为 2026 年 1 月 1 日或 7 月 1 日的企业，处于至 2027 年 12 月 31 日的宽松期。每月为所有销售开立一张合并电子发票，在月底后 7 天内提交，LHDN 就不会依第 120 条起诉。</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">漏掉的月份仍可补正</h3>
+<p class="f-card__text">LHDN 的特别自愿披露计划开放至 2027 年 12 月 31 日。您只需补开漏开或更正后的电子发票，无需登记。LHDN 电子发票部门表示，对于公开透明、没有蓄意操纵的披露，将全面豁免罚款（<a href="https://www.nst.com.my/amp/business/corporate/2026/10/1560756/lhdn-receives-over-209-billion-e-invoices-uses-data-analytics">Bernama，2026 年 10 月 21 日</a>）。</p>
+</div>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>在马来西亚不开电子发票有什么罚则？</summary><div>这是《1967 年所得税法令》第 120(1)(d) 条下的罪行：每一次违规可被罚款 RM200 至 RM20,000，或监禁最多 6 个月，或两者兼施。</div></details><details><summary>罚款是按每张发票计算吗？</summary><div>LHDN 常见问题说明，罚款按每一次违规计算，但 LHDN 尚未公布实际如何计算次数，因此本计算器把每一张没有开立的发票算作一次。结果反映的是风险规模，而不是可能收到的罚单。</div></details><details><summary>宽松期内会被罚款吗？</summary><div>电子发票实施日期为 2026 年 1 月 1 日或 7 月 1 日的企业，只要每月在月底后 7 天内开立合并电子发票，在 2027 年 12 月 31 日前不会依第 120 条被起诉。完全没有开立的企业不符合这个条件。</div></details><details><summary>我已经漏了几个月，怎么办？</summary><div>现在就开始开立电子发票，并在 2027 年 12 月 31 日前通过 LHDN 的特别自愿披露计划，补开漏开或更正后的电子发票，补正漏掉的月份。无需登记。</div></details><details><summary>营业额低于 RM300 万的企业会被罚款吗？</summary><div>如果符合豁免条件就不会。LHDN 不会对获豁免的企业采取电子发票合规行动。可以用我们的自查工具确认您是否获得豁免。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">更多免费工具</span>还不确定是否需要开电子发票？<a href="e-invoice-checker.html">三个问题帮您确认 →</a>需要卖方的 MSIC 代码？<a href="msic-code-lookup.html">在这里查找 →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var n = document.getElementById('penN'), m = document.getElementById('penM');
+      var out = function (k) { return document.querySelector('[data-o="' + k + '"]'); };
+      // The e-Invoice platform's prices (einvoice.html): included invoices, monthly fee, overage per invoice.
+      var PLANS = [['Starter', 100, 29, 0.30], ['Business', 400, 59, 0.15], ['Growth', 1000, 89, 0.09], ['Premium', 20000, 199, 0]];
+      var rm = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 2 }); };
+      function whole(el, max) { var v = Math.floor(+el.value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var perMonth = whole(n, 1000000), months = whole(m, 120), count = perMonth * months;
+        out('count').textContent = rm(count);
+        out('min').textContent = rm(count * 200);
+        out('max').textContent = rm(count * 20000);
+        var best = perMonth <= 10 ? ['Free', 0] : null;
+        PLANS.forEach(function (p) {
+          if (perMonth > p[1] && !p[3]) return;
+          var cost = p[2] + Math.max(0, perMonth - p[1]) * p[3];
+          if (!best || cost < best[1]) best = [p[0], cost];
+        });
+        // Above Premium's fair use, einvoice.html offers a custom plan rather than any listed price.
+        if (perMonth > 20000) best = null;
+        document.querySelector('[data-c="plan"]').hidden = !best || !perMonth;
+        document.querySelector('[data-c="custom"]').hidden = !!best;
+        if (best) { out('plan').textContent = best[0]; out('cost').textContent = rm(Math.round(best[1] * 100) / 100); }
+      }
+      var sent = false;
+      [n, m].forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'einvoice_penalty', { per_month: whole(n, 1000000), months: whole(m, 120) }); }
+        });
+      });
+      document.getElementById('penForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

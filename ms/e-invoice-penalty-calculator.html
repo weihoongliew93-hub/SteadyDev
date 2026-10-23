@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Kalkulator Penalti e-Invois Malaysia (LHDN) | SteadyDevs</title>
+<meta content="Lihat julat denda yang dibenarkan undang-undang bagi e-Invois yang tidak dikeluarkan kepada LHDN, RM200 hingga RM20,000 setiap satu, dan kos untuk mengeluarkannya. Percuma." name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/ms/e-invoice-penalty-calculator.html" property="og:url"/>
+<meta content="Kalkulator Penalti e-Invois Malaysia (LHDN)" property="og:title"/>
+<meta content="Lihat julat denda yang dibenarkan undang-undang bagi e-Invois yang tidak dikeluarkan kepada LHDN, RM200 hingga RM20,000 setiap satu, dan kos untuk mengeluarkannya. Percuma." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/ms/e-invoice-penalty-calculator.html" rel="canonical"/><link href="https://steadydevs.com/e-invoice-penalty-calculator.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/e-invoice-penalty-calculator.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/e-invoice-penalty-calculator.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/e-invoice-penalty-calculator.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah penalti jika tidak mengeluarkan e-Invois di Malaysia?", "acceptedAnswer": {"@type": "Answer", "text": "Ia satu kesalahan di bawah seksyen 120(1)(d) Akta Cukai Pendapatan 1967: denda RM200 hingga RM20,000, penjara sehingga 6 bulan, atau kedua-duanya, bagi setiap ketidakpatuhan."}}, {"@type": "Question", "name": "Adakah denda dikenakan bagi setiap invois?", "acceptedAnswer": {"@type": "Answer", "text": "Soalan Lazim LHDN menyatakan penalti dikenakan bagi setiap ketidakpatuhan. LHDN belum menerbitkan cara ia mengiranya, jadi kalkulator ini mengira setiap invois yang tidak dikeluarkan sebagai satu. Ini menunjukkan saiz risiko, bukan jumlah yang mungkin dikenakan."}}, {"@type": "Question", "name": "Bolehkah saya didenda dalam tempoh kelonggaran?", "acceptedAnswer": {"@type": "Answer", "text": "Perniagaan yang mula mengeluarkan e-Invois pada 1 Januari atau 1 Julai 2026 tidak akan didakwa di bawah seksyen 120 sehingga 31 Disember 2027, selagi mereka mengeluarkan e-Invois disatukan setiap bulan dalam tempoh 7 hari selepas akhir bulan. Perniagaan yang tidak mengeluarkan apa-apa langsung berada di luar syarat itu."}}, {"@type": "Question", "name": "Saya sudah terlepas beberapa bulan. Apa perlu dibuat?", "acceptedAnswer": {"@type": "Answer", "text": "Mula mengeluarkan e-Invois sekarang, dan betulkan bulan yang terlepas melalui Program Pengakuan Sukarela Khas LHDN sebelum 31 Disember 2027 dengan mengeluarkan e-Invois yang tertinggal atau yang telah diperbetulkan. Tiada pendaftaran diperlukan."}}, {"@type": "Question", "name": "Adakah perniagaan di bawah RM3 juta didenda?", "acceptedAnswer": {"@type": "Answer", "text": "Tidak, jika layak untuk pengecualian. LHDN tidak mengambil tindakan pematuhan e-Invois terhadap perniagaan yang dikecualikan. Gunakan alat semakan kami untuk melihat sama ada anda dikecualikan."}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=11" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* e-invoice penalty calculator (design F): inputs on the left, the range beside them. */
+    .pen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .pen { grid-template-columns: 1fr; } }
+    .pen [hidden] { display: none; }
+    .pen + .f-note { margin-top: 24px; }
+    .pen-result { display: grid; gap: 12px; }
+    .pen-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .pen-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .pen-cost { display: grid; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .pen-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=5"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">Alat percuma · e-Invois LHDN</p>
+<h1 class="f-h1">Kalkulator penalti e-Invois</h1>
+<p class="f-lead">Tidak mengeluarkan e-Invois apabila diwajibkan ialah satu kesalahan, bagi setiap ketidakpatuhan. Masukkan berapa banyak yang akan tertinggal untuk melihat julat denda yang dibenarkan undang-undang, dan kos untuk mengeluarkannya.</p>
+<div class="pen">
+<form class="f-form" id="penForm" novalidate=""><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<div class="f-field">
+<label for="penN">Invois sebulan yang sepatutnya dikeluarkan sebagai e-Invois</label>
+<input class="f-input" id="penN" inputmode="numeric" max="1000000" min="0" step="1" type="number" value="50"/>
+<span class="f-hint">Setiap invois, nota kredit atau invois bil kendiri yang anda perlu keluarkan sebagai e-Invois.</span>
+</div>
+<div class="f-field">
+<label for="penM">Bulan tanpa e-Invois</label>
+<input class="f-input" id="penM" inputmode="numeric" max="120" min="1" step="1" type="number" value="12"/>
+<span class="f-hint">Dikira dari tarikh anda sepatutnya bermula. Tidak pasti? <a href="e-invoice-checker.html">Semak tarikh anda</a>.</span>
+</div>
+</form>
+<div aria-live="polite" class="f-card pen-result">
+<p class="pen-label">Jika tiada yang dikeluarkan</p>
+<p class="pen-head">Denda RM <span data-o="min"></span> hingga RM <span data-o="max"></span></p>
+<p>Iaitu <span data-o="count"></span> e-Invois yang tertinggal, pada RM200 hingga RM20,000 setiap satu. Mahkamah juga boleh mengenakan penjara sehingga 6 bulan. Mahkamah menentukan jumlahnya dalam julat itu.</p>
+<div class="pen-cost">
+<p data-c="plan">Mengeluarkannya melalui SteadyDevs berharga <strong>RM <span data-o="cost"></span> sebulan</strong> dengan pelan <span data-o="plan"></span>.</p>
+<p data-c="custom" hidden="">Melebihi 20,000 invois sebulan, <a href="contact.html">hubungi kami</a> untuk pelan khas.</p>
+<p><a href="einvoice.html">Lihat platform e-Invois →</a></p>
+</div>
+</div>
+</div>
+<p class="f-note">Cara pengiraan: Soalan Lazim LHDN menyatakan denda dikenakan bagi setiap ketidakpatuhan, jadi kalkulator ini mengira setiap invois yang tidak dikeluarkan sebagai satu. LHDN belum menerbitkan cara ia mengiranya dalam amalan, jadi anggap ini sebagai saiz risiko, bukan jumlah yang mungkin dikenakan. Bukan nasihat undang-undang. Disemak pada 23 Oktober 2026 berdasarkan <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">Soalan Lazim e-Invois LHDN (dikemas kini 4 September 2026)</a>.</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">Sebelum anda bimbang</h2></div>
+<div class="pen-cards">
+<div class="f-card">
+<h3 class="f-card__title">Fasa 4 ada masa sehingga 2028, jika mengeluarkan e-Invois disatukan</h3>
+<p class="f-card__text">Perniagaan yang mula mengeluarkan e-Invois pada 1 Januari atau 1 Julai 2026 berada dalam tempoh kelonggaran sehingga 31 Disember 2027. Keluarkan satu e-Invois disatukan sebulan bagi semua jualan anda, dalam tempoh 7 hari selepas akhir bulan, dan LHDN tidak akan mendakwa di bawah seksyen 120.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Bulan yang terlepas masih boleh dibetulkan</h3>
+<p class="f-card__text">Program Pengakuan Sukarela Khas LHDN dibuka sehingga 31 Disember 2027. Anda mengeluarkan e-Invois yang tertinggal atau yang telah diperbetulkan, dan tiada pendaftaran diperlukan. Bahagian e-Invois LHDN menyifatkannya sebagai pengecualian penalti penuh bagi pengakuan yang dibuat secara telus, tanpa manipulasi yang disengajakan (<a href="https://www.nst.com.my/amp/business/corporate/2026/10/1560756/lhdn-receives-over-209-billion-e-invoices-uses-data-analytics">Bernama, 21 Oktober 2026</a>).</p>
+</div>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Soalan lazim</h2></div>
+<div class="f-faq"><details><summary>Apakah penalti jika tidak mengeluarkan e-Invois di Malaysia?</summary><div>Ia satu kesalahan di bawah seksyen 120(1)(d) Akta Cukai Pendapatan 1967: denda RM200 hingga RM20,000, penjara sehingga 6 bulan, atau kedua-duanya, bagi setiap ketidakpatuhan.</div></details><details><summary>Adakah denda dikenakan bagi setiap invois?</summary><div>Soalan Lazim LHDN menyatakan penalti dikenakan bagi setiap ketidakpatuhan. LHDN belum menerbitkan cara ia mengiranya, jadi kalkulator ini mengira setiap invois yang tidak dikeluarkan sebagai satu. Ini menunjukkan saiz risiko, bukan jumlah yang mungkin dikenakan.</div></details><details><summary>Bolehkah saya didenda dalam tempoh kelonggaran?</summary><div>Perniagaan yang mula mengeluarkan e-Invois pada 1 Januari atau 1 Julai 2026 tidak akan didakwa di bawah seksyen 120 sehingga 31 Disember 2027, selagi mereka mengeluarkan e-Invois disatukan setiap bulan dalam tempoh 7 hari selepas akhir bulan. Perniagaan yang tidak mengeluarkan apa-apa langsung berada di luar syarat itu.</div></details><details><summary>Saya sudah terlepas beberapa bulan. Apa perlu dibuat?</summary><div>Mula mengeluarkan e-Invois sekarang, dan betulkan bulan yang terlepas melalui Program Pengakuan Sukarela Khas LHDN sebelum 31 Disember 2027 dengan mengeluarkan e-Invois yang tertinggal atau yang telah diperbetulkan. Tiada pendaftaran diperlukan.</div></details><details><summary>Adakah perniagaan di bawah RM3 juta didenda?</summary><div>Tidak, jika layak untuk pengecualian. LHDN tidak mengambil tindakan pematuhan e-Invois terhadap perniagaan yang dikecualikan. Gunakan alat semakan kami untuk melihat sama ada anda dikecualikan.</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">Lagi alat percuma</span> Tidak pasti sama ada anda perlu mengeluarkan e-Invois? <a href="e-invoice-checker.html">Semak dengan tiga soalan →</a> Perlukan kod MSIC penjual? <a href="msic-code-lookup.html">Cari di sini →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col"><h2>Tawaran</h2><ul>
+<li><a href="solutions.html">Perkhidmatan kejuruteraan</a></li><li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>Syarikat</h2><ul>
+<li><a href="about.html">Tentang kami</a></li><li><a href="portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Hubungi</a></li></ul></div>
+<div class="ff__col"><h2>Lagi</h2><ul>
+<li><a href="pricing-terms.html">Terma harga</a></li><li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var n = document.getElementById('penN'), m = document.getElementById('penM');
+      var out = function (k) { return document.querySelector('[data-o="' + k + '"]'); };
+      // The e-Invoice platform's prices (einvoice.html): included invoices, monthly fee, overage per invoice.
+      var PLANS = [['Starter', 100, 29, 0.30], ['Business', 400, 59, 0.15], ['Growth', 1000, 89, 0.09], ['Premium', 20000, 199, 0]];
+      var rm = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 2 }); };
+      function whole(el, max) { var v = Math.floor(+el.value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var perMonth = whole(n, 1000000), months = whole(m, 120), count = perMonth * months;
+        out('count').textContent = rm(count);
+        out('min').textContent = rm(count * 200);
+        out('max').textContent = rm(count * 20000);
+        var best = perMonth <= 10 ? ['Free', 0] : null;
+        PLANS.forEach(function (p) {
+          if (perMonth > p[1] && !p[3]) return;
+          var cost = p[2] + Math.max(0, perMonth - p[1]) * p[3];
+          if (!best || cost < best[1]) best = [p[0], cost];
+        });
+        // Above Premium's fair use, einvoice.html offers a custom plan rather than any listed price.
+        if (perMonth > 20000) best = null;
+        document.querySelector('[data-c="plan"]').hidden = !best || !perMonth;
+        document.querySelector('[data-c="custom"]').hidden = !!best;
+        if (best) { out('plan').textContent = best[0]; out('cost').textContent = rm(Math.round(best[1] * 100) / 100); }
+      }
+      var sent = false;
+      [n, m].forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'einvoice_penalty', { per_month: whole(n, 1000000), months: whole(m, 120) }); }
+        });
+      });
+      document.getElementById('penForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

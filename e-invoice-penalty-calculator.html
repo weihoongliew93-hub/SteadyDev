@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>e-Invoice Penalty Calculator Malaysia (LHDN) | SteadyDevs</title>
+  <meta name="description" content="See the fines the law allows for e-invoices not issued to LHDN, RM200 to RM20,000 each, and what issuing them would cost instead. Free.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/e-invoice-penalty-calculator.html">
+  <meta property="og:title" content="e-Invoice penalty calculator for LHDN">
+  <meta property="og:description" content="See the fines the law allows for e-invoices not issued to LHDN, RM200 to RM20,000 each, and what issuing them would cost instead. Free.">
+  <meta property="og:image" content="https://steadydevs.com/images/SteadyDevsLogo.svg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/e-invoice-penalty-calculator.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the penalty for not issuing an e-invoice in Malaysia?", "acceptedAnswer": {"@type": "Answer", "text": "It is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance."}}, {"@type": "Question", "name": "Is the fine charged per invoice?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN's FAQ says the penalty applies for each non-compliance. It hasn't published how it counts them, so this calculator treats every invoice not issued as one. That shows the size of the exposure rather than a likely bill."}}, {"@type": "Question", "name": "Can I be fined during the relaxation period?", "acceptedAnswer": {"@type": "Answer", "text": "Businesses whose e-invoicing started on 1 January or 1 July 2026 won't be prosecuted under section 120 until 31 December 2027, as long as they issue a consolidated e-invoice every month within 7 days after the month ends. A business issuing nothing at all is outside that condition."}}, {"@type": "Question", "name": "I have already missed some months. What now?", "acceptedAnswer": {"@type": "Answer", "text": "Start issuing e-invoices now, and put the missed months right through LHDN's Special Voluntary Disclosure Programme before 31 December 2027 by issuing the missing or corrected e-invoices. No registration is needed."}}, {"@type": "Question", "name": "Are businesses under RM3 million fined?", "acceptedAnswer": {"@type": "Answer", "text": "Not if they qualify for the exemption. LHDN takes no e-invoice compliance action against exempt businesses. Use our checker to see whether you are exempt."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=11">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* e-invoice penalty calculator (design F): inputs on the left, the range beside them. */
+    .pen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .pen { grid-template-columns: 1fr; } }
+    .pen [hidden] { display: none; }
+    .pen + .f-note { margin-top: 24px; }
+    .pen-result { display: grid; gap: 12px; }
+    .pen-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .pen-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .pen-cost { display: grid; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .pen-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=5"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; LHDN e-invoice</p>
+        <h1 class="f-h1">e-Invoice penalty calculator</h1>
+        <p class="f-lead">Not issuing an e-invoice when you must is an offence, for each non-compliance. Enter how many you would be missing to see the range of fines the law allows, and what issuing them would cost instead.</p>
+        <div class="pen">
+          <form class="f-form" id="penForm" novalidate>
+            <div class="f-field">
+              <label for="penN">Invoices a month that should be e-invoices</label>
+              <input class="f-input" id="penN" type="number" inputmode="numeric" min="0" max="1000000" step="1" value="50">
+              <span class="f-hint">Every invoice, credit note or self-billed invoice you are expected to issue as an e-invoice.</span>
+            </div>
+            <div class="f-field">
+              <label for="penM">Months without e-invoicing</label>
+              <input class="f-input" id="penM" type="number" inputmode="numeric" min="1" max="120" step="1" value="12">
+              <span class="f-hint">Counted from the date you had to start. Not sure of it? <a href="e-invoice-checker.html">Check your date</a>.</span>
+            </div>
+          </form>
+
+          <div class="f-card pen-result" aria-live="polite">
+            <p class="pen-label">If none are issued</p>
+            <p class="pen-head">Fines of RM <span data-o="min"></span> to RM <span data-o="max"></span></p>
+            <p>That is <span data-o="count"></span> missed e-invoices at RM200 to RM20,000 each. The court can also impose up to 6 months' imprisonment. It decides the amount within that range.</p>
+            <div class="pen-cost">
+              <p data-c="plan">Issuing them through SteadyDevs costs <strong>RM <span data-o="cost"></span> a month</strong> on the <span data-o="plan"></span> plan.</p>
+              <p data-c="custom" hidden>Above 20,000 invoices a month, <a href="contact.html">talk to us</a> about a custom plan.</p>
+              <p><a href="einvoice.html">See the e-Invoice platform &rarr;</a></p>
+            </div>
+          </div>
+        </div>
+        <p class="f-note">How this counts: LHDN's FAQ says the fine applies for each non-compliance, so the calculator counts every invoice not issued as one. LHDN hasn't published how it counts them in practice, so treat this as the size of the exposure, not a likely bill. Not legal advice. Checked on 23 October 2026 against <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN's e-Invoice FAQ (updated 4 September 2026)</a>.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Before you worry</h2></div>
+        <div class="pen-cards">
+          <div class="f-card">
+            <h3 class="f-card__title">Phase 4 has until 2028, if it consolidates</h3>
+            <p class="f-card__text">Businesses whose e-invoicing started on 1 January or 1 July 2026 are in a relaxation period until 31 December 2027. Issue one consolidated e-invoice a month for all your sales, within 7 days after the month ends, and LHDN won't prosecute under section 120.</p>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title">Missed months can still be put right</h3>
+            <p class="f-card__text">LHDN's Special Voluntary Disclosure Programme runs until 31 December 2027. You issue the missing or corrected e-invoices, and no registration is needed. LHDN's e-invoice division calls it a full penalty waiver for disclosures made openly, without deliberate manipulation (<a href="https://www.nst.com.my/amp/business/corporate/2026/10/1560756/lhdn-receives-over-209-billion-e-invoices-uses-data-analytics">Bernama, 21 October 2026</a>).</p>
+          </div>
+        </div>
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>What is the penalty for not issuing an e-invoice in Malaysia?</summary><div>It is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance.</div></details><details><summary>Is the fine charged per invoice?</summary><div>LHDN's FAQ says the penalty applies for each non-compliance. It hasn't published how it counts them, so this calculator treats every invoice not issued as one. That shows the size of the exposure rather than a likely bill.</div></details><details><summary>Can I be fined during the relaxation period?</summary><div>Businesses whose e-invoicing started on 1 January or 1 July 2026 won't be prosecuted under section 120 until 31 December 2027, as long as they issue a consolidated e-invoice every month within 7 days after the month ends. A business issuing nothing at all is outside that condition.</div></details><details><summary>I have already missed some months. What now?</summary><div>Start issuing e-invoices now, and put the missed months right through LHDN's Special Voluntary Disclosure Programme before 31 December 2027 by issuing the missing or corrected e-invoices. No registration is needed.</div></details><details><summary>Are businesses under RM3 million fined?</summary><div>Not if they qualify for the exemption. LHDN takes no e-invoice compliance action against exempt businesses. Use our checker to see whether you are exempt.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">More free tools</span>
+          Not sure you have to e-invoice at all? <a href="e-invoice-checker.html">Check in three questions &rarr;</a> Need the seller's MSIC code? <a href="msic-code-lookup.html">Look it up &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var n = document.getElementById('penN'), m = document.getElementById('penM');
+      var out = function (k) { return document.querySelector('[data-o="' + k + '"]'); };
+      // The e-Invoice platform's prices (einvoice.html): included invoices, monthly fee, overage per invoice.
+      var PLANS = [['Starter', 100, 29, 0.30], ['Business', 400, 59, 0.15], ['Growth', 1000, 89, 0.09], ['Premium', 20000, 199, 0]];
+      var rm = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 2 }); };
+      function whole(el, max) { var v = Math.floor(+el.value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var perMonth = whole(n, 1000000), months = whole(m, 120), count = perMonth * months;
+        out('count').textContent = rm(count);
+        out('min').textContent = rm(count * 200);
+        out('max').textContent = rm(count * 20000);
+        var best = perMonth <= 10 ? ['Free', 0] : null;
+        PLANS.forEach(function (p) {
+          if (perMonth > p[1] && !p[3]) return;
+          var cost = p[2] + Math.max(0, perMonth - p[1]) * p[3];
+          if (!best || cost < best[1]) best = [p[0], cost];
+        });
+        // Above Premium's fair use, einvoice.html offers a custom plan rather than any listed price.
+        if (perMonth > 20000) best = null;
+        document.querySelector('[data-c="plan"]').hidden = !best || !perMonth;
+        document.querySelector('[data-c="custom"]').hidden = !!best;
+        if (best) { out('plan').textContent = best[0]; out('cost').textContent = rm(Math.round(best[1] * 100) / 100); }
+      }
+      var sent = false;
+      [n, m].forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'einvoice_penalty', { per_month: whole(n, 1000000), months: whole(m, 120) }); }
+        });
+      });
+      document.getElementById('penForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

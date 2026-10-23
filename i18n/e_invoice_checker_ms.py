@@ -83,7 +83,7 @@ B = {
  'b59': '<a href="einvoice.html">Hantar e-Invois ke LHDN daripada sistem yang anda gunakan sekarang →</a>',
  'b60': 'Panduan kepada peraturan yang diterbitkan LHDN, bukan nasihat cukai. Disemak pada 23 Oktober 2026 berdasarkan <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">Soalan Lazim e-Invois LHDN (dikemas kini 4 September 2026)</a>. LHDN telah mengubah tarikh-tarikh ini lebih daripada sekali, jadi sahkan tarikh anda dengan LHDN atau ejen cukai anda.',
  'b61': 'Soalan lazim',
- 'b72': '<span class="f-callout__label">Lagi alat percuma</span> Setiap e-Invois memerlukan kod MSIC penjual, dan LHDN hanya menerima kod dalam senarainya sendiri. <a href="msic-code-lookup.html">Cari kod MSIC anda →</a>',
+ 'b72': '<span class="f-callout__label">Lagi alat percuma</span> Setiap e-Invois memerlukan kod MSIC penjual, dan LHDN hanya menerima kod dalam senarainya sendiri. <a href="msic-code-lookup.html">Cari kod MSIC anda →</a> Ingin tahu kos jika tidak mengeluarkan e-Invois? <a href="e-invoice-penalty-calculator.html">Anggarkan dendanya →</a>',
 }
 for i, (_, q, _, a) in enumerate(FAQ):
     B[f'b{62 + 2 * i}'] = q; B[f'b{63 + 2 * i}'] = a
