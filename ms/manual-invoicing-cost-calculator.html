@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Kalkulator Kos Invois Manual (Malaysia) | SteadyDevs</title>
+<meta content="Kira jam kerja kakitangan dan RM yang dibelanjakan perniagaan anda untuk menaip, menyemak, menghantar dan membetulkan invois secara manual, sebulan dan setahun. Percuma." name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/ms/manual-invoicing-cost-calculator.html" property="og:url"/>
+<meta content="Kalkulator Kos Invois Manual (Malaysia)" property="og:title"/>
+<meta content="Kira jam kerja kakitangan dan RM yang dibelanjakan perniagaan anda untuk menaip, menyemak, menghantar dan membetulkan invois secara manual, sebulan dan setahun. Percuma." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/ms/manual-invoicing-cost-calculator.html" rel="canonical"/><link href="https://steadydevs.com/manual-invoicing-cost-calculator.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/manual-invoicing-cost-calculator.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/manual-invoicing-cost-calculator.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/manual-invoicing-cost-calculator.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Berapa banyak masa sebenarnya diambil oleh invois manual?", "acceptedAnswer": {"@type": "Answer", "text": "Ia bergantung pada proses anda. Ukur masa satu invois biasa dari mula hingga akhir: mencari butiran pelanggan, menaip baris, menyemak jumlah, membuat PDF, menghantar dan merekodkannya. Tambah masa yang digunakan untuk mengejar bayaran. Kebanyakan pemilik mendapati angka sebenar lebih tinggi daripada jangkaan mereka."}}, {"@type": "Question", "name": "Mengapa kalkulator mengira kesilapan secara berasingan?", "acceptedAnswer": {"@type": "Answer", "text": "Kerana invois yang salah lebih mahal daripada masa untuk menaipnya. Seseorang perlu menyedarinya, mengeluarkan pembetulan, membalas pelanggan dan menyelaraskan akaun, dan bayaran tertangguh sementara itu. Masukkan berapa kerap ia berlaku dan berapa lama satu pembetulan diambil."}}, {"@type": "Question", "name": "Apa yang tidak dikira oleh kalkulator?", "acceptedAnswer": {"@type": "Answer", "text": "Bayaran yang tiba lebih lewat kerana invois dihantar lewat, hasil yang hilang akibat kesilapan harga, dan apa yang boleh dilakukan oleh kakitangan anda dengan masa itu. Perkara ini mungkin lebih penting daripada jam kerja, tetapi ia terlalu berbeza antara perniagaan untuk dianggarkan di sini."}}, {"@type": "Question", "name": "Adakah e-Invois LHDN mengubah perkara ini?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, ia menambah satu langkah. Setiap e-Invois perlu dihantar ke sistem MyInvois LHDN, melalui Portal MyInvois atau API, dan disahkan sebelum anda berkongsinya dengan pembeli. Jika anda menaip invois secara manual hari ini, memasukkannya dalam Portal MyInvois boleh bermakna menaipnya kali kedua."}}, {"@type": "Question", "name": "Adakah automasi invois akan menjimatkan keseluruhan jumlah ini?", "acceptedAnswer": {"@type": "Answer", "text": "Tidak. Seseorang masih perlu menyemak dan meluluskan invois serta menguruskan pengecualian, dan automasi ada kosnya sendiri. Angka di sini ialah kos proses manual hari ini, iaitu angka untuk dibandingkan dengan sebarang perubahan."}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Manual invoicing cost calculator (design F): inputs on the left, hours and ringgit beside them. */
+    .mic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .mic { grid-template-columns: 1fr; } }
+    .mic [hidden] { display: none; }
+    .mic + .f-note { margin-top: 24px; }
+    .mic-result { display: grid; gap: 12px; }
+    .mic-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .mic-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .mic-sub { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .mic-formula { font-family: var(--mono); font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+    .mic-formula p { margin: 0; }
+    .mic-dim { color: var(--faint); font-size: 14px; }
+    .mic-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 10px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">Alat percuma · Invois</p>
+<h1 class="f-h1">Kalkulator kos invois manual</h1>
+<p class="f-lead">“Cuma ambil beberapa minit” akhirnya bertambah. Masukkan cara perniagaan anda membuat invois hari ini untuk melihat jam kerja kakitangan, dan ringgit, yang diambil untuk menaip, menyemak, menghantar, mengejar bayaran dan membetulkan invois setiap bulan dan setiap tahun.</p>
+<div class="mic">
+<form class="f-form" id="micForm" novalidate=""><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<div class="f-field">
+<label for="micN">Invois sebulan</label>
+<input class="f-input" id="micN" inputmode="numeric" min="0" step="1" type="number" value="50"/>
+<span class="f-hint">Angka yang telah diisi ialah contoh, bukan purata. Gantikan dengan angka anda.</span>
+</div>
+<div class="f-field">
+<label for="micMin">Minit bagi setiap invois</label>
+<input class="f-input" id="micMin" inputmode="decimal" min="0" step="any" type="number" value="10"/>
+<span class="f-hint">Menaip, menyemak, menghantar dan merekodkannya, serta mengejar bayaran. Ukur masa untuk satu invois biasa untuk mengetahuinya.</span>
+</div>
+<div class="f-field">
+<label for="micPay">Kos kakitangan sejam, RM</label>
+<input class="f-input" id="micPay" inputmode="decimal" min="0" step="any" type="number" value="20"/>
+<span class="f-hint">Gaji serta caruman majikan, sejam, bagi sesiapa yang membuat invois.</span>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="micErr">Invois yang mempunyai kesilapan, %</label>
+<input class="f-input" id="micErr" inputmode="decimal" max="100" min="0" step="any" type="number" value="2"/>
+</div>
+<div class="f-field">
+<label for="micFix">Minit untuk membetulkan kesilapan</label>
+<input class="f-input" id="micFix" inputmode="decimal" min="0" step="any" type="number" value="20"/>
+</div>
+</div>
+</form>
+<div aria-live="polite" class="f-card mic-result">
+<p class="mic-label">Masa yang digunakan secara manual</p>
+<p class="mic-head"><span data-o="hm">0</span> jam, RM <span data-o="rm">0</span> sebulan</p>
+<p class="mic-sub"><span data-o="hy">0</span> jam, RM <span data-o="ry">0</span> setahun</p>
+<div class="mic-formula">
+<p>Membuat invois = <span data-o="n">0</span> × <span data-o="min">0</span> minit = <span data-o="h1">0</span> j</p>
+<p>Membetulkan kesilapan = <span data-o="n2">0</span> × <span data-o="err">0</span>% × <span data-o="fix">0</span> minit = <span data-o="h2">0</span> j</p>
+<p>Kos = <span data-o="hm2">0</span> j × RM <span data-o="pay">0</span>/jam, × 12 untuk setahun</p>
+</div>
+<p class="mic-dim">Anggaran daripada angka anda sendiri. Ia tidak mengambil kira bayaran yang lebih lewat akibat invois lewat dan hasil yang hilang akibat kesilapan harga.</p>
+<div class="mic-cta">
+<p>e-Invois LHDN menambah satu langkah: setiap e-Invois mesti dihantar ke MyInvois dan disahkan sebelum anda berkongsinya dengan pembeli.</p>
+<p data-c="plan">Platform e-Invois SteadyDevs menghantarnya daripada sistem yang sudah anda gunakan, atau daripada muat naik Excel atau CSV. Pada <span data-o="n3">0</span> invois sebulan, itu pelan <span data-o="plan"></span>, <strong>RM <span data-o="cost">0</span> sebulan</strong> termasuk sebarang caj lebihan. <a href="einvoice.html">Lihat platform e-Invois →</a></p>
+<p data-c="custom" hidden="">Melebihi 20,000 invois sebulan, <a href="contact.html">bincang dengan kami</a> tentang pelan khas untuk platform e-Invois.</p>
+</div>
+</div>
+</div>
+<p class="f-note">Cara pengiraan: jam sebulan = invois × minit bagi setiap invois ÷ 60 + invois × kadar kesilapan × minit bagi setiap pembetulan ÷ 60; kos = jam × kos kakitangan sejam; setahun ialah 12 bulan. Anggaran kasar, bukan nasihat kewangan. Langkah e-Invois disemak pada 23 Oktober 2026 berdasarkan <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">Soalan Lazim e-Invois LHDN (dikemas kini 4 September 2026)</a>; harga pelan daripada <a href="einvoice.html#pricing">harga platform e-Invois</a>.</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">Ke mana masa itu pergi</h2></div>
+<p>Invois yang “mudah” jarang sekali satu langkah sahaja. Seseorang menyalin butiran pelanggan, mengisi baris, menyemak jumlah, membuat PDF, menulis e-mel, merekodkannya dalam hamparan dan, kemudian, mengejar bayaran. Setiap kesilapan menambah satu pembetulan, satu permohonan maaf dan satu bayaran yang tertangguh. <a href="../blog/hidden-cost-manual-invoicing-malaysian-smes.html">Kos tersembunyi invois manual</a> menghuraikannya, dan <a href="../blog/manual-to-automated-invoice-real-business-impact.html">daripada manual kepada automatik</a> menunjukkan apa yang berubah apabila langkah-langkah itu diautomasikan, dan apa yang masih memerlukan manusia.</p>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Soalan lazim</h2></div>
+<div class="f-faq"><details><summary>Berapa banyak masa sebenarnya diambil oleh invois manual?</summary><div>Ia bergantung pada proses anda. Ukur masa satu invois biasa dari mula hingga akhir: mencari butiran pelanggan, menaip baris, menyemak jumlah, membuat PDF, menghantar dan merekodkannya. Tambah masa yang digunakan untuk mengejar bayaran. Kebanyakan pemilik mendapati angka sebenar lebih tinggi daripada jangkaan mereka.</div></details><details><summary>Mengapa kalkulator mengira kesilapan secara berasingan?</summary><div>Kerana invois yang salah lebih mahal daripada masa untuk menaipnya. Seseorang perlu menyedarinya, mengeluarkan pembetulan, membalas pelanggan dan menyelaraskan akaun, dan bayaran tertangguh sementara itu. Masukkan berapa kerap ia berlaku dan berapa lama satu pembetulan diambil.</div></details><details><summary>Apa yang tidak dikira oleh kalkulator?</summary><div>Bayaran yang tiba lebih lewat kerana invois dihantar lewat, hasil yang hilang akibat kesilapan harga, dan apa yang boleh dilakukan oleh kakitangan anda dengan masa itu. Perkara ini mungkin lebih penting daripada jam kerja, tetapi ia terlalu berbeza antara perniagaan untuk dianggarkan di sini.</div></details><details><summary>Adakah e-Invois LHDN mengubah perkara ini?</summary><div>Ya, ia menambah satu langkah. Setiap e-Invois perlu dihantar ke sistem MyInvois LHDN, melalui Portal MyInvois atau API, dan disahkan sebelum anda berkongsinya dengan pembeli. Jika anda menaip invois secara manual hari ini, memasukkannya dalam Portal MyInvois boleh bermakna menaipnya kali kedua.</div></details><details><summary>Adakah automasi invois akan menjimatkan keseluruhan jumlah ini?</summary><div>Tidak. Seseorang masih perlu menyemak dan meluluskan invois serta menguruskan pengecualian, dan automasi ada kosnya sendiri. Angka di sini ialah kos proses manual hari ini, iaitu angka untuk dibandingkan dengan sebarang perubahan.</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">Langkah seterusnya</span>
+          Hantar e-Invois ke LHDN daripada sistem yang sudah anda gunakan: <a href="einvoice.html">platform e-Invois</a> bermula percuma untuk 10 invois sebulan. Mahu invois dicipta sendiri daripada pesanan anda? Lihat <a href="solutions.html#automation">automasi perniagaan →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col"><h2>Tawaran</h2><ul>
+<li><a href="solutions.html">Perkhidmatan kejuruteraan</a></li><li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>Syarikat</h2><ul>
+<li><a href="about.html">Tentang kami</a></li><li><a href="portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Hubungi</a></li></ul></div>
+<div class="ff__col"><h2>Lagi</h2><ul>
+<li><a href="pricing-terms.html">Terma harga</a></li><li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>Alat percuma</h2><ul>
+<li><a href="e-invoice-checker.html">Perlukah saya e-Invois?</a></li><li><a href="msic-code-lookup.html">Carian kod MSIC</a></li><li><a href="../microsoft-end-of-support-lookup.html">Semakan tamat sokongan</a></li><li><a href="../legacy-system-risk-scorecard.html">Kad skor risiko</a></li><li><a href="../free-tools.html">Semua alat percuma →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var out = function (k) { return document.querySelector('.mic [data-o="' + k + '"]'); };
+      var ids = ['micN', 'micMin', 'micPay', 'micErr', 'micFix'];
+      // The e-Invoice platform's prices (einvoice.html): included invoices, monthly fee, overage per invoice.
+      var PLANS = [['Starter', 100, 29, 0.30], ['Business', 400, 59, 0.15], ['Growth', 1000, 89, 0.09], ['Premium', 20000, 199, 0]];
+      var rm = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 0 }); };
+      var num = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 1 }); };
+      // Anything empty, negative or not a number counts as 0; caps keep the result finite and readable.
+      function val(id, max) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var n = Math.floor(val('micN', 1e6)), min = val('micMin', 600), pay = val('micPay', 1e4);
+        var err = val('micErr', 100), fix = val('micFix', 600);
+        var h1 = n * min / 60, h2 = n * err / 100 * fix / 60, hm = h1 + h2;
+        out('n').textContent = rm(n); out('n2').textContent = rm(n); out('n3').textContent = rm(n);
+        out('min').textContent = num(min); out('err').textContent = num(err); out('fix').textContent = num(fix);
+        out('h1').textContent = num(h1); out('h2').textContent = num(h2);
+        out('hm').textContent = num(hm); out('hm2').textContent = num(hm); out('pay').textContent = num(pay);
+        out('rm').textContent = rm(hm * pay); out('hy').textContent = num(hm * 12); out('ry').textContent = rm(hm * pay * 12);
+        var best = n <= 10 ? ['Free', 0] : null;
+        PLANS.forEach(function (p) {
+          if (n > p[1] && !p[3]) return;
+          var cost = p[2] + Math.max(0, n - p[1]) * p[3];
+          if (!best || cost < best[1]) best = [p[0], cost];
+        });
+        // Above Premium's fair use, einvoice.html offers a custom plan rather than any listed price.
+        if (n > 20000) best = null;
+        document.querySelector('.mic [data-c="plan"]').hidden = !best || !n;
+        document.querySelector('.mic [data-c="custom"]').hidden = !!best;
+        if (best) { out('plan').textContent = best[0]; out('cost').textContent = (Math.round(best[1] * 100) / 100).toLocaleString('en-MY', { maximumFractionDigits: 2 }); }
+      }
+      var sent = false;
+      ids.forEach(function (id) {
+        $(id).addEventListener('input', apply);
+        $(id).addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'manual_invoicing_cost'); }
+        });
+      });
+      $('micForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

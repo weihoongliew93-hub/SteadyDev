@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>马来西亚中小企业停机成本计算器 | SteadyDevs</title>
+<meta content="估算系统停机让您的企业损失多少令吉：销售损失、员工闲置和恢复成本，按每次事故和每年计算，并显示公式。免费。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/downtime-cost-calculator.html" property="og:url"/>
+<meta content="马来西亚中小企业停机成本计算器" property="og:title"/>
+<meta content="估算系统停机让您的企业损失多少令吉：销售损失、员工闲置和恢复成本，按每次事故和每年计算，并显示公式。免费。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/downtime-cost-calculator.html" rel="canonical"/><link href="https://steadydevs.com/downtime-cost-calculator.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/downtime-cost-calculator.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/downtime-cost-calculator.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/downtime-cost-calculator.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "停机成本怎么计算？", "acceptedAnswer": {"@type": "Answer", "text": "每次事故把三项加起来：系统停机期间损失的销售、无法工作的员工工资，以及加班或紧急修复等恢复成本。再乘以每年的事故次数。计算器会用您的数字显示公式。"}}, {"@type": "Question", "name": "这个计算器没有计算哪些？", "acceptedAnswer": {"@type": "Answer", "text": "不再回头的顾客、声誉受损、延迟交付、需要重新录入或更正的数据，以及管理层处理这些事情所花的时间。这些往往比直接成本更大，但每家企业情况不同，无法在这里估算。"}}, {"@type": "Question", "name": "系统停机期间所有销售都会损失吗？", "acceptedAnswer": {"@type": "Answer", "text": "不一定。有些顾客会等待或稍后再来。请调低损失的销售比例来反映这一点。有门市顾客的商店通常比顾客明天会再下单的供应商损失更多。"}}, {"@type": "Question", "name": "我不知道系统多久停机一次，应该填什么？", "acceptedAnswer": {"@type": "Answer", "text": "数一数过去一年员工无法使用系统的次数，包括重启很慢的时候，以及整个早上没人能登录的那次。如果没人记录，就开始做一份简单的记录；这是任何人修复系统时第一个会问的数字。"}}, {"@type": "Question", "name": "如何减少停机？", "acceptedAnswer": {"@type": "Answer", "text": "修复背后反复出现的问题，而不是每次都靠重启解决；测试备份是否真的能恢复；并了解恢复需要多长时间。按计划处理预警信号，比在压力下修复故障更便宜。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Downtime cost calculator (design F): inputs on the left, the estimate and its formula beside them. */
+    .dtc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .dtc { grid-template-columns: 1fr; } }
+    .dtc [hidden] { display: none; }
+    .dtc + .f-note { margin-top: 24px; }
+    .dtc-result { display: grid; gap: 12px; }
+    .dtc-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .dtc-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .dtc-sub { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .dtc-formula { font-family: var(--mono); font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+    .dtc-formula p { margin: 0; }
+    .dtc-dim { color: var(--faint); font-size: 14px; }
+    .dtc-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · 旧系统</p>
+<h1 class="f-h1">停机成本计算器</h1>
+<p class="f-lead">企业所依赖的系统一停下来，销售就停了，员工只能干等。输入您自己的数字，估算每次故障的代价，以及一年累积下来的总额。</p>
+<div class="dtc">
+<form class="f-form" id="dtcForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="f-field">
+<label for="dtcMode">您如何掌握销售额？</label>
+<select class="f-input" id="dtcMode">
+<option value="day">每日销售额</option>
+<option value="hour">每小时销售额</option>
+</select>
+</div>
+<div class="f-field">
+<label for="dtcRev">销售额（RM）</label>
+<input class="f-input" id="dtcRev" inputmode="decimal" min="0" step="any" type="number" value="5000"/>
+<span class="f-hint">只计算依赖该系统的销售额。预先填入的数字只是示例，请换成您自己的数字。</span>
+</div>
+<div class="f-field" id="dtcHoursField">
+<label for="dtcOpen">每日营业小时</label>
+<input class="f-input" id="dtcOpen" inputmode="decimal" max="24" min="1" step="any" type="number" value="10"/>
+</div>
+<div class="f-field">
+<label for="dtcLost">故障期间损失的销售比例（%）</label>
+<input class="f-input" id="dtcLost" inputmode="decimal" max="100" min="0" step="any" type="number" value="100"/>
+<span class="f-hint">如果顾客会等待或稍后再来，请调低。</span>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="dtcStaff">无法工作的员工人数</label>
+<input class="f-input" id="dtcStaff" inputmode="numeric" min="0" step="1" type="number" value="5"/>
+</div>
+<div class="f-field">
+<label for="dtcPay">每名员工每小时成本（RM）</label>
+<input class="f-input" id="dtcPay" inputmode="decimal" min="0" step="any" type="number" value="20"/>
+<span class="f-hint">每小时工资加雇主缴款，例如 EPF 和 SOCSO。</span>
+</div>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="dtcDown">每次事故停机小时</label>
+<input class="f-input" id="dtcDown" inputmode="decimal" min="0" step="any" type="number" value="3"/>
+</div>
+<div class="f-field">
+<label for="dtcCount">每年事故次数</label>
+<input class="f-input" id="dtcCount" inputmode="numeric" min="0" step="1" type="number" value="4"/>
+</div>
+</div>
+<div class="f-field">
+<label for="dtcFix">每次事故的恢复成本（RM，可选）</label>
+<input class="f-input" id="dtcFix" inputmode="decimal" min="0" step="any" type="number" value="0"/>
+<span class="f-hint">补做工作的加班、紧急上门服务、重新录入数据。</span>
+</div>
+</form>
+<div aria-live="polite" class="f-card dtc-result">
+<p class="dtc-label">估算成本</p>
+<p class="dtc-head">每年 RM <span data-o="year">0</span></p>
+<p class="dtc-sub">每次事故 RM <span data-o="incident">0</span></p>
+<div class="dtc-formula">
+<p>销售损失 = RM <span data-o="rate">0</span>/小时 × <span data-o="hours">0</span> 小时 × <span data-o="lost">0</span>% = RM <span data-o="sales">0</span></p>
+<p>员工闲置 = <span data-o="staff">0</span> × RM <span data-o="pay">0</span>/小时 × <span data-o="hours2">0</span> 小时 = RM <span data-o="idle">0</span></p>
+<p>恢复 = RM <span data-o="fix">0</span></p>
+<p>每年 = RM <span data-o="incident2">0</span> × <span data-o="count">0</span> 次事故</p>
+</div>
+<p class="dtc-dim" data-c="perday">每小时销售额 = 每日销售额 ÷ 营业小时。</p>
+<p class="dtc-dim">根据您自己的数字所作的估算，并非预测。不包括不再回头的顾客和声誉受损，而这些往往损失更大。</p>
+<p class="dtc-dim" data-c="zero" hidden="">输入您的数字即可看到估算。</p>
+<div class="dtc-cta">
+<p>反复出现的故障通常有可以修复的根源。<a href="solutions.html">了解我们如何稳定旧系统 →</a></p>
+</div>
+</div>
+</div>
+<p class="f-note">计算方式：每次事故成本 = 每小时销售额 × 停机小时 × 损失比例 + 员工人数 × 每名员工每小时成本 × 停机小时 + 恢复成本；每年成本 = 每次事故成本 × 每年事故次数。所有数字都由您提供，结果的准确度取决于您输入的数字。仅为粗略估算，并非财务建议。已于 2026 年 10 月 23 日核实。想了解小故障如何演变成大损失，请阅读<a href="../blog/price-ignoring-small-bug-production-system.html">忽视小 bug 的代价</a>。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">没有计算在内的部分</h2></div>
+<p>直接成本是您能算出来的部分。其余的很少出现在账目上：转去别家的老顾客、延迟交付的订单、要手动重新录入的记录，以及经理花在安抚各方上的时间。故障也往往会越来越频繁。今天每季度需要重启一次的系统，如果根源不处理，两年后可能每周都要重启。<a href="../blog/what-happens-delay-legacy-system-maintenance.html">拖延维护会发生什么</a>一文说明了这个过程。</p>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>停机成本怎么计算？</summary><div>每次事故把三项加起来：系统停机期间损失的销售、无法工作的员工工资，以及加班或紧急修复等恢复成本。再乘以每年的事故次数。计算器会用您的数字显示公式。</div></details><details><summary>这个计算器没有计算哪些？</summary><div>不再回头的顾客、声誉受损、延迟交付、需要重新录入或更正的数据，以及管理层处理这些事情所花的时间。这些往往比直接成本更大，但每家企业情况不同，无法在这里估算。</div></details><details><summary>系统停机期间所有销售都会损失吗？</summary><div>不一定。有些顾客会等待或稍后再来。请调低损失的销售比例来反映这一点。有门市顾客的商店通常比顾客明天会再下单的供应商损失更多。</div></details><details><summary>我不知道系统多久停机一次，应该填什么？</summary><div>数一数过去一年员工无法使用系统的次数，包括重启很慢的时候，以及整个早上没人能登录的那次。如果没人记录，就开始做一份简单的记录；这是任何人修复系统时第一个会问的数字。</div></details><details><summary>如何减少停机？</summary><div>修复背后反复出现的问题，而不是每次都靠重启解决；测试备份是否真的能恢复；并了解恢复需要多长时间。按计划处理预警信号，比在压力下修复故障更便宜。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">下一步</span>
+          用<a href="../legacy-system-risk-scorecard.html">旧系统风险评分</a>找出风险所在，或<a href="solutions.html">了解我们如何稳定旧系统</a>，从一份免费书面评估开始。</div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>免费工具</h2><ul>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li><li><a href="msic-code-lookup.html">MSIC 代码查询</a></li><li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li><li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li><li><a href="../free-tools.html">全部免费工具 →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var out = function (k) { return document.querySelector('.dtc [data-o="' + k + '"]'); };
+      var ids = ['dtcMode', 'dtcRev', 'dtcOpen', 'dtcLost', 'dtcStaff', 'dtcPay', 'dtcDown', 'dtcCount', 'dtcFix'];
+      var rm = function (x) { return x.toLocaleString('en-MY', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); };
+      var num = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 2 }); };
+      // Anything empty, negative or not a number counts as 0; caps keep the result finite and readable.
+      function val(id, max) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var perDay = $('dtcMode').value === 'day';
+        $('dtcHoursField').hidden = !perDay;
+        document.querySelector('.dtc [data-c="perday"]').hidden = !perDay;
+        var rev = val('dtcRev', 1e9), open = val('dtcOpen', 24);
+        var rate = perDay ? (open ? rev / open : 0) : rev;
+        var lost = val('dtcLost', 100), staff = Math.floor(val('dtcStaff', 1e5)), pay = val('dtcPay', 1e4);
+        var hours = val('dtcDown', 8760), count = Math.floor(val('dtcCount', 1e4)), fix = val('dtcFix', 1e9);
+        var sales = rate * hours * lost / 100, idle = staff * pay * hours;
+        var incident = sales + idle + fix, year = incident * count;
+        out('rate').textContent = num(rate); out('hours').textContent = num(hours); out('hours2').textContent = num(hours);
+        out('lost').textContent = num(lost); out('sales').textContent = rm(sales);
+        out('staff').textContent = num(staff); out('pay').textContent = num(pay); out('idle').textContent = rm(idle);
+        out('fix').textContent = rm(fix); out('incident').textContent = rm(incident); out('incident2').textContent = rm(incident);
+        out('count').textContent = num(count); out('year').textContent = rm(year);
+        document.querySelector('.dtc [data-c="zero"]').hidden = year > 0;
+      }
+      var sent = false;
+      ids.forEach(function (id) {
+        $(id).addEventListener('input', apply);
+        $(id).addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'downtime_cost'); }
+        });
+      });
+      $('dtcForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

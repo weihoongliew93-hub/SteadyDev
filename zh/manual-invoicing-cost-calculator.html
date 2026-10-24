@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>手动开票成本计算器（马来西亚）| SteadyDevs</title>
+<meta content="算出您的企业每月和每年在手动录入、检查、发送和更正发票上花费的员工工时和令吉。免费。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/manual-invoicing-cost-calculator.html" property="og:url"/>
+<meta content="手动开票成本计算器（马来西亚）| SteadyDevs" property="og:title"/>
+<meta content="算出您的企业每月和每年在手动录入、检查、发送和更正发票上花费的员工工时和令吉。免费。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/manual-invoicing-cost-calculator.html" rel="canonical"/><link href="https://steadydevs.com/manual-invoicing-cost-calculator.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/manual-invoicing-cost-calculator.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/manual-invoicing-cost-calculator.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/manual-invoicing-cost-calculator.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "手动开票实际要花多少时间？", "acceptedAnswer": {"@type": "Answer", "text": "取决于您的流程。为一张普通发票从头到尾计时：查找顾客资料、录入明细、核对总额、生成 PDF、发送并记录。再加上催款的时间。大多数老板会发现实际数字比自己估计的高。"}}, {"@type": "Question", "name": "为什么计算器要把错误单独计算？", "acceptedAnswer": {"@type": "Answer", "text": "因为一张错误的发票，代价比录入它的时间更高。有人要发现错误、开立更正、回复顾客并核对账目，而这期间款项一直在等。请输入错误发生的频率，以及每次更正需要多久。"}}, {"@type": "Question", "name": "计算器没有计算哪些？", "acceptedAnswer": {"@type": "Answer", "text": "因发票迟发而延迟到账的款项、定价错误造成的收入损失，以及员工本可以用这些时间做的其他事。这些可能比工时更重要，但各企业差异太大，无法在这里估算。"}}, {"@type": "Question", "name": "LHDN 电子发票会改变这一点吗？", "acceptedAnswer": {"@type": "Answer", "text": "会，它多了一个步骤。每张电子发票都必须通过 MyInvois 门户或 API 提交到 LHDN 的 MyInvois 系统，并在交给买方之前通过验证。如果您目前是手动录入发票，在 MyInvois 门户中输入可能意味着要再录入一次。"}}, {"@type": "Question", "name": "自动化开票能省下全部这笔钱吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能。仍然需要有人审核和批准发票、处理例外情况，而自动化本身也有成本。这里的数字是手动流程目前的成本，也就是衡量任何改变时应该对照的数字。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Manual invoicing cost calculator (design F): inputs on the left, hours and ringgit beside them. */
+    .mic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .mic { grid-template-columns: 1fr; } }
+    .mic [hidden] { display: none; }
+    .mic + .f-note { margin-top: 24px; }
+    .mic-result { display: grid; gap: 12px; }
+    .mic-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .mic-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .mic-sub { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .mic-formula { font-family: var(--mono); font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+    .mic-formula p { margin: 0; }
+    .mic-dim { color: var(--faint); font-size: 14px; }
+    .mic-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 10px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · 开票</p>
+<h1 class="f-h1">手动开票成本计算器</h1>
+<p class="f-lead">“只要几分钟”累积起来就不少。输入您的企业目前的开票方式，看看每月和每年在录入、检查、发送、催款和更正发票上花费多少员工工时和令吉。</p>
+<div class="mic">
+<form class="f-form" id="micForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="f-field">
+<label for="micN">每月发票数量</label>
+<input class="f-input" id="micN" inputmode="numeric" min="0" step="1" type="number" value="50"/>
+<span class="f-hint">预先填入的数字只是示例，并非平均值。请换成您自己的数字。</span>
+</div>
+<div class="f-field">
+<label for="micMin">每张发票所需分钟</label>
+<input class="f-input" id="micMin" inputmode="decimal" min="0" step="any" type="number" value="10"/>
+<span class="f-hint">录入、检查、发送和记录，加上催收款项。为一张普通发票计时就能知道。</span>
+</div>
+<div class="f-field">
+<label for="micPay">每小时员工成本（RM）</label>
+<input class="f-input" id="micPay" inputmode="decimal" min="0" step="any" type="number" value="20"/>
+<span class="f-hint">负责开票人员的每小时工资加雇主缴款。</span>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="micErr">出错的发票比例（%）</label>
+<input class="f-input" id="micErr" inputmode="decimal" max="100" min="0" step="any" type="number" value="2"/>
+</div>
+<div class="f-field">
+<label for="micFix">更正一次错误所需分钟</label>
+<input class="f-input" id="micFix" inputmode="decimal" min="0" step="any" type="number" value="20"/>
+</div>
+</div>
+</form>
+<div aria-live="polite" class="f-card mic-result">
+<p class="mic-label">手动花费的时间</p>
+<p class="mic-head">每月 <span data-o="hm">0</span> 小时，RM <span data-o="rm">0</span></p>
+<p class="mic-sub">每年 <span data-o="hy">0</span> 小时，RM <span data-o="ry">0</span></p>
+<div class="mic-formula">
+<p>开票 = <span data-o="n">0</span> × <span data-o="min">0</span> 分钟 = <span data-o="h1">0</span> 小时</p>
+<p>更正错误 = <span data-o="n2">0</span> × <span data-o="err">0</span>% × <span data-o="fix">0</span> 分钟 = <span data-o="h2">0</span> 小时</p>
+<p>成本 = <span data-o="hm2">0</span> 小时 × RM <span data-o="pay">0</span>/小时，全年再 × 12</p>
+</div>
+<p class="mic-dim">根据您自己的数字所作的估算。不包括发票迟发导致的延迟收款，以及定价错误造成的收入损失。</p>
+<div class="mic-cta">
+<p>LHDN 电子发票多了一个步骤：每张电子发票都必须先提交到 MyInvois 并通过验证，才能交给买方。</p>
+<p data-c="plan">SteadyDevs 电子发票平台可直接从您现有的系统提交，或通过上传 Excel 或 CSV 提交。每月 <span data-o="n3">0</span> 张发票适用 <span data-o="plan"></span> 配套，<strong>每月 RM <span data-o="cost">0</span></strong>，已包括任何超额费用。<a href="einvoice.html">了解电子发票平台 →</a></p>
+<p data-c="custom" hidden="">每月超过 20,000 张发票，请<a href="contact.html">联系我们</a>洽谈电子发票平台的定制配套。</p>
+</div>
+</div>
+</div>
+<p class="f-note">计算方式：每月工时 = 发票数 × 每张发票分钟 ÷ 60 + 发票数 × 出错率 × 每次更正分钟 ÷ 60；成本 = 工时 × 每小时员工成本；一年按 12 个月计。仅为粗略估算，并非财务建议。电子发票步骤已于 2026 年 10 月 23 日对照 <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN 电子发票常见问题（2026 年 9 月 4 日更新）</a>核实；配套价格取自<a href="einvoice.html#pricing">电子发票平台的价格</a>。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">时间都花在哪里</h2></div>
+<p>一张“简单”的发票很少只有一个步骤。有人要复制顾客资料、填写明细、核对金额、生成 PDF、写电邮、记入电子表格，之后还要催款。每一个错误都意味着一次更正、一次道歉和一笔迟到的款项。<a href="../blog/hidden-cost-manual-invoicing-malaysian-smes.html">手动开票的隐藏成本</a>对此有详细分析，<a href="../blog/manual-to-automated-invoice-real-business-impact.html">从手动到自动</a>则说明了步骤自动化后有哪些改变，以及哪些仍需要人手。</p>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>手动开票实际要花多少时间？</summary><div>取决于您的流程。为一张普通发票从头到尾计时：查找顾客资料、录入明细、核对总额、生成 PDF、发送并记录。再加上催款的时间。大多数老板会发现实际数字比自己估计的高。</div></details><details><summary>为什么计算器要把错误单独计算？</summary><div>因为一张错误的发票，代价比录入它的时间更高。有人要发现错误、开立更正、回复顾客并核对账目，而这期间款项一直在等。请输入错误发生的频率，以及每次更正需要多久。</div></details><details><summary>计算器没有计算哪些？</summary><div>因发票迟发而延迟到账的款项、定价错误造成的收入损失，以及员工本可以用这些时间做的其他事。这些可能比工时更重要，但各企业差异太大，无法在这里估算。</div></details><details><summary>LHDN 电子发票会改变这一点吗？</summary><div>会，它多了一个步骤。每张电子发票都必须通过 MyInvois 门户或 API 提交到 LHDN 的 MyInvois 系统，并在交给买方之前通过验证。如果您目前是手动录入发票，在 MyInvois 门户中输入可能意味着要再录入一次。</div></details><details><summary>自动化开票能省下全部这笔钱吗？</summary><div>不能。仍然需要有人审核和批准发票、处理例外情况，而自动化本身也有成本。这里的数字是手动流程目前的成本，也就是衡量任何改变时应该对照的数字。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">下一步</span>
+          直接从您现有的系统向 LHDN 提交电子发票：<a href="einvoice.html">电子发票平台</a>每月 10 张发票以内免费。想让发票根据订单自动生成？请看<a href="solutions.html#automation">业务自动化 →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>免费工具</h2><ul>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li><li><a href="msic-code-lookup.html">MSIC 代码查询</a></li><li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li><li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li><li><a href="../free-tools.html">全部免费工具 →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var out = function (k) { return document.querySelector('.mic [data-o="' + k + '"]'); };
+      var ids = ['micN', 'micMin', 'micPay', 'micErr', 'micFix'];
+      // The e-Invoice platform's prices (einvoice.html): included invoices, monthly fee, overage per invoice.
+      var PLANS = [['Starter', 100, 29, 0.30], ['Business', 400, 59, 0.15], ['Growth', 1000, 89, 0.09], ['Premium', 20000, 199, 0]];
+      var rm = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 0 }); };
+      var num = function (x) { return x.toLocaleString('en-MY', { maximumFractionDigits: 1 }); };
+      // Anything empty, negative or not a number counts as 0; caps keep the result finite and readable.
+      function val(id, max) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? Math.min(v, max) : 0; }
+      function apply() {
+        var n = Math.floor(val('micN', 1e6)), min = val('micMin', 600), pay = val('micPay', 1e4);
+        var err = val('micErr', 100), fix = val('micFix', 600);
+        var h1 = n * min / 60, h2 = n * err / 100 * fix / 60, hm = h1 + h2;
+        out('n').textContent = rm(n); out('n2').textContent = rm(n); out('n3').textContent = rm(n);
+        out('min').textContent = num(min); out('err').textContent = num(err); out('fix').textContent = num(fix);
+        out('h1').textContent = num(h1); out('h2').textContent = num(h2);
+        out('hm').textContent = num(hm); out('hm2').textContent = num(hm); out('pay').textContent = num(pay);
+        out('rm').textContent = rm(hm * pay); out('hy').textContent = num(hm * 12); out('ry').textContent = rm(hm * pay * 12);
+        var best = n <= 10 ? ['Free', 0] : null;
+        PLANS.forEach(function (p) {
+          if (n > p[1] && !p[3]) return;
+          var cost = p[2] + Math.max(0, n - p[1]) * p[3];
+          if (!best || cost < best[1]) best = [p[0], cost];
+        });
+        // Above Premium's fair use, einvoice.html offers a custom plan rather than any listed price.
+        if (n > 20000) best = null;
+        document.querySelector('.mic [data-c="plan"]').hidden = !best || !n;
+        document.querySelector('.mic [data-c="custom"]').hidden = !!best;
+        if (best) { out('plan').textContent = best[0]; out('cost').textContent = (Math.round(best[1] * 100) / 100).toLocaleString('en-MY', { maximumFractionDigits: 2 }); }
+      }
+      var sent = false;
+      ids.forEach(function (id) {
+        $(id).addEventListener('input', apply);
+        $(id).addEventListener('change', function () {
+          if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'manual_invoicing_cost'); }
+        });
+      });
+      $('micForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

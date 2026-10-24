@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Kad Skor Risiko Sistem Lama (10 Soalan) | SteadyDevs</title>
+<meta content="Sepuluh soalan tentang sistem yang menjalankan perniagaan anda. Dapatkan skor risiko kasar, tiga risiko utama anda dan satu langkah seterusnya bagi setiap satu. Percuma, tanpa pendaftaran." name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/ms/legacy-system-risk-scorecard.html" property="og:url"/>
+<meta content="Kad Skor Risiko Sistem Lama (10 Soalan)" property="og:title"/>
+<meta content="Sepuluh soalan tentang sistem yang menjalankan perniagaan anda. Dapatkan skor risiko kasar, tiga risiko utama anda dan satu langkah seterusnya bagi setiap satu. Percuma, tanpa pendaftaran." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/ms/legacy-system-risk-scorecard.html" rel="canonical"/><link href="https://steadydevs.com/legacy-system-risk-scorecard.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/legacy-system-risk-scorecard.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/legacy-system-risk-scorecard.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/legacy-system-risk-scorecard.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Adakah kad skor ini audit sistem saya?", "acceptedAnswer": {"@type": "Answer", "text": "Bukan. Ia panduan kasar yang dibina daripada masalah yang paling kerap kami lihat apabila mengambil alih sistem lama. Ia tidak dapat melihat kod, pelayan atau sandaran anda, jadi skor rendah tidak membuktikan sistem itu selamat dan skor tinggi tidak bermakna ia hampir gagal. Gunakannya untuk menentukan apa yang perlu disemak dahulu."}}, {"@type": "Question", "name": "Mengapa “Tidak pasti” dikira menentang saya?", "acceptedAnswer": {"@type": "Answer", "text": "Kerana tidak tahu itu sendiri satu penemuan. Jika tiada sesiapa dapat memberitahu bila sandaran terakhir dipulihkan atau versi pelayan apa yang digunakan sistem, tiada sesiapa yang menjaganya. “Tidak pasti” mendapat separuh pemberat “Ya”, dan mengetahuinya ialah langkah pertama."}}, {"@type": "Question", "name": "Apa yang patut saya baiki dahulu?", "acceptedAnswer": {"@type": "Answer", "text": "Biasanya akses, kod dan data: pastikan perniagaan memegang setiap log masuk, salinan lengkap kod sumber dan sandaran yang benar-benar pernah dipulihkan. Itulah yang anda perlukan pada hari sesuatu tidak kena. Kad skor menyenaraikan tiga yang teratas mengikut pemberat."}}, {"@type": "Question", "name": "Sistem berfungsi dengan baik. Mengapa saya perlu risau?", "acceptedAnswer": {"@type": "Answer", "text": "Berfungsi dengan baik dan hampir gagal selalunya kelihatan sama dari luar. Sistem memberi tanda amaran berbulan-bulan sebelum gagal, dan membaikinya mengikut jadual anda sendiri jauh lebih murah daripada membaiki gangguan."}}, {"@type": "Question", "name": "Apa yang terlibat dalam penilaian percuma?", "acceptedAnswer": {"@type": "Answer", "text": "Anda menerangkan sistem dan masalahnya. Kami membalas dalam 1 hingga 2 hari bekerja, mengadakan sesi strategi percuma selama 30 minit, dan menghantar penilaian bertulis dengan sebut harga tetap. Tiada caj dan tiada kewajipan untuk meneruskan."}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Legacy system risk scorecard (design F): questions on the left, the score beside them; every risk and next step is in the HTML so it can be translated. */
+    .rsk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .rsk { grid-template-columns: 1fr; } }
+    .rsk [hidden] { display: none; }
+    .rsk + .f-note { margin-top: 24px; }
+    .rsk-result { display: grid; gap: 14px; }
+    .rsk-result > div { display: grid; gap: 10px; }
+    @media (min-width: 861px) { .rsk-result { position: sticky; top: 24px; } }
+    .rsk-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .rsk-dim { color: var(--faint); font-size: 14px; }
+    .rsk-score { font-size: 40px; font-weight: 600; line-height: 1; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .rsk-of { font-size: 18px; color: var(--faint); font-weight: 500; }
+    .rsk-meter { height: 8px; border-radius: 999px; background: var(--border-soft); overflow: hidden; }
+    .rsk-meter__bar { height: 100%; width: 0; border-radius: 999px; background: var(--ok); transition: width .2s ease; }
+    .rsk-result[data-level="moderate"] .rsk-meter__bar { background: var(--warn); }
+    .rsk-result[data-level="high"] .rsk-meter__bar, .rsk-result[data-level="critical"] .rsk-meter__bar { background: var(--crimson-text); }
+    .rsk-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .rsk-top { margin: 0; padding-left: 20px; display: grid; gap: 14px; }
+    .rsk-top li { padding-left: 4px; }
+    .rsk-top li p { margin: 4px 0 0; }
+    .rsk-risk { color: var(--text-strong); font-weight: 600; }
+    .rsk-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">Alat percuma · Sistem lama</p>
+<h1 class="f-h1">Kad skor risiko sistem lama</h1>
+<p class="f-lead">Sepuluh soalan tentang sistem yang menjalankan perniagaan anda. Jawab dengan jujur dan lihat skor risiko kasar, tiga risiko terbesar anda dan satu langkah seterusnya yang konkrit bagi setiap satu. Kebanyakan risiko ini murah untuk ditutup selagi sistem masih berfungsi.</p>
+<div class="rsk">
+<form class="f-form" id="rskForm" novalidate=""><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<div class="f-field">
+<label for="rskDev">1. Adakah pembangun yang membina sistem ini telah pergi, atau sukar dihubungi?</label>
+<select class="f-input" data-w="12" id="rskDev">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskOne">2. Adakah hanya seorang sahaja yang boleh membuat perubahan dan melancarkannya?</label>
+<select class="f-input" data-w="12" id="rskOne">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+<span class="f-hint">Kira sesiapa sahaja, di dalam atau di luar perniagaan, yang boleh melakukannya dengan selamat minggu depan tanpa orang itu.</span>
+</div>
+<div class="f-field">
+<label for="rskDocs">3. Adakah kod satu-satunya dokumentasi, atau apa yang ditulis sudah lapuk bertahun-tahun?</label>
+<select class="f-input" data-w="10" id="rskDocs">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskBackup">4. Adakah tiada sesiapa pernah memulihkan sandaran untuk membuktikan ia berfungsi?</label>
+<select class="f-input" data-w="14" id="rskBackup">
+<option value="">Pilih…</option><option value="yes">Ya, tidak pernah dipulihkan</option><option value="no">Tidak, kami pernah memulihkan satu</option><option value="unsure">Tidak pasti</option>
+</select>
+<span class="f-hint">Melihat fail sandaran wujud tidak dikira. Pemulihan bermaksud menghidupkan sistem daripada sandaran pada mesin lain.</span>
+</div>
+<div class="f-field">
+<label for="rskCode">5. Adakah kod sumber hanya dipegang oleh pembangun atau vendor, bukan dalam repositori yang dikawal oleh perniagaan?</label>
+<select class="f-input" data-w="12" id="rskCode">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskEol">6. Adakah ia berjalan pada sistem pengendalian atau pangkalan data yang telah tamat sokongan?</label>
+<select class="f-input" data-w="10" id="rskEol">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+<span class="f-hint">Contohnya, Windows Server 2012 R2 (sokongan lanjutan tamat Oktober 2023) atau SQL Server 2014 (Julai 2024).</span>
+</div>
+<div class="f-field">
+<label for="rskMon">7. Adakah anda hanya akan tahu ia tidak berfungsi apabila kakitangan atau pelanggan memberitahu anda?</label>
+<select class="f-input" data-w="8" id="rskMon">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskTest">8. Adakah perubahan dibuat terus pada sistem langsung tanpa dicuba pada salinan terlebih dahulu?</label>
+<select class="f-input" data-w="8" id="rskTest">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskServer">9. Adakah semuanya berjalan pada satu pelayan, tanpa apa-apa yang sedia mengambil alih jika ia gagal?</label>
+<select class="f-input" data-w="7" id="rskServer">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskVendor">10. Apabila sesuatu rosak, adakah ia mengambil masa berhari-hari untuk mendapat respons daripada pihak yang menyokongnya?</label>
+<select class="f-input" data-w="7" id="rskVendor">
+<option value="">Pilih…</option><option value="yes">Ya</option><option value="no">Tidak</option><option value="unsure">Tidak pasti</option>
+</select>
+</div>
+</form>
+<div aria-live="polite" class="f-card rsk-result" id="rskResult">
+<p class="rsk-label">Skor anda</p>
+<div data-r="start"><p class="rsk-dim">Jawab kesemua sepuluh soalan untuk melihat skor anda. <span data-o="done">0</span> daripada 10 dijawab.</p></div>
+<div data-r="score" hidden="">
+<p class="rsk-score"><span data-o="score">0</span><span class="rsk-of"> / 100</span></p>
+<div aria-hidden="true" class="rsk-meter"><div class="rsk-meter__bar"></div></div>
+<p class="rsk-head" data-l="low">Risiko rendah.</p>
+<p data-l="low">Jaring keselamatan yang biasanya gagal dahulu nampaknya sudah ada. Semak semula setahun sekali: pemulihan yang berjaya tahun lepas boleh gagal tahun ini.</p>
+<p class="rsk-head" data-l="moderate">Risiko sederhana.</p>
+<p data-l="moderate">Beberapa jurang, setiap satu murah untuk ditutup sekarang selagi sistem masih berfungsi. Mulakan dengan risiko di bawah.</p>
+<p class="rsk-head" data-l="high">Risiko tinggi.</p>
+<p data-l="high">Satu hari yang buruk, seperti peletakan jawatan atau cakera rosak, boleh menghentikan perniagaan tanpa cara yang teruji untuk pulih. Tutup tiga risiko di bawah dahulu.</p>
+<p class="rsk-head" data-l="critical">Risiko kritikal.</p>
+<p data-l="critical">Kebanyakan jaring keselamatan tiada. Minggu ini, pastikan perniagaan memegang setiap log masuk, salinan kod dan salinan data, kemudian tangani risiko di bawah satu demi satu.</p>
+</div>
+<div data-r="combo" hidden=""><p><strong>Awasi gabungan ini.</strong> Hanya seorang yang memahami sistem, dengan sandaran yang tidak pernah dipulihkan, bermakna satu ketiadaan atau satu kegagalan perkakasan boleh menjatuhkan anda tanpa cara yang boleh dipercayai untuk pulih.</p></div>
+<div data-r="top" hidden="">
+<p class="rsk-label">Risiko utama anda</p>
+<ol class="rsk-top" id="rskTop"></ol>
+<p class="rsk-dim" data-r="unsure">Jika anda menjawab “Tidak pasti”, mengetahuinya ialah langkah pertama. Tidak tahu itu sendiri satu penemuan.</p>
+</div>
+<div data-r="none" hidden=""><p>Anda menjawab “Tidak” untuk setiap soalan, jadi tiada risiko yang menonjol. Itu kedudukan yang baik. Eloklah mengesahkan setiap jawapan dengan pihak yang menjaga sistem, terutamanya pemulihan sandaran.</p></div>
+<div class="rsk-cta" data-r="cta" hidden="">
+<p>Mahukan pendapat kedua? <a href="contact.html?package=Free%20Strategy%20Session">Dapatkan sesi strategi percuma dan penilaian bertulis →</a></p>
+<p class="rsk-dim">Atau lihat <a href="solutions.html">cara kami menstabilkan sistem lama</a>, bermula dengan semakan kesihatan RM399.</p>
+</div>
+<ol hidden="" id="rskPool">
+<li data-k="rskDev"><span class="rsk-risk">Pembangun yang membinanya telah pergi atau sukar dihubungi.</span><p>Selagi mereka masih boleh dihubungi, bayar untuk sesi serah terima dan dapatkan setiap log masuk serta langkah pelancaran ditulis. Tanya diri anda apa yang berisiko jika mereka memberi notis dua minggu hari ini. <a href="../blog/what-happens-when-developer-leaves-legacy-system.html">Apa yang berlaku apabila mereka pergi →</a></p></li>
+<li data-k="rskOne"><span class="rsk-risk">Hanya seorang boleh mengubahnya.</span><p>Minta pembangun kedua melancarkan satu perubahan kecil hanya menggunakan langkah bertulis. Di mana sahaja mereka tersekat, itulah yang perlu ditulis seterusnya. <a href="../blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html">5 tanda amaran sistem anda perlukan perhatian →</a></p></li>
+<li data-k="rskDocs"><span class="rsk-risk">Pengetahuan tersimpan dalam kepala seseorang.</span><p>Minta pihak yang menyelenggara sistem menyediakan dokumen serah terima. Mulakan dengan akses dan kelayakan, kemudian cara perubahan dilancarkan dan cara mengundurkannya. <a href="../blog/system-handover-documentation-checklist.html">Senarai semak serah terima →</a></p></li>
+<li data-k="rskBackup"><span class="rsk-risk">Sandaran anda belum diuji.</span><p>Pulihkan sandaran terkini ke mesin berasingan, hidupkan keseluruhan sistem, buka rekod terkini dan catat masanya. Masa itulah masa pemulihan sebenar anda. <a href="../blog/backup-restore-testing-legacy-systems.html">Cara menjalankan ujian pemulihan →</a></p></li>
+<li data-k="rskCode"><span class="rsk-risk">Perniagaan tidak memegang kod sumbernya sendiri.</span><p>Dapatkan salinan lengkap ke dalam repositori yang didaftarkan atas nama perniagaan, dan minta pembangun lain mengesahkan ia boleh dibina dan dijalankan. Pastikan kontrak anda menyerahkan hak kod kepada anda. <a href="../blog/who-owns-your-source-code-legacy-system.html">Siapa yang memiliki kod sumber anda →</a></p></li>
+<li data-k="rskEol"><span class="rsk-risk">Ia berjalan pada perisian yang tidak disokong.</span><p>Ketahui versi tepat Windows Server dan SQL Server, dan semaknya di halaman kitaran hayat Microsoft. Jika ia telah tamat sokongan, rancang naik taraf sebelum insiden memaksanya. <a href="../blog/windows-server-end-of-life-legacy-system-risk.html">Tamat hayat Windows Server dan SQL Server →</a></p></li>
+<li data-k="rskMon"><span class="rsk-risk">Tiada sesiapa diberi amaran apabila ia gagal.</span><p>Sediakan amaran apabila sistem atau tugas sandarannya gagal, dihantar ke alamat yang dikawal oleh perniagaan dan bukannya peti masuk seorang individu. <a href="../blog/working-fine-about-to-break-warning-signs.html">Tanda amaran sistem yang hampir rosak →</a></p></li>
+<li data-k="rskTest"><span class="rsk-risk">Perubahan dilancarkan tanpa diuji.</span><p>Tulis cara perubahan dilancarkan dan cara mengundurkannya, kemudian cuba setiap perubahan pada salinan sistem sebelum ia sampai ke sistem langsung. <a href="../blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html">Hidup dalam ketakutan setiap kali melancarkan →</a></p></li>
+<li data-k="rskServer"><span class="rsk-risk">Satu pelayan, tiada siap sedia.</span><p>Tentukan berapa lama perniagaan mampu berhenti beroperasi. Sekurang-kurangnya, simpan sandaran di luar pelayan itu dan di luar premis, supaya satu kegagalan tidak boleh memusnahkan sistem dan salinannya bersama. <a href="../blog/backup-restore-testing-legacy-systems.html">Dua angka yang patut diketahui setiap pemilik →</a></p></li>
+<li data-k="rskVendor"><span class="rsk-risk">Sokongan lambat memberi respons.</span><p>Pastikan setiap log masuk, daripada hos dan domain hingga pangkalan data dan repositori kod, adalah atas nama perniagaan dan ditulis, supaya orang lain boleh mengambil alih. <a href="../blog/developer-left-emergency-recovery-guide.html">Panduan pemulihan kecemasan →</a></p></li>
+</ol>
+</div>
+</div>
+<p class="f-note">Panduan kasar, bukan audit. Soalan, pemberat dan langkah seterusnya datang daripada apa yang kami temui apabila mengambil alih sistem lama, yang ditulis dalam <a href="../blog/index.html">blog SteadyDevs</a>; pemberat itu ialah pertimbangan kami, bukan standard industri. Tarikh sokongan disemak pada 23 Oktober 2026 berdasarkan halaman kitaran hayat Microsoft bagi <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2</a> dan <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2014">SQL Server 2014</a>. Jawapan anda kekal dalam pelayar anda.</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">Cara skor dikira</h2></div>
+<p>Setiap soalan mempunyai pemberat, dan jumlah pemberat ialah 100. “Ya” mendapat pemberat penuh, “Tidak pasti” separuh daripadanya dan “Tidak” sifar. Skor bawah 20 adalah rendah, 20 hingga 44 sederhana, 45 hingga 69 tinggi dan 70 ke atas kritikal. Pemberat paling berat diberikan kepada risiko yang menyebabkan anda tiada jalan untuk pulih pada hari yang buruk.</p>
+<div class="f-table-wrap">
+<table class="f-table">
+<thead><tr><th>Risiko</th><th>Pemberat</th><th>Mengapa ia penting</th></tr></thead>
+<tbody>
+<tr><td>Sandaran tidak pernah dipulihkan</td><td>14</td><td>Sandaran yang belum diuji hanyalah harapan. Banyak perniagaan mendapati sandaran mereka rosak hanya apabila memerlukannya.</td></tr>
+<tr><td>Pembangun telah pergi atau sukar dihubungi</td><td>12</td><td>Pembaikan 20 minit menjadi berhari-hari sementara orang baharu mempelajari sistem.</td></tr>
+<tr><td>Hanya seorang boleh mengubahnya</td><td>12</td><td>Anda mempunyai orang yang berfungsi, bukan sistem yang berfungsi.</td></tr>
+<tr><td>Kod sumber tidak dipegang oleh perniagaan</td><td>12</td><td>Tanpa kod, pepijat tidak boleh dibaiki dan tiada apa yang boleh diubah.</td></tr>
+<tr><td>Tiada dokumentasi yang boleh digunakan</td><td>10</td><td>Pembangun yang telah pergi tidak dapat menerangkan apa yang mereka maksudkan.</td></tr>
+<tr><td>Sistem pengendalian atau pangkalan data yang tidak disokong</td><td>10</td><td>Tampalan keselamatan berhenti, sementara perisian terus berjalan seolah-olah tiada apa yang berubah.</td></tr>
+<tr><td>Tiada pemantauan atau amaran</td><td>8</td><td>Kegagalan, termasuk kegagalan sandaran, tidak disedari berbulan-bulan.</td></tr>
+<tr><td>Perubahan dilancarkan tanpa diuji</td><td>8</td><td>Setiap perubahan ialah pertaruhan pada sistem langsung.</td></tr>
+<tr><td>Satu pelayan, tiada siap sedia</td><td>7</td><td>Satu kegagalan perkakasan bermakna berhari-hari untuk membina semula, bukan sejam untuk bertukar.</td></tr>
+<tr><td>Sokongan yang lambat</td><td>7</td><td>Masalah kecil menunggu, dan membesar sementara menunggu.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Soalan lazim</h2></div>
+<div class="f-faq"><details><summary>Adakah kad skor ini audit sistem saya?</summary><div>Bukan. Ia panduan kasar yang dibina daripada masalah yang paling kerap kami lihat apabila mengambil alih sistem lama. Ia tidak dapat melihat kod, pelayan atau sandaran anda, jadi skor rendah tidak membuktikan sistem itu selamat dan skor tinggi tidak bermakna ia hampir gagal. Gunakannya untuk menentukan apa yang perlu disemak dahulu.</div></details><details><summary>Mengapa “Tidak pasti” dikira menentang saya?</summary><div>Kerana tidak tahu itu sendiri satu penemuan. Jika tiada sesiapa dapat memberitahu bila sandaran terakhir dipulihkan atau versi pelayan apa yang digunakan sistem, tiada sesiapa yang menjaganya. “Tidak pasti” mendapat separuh pemberat “Ya”, dan mengetahuinya ialah langkah pertama.</div></details><details><summary>Apa yang patut saya baiki dahulu?</summary><div>Biasanya akses, kod dan data: pastikan perniagaan memegang setiap log masuk, salinan lengkap kod sumber dan sandaran yang benar-benar pernah dipulihkan. Itulah yang anda perlukan pada hari sesuatu tidak kena. Kad skor menyenaraikan tiga yang teratas mengikut pemberat.</div></details><details><summary>Sistem berfungsi dengan baik. Mengapa saya perlu risau?</summary><div>Berfungsi dengan baik dan hampir gagal selalunya kelihatan sama dari luar. Sistem memberi tanda amaran berbulan-bulan sebelum gagal, dan membaikinya mengikut jadual anda sendiri jauh lebih murah daripada membaiki gangguan. <a href="../blog/working-fine-about-to-break-warning-signs.html">Baca tanda-tanda amaran</a>.</div></details><details><summary>Apa yang terlibat dalam penilaian percuma?</summary><div>Anda menerangkan sistem dan masalahnya. Kami membalas dalam 1 hingga 2 hari bekerja, mengadakan sesi strategi percuma selama 30 minit, dan menghantar penilaian bertulis dengan sebut harga tetap. Tiada caj dan tiada kewajipan untuk meneruskan.</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">Langkah seterusnya</span>
+          Mahu seseorang melihat sistem itu sendiri? <a href="solutions.html">System Health Check</a> ialah semakan harga tetap RM399 ke atas kod dan risiko utama anda, dengan penilaian bertulis dan cadangan mengikut keutamaan. Atau mulakan dengan <a href="contact.html?package=Free%20Strategy%20Session">sesi strategi percuma →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col"><h2>Tawaran</h2><ul>
+<li><a href="solutions.html">Perkhidmatan kejuruteraan</a></li><li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>Syarikat</h2><ul>
+<li><a href="about.html">Tentang kami</a></li><li><a href="portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Hubungi</a></li></ul></div>
+<div class="ff__col"><h2>Lagi</h2><ul>
+<li><a href="pricing-terms.html">Terma harga</a></li><li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>Alat percuma</h2><ul>
+<li><a href="e-invoice-checker.html">Perlukah saya e-Invois?</a></li><li><a href="msic-code-lookup.html">Carian kod MSIC</a></li><li><a href="../microsoft-end-of-support-lookup.html">Semakan tamat sokongan</a></li><li><a href="../legacy-system-risk-scorecard.html">Kad skor risiko</a></li><li><a href="../free-tools.html">Semua alat percuma →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var form = document.getElementById('rskForm'), card = document.getElementById('rskResult');
+      var qs = Array.prototype.slice.call(form.querySelectorAll('select[data-w]'));
+      var top = document.getElementById('rskTop'), pool = document.getElementById('rskPool');
+      var part = function (k) { return card.querySelector('[data-r="' + k + '"]'); };
+      var out = function (k) { return card.querySelector('[data-o="' + k + '"]'); };
+      var byKey = function (k) { return pool.querySelector('[data-k="' + k + '"]') || top.querySelector('[data-k="' + k + '"]'); };
+      var sent = '';
+      function level(score) { return score < 20 ? 'low' : score < 45 ? 'moderate' : score < 70 ? 'high' : 'critical'; }
+      function apply() {
+        var done = 0, score = 0, risks = [], val = {};
+        qs.forEach(function (s, i) {
+          var v = s.value, w = +s.getAttribute('data-w') || 0;
+          // "Not sure" scores half: not knowing whether the safety net exists is itself a finding.
+          var f = v === 'yes' ? 1 : v === 'unsure' ? 0.5 : 0;
+          val[s.id] = v;
+          if (v) done++;
+          if (f) { score += w * f; risks.push({ k: s.id, p: w * f, i: i, u: v === 'unsure' }); }
+        });
+        score = Math.round(score);
+        var complete = done === qs.length, lv = level(score);
+        out('done').textContent = done;
+        part('start').hidden = complete;
+        part('score').hidden = !complete;
+        part('cta').hidden = !complete;
+        // Move every risk back to the hidden pool, then bring out the top three by points, ties in question order.
+        Array.prototype.slice.call(top.children).forEach(function (li) { pool.appendChild(li); });
+        risks.sort(function (a, b) { return b.p - a.p || a.i - b.i; });
+        var shown = complete ? risks.slice(0, 3) : [];
+        shown.forEach(function (r) { top.appendChild(byKey(r.k)); });
+        part('top').hidden = !shown.length;
+        part('unsure').hidden = !shown.some(function (r) { return r.u; });
+        part('none').hidden = !complete || risks.length > 0;
+        part('combo').hidden = !complete || !((val.rskDev === 'yes' || val.rskOne === 'yes') && val.rskBackup === 'yes');
+        if (!complete) return;
+        out('score').textContent = score;
+        card.setAttribute('data-level', lv);
+        card.querySelector('.rsk-meter__bar').style.width = Math.max(0, Math.min(100, score)) + '%';
+        Array.prototype.slice.call(card.querySelectorAll('[data-l]')).forEach(function (p) { p.hidden = p.getAttribute('data-l') !== lv; });
+        if (sent !== lv && typeof gtag === 'function') { sent = lv; gtag('event', 'risk_scorecard', { level: lv }); }
+      }
+      qs.forEach(function (s) { s.addEventListener('change', apply); });
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

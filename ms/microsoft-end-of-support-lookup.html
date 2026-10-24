@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Semakan Tamat Sokongan Windows Server &amp; SQL Server | SteadyDevs</title>
+<meta content="Bilakah Microsoft berhenti menampal versi Windows Server, SQL Server atau .NET anda? Tarikh Microsoft, baki bulan dan pilihan ESU berbayar. Percuma." name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/ms/microsoft-end-of-support-lookup.html" property="og:url"/>
+<meta content="Semakan Tamat Sokongan Windows Server &amp; SQL Server" property="og:title"/>
+<meta content="Bilakah Microsoft berhenti menampal versi Windows Server, SQL Server atau .NET anda? Tarikh Microsoft, baki bulan dan pilihan ESU berbayar. Percuma." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/ms/microsoft-end-of-support-lookup.html" rel="canonical"/><link href="https://steadydevs.com/microsoft-end-of-support-lookup.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/microsoft-end-of-support-lookup.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/microsoft-end-of-support-lookup.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/microsoft-end-of-support-lookup.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apa yang berlaku apabila Windows Server tamat sokongan?", "acceptedAnswer": {"@type": "Answer", "text": "Ia terus berjalan, tetapi Microsoft berhenti menghantar kemas kini keselamatan untuknya. Sebarang lubang keselamatan yang ditemui selepas tarikh itu kekal terbuka, dan Microsoft tidak lagi membaiki pepijat lain. Satu-satunya cara untuk terus mendapat pembaikan keselamatan Microsoft ialah Extended Security Updates berbayar, dan hanya bagi versi yang ditawarkan oleh Microsoft."}}, {"@type": "Question", "name": "Bolehkah saya masih menjalankan pelayan yang tidak disokong?", "acceptedAnswer": {"@type": "Answer", "text": "Boleh. Tiada apa-apa yang dimatikan pada tarikh tamat. Tetapi anda kemudiannya menjalankannya tanpa pembaikan keselamatan. Jika ia menyimpan data peribadi, Prinsip Keselamatan PDPA menjangkakan anda mengambil langkah praktikal untuk melindungi data itu, dan syarikat insurans siber serta pelanggan yang lebih besar mungkin bertanya sama ada perisian anda masih disokong. Jika anda belum boleh berpindah, putuskan pelayan daripada internet, hadkan siapa yang boleh mengaksesnya dan simpan sandaran luar talian yang telah diuji sementara anda merancang perpindahan."}}, {"@type": "Question", "name": "Apakah ESU?", "acceptedAnswer": {"@type": "Answer", "text": "Extended Security Updates ialah program berbayar Microsoft yang meneruskan pembaikan keselamatan bagi sesetengah produk selepas sokongan lanjutan tamat, biasanya sehingga tiga tahun, dibayar setiap tahun. Ia tidak termasuk ciri baharu dan pembaikan lain. Bagi Windows Server 2012 dan 2012 R2, ia tamat pada 13 Oktober 2026. Bagi SQL Server 2014, ia berjalan sehingga 12 Julai 2027, dan bagi SQL Server 2016 sehingga 17 Julai 2029. Sesetengah versi mendapatnya tanpa caj tambahan apabila berjalan dalam Microsoft Azure."}}, {"@type": "Question", "name": "Adakah .NET Framework 4.8 sudah tamat hayat?", "acceptedAnswer": {"@type": "Answer", "text": "Tidak. .NET Framework 4.8 dan 4.8.1 tiada tarikh tamat sendiri: ia sebahagian daripada Windows dan disokong selagi versi Windows tempat ia berjalan disokong. Pada Windows Server 2022 ialah sehingga 14 Oktober 2031; pada Windows Server 2016, sehingga 12 Januari 2027. Microsoft memberikan 4.6.2 tarikh tamatnya sendiri, 12 Januari 2027, dan versi 4.5.2 hingga 4.6.1 tamat pada 26 April 2022."}}, {"@type": "Question", "name": "Adakah .NET 8 masih disokong?", "acceptedAnswer": {"@type": "Answer", "text": "Sehingga 10 November 2026, hari yang sama dengan .NET 9. .NET 10, yang dikeluarkan pada 11 November 2025, ialah keluaran Long Term Support semasa dan disokong sehingga 14 November 2028."}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Microsoft end-of-support lookup (design F): pick a version on the left, its dates beside it.
+       Every date is in the tables below, so search engines read them; the script only reads them back. */
+    .eol { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .eol { grid-template-columns: 1fr; } }
+    .eol [hidden], .eol-tables [hidden] { display: none; }
+    .eol + .f-note { margin-top: 24px; }
+    .eol-result { display: grid; gap: 12px; }
+    .eol-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .eol-head { font-size: 22px; font-weight: 600; color: var(--text-strong); line-height: 1.3; }
+    .eol-dim { color: var(--faint); font-size: 14px; }
+    .eol-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .eol-badge--warn { color: var(--warn); border-color: currentColor; }
+    .eol-left { font-size: 18px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .eol-left--gone { color: var(--crimson-text); }
+    .eol-more { display: grid; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .eol-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .eol-tables h3 { margin-top: 40px; }
+    .eol-tables .f-table-wrap { margin: 16px 0 10px; }
+    .eol-table td { font-variant-numeric: tabular-nums; }
+    .eol-table td:first-child { width: 34%; }
+    .eol-pick { font: inherit; text-align: left; padding: 0; border: 0; background: none; color: var(--text-strong); cursor: pointer; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+    .eol-pick:hover, .eol-pick:focus-visible { text-decoration-color: var(--crimson-text); }
+    .eol-table tr.is-on td { background: var(--surface-inset); }
+    .eol-table .eol-past { color: var(--crimson-text); }
+    .eol-none { color: var(--faint); }
+    .eol-src { font-size: 14px; color: var(--faint); }
+    .eol-src a { color: var(--muted); }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">Alat percuma · Tamat sokongan Microsoft</p>
+<h1 class="f-h1">Semakan tamat sokongan Microsoft</h1>
+<p class="f-lead">Pilih versi Windows Server, SQL Server, .NET atau Windows anda dan lihat bila Microsoft berhenti menghantar pembaikan keselamatan untuknya, berapa lama masa yang tinggal, dan sama ada Extended Security Updates berbayar boleh memberi anda masa tambahan.</p>
+<div class="eol" id="eolTool">
+<form class="f-form" id="eolForm" novalidate=""><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<div class="f-field">
+<label for="eolProduct">Produk</label>
+<select class="f-input" id="eolProduct">
+<option value="">Pilih…</option>
+<option value="ws">Windows Server</option>
+<option value="sql">SQL Server</option>
+<option value="fx">.NET Framework</option>
+<option value="net">.NET dan .NET Core</option>
+<option value="win">Windows 10 dan 11 (Home dan Pro)</option>
+</select>
+</div>
+<div class="f-field">
+<label for="eolVersion">Versi</label>
+<select class="f-input" disabled="" id="eolVersion">
+<option value="">Pilih versi…</option>
+</select>
+<span class="f-hint">Tidak pasti? Pada Windows, jalankan <code class="f-code">winver</code>. Dalam SQL Server, jalankan <code class="f-code">SELECT @@VERSION</code>. Untuk .NET, jalankan <code class="f-code">dotnet --list-runtimes</code>.</span>
+</div>
+<p class="eol-dim">Anda juga boleh memilih mana-mana versi daripada jadual di bawah. “Hari ini” ialah tarikh pada peranti anda.</p>
+</form>
+<div aria-live="polite" class="f-card eol-result" id="eolResult">
+<p class="eol-label">Keputusan anda</p>
+<div data-r="start"><p class="eol-dim">Pilih produk dan versi untuk melihat tarikhnya.</p></div>
+<p class="eol-head" data-r="name" hidden=""><span data-o="name"></span></p>
+<div class="eol-badges" data-r="badges" hidden=""><span class="f-badge f-badge--ok" data-b="main">Sokongan arus perdana</span>
+<span class="f-badge eol-badge--warn" data-b="ext">Sokongan lanjutan: pembaikan keselamatan sahaja</span>
+<span class="f-badge f-badge--ok" data-b="ok">Disokong</span>
+<span class="f-badge f-badge--crimson" data-b="ended">Tiada sokongan</span>
+<span class="f-badge" data-b="os">Mengikut Windows</span>
+<span class="f-badge eol-badge--warn" data-b="esu">ESU berbayar masih berjalan</span></div>
+<dl class="f-dl" data-r="dates" hidden="">
+<div data-d="main"><dt>Sokongan arus perdana tamat</dt><dd data-o="main"></dd></div>
+<div data-d="ext"><dt>Kemas kini keselamatan tamat (sokongan lanjutan)</dt><dd data-o="ext"></dd></div>
+<div data-d="end"><dt>Sokongan tamat</dt><dd data-o="end"></dd></div>
+<div data-d="esu"><dt>Extended Security Updates berbayar sehingga</dt><dd data-o="esu"></dd></div>
+</dl>
+<p class="eol-left" data-r="left" hidden=""><span data-o="left"></span> <span data-u="1">bulan</span><span data-u="n">bulan</span> kemas kini keselamatan lagi.</p>
+<p class="eol-left" data-r="left0" hidden="">Kurang daripada sebulan kemas kini keselamatan lagi.</p>
+<p class="eol-left eol-left--gone" data-r="since" hidden="">Tiada kemas kini keselamatan selama <span data-o="since"></span> <span data-u="1">bulan</span><span data-u="n">bulan</span>.</p>
+<p class="eol-left eol-left--gone" data-r="since0" hidden="">Kemas kini keselamatan berhenti kurang daripada sebulan yang lalu.</p>
+<div class="eol-more">
+<p data-r="m-main" hidden="">Microsoft masih membaiki pepijat dan lubang keselamatan dalam versi ini. Teruskan memasang kemas kininya dan anda dilindungi.</p>
+<p data-r="m-ext" hidden="">Microsoft kini menghantar pembaikan keselamatan sahaja: tiada ciri baharu dan tiada pembaikan pepijat lain. Ia selamat selagi anda terus menampal, tetapi mula merancang perpindahan sebelum tarikh di atas.</p>
+<p data-r="m-ok" hidden="">Microsoft masih menghantar pembaikan keselamatan untuk versi ini, selagi anda memasangnya.</p>
+<p data-r="soon" hidden=""><strong>Kurang daripada setahun lagi.</strong> Menguji aplikasi pada versi yang lebih baharu dan memindahkannya biasanya mengambil masa berbulan-bulan, bukan berhari-hari. Mulakan sekarang.</p>
+<p data-r="m-ended" hidden="">Microsoft tidak lagi membaiki lubang keselamatan yang ditemui di dalamnya. Ia terus berjalan, sebab itulah risikonya mudah terlepas pandang. Jika sistem itu menyimpan data pelanggan, juruaudit, syarikat insurans atau pelanggan anda mungkin bertanya tentangnya.</p>
+<p data-r="esu-on" hidden="">Microsoft masih menjual Extended Security Updates untuknya sehingga <span data-o="esuDate"></span>: pembaikan keselamatan sahaja, dibayar setahun demi setahun. Cara untuk mendapatkan masa untuk berpindah, bukan tempat untuk kekal.</p>
+<p data-r="esu-off" hidden="">Extended Security Updates berbayar juga telah tamat, jadi tiada lagi cara untuk mendapatkan pembaikan keselamatan Microsoft untuknya.</p>
+<p data-r="esu-none" hidden="">Halaman kitaran hayat Microsoft tidak menyenaraikan Extended Security Updates berbayar untuk versi ini.</p>
+<p data-r="n-os" hidden="">.NET Framework 4.5.2 dan yang lebih baharu ialah sebahagian daripada Windows. Ia menerima pembaikan keselamatan selagi versi Windows tempat ia dipasang disokong. Semak versi Windows itu sebaliknya: pada Windows Server 2016 ialah sehingga 12 Januari 2027, pada Windows Server 2022 sehingga 14 Oktober 2031. Versi 4.x yang lebih baharu dipasang menggantikan versi sebelumnya, dan Microsoft menjangkakan aplikasi yang dibina untuk 4.x terdahulu terus berjalan padanya.</p>
+<p data-r="n-fx35" hidden="">Tarikh itu terpakai pada Windows 10 versi 1809, Windows Server 2019 dan yang lebih baharu, di mana 3.5 SP1 ialah produk tersendiri. Pada Windows yang lebih lama, ia sebahagian daripada sistem pengendalian dan tamat apabila versi Windows itu tamat.</p>
+<p data-r="n-fx462" hidden="">Halaman .NET Framework Microsoft memberikan 4.6.2 tarikh tamatnya sendiri. 4.8 dan 4.8.1 dipasang menggantikannya, dan Microsoft menjangkakan aplikasi yang dibina untuk 4.6.2 terus berjalan padanya tanpa perlu dibina semula.</p>
+<p data-r="n-net" hidden="">.NET hanya disokong pada tampalan terkininya, jadi pastikan runtime sentiasa dikemas kini. Keluaran Long Term Support (LTS) mendapat tiga tahun, keluaran Standard Term Support (STS) dua tahun.</p>
+<p data-r="n-win" hidden="">Ini tarikh bagi edisi Home dan Pro. Berpindah ke versi Windows 11 yang lebih baharu sebelum tarikh itu untuk terus disokong. Edisi Enterprise dan Education mempunyai tarikh sendiri.</p>
+<p data-r="n-w10" hidden="">Organisasi boleh membeli Extended Security Updates Windows 10 setahun demi setahun, sehingga tiga tahun; Microsoft menyebut harga US$61 bagi setiap peranti untuk tahun pertama, berganda setiap tahun. Versi 22H2 diperlukan.</p>
+<p data-r="cta" hidden=""><a href="solutions.html">Dapatkan bantuan memindahkan sistem .NET atau SQL Server lama →</a></p>
+</div>
+</div>
+</div>
+<p class="f-note">Tarikh daripada Microsoft: <a href="https://learn.microsoft.com/en-us/lifecycle/products/">halaman kitaran hayat</a> bagi setiap produk (dipautkan di bawah setiap jadual) dan <a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">dasar sokongan .NET dan .NET Core</a> (kali terakhir dikemas kini 13 Oktober 2026). Microsoft memberikannya dalam Waktu Pasifik AS, jadi di Malaysia hari terakhir berakhir pada petang berikutnya. Disemak pada 23 Oktober 2026. Microsoft boleh menukar tarikh ini, jadi sahkan tarikh anda di halamannya sebelum merancang berdasarkannya. Bukan nasihat.</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">Maksud tarikh-tarikh ini</h2></div>
+<div class="eol-cards">
+<div class="f-card">
+<h3 class="f-card__title">Sokongan arus perdana</h3>
+<p class="f-card__text">Sekurang-kurangnya lima tahun pertama. Microsoft menghantar kemas kini keselamatan dan pembaikan lain, dan masih menerima permintaan untuk pembaikan bukan keselamatan.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Sokongan lanjutan</h3>
+<p class="f-card__text">Kemas kini keselamatan sahaja, tanpa kos tambahan. Apabila ia tamat, pembaikan keselamatan turut tamat. Bagi Windows Server dan SQL Server, inilah tarikh yang penting.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Extended Security Updates berbayar</h3>
+<p class="f-card__text">Bagi sesetengah versi, Microsoft menjual sehingga tiga tahun lagi pembaikan keselamatan, dibayar setiap tahun. Sesetengah versi mendapatnya tanpa caj tambahan apabila berjalan dalam Microsoft Azure.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Satu tarikh: .NET dan Windows 11</h3>
+<p class="f-card__text">Ini mempunyai satu tarikh tamat bagi setiap versi. Keluaran .NET LTS mendapat tiga tahun dan keluaran STS dua tahun; Windows 11 disokong mengikut versi.</p>
+</div>
+</div>
+<div class="f-head" style="margin-top: 56px; margin-bottom: 0"><h2 class="f-h2">Setiap versi dan tarikhnya</h2></div>
+<p class="eol-src">Klik versi untuk melihatnya dalam semakan. Tarikh yang telah berlalu, mengikut tarikh peranti anda, ditunjukkan dengan warna merah.</p>
+<div class="eol-tables">
+<h3 class="f-h3">Windows Server</h3>
+<div class="f-table-wrap">
+<table class="f-table eol-table">
+<thead><tr><th scope="col">Versi</th><th scope="col">Sokongan arus perdana tamat</th><th scope="col">Sokongan lanjutan tamat</th><th scope="col">ESU berbayar sehingga</th></tr></thead>
+<tbody>
+<tr data-id="ws-2025" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2025</button></td><td data-c="main"><time datetime="2029-11-13">13 November 2029</time></td><td data-c="ext"><time datetime="2034-11-14">14 November 2034</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="ws-2022" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2022</button></td><td data-c="main"><time datetime="2026-10-13">13 Oktober 2026</time></td><td data-c="ext"><time datetime="2031-10-14">14 Oktober 2031</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="ws-2019" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2019</button></td><td data-c="main"><time datetime="2024-01-09">9 Januari 2024</time></td><td data-c="ext"><time datetime="2029-01-09">9 Januari 2029</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="ws-2016" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2016</button></td><td data-c="main"><time datetime="2022-01-11">11 Januari 2022</time></td><td data-c="ext"><time datetime="2027-01-12">12 Januari 2027</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="ws-2012r2" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2012 R2</button></td><td data-c="main"><time datetime="2018-10-09">9 Oktober 2018</time></td><td data-c="ext"><time datetime="2023-10-10">10 Oktober 2023</time></td><td data-c="esu"><time datetime="2026-10-13">13 Oktober 2026</time></td></tr>
+<tr data-id="ws-2012" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2012</button></td><td data-c="main"><time datetime="2018-10-09">9 Oktober 2018</time></td><td data-c="ext"><time datetime="2023-10-10">10 Oktober 2023</time></td><td data-c="esu"><time datetime="2026-10-13">13 Oktober 2026</time></td></tr>
+<tr data-id="ws-2008r2" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2008 R2</button></td><td data-c="main"><time datetime="2015-01-13">13 Januari 2015</time></td><td data-c="ext"><time datetime="2020-01-14">14 Januari 2020</time></td><td data-c="esu"><time datetime="2023-01-10">10 Januari 2023</time> (<time datetime="2024-01-09">9 Januari 2024</time> di Azure sahaja)</td></tr>
+<tr data-id="ws-2008" data-p="ws" data-t="fixed"><td><button class="eol-pick" type="button">Windows Server 2008</button></td><td data-c="main"><time datetime="2015-01-13">13 Januari 2015</time></td><td data-c="ext"><time datetime="2020-01-14">14 Januari 2020</time></td><td data-c="esu"><time datetime="2023-01-10">10 Januari 2023</time> (<time datetime="2024-01-09">9 Januari 2024</time> di Azure sahaja)</td></tr>
+</tbody>
+</table>
+</div>
+<p class="eol-src">Sumber: halaman kitaran hayat Microsoft bagi Windows Server <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025">2025</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022">2022</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019">2019</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016">2016</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012-r2">2012 R2</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012">2012</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008-r2">2008 R2</a> dan <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008">2008</a>.</p>
+<h3 class="f-h3">SQL Server</h3>
+<div class="f-table-wrap">
+<table class="f-table eol-table">
+<thead><tr><th scope="col">Versi</th><th scope="col">Sokongan arus perdana tamat</th><th scope="col">Sokongan lanjutan tamat</th><th scope="col">ESU berbayar sehingga</th></tr></thead>
+<tbody>
+<tr data-id="sql-2025" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2025</button></td><td data-c="main"><time datetime="2031-01-06">6 Januari 2031</time></td><td data-c="ext"><time datetime="2036-01-06">6 Januari 2036</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="sql-2022" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2022</button></td><td data-c="main"><time datetime="2028-01-11">11 Januari 2028</time></td><td data-c="ext"><time datetime="2033-01-11">11 Januari 2033</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="sql-2019" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2019</button></td><td data-c="main"><time datetime="2025-02-28">28 Februari 2025</time></td><td data-c="ext"><time datetime="2030-01-08">8 Januari 2030</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="sql-2017" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2017</button></td><td data-c="main"><time datetime="2022-10-11">11 Oktober 2022</time></td><td data-c="ext"><time datetime="2027-10-12">12 Oktober 2027</time></td><td data-c="esu" data-none=""><span class="eol-none">Tiada</span></td></tr>
+<tr data-id="sql-2016" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2016</button></td><td data-c="main"><time datetime="2021-07-13">13 Julai 2021</time></td><td data-c="ext"><time datetime="2026-07-14">14 Julai 2026</time></td><td data-c="esu"><time datetime="2029-07-17">17 Julai 2029</time></td></tr>
+<tr data-id="sql-2014" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2014</button></td><td data-c="main"><time datetime="2019-07-09">9 Julai 2019</time></td><td data-c="ext"><time datetime="2024-07-09">9 Julai 2024</time></td><td data-c="esu"><time datetime="2027-07-12">12 Julai 2027</time></td></tr>
+<tr data-id="sql-2012" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2012</button></td><td data-c="main"><time datetime="2017-07-11">11 Julai 2017</time></td><td data-c="ext"><time datetime="2022-07-12">12 Julai 2022</time></td><td data-c="esu"><time datetime="2025-07-08">8 Julai 2025</time></td></tr>
+<tr data-id="sql-2008r2" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2008 R2</button></td><td data-c="main"><time datetime="2014-07-08">8 Julai 2014</time></td><td data-c="ext"><time datetime="2019-07-09">9 Julai 2019</time></td><td data-c="esu"><time datetime="2022-07-12">12 Julai 2022</time> (<time datetime="2023-07-11">11 Julai 2023</time> di Azure sahaja)</td></tr>
+<tr data-id="sql-2008" data-p="sql" data-t="fixed"><td><button class="eol-pick" type="button">SQL Server 2008</button></td><td data-c="main"><time datetime="2014-07-08">8 Julai 2014</time></td><td data-c="ext"><time datetime="2019-07-09">9 Julai 2019</time></td><td data-c="esu"><time datetime="2022-07-12">12 Julai 2022</time> (<time datetime="2023-07-11">11 Julai 2023</time> di Azure sahaja)</td></tr>
+</tbody>
+</table>
+</div>
+<p class="eol-src">Sumber: halaman kitaran hayat Microsoft bagi SQL Server <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2025">2025</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2022">2022</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2019">2019</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2017">2017</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016">2016</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2014">2014</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-sql-server-2012">2012</a>, <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-sql-server-2008-r2">2008 R2</a> dan <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-sql-server-2008">2008</a>. Setiap edisi sesuatu versi, termasuk Express, mempunyai tarikh sokongan yang sama; ESU berbayar tidak ditawarkan untuk setiap edisi.</p>
+<h3 class="f-h3">.NET Framework</h3>
+<div class="f-table-wrap">
+<table class="f-table eol-table">
+<thead><tr><th scope="col">Versi</th><th scope="col">Tamat sokongan</th></tr></thead>
+<tbody>
+<tr data-id="fx-4.8.1" data-p="fx" data-t="os"><td><button class="eol-pick" type="button">.NET Framework 4.8.1</button></td><td data-c="end" data-none="">Mengikut versi Windows tempat ia berjalan</td></tr>
+<tr data-id="fx-4.8" data-p="fx" data-t="os"><td><button class="eol-pick" type="button">.NET Framework 4.8</button></td><td data-c="end" data-none="">Mengikut versi Windows tempat ia berjalan</td></tr>
+<tr data-id="fx-4.7.2" data-p="fx" data-t="os"><td><button class="eol-pick" type="button">.NET Framework 4.7.2</button></td><td data-c="end" data-none="">Mengikut versi Windows tempat ia berjalan</td></tr>
+<tr data-id="fx-4.7.1" data-p="fx" data-t="os"><td><button class="eol-pick" type="button">.NET Framework 4.7.1</button></td><td data-c="end" data-none="">Mengikut versi Windows tempat ia berjalan</td></tr>
+<tr data-id="fx-4.7" data-p="fx" data-t="os"><td><button class="eol-pick" type="button">.NET Framework 4.7</button></td><td data-c="end" data-none="">Mengikut versi Windows tempat ia berjalan</td></tr>
+<tr data-id="fx-4.6.2" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.6.2</button></td><td data-c="end"><time datetime="2027-01-12">12 Januari 2027</time></td></tr>
+<tr data-id="fx-4.6.1" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.6.1</button></td><td data-c="end"><time datetime="2022-04-26">26 April 2022</time></td></tr>
+<tr data-id="fx-4.6" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.6</button></td><td data-c="end"><time datetime="2022-04-26">26 April 2022</time></td></tr>
+<tr data-id="fx-4.5.2" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.5.2</button></td><td data-c="end"><time datetime="2022-04-26">26 April 2022</time></td></tr>
+<tr data-id="fx-4.5.1" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.5.1</button></td><td data-c="end"><time datetime="2016-01-12">12 Januari 2016</time></td></tr>
+<tr data-id="fx-4.5" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.5</button></td><td data-c="end"><time datetime="2016-01-12">12 Januari 2016</time></td></tr>
+<tr data-id="fx-4.0" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 4.0</button></td><td data-c="end"><time datetime="2016-01-12">12 Januari 2016</time></td></tr>
+<tr data-id="fx-3.5sp1" data-p="fx" data-t="fx35"><td><button class="eol-pick" type="button">.NET Framework 3.5 SP1</button></td><td data-c="end"><time datetime="2029-01-09">9 Januari 2029</time> pada Windows 10 versi 1809, Windows Server 2019 dan yang lebih baharu. Pada Windows yang lebih lama, mengikut versi Windows tersebut.</td></tr>
+<tr data-id="fx-3.0" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 3.0</button></td><td data-c="end"><time datetime="2011-07-12">12 Julai 2011</time></td></tr>
+<tr data-id="fx-2.0" data-p="fx" data-t="one"><td><button class="eol-pick" type="button">.NET Framework 2.0</button></td><td data-c="end"><time datetime="2011-07-12">12 Julai 2011</time></td></tr>
+</tbody>
+</table>
+</div>
+<p class="eol-src">Sumber: <a href="https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-framework">halaman kitaran hayat .NET Framework</a> dan <a href="https://learn.microsoft.com/en-us/lifecycle/faq/dotnet-framework">Soalan Lazim kitaran hayat .NET Framework</a> Microsoft.</p>
+<h3 class="f-h3">.NET dan .NET Core</h3>
+<div class="f-table-wrap">
+<table class="f-table eol-table">
+<thead><tr><th scope="col">Versi</th><th scope="col">Jenis keluaran</th><th scope="col">Tamat sokongan</th></tr></thead>
+<tbody>
+<tr data-id="net-10" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET 10</button></td><td>LTS</td><td data-c="end"><time datetime="2028-11-14">14 November 2028</time></td></tr>
+<tr data-id="net-9" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET 9</button></td><td>STS</td><td data-c="end"><time datetime="2026-11-10">10 November 2026</time></td></tr>
+<tr data-id="net-8" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET 8</button></td><td>LTS</td><td data-c="end"><time datetime="2026-11-10">10 November 2026</time></td></tr>
+<tr data-id="net-7" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET 7</button></td><td>–</td><td data-c="end"><time datetime="2024-05-14">14 Mei 2024</time></td></tr>
+<tr data-id="net-6" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET 6</button></td><td>–</td><td data-c="end"><time datetime="2024-11-12">12 November 2024</time></td></tr>
+<tr data-id="net-5" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET 5</button></td><td>–</td><td data-c="end"><time datetime="2022-05-10">10 Mei 2022</time></td></tr>
+<tr data-id="net-core-3.1" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 3.1</button></td><td>–</td><td data-c="end"><time datetime="2022-12-13">13 Disember 2022</time></td></tr>
+<tr data-id="net-core-3.0" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 3.0</button></td><td>–</td><td data-c="end"><time datetime="2020-03-03">3 Mac 2020</time></td></tr>
+<tr data-id="net-core-2.2" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 2.2</button></td><td>–</td><td data-c="end"><time datetime="2019-12-23">23 Disember 2019</time></td></tr>
+<tr data-id="net-core-2.1" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 2.1</button></td><td>–</td><td data-c="end"><time datetime="2021-08-21">21 Ogos 2021</time></td></tr>
+<tr data-id="net-core-2.0" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 2.0</button></td><td>–</td><td data-c="end"><time datetime="2018-10-01">1 Oktober 2018</time></td></tr>
+<tr data-id="net-core-1.1" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 1.1</button></td><td>–</td><td data-c="end"><time datetime="2019-06-27">27 Jun 2019</time></td></tr>
+<tr data-id="net-core-1.0" data-p="net" data-t="one"><td><button class="eol-pick" type="button">.NET Core 1.0</button></td><td>–</td><td data-c="end"><time datetime="2019-06-27">27 Jun 2019</time></td></tr>
+</tbody>
+</table>
+</div>
+<p class="eol-src">Sumber: <a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">dasar sokongan .NET dan .NET Core</a> Microsoft, kali terakhir dikemas kini 13 Oktober 2026. .NET 11 belum dikeluarkan.</p>
+<h3 class="f-h3">Windows 10 dan 11, Home dan Pro</h3>
+<div class="f-table-wrap">
+<table class="f-table eol-table">
+<thead><tr><th scope="col">Versi</th><th scope="col">Tamat sokongan</th></tr></thead>
+<tbody>
+<tr data-id="win-11-26h2" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 26H2</button></td><td data-c="end"><time datetime="2028-10-09">9 Oktober 2028</time></td></tr>
+<tr data-id="win-11-26h1" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 26H1</button></td><td data-c="end"><time datetime="2028-03-14">14 Mac 2028</time></td></tr>
+<tr data-id="win-11-25h2" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 25H2</button></td><td data-c="end"><time datetime="2027-10-12">12 Oktober 2027</time></td></tr>
+<tr data-id="win-11-24h2" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 24H2</button></td><td data-c="end"><time datetime="2026-10-13">13 Oktober 2026</time></td></tr>
+<tr data-id="win-11-23h2" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 23H2</button></td><td data-c="end"><time datetime="2025-11-11">11 November 2025</time></td></tr>
+<tr data-id="win-11-22h2" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 22H2</button></td><td data-c="end"><time datetime="2024-10-08">8 Oktober 2024</time></td></tr>
+<tr data-id="win-11-21h2" data-p="win" data-t="one"><td><button class="eol-pick" type="button">Windows 11 versi 21H2</button></td><td data-c="end"><time datetime="2023-10-10">10 Oktober 2023</time></td></tr>
+<tr data-id="win-10" data-p="win" data-t="w10"><td><button class="eol-pick" type="button">Windows 10 (versi 22H2, yang terakhir)</button></td><td data-c="end"><time datetime="2025-10-14">14 Oktober 2025</time></td></tr>
+</tbody>
+</table>
+</div>
+<p class="eol-src">Sumber: halaman kitaran hayat Microsoft bagi <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-11-home-and-pro">Windows 11 Home dan Pro</a> dan <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro">Windows 10 Home dan Pro</a>, serta <a href="https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates">program Extended Security Updates Windows 10</a>.</p>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Soalan lazim</h2></div>
+<div class="f-faq"><details><summary>Apa yang berlaku apabila Windows Server tamat sokongan?</summary><div>Ia terus berjalan, tetapi Microsoft berhenti menghantar kemas kini keselamatan untuknya. Sebarang lubang keselamatan yang ditemui selepas tarikh itu kekal terbuka, dan Microsoft tidak lagi membaiki pepijat lain. Satu-satunya cara untuk terus mendapat pembaikan keselamatan Microsoft ialah Extended Security Updates berbayar, dan hanya bagi versi yang ditawarkan oleh Microsoft.</div></details><details><summary>Bolehkah saya masih menjalankan pelayan yang tidak disokong?</summary><div>Boleh. Tiada apa-apa yang dimatikan pada tarikh tamat. Tetapi anda kemudiannya menjalankannya tanpa pembaikan keselamatan. Jika ia menyimpan data peribadi, Prinsip Keselamatan PDPA menjangkakan anda mengambil langkah praktikal untuk melindungi data itu, dan syarikat insurans siber serta pelanggan yang lebih besar mungkin bertanya sama ada perisian anda masih disokong. Jika anda belum boleh berpindah, putuskan pelayan daripada internet, hadkan siapa yang boleh mengaksesnya dan simpan sandaran luar talian yang telah diuji sementara anda merancang perpindahan.</div></details><details><summary>Apakah ESU?</summary><div>Extended Security Updates ialah program berbayar Microsoft yang meneruskan pembaikan keselamatan bagi sesetengah produk selepas sokongan lanjutan tamat, biasanya sehingga tiga tahun, dibayar setiap tahun. Ia tidak termasuk ciri baharu dan pembaikan lain. Bagi Windows Server 2012 dan 2012 R2, ia tamat pada 13 Oktober 2026. Bagi SQL Server 2014, ia berjalan sehingga 12 Julai 2027, dan bagi SQL Server 2016 sehingga 17 Julai 2029. Sesetengah versi mendapatnya tanpa caj tambahan apabila berjalan dalam Microsoft Azure.</div></details><details><summary>Adakah .NET Framework 4.8 sudah tamat hayat?</summary><div>Tidak. .NET Framework 4.8 dan 4.8.1 tiada tarikh tamat sendiri: ia sebahagian daripada Windows dan disokong selagi versi Windows tempat ia berjalan disokong. Pada Windows Server 2022 ialah sehingga 14 Oktober 2031; pada Windows Server 2016, sehingga 12 Januari 2027. Microsoft memberikan 4.6.2 tarikh tamatnya sendiri, 12 Januari 2027, dan versi 4.5.2 hingga 4.6.1 tamat pada 26 April 2022.</div></details><details><summary>Adakah .NET 8 masih disokong?</summary><div>Sehingga 10 November 2026, hari yang sama dengan .NET 9. .NET 10, yang dikeluarkan pada 11 November 2025, ialah keluaran Long Term Support semasa dan disokong sehingga 14 November 2028.</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">Tersekat pada versi lama?</span>
+          SteadyDevs menaik taraf dan menstabilkan sistem .NET dan SQL Server lama, biasanya tanpa menulis semula. <a href="solutions.html">Lihat cara kami bekerja →</a> Atau baca mengapa pelayan yang tidak disokong ialah risiko perniagaan, bukan sekadar risiko IT: <a href="../blog/windows-server-end-of-life-legacy-system-risk.html">Tamat hayat Windows Server dan SQL Server →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col"><h2>Tawaran</h2><ul>
+<li><a href="solutions.html">Perkhidmatan kejuruteraan</a></li><li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>Syarikat</h2><ul>
+<li><a href="about.html">Tentang kami</a></li><li><a href="portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Hubungi</a></li></ul></div>
+<div class="ff__col"><h2>Lagi</h2><ul>
+<li><a href="pricing-terms.html">Terma harga</a></li><li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>Alat percuma</h2><ul>
+<li><a href="e-invoice-checker.html">Perlukah saya e-Invois?</a></li><li><a href="msic-code-lookup.html">Carian kod MSIC</a></li><li><a href="../microsoft-end-of-support-lookup.html">Semakan tamat sokongan</a></li><li><a href="../legacy-system-risk-scorecard.html">Kad skor risiko</a></li><li><a href="../free-tools.html">Semua alat percuma →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var prod = $('eolProduct'), ver = $('eolVersion'), card = $('eolResult');
+      var rows = Array.prototype.slice.call(document.querySelectorAll('.eol-table tr[data-id]'));
+      var byId = {};
+      rows.forEach(function (r) { byId[r.getAttribute('data-id')] = r; });
+
+      // Dates are read as local calendar days, so "today" is the visitor's own date.
+      function parse(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+        return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+      }
+      var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      // Whole calendar months from a to b (a <= b); never negative.
+      function months(a, b) {
+        var n = (b.getFullYear() - a.getFullYear()) * 12 + b.getMonth() - a.getMonth();
+        if (b.getDate() < a.getDate()) n--;
+        return n > 0 ? n : 0;
+      }
+      function cell(row, c) {
+        var td = row.querySelector('[data-c="' + c + '"]');
+        if (!td || td.hasAttribute('data-none')) return null;
+        var t = td.querySelector('time');
+        var when = t && parse(t.getAttribute('datetime'));
+        return when ? { td: td, time: t, date: when } : null;
+      }
+      // Mark every date in the tables that is already behind us.
+      Array.prototype.slice.call(document.querySelectorAll('.eol-table time')).forEach(function (t) {
+        var when = parse(t.getAttribute('datetime'));
+        if (when && when < today) t.className = 'eol-past';
+      });
+
+      function fillVersions(p) {
+        while (ver.options.length > 1) ver.remove(1);
+        rows.forEach(function (r) {
+          if (r.getAttribute('data-p') !== p) return;
+          var o = document.createElement('option');
+          o.value = r.getAttribute('data-id');
+          o.textContent = r.querySelector('.eol-pick').textContent;
+          ver.appendChild(o);
+        });
+        ver.disabled = !p;
+        ver.value = '';
+      }
+
+      function put(key, node) {
+        var el = card.querySelector('[data-o="' + key + '"]');
+        while (el.firstChild) el.removeChild(el.firstChild);
+        if (node) el.appendChild(node.cloneNode(true));
+      }
+      function unit(block, n) {
+        block.querySelector('[data-u="1"]').hidden = n !== 1;
+        block.querySelector('[data-u="n"]').hidden = n === 1;
+      }
+
+      function show(row) {
+        var shown = {}, badge = null, deadline = null;
+        rows.forEach(function (r) { r.className = r === row ? 'is-on' : ''; });
+        ['left', 'since', 'esuDate'].forEach(function (k) { put(k, null); });
+        if (row) {
+          var p = row.getAttribute('data-p'), t = row.getAttribute('data-t');
+          shown.name = shown.cta = true;
+          put('name', document.createTextNode(row.querySelector('.eol-pick').textContent));
+          var dates = {};
+          if (t === 'fixed') {
+            var main = cell(row, 'main'), ext = cell(row, 'ext'), esu = cell(row, 'esu');
+            dates.main = main; dates.ext = ext;
+            put('main', main && main.time); put('ext', ext && ext.time);
+            // The ESU cell is copied whole: it may carry an "Azure only" final year.
+            var esuTd = row.querySelector('[data-c="esu"]');
+            put('esu', null);
+            Array.prototype.slice.call(esuTd.childNodes).forEach(function (n) { card.querySelector('[data-o="esu"]').appendChild(n.cloneNode(true)); });
+            dates.esu = true;
+            deadline = ext && ext.date;
+            if (main && today <= main.date) { badge = 'main'; shown['m-main'] = true; }
+            else if (ext && today <= ext.date) { badge = 'ext'; shown['m-ext'] = true; }
+            else {
+              badge = 'ended'; shown['m-ended'] = true;
+              if (!esu) shown['esu-none'] = true;
+              else if (today <= esu.date) { shown['esu-on'] = true; put('esuDate', esu.time); }
+              else shown['esu-off'] = true;
+            }
+          } else if (t === 'os') {
+            badge = 'os'; shown['n-os'] = true;
+          } else {
+            var end = cell(row, 'end');
+            dates.end = end; put('end', end && end.time);
+            deadline = end && end.date;
+            if (deadline && today <= deadline) { badge = 'ok'; shown['m-ok'] = true; }
+            else { badge = 'ended'; shown['m-ended'] = true; }
+            if (t === 'fx35') shown['n-fx35'] = true;
+            if (t === 'w10') shown['n-w10'] = true;
+            if (p === 'net') shown['n-net'] = true;
+            if (p === 'win' && t !== 'w10' && badge === 'ok') shown['n-win'] = true;
+            if (row.getAttribute('data-id') === 'fx-4.6.2') shown['n-fx462'] = true;
+          }
+          if (deadline) {
+            var gone = today > deadline;
+            var m = gone ? months(deadline, today) : months(today, deadline);
+            var key = (gone ? 'since' : 'left') + (m ? '' : '0');
+            shown[key] = true;
+            if (m) { card.querySelector('[data-o="' + (gone ? 'since' : 'left') + '"]').textContent = m.toLocaleString('en-MY'); unit(card.querySelector('[data-r="' + key + '"]'), m); }
+            if (!gone && m < 12) shown.soon = true;
+          }
+          shown.badges = !!badge;
+          shown.dates = !!(dates.main || dates.ext || dates.end);
+          card.querySelector('[data-d="main"]').hidden = !dates.main;
+          card.querySelector('[data-d="ext"]').hidden = !dates.ext;
+          card.querySelector('[data-d="esu"]').hidden = !dates.esu;
+          card.querySelector('[data-d="end"]').hidden = !dates.end;
+          Array.prototype.slice.call(card.querySelectorAll('[data-b]')).forEach(function (b) {
+            var k = b.getAttribute('data-b');
+            b.hidden = !(k === badge || (k === 'esu' && shown['esu-on']));
+          });
+        } else {
+          shown.start = true;
+        }
+        Array.prototype.slice.call(card.querySelectorAll('[data-r]')).forEach(function (el) {
+          el.hidden = !shown[el.getAttribute('data-r')];
+        });
+      }
+
+      var lastSent = '';
+      function choose(id, fromTable) {
+        var row = byId[id];
+        if (!row) { show(null); return; }
+        var p = row.getAttribute('data-p');
+        if (prod.value !== p) { prod.value = p; fillVersions(p); }
+        ver.value = id;
+        show(row);
+        if (window.history && history.replaceState) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+        if (fromTable && card.scrollIntoView) $('eolTool').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (id !== lastSent && typeof gtag === 'function') { lastSent = id; gtag('event', 'eol_lookup', { product: p, version: id }); }
+      }
+
+      prod.addEventListener('change', function () { fillVersions(prod.value); show(null); });
+      ver.addEventListener('change', function () { if (ver.value) choose(ver.value, false); else show(null); });
+      document.addEventListener('click', function (e) {
+        var b = e.target && e.target.closest ? e.target.closest('.eol-pick') : null;
+        if (!b) return;
+        var tr = b.closest('tr');
+        if (tr) choose(tr.getAttribute('data-id'), true);
+      });
+      $('eolForm').addEventListener('submit', function (e) { e.preventDefault(); });
+
+      var start = (location.hash || '').slice(1);
+      if (byId[start]) choose(start, false); else { fillVersions(''); show(null); }
+    })();
+  </script>
+</body>
+</html>

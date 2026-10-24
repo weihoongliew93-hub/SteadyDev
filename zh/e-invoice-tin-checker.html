@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>马来西亚电子发票 TIN 检查（LHDN）| SteadyDevs</title>
+<meta content="提交前按照 LHDN 电子发票规则检查买方的 TIN、证件号码、电话和电邮，并解释各个通用 TIN。免费，在您的浏览器中运行。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/e-invoice-tin-checker.html" property="og:url"/>
+<meta content="马来西亚电子发票 TIN 检查（LHDN）| SteadyDevs" property="og:title"/>
+<meta content="提交前按照 LHDN 电子发票规则检查买方的 TIN、证件号码、电话和电邮，并解释各个通用 TIN。免费，在您的浏览器中运行。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/e-invoice-tin-checker.html" rel="canonical"/><link href="https://steadydevs.com/e-invoice-tin-checker.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/e-invoice-tin-checker.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/e-invoice-tin-checker.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/e-invoice-tin-checker.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "买方没有 TIN 时该用什么？", "acceptedAnswer": {"@type": "Answer", "text": "使用 LHDN 的其中一个通用 TIN。只提供 MyKad 或 MyTentera 号码的马来西亚个人，或 MyPR、MyKAS 持有人，使用 EI00000000010 并搭配该号码。只有护照的外国个人，或出口销售中的外国买方，使用 EI00000000020。政府或法定机构使用 EI00000000040。提供注册号码的马来西亚企业不能使用 EI00000000010：请向对方索取自己的 TIN。"}}, {"@type": "Question", "name": "EI00000000010 是什么？", "acceptedAnswer": {"@type": "Answer", "text": "LHDN 的公众通用 TIN。它用于开给只提供 MyKad 或 MyTentera 号码的马来西亚个人，或 MyPR、MyKAS 持有人的电子发票，也作为合并电子发票上的买方 TIN，买方证件号码填 \"NA\"。如果搭配商业注册号码，或用在没有买方证件号码的普通发票上，LHDN 会接受提交，随后把电子发票标记为无效。"}}, {"@type": "Question", "name": "为什么我的电子发票因为电话号码被拒绝？", "acceptedAnswer": {"@type": "Answer", "text": "联系电话是必填的，而 LHDN 会拒绝少于 8 个字符的号码。\"N/A\" 和 \"-\" 都无法通过这项检查。请连同国家代码填写，例如 +60123456789。在合并电子发票上，买方是公众，LHDN 的占位符是 \"NA\"，没有斜线。"}}, {"@type": "Question", "name": "合并电子发票可以超过 RM10,000 吗？", "acceptedAnswer": {"@type": "Answer", "text": "总额可以。RM10,000 规则针对的是单笔销售：任何一笔超过 RM10,000 的交易都需要单独的电子发票，不能纳入合并发票。处于宽限期（至 2027 年 12 月 31 日）的第 4 阶段企业可以合并所有销售，包括超过 RM10,000 的销售。"}}, {"@type": "Question", "name": "这项检查能告诉我 TIN 是真的吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能。它只检查格式，以及 LHDN 关于哪个 TIN 搭配哪种证件的规则。只有 LHDN 能确认 TIN 已注册并与证件号码相符。买方可以在 MyTax 中找到自己的 TIN，而连接到 MyInvois 的系统可以在发送前通过 LHDN 的 Validate TIN API 核对 TIN 与证件号码。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* e-invoice TIN checker (design F): fields on the left, the problems beside them; every message is in the HTML so it can be translated. */
+    .tin { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .tin { grid-template-columns: 1fr; } }
+    .tin [hidden] { display: none; }
+    .tin + .f-note { margin-top: 24px; }
+    .tin-check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text); cursor: pointer; }
+    .tin-check input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--crimson); }
+    .tin-result { display: grid; gap: 12px; }
+    .tin-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .tin-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; font-variant-numeric: tabular-nums; }
+    .tin-dim { color: var(--faint); font-size: 14px; }
+    .tin-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .tin-list li { border-top: 1px solid var(--border-soft); padding-top: 12px; color: var(--text-soft); }
+    .tin-list .f-badge { margin-right: 6px; vertical-align: 1px; }
+    .tin-foot { border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 10px; }
+    .tin-code { font-family: var(--mono); white-space: nowrap; color: var(--text-strong); }
+    .tin-table td:first-child { white-space: nowrap; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · LHDN 电子发票</p>
+<h1 class="f-h1">电子发票 TIN 与字段检查</h1>
+<p class="f-lead">按照将填入电子发票的样子，输入买方的 TIN、证件号码、电话和电邮。看看哪些会被 LHDN 拒绝或标记为无效（Invalid），以及提交前如何逐一修正。全部在您的浏览器中运行；您输入的内容不会发送到任何地方。</p>
+<div class="tin">
+<form autocomplete="off" class="f-form" id="tinForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="f-field">
+<label for="tinRole">这是谁的资料？</label>
+<select class="f-input" id="tinRole">
+<option value="buyer">买方</option>
+<option value="seller">卖方（供应商）</option>
+</select>
+</div>
+<div class="f-field">
+<label for="tinTin">TIN</label>
+<input class="f-input" id="tinTin" maxlength="40" placeholder="e.g. C25845632020 or EI00000000010" spellcheck="false" type="text"/>
+<span class="f-hint">LHDN 分配的税务识别号码，或下表中的其中一个通用 TIN。</span>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="tinIdType">证件类型</label>
+<select class="f-input" id="tinIdType">
+<option value="nric">MyKad, MyPR or MyKAS (NRIC)</option>
+<option value="army">MyTentera（军人）</option>
+<option value="passport">护照</option>
+<option selected="" value="brn">商业注册号码（BRN）</option>
+<option value="none">未提供</option>
+</select>
+</div>
+<div class="f-field" id="tinIdField">
+<label for="tinId">证件号码</label>
+<input class="f-input" id="tinId" maxlength="40" placeholder="e.g. 202001234567" spellcheck="false" type="text"/>
+</div>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="tinPhone">联系电话</label>
+<input class="f-input" id="tinPhone" inputmode="tel" maxlength="40" placeholder="e.g. +60123456789" type="text"/>
+</div>
+<div class="f-field">
+<label for="tinEmail">电邮</label>
+<input class="f-input" id="tinEmail" inputmode="email" maxlength="400" placeholder="选填" spellcheck="false" type="text"/>
+</div>
+</div>
+<div class="f-form" id="tinBuyerOnly">
+<label class="tin-check"><input id="tinCons" type="checkbox"/> <span>这是一张合并电子发票（当月对公众的销售）</span></label>
+<div class="f-field">
+<label for="tinTotal"><span data-l="single">发票总额（RM）</span><span data-l="cons" hidden="">其中最大单笔销售（RM）</span></label>
+<input class="f-input" id="tinTotal" inputmode="decimal" maxlength="30" placeholder="e.g. 2500.00" type="text"/>
+</div>
+<label class="tin-check"><input id="tinRelax" type="checkbox"/> <span>我是处于 LHDN 宽限期内的第 4 阶段企业（2026 年 1 月 1 日或 7 月 1 日开始实施电子发票）</span></label>
+</div>
+</form>
+<div aria-live="polite" class="f-card tin-result" id="tinResult">
+<p class="tin-label">LHDN 会看到什么</p>
+<div data-s="start"><p class="tin-dim">输入 TIN 开始检查。</p></div>
+<div data-s="ok" hidden=""><p class="tin-head">您输入的内容没有发现问题。</p></div>
+<div data-s="some" hidden=""><p class="tin-head">需修正：<span data-o="fix">0</span> · 需核对：<span data-o="check">0</span></p></div>
+<ul class="tin-list">
+<li data-i="tin_empty" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>缺少 TIN。</strong>每张电子发票都需要卖方和买方的 TIN。如果买方没有 TIN，请从下表中选用适合的通用 TIN。</li>
+<li data-i="tin_clean" hidden=""><span class="f-badge">需核对</span> <strong>去掉空格和连字符。</strong>请用大写字母输入 TIN，字符之间不要有任何东西。我们按 <span class="tin-code" data-o="clean"></span> 进行检查。</li>
+<li data-i="tin_long" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>超出 TIN 的长度。</strong>LHDN 的 TIN 字段最多 14 个字符。请确认您没有贴上证件号码，或把两个值贴在一起。</li>
+<li data-i="tin_ei" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>不是 LHDN 的四个通用 TIN 之一。</strong>通用 TIN 是 EI 加 11 位数字：<span class="tin-code">EI00000000010</span>、<span class="tin-code">EI00000000020</span>、<span class="tin-code">EI00000000030</span> 或 <span class="tin-code">EI00000000040</span>。请数一数零的个数。</li>
+<li data-i="tin_old" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>旧的个人前缀。</strong>SG 和 OG 是个人的旧前缀。LHDN 要求个人使用前缀为 IG 的 TIN。买方可在 MyTax 中查看。</li>
+<li data-i="tin_format" hidden=""><span class="f-badge">需核对</span> <strong>这看起来不像 TIN。</strong>我们预期的是 IG（个人）或 C（公司）等前缀加 10 或 11 位数字，例如 IG12345678901 或 C25845632020。LHDN 没有公布完整格式，所以请把这当作打字错误检查，并向买方确认 TIN。</li>
+<li data-i="gen_seller_no" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>仅限买方使用的通用 TIN。</strong>EI00000000020 和 EI00000000040 是给买方用的。作为卖方，请使用您自己的 TIN。</li>
+<li data-i="gen_seller_sb" hidden=""><span class="f-badge">需核对</span> <strong>只用于自开发票。</strong>只有在买方开立自开电子发票时，通用 TIN 才会出现在供应商一方：EI00000000010 用于只有 MyKad 或 MyTentera 号码的个人供应商，或用于合并自开电子发票；EI00000000030 用于外国供应商。在您自己的销售发票上，请使用您自己的 TIN。</li>
+<li data-i="g10_brn" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>通用 TIN 不能与 BRN 一起使用。</strong>企业买方有自己的 TIN，请向对方索取。LHDN 会接受提交，随后把电子发票标记为无效。</li>
+<li data-i="g10_pass" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>护照用错了通用 TIN。</strong>只提供护照号码的外国买方，LHDN 的通用 TIN 是 EI00000000020。EI00000000010 须搭配 MyKad、MyTentera、MyPR 或 MyKAS 号码。</li>
+<li data-i="g10_noid" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>这里的通用 TIN 需要证件号码。</strong>在普通发票上，EI00000000010 必须搭配买方的 MyKad 或 MyTentera 号码。没有证件号码时，只能用于合并电子发票。请索取买方的 IC 号码；如果金额在 RM10,000 或以下，也可以把这笔销售留作收据，纳入月底的合并电子发票。LHDN 会接受提交，随后把电子发票标记为无效。</li>
+<li data-i="cons_id" hidden=""><span class="f-badge">需核对</span> <strong>合并电子发票上的买方证件。</strong>LHDN 的合并电子发票格式中，买方证件号码为 NA。如果这位买方提供了 IC 号码，可以改为给他单独开一张电子发票。</li>
+<li data-i="g20_local" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>本地证件用错了通用 TIN。</strong>EI00000000020 是给外国买方用的。持有 MyKad、MyTentera、MyPR 或 MyKAS 号码的买方应使用 EI00000000010。</li>
+<li data-i="g20_noid" hidden=""><span class="f-badge">需核对</span> <strong>填入外国买方的证件号码。</strong>证件字段是必填的。请输入买方的护照号码，或对方提供的证件号码。</li>
+<li data-i="g30_buyer" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>EI00000000030 是供应商的 TIN。</strong>它用于自开电子发票上的外国供应商。外国买方请使用 EI00000000020。</li>
+<li data-i="g40_id" hidden=""><span class="f-badge">需核对</span> <strong>政府买方的 BRN 填 "NA"。</strong>LHDN 常见问题说明，政府、州属和地方当局以及法定机构，应填 EI00000000040，BRN 填 NA。请选择 BRN 作为证件类型并输入 NA。</li>
+<li data-i="cons_tin" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>合并电子发票使用 EI00000000010。</strong>在合并电子发票上，买方是 "General Public"，TIN 为 EI00000000010，证件号码为 NA。提供了自己 TIN 的买方应单独开立电子发票。</li>
+<li data-i="real_noid" hidden=""><span class="f-badge">需核对</span> <strong>填入与此 TIN 对应的证件号码。</strong>企业的注册号码是必填字段，而 LHDN 的 Validate TIN 会核对 TIN 与证件号码是否相符。只有个人可以只提供 TIN。</li>
+<li data-i="id_na" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>写 NA，而不是 N/A。</strong>LHDN 的空值占位符是 NA。"N/A"、"-" 和 "nil" 都会被拒绝。</li>
+<li data-i="id_nric_dash" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>去掉连字符。</strong>NRIC 字段容纳 12 个字符，所以只输入 12 位数字，例如 770625015324。</li>
+<li data-i="id_nric" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>不是 12 位的 IC 号码。</strong>MyKad、MyPR 和 MyKAS 号码都是 12 位数字，例如 770625015324。</li>
+<li data-i="id_long12" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>太长了。</strong>LHDN 这种证件类型的字段最多 12 个字符。请检查是否有空格或多余的字符。</li>
+<li data-i="id_long20" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>超出 BRN 的长度。</strong>LHDN 的 BRN 字段最多 20 个字符。</li>
+<li data-i="id_chars" hidden=""><span class="f-badge">需核对</span> <strong>只能有字母和数字。</strong>请删除证件号码中的空格、连字符和其他符号。</li>
+<li data-i="id_brn" hidden=""><span class="f-badge">需核对</span> <strong>请使用新的 12 位 BRN。</strong>在 SSM 注册的企业必须提供新的 12 位注册号码，例如 202001234567，而不是旧号码。在其他机构注册？使用该机构的号码即可。LHDN 自 2024 年 7 月 19 日起暂停了 BRN 验证，所以目前未必会被拒绝。</li>
+<li data-i="phone_empty" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>缺少联系电话。</strong>双方都必须填写。个人买方也应提供电话号码。</li>
+<li data-i="phone_cons" hidden=""><span class="f-badge">需核对</span> <strong>请输入 NA。</strong>此字段不能留空。在合并电子发票上，LHDN 允许买方联系电话填 NA。</li>
+<li data-i="phone_slash" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>LHDN 会拒绝这个占位符。</strong>填 "N/A" 的电子发票曾被拒绝，错误信息为 "Enter valid phone number and the minimum length is 8 characters"。请输入真实号码，或在合并电子发票上填 NA。</li>
+<li data-i="phone_na" hidden=""><span class="f-badge">需核对</span> <strong>NA 是给合并电子发票用的。</strong>LHDN 的规则只为合并电子发票上的公众买方提供 NA。这里请索取真实号码。</li>
+<li data-i="phone_short" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>太短了。</strong>LHDN 会拒绝少于 8 个字符的联系电话。请加上国家代码和区号，例如 +60123456789。</li>
+<li data-i="phone_long" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>太长了。</strong>LHDN 的联系电话字段最多 20 个字符。请只输入一个号码。</li>
+<li data-i="phone_chars" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>不是电话号码。</strong>只能使用数字和开头的 +。分机号和备注请放在别处。</li>
+<li data-i="phone_e164" hidden=""><span class="f-badge">需核对</span> <strong>请使用国际格式。</strong>LHDN 要求 E.164 格式：+、国家代码，然后是号码，不留空格，开头不加 0。012-345 6789 应写成 +60123456789。</li>
+<li data-i="email_slash" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>不如把电邮留空。</strong>电邮是选填的，但填 "N/A" 和 "-" 的电子发票曾被拒绝，错误信息为 "Enter valid e-mail address"。</li>
+<li data-i="email_na" hidden=""><span class="f-badge">需核对</span> <strong>NA 不是电邮地址。</strong>电邮是选填的，买方没有电邮时请留空。</li>
+<li data-i="email_long" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>太长了。</strong>LHDN 的电邮字段最多 320 个字符。</li>
+<li data-i="email_bad" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>不是有效的电邮地址。</strong>请输入一个地址，例如 name@company.com，不要有空格。没有的话请留空。</li>
+<li data-i="total_bad" hidden=""><span class="f-badge">需核对</span> <strong>请以数字输入金额。</strong>例如 12500.00。在此之前会跳过 RM10,000 相关检查。</li>
+<li data-i="cons_hi" hidden=""><span class="f-badge f-badge--crimson">需修正</span> <strong>超过 RM10,000：请从合并电子发票中移出。</strong>任何超过 RM10,000 的单笔销售都需要单独开立附有买方资料的电子发票。当月其余销售仍可合并。</li>
+<li data-i="hi_general" hidden=""><span class="f-badge">需核对</span> <strong>超过 RM10,000 且使用通用 TIN。</strong>这笔销售需要单独的电子发票，而它已经是单独开立的。LHDN 指南允许 EI00000000010 搭配马来西亚个人的 MyKad 号码，但能取得买方自己的 TIN 时，请尽量取得。我们的平台在超过 RM10,000 时会要求填写。</li>
+<li data-i="relax_note" hidden=""><span class="f-badge">需核对</span> <strong>2027 年 12 月 31 日前允许。</strong>在宽限期内，第 4 阶段企业可以合并所有销售，包括超过 RM10,000 的销售。从 2028 年 1 月 1 日起，这类销售需要单独开立附有买方资料的电子发票。</li>
+</ul>
+<div class="tin-foot" data-s="foot" hidden="">
+<p class="tin-dim" data-s="cons" hidden="">在合并电子发票上，买方名称还要填 General Public，地址填 NA，州代码填 17，每一行的分类代码都填 004。</p>
+<p class="tin-dim">这里只检查格式和 LHDN 的规则，无法判断 TIN 是否已注册或是否属于这位买方。买方可在 <a href="https://mytax.hasil.gov.my">MyTax</a> 中查看自己的 TIN，而连接到 MyInvois 的系统可以通过 LHDN 的 Validate TIN API 核对 TIN 与证件号码。</p>
+<p><a href="einvoice.html">在每张发票送达 LHDN 之前都进行这些检查 →</a></p>
+</div>
+</div>
+</div>
+<p class="f-note">这是格式检查，并非税务建议。规则来自 LHDN 的<a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">电子发票特定指南 v4.9</a>（2026 年 9 月 7 日：第 3.7 节、第 16.2 节、附录 1、2 和 4）、<a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Guideline.pdf">电子发票指南 v4.8</a>、<a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">电子发票常见问题</a>（2026 年 9 月 4 日，第 32 至 36 题），以及 MyInvois SDK 的<a href="https://sdk.myinvois.hasil.gov.my/documents/invoice-v1-1/">发票字段规则</a>和 <a href="https://sdk.myinvois.hasil.gov.my/einvoicingapi/01-validate-taxpayer-tin/">Validate TIN API</a>。电话至少 8 个字符、"N/A" 被拒绝，以及 LHDN 在接受后把通用 TIN 错误标记为无效，这几点来自我们在 2026 年 10 月向 LHDN 测试环境的实际提交；SDK 并未说明。已于 2026 年 10 月 23 日核实。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">该用哪个通用 TIN</h2></div>
+<p class="f-lead">当对方没有 TIN 时，LHDN 提供四个通用 TIN。每个都适用于特定情况，用错了电子发票就会被标记为无效。</p>
+<div class="f-table-wrap">
+<table class="f-table tin-table">
+<thead><tr><th>通用 TIN</th><th>适用于</th><th>搭配</th></tr></thead>
+<tbody>
+<tr><td class="f-mono">EI00000000010</td><td>公众。只提供 MyKad 或 MyTentera 号码的马来西亚个人，或 MyPR、MyKAS 持有人。也用于合并电子发票上的买方，以及合并自开电子发票上的供应商。</td><td>MyKad、MyTentera、MyPR 或 MyKAS 号码。合并电子发票上证件号码为 NA。绝不能搭配 BRN。</td></tr>
+<tr><td class="f-mono">EI00000000020</td><td>外国买方。只提供护照号码的外国个人、出口销售中没有马来西亚 TIN 的外国买方，或外国收货人。</td><td>护照号码（如果买方只提供这个）。</td></tr>
+<tr><td class="f-mono">EI00000000030</td><td>外国供应商，仅限自开电子发票。只有护照的外国个人供应商，或没有马来西亚 TIN 的进口供应商。</td><td>供应商的护照号码（如果对方只提供这个）。绝不能用作买方。</td></tr>
+<tr><td class="f-mono">EI00000000040</td><td>政府买方：政府、州政府和州当局、政府、地方和法定当局、法定机构，以及没有 TIN 的获豁免机构。</td><td>BRN 填 NA。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-prose">
+<h3>为什么 LHDN 会先接受某些错误，再把电子发票标记为无效</h3>
+<p>LHDN 分两个阶段检查电子发票。提交时，它检查结构：必填字段、长度和格式。电话号码填 "N/A" 会在这一步失败，文件会被立即拒绝。</p>
+<p>通过的文件会被接受，然后再根据 LHDN 自己的记录和规则验证，包括哪个通用 TIN 可以搭配哪种证件。通用 TIN 搭配 BRN，或普通发票上使用 EI00000000010 却没有买方证件号码，都能通过第一阶段，但片刻之后就会被标记为无效。</p>
+<p>第二种才是危险的。如果您的系统只读取提交时的回应，它会显示电子发票已发送，而 LHDN 却把它记为无效。请务必读取文件的最终状态。我们的<a href="../blog/einvoice-validation-errors-rejections-fix-guide.html">LHDN 验证错误指南</a>解释了每种结果的含义。</p>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>买方没有 TIN 时该用什么？</summary><div>使用 LHDN 的其中一个通用 TIN。只提供 MyKad 或 MyTentera 号码的马来西亚个人，或 MyPR、MyKAS 持有人，使用 EI00000000010 并搭配该号码。只有护照的外国个人，或出口销售中的外国买方，使用 EI00000000020。政府或法定机构使用 EI00000000040。提供注册号码的马来西亚企业不能使用 EI00000000010：请向对方索取自己的 TIN。</div></details><details><summary>EI00000000010 是什么？</summary><div>LHDN 的公众通用 TIN。它用于开给只提供 MyKad 或 MyTentera 号码的马来西亚个人，或 MyPR、MyKAS 持有人的电子发票，也作为合并电子发票上的买方 TIN，买方证件号码填 "NA"。如果搭配商业注册号码，或用在没有买方证件号码的普通发票上，LHDN 会接受提交，随后把电子发票标记为无效。</div></details><details><summary>为什么我的电子发票因为电话号码被拒绝？</summary><div>联系电话是必填的，而 LHDN 会拒绝少于 8 个字符的号码。"N/A" 和 "-" 都无法通过这项检查。请连同国家代码填写，例如 +60123456789。在合并电子发票上，买方是公众，LHDN 的占位符是 "NA"，没有斜线。</div></details><details><summary>合并电子发票可以超过 RM10,000 吗？</summary><div>总额可以。RM10,000 规则针对的是单笔销售：任何一笔超过 RM10,000 的交易都需要单独的电子发票，不能纳入合并发票。处于宽限期（至 2027 年 12 月 31 日）的第 4 阶段企业可以合并所有销售，包括超过 RM10,000 的销售。</div></details><details><summary>这项检查能告诉我 TIN 是真的吗？</summary><div>不能。它只检查格式，以及 LHDN 关于哪个 TIN 搭配哪种证件的规则。只有 LHDN 能确认 TIN 已注册并与证件号码相符。买方可以在 MyTax 中找到自己的 TIN，而连接到 MyInvois 的系统可以在发送前通过 LHDN 的 Validate TIN API 核对 TIN 与证件号码。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">每次提交之前</span>
+          我们的电子发票平台在每张发票送达 LHDN 之前都会检查通用 TIN 和 RM10,000 规则，把门市收据留到月底的合并电子发票，并在门市买方没有提供电话时填上 LHDN 的 NA。<a href="einvoice.html">了解电子发票平台 →</a> 还不确定是否需要开电子发票？<a href="e-invoice-checker.html">三个问题帮您确认 →</a> 需要卖方的 MSIC 代码？<a href="msic-code-lookup.html">在这里查找 →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>免费工具</h2><ul>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li><li><a href="msic-code-lookup.html">MSIC 代码查询</a></li><li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li><li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li><li><a href="../free-tools.html">全部免费工具 →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      // LHDN's four general TINs (Specific Guideline v4.9, Appendix 1), in order 10, 20, 30, 40.
+      var GEN = ['EI00000000010', 'EI00000000020', 'EI00000000030', 'EI00000000040'];
+      // The e-Invoice platform's typo check (TenantReadinessService): LHDN's prefixes, then 10 or
+      // 11 digits. LHDN publishes no full format, so a miss is "check", never "fix".
+      var TIN_RE = /^(IG|C|CS|D|E|F|FA|PT|TA|TC|TN|TR|TP|J|LE)\d{10,11}$/;
+      // Placeholders LHDN refused on preprod; its own empty value is "NA".
+      var SLASH_NA = /^(N\/A|N\.A\.?|-+|NIL|NONE|NULL)$/i;
+
+      // Pure: field values in, issue keys out. Each key names an <li data-i> in the result card.
+      function check(f) {
+        var fix = [], chk = [];
+        var raw = String(f.tin || '');
+        var t = raw.replace(/[\s-]/g, '').toUpperCase();
+        var buyer = f.role !== 'seller', cons = buyer && !!f.cons, relax = buyer && !!f.relax;
+        var idType = f.idType || 'none';
+        var id = idType === 'none' ? '' : String(f.id || '').trim();
+        var idNA = id === '' || id.toUpperCase() === 'NA';
+        var g = GEN.indexOf(t);
+
+        if (!t) fix.push('tin_empty');
+        else {
+          if (t !== raw.trim()) chk.push('tin_clean');
+          if (t.length > 14) fix.push('tin_long');
+          else if (g < 0) {
+            if (/^EI/.test(t)) fix.push('tin_ei');
+            else if (/^(SG|OG)\d/.test(t)) fix.push('tin_old');
+            else if (!TIN_RE.test(t)) chk.push('tin_format');
+          }
+        }
+
+        if (!buyer && g >= 0) (g === 1 || g === 3 ? fix : chk).push(g === 1 || g === 3 ? 'gen_seller_no' : 'gen_seller_sb');
+        if (buyer) {
+          if (g === 0) {
+            if (idType === 'brn' && !idNA) fix.push('g10_brn');
+            else if (idType === 'passport' && !idNA) fix.push('g10_pass');
+            else if (idNA && !cons) fix.push('g10_noid');
+            if (cons && !idNA) chk.push('cons_id');
+          } else if (g === 1) {
+            if (idType === 'nric' || idType === 'army') fix.push('g20_local');
+            else if (idNA) chk.push('g20_noid');
+          } else if (g === 2) fix.push('g30_buyer');
+          else if (g === 3 && !(idType === 'brn' && id.toUpperCase() === 'NA')) chk.push('g40_id');
+          if (cons && t && g !== 0) fix.push('cons_tin');
+        }
+        if (t && g < 0 && idNA && !cons) chk.push('real_noid');
+
+        if (id && id.toUpperCase() !== 'NA') {
+          if (SLASH_NA.test(id)) fix.push('id_na');
+          else if (idType === 'nric') {
+            if (!/^\d{12}$/.test(id)) fix.push(/^\d{12}$/.test(id.replace(/[\s-]/g, '')) ? 'id_nric_dash' : 'id_nric');
+          } else if (idType === 'brn') {
+            if (id.length > 20) fix.push('id_long20');
+            else if (!/^\d{12}$/.test(id)) chk.push('id_brn');
+          } else {
+            if (id.length > 12) fix.push('id_long12');
+            if (!/^[A-Za-z0-9]+$/.test(id)) chk.push('id_chars');
+          }
+        }
+
+        var p = String(f.phone || '').trim();
+        if (!p) (cons ? chk : fix).push(cons ? 'phone_cons' : 'phone_empty');
+        else if (SLASH_NA.test(p)) fix.push('phone_slash');
+        else if (p.toUpperCase() === 'NA') { if (!cons) chk.push('phone_na'); }
+        else {
+          if (p.length < 8) fix.push('phone_short');
+          if (p.length > 20) fix.push('phone_long');
+          if (/[^\d+\s\-().]/.test(p)) fix.push('phone_chars');
+          else if (p.length >= 8 && p.length <= 20 && !/^\+\d{8,15}$/.test(p)) chk.push('phone_e164');
+        }
+
+        var e = String(f.email || '').trim();
+        if (e) {
+          if (SLASH_NA.test(e)) fix.push('email_slash');
+          else if (e.toUpperCase() === 'NA') chk.push('email_na');
+          else if (e.length > 320) fix.push('email_long');
+          else if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(e)) fix.push('email_bad');
+        }
+
+        // The RM10,000 rule is per sale (Specific Guideline s.3.7), so a consolidated e-invoice
+        // is judged by its largest sale, as the platform judges it by line.
+        var s = buyer ? String(f.total || '').replace(/[\s,]/g, '').replace(/^RM/i, '') : '';
+        if (s) {
+          if (!/^\d+(\.\d+)?$/.test(s)) chk.push('total_bad');
+          else if (parseFloat(s) > 10000) {
+            if (relax) chk.push('relax_note');
+            else if (cons) fix.push('cons_hi');
+            else if (g === 0) chk.push('hi_general');
+          }
+        }
+        return { fix: fix, check: chk, clean: t };
+      }
+
+      var $ = function (id) { return document.getElementById(id); };
+      var els = ['tinRole', 'tinTin', 'tinIdType', 'tinId', 'tinPhone', 'tinEmail', 'tinCons', 'tinTotal', 'tinRelax'].map($);
+      var card = $('tinResult');
+      var items = Array.prototype.slice.call(card.querySelectorAll('[data-i]'));
+      var part = function (k) { return card.querySelector('[data-s="' + k + '"]'); };
+      var out = function (k) { return card.querySelector('[data-o="' + k + '"]'); };
+      var lastSent = -1;
+
+      function read() {
+        return { role: els[0].value, tin: els[1].value, idType: els[2].value, id: els[3].value, phone: els[4].value,
+          email: els[5].value, cons: els[6].checked, total: els[7].value, relax: els[8].checked };
+      }
+      function apply() {
+        var f = read(), r = check(f), started = !!String(f.tin).trim();
+        var shown = r.fix.concat(r.check), n = shown.length;
+        $('tinIdField').hidden = f.idType === 'none';
+        $('tinBuyerOnly').hidden = f.role === 'seller';
+        document.querySelector('[data-l="single"]').hidden = f.cons;
+        document.querySelector('[data-l="cons"]').hidden = !f.cons;
+        items.forEach(function (li) { li.hidden = !started || shown.indexOf(li.getAttribute('data-i')) === -1; });
+        part('start').hidden = started;
+        part('ok').hidden = !started || n > 0;
+        part('some').hidden = !started || n === 0;
+        part('foot').hidden = !started;
+        part('cons').hidden = !(f.cons && f.role !== 'seller');
+        out('fix').textContent = r.fix.length;
+        out('check').textContent = r.check.length;
+        out('clean').textContent = r.clean;
+        return started ? n : -1;
+      }
+      function send() {
+        var n = apply();
+        // The problem count only: never the TIN, the ID or anything else typed in.
+        if (n >= 0 && n !== lastSent && typeof gtag === 'function') { lastSent = n; gtag('event', 'tin_check', { problems: n }); }
+      }
+      els.forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', send);
+      });
+      $('tinForm').addEventListener('submit', function (ev) { ev.preventDefault(); send(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

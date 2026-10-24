@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>旧系统风险评分（10 个问题）| SteadyDevs</title>
+<meta content="关于您企业所依赖系统的十个问题。得出粗略的风险分数、三大风险，以及每项风险的下一步。免费，无需注册。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/legacy-system-risk-scorecard.html" property="og:url"/>
+<meta content="旧系统风险评分（10 个问题）| SteadyDevs" property="og:title"/>
+<meta content="关于您企业所依赖系统的十个问题。得出粗略的风险分数、三大风险，以及每项风险的下一步。免费，无需注册。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/legacy-system-risk-scorecard.html" rel="canonical"/><link href="https://steadydevs.com/legacy-system-risk-scorecard.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/legacy-system-risk-scorecard.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/legacy-system-risk-scorecard.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/legacy-system-risk-scorecard.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "这个评分是对我系统的审计吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是。它是根据我们接手旧系统时最常见的问题总结出的经验法则。它看不到您的代码、服务器或备份，所以低分不能证明系统安全，高分也不代表即将出故障。用它来决定先检查什么。"}}, {"@type": "Question", "name": "为什么“不确定”也会扣分？", "acceptedAnswer": {"@type": "Answer", "text": "因为不知道本身就是一个发现。如果没人说得出上一次恢复备份是什么时候，或系统运行在哪个服务器版本上，那就没人在照看它。“不确定”得“是”的一半权重，而弄清楚就是第一步。"}}, {"@type": "Question", "name": "我应该先修复什么？", "acceptedAnswer": {"@type": "Answer", "text": "通常是访问权限、代码和数据：确保企业掌握所有登录信息、一份完整的源代码副本，以及一份真正恢复过的备份。出事那天您需要的就是这些。评分会按权重列出您的前三项风险。"}}, {"@type": "Question", "name": "系统运作正常，我为什么要担心？", "acceptedAnswer": {"@type": "Answer", "text": "运作正常和即将出故障，从外表看往往一样。系统在出故障前会发出几个月的警讯，按自己的时间表修复，远比修复一次停机便宜。阅读这些警讯。"}}, {"@type": "Question", "name": "免费评估包括什么？", "acceptedAnswer": {"@type": "Answer", "text": "您描述系统和问题。我们会在 1 至 2 个工作日内回复，安排一次 30 分钟的免费策略咨询，并发送一份附固定报价的书面评估。不收费，也没有继续合作的义务。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Legacy system risk scorecard (design F): questions on the left, the score beside them; every risk and next step is in the HTML so it can be translated. */
+    .rsk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .rsk { grid-template-columns: 1fr; } }
+    .rsk [hidden] { display: none; }
+    .rsk + .f-note { margin-top: 24px; }
+    .rsk-result { display: grid; gap: 14px; }
+    .rsk-result > div { display: grid; gap: 10px; }
+    @media (min-width: 861px) { .rsk-result { position: sticky; top: 24px; } }
+    .rsk-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .rsk-dim { color: var(--faint); font-size: 14px; }
+    .rsk-score { font-size: 40px; font-weight: 600; line-height: 1; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .rsk-of { font-size: 18px; color: var(--faint); font-weight: 500; }
+    .rsk-meter { height: 8px; border-radius: 999px; background: var(--border-soft); overflow: hidden; }
+    .rsk-meter__bar { height: 100%; width: 0; border-radius: 999px; background: var(--ok); transition: width .2s ease; }
+    .rsk-result[data-level="moderate"] .rsk-meter__bar { background: var(--warn); }
+    .rsk-result[data-level="high"] .rsk-meter__bar, .rsk-result[data-level="critical"] .rsk-meter__bar { background: var(--crimson-text); }
+    .rsk-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .rsk-top { margin: 0; padding-left: 20px; display: grid; gap: 14px; }
+    .rsk-top li { padding-left: 4px; }
+    .rsk-top li p { margin: 4px 0 0; }
+    .rsk-risk { color: var(--text-strong); font-weight: 600; }
+    .rsk-cta { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · 旧系统</p>
+<h1 class="f-h1">旧系统风险评分</h1>
+<p class="f-lead">关于您企业所依赖系统的十个问题。如实回答，就能看到粗略的风险分数、三大风险，以及每项风险的具体下一步。趁系统还能正常运作时，大多数风险都能以很低的成本解决。</p>
+<div class="rsk">
+<form class="f-form" id="rskForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="f-field">
+<label for="rskDev">1. 开发这个系统的程序员是否已经离开，或很难联系上？</label>
+<select class="f-input" data-w="12" id="rskDev">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskOne">2. 是否只有一个人能修改系统并上线？</label>
+<select class="f-input" data-w="12" id="rskOne">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+<span class="f-hint">算上企业内外任何能在没有那个人的情况下、下周就能安全完成的人。</span>
+</div>
+<div class="f-field">
+<label for="rskDocs">3. 代码是否是唯一的文档，或者书面资料已经过时多年？</label>
+<select class="f-input" data-w="10" id="rskDocs">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskBackup">4. 是否从来没有人恢复过备份来证明它可用？</label>
+<select class="f-input" data-w="14" id="rskBackup">
+<option value="">请选择…</option><option value="yes">是，从未恢复过</option><option value="no">否，我们恢复过</option><option value="unsure">不确定</option>
+</select>
+<span class="f-hint">只看到备份文件存在不算。恢复是指在另一台机器上用备份把系统完整运行起来。</span>
+</div>
+<div class="f-field">
+<label for="rskCode">5. 源代码是否只掌握在开发人员或供应商手中，而不在企业自己控制的代码库里？</label>
+<select class="f-input" data-w="12" id="rskCode">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskEol">6. 它是否运行在已停止支持的操作系统或数据库上？</label>
+<select class="f-input" data-w="10" id="rskEol">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+<span class="f-hint">例如 Windows Server 2012 R2（扩展支持已于 2023 年 10 月结束）或 SQL Server 2014（2024 年 7 月）。</span>
+</div>
+<div class="f-field">
+<label for="rskMon">7. 是否只有员工或顾客告诉您，您才会知道系统出了故障？</label>
+<select class="f-input" data-w="8" id="rskMon">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskTest">8. 修改是否直接上到正式系统，而没有先在副本上测试？</label>
+<select class="f-input" data-w="8" id="rskTest">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskServer">9. 是否全部运行在一台服务器上，出故障时没有任何备用系统可接手？</label>
+<select class="f-input" data-w="7" id="rskServer">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+<div class="f-field">
+<label for="rskVendor">10. 出问题时，是否要好几天才能得到负责支持者的回应？</label>
+<select class="f-input" data-w="7" id="rskVendor">
+<option value="">请选择…</option><option value="yes">是</option><option value="no">否</option><option value="unsure">不确定</option>
+</select>
+</div>
+</form>
+<div aria-live="polite" class="f-card rsk-result" id="rskResult">
+<p class="rsk-label">您的分数</p>
+<div data-r="start"><p class="rsk-dim">回答全部十个问题即可看到分数。已回答 <span data-o="done">0</span> / 10。</p></div>
+<div data-r="score" hidden="">
+<p class="rsk-score"><span data-o="score">0</span><span class="rsk-of"> / 100</span></p>
+<div aria-hidden="true" class="rsk-meter"><div class="rsk-meter__bar"></div></div>
+<p class="rsk-head" data-l="low">低风险。</p>
+<p data-l="low">通常最先出问题的安全网看来都已到位。每年再检查一次：去年能成功的恢复，今年也可能失败。</p>
+<p class="rsk-head" data-l="moderate">中等风险。</p>
+<p data-l="moderate">有几个缺口，趁系统还能运作，现在处理每一个的成本都很低。先从下面的风险开始。</p>
+<p class="rsk-head" data-l="high">高风险。</p>
+<p data-l="high">糟糕的一天，例如有人辞职或硬盘损坏，就可能让业务停摆，而且没有经过测试的恢复办法。请先处理下面三项风险。</p>
+<p class="rsk-head" data-l="critical">严重风险。</p>
+<p data-l="critical">大部分安全网都不存在。这个星期就确保企业掌握所有登录信息、一份代码副本和一份数据副本，然后逐一处理下面的风险。</p>
+</div>
+<div data-r="combo" hidden=""><p><strong>注意这个组合。</strong>只有一个人懂系统，备份又从未有人恢复过，意味着一个人缺席或一次硬件故障，就可能让您停摆而且无法可靠地恢复。</p></div>
+<div data-r="top" hidden="">
+<p class="rsk-label">您的主要风险</p>
+<ol class="rsk-top" id="rskTop"></ol>
+<p class="rsk-dim" data-r="unsure">回答“不确定”的地方，第一步就是弄清楚。不知道本身就是一个发现。</p>
+</div>
+<div data-r="none" hidden=""><p>您每个问题都回答“否”，所以没有特别突出的风险。这是很好的状态。不妨与负责维护系统的人逐一确认每个答案，尤其是备份恢复。</p></div>
+<div class="rsk-cta" data-r="cta" hidden="">
+<p>想听听第二意见？<a href="contact.html?package=Free%20Strategy%20Session">获取免费策略咨询和书面评估 →</a></p>
+<p class="rsk-dim">或了解<a href="solutions.html">我们如何稳定旧系统</a>，最低从 RM399 的健康检查开始。</p>
+</div>
+<ol hidden="" id="rskPool">
+<li data-k="rskDev"><span class="rsk-risk">开发系统的程序员已离开或很难联系。</span><p>趁对方还联系得上，付费请他做一次交接，把所有登录信息和上线步骤写下来。问问自己：如果他今天提出两周后离职，什么会面临风险？<a href="../blog/what-happens-when-developer-leaves-legacy-system.html">他们离开后会发生什么 →</a></p></li>
+<li data-k="rskOne"><span class="rsk-risk">只有一个人能修改系统。</span><p>请另一位开发人员只按照书面步骤把一个小改动上线。他在哪里卡住，下一步就要把那部分写下来。<a href="../blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html">系统需要关注的 5 个警讯 →</a></p></li>
+<li data-k="rskDocs"><span class="rsk-risk">知识只存在于某个人的脑子里。</span><p>请负责维护系统的人提供一份交接文件。先从访问权限和凭证开始，然后是改动如何上线以及如何回滚。<a href="../blog/system-handover-documentation-checklist.html">交接清单 →</a></p></li>
+<li data-k="rskBackup"><span class="rsk-risk">您的备份没有测试过。</span><p>把最近的一份备份恢复到另一台机器上，把整个系统运行起来，打开一条最近的记录，并记下所需时间。那就是您真正的恢复时间。<a href="../blog/backup-restore-testing-legacy-systems.html">如何进行恢复测试 →</a></p></li>
+<li data-k="rskCode"><span class="rsk-risk">企业没有掌握自己的源代码。</span><p>把完整的副本放进以企业名义注册的代码库，并请另一位开发人员确认能构建和运行。检查合同是否把代码的权利归于您。<a href="../blog/who-owns-your-source-code-legacy-system.html">谁拥有您的源代码 →</a></p></li>
+<li data-k="rskEol"><span class="rsk-risk">它运行在不受支持的软件上。</span><p>找出确切的 Windows Server 和 SQL Server 版本，并在 Microsoft 的生命周期页面上查看。如果已经停止支持，请在事故逼您升级之前规划好升级。<a href="../blog/windows-server-end-of-life-legacy-system-risk.html">Windows Server 与 SQL Server 的支持终止 →</a></p></li>
+<li data-k="rskMon"><span class="rsk-risk">系统出故障时没人收到警报。</span><p>设置警报，在系统或备份任务失败时发出，并发送到企业控制的地址，而不是某个人的收件箱。<a href="../blog/working-fine-about-to-break-warning-signs.html">系统即将出问题的警讯 →</a></p></li>
+<li data-k="rskTest"><span class="rsk-risk">改动未经测试就上线。</span><p>写下改动如何上线以及如何回滚，然后每次改动都先在系统副本上测试，再上到正式系统。<a href="../blog/5-warning-signs-your-legacy-dotnet-system-needs-attention.html">每次上线都提心吊胆 →</a></p></li>
+<li data-k="rskServer"><span class="rsk-risk">只有一台服务器，没有备用。</span><p>决定企业能承受停机多久。至少要把备份放在那台服务器之外、也放在场地之外，这样一次故障不会把系统和副本一起毁掉。<a href="../blog/backup-restore-testing-legacy-systems.html">每位老板都该知道的两个数字 →</a></p></li>
+<li data-k="rskVendor"><span class="rsk-risk">技术支持回应很慢。</span><p>确保从主机和域名到数据库和代码库的每个登录都以企业名义持有并有书面记录，以便其他人可以接手。<a href="../blog/developer-left-emergency-recovery-guide.html">紧急恢复指南 →</a></p></li>
+</ol>
+</div>
+</div>
+<p class="f-note">这是经验法则，并非审计。问题、权重和下一步来自我们接手旧系统时的发现，已写在 <a href="../blog/index.html">SteadyDevs 博客</a>中；权重是我们的判断，并非行业标准。支持日期已于 2026 年 10 月 23 日对照 Microsoft 的 <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2</a> 和 <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2014">SQL Server 2014</a> 生命周期页面核实。您的答案只保留在您的浏览器中。</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">分数如何计算</h2></div>
+<p>每个问题都有权重，权重加起来是 100。“是”得满分权重，“不确定”得一半，“否”不得分。低于 20 为低风险，20 至 44 为中等，45 至 69 为高，70 或以上为严重。权重最高的是那些会让您在糟糕的一天无路可退的风险。</p>
+<div class="f-table-wrap">
+<table class="f-table">
+<thead><tr><th>风险</th><th>权重</th><th>为什么重要</th></tr></thead>
+<tbody>
+<tr><td>备份从未恢复过</td><td>14</td><td>没有测试过的备份只是一种希望。许多企业到需要时才发现备份是坏的。</td></tr>
+<tr><td>开发人员已离开或很难联系</td><td>12</td><td>原本 20 分钟就能修好的问题，变成新人要花几天去熟悉系统。</td></tr>
+<tr><td>只有一个人能修改</td><td>12</td><td>您拥有的是一个能干的人，而不是一个可靠的系统。</td></tr>
+<tr><td>源代码不在企业手中</td><td>12</td><td>没有代码，错误无法修复，什么也改不了。</td></tr>
+<tr><td>没有可用的文档</td><td>10</td><td>已离开的开发人员无法解释他当初的意思。</td></tr>
+<tr><td>不受支持的操作系统或数据库</td><td>10</td><td>安全补丁停止了，软件却照常运行，好像什么都没变。</td></tr>
+<tr><td>没有监控或警报</td><td>8</td><td>故障，包括备份失败，可能几个月都没人发现。</td></tr>
+<tr><td>改动未经测试就上线</td><td>8</td><td>每次改动都是拿正式系统去赌。</td></tr>
+<tr><td>只有一台服务器，没有备用</td><td>7</td><td>一次硬件故障意味着要花几天重建，而不是一小时就能切换。</td></tr>
+<tr><td>支持缓慢</td><td>7</td><td>小问题在等待中慢慢变大。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>这个评分是对我系统的审计吗？</summary><div>不是。它是根据我们接手旧系统时最常见的问题总结出的经验法则。它看不到您的代码、服务器或备份，所以低分不能证明系统安全，高分也不代表即将出故障。用它来决定先检查什么。</div></details><details><summary>为什么“不确定”也会扣分？</summary><div>因为不知道本身就是一个发现。如果没人说得出上一次恢复备份是什么时候，或系统运行在哪个服务器版本上，那就没人在照看它。“不确定”得“是”的一半权重，而弄清楚就是第一步。</div></details><details><summary>我应该先修复什么？</summary><div>通常是访问权限、代码和数据：确保企业掌握所有登录信息、一份完整的源代码副本，以及一份真正恢复过的备份。出事那天您需要的就是这些。评分会按权重列出您的前三项风险。</div></details><details><summary>系统运作正常，我为什么要担心？</summary><div>运作正常和即将出故障，从外表看往往一样。系统在出故障前会发出几个月的警讯，按自己的时间表修复，远比修复一次停机便宜。<a href="../blog/working-fine-about-to-break-warning-signs.html">阅读这些警讯</a>。</div></details><details><summary>免费评估包括什么？</summary><div>您描述系统和问题。我们会在 1 至 2 个工作日内回复，安排一次 30 分钟的免费策略咨询，并发送一份附固定报价的书面评估。不收费，也没有继续合作的义务。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">下一步</span>
+          想请人实际看看系统本身？<a href="solutions.html">System Health Check</a> 是 RM399 固定价格的代码和主要风险审查，附书面评估和按优先级排列的建议。或从<a href="contact.html?package=Free%20Strategy%20Session">免费策略咨询 →</a>开始</div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>免费工具</h2><ul>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li><li><a href="msic-code-lookup.html">MSIC 代码查询</a></li><li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li><li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li><li><a href="../free-tools.html">全部免费工具 →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      var form = document.getElementById('rskForm'), card = document.getElementById('rskResult');
+      var qs = Array.prototype.slice.call(form.querySelectorAll('select[data-w]'));
+      var top = document.getElementById('rskTop'), pool = document.getElementById('rskPool');
+      var part = function (k) { return card.querySelector('[data-r="' + k + '"]'); };
+      var out = function (k) { return card.querySelector('[data-o="' + k + '"]'); };
+      var byKey = function (k) { return pool.querySelector('[data-k="' + k + '"]') || top.querySelector('[data-k="' + k + '"]'); };
+      var sent = '';
+      function level(score) { return score < 20 ? 'low' : score < 45 ? 'moderate' : score < 70 ? 'high' : 'critical'; }
+      function apply() {
+        var done = 0, score = 0, risks = [], val = {};
+        qs.forEach(function (s, i) {
+          var v = s.value, w = +s.getAttribute('data-w') || 0;
+          // "Not sure" scores half: not knowing whether the safety net exists is itself a finding.
+          var f = v === 'yes' ? 1 : v === 'unsure' ? 0.5 : 0;
+          val[s.id] = v;
+          if (v) done++;
+          if (f) { score += w * f; risks.push({ k: s.id, p: w * f, i: i, u: v === 'unsure' }); }
+        });
+        score = Math.round(score);
+        var complete = done === qs.length, lv = level(score);
+        out('done').textContent = done;
+        part('start').hidden = complete;
+        part('score').hidden = !complete;
+        part('cta').hidden = !complete;
+        // Move every risk back to the hidden pool, then bring out the top three by points, ties in question order.
+        Array.prototype.slice.call(top.children).forEach(function (li) { pool.appendChild(li); });
+        risks.sort(function (a, b) { return b.p - a.p || a.i - b.i; });
+        var shown = complete ? risks.slice(0, 3) : [];
+        shown.forEach(function (r) { top.appendChild(byKey(r.k)); });
+        part('top').hidden = !shown.length;
+        part('unsure').hidden = !shown.some(function (r) { return r.u; });
+        part('none').hidden = !complete || risks.length > 0;
+        part('combo').hidden = !complete || !((val.rskDev === 'yes' || val.rskOne === 'yes') && val.rskBackup === 'yes');
+        if (!complete) return;
+        out('score').textContent = score;
+        card.setAttribute('data-level', lv);
+        card.querySelector('.rsk-meter__bar').style.width = Math.max(0, Math.min(100, score)) + '%';
+        Array.prototype.slice.call(card.querySelectorAll('[data-l]')).forEach(function (p) { p.hidden = p.getAttribute('data-l') !== lv; });
+        if (sent !== lv && typeof gtag === 'function') { sent = lv; gtag('event', 'risk_scorecard', { level: lv }); }
+      }
+      qs.forEach(function (s) { s.addEventListener('change', apply); });
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

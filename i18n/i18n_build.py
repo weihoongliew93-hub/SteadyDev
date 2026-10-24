@@ -32,6 +32,24 @@ for i, el in enumerate(els):
     elif re.search(r'[a-z]{3,}', el.get_text()):
         missing.append((key, el.get_text()[:60]))
 
+# Dates in <time datetime> are written in the page's language, so a table of dates (and any
+# script that copies those nodes) reads naturally. Only English "13 January 2027" text is touched.
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+          'October', 'November', 'December']
+MS_MONTHS = ['Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September',
+             'Oktober', 'November', 'Disember']
+for t in soup.find_all('time', datetime=True):
+    m = re.fullmatch(r'(\d{1,2}) (%s) (\d{4})' % '|'.join(MONTHS), t.get_text().strip())
+    if m:
+        d, mon, y = int(m.group(1)), MONTHS.index(m.group(2)), m.group(3)
+        t.string = f'{d} {MS_MONTHS[mon]} {y}' if lang == 'ms' else f'{y} 年 {mon + 1} 月 {d} 日'
+
+# Loose text outside any block (between two <time> elements, say), matched whole; TEXT is optional.
+for s in list(soup.find_all(string=True)):
+    k = s.strip()
+    if k and k in getattr(tr, 'TEXT', {}) and s.parent.name not in ('script', 'style'):
+        s.replace_with(s.replace(k, tr.TEXT[k]))
+
 html_tag = soup.html
 html_tag['lang'] = LANGS[lang][0]
 soup.title.string = tr.HEAD['title']

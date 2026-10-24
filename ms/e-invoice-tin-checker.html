@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Penyemak TIN e-Invois Malaysia (LHDN) | SteadyDevs</title>
+<meta content="Semak TIN, ID, nombor telefon dan e-mel pembeli berdasarkan peraturan e-Invois LHDN sebelum anda menghantar, dengan penerangan TIN am. Percuma, berjalan dalam pelayar anda." name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/ms/e-invoice-tin-checker.html" property="og:url"/>
+<meta content="Penyemak TIN e-Invois Malaysia (LHDN)" property="og:title"/>
+<meta content="Semak TIN, ID, nombor telefon dan e-mel pembeli berdasarkan peraturan e-Invois LHDN sebelum anda menghantar, dengan penerangan TIN am. Percuma, berjalan dalam pelayar anda." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/ms/e-invoice-tin-checker.html" rel="canonical"/><link href="https://steadydevs.com/e-invoice-tin-checker.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/e-invoice-tin-checker.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/e-invoice-tin-checker.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/e-invoice-tin-checker.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "TIN apa yang saya gunakan bagi pembeli yang tiada TIN?", "acceptedAnswer": {"@type": "Answer", "text": "Gunakan salah satu TIN am LHDN. Bagi individu Malaysia yang hanya memberikan nombor MyKad atau MyTentera, atau pemegang MyPR atau MyKAS, gunakan EI00000000010 bersama nombor itu. Bagi individu asing yang hanya mempunyai pasport, atau pembeli asing pada jualan eksport, gunakan EI00000000020. Bagi badan kerajaan atau berkanun, gunakan EI00000000040. Perniagaan Malaysia yang memberikan nombor pendaftarannya tidak boleh menggunakan EI00000000010: minta TIN sendiri daripadanya."}}, {"@type": "Question", "name": "Apakah EI00000000010?", "acceptedAnswer": {"@type": "Answer", "text": "TIN orang awam LHDN. Ia digunakan pada e-Invois kepada individu Malaysia yang hanya memberikan nombor MyKad atau MyTentera, atau pemegang MyPR atau MyKAS, dan pada e-Invois disatukan sebagai TIN pembeli, dengan ID pembeli \"NA\". Di sebelah nombor pendaftaran perniagaan, atau pada invois biasa tanpa ID pembeli, LHDN menerima penghantaran itu dan kemudian menandakan e-Invois Tidak Sah."}}, {"@type": "Question", "name": "Mengapa e-Invois saya ditolak kerana nombor telefon?", "acceptedAnswer": {"@type": "Answer", "text": "Nombor telefon adalah wajib, dan LHDN menolak nombor yang kurang daripada 8 aksara. \"N/A\" dan \"-\" gagal semakan itu. Tulis nombor dengan kod negara, seperti +60123456789. Pada e-Invois disatukan, apabila pembeli ialah orang awam, pemegang tempat LHDN ialah \"NA\", tanpa garis miring."}}, {"@type": "Question", "name": "Bolehkah e-Invois disatukan melebihi RM10,000?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, dari segi jumlah. Peraturan RM10,000 adalah tentang jualan tunggal: mana-mana satu transaksi melebihi RM10,000 memerlukan e-Invois sendiri dan tidak boleh dimasukkan dalam e-Invois disatukan. Perniagaan Fasa 4 dalam tempoh kelonggaran, yang berlangsung hingga 31 Disember 2027, boleh menyatukan semua jualan mereka, termasuk yang melebihi RM10,000."}}, {"@type": "Question", "name": "Adakah semakan ini memberitahu saya TIN itu sebenar?", "acceptedAnswer": {"@type": "Answer", "text": "Tidak. Ia menyemak format dan peraturan LHDN tentang TIN yang mana digunakan bersama ID yang mana. Hanya LHDN boleh mengesahkan bahawa TIN berdaftar dan sepadan dengan nombor ID. Pembeli boleh mencari TIN mereka dalam MyTax, dan sistem yang disambungkan ke MyInvois boleh menyemak pasangan TIN dan ID dengan API Validate TIN LHDN sebelum menghantar."}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* e-invoice TIN checker (design F): fields on the left, the problems beside them; every message is in the HTML so it can be translated. */
+    .tin { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .tin { grid-template-columns: 1fr; } }
+    .tin [hidden] { display: none; }
+    .tin + .f-note { margin-top: 24px; }
+    .tin-check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text); cursor: pointer; }
+    .tin-check input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--crimson); }
+    .tin-result { display: grid; gap: 12px; }
+    .tin-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .tin-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; font-variant-numeric: tabular-nums; }
+    .tin-dim { color: var(--faint); font-size: 14px; }
+    .tin-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .tin-list li { border-top: 1px solid var(--border-soft); padding-top: 12px; color: var(--text-soft); }
+    .tin-list .f-badge { margin-right: 6px; vertical-align: 1px; }
+    .tin-foot { border-top: 1px solid var(--border-soft); padding-top: 12px; display: grid; gap: 10px; }
+    .tin-code { font-family: var(--mono); white-space: nowrap; color: var(--text-strong); }
+    .tin-table td:first-child { white-space: nowrap; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">Alat percuma · e-Invois LHDN</p>
+<h1 class="f-h1">Penyemak TIN dan medan e-Invois</h1>
+<p class="f-lead">Masukkan TIN, ID, nombor telefon dan e-mel pembeli seperti yang akan dimasukkan dalam e-Invois. Lihat yang mana akan ditolak atau ditandakan Tidak Sah (Invalid) oleh LHDN, dan cara membaiki setiap satu sebelum anda menghantar. Semuanya berjalan dalam pelayar anda; apa sahaja yang anda taip tidak dihantar ke mana-mana.</p>
+<div class="tin">
+<form autocomplete="off" class="f-form" id="tinForm" novalidate=""><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<div class="f-field">
+<label for="tinRole">Butiran siapakah ini?</label>
+<select class="f-input" id="tinRole">
+<option value="buyer">Pembeli</option>
+<option value="seller">Penjual (pembekal)</option>
+</select>
+</div>
+<div class="f-field">
+<label for="tinTin">TIN</label>
+<input class="f-input" id="tinTin" maxlength="40" placeholder="e.g. C25845632020 or EI00000000010" spellcheck="false" type="text"/>
+<span class="f-hint">Nombor pengenalan cukai yang diberikan oleh LHDN, atau salah satu TIN am dalam jadual di bawah.</span>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="tinIdType">Jenis ID</label>
+<select class="f-input" id="tinIdType">
+<option value="nric">MyKad, MyPR or MyKAS (NRIC)</option>
+<option value="army">MyTentera (tentera)</option>
+<option value="passport">Pasport</option>
+<option selected="" value="brn">Nombor pendaftaran perniagaan (BRN)</option>
+<option value="none">Tiada</option>
+</select>
+</div>
+<div class="f-field" id="tinIdField">
+<label for="tinId">Nombor ID</label>
+<input class="f-input" id="tinId" maxlength="40" placeholder="e.g. 202001234567" spellcheck="false" type="text"/>
+</div>
+</div>
+<div class="f-form__row">
+<div class="f-field">
+<label for="tinPhone">Nombor telefon</label>
+<input class="f-input" id="tinPhone" inputmode="tel" maxlength="40" placeholder="e.g. +60123456789" type="text"/>
+</div>
+<div class="f-field">
+<label for="tinEmail">E-mel</label>
+<input class="f-input" id="tinEmail" inputmode="email" maxlength="400" placeholder="Pilihan" spellcheck="false" type="text"/>
+</div>
+</div>
+<div class="f-form" id="tinBuyerOnly">
+<label class="tin-check"><input id="tinCons" type="checkbox"/> <span>Ini e-Invois disatukan (jualan bulan itu kepada orang awam)</span></label>
+<div class="f-field">
+<label for="tinTotal"><span data-l="single">Jumlah invois (RM)</span><span data-l="cons" hidden="">Jualan tunggal terbesar di dalamnya (RM)</span></label>
+<input class="f-input" id="tinTotal" inputmode="decimal" maxlength="30" placeholder="e.g. 2500.00" type="text"/>
+</div>
+<label class="tin-check"><input id="tinRelax" type="checkbox"/> <span>Saya perniagaan Fasa 4 dalam tempoh kelonggaran LHDN (e-Invois bermula 1 Januari atau 1 Julai 2026)</span></label>
+</div>
+</form>
+<div aria-live="polite" class="f-card tin-result" id="tinResult">
+<p class="tin-label">Apa yang akan dilihat LHDN</p>
+<div data-s="start"><p class="tin-dim">Masukkan TIN untuk bermula.</p></div>
+<div data-s="ok" hidden=""><p class="tin-head">Tiada masalah ditemui dalam apa yang anda masukkan.</p></div>
+<div data-s="some" hidden=""><p class="tin-head">Perlu dibaiki: <span data-o="fix">0</span> · Perlu disemak: <span data-o="check">0</span></p></div>
+<ul class="tin-list">
+<li data-i="tin_empty" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>TIN tiada.</strong> Setiap e-Invois memerlukan TIN bagi penjual dan pembeli. Jika pembeli tiada TIN, gunakan TIN am yang sesuai dengannya, daripada jadual di bawah.</li>
+<li data-i="tin_clean" hidden=""><span class="f-badge">Semak</span> <strong>Buang ruang dan tanda sempang.</strong> Masukkan TIN dalam huruf besar tanpa apa-apa di antara aksara. Kami menyemaknya sebagai <span class="tin-code" data-o="clean"></span>.</li>
+<li data-i="tin_long" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Terlalu panjang untuk TIN.</strong> Medan TIN LHDN memuatkan paling banyak 14 aksara. Pastikan anda tidak menampal nombor ID atau dua nilai bersama.</li>
+<li data-i="tin_ei" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Bukan salah satu daripada empat TIN am LHDN.</strong> Ia ialah EI diikuti 11 digit: <span class="tin-code">EI00000000010</span>, <span class="tin-code">EI00000000020</span>, <span class="tin-code">EI00000000030</span> atau <span class="tin-code">EI00000000040</span>. Kira bilangan sifar.</li>
+<li data-i="tin_old" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Awalan individu yang lama.</strong> SG dan OG ialah awalan lama bagi individu. LHDN meminta individu menggunakan TIN mereka dengan awalan IG. Pembeli boleh melihatnya dalam MyTax.</li>
+<li data-i="tin_format" hidden=""><span class="f-badge">Semak</span> <strong>Ini tidak kelihatan seperti TIN.</strong> Kami menjangkakan awalan seperti IG (individu) atau C (syarikat) dan 10 atau 11 digit, contohnya IG12345678901 atau C25845632020. LHDN tidak menerbitkan format penuh, jadi anggap ini semakan kesilapan taip dan sahkan TIN dengan pembeli.</li>
+<li data-i="gen_seller_no" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>TIN am khusus untuk pembeli.</strong> EI00000000020 dan EI00000000040 adalah untuk pembeli. Sebagai penjual, gunakan TIN anda sendiri.</li>
+<li data-i="gen_seller_sb" hidden=""><span class="f-badge">Semak</span> <strong>Hanya pada e-Invois bil kendiri.</strong> TIN am muncul di bahagian pembekal hanya apabila pembeli mengeluarkan e-Invois bil kendiri: EI00000000010 bagi pembekal individu yang hanya mempunyai nombor MyKad atau MyTentera, atau pada e-Invois bil kendiri disatukan, dan EI00000000030 bagi pembekal asing. Pada invois jualan anda sendiri, gunakan TIN anda sendiri.</li>
+<li data-i="g10_brn" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>TIN am tidak boleh digunakan bersama BRN.</strong> Pembeli perniagaan mempunyai TIN sendiri: mintalah. LHDN menerima penghantaran itu, kemudian menandakan e-Invois Tidak Sah.</li>
+<li data-i="g10_pass" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>TIN am yang salah bagi pasport.</strong> Bagi pembeli asing yang hanya memberikan nombor pasport, TIN am LHDN ialah EI00000000020. EI00000000010 digunakan bersama nombor MyKad, MyTentera, MyPR atau MyKAS.</li>
+<li data-i="g10_noid" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>TIN am memerlukan ID di sini.</strong> Pada invois biasa, EI00000000010 mesti disertakan dengan nombor MyKad atau MyTentera pembeli. Tanpanya, ia hanya dibenarkan pada e-Invois disatukan. Minta IC pembeli, atau biarkan jualan itu sebagai resit untuk e-Invois disatukan hujung bulan anda jika ia RM10,000 atau kurang. LHDN menerima penghantaran itu, kemudian menandakan e-Invois Tidak Sah.</li>
+<li data-i="cons_id" hidden=""><span class="f-badge">Semak</span> <strong>ID pembeli pada e-Invois disatukan.</strong> Susun atur LHDN bagi e-Invois disatukan meletakkan ID pembeli sebagai NA. Jika pembeli ini memberikan IC mereka, mereka boleh mendapat e-Invois sendiri.</li>
+<li data-i="g20_local" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>TIN am yang salah bagi ID tempatan.</strong> EI00000000020 adalah untuk pembeli asing. Pembeli dengan nombor MyKad, MyTentera, MyPR atau MyKAS menggunakan EI00000000010.</li>
+<li data-i="g20_noid" hidden=""><span class="f-badge">Semak</span> <strong>Tambah ID pembeli asing.</strong> Medan ID adalah wajib. Masukkan nombor pasport pembeli, atau nombor ID yang diberikan kepada anda.</li>
+<li data-i="g30_buyer" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>EI00000000030 ialah TIN pembekal.</strong> Ia untuk pembekal asing pada e-Invois bil kendiri. Bagi pembeli asing, gunakan EI00000000020.</li>
+<li data-i="g40_id" hidden=""><span class="f-badge">Semak</span> <strong>Pembeli kerajaan menggunakan BRN "NA".</strong> Soalan Lazim LHDN menyatakan masukkan EI00000000040 dengan BRN sebagai NA bagi kerajaan, pihak berkuasa negeri dan tempatan serta badan berkanun. Pilih BRN sebagai jenis ID dan masukkan NA.</li>
+<li data-i="cons_tin" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>E-Invois disatukan menggunakan EI00000000010.</strong> Pada e-Invois disatukan, pembeli ialah "General Public", dengan TIN EI00000000010 dan ID NA. Pembeli yang memberikan TIN mereka sendiri patut mendapat e-Invois sendiri.</li>
+<li data-i="real_noid" hidden=""><span class="f-badge">Semak</span> <strong>Tambah ID yang sepadan dengan TIN ini.</strong> Nombor pendaftaran perniagaan ialah medan wajib, dan Validate TIN LHDN memadankan TIN dengan ID-nya. Hanya individu boleh memberikan TIN sahaja.</li>
+<li data-i="id_na" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Tulis NA, bukan N/A.</strong> Pemegang tempat LHDN bagi nilai kosong ialah NA. "N/A", "-" dan "nil" ditolak.</li>
+<li data-i="id_nric_dash" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Buang tanda sempang.</strong> Medan NRIC memuatkan 12 aksara, jadi masukkan 12 digit sahaja, contohnya 770625015324.</li>
+<li data-i="id_nric" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Bukan nombor IC 12 digit.</strong> Nombor MyKad, MyPR dan MyKAS ialah 12 digit, contohnya 770625015324.</li>
+<li data-i="id_long12" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Terlalu panjang.</strong> Medan LHDN bagi jenis ID ini memuatkan paling banyak 12 aksara. Semak jika ada ruang atau aksara tambahan.</li>
+<li data-i="id_long20" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Terlalu panjang untuk BRN.</strong> Medan BRN LHDN memuatkan paling banyak 20 aksara.</li>
+<li data-i="id_chars" hidden=""><span class="f-badge">Semak</span> <strong>Huruf dan digit sahaja.</strong> Buang ruang, tanda sempang dan simbol lain daripada nombor ID.</li>
+<li data-i="id_brn" hidden=""><span class="f-badge">Semak</span> <strong>Gunakan BRN baharu 12 digit.</strong> Perniagaan yang berdaftar dengan SSM mesti memberikan nombor pendaftaran baharu 12 digit, contohnya 202001234567, bukan yang lama. Berdaftar dengan badan lain? Nombornya boleh digunakan. LHDN telah menangguhkan pengesahan BRN sejak 19 Julai 2024, jadi ini mungkin tidak ditolak hari ini.</li>
+<li data-i="phone_empty" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Nombor telefon tiada.</strong> Ia wajib bagi kedua-dua pihak. Pembeli individu dijangka memberikannya.</li>
+<li data-i="phone_cons" hidden=""><span class="f-badge">Semak</span> <strong>Masukkan NA.</strong> Medan ini tidak boleh kosong. Pada e-Invois disatukan, LHDN membenarkan anda meletakkan NA sebagai nombor telefon pembeli.</li>
+<li data-i="phone_slash" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>LHDN menolak pemegang tempat ini.</strong> "N/A" menyebabkan e-Invois ditolak dengan "Enter valid phone number and the minimum length is 8 characters". Masukkan nombor sebenar, atau NA pada e-Invois disatukan.</li>
+<li data-i="phone_na" hidden=""><span class="f-badge">Semak</span> <strong>NA dimaksudkan untuk e-Invois disatukan.</strong> Peraturan LHDN menyediakan NA bagi pembeli orang awam pada e-Invois disatukan. Di sini, minta nombor sebenar.</li>
+<li data-i="phone_short" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Terlalu pendek.</strong> LHDN menolak nombor telefon kurang daripada 8 aksara. Sertakan kod negara dan kawasan, contohnya +60123456789.</li>
+<li data-i="phone_long" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Terlalu panjang.</strong> Medan nombor telefon LHDN memuatkan paling banyak 20 aksara. Masukkan satu nombor sahaja.</li>
+<li data-i="phone_chars" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Bukan nombor telefon.</strong> Gunakan digit dan + di hadapan sahaja. Letakkan sambungan dan nota di tempat lain.</li>
+<li data-i="phone_e164" hidden=""><span class="f-badge">Semak</span> <strong>Gunakan format antarabangsa.</strong> LHDN meminta E.164: tanda +, kod negara, kemudian nombor tanpa ruang dan tanpa 0 di hadapan. 012-345 6789 menjadi +60123456789.</li>
+<li data-i="email_slash" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Biarkan e-mel kosong sebaliknya.</strong> E-mel adalah pilihan, tetapi "N/A" dan "-" menyebabkan e-Invois ditolak dengan "Enter valid e-mail address".</li>
+<li data-i="email_na" hidden=""><span class="f-badge">Semak</span> <strong>NA bukan alamat e-mel.</strong> E-mel adalah pilihan, jadi biarkan kosong apabila pembeli tiada e-mel.</li>
+<li data-i="email_long" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Terlalu panjang.</strong> Medan e-mel LHDN memuatkan paling banyak 320 aksara.</li>
+<li data-i="email_bad" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Bukan alamat e-mel yang sah.</strong> Masukkan satu alamat, seperti name@company.com, tanpa ruang. Biarkan kosong jika anda tiada.</li>
+<li data-i="total_bad" hidden=""><span class="f-badge">Semak</span> <strong>Masukkan jumlah sebagai nombor.</strong> Contohnya 12500.00. Semakan RM10,000 dilangkau sehingga itu.</li>
+<li data-i="cons_hi" hidden=""><span class="f-badge f-badge--crimson">Baiki</span> <strong>Melebihi RM10,000: keluarkannya daripada e-Invois disatukan.</strong> Sebarang jualan tunggal melebihi RM10,000 memerlukan e-Invois sendiri dengan butiran pembeli. Jualan lain bulan itu boleh kekal disatukan.</li>
+<li data-i="hi_general" hidden=""><span class="f-badge">Semak</span> <strong>Melebihi RM10,000 dengan TIN am.</strong> Jualan ini memerlukan e-Invois sendiri, dan ia sudah ada. Garis panduan LHDN membenarkan EI00000000010 digunakan bersama nombor MyKad individu Malaysia, tetapi jika boleh, dapatkan TIN pembeli sendiri. Platform kami memintanya bagi jumlah melebihi RM10,000.</li>
+<li data-i="relax_note" hidden=""><span class="f-badge">Semak</span> <strong>Dibenarkan sehingga 31 Disember 2027.</strong> Dalam tempoh kelonggaran, perniagaan Fasa 4 boleh menyatukan setiap jualan, termasuk yang melebihi RM10,000. Mulai 1 Januari 2028, jualan seperti ini memerlukan e-Invois sendiri dengan butiran pembeli.</li>
+</ul>
+<div class="tin-foot" data-s="foot" hidden="">
+<p class="tin-dim" data-s="cons" hidden="">Pada e-Invois disatukan, letakkan juga nama pembeli sebagai General Public, alamat sebagai NA dengan kod negeri 17, dan kod klasifikasi 004 pada setiap baris.</p>
+<p class="tin-dim">Ini hanya menyemak format dan peraturan LHDN. Ia tidak dapat mengetahui sama ada TIN itu berdaftar atau milik pembeli ini. Pembeli boleh melihat TIN mereka dalam <a href="https://mytax.hasil.gov.my">MyTax</a>, dan sistem yang disambungkan ke MyInvois boleh menyemak pasangan TIN dan ID dengan API Validate TIN LHDN.</p>
+<p><a href="einvoice.html">Jalankan semakan ini pada setiap invois sebelum ia sampai ke LHDN →</a></p>
+</div>
+</div>
+</div>
+<p class="f-note">Semakan format, bukan nasihat cukai. Peraturan daripada <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">Garis Panduan Khusus e-Invois v4.9</a> LHDN (7 September 2026: seksyen 3.7, seksyen 16.2, Lampiran 1, 2 dan 4), <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Guideline.pdf">Garis Panduan e-Invois v4.8</a>, <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">Soalan Lazim e-Invois</a> (4 September 2026, soalan 32 hingga 36) serta <a href="https://sdk.myinvois.hasil.gov.my/documents/invoice-v1-1/">peraturan medan invois</a> dan <a href="https://sdk.myinvois.hasil.gov.my/einvoicingapi/01-validate-taxpayer-tin/">API Validate TIN</a> dalam SDK MyInvois. Had minimum 8 aksara bagi telefon, penolakan "N/A", dan LHDN menandakan kesilapan TIN am sebagai Tidak Sah selepas menerimanya datang daripada penghantaran kami sendiri ke persekitaran ujian LHDN pada Oktober 2026; SDK tidak menyatakannya. Disemak pada 23 Oktober 2026.</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">TIN am yang mana untuk digunakan</h2></div>
+<p class="f-lead">Apabila pihak satu lagi tiada TIN, LHDN menyediakan empat TIN am. Setiap satu sesuai untuk kes tertentu, dan menggunakan yang salah menyebabkan e-Invois ditandakan Tidak Sah.</p>
+<div class="f-table-wrap">
+<table class="f-table tin-table">
+<thead><tr><th>TIN am</th><th>Gunakan untuk</th><th>Digunakan bersama</th></tr></thead>
+<tbody>
+<tr><td class="f-mono">EI00000000010</td><td>Orang awam. Individu Malaysia yang hanya memberikan nombor MyKad atau MyTentera, atau pemegang MyPR atau MyKAS. Juga pembeli pada e-Invois disatukan, dan pembekal pada e-Invois bil kendiri disatukan.</td><td>Nombor MyKad, MyTentera, MyPR atau MyKAS. Pada e-Invois disatukan, ID NA. Jangan sekali-kali BRN.</td></tr>
+<tr><td class="f-mono">EI00000000020</td><td>Pembeli asing. Individu asing yang hanya memberikan nombor pasport, pembeli asing pada jualan eksport tanpa TIN Malaysia, atau penerima penghantaran asing.</td><td>Nombor pasport, jika itu sahaja yang diberikan pembeli.</td></tr>
+<tr><td class="f-mono">EI00000000030</td><td>Pembekal asing, pada e-Invois bil kendiri sahaja. Pembekal individu asing yang hanya mempunyai pasport, atau pembekal import tanpa TIN Malaysia.</td><td>Nombor pasport pembekal, jika itu sahaja yang diberikan. Jangan sekali-kali sebagai pembeli.</td></tr>
+<tr><td class="f-mono">EI00000000040</td><td>Pembeli kerajaan: kerajaan, kerajaan negeri dan pihak berkuasa negeri, pihak berkuasa kerajaan, tempatan dan berkanun, badan berkanun, serta institusi dikecualikan tanpa TIN.</td><td>BRN dimasukkan sebagai NA.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-prose">
+<h3>Mengapa LHDN menerima sesetengah kesilapan, kemudian menandakan e-Invois Tidak Sah</h3>
+<p>LHDN menyemak e-Invois dalam dua peringkat. Semasa anda menghantar, ia menyemak struktur: medan wajib, panjang dan format. Nombor telefon "N/A" gagal di sini, dan dokumen ditolak serta-merta.</p>
+<p>Dokumen yang lulus diterima dan kemudian disahkan berdasarkan rekod dan peraturan LHDN sendiri, termasuk TIN am yang mana boleh digunakan bersama ID yang mana. TIN am di sebelah BRN, atau EI00000000010 pada invois biasa tanpa ID pembeli, melepasi peringkat pertama dan kembali sebagai Tidak Sah sejurus kemudian.</p>
+<p>Jenis kedua itulah yang berbahaya. Jika sistem anda hanya membaca respons penghantaran, ia melaporkan e-Invois sebagai sudah dihantar sedangkan LHDN memegangnya sebagai Tidak Sah. Sentiasa baca status akhir dokumen. <a href="../blog/einvoice-validation-errors-rejections-fix-guide.html">Panduan kami tentang ralat pengesahan LHDN</a> menerangkan maksud setiap keputusan.</p>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Soalan lazim</h2></div>
+<div class="f-faq"><details><summary>TIN apa yang saya gunakan bagi pembeli yang tiada TIN?</summary><div>Gunakan salah satu TIN am LHDN. Bagi individu Malaysia yang hanya memberikan nombor MyKad atau MyTentera, atau pemegang MyPR atau MyKAS, gunakan EI00000000010 bersama nombor itu. Bagi individu asing yang hanya mempunyai pasport, atau pembeli asing pada jualan eksport, gunakan EI00000000020. Bagi badan kerajaan atau berkanun, gunakan EI00000000040. Perniagaan Malaysia yang memberikan nombor pendaftarannya tidak boleh menggunakan EI00000000010: minta TIN sendiri daripadanya.</div></details><details><summary>Apakah EI00000000010?</summary><div>TIN orang awam LHDN. Ia digunakan pada e-Invois kepada individu Malaysia yang hanya memberikan nombor MyKad atau MyTentera, atau pemegang MyPR atau MyKAS, dan pada e-Invois disatukan sebagai TIN pembeli, dengan ID pembeli "NA". Di sebelah nombor pendaftaran perniagaan, atau pada invois biasa tanpa ID pembeli, LHDN menerima penghantaran itu dan kemudian menandakan e-Invois Tidak Sah.</div></details><details><summary>Mengapa e-Invois saya ditolak kerana nombor telefon?</summary><div>Nombor telefon adalah wajib, dan LHDN menolak nombor yang kurang daripada 8 aksara. "N/A" dan "-" gagal semakan itu. Tulis nombor dengan kod negara, seperti +60123456789. Pada e-Invois disatukan, apabila pembeli ialah orang awam, pemegang tempat LHDN ialah "NA", tanpa garis miring.</div></details><details><summary>Bolehkah e-Invois disatukan melebihi RM10,000?</summary><div>Ya, dari segi jumlah. Peraturan RM10,000 adalah tentang jualan tunggal: mana-mana satu transaksi melebihi RM10,000 memerlukan e-Invois sendiri dan tidak boleh dimasukkan dalam e-Invois disatukan. Perniagaan Fasa 4 dalam tempoh kelonggaran, yang berlangsung hingga 31 Disember 2027, boleh menyatukan semua jualan mereka, termasuk yang melebihi RM10,000.</div></details><details><summary>Adakah semakan ini memberitahu saya TIN itu sebenar?</summary><div>Tidak. Ia menyemak format dan peraturan LHDN tentang TIN yang mana digunakan bersama ID yang mana. Hanya LHDN boleh mengesahkan bahawa TIN berdaftar dan sepadan dengan nombor ID. Pembeli boleh mencari TIN mereka dalam MyTax, dan sistem yang disambungkan ke MyInvois boleh menyemak pasangan TIN dan ID dengan API Validate TIN LHDN sebelum menghantar.</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">Sebelum setiap penghantaran</span>
+          Platform e-Invois kami menyemak peraturan TIN am dan RM10,000 pada setiap invois sebelum ia sampai ke LHDN, menyimpan resit walk-in untuk e-Invois disatukan hujung bulan anda, dan meletakkan NA LHDN apabila pembeli walk-in tidak memberikan nombor telefon. <a href="einvoice.html">Lihat platform e-Invois →</a> Tidak pasti sama ada anda perlu e-Invois? <a href="e-invoice-checker.html">Semak dengan tiga soalan →</a> Perlukan kod MSIC penjual? <a href="msic-code-lookup.html">Cari di sini →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col"><h2>Tawaran</h2><ul>
+<li><a href="solutions.html">Perkhidmatan kejuruteraan</a></li><li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>Syarikat</h2><ul>
+<li><a href="about.html">Tentang kami</a></li><li><a href="portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Hubungi</a></li></ul></div>
+<div class="ff__col"><h2>Lagi</h2><ul>
+<li><a href="pricing-terms.html">Terma harga</a></li><li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>Alat percuma</h2><ul>
+<li><a href="e-invoice-checker.html">Perlukah saya e-Invois?</a></li><li><a href="msic-code-lookup.html">Carian kod MSIC</a></li><li><a href="../microsoft-end-of-support-lookup.html">Semakan tamat sokongan</a></li><li><a href="../legacy-system-risk-scorecard.html">Kad skor risiko</a></li><li><a href="../free-tools.html">Semua alat percuma →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      // LHDN's four general TINs (Specific Guideline v4.9, Appendix 1), in order 10, 20, 30, 40.
+      var GEN = ['EI00000000010', 'EI00000000020', 'EI00000000030', 'EI00000000040'];
+      // The e-Invoice platform's typo check (TenantReadinessService): LHDN's prefixes, then 10 or
+      // 11 digits. LHDN publishes no full format, so a miss is "check", never "fix".
+      var TIN_RE = /^(IG|C|CS|D|E|F|FA|PT|TA|TC|TN|TR|TP|J|LE)\d{10,11}$/;
+      // Placeholders LHDN refused on preprod; its own empty value is "NA".
+      var SLASH_NA = /^(N\/A|N\.A\.?|-+|NIL|NONE|NULL)$/i;
+
+      // Pure: field values in, issue keys out. Each key names an <li data-i> in the result card.
+      function check(f) {
+        var fix = [], chk = [];
+        var raw = String(f.tin || '');
+        var t = raw.replace(/[\s-]/g, '').toUpperCase();
+        var buyer = f.role !== 'seller', cons = buyer && !!f.cons, relax = buyer && !!f.relax;
+        var idType = f.idType || 'none';
+        var id = idType === 'none' ? '' : String(f.id || '').trim();
+        var idNA = id === '' || id.toUpperCase() === 'NA';
+        var g = GEN.indexOf(t);
+
+        if (!t) fix.push('tin_empty');
+        else {
+          if (t !== raw.trim()) chk.push('tin_clean');
+          if (t.length > 14) fix.push('tin_long');
+          else if (g < 0) {
+            if (/^EI/.test(t)) fix.push('tin_ei');
+            else if (/^(SG|OG)\d/.test(t)) fix.push('tin_old');
+            else if (!TIN_RE.test(t)) chk.push('tin_format');
+          }
+        }
+
+        if (!buyer && g >= 0) (g === 1 || g === 3 ? fix : chk).push(g === 1 || g === 3 ? 'gen_seller_no' : 'gen_seller_sb');
+        if (buyer) {
+          if (g === 0) {
+            if (idType === 'brn' && !idNA) fix.push('g10_brn');
+            else if (idType === 'passport' && !idNA) fix.push('g10_pass');
+            else if (idNA && !cons) fix.push('g10_noid');
+            if (cons && !idNA) chk.push('cons_id');
+          } else if (g === 1) {
+            if (idType === 'nric' || idType === 'army') fix.push('g20_local');
+            else if (idNA) chk.push('g20_noid');
+          } else if (g === 2) fix.push('g30_buyer');
+          else if (g === 3 && !(idType === 'brn' && id.toUpperCase() === 'NA')) chk.push('g40_id');
+          if (cons && t && g !== 0) fix.push('cons_tin');
+        }
+        if (t && g < 0 && idNA && !cons) chk.push('real_noid');
+
+        if (id && id.toUpperCase() !== 'NA') {
+          if (SLASH_NA.test(id)) fix.push('id_na');
+          else if (idType === 'nric') {
+            if (!/^\d{12}$/.test(id)) fix.push(/^\d{12}$/.test(id.replace(/[\s-]/g, '')) ? 'id_nric_dash' : 'id_nric');
+          } else if (idType === 'brn') {
+            if (id.length > 20) fix.push('id_long20');
+            else if (!/^\d{12}$/.test(id)) chk.push('id_brn');
+          } else {
+            if (id.length > 12) fix.push('id_long12');
+            if (!/^[A-Za-z0-9]+$/.test(id)) chk.push('id_chars');
+          }
+        }
+
+        var p = String(f.phone || '').trim();
+        if (!p) (cons ? chk : fix).push(cons ? 'phone_cons' : 'phone_empty');
+        else if (SLASH_NA.test(p)) fix.push('phone_slash');
+        else if (p.toUpperCase() === 'NA') { if (!cons) chk.push('phone_na'); }
+        else {
+          if (p.length < 8) fix.push('phone_short');
+          if (p.length > 20) fix.push('phone_long');
+          if (/[^\d+\s\-().]/.test(p)) fix.push('phone_chars');
+          else if (p.length >= 8 && p.length <= 20 && !/^\+\d{8,15}$/.test(p)) chk.push('phone_e164');
+        }
+
+        var e = String(f.email || '').trim();
+        if (e) {
+          if (SLASH_NA.test(e)) fix.push('email_slash');
+          else if (e.toUpperCase() === 'NA') chk.push('email_na');
+          else if (e.length > 320) fix.push('email_long');
+          else if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(e)) fix.push('email_bad');
+        }
+
+        // The RM10,000 rule is per sale (Specific Guideline s.3.7), so a consolidated e-invoice
+        // is judged by its largest sale, as the platform judges it by line.
+        var s = buyer ? String(f.total || '').replace(/[\s,]/g, '').replace(/^RM/i, '') : '';
+        if (s) {
+          if (!/^\d+(\.\d+)?$/.test(s)) chk.push('total_bad');
+          else if (parseFloat(s) > 10000) {
+            if (relax) chk.push('relax_note');
+            else if (cons) fix.push('cons_hi');
+            else if (g === 0) chk.push('hi_general');
+          }
+        }
+        return { fix: fix, check: chk, clean: t };
+      }
+
+      var $ = function (id) { return document.getElementById(id); };
+      var els = ['tinRole', 'tinTin', 'tinIdType', 'tinId', 'tinPhone', 'tinEmail', 'tinCons', 'tinTotal', 'tinRelax'].map($);
+      var card = $('tinResult');
+      var items = Array.prototype.slice.call(card.querySelectorAll('[data-i]'));
+      var part = function (k) { return card.querySelector('[data-s="' + k + '"]'); };
+      var out = function (k) { return card.querySelector('[data-o="' + k + '"]'); };
+      var lastSent = -1;
+
+      function read() {
+        return { role: els[0].value, tin: els[1].value, idType: els[2].value, id: els[3].value, phone: els[4].value,
+          email: els[5].value, cons: els[6].checked, total: els[7].value, relax: els[8].checked };
+      }
+      function apply() {
+        var f = read(), r = check(f), started = !!String(f.tin).trim();
+        var shown = r.fix.concat(r.check), n = shown.length;
+        $('tinIdField').hidden = f.idType === 'none';
+        $('tinBuyerOnly').hidden = f.role === 'seller';
+        document.querySelector('[data-l="single"]').hidden = f.cons;
+        document.querySelector('[data-l="cons"]').hidden = !f.cons;
+        items.forEach(function (li) { li.hidden = !started || shown.indexOf(li.getAttribute('data-i')) === -1; });
+        part('start').hidden = started;
+        part('ok').hidden = !started || n > 0;
+        part('some').hidden = !started || n === 0;
+        part('foot').hidden = !started;
+        part('cons').hidden = !(f.cons && f.role !== 'seller');
+        out('fix').textContent = r.fix.length;
+        out('check').textContent = r.check.length;
+        out('clean').textContent = r.clean;
+        return started ? n : -1;
+      }
+      function send() {
+        var n = apply();
+        // The problem count only: never the TIN, the ID or anything else typed in.
+        if (n >= 0 && n !== lastSent && typeof gtag === 'function') { lastSent = n; gtag('event', 'tin_check', { problems: n }); }
+      }
+      els.forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', send);
+      });
+      $('tinForm').addEventListener('submit', function (ev) { ev.preventDefault(); send(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

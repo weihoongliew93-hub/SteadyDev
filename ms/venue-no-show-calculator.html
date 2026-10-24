@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="ms">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Kalkulator Ketidakhadiran Venue: Gelanggang, Bilik, Studio | SteadyDevs</title>
+<meta content="Anggarkan kos pelanggan tidak hadir kepada gelanggang, bilik atau studio anda setiap bulan, dan berapa yang boleh diperoleh semula dengan mengurangkannya beberapa mata. Percuma, dengan formula ditunjukkan." name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/ms/venue-no-show-calculator.html" property="og:url"/>
+<meta content="Kalkulator Ketidakhadiran Venue: Gelanggang, Bilik, Studio" property="og:title"/>
+<meta content="Anggarkan kos pelanggan tidak hadir kepada gelanggang, bilik atau studio anda setiap bulan, dan berapa yang boleh diperoleh semula dengan mengurangkannya beberapa mata. Percuma, dengan formula ditunjukkan." property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/ms/venue-no-show-calculator.html" rel="canonical"/><link href="https://steadydevs.com/venue-no-show-calculator.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/venue-no-show-calculator.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/venue-no-show-calculator.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/venue-no-show-calculator.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Bagaimana hasil yang hilang akibat ketidakhadiran dikira?", "acceptedAnswer": {"@type": "Answer", "text": "Jam boleh dijual sebulan ialah unit anda didarab jam dibuka sehari didarab hari seminggu, didarab 52 dan dibahagi 12. Jam ditempah ialah angka itu didarab penggunaan anda. Jam ketidakhadiran ialah jam ditempah didarab kadar ketidakhadiran anda, dan setiap satu dinilai pada harga sejam anda."}}, {"@type": "Question", "name": "Apa yang dikira sebagai ketidakhadiran di sini?", "acceptedAnswer": {"@type": "Answer", "text": "Tempahan yang pelanggannya tidak datang, tidak membayar, dan jam itu tidak dijual kepada orang lain. Pembatalan yang cukup awal untuk anda menjual semula slot itu bukan ketidakhadiran. Jika anda mengambil bayaran lebih awal, ketidakhadiran tidak menyebabkan anda kehilangan wang itu, tetapi jam itu tetap kosong."}}, {"@type": "Question", "name": "Di mana saya mencari kadar penggunaan saya?", "acceptedAnswer": {"@type": "Answer", "text": "Bahagikan jam yang anda jual dalam sebulan dengan jam yang boleh anda jual. Skrin Laporan Venue Booking menunjukkannya bagi sebarang tempoh, dengan mengira tempahan yang diluluskan berbanding jam sumber anda dibuka."}}, {"@type": "Question", "name": "Bagaimana saya mencari kadar ketidakhadiran saya?", "acceptedAnswer": {"@type": "Answer", "text": "Kira. Selama empat minggu, tandakan setiap tempahan sebagai digunakan, dibatalkan lebih awal, atau tidak hadir, kemudian bahagikan bilangan tidak hadir dengan semua tempahan. Pisahkan mengikut waktu puncak dan bukan puncak jika boleh, kerana ketidakhadiran pada waktu puncak paling mahal."}}, {"@type": "Question", "name": "Adakah Venue Booking mengambil deposit?", "acceptedAnswer": {"@type": "Answer", "text": "Bukan sebagai deposit. Edisi yang dijual di halaman Venue Booking kami boleh mengambil harga penuh dalam talian semasa pelanggan menempah, sama ada sebagai pilihan atau bagi setiap tempahan. Ia juga menghantar e-mel peringatan sebelum tempahan yang diluluskan, dan tempahan yang tidak dibayar dalam talian menunggu kelulusan anda."}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Venue no-show calculator (design F): the venue's numbers on the left, the monthly cost beside them. */
+    .vns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .vns { grid-template-columns: 1fr; } }
+    .vns [hidden] { display: none; }
+    .vns + .f-note { margin-top: 24px; }
+    .vns-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+    @media (max-width: 480px) { .vns-pair { grid-template-columns: 1fr; } }
+    .vns-result { display: grid; gap: 12px; }
+    .vns-result > div { display: grid; gap: 10px; }
+    .vns-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .vns-head { font-size: 24px; font-weight: 600; color: var(--crimson-text); line-height: 1.3; font-variant-numeric: tabular-nums; }
+    .vns-head--calm { color: var(--text-strong); }
+    .vns-dim { color: var(--faint); font-size: 14px; }
+    .vns-back { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .vns-back strong { color: var(--ok); }
+    .vns-formula { margin: 0; padding: 14px 16px 14px 34px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-inset); display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+    .vns-formula span { font-variant-numeric: tabular-nums; color: var(--text-strong); }
+    .vns-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">Langkau ke kandungan</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">Alat percuma · Tempahan venue</p>
+<h1 class="f-h1">Kalkulator ketidakhadiran venue</h1>
+<p class="f-lead">Gelanggang yang ditempah tetapi tiada sesiapa datang tidak menjana apa-apa, dan ia telah ditolak daripada orang lain. Masukkan angka venue anda untuk melihat kos ketidakhadiran setiap bulan, dan berapa yang boleh diperoleh semula dengan mengurangkannya.</p>
+<div class="vns">
+<form class="f-form" id="vnsForm" novalidate=""><input name="language" type="hidden" value="Bahasa Malaysia"/>
+<div class="vns-pair">
+<div class="f-field">
+<label for="vnsUnits">Gelanggang, bilik atau petak</label>
+<input class="f-input" id="vnsUnits" inputmode="numeric" max="10000" min="0" step="1" type="number" value="4"/>
+</div>
+<div class="f-field">
+<label for="vnsPrice">Harga sejam (RM)</label>
+<input class="f-input" id="vnsPrice" inputmode="decimal" max="1000000" min="0" step="any" type="number" value="40"/>
+</div>
+</div>
+<div class="vns-pair">
+<div class="f-field">
+<label for="vnsHours">Jam dibuka sehari</label>
+<input class="f-input" id="vnsHours" inputmode="decimal" max="24" min="0" step="any" type="number" value="14"/>
+</div>
+<div class="f-field">
+<label for="vnsDays">Hari dibuka seminggu</label>
+<input class="f-input" id="vnsDays" inputmode="numeric" max="7" min="0" step="1" type="number" value="7"/>
+</div>
+</div>
+<div class="f-field">
+<label for="vnsUtil">Penggunaan (%)</label>
+<input class="f-input" id="vnsUtil" inputmode="decimal" max="100" min="0" step="any" type="number" value="50"/>
+<span class="f-hint">Bahagian jam dibuka anda yang ditempah. Kira ketidakhadiran sebagai ditempah.</span>
+</div>
+<div class="f-field">
+<label for="vnsRate">Kadar ketidakhadiran (%)</label>
+<input class="f-input" id="vnsRate" inputmode="decimal" max="100" min="0" step="any" type="number" value="8"/>
+<span class="f-hint">Daripada jam yang ditempah, bahagian yang tiada sesiapa datang atau membayar. Tidak pasti? Kira selama empat minggu.</span>
+</div>
+<div class="f-field">
+<label for="vnsCut">Kurangkan ketidakhadiran sebanyak (mata peratusan)</label>
+<input class="f-input" id="vnsCut" inputmode="decimal" max="100" min="0" step="any" type="number" value="3"/>
+<span class="f-hint">Sasaran anda sendiri. Daripada 8% kepada 5% ialah 3 mata. Kami tidak menjanjikan sebarang pengurangan.</span>
+</div>
+</form>
+<div aria-live="polite" class="f-card vns-result">
+<p class="vns-label">Setiap bulan</p>
+<div data-r="empty" hidden=""><p class="vns-head vns-head--calm">Tiada tempahan, jadi tiada kerugian.</p><p class="vns-dim">Masukkan unit, waktu dibuka, harga dan penggunaan anda untuk melihat anggaran.</p></div>
+<div data-r="none" hidden=""><p class="vns-head vns-head--calm">Tiada ketidakhadiran, tiada kerugian.</p><p>Anda menerima tempahan kira-kira RM <span data-o="booked2"></span> sebulan. Jika anda belum mengira ketidakhadiran selama beberapa minggu, eloklah berbuat demikian sebelum mempercayai angka sifar.</p></div>
+<div data-r="loss" hidden="">
+<p class="vns-head">Kira-kira RM <span data-o="lost"></span> hilang akibat ketidakhadiran</p>
+<p>Daripada RM <span data-o="booked"></span> yang ditempah. Itu <span data-o="nshours"></span> jam tempahan yang tidak digunakan, atau kira-kira RM <span data-o="lostyear"></span> setahun.</p>
+<div class="vns-back">
+<p data-c="cut">Mengurangkan ketidakhadiran sebanyak <span data-o="cut"></span> mata, kepada <span data-o="newrate"></span>%, akan memperoleh semula kira-kira <strong>RM <span data-o="back"></span> sebulan</strong>, atau RM <span data-o="backyear"></span> setahun.</p>
+<p class="vns-dim" data-c="capped">Ketidakhadiran tidak boleh dikurangkan di bawah sifar, jadi ini menggunakan keseluruhan kadar anda iaitu <span data-o="rate"></span> mata.</p>
+<p class="vns-dim" data-c="nocut">Masukkan berapa mata anda mahu kurangkan ketidakhadiran untuk melihat apa yang diperoleh semula.</p>
+</div>
+</div>
+<p><a href="venue-booking.html">Lihat cara Venue Booking mengendalikan peringatan dan kelulusan →</a></p>
+</div>
+</div>
+<p class="f-note">Anggaran daripada angka anda sendiri, bukan ramalan. Ia menganggap pelanggan yang tidak hadir tidak membayar apa-apa dan jam itu tidak dijual semula, dan menggunakan 52 ÷ 12 minggu sebulan. Butiran produk disemak pada 23 Oktober 2026 berdasarkan kod pemalam Venue Booking (versi percuma 1.11.3, dan 1.16.2 bagi edisi yang dijual di laman kami) dan <a href="venue-booking.html">halaman Venue Booking</a> kami.</p>
+</div>
+</section>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">Cara anggaran dikira</h2></div>
+<ol class="vns-formula">
+<li>Jam boleh dijual sebulan = unit × jam dibuka sehari × hari seminggu × 52 ÷ 12 = <span data-o="sellable"></span></li>
+<li>Jam ditempah = jam boleh dijual × penggunaan = <span data-o="bookedhours"></span></li>
+<li>Hasil ditempah = jam ditempah × harga sejam = RM <span data-o="booked3"></span></li>
+<li>Jam ketidakhadiran = jam ditempah × kadar ketidakhadiran = <span data-o="nshours2"></span></li>
+<li>Hilang akibat ketidakhadiran = jam ketidakhadiran × harga sejam = RM <span data-o="lost2"></span></li>
+<li>Diperoleh semula = jam ditempah × mata dikurangkan × harga sejam = RM <span data-o="back2"></span></li>
+</ol>
+<p style="margin-top: 16px">Satu harga sejam ialah penyederhanaan. Ketidakhadiran cenderung berlaku pada waktu puncak, apabila harga anda paling tinggi dan slot paling sukar didapati, jadi jika kadar waktu puncak anda lebih tinggi, angka sebenar mungkin lebih tinggi juga.</p>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Apa yang dilakukan Venue Booking tentang ketidakhadiran</h2></div>
+<div class="vns-cards">
+<div class="f-card">
+<h3 class="f-card__title">E-mel peringatan</h3>
+<p class="f-card__text">Satu e-mel sebelum setiap tempahan yang diluluskan, dihantar pada masa yang anda pilih, dari 1 hingga 168 jam lebih awal. Tempahan yang menunggu, ditolak dan dibatalkan tidak akan diingatkan. Peringatan disertakan dengan edisi yang dijual di halaman Venue Booking kami, bukan pemalam percuma di WordPress.org.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Kelulusan bagi setiap tempahan</h3>
+<p class="f-card__text">Setiap tempahan tiba sebagai menunggu. Anda meluluskan atau menolaknya, dan pelanggan dihantar e-mel dalam kedua-dua keadaan. Permintaan yang menunggu memegang slotnya sehingga anda membuat keputusan, jadi putuskan dengan cepat. Tempahan yang dibayar dalam talian diluluskan sebaik sahaja bayaran disahkan.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Slot yang dibatalkan dibuka semula untuk dijual</h3>
+<p class="f-card__text">Apabila anda membatalkan atau menolak tempahan, slotnya boleh ditempah semula serta-merta. Pelanggan tidak boleh membatalkan tempahan mengikut jam secara dalam talian sendiri: mereka menghubungi anda, dan anda membatalkannya di papan pemuka.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Bayaran dalam talian: harga penuh, tiada deposit</h3>
+<p class="f-card__text">Apabila bayaran dalam talian dihidupkan, pelanggan membayar harga penuh semasa menempah, melalui HitPay, Stripe atau 2C2P, dan tempahan yang belum dibayar melepaskan slotnya selepas 30 minit. Belum ada pilihan deposit. Bayaran dalam talian disertakan dengan edisi yang dijual di halaman Venue Booking kami, bukan pemalam percuma di WordPress.org.</p>
+</div>
+<div class="f-card">
+<h3 class="f-card__title">Laporan untuk input anda</h3>
+<p class="f-card__text">Penggunaan, hasil bagi setiap jam tersedia dan tempahan mengikut status, bagi sebarang tempoh. Itu memberikan angka penggunaan di atas. Ketidakhadiran tidak direkodkan bagi tempahan mengikut jam, jadi kiralah sendiri.</p>
+</div>
+</div>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Soalan lazim</h2></div>
+<div class="f-faq"><details><summary>Bagaimana hasil yang hilang akibat ketidakhadiran dikira?</summary><div>Jam boleh dijual sebulan ialah unit anda didarab jam dibuka sehari didarab hari seminggu, didarab 52 dan dibahagi 12. Jam ditempah ialah angka itu didarab penggunaan anda. Jam ketidakhadiran ialah jam ditempah didarab kadar ketidakhadiran anda, dan setiap satu dinilai pada harga sejam anda.</div></details><details><summary>Apa yang dikira sebagai ketidakhadiran di sini?</summary><div>Tempahan yang pelanggannya tidak datang, tidak membayar, dan jam itu tidak dijual kepada orang lain. Pembatalan yang cukup awal untuk anda menjual semula slot itu bukan ketidakhadiran. Jika anda mengambil bayaran lebih awal, ketidakhadiran tidak menyebabkan anda kehilangan wang itu, tetapi jam itu tetap kosong.</div></details><details><summary>Di mana saya mencari kadar penggunaan saya?</summary><div>Bahagikan jam yang anda jual dalam sebulan dengan jam yang boleh anda jual. Skrin Laporan Venue Booking menunjukkannya bagi sebarang tempoh, dengan mengira tempahan yang diluluskan berbanding jam sumber anda dibuka.</div></details><details><summary>Bagaimana saya mencari kadar ketidakhadiran saya?</summary><div>Kira. Selama empat minggu, tandakan setiap tempahan sebagai digunakan, dibatalkan lebih awal, atau tidak hadir, kemudian bahagikan bilangan tidak hadir dengan semua tempahan. Pisahkan mengikut waktu puncak dan bukan puncak jika boleh, kerana ketidakhadiran pada waktu puncak paling mahal.</div></details><details><summary>Adakah Venue Booking mengambil deposit?</summary><div>Bukan sebagai deposit. Edisi yang dijual di halaman Venue Booking kami boleh mengambil harga penuh dalam talian semasa pelanggan menempah, sama ada sebagai pilihan atau bagi setiap tempahan. Ia juga menghantar e-mel peringatan sebelum tempahan yang diluluskan, dan tempahan yang tidak dibayar dalam talian menunggu kelulusan anda.</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">Bacaan lanjut</span>
+          Mengapa pelanggan tidak datang, dan apa yang mengurangkannya: <a href="../blog/reduce-no-shows-venue-booking-deposits-reminders.html">Cara mengurangkan ketidakhadiran tanpa menjengkelkan pelanggan →</a> Angka di sebalik kalkulator ini, dan tiga lagi: <a href="../blog/venue-booking-numbers-owners-should-track.html">5 angka yang perlu dipantau setiap pemilik venue →</a> Sedia menerima tempahan dalam talian? <a href="venue-booking.html">Lihat Venue Booking →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.</p>
+</div>
+<div class="ff__col"><h2>Tawaran</h2><ul>
+<li><a href="solutions.html">Perkhidmatan kejuruteraan</a></li><li><a href="einvoice.html">Platform EInvoice</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>Syarikat</h2><ul>
+<li><a href="about.html">Tentang kami</a></li><li><a href="portfolio.html">Kajian kes</a></li>
+<li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Hubungi</a></li></ul></div>
+<div class="ff__col"><h2>Lagi</h2><ul>
+<li><a href="pricing-terms.html">Terma harga</a></li><li><a href="../my-account.html">Akaun saya</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>Alat percuma</h2><ul>
+<li><a href="e-invoice-checker.html">Perlukah saya e-Invois?</a></li><li><a href="msic-code-lookup.html">Carian kod MSIC</a></li><li><a href="../microsoft-end-of-support-lookup.html">Semakan tamat sokongan</a></li><li><a href="../legacy-system-risk-scorecard.html">Kad skor risiko</a></li><li><a href="../free-tools.html">Semua alat percuma →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      /* core:start */
+      var WEEKS_PER_MONTH = 52 / 12;
+      // A field's value clamped to [0, max]; anything empty, negative or not a number counts as 0.
+      function clamp(raw, max, whole) {
+        var v = parseFloat(raw);
+        if (!isFinite(v) || v < 0) return 0;
+        if (whole) v = Math.floor(v);
+        return Math.min(v, max);
+      }
+      function estimate(units, hours, days, price, util, rate, cut) {
+        var sellable = units * hours * days * WEEKS_PER_MONTH;
+        var booked = sellable * util / 100;
+        var noShow = booked * rate / 100;
+        var points = Math.min(cut, rate);
+        return {
+          sellable: sellable, bookedHours: booked, booked: booked * price,
+          noShowHours: noShow, lost: noShow * price,
+          points: points, capped: cut > rate, newRate: rate - points,
+          back: booked * points / 100 * price
+        };
+      }
+      /* core:end */
+
+      if (typeof document === 'undefined') return;
+      var ids = ['vnsUnits', 'vnsHours', 'vnsDays', 'vnsPrice', 'vnsUtil', 'vnsRate', 'vnsCut'];
+      var els = ids.map(function (id) { return document.getElementById(id); });
+      var LIMITS = [[10000, true], [24, false], [7, true], [1000000, false], [100, false], [100, false], [100, false]];
+      function outs(k) { return document.querySelectorAll('[data-o="' + k + '"]'); }
+      function put(k, v) { Array.prototype.forEach.call(outs(k), function (el) { el.textContent = v; }); }
+      function rm(x) { return Math.round(x).toLocaleString('en-MY'); }
+      function hrs(x) { return (Math.round(x * 10) / 10).toLocaleString('en-MY', { maximumFractionDigits: 1 }); }
+      function pct(x) { return (Math.round(x * 100) / 100).toLocaleString('en-MY', { maximumFractionDigits: 2 }); }
+      function show(sel, on) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) { el.hidden = !on; }); }
+      function values() { return els.map(function (el, i) { return clamp(el.value, LIMITS[i][0], LIMITS[i][1]); }); }
+
+      function apply() {
+        var v = values(), r = estimate.apply(null, v), rate = v[5], cut = v[6];
+        put('sellable', hrs(r.sellable)); put('bookedhours', hrs(r.bookedHours));
+        put('booked', rm(r.booked)); put('booked2', rm(r.booked)); put('booked3', rm(r.booked));
+        put('nshours', hrs(r.noShowHours)); put('nshours2', hrs(r.noShowHours));
+        put('lost', rm(r.lost)); put('lost2', rm(r.lost)); put('lostyear', rm(r.lost * 12));
+        put('cut', pct(r.points)); put('newrate', pct(r.newRate)); put('rate', pct(rate));
+        put('back', rm(r.back)); put('back2', rm(r.back)); put('backyear', rm(r.back * 12));
+        var state = r.booked <= 0 ? 'empty' : r.lost <= 0 ? 'none' : 'loss';
+        show('[data-r="empty"]', state === 'empty'); show('[data-r="none"]', state === 'none'); show('[data-r="loss"]', state === 'loss');
+        show('[data-c="cut"]', cut > 0); show('[data-c="capped"]', cut > 0 && r.capped); show('[data-c="nocut"]', cut <= 0);
+      }
+
+      var sent = false;
+      els.forEach(function (el) {
+        el.addEventListener('input', apply);
+        el.addEventListener('change', function () {
+          if (sent || typeof gtag !== 'function') return;
+          sent = true;
+          var v = values();
+          // Only the venue's sizing figures: nothing that identifies the business.
+          gtag('event', 'venue_no_show', { units: v[0], utilisation: v[4], no_show_rate: v[5], cut_points: v[6] });
+        });
+      });
+      document.getElementById('vnsForm').addEventListener('submit', function (e) { e.preventDefault(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

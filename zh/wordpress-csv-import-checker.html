@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head><meta content="noindex" name="robots"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>WordPress CSV 导入检查（SteadyPost）| SteadyDevs</title>
+<meta content="用 SteadyPost 导入 WordPress 之前先检查 CSV：标题、列、日期、状态、分隔符和编码。您的文件始终不会离开浏览器。" name="description"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="website" property="og:type"/>
+<meta content="https://steadydevs.com/zh/wordpress-csv-import-checker.html" property="og:url"/>
+<meta content="WordPress CSV 导入检查（SteadyPost）| SteadyDevs" property="og:title"/>
+<meta content="用 SteadyPost 导入 WordPress 之前先检查 CSV：标题、列、日期、状态、分隔符和编码。您的文件始终不会离开浏览器。" property="og:description"/>
+<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://steadydevs.com/zh/wordpress-csv-import-checker.html" rel="canonical"/><link href="https://steadydevs.com/wordpress-csv-import-checker.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/wordpress-csv-import-checker.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/wordpress-csv-import-checker.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/wordpress-csv-import-checker.html" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "SteadyPost 需要哪些列？", "acceptedAnswer": {"@type": "Answer", "text": "只需要标题。其他列都是可选的，无法识别的列除非您在导入页面中映射，否则会被忽略。标题名称的匹配不分大小写、空格或标点，所以 \"Publish Date\"、\"publish_date\" 和 \"PUBLISH-DATE\" 是同一列。"}}, {"@type": "Question", "name": "应该用什么日期格式？", "acceptedAnswer": {"@type": "Answer", "text": "请使用 YYYY-MM-DD HH:MM，例如 2026-11-01 09:00。SteadyPost 会按您网站的时区读取。带斜线的日期按月份在前读取，所以 03/11/2026 会变成 3 月 11 日，而 13/11/2026 完全无法读取。带连字符或点的日期，例如 03-11-2026，按日期在前读取。"}}, {"@type": "Question", "name": "分类和标签怎么分隔？", "acceptedAnswer": {"@type": "Answer", "text": "用逗号或竖线，例如 News, Events 或 News | Events。分号不是分隔符。尚不存在的分类和标签会在导入时创建。"}}, {"@type": "Question", "name": "为什么重音字母或中文会变成乱码？", "acceptedAnswer": {"@type": "Answer", "text": "SteadyPost 按 UTF-8 读取 CSV。如果文件不是有效的 UTF-8，它会当作 Windows-1252，即 Windows 上 Excel 保存普通 CSV 时使用的编码。这样能保留西欧语言的重音字母，但中文、淡米尔文等文字会变成乱码。请在 Excel 中改存为 CSV UTF-8（逗号分隔）。"}}, {"@type": "Question", "name": "同一个文件导入两次会产生重复文章吗？", "acceptedAnswer": {"@type": "Answer", "text": "不会。每一行会依次按 Ref 列、slug、标题匹配到它之前创建的文章，并更新那篇文章。同一个文件内也一样：slug 或标题相同的两行会成为同一篇文章，以后面那一行的值为准。"}}]}</script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* WordPress CSV import checker (design F): the file on the left, what SteadyPost would make of it beside it.
+       Every message is a hidden template in the HTML, so the page can be translated. */
+    .csv { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .csv { grid-template-columns: 1fr; } }
+    .csv [hidden], .csv-preview[hidden], .csv-tpl[hidden] { display: none; }
+    .csv-form { display: grid; gap: 16px; }
+    .csv-drop { display: grid; gap: 10px; justify-items: center; text-align: center; padding: 32px 20px; border: 1.5px dashed var(--border-strong); border-radius: var(--radius); background: var(--surface-inset); transition: border-color .15s, background .15s; }
+    .csv-drop.csv-drop--over { border-color: var(--crimson-text); background: var(--crimson-soft); }
+    .csv-drop:focus-within { border-color: var(--text); }
+    .csv-drop__title { font-weight: 600; color: var(--text-strong); }
+    .csv-file { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    .csv-hint { font-size: 14px; color: var(--faint); }
+    .csv-name { font-family: var(--mono); font-size: 13px; color: var(--muted); word-break: break-all; }
+    .csv-template { display: grid; gap: 10px; justify-items: start; border-top: 1px solid var(--border-soft); padding-top: 16px; }
+    .csv-result { display: grid; gap: 14px; min-width: 0; }
+    .csv-result > div { display: grid; gap: 12px; min-width: 0; }
+    .csv-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .csv-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .csv-head--bad { color: var(--crimson-text); }
+    .csv-dim { color: var(--faint); font-size: 14px; }
+    .csv-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px 16px; margin: 0; }
+    .csv-stats dt { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); }
+    .csv-stats dd { margin: 2px 0 0; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+    .csv-sub { font-weight: 600; color: var(--text-strong); border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    .csv-cols, .csv-issues { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 15px; }
+    .csv-cols code, .csv-issues code, .csv-table code { font-family: var(--mono); font-size: 13px; color: var(--text-strong); word-break: break-word; }
+    .csv-issues li { padding-left: 14px; position: relative; overflow-wrap: anywhere; }
+    .csv-issues li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--faint); }
+    .csv-issues li.csv-err::before { background: var(--crimson-text); }
+    .csv-issues li.csv-warn::before { background: var(--warn); }
+    .csv-key { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--faint); }
+    .csv-key span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    .csv-key .csv-k-err::before { background: var(--crimson-text); }
+    .csv-key .csv-k-warn::before { background: var(--warn); }
+    .csv-preview { margin-top: 32px; }
+    .csv-preview .f-table-wrap { margin: 14px 0 0; }
+    .csv-preview td { white-space: nowrap; max-width: 260px; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
+    .csv-preview th { white-space: nowrap; }
+    .csv-preview td:first-child, .csv-preview th:first-child { font-family: var(--mono); color: var(--faint); }
+    .csv + .f-note, .csv-preview + .f-note { margin-top: 24px; }
+    .csv-table .f-table td:first-child { white-space: nowrap; font-weight: 500; color: var(--text-strong); }
+    .csv-lenient { margin: 16px 0 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=6"></script>
+<main id="main">
+<section class="f-glow-top">
+<div class="f-container f-page-hero">
+<p class="f-eyebrow">免费工具 · WordPress 导入</p>
+<h1 class="f-h1">WordPress CSV 导入检查</h1>
+<p class="f-lead">用 SteadyPost 把电子表格转成 WordPress 文章之前，先检查一下。在任何东西接触您的网站之前，看看哪些行会被跳过、哪些日期会被读错、哪些列会被忽略。</p>
+<div class="csv">
+<form class="f-form csv-form" id="csvForm" novalidate=""><input name="language" type="hidden" value="Chinese"/>
+<div class="csv-drop" id="csvDrop">
+<p class="csv-drop__title">把 CSV 文件拖到这里</p>
+<p class="csv-hint">or</p>
+<label class="f-btn f-btn--secondary" for="csvFile">选择文件</label>
+<input accept=".csv,.xlsx,text/csv" class="csv-file" id="csvFile" type="file"/>
+<p class="csv-name" hidden="" id="csvName"></p>
+</div>
+<p class="csv-hint">您的文件由您自己的浏览器读取，始终不会离开此页面。不会上传或保存任何内容。</p>
+<div class="csv-template">
+<p>从零开始？模板包含 SteadyPost 能识别的列名和两行示例。</p>
+<button class="f-btn f-btn--secondary" id="csvTemplate" type="button">下载 CSV 模板</button>
+</div>
+</form>
+<div aria-live="polite" class="f-card csv-result" id="csvResult">
+<p class="csv-label">SteadyPost 会看到什么</p>
+<div data-r="start"><p class="csv-dim">选择或拖入 CSV 文件即可检查。</p></div>
+<div data-r="xlsx" hidden=""><p class="csv-head">此检查工具只读取 CSV 文件。</p><p>SteadyPost 也能导入 .xlsx 文件的第一个工作表。Excel 文件请用插件自带的预览和试运行检查，或另存为 CSV UTF-8 后在这里检查。</p></div>
+<div data-r="type" hidden=""><p class="csv-head csv-head--bad">SteadyPost 只导入 .csv 和 .xlsx 文件。</p><p>请在 Excel 或 Google Sheets 中把工作表另存或下载为 CSV UTF-8，然后再试一次。</p></div>
+<div data-r="big" hidden=""><p class="csv-head csv-head--bad">此文件大于 20 MB。</p><p>SteadyPost 拒绝超过 20 MB 的上传，而您服务器本身的上传限制可能更低。请把文件拆分成较小的文件。</p></div>
+<div data-r="empty" hidden=""><p class="csv-head csv-head--bad">文件中没有任何行。</p><p>SteadyPost 会拒绝空文件。请确认您保存的是正确的工作表。</p></div>
+<div data-r="fail" hidden=""><p class="csv-head csv-head--bad">您的浏览器无法读取此文件。</p><p>请重新保存，或选择另一个文件。</p></div>
+<div data-r="done" hidden="">
+<p class="csv-head" data-sum="ok">没有发现问题。SteadyPost 应该能导入每一行。</p>
+<p class="csv-head csv-head--bad" data-sum="bad"><span data-o="errs"></span> 项需修正，<span data-o="warns"></span> 项需核对。</p>
+<p class="csv-head" data-sum="warn">不会有任何内容被跳过，但有 <span data-o="warns2"></span> 项值得核对。</p>
+<dl class="csv-stats">
+<div><dt>行数</dt><dd data-o="rows"></dd></div>
+<div><dt>列数</dt><dd data-o="cols"></dd></div>
+<div><dt>已识别</dt><dd data-o="known"></dd></div>
+<div><dt>分隔符</dt><dd><span data-d="comma">逗号</span><span data-d="semicolon">分号</span></dd></div>
+<div><dt>编码</dt><dd><span data-e="bom">UTF-8（带 BOM）</span><span data-e="utf8">UTF-8</span><span data-e="ansi">Windows-1252</span></dd></div>
+</dl>
+<p class="csv-sub">SteadyPost 将使用的列</p>
+<ul class="csv-cols" id="csvCols"></ul>
+<p class="csv-dim" data-c="nocols">无。</p>
+<p class="csv-dim" data-c="ignored">除非您在导入页面中映射，否则会被忽略：<span data-o="ignored"></span></p>
+<p class="csv-sub" data-c="issuehead">需要留意的地方</p>
+<p class="csv-key" data-c="issuehead"><span class="csv-k-err">会被跳过或出错</span><span class="csv-k-warn">值得核对</span></p>
+<ul class="csv-issues" id="csvIssues"></ul>
+<p class="csv-dim">这里使用 SteadyPost 的自动列映射。如果您的网站已有包含此文件标题列的映射，插件会保留您的映射。最后请运行插件的试运行，它还会对照您的网站检查作者、图片和分类。</p>
+<p><a href="steadypost.html">用 SteadyPost 免费导入 →</a></p>
+</div>
+</div>
+</div>
+<div class="csv-preview" hidden="" id="csvPreview">
+<h2 class="f-h3">SteadyPost 读取到的前几行</h2>
+<p class="csv-dim">行号与插件的预览一致。较长的单元格在这里会被截短。</p>
+<div class="f-table-wrap"><table class="f-table"><thead id="csvPHead"></thead><tbody id="csvPBody"></tbody></table></div>
+</div>
+<p class="f-note">规则来自 SteadyPost 1.3.0 本身的代码：它的 CSV 读取器、自动列映射和导入器。日期已用 PHP 8.4（插件用它来读取日期）和 <a href="https://www.php.net/manual/en/datetime.formats.php">PHP 日期格式文档</a>测试。已于 2026 年 10 月 23 日核实。您网站的设置，例如已保存的列映射、默认状态或行筛选，可能改变结果，所以最终以插件的试运行为准。</p>
+</div>
+</section>
+<!-- Templates the script copies into the result. Kept in the HTML so they can be translated. -->
+<div class="csv-tpl" hidden="">
+<ul id="csvFieldNames">
+<li data-field="title">Title</li><li data-field="content">Content</li><li data-field="doc_url">Google Doc</li>
+<li data-field="slug">Slug</li><li data-field="status">Status</li><li data-field="seo_title">SEO title</li>
+<li data-field="seo_description">SEO description</li><li data-field="seo_keywords">SEO keywords</li>
+<li data-field="ref">Unique row ID</li><li data-field="post_id">Post ID (updates that post)</li>
+<li data-field="excerpt">Excerpt</li><li data-field="featured_image">Featured image</li>
+<li data-field="categories">Categories</li><li data-field="tags">Tags</li><li data-field="post_type">Post type</li>
+<li data-field="date">Publish date</li><li data-field="author">Author</li>
+<li data-field="meta">Custom field</li><li data-field="tax">Taxonomy terms</li>
+</ul>
+<ul id="csvMsgs">
+<li data-m="notitlecol" data-s="err">没有任何列被识别为文章标题，所以在您映射一列之前什么都无法导入。请把该列命名为 Title，或在 SteadyPost → Settings 中选择。</li>
+<li data-m="cronly" data-s="err">行尾只有回车符，这是旧版 Mac Excel 保存 CSV 的方式。PHP 按换行符分行，所以 SteadyPost 会把整个文件读成一行。请重新另存为 CSV UTF-8。</li>
+<li data-m="tabs" data-s="err">标题行有制表符，但没有逗号或分号，所以这看起来是以制表符分隔的文件。SteadyPost 只识别逗号和分号，所以每一行都会变成一个单元格。</li>
+<li data-m="unclosed" data-s="err">从第 <span data-f="row"></span> 行开始的带引号单元格一直没有闭合，所以之后的所有内容都会被读进那个单元格。请在该行查找多余的双引号（"）。</li>
+<li data-m="ansi" data-s="warn">此文件不是 UTF-8，所以 SteadyPost 会按 Windows-1252 读取，这是 Windows 上 Excel 保存普通 CSV 时使用的编码。西欧语言的重音字母能保留，但这样保存的中文、淡米尔文等文字会变成乱码：请改存为 CSV UTF-8。</li>
+<li data-m="duphead" data-s="warn">忽略大小写、空格和标点后，有两列都叫 <code data-f="value"></code>。SteadyPost 会重新命名第二列，所以只使用第一列。</li>
+<li data-m="blankhead" data-s="warn">第 <span data-f="n"></span> 列没有标题。SteadyPost 把它叫作 <code data-f="value"></code>，除非您映射它，否则会忽略。</li>
+<li data-m="hint" data-s="warn">列 <code data-f="value"></code> 不会被自动映射。请把它改名为 <code data-f="other"></code>，或在导入页面中映射，否则它的值会被忽略。</li>
+<li data-m="metaprivate" data-s="warn">列 <code data-f="value"></code> 指向一个受保护的自定义字段，也就是以下划线开头的字段。SteadyPost 会去掉列名开头的下划线，所以会改为写入自定义字段 <code data-f="other"></code>。</li>
+<li data-m="notitle" data-s="err">第 <span data-f="row"></span> 行没有标题，所以 SteadyPost 会跳过它。</li>
+<li data-m="status" data-s="warn">第 <span data-f="row"></span> 行：状态 <code data-f="value"></code> 无法识别，所以会使用您的默认状态；除非您在 Settings 中改过，否则就是草稿。</li>
+<li data-m="schednodate" data-s="err">第 <span data-f="row"></span> 行设为定时发布，但没有可读取的发布日期，所以会保存为草稿。</li>
+<li data-m="schedpast" data-s="warn">第 <span data-f="row"></span> 行定时在 <code data-f="value"></code> 发布，但这个时间已经过去。WordPress 会立即发布定时在过去的文章。</li>
+<li data-m="datebad" data-s="err">第 <span data-f="row"></span> 行：日期 <code data-f="value"></code> 无法读取，所以文章日期会是导入的那一刻。请使用 YYYY-MM-DD HH:MM，例如 2026-11-01 09:00。</li>
+<li data-m="dateus" data-s="warn">第 <span data-f="row"></span> 行：<code data-f="value"></code> 会被按月份在前读取，即 <code data-f="other"></code>。如果您的意思是日期在前，请写成 YYYY-MM-DD。</li>
+<li data-m="dateyy" data-s="warn">第 <span data-f="row"></span> 行：<code data-f="value"></code> 会被按年-月-日读取，得到 <code data-f="other"></code>。请写出完整年份。</li>
+<li data-m="dateroll" data-s="warn">第 <span data-f="row"></span> 行：<code data-f="value"></code> 不是真实存在的日期，所以会顺延为 <code data-f="other"></code>。</li>
+<li data-m="dateunknown" data-s="warn">第 <span data-f="row"></span> 行：此检查工具无法识别日期 <code data-f="value"></code>。PHP 能读取很多格式，但不一定按您预期的方式。请使用 YYYY-MM-DD HH:MM 以确保无误，或查看试运行结果。</li>
+<li data-m="imgpath" data-s="warn">第 <span data-f="row"></span> 行：特色图片 <code data-f="value"></code> 不是以 http:// 或 https:// 开头，所以 SteadyPost 不会下载它，而是在您的图片 zip 或媒体库中查找同名文件。</li>
+<li data-m="docbad" data-s="err">第 <span data-f="row"></span> 行：<code data-f="value"></code> 不是 Google Docs 链接。试运行会报错，导入时文章会在没有内容的情况下创建。</li>
+<li data-m="postid" data-s="warn">第 <span data-f="row"></span> 行：Post ID <code data-f="value"></code> 不是数字，所以会新建一篇文章，而不是更新现有文章。</li>
+<li data-m="semicolon" data-s="warn">第 <span data-f="row"></span> 行：<code data-f="other"></code> 中的 <code data-f="value"></code> 使用了分号。词条只按逗号和竖线分隔，所以这会变成一个词条。</li>
+<li data-m="extra" data-s="warn">第 <span data-f="row"></span> 行的单元格比标题行多。从第 <span data-f="n"></span> 列起多出来的单元格会被忽略。</li>
+<li data-m="stray" data-s="warn">第 <span data-f="row"></span> 行有一个没有用引号包住的单元格里含有双引号。SteadyPost 会保留这些文字，但请检查该单元格读起来是否符合您的本意。</li>
+<li data-m="dup" data-s="warn">第 <span data-f="row"></span> 行与第 <span data-f="n"></span> 行的<span data-by="ref">行 ID</span><span data-by="slug">slug</span><span data-by="title">标题</span>相同，所以两者是同一篇文章：第 <span data-f="n"></span> 行创建它，这一行更新它，以这一行的值为准。如果 Settings 中关闭了 "update existing"，这一行会被跳过。试运行不会在行与行之间比较，所以会把两者都显示为新文章。</li>
+<li data-m="more" data-s="info">还有 <span data-f="n"></span> 条类似的。</li>
+</ul>
+<table><tbody id="csvSample">
+<tr><td>Welcome to our new blog</td><td>This post was made from a spreadsheet. A blank line in this cell starts a new paragraph, and simple HTML such as bold text or links is kept.</td><td>A short introduction to the blog.</td><td>welcome-to-our-new-blog</td><td>draft</td><td>News</td><td>welcome, announcement</td><td></td><td></td><td></td><td>Welcome to our new blog</td><td>What to expect from our new blog, and how often we will post.</td><td>new blog, announcement</td><td></td></tr>
+<tr><td>Five tips for planning content</td><td>Start with a calendar. Plan a month ahead, pick topics and assign writers.</td><td></td><td>five-tips-for-planning-content</td><td>scheduled</td><td>Guides</td><td>planning, tips</td><td></td><td data-date="1"></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head" style="margin-top: 0"><h2 class="f-h2">SteadyPost 逐列检查的内容</h2></div>
+<div class="csv-table f-table-wrap">
+<table class="f-table">
+<thead><tr><th>列</th><th>也可识别为</th><th>SteadyPost 如何处理</th></tr></thead>
+<tbody>
+<tr><td>Title</td><td><code>post_title</code>, <code>headline</code></td><td>唯一必填的列。没有标题的行会被跳过。</td></tr>
+<tr><td>Status</td><td><code>post_status</code>, <code>wp_status</code>, <code>publish_status</code></td><td>接受 draft、publish、published、live、pending、review、private、scheduled 和 future，不分大小写。其他值或留空，会使用 Settings 中的默认状态。</td></tr>
+<tr><td>Publish Date</td><td><code>post_date</code>, <code>published_date</code>, <code>date_published</code></td><td>按您网站的时区读取。定时发布的行必须有此值，否则会变成草稿。只叫 "Date" 的列不会被识别。</td></tr>
+<tr><td>Categories, Tags</td><td><code>category</code>, <code>tag</code></td><td>按逗号或竖线分隔。尚不存在的词条会被创建。</td></tr>
+<tr><td>Featured Image</td><td><code>feature_image</code>, <code>cover_image</code>, <code>thumbnail</code>, <code>image</code></td><td>以 http:// 或 https:// 开头的网址会下载到媒体库。其他值会被当作图片 zip 或媒体库中的文件名。</td></tr>
+<tr><td>Slug</td><td><code>url_slug</code>, <code>post_name</code>, <code>permalink</code></td><td>设定文章的网址，并在您再次导入该文件时用来识别这一行。</td></tr>
+<tr><td>Post ID</td><td><code>wp_post_id</code>, <code>wordpress_id</code></td><td>更新那篇现有文章。由 SteadyPost 的导出功能写入，用于批量编辑。</td></tr>
+<tr><td>Content, Excerpt</td><td><code>body</code>, <code>post_content</code>, <code>summary</code></td><td>纯文本、Markdown 或 HTML，逐行自动识别。</td></tr>
+<tr><td>Author</td><td><code>post_author</code></td><td>用户名、电邮地址或用户 ID。找不到匹配时使用默认作者。</td></tr>
+<tr><td>Meta Title, Meta Description, Keywords</td><td><code>seo_title</code>, <code>seo_description</code>, <code>focus_keyword</code></td><td>写入 Yoast SEO、Rank Math 或 SEOPress，以当前启用的为准。</td></tr>
+<tr><td>meta:<em>key</em>, tax:<em>taxonomy</em></td><td> </td><td>自定义字段和自定义分类法，像标签一样分隔。键名开头的下划线会被去掉，所以无法写入受保护的字段。</td></tr>
+</tbody>
+</table>
+</div>
+<p>SteadyPost 在很多方面都很宽松，所以此检查工具不会对以下情况提出警告：</p>
+<ul class="csv-lenient">
+<li>列的顺序，以及标题名称中的大小写、空格和标点。</li>
+<li>空行、标题上方的空行，以及值前后的空格。</li>
+<li>以分号分隔的文件，即在使用小数逗号的国家里 Excel 保存的格式。</li>
+<li>以 Windows-1252 而不是 UTF-8 保存的文件，无论有没有字节顺序标记（BOM）。</li>
+<li>单元格比标题少的行：缺少的单元格视为空白。</li>
+<li>在 Excel 中输入、导出后变成天数编号的日期。</li>
+</ul>
+<div class="f-head" style="margin-top: 56px"><h2 class="f-h2">常见问题</h2></div>
+<div class="f-faq"><details><summary>SteadyPost 需要哪些列？</summary><div>只需要标题。其他列都是可选的，无法识别的列除非您在导入页面中映射，否则会被忽略。标题名称的匹配不分大小写、空格或标点，所以 "Publish Date"、"publish_date" 和 "PUBLISH-DATE" 是同一列。</div></details><details><summary>应该用什么日期格式？</summary><div>请使用 YYYY-MM-DD HH:MM，例如 2026-11-01 09:00。SteadyPost 会按您网站的时区读取。带斜线的日期按月份在前读取，所以 03/11/2026 会变成 3 月 11 日，而 13/11/2026 完全无法读取。带连字符或点的日期，例如 03-11-2026，按日期在前读取。</div></details><details><summary>分类和标签怎么分隔？</summary><div>用逗号或竖线，例如 News, Events 或 News | Events。分号不是分隔符。尚不存在的分类和标签会在导入时创建。</div></details><details><summary>为什么重音字母或中文会变成乱码？</summary><div>SteadyPost 按 UTF-8 读取 CSV。如果文件不是有效的 UTF-8，它会当作 Windows-1252，即 Windows 上 Excel 保存普通 CSV 时使用的编码。这样能保留西欧语言的重音字母，但中文、淡米尔文等文字会变成乱码。请在 Excel 中改存为 CSV UTF-8（逗号分隔）。</div></details><details><summary>同一个文件导入两次会产生重复文章吗？</summary><div>不会。每一行会依次按 Ref 列、slug、标题匹配到它之前创建的文章，并更新那篇文章。同一个文件内也一样：slug 或标题相同的两行会成为同一篇文章，以后面那一行的值为准。</div></details></div>
+<div class="f-callout f-callout--tip" style="margin-top: 40px"><span class="f-callout__label">SteadyPost</span>
+          一款免费的 WordPress 插件，把 CSV 或 Excel 文件的每一行变成一篇文章，提供预览、试运行和一键撤销。<a href="steadypost.html">了解它如何运作 →</a></div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col"><h2>产品与服务</h2><ul>
+<li><a href="solutions.html">工程服务</a></li><li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+<div class="ff__col"><h2>公司</h2><ul>
+<li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div class="ff__col"><h2>更多</h2><ul>
+<li><a href="pricing-terms.html">价格条款</a></li><li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+<div class="ff__col"><h2>免费工具</h2><ul>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li><li><a href="msic-code-lookup.html">MSIC 代码查询</a></li><li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li><li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li><li><a href="../free-tools.html">全部免费工具 →</a></li></ul></div>
+</div>
+<div class="ff__base"><span>© 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+</div>
+</footer>
+<script>
+    (function () {
+      /* core:start — pure logic, mirrored from SteadyPost 1.3.0 (class-steadypost-file.php,
+         class-steadypost-sheet.php, class-steadypost-importer.php). No DOM in here. */
+      var MAX_SIZE = 20971520; // SteadyPost_File::MAX_SIZE
+
+      // SteadyPost_Sheet::auto_map_candidates(), in the same order: first match wins.
+      var CANDIDATES = [
+        ['title', ['title', 'post_title', 'headline']],
+        ['doc_url', ['doc_url', 'content_doc', 'google_doc', 'google_doc_url', 'doc_link', 'article', 'article_doc', 'article_url', 'doc', 'document', 'content_url']],
+        ['slug', ['url_slug', 'slug', 'post_name', 'permalink']],
+        ['status', ['post_status', 'wp_status', 'publish_status', 'status']],
+        ['seo_title', ['meta_title', 'seo_title']],
+        ['seo_description', ['meta_description', 'seo_description', 'meta_desc']],
+        ['seo_keywords', ['keywords', 'seo_keywords', 'focus_keyword', 'focus_keyphrase']],
+        ['ref', ['ref', 'row_id', 'unique_id', 'reference', 'id']],
+        ['post_id', ['post_id', 'wp_post_id', 'wordpress_id']],
+        ['excerpt', ['excerpt', 'post_excerpt', 'summary']],
+        ['content', ['post_content', 'body', 'content']],
+        ['featured_image', ['featured_image', 'feature_image', 'cover_image', 'thumbnail', 'image']],
+        ['categories', ['categories', 'category']],
+        ['tags', ['tags', 'tag']],
+        ['post_type', ['post_type', 'wp_post_type']],
+        ['date', ['post_date', 'publish_date', 'published_date', 'date_published']],
+        ['author', ['post_author', 'author']]
+      ];
+      // Near misses people often type, and the template name that would be recognised.
+      var HINTS = { date: 'Publish Date', publish_on: 'Publish Date', scheduled_date: 'Publish Date', image_url: 'Featured Image', featured_image_url: 'Featured Image', description: 'Meta Description', meta_keywords: 'Keywords', post_tags: 'Tags', post_category: 'Categories', post_categories: 'Categories' };
+      // SteadyPost_Importer::normalise_status() aliases.
+      var STATUS = { publish: 'publish', published: 'publish', live: 'publish', draft: 'draft', drafted: 'draft', pending: 'pending', review: 'pending', 'private': 'private', future: 'future', scheduled: 'future' };
+      // SteadyPost_File::template_columns(): the template's headers, which map themselves.
+      var TEMPLATE = ['Title', 'Content', 'Excerpt', 'Slug', 'Status', 'Categories', 'Tags', 'Featured Image', 'Publish Date', 'Author', 'Meta Title', 'Meta Description', 'Keywords', 'Google Doc'];
+      var MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, sept: 9, oct: 10, nov: 11, dec: 12,
+        january: 1, february: 2, march: 3, april: 4, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+
+      // PHP's trim() and strtolower() are ASCII-only; matching them keeps titles and headers compared the same way.
+      function phpTrim(s) { return String(s).replace(/^[ \t\n\r\0\x0B]+|[ \t\n\r\0\x0B]+$/g, ''); }
+      function phpLower(s) { return String(s).replace(/[A-Z]+/g, function (m) { return m.toLowerCase(); }); }
+
+      function normaliseHeader(h) {
+        h = phpLower(phpTrim(h)).replace(/^﻿/, '');
+        var m = /^(meta|tax)\s*:\s*(.+)$/.exec(h);
+        if (m) return m[1] + ':' + phpTrim(m[2]).replace(/[^a-z0-9_\-]+/g, '_').replace(/^_+|_+$/g, '');
+        return h.replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+      }
+
+      // SteadyPost_File::read_csv(): the delimiter is whichever of ; and , the first line has more of (strtok skips leading newlines).
+      function detectDelimiter(text) {
+        var first = text.replace(/^\n+/, '').split('\n')[0];
+        var semi = (first.match(/;/g) || []).length, comma = (first.match(/,/g) || []).length;
+        return { delim: semi > comma ? ';' : ',', tabsOnly: semi === 0 && comma === 0 && first.indexOf('\t') !== -1 };
+      }
+
+      /* RFC 4180 parser, lenient where PHP's fgetcsv() is: a quote inside an unquoted cell is kept,
+         text after a closing quote is appended, and an unclosed quote swallows the rest of the file.
+         Returns records (arrays of cells; a blank line is an empty array) plus what it noticed. */
+      function parseCsv(text, delim, crIsBreak) {
+        var rows = [], row = [], cell = '', i = 0, n = text.length, c;
+        var inQ = false, quoted = false, started = false, stray = {}, unclosed = 0, qStart = 0;
+        function endCell() { row.push(cell); cell = ''; quoted = false; started = false; }
+        function endRow() {
+          if (row.length === 0 && cell === '' && !quoted) rows.push([]);
+          else { endCell(); rows.push(row); }
+          row = []; cell = ''; quoted = false; started = false;
+        }
+        while (i < n) {
+          c = text.charAt(i);
+          if (inQ) {
+            if (c === '"') {
+              if (text.charAt(i + 1) === '"') { cell += '"'; i += 2; continue; }
+              inQ = false; i++; continue;
+            }
+            cell += c; i++; continue;
+          }
+          if (c === delim) { endCell(); i++; continue; }
+          if (c === '\n') { endRow(); i++; continue; }
+          if (c === '\r' && text.charAt(i + 1) === '\n') { endRow(); i += 2; continue; }
+          if (c === '\r' && crIsBreak) { endRow(); i++; continue; }
+          if (c === '"') {
+            if (!started) { inQ = true; quoted = true; started = true; qStart = rows.length + 1; i++; continue; }
+            stray[rows.length + 1] = true; cell += c; i++; continue;
+          }
+          if (quoted && !inQ) stray[rows.length + 1] = true;
+          started = true; cell += c; i++;
+        }
+        if (inQ) unclosed = qStart;
+        if (row.length || cell !== '' || quoted) { endCell(); rows.push(row); }
+        return { rows: rows, stray: stray, unclosed: unclosed };
+      }
+
+      function blank(line) { return phpTrim(line.join('')) === ''; }
+      function daysIn(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+      function pad(x) { return (x < 10 ? '0' : '') + x; }
+      function iso(y, m, d) {
+        var t = new Date(Date.UTC(y, m - 1, d)); // rolls over the way PHP does for day 29-31
+        return t.getUTCFullYear() + '-' + pad(t.getUTCMonth() + 1) + '-' + pad(t.getUTCDate());
+      }
+
+      /* How PHP's DateTimeImmutable reads a date, for the forms this checker is sure of (tested against PHP 8.4).
+         Returns { kind: ok|bad|us|yy|roll|unknown, date: 'Y-m-d' as PHP reads it, ms: timestamp in local time }. */
+      function readDate(raw) {
+        var s = phpTrim(raw), m, y, mo, d, kind = 'ok';
+        if (/^\d+(\.\d+)?$/.test(s)) {
+          var v = parseFloat(s);
+          // An Excel day serial; the importer converts these itself (parse_date, 20000 < n < 120000).
+          if (v > 20000 && v < 120000) return { kind: 'ok', ms: Math.round((v - 25569) * 86400000) + new Date().getTimezoneOffset() * 60000 };
+          return { kind: 'unknown' };
+        }
+        var hh = 0, mm = 0;
+        var t = /^(.*?)(?:[ T]+(\d{1,2}):(\d{2})(?::(\d{2}))?(?:\s*([ap])\.?m\.?)?)$/i.exec(s);
+        if (t && t[1] !== '') {
+          s = t[1]; hh = +t[2]; mm = +t[3];
+          if (mm > 59 || (t[4] && +t[4] > 59)) return { kind: 'bad' };
+          if (t[5]) { if (hh < 1 || hh > 12) return { kind: 'bad' }; hh = hh % 12 + (/p/i.test(t[5]) ? 12 : 0); }
+          else if (hh > 23) return { kind: 'bad' };
+        }
+        if ((m = /^(\d{4})([-\/])(\d{1,2})\2(\d{1,2})$/.exec(s))) { y = +m[1]; mo = +m[3]; d = +m[4]; }
+        else if ((m = /^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/.exec(s))) {
+          // American order: month/day/year. PHP has no day-first form with slashes.
+          mo = +m[1]; d = +m[2]; y = +m[3]; if (m[3].length === 2) y += y < 70 ? 2000 : 1900;
+          if (mo > 12) return { kind: 'bad' };
+          if (d <= 12 && d !== mo) kind = 'us';
+        }
+        else if ((m = /^(\d{1,2})[-.](\d{1,2})[-.](\d{4})$/.exec(s))) { d = +m[1]; mo = +m[2]; y = +m[3]; }
+        else if ((m = /^(\d{1,2})-(\d{1,2})-(\d{2})$/.exec(s))) {
+          // PHP reads dd-mm-yy as yy-mm-dd: 03-11-26 is 26 November 2003.
+          y = +m[1] + (+m[1] < 70 ? 2000 : 1900); mo = +m[2]; d = +m[3]; kind = 'yy';
+          if (mo < 1 || mo > 12 || d < 1 || d > 31) return { kind: 'unknown' };
+        }
+        else if ((m = /^(\d{1,2})[ -]([a-z]+)\.?[ -](\d{4})$/i.exec(s)) && MONTHS[phpLower(m[2])]) { d = +m[1]; mo = MONTHS[phpLower(m[2])]; y = +m[3]; }
+        else if ((m = /^([a-z]+)\.? (\d{1,2}),? (\d{4})$/i.exec(s)) && MONTHS[phpLower(m[1])]) { mo = MONTHS[phpLower(m[1])]; d = +m[2]; y = +m[3]; }
+        else return { kind: 'unknown' };
+        if (mo < 1 || d < 1) return { kind: 'unknown' };
+        if (mo > 12 || d > 31) return { kind: 'bad' };
+        if (d > daysIn(y, mo) && kind === 'ok') kind = 'roll';
+        return { kind: kind, date: iso(y, mo, d), ms: new Date(y, mo - 1, d, hh, mm).getTime() };
+      }
+
+      /* Everything the checker reports about one decoded file.
+         Issues are { m: message key, row, value, other, n, by }. */
+      function check(text, now) {
+        var out = { issues: [], rows: 0, headers: [], labels: [], map: {}, extra: [], ignored: [], preview: [], delim: ',' };
+        var issue = function (o) { out.issues.push(o); };
+        text = text.replace(/^﻿/, '');
+        var crOnly = text.indexOf('\r') !== -1 && text.indexOf('\n') === -1;
+        if (crOnly) issue({ m: 'cronly' });
+        var det = detectDelimiter(crOnly ? text.replace(/\r/g, '\n') : text);
+        out.delim = det.delim;
+        if (det.tabsOnly) issue({ m: 'tabs' });
+        var parsed = parseCsv(text, det.delim, crOnly), table = parsed.rows;
+        if (parsed.unclosed) issue({ m: 'unclosed', row: parsed.unclosed });
+
+        // SteadyPost_Sheet::to_rows(): the header is the first row that isn't blank.
+        var hi = -1, i, j;
+        for (i = 0; i < table.length; i++) if (!blank(table[i])) { hi = i; break; }
+        if (hi === -1) { out.empty = true; return out; }
+        var seen = {};
+        for (j = 0; j < table[hi].length; j++) {
+          var cellText = table[hi][j], key = normaliseHeader(cellText), base = key;
+          if (key === '') { key = 'column_' + (j + 1); issue({ m: 'blankhead', n: j + 1, value: key }); }
+          else if (seen[key]) issue({ m: 'duphead', value: phpTrim(cellText) });
+          while (seen[key]) key += '_' + (j + 1);
+          seen[key] = true;
+          out.headers.push(key);
+          out.labels.push(phpTrim(cellText) !== '' ? phpTrim(cellText) : key);
+          if (base !== key || base === '') continue;
+          if (/^meta:/.test(key)) {
+            if (key.length === 5) continue; // nothing left of the key: the importer skips it
+            // normalise_header() trims underscores, so "meta:_price" lands on "price", not the protected "_price".
+            if (/^meta\s*:\s*_/i.test(phpTrim(cellText))) issue({ m: 'metaprivate', value: phpTrim(cellText), other: key.slice(5) });
+            out.extra.push([j, 'meta']);
+          }
+          else if (/^tax:/.test(key) && key.length > 4) out.extra.push([j, 'tax']);
+        }
+
+        // SteadyPost_Sheet::auto_map()
+        var col = {}, used = {};
+        CANDIDATES.forEach(function (fc) {
+          for (var k = 0; k < fc[1].length; k++) {
+            var idx = out.headers.indexOf(fc[1][k]);
+            if (idx !== -1) { out.map[fc[0]] = idx; col[fc[0]] = idx; used[idx] = true; return; }
+          }
+        });
+        out.extra.forEach(function (e) { used[e[0]] = true; });
+        out.headers.forEach(function (h, k) {
+          if (used[k] || /^column_\d+/.test(h) && phpTrim(table[hi][k]) === '') return;
+          out.ignored.push(out.labels[k]);
+          if (HINTS[h] && !(HINTS[h] === 'Publish Date' && col.date !== undefined)) issue({ m: 'hint', value: out.labels[k], other: HINTS[h] });
+        });
+        if (col.title === undefined) issue({ m: 'notitlecol' });
+
+        var ids = {};
+        var termCols = [];
+        if (col.categories !== undefined) termCols.push(col.categories);
+        if (col.tags !== undefined) termCols.push(col.tags);
+        out.extra.forEach(function (e) { if (e[1] === 'tax') termCols.push(e[0]); });
+
+        for (i = hi + 1; i < table.length; i++) {
+          var line = table[i];
+          if (blank(line)) continue;
+          var r = i + 1; // the plugin's row number: the record's place in the file
+          out.rows++;
+          if (out.preview.length < 5) out.preview.push([r, line]);
+          if (parsed.stray[r]) issue({ m: 'stray', row: r });
+          for (j = out.headers.length; j < line.length; j++) if (phpTrim(line[j]) !== '') { issue({ m: 'extra', row: r, n: out.headers.length + 1 }); break; }
+          var val = function (f) { return col[f] === undefined ? '' : phpTrim(line[col[f]] || ''); };
+          if (col.title === undefined) continue;
+          var title = val('title');
+          if (title === '') { issue({ m: 'notitle', row: r }); continue; }
+
+          var rawStatus = val('status'), status = rawStatus === '' ? '' : STATUS[phpLower(rawStatus)];
+          if (rawStatus !== '' && !status) issue({ m: 'status', row: r, value: rawStatus });
+          var rawDate = val('date'), date = rawDate === '' ? null : readDate(rawDate);
+          if (date) {
+            if (date.kind === 'bad') issue({ m: 'datebad', row: r, value: rawDate });
+            else if (date.kind === 'us') issue({ m: 'dateus', row: r, value: rawDate, other: date.date });
+            else if (date.kind === 'yy') issue({ m: 'dateyy', row: r, value: rawDate, other: date.date });
+            else if (date.kind === 'roll') issue({ m: 'dateroll', row: r, value: rawDate, other: date.date });
+            else if (date.kind === 'unknown') issue({ m: 'dateunknown', row: r, value: rawDate });
+          }
+          if (status === 'future') {
+            if (!date || date.kind === 'bad') issue({ m: 'schednodate', row: r });
+            else if (date.ms && date.ms < now - 86400000) issue({ m: 'schedpast', row: r, value: rawDate });
+          }
+          var img = val('featured_image');
+          if (img !== '' && !/^https?:\/\//i.test(img) && (/^www\./i.test(img) || /:\/\//.test(img) || /\//.test(img))) issue({ m: 'imgpath', row: r, value: img });
+          var doc = val('doc_url');
+          if (doc !== '' && !/\/document\/d\/[a-zA-Z0-9\-_]+/.test(doc)) issue({ m: 'docbad', row: r, value: doc });
+          var pid = val('post_id');
+          if (pid !== '' && !/^\d+$/.test(pid)) issue({ m: 'postid', row: r, value: pid });
+          termCols.forEach(function (k) {
+            var v = phpTrim(line[k] || '');
+            if (v.indexOf(';') !== -1) issue({ m: 'semicolon', row: r, value: v, other: out.labels[k] });
+          });
+
+          // SteadyPost_Importer::row_ref(): ref, else slug, else the title. A Post ID names its post outright.
+          if (pid !== '' && /^\d+$/.test(pid)) continue;
+          var by = val('ref') !== '' ? 'ref' : val('slug') !== '' ? 'slug' : 'title';
+          var id = by === 'title' ? 'title:' + phpLower(title) : by + ':' + val(by).replace(/\s+/g, ' ');
+          if (ids[id]) issue({ m: 'dup', row: r, n: ids[id], by: by });
+          else ids[id] = r;
+        }
+        return out;
+      }
+
+      /* Bytes to text as SteadyPost_File::read_csv() does: strip a BOM, keep valid UTF-8, otherwise Windows-1252. */
+      function decode(bytes) {
+        var bom = bytes.length >= 3 && bytes[0] === 0xEF && bytes[1] === 0xBB && bytes[2] === 0xBF;
+        var body = bom ? bytes.subarray(3) : bytes;
+        try { return { text: new TextDecoder('utf-8', { fatal: true }).decode(body), enc: bom ? 'bom' : 'utf8' }; }
+        catch (e) { return { text: new TextDecoder('windows-1252').decode(body), enc: 'ansi' }; }
+      }
+
+      function csvLine(cells) {
+        return cells.map(function (c) { return /[",\r\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c; }).join(',');
+      }
+      /* core:end */
+
+      if (typeof document === 'undefined') return;
+      var $ = function (id) { return document.getElementById(id); };
+      var input = $('csvFile'), drop = $('csvDrop'), result = $('csvResult');
+      var parts = Array.prototype.slice.call(result.querySelectorAll('[data-r]'));
+      var LIMIT = 100;
+
+      function show(state) { parts.forEach(function (p) { p.hidden = p.getAttribute('data-r') !== state; }); if (state !== 'done') $('csvPreview').hidden = true; }
+      function toggle(sel, on) { Array.prototype.forEach.call(result.querySelectorAll(sel), function (el) { el.hidden = !on(el); }); }
+      function setText(k, v) { result.querySelector('[data-o="' + k + '"]').textContent = v; }
+      function num(x) { return x.toLocaleString('en-MY'); }
+      function fieldName(f) { var el = document.querySelector('#csvFieldNames [data-field="' + f + '"]'); return el ? el.textContent : f; }
+      function clip(s) { s = String(s).replace(/\s+/g, ' '); return s.length > 80 ? s.slice(0, 79) + '…' : s; }
+
+      function message(o) {
+        var tpl = document.querySelector('#csvMsgs [data-m="' + o.m + '"]').cloneNode(true);
+        tpl.className = 'csv-' + tpl.getAttribute('data-s');
+        ['row', 'value', 'other', 'n'].forEach(function (k) {
+          Array.prototype.forEach.call(tpl.querySelectorAll('[data-f="' + k + '"]'), function (el) { el.textContent = o[k] === undefined ? '' : clip(o[k]); });
+        });
+        Array.prototype.forEach.call(tpl.querySelectorAll('[data-by]'), function (el) { el.hidden = el.getAttribute('data-by') !== o.by; });
+        return tpl;
+      }
+
+      function render(res, enc) {
+        var errs = 0, warns = 0;
+        res.issues.forEach(function (o) { if (document.querySelector('#csvMsgs [data-m="' + o.m + '"]').getAttribute('data-s') === 'err') errs++; else warns++; });
+        toggle('[data-sum]', function (el) { var s = el.getAttribute('data-sum'); return s === (errs ? 'bad' : warns ? 'warn' : 'ok'); });
+        setText('errs', num(errs)); setText('warns', num(warns)); setText('warns2', num(warns));
+        setText('rows', num(res.rows)); setText('cols', num(res.headers.length));
+        var known = Object.keys(res.map).length + res.extra.length;
+        setText('known', num(known));
+        toggle('[data-d]', function (el) { return el.getAttribute('data-d') === (res.delim === ';' ? 'semicolon' : 'comma'); });
+        toggle('[data-e]', function (el) { return el.getAttribute('data-e') === enc; });
+
+        var cols = $('csvCols'); cols.innerHTML = '';
+        var list = [];
+        Object.keys(res.map).forEach(function (f) { list.push([res.map[f], f]); });
+        res.extra.forEach(function (e) { list.push([e[0], e[1]]); });
+        list.sort(function (a, b) { return a[0] - b[0]; });
+        list.forEach(function (p) {
+          var li = document.createElement('li'), code = document.createElement('code');
+          code.textContent = clip(res.labels[p[0]]);
+          li.appendChild(code); li.appendChild(document.createTextNode(' → ' + fieldName(p[1])));
+          cols.appendChild(li);
+        });
+        toggle('[data-c="nocols"]', function () { return !list.length; });
+        toggle('[data-c="ignored"]', function () { return res.ignored.length > 0; });
+        setText('ignored', res.ignored.map(clip).join(', '));
+
+        var ul = $('csvIssues'); ul.innerHTML = '';
+        res.issues.slice(0, LIMIT).forEach(function (o) { ul.appendChild(message(o)); });
+        if (res.issues.length > LIMIT) ul.appendChild(message({ m: 'more', n: num(res.issues.length - LIMIT) }));
+        toggle('[data-c="issuehead"]', function () { return res.issues.length > 0; });
+
+        var head = $('csvPHead'), body = $('csvPBody'), tr, cell;
+        head.innerHTML = ''; body.innerHTML = '';
+        tr = document.createElement('tr'); tr.appendChild(document.createElement('th'));
+        res.labels.forEach(function (l) { cell = document.createElement('th'); cell.textContent = clip(l); tr.appendChild(cell); });
+        head.appendChild(tr);
+        res.preview.forEach(function (p) {
+          tr = document.createElement('tr');
+          cell = document.createElement('td'); cell.textContent = p[0]; tr.appendChild(cell);
+          res.labels.forEach(function (l, k) { cell = document.createElement('td'); cell.textContent = clip(p[1][k] || ''); cell.title = p[1][k] || ''; tr.appendChild(cell); });
+          body.appendChild(tr);
+        });
+        show('done');
+        $('csvPreview').hidden = res.preview.length === 0;
+        if (typeof gtag === 'function') gtag('event', 'csv_check', { rows: res.rows, problems: errs + warns });
+      }
+
+      function handle(file) {
+        if (!file) return;
+        var name = $('csvName'); name.textContent = file.name; name.hidden = false;
+        var ext = (/\.([^.]+)$/.exec(file.name) || ['', ''])[1].toLowerCase();
+        if (ext === 'xlsx') return show('xlsx');
+        if (ext !== 'csv') return show('type');
+        if (file.size > MAX_SIZE) return show('big');
+        if (typeof FileReader === 'undefined' || typeof TextDecoder === 'undefined') return show('fail');
+        var reader = new FileReader();
+        reader.onload = function () {
+          var dec, res;
+          try { dec = decode(new Uint8Array(reader.result)); res = check(dec.text, Date.now()); }
+          catch (e) { return show('fail'); }
+          if (res.empty) return show('empty');
+          render(res, dec.enc);
+        };
+        reader.onerror = function () { show('fail'); };
+        reader.readAsArrayBuffer(file);
+      }
+
+      input.addEventListener('change', function () { handle(input.files && input.files[0]); input.value = ''; });
+      ['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.className = 'csv-drop csv-drop--over'; }); });
+      ['dragleave', 'drop'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.className = 'csv-drop'; }); });
+      drop.addEventListener('drop', function (e) { handle(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]); });
+      $('csvForm').addEventListener('submit', function (e) { e.preventDefault(); });
+
+      // The template, built here so it needs no download from the server. Headers stay in English:
+      // SteadyPost matches them by name. The example rows come from the hidden table above.
+      $('csvTemplate').addEventListener('click', function () {
+        var lines = [csvLine(TEMPLATE)], when = new Date(Date.now() + 7 * 86400000);
+        Array.prototype.forEach.call(document.querySelectorAll('#csvSample tr'), function (tr) {
+          lines.push(csvLine(Array.prototype.map.call(tr.cells, function (td) {
+            return td.getAttribute('data-date') ? when.getFullYear() + '-' + pad(when.getMonth() + 1) + '-' + pad(when.getDate()) + ' 09:00' : phpTrim(td.textContent);
+          })));
+        });
+        // The BOM makes Excel open the file as UTF-8, as SteadyPost's own template does.
+        var blob = new Blob(['﻿' + lines.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
+        if (window.navigator && navigator.msSaveBlob) return navigator.msSaveBlob(blob, 'steadypost-template.csv');
+        var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'steadypost-template.csv';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      });
+      show('start');
+    })();
+  </script>
+</body>
+</html>

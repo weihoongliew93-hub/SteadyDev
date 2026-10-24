@@ -5,7 +5,9 @@ file, so a layout change to the English page carries over by rebuilding.
 
 - `<name>_ms.py`, `<name>_zh.py`: the translations. `B` maps text-block ids to translated
   HTML, `HEAD` the title and description, `ATTR` placeholders, aria-labels, image alt text and titles, `SCRIPT` strings a page's own
-  script writes. Reviewers edit these.
+  script writes, and optionally `TEXT` for loose text outside any block (matched whole).
+  Reviewers edit these. Dates in `<time datetime>` elements are written in the page's
+  language by the build, so a module needs no entries for them.
 - `i18n_extract.py`: lists a page's text blocks and ids (`python i18n/i18n_extract.py
   einvoice.html out.json`). Ids follow page order, so after editing the English page,
   extract again and check which blocks moved or changed before rebuilding.
