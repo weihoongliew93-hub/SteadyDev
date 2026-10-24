@@ -41,7 +41,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.3.0",
+    "softwareVersion": "1.4.0",
     "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
     "url": "https://steadydevs.com/steadypost",
     "downloadUrl": "https://wordpress.org/plugins/steadypost/",
@@ -60,7 +60,11 @@
       "Plain text, Markdown or HTML content",
       "Images by filename from a zip or the media library",
       "Yoast SEO, Rank Math and SEOPress fields",
-      "Optional Google Sheets and Google Docs import"
+      "Optional Google Sheets and Google Docs import",
+      "Page templates with {{Column}} placeholders",
+      "Dry run with before and after for every changed field",
+      "Skips rows that have not changed since the last import",
+      "WP-CLI commands for import, history and undo"
     ]
   }
   </script>
@@ -172,7 +176,7 @@
               <a class="f-btn f-btn--primary f-btn--glow" href="https://wordpress.org/plugins/steadypost/" data-sp-download="hero" rel="noopener">Download SteadyPost — free</a>
               <a class="f-btn f-btn--secondary" href="#tour">See how it works</a>
             </div>
-            <p class="f-note" style="margin-top: 16px">Version 1.3.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · <a href="downloads/steadypost-sample-content-calendar.xlsx" data-sp-download="sample">try it with our sample spreadsheet</a></p>
+            <p class="f-note" style="margin-top: 16px">Version 1.4.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · <a href="downloads/steadypost-sample-content-calendar.xlsx" data-sp-download="sample">try it with our sample spreadsheet</a></p>
           </div>
 
           <div class="f-hero__aside sp-hero-visual" aria-label="Illustration: spreadsheet rows becoming WordPress posts">
@@ -204,7 +208,7 @@
     <div class="f-strip">
       <div class="f-container f-strip__inner">
         <span>Built for</span>
-        <strong>Content calendars</strong><strong>Bulk SEO updates</strong><strong>Product &amp; directory listings</strong><strong>Event listings</strong><strong>Site migrations</strong><strong>Agency handovers</strong>
+        <strong>Content calendars</strong><strong>Bulk SEO updates</strong><strong>Product &amp; directory listings</strong><strong>Event listings</strong><strong>Site migrations</strong><strong>Agency handovers</strong><strong>Location &amp; service pages</strong>
       </div>
     </div>
 
@@ -260,11 +264,13 @@
                 <li>Which posts would be created, and which updated</li>
                 <li>Categories and tags that don't exist yet</li>
                 <li>Authors, images and dates that can't be found or read</li>
+                <li>For each post it would update: every field that would change, now and after</li>
+                <li>Rows that haven't changed since the last import are skipped</li>
               </ul>
             </div>
-            <a class="sp-shot sp-shot--crop" href="images/steadypost/dryrun.webp" target="_blank" rel="noopener">
+            <div><a class="sp-shot" href="images/steadypost/dryrun-changes.webp" rel="noopener" target="_blank"><img src="images/steadypost/dryrun-changes.webp" width="1488" height="812" loading="lazy" alt="SteadyPost dry run: for the post that would be updated, a table of each field now and after the import; three unchanged rows are skipped."></a><a class="sp-shot sp-shot--crop" href="images/steadypost/dryrun.webp" target="_blank" rel="noopener">
               <img src="images/steadypost/dryrun.webp" width="1600" height="1022" loading="lazy" alt="SteadyPost dry run result: 2 would create, 8 would update, nothing saved, with a line per row explaining what would happen.">
-            </a>
+            </a></div>
           </div>
 
           <div class="sp-feature sp-feature--flip">
@@ -305,6 +311,19 @@
               <img src="images/steadypost/export.webp" width="1600" height="1048" loading="lazy" alt="SteadyPost Export screen: choose post type, status, category and date range, include custom fields, and download as Excel or CSV.">
             </a>
           </div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">06 · Page templates</p>
+<h3 class="f-h3">One template, a page for every row</h3>
+<p>Write a page once, with column names in double braces, and every row fills in its own details: one page per outlet, city, service or product.</p>
+<ul class="f-checks">
+<li>Placeholders in the title, slug, content, excerpt and SEO fields</li>
+<li>Fallbacks for empty cells, and sections that only show when a cell has a value</li>
+<li>A row's own cell always wins, for the pages that need hand-written copy</li>
+</ul>
+</div>
+<a class="sp-shot" href="images/steadypost/templates.webp" rel="noopener" target="_blank"><img src="images/steadypost/templates.webp" width="1375" height="868" loading="lazy" alt="SteadyPost page templates settings: title, slug, content, excerpt and SEO templates with {{Outlet}}, {{State}} and {{Hours}} placeholders."></a>
+</div>
         </div>
       </div>
     </section>
@@ -321,7 +340,8 @@
           <article class="f-card f-card--compact"><h3 class="f-card__title">Excel &amp; CSV, properly</h3><p class="f-card__text">.xlsx and .csv, including the quirks of real files: Excel's Windows encoding, semicolon separators, typed dates and hyperlinked cells.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Plain text, Markdown or HTML</h3><p class="f-card__text">Write the body however you like; it's detected per row. Block-editor content is kept exactly as it is.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Images by filename</h3><p class="f-card__text">Upload a zip of images and write <span class="f-mono">hero.jpg</span> in a row — or reuse an image already in your media library. Each image is added once.</p></article>
-          <article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Re-import without duplicates</h3><p class="f-card__text">Run the same sheet again and the posts it created are updated in place. Nothing doubles up.</p></article>
+          <article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Re-import without duplicates</h3><p class="f-card__text">Run the same sheet again and the posts it created are updated in place, and rows that haven't changed are skipped. Nothing doubles up.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">WP-CLI for developers</h3><p class="f-card__text"><span class="f-mono">wp steadypost import</span> with a dry run, plus history and undo, for scripts and agency workflows.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Categories, tags &amp; taxonomies</h3><p class="f-card__text">Comma-separated, created if they're missing. Any custom taxonomy works through a <span class="f-mono">tax:</span> column.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Custom fields &amp; ACF</h3><p class="f-card__text">Registered post meta and simple Advanced Custom Fields fields appear as template columns automatically.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">SEO fields written for you</h3><p class="f-card__text">Meta title, description and keywords go straight into Yoast SEO, Rank Math or SEOPress — or meta keys you name.</p></article>
@@ -364,7 +384,7 @@
         </div>
         <div class="sp-free">
           <div class="f-card f-price-card f-price-card--featured">
-            <span class="f-ribbon">SteadyPost 1.3.0</span>
+            <span class="f-ribbon">SteadyPost 1.4.0</span>
             <div class="f-price">$0 <small>forever</small></div>
             <ul class="f-checks">
               <li>Every feature on this page — nothing locked, nothing capped</li>

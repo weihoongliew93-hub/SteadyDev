@@ -33,7 +33,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.3.0",
+    "softwareVersion": "1.4.0",
     "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
     "url": "https://steadydevs.com/steadypost",
     "downloadUrl": "https://wordpress.org/plugins/steadypost/",
@@ -52,7 +52,11 @@
       "Plain text, Markdown or HTML content",
       "Images by filename from a zip or the media library",
       "Yoast SEO, Rank Math and SEOPress fields",
-      "Optional Google Sheets and Google Docs import"
+      "Optional Google Sheets and Google Docs import",
+      "Page templates with {{Column}} placeholders",
+      "Dry run with before and after for every changed field",
+      "Skips rows that have not changed since the last import",
+      "WP-CLI commands for import, history and undo"
     ]
   }
   </script>
@@ -158,7 +162,7 @@
 <p class="f-lead">Rancang siaran dalam Excel, CSV atau Google Sheets. SteadyPost menukar setiap baris kepada siaran WordPress — kandungan, kategori, imej dan medan SEO — dan membolehkan anda menyemaknya, membuat asal dan menyuntingnya secara pukal kemudian.</p>
 <div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="hero" href="https://wordpress.org/plugins/steadypost/" rel="noopener">Muat turun SteadyPost — percuma</a>
 <a class="f-btn f-btn--secondary" href="#tour">Lihat cara ia berfungsi</a></div>
-<p class="f-note" style="margin-top: 16px">Versi 1.3.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">cuba dengan hamparan contoh kami</a></p>
+<p class="f-note" style="margin-top: 16px">Versi 1.4.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">cuba dengan hamparan contoh kami</a></p>
 </div>
 <div aria-label="Ilustrasi: baris hamparan menjadi siaran WordPress" class="f-hero__aside sp-hero-visual">
 <div class="f-card sp-sheet">
@@ -187,7 +191,7 @@
 </section>
 <div class="f-strip">
 <div class="f-container f-strip__inner"><span>Dibina untuk</span>
-<strong>Kalendar kandungan</strong><strong>Kemas kini SEO secara pukal</strong><strong>Senarai produk &amp; direktori</strong><strong>Senarai acara</strong><strong>Pemindahan laman</strong><strong>Serahan agensi</strong></div>
+<strong>Kalendar kandungan</strong><strong>Kemas kini SEO secara pukal</strong><strong>Senarai produk &amp; direktori</strong><strong>Senarai acara</strong><strong>Pemindahan laman</strong><strong>Serahan agensi</strong><strong>Halaman lokasi &amp; perkhidmatan</strong></div>
 </div>
 <!-- ============================================================ TOUR -->
 <section class="f-section" id="tour">
@@ -238,11 +242,13 @@
 <li>Siaran mana yang akan dicipta, dan mana yang akan dikemas kini</li>
 <li>Kategori dan tag yang belum wujud</li>
 <li>Pengarang, imej dan tarikh yang tidak dapat ditemui atau dibaca</li>
+<li>Bagi setiap siaran yang akan dikemas kini: setiap medan yang akan berubah, sebelum dan selepas</li>
+<li>Baris yang tidak berubah sejak import terakhir dilangkau</li>
 </ul>
 </div>
-<a class="sp-shot sp-shot--crop" href="../images/steadypost/dryrun.webp" rel="noopener" target="_blank">
+<div><a class="sp-shot" href="../images/steadypost/dryrun-changes.webp" rel="noopener" target="_blank"><img src="../images/steadypost/dryrun-changes.webp" width="1488" height="812" loading="lazy" alt="Larian percubaan SteadyPost: bagi siaran yang akan dikemas kini, jadual setiap medan sekarang dan selepas import; tiga baris yang tidak berubah dilangkau."></a><a class="sp-shot sp-shot--crop" href="../images/steadypost/dryrun.webp" rel="noopener" target="_blank">
 <img alt="Keputusan larian percubaan SteadyPost: 2 akan dicipta, 8 akan dikemas kini, tiada yang disimpan, dengan satu baris bagi setiap baris hamparan yang menerangkan apa yang akan berlaku." height="1022" loading="lazy" src="../images/steadypost/dryrun.webp" width="1600"/>
-</a>
+</a></div>
 </div>
 <div class="sp-feature sp-feature--flip">
 <div class="sp-feature__copy">
@@ -281,6 +287,19 @@
 <img alt="Skrin Eksport SteadyPost: pilih jenis siaran, status, kategori dan julat tarikh, sertakan medan tersuai, dan muat turun sebagai Excel atau CSV." height="1048" loading="lazy" src="../images/steadypost/export.webp" width="1600"/>
 </a>
 </div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">06 · Templat halaman</p>
+<h3 class="f-h3">Satu templat, satu halaman untuk setiap baris</h3>
+<p>Tulis halaman sekali, dengan nama lajur dalam kurungan berganda, dan setiap baris mengisi butirannya sendiri: satu halaman bagi setiap cawangan, bandar, perkhidmatan atau produk.</p>
+<ul class="f-checks">
+<li>Pemegang tempat dalam tajuk, slug, kandungan, petikan dan medan SEO</li>
+<li>Teks ganti untuk sel kosong, dan bahagian yang hanya muncul apabila sel ada nilai</li>
+<li>Sel baris itu sendiri sentiasa diutamakan, untuk halaman yang memerlukan teks tulisan sendiri</li>
+</ul>
+</div>
+<a class="sp-shot" href="../images/steadypost/templates.webp" rel="noopener" target="_blank"><img src="../images/steadypost/templates.webp" width="1375" height="868" loading="lazy" alt="Tetapan templat halaman SteadyPost: templat tajuk, slug, kandungan, petikan dan SEO dengan pemegang tempat {{Outlet}}, {{State}} dan {{Hours}}."></a>
+</div>
 </div>
 </div>
 </section>
@@ -296,7 +315,8 @@
 <article class="f-card f-card--compact"><h3 class="f-card__title">Excel &amp; CSV, dengan betul</h3><p class="f-card__text">.xlsx dan .csv, termasuk keanehan fail sebenar: pengekodan Windows Excel, pemisah koma bertitik, tarikh bertaip dan sel berpautan.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Teks biasa, Markdown atau HTML</h3><p class="f-card__text">Tulis kandungan mengikut cara anda; ia dikesan bagi setiap baris. Kandungan editor blok dikekalkan tepat seperti asal.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Imej mengikut nama fail</h3><p class="f-card__text">Muat naik fail zip berisi imej dan tulis <span class="f-mono">hero.jpg</span> dalam satu baris — atau guna semula imej yang sudah ada dalam pustaka media anda. Setiap imej ditambah sekali sahaja.</p></article>
-<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Import semula tanpa pendua</h3><p class="f-card__text">Jalankan helaian yang sama sekali lagi dan siaran yang telah diciptanya dikemas kini di tempat yang sama. Tiada yang berganda.</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Import semula tanpa pendua</h3><p class="f-card__text">Jalankan helaian yang sama sekali lagi dan siaran yang telah diciptanya dikemas kini di tempat yang sama, manakala baris yang tidak berubah dilangkau. Tiada yang berganda.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">WP-CLI untuk pembangun</h3><p class="f-card__text"><span class="f-mono">wp steadypost import</span> dengan larian percubaan, serta sejarah dan buat asal, untuk skrip dan aliran kerja agensi.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Kategori, tag &amp; taksonomi</h3><p class="f-card__text">Dipisahkan dengan koma, dicipta jika belum ada. Sebarang taksonomi tersuai boleh digunakan melalui lajur <span class="f-mono">tax:</span>.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Medan tersuai &amp; ACF</h3><p class="f-card__text">Meta siaran yang didaftarkan dan medan Advanced Custom Fields yang ringkas muncul sebagai lajur templat secara automatik.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Medan SEO ditulis untuk anda</h3><p class="f-card__text">Tajuk meta, penerangan dan kata kunci terus masuk ke Yoast SEO, Rank Math atau SEOPress — atau kunci meta yang anda namakan.</p></article>
@@ -333,7 +353,7 @@
 </div>
 <div class="sp-free">
 <div class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">SteadyPost 1.3.0</span>
+<span class="f-ribbon">SteadyPost 1.4.0</span>
 <div class="f-price">$0 <small>selama-lamanya</small></div>
 <ul class="f-checks">
 <li>Setiap ciri di halaman ini — tiada yang dikunci, tiada yang dihadkan</li>

@@ -33,7 +33,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.3.0",
+    "softwareVersion": "1.4.0",
     "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
     "url": "https://steadydevs.com/steadypost",
     "downloadUrl": "https://wordpress.org/plugins/steadypost/",
@@ -52,7 +52,11 @@
       "Plain text, Markdown or HTML content",
       "Images by filename from a zip or the media library",
       "Yoast SEO, Rank Math and SEOPress fields",
-      "Optional Google Sheets and Google Docs import"
+      "Optional Google Sheets and Google Docs import",
+      "Page templates with {{Column}} placeholders",
+      "Dry run with before and after for every changed field",
+      "Skips rows that have not changed since the last import",
+      "WP-CLI commands for import, history and undo"
     ]
   }
   </script>
@@ -158,7 +162,7 @@
 <p class="f-lead">在 Excel、CSV 或 Google Sheets 里规划文章。SteadyPost 把每一行变成一篇 WordPress 文章——内容、分类、图片和 SEO 字段——之后还能检查、撤销和批量编辑。</p>
 <div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="hero" href="https://wordpress.org/plugins/steadypost/" rel="noopener">免费下载 SteadyPost</a>
 <a class="f-btn f-btn--secondary" href="#tour">看看如何运作</a></div>
-<p class="f-note" style="margin-top: 16px">版本 1.3.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">用我们的示例电子表格试试</a></p>
+<p class="f-note" style="margin-top: 16px">版本 1.4.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">用我们的示例电子表格试试</a></p>
 </div>
 <div aria-label="示意图：电子表格的每一行变成 WordPress 文章" class="f-hero__aside sp-hero-visual">
 <div class="f-card sp-sheet">
@@ -187,7 +191,7 @@
 </section>
 <div class="f-strip">
 <div class="f-container f-strip__inner"><span>适用于</span>
-<strong>内容日历</strong><strong>批量更新 SEO</strong><strong>产品与名录列表</strong><strong>活动列表</strong><strong>网站迁移</strong><strong>代理商交接</strong></div>
+<strong>内容日历</strong><strong>批量更新 SEO</strong><strong>产品与名录列表</strong><strong>活动列表</strong><strong>网站迁移</strong><strong>代理商交接</strong><strong>地区与服务页面</strong></div>
 </div>
 <!-- ============================================================ TOUR -->
 <section class="f-section" id="tour">
@@ -238,11 +242,13 @@
 <li>哪些文章会新建，哪些会更新</li>
 <li>尚不存在的分类和标签</li>
 <li>找不到或无法读取的作者、图片和日期</li>
+<li>每篇将被更新的文章：每个会改变的字段，更新前与更新后一目了然</li>
+<li>自上次导入后没有变化的行会被跳过</li>
 </ul>
 </div>
-<a class="sp-shot sp-shot--crop" href="../images/steadypost/dryrun.webp" rel="noopener" target="_blank">
+<div><a class="sp-shot" href="../images/steadypost/dryrun-changes.webp" rel="noopener" target="_blank"><img src="../images/steadypost/dryrun-changes.webp" width="1488" height="812" loading="lazy" alt="SteadyPost 试运行：对将被更新的文章，以表格列出每个字段的当前值和导入后的值；三行没有变化的行被跳过。"></a><a class="sp-shot sp-shot--crop" href="../images/steadypost/dryrun.webp" rel="noopener" target="_blank">
 <img alt="SteadyPost 试运行结果：将新建 2 篇、更新 8 篇，未保存任何内容，并逐行说明会发生什么。" height="1022" loading="lazy" src="../images/steadypost/dryrun.webp" width="1600"/>
-</a>
+</a></div>
 </div>
 <div class="sp-feature sp-feature--flip">
 <div class="sp-feature__copy">
@@ -281,6 +287,19 @@
 <img alt="SteadyPost 导出页面：选择文章类型、状态、分类和日期范围，可包含自定义字段，并下载为 Excel 或 CSV。" height="1048" loading="lazy" src="../images/steadypost/export.webp" width="1600"/>
 </a>
 </div>
+<div class="sp-feature sp-feature--flip">
+<div class="sp-feature__copy">
+<p class="f-eyebrow">06 · 页面模板</p>
+<h3 class="f-h3">一个模板，每一行一个页面</h3>
+<p>页面只需写一次，用双大括号写上列名，每一行就会填入自己的内容：每个门店、城市、服务或产品各一个页面。</p>
+<ul class="f-checks">
+<li>标题、别名、正文、摘要和 SEO 字段都可以使用占位符</li>
+<li>空单元格可设默认文字，也可设置只在单元格有值时才显示的段落</li>
+<li>行内自己的单元格永远优先，方便个别页面使用手写文案</li>
+</ul>
+</div>
+<a class="sp-shot" href="../images/steadypost/templates.webp" rel="noopener" target="_blank"><img src="../images/steadypost/templates.webp" width="1375" height="868" loading="lazy" alt="SteadyPost 页面模板设置：带有 {{Outlet}}、{{State}} 和 {{Hours}} 占位符的标题、别名、正文、摘要和 SEO 模板。"></a>
+</div>
 </div>
 </div>
 </section>
@@ -296,7 +315,8 @@
 <article class="f-card f-card--compact"><h3 class="f-card__title">Excel 与 CSV，处理得当</h3><p class="f-card__text">.xlsx 和 .csv，包括真实文件的各种怪癖：Excel 的 Windows 编码、分号分隔符、带类型的日期和含超链接的单元格。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">纯文本、Markdown 或 HTML</h3><p class="f-card__text">正文随您怎么写，每一行会自动识别。区块编辑器的内容会原样保留。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">按文件名引用图片</h3><p class="f-card__text">上传一个图片 zip 包，在某一行写上 <span class="f-mono">hero.jpg</span>——或重复使用媒体库中已有的图片。每张图片只会添加一次。</p></article>
-<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">重新导入不会重复</h3><p class="f-card__text">再次导入同一张表，之前新建的文章会在原处更新，不会出现重复。</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">重新导入不会重复</h3><p class="f-card__text">再次导入同一张表，之前新建的文章会在原处更新，没有变化的行会被跳过，不会出现重复。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">面向开发者的 WP-CLI</h3><p class="f-card__text"><span class="f-mono">wp steadypost import</span> 支持试运行，另有历史记录和撤销命令，适合脚本和代理商的工作流程。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">分类、标签与分类法</h3><p class="f-card__text">用逗号分隔，不存在时自动创建。任何自定义分类法都可通过 <span class="f-mono">tax:</span> 列使用。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">自定义字段与 ACF</h3><p class="f-card__text">已注册的文章元数据和简单的 Advanced Custom Fields 字段，会自动作为模板列出现。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">SEO 字段自动写好</h3><p class="f-card__text">Meta 标题、描述和关键词直接写入 Yoast SEO、Rank Math 或 SEOPress——或您指定的 meta 键。</p></article>
@@ -333,7 +353,7 @@
 </div>
 <div class="sp-free">
 <div class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">SteadyPost 1.3.0</span>
+<span class="f-ribbon">SteadyPost 1.4.0</span>
 <div class="f-price">$0 <small>永久</small></div>
 <ul class="f-checks">
 <li>本页所列的每项功能——不锁定，不设上限</li>
