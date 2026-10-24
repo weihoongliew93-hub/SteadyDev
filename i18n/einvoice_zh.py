@@ -260,3 +260,6 @@ B = {
 
 # 22 Oct: claims made accurate
 B.update({'b3': '只需连接一次您的 POS、ERP 或会计系统。每张发票都会按照 LHDN 规则验证，并自动提交到 MyInvois。无需手动操作，没有难懂的拒绝代码，不再错过提交期限。', 'b25': '<strong>官方 MyInvois API</strong><strong>全部 8 种发票类型</strong><strong>三层验证</strong><strong>每 5 分钟同步状态</strong><strong>免费重新提交</strong>', 'b54': '证书事务交给我们', 'b55': '如果您使用自己的 MyInvois 凭证连接，只需上传一次证书，到期前 60 天和 7 天都会提醒您。', 'b87': '提交', 'b88': '发票以您的 TIN 提交到 MyInvois。LHDN 截止时间过后不会再发送。', 'b222': '每个 TIN 都有独立的凭证、证书和记录，完全隔离（定制配套）。', 'b232': '平台如何连接 LHDN？', 'b233': '通过 LHDN 官方的 MyInvois API，以您自己的 TIN 提交。连接方式有两种：由 SteadyDevs 作为您的中介代为提交（您只需在 MyInvois 中授权一次），或使用您自己的 MyInvois 凭证连接。开通时我们会协助您完成任一种方式。', 'b234': '我需要自己的数字证书吗？', 'b235': '如果由 SteadyDevs 作为中介代您提交，就不需要。如果使用您自己的 MyInvois 凭证连接，则需要向 LHDN 认可的证书机构申请证书；在设置中上传一次即可，到期前 60 天会提醒您。'})
+
+# Intermediary filing is built but not yet proven on LHDN preprod: offered as coming soon.
+B.update({'b233': '通过 LHDN 官方的 MyInvois API，以您自己的 TIN 提交。目前您使用自己的 MyInvois 凭证连接，开通时我们会一步步引导您完成。由 SteadyDevs 作为您的中介代为提交（您只需在 MyInvois 授权一次）即将推出。', 'b235': '目前需要：您使用自己的 MyInvois 凭证连接，需要一张来自 LHDN 认可供应商的证书。您只需在“设置”中上传一次，到期前 60 天会收到提醒。待 SteadyDevs 可以作为您的中介代为提交（即将推出）后，您就不再需要证书。'})

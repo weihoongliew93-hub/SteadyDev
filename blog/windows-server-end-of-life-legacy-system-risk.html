@@ -44,7 +44,7 @@
     "alternativeHeadline": "Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But w",
     "image": "https://steadydevs.com/images/blog/windows-server-end-of-life.jpg",
     "datePublished": "2026-06-21T00:00:00+08:00",
-    "dateModified": "2026-06-21T00:00:00+08:00",
+    "dateModified": "2026-10-24T00:00:00+08:00",
     "author": {
       "@type": "Person",
       "name": "SteadyDevs",
@@ -98,7 +98,7 @@
   
   <!-- Article Metadata -->
   <meta property="article:published_time" content="2026-06-21T00:00:00+08:00">
-  <meta property="article:modified_time" content="2026-06-21T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-10-24T00:00:00+08:00">
   <meta property="article:author" content="SteadyDevs">
   <meta property="article:section" content="Software Development">
   <meta property="article:tag" content="Windows Server, SQL Server, Security, Legacy Systems, Infrastructure">
@@ -184,8 +184,8 @@
 <h2>What "End of Support" Actually Means</h2>
 <p>Microsoft products move through a lifecycle. The milestone that matters is <strong>end of extended support</strong>: the date after which Microsoft stops issuing security updates entirely (without paid arrangements). The software still runs. That's the trap—it feels fine right up until it's a headline.</p>
 <p>Roughly where common versions stand:</p>
-<ul><li><strong>Windows Server 2012 / 2012 R2:</strong> Extended support ended in October 2023. Already unsupported—any business still on it is exposed today.</li><li><strong>SQL Server 2012:</strong> Ended in 2022. <strong>SQL Server 2014:</strong> ended in 2024. Both are past end of support.</li><li><strong>Windows Server 2016 / 2019:</strong> Still in support for now, but with end dates approaching later this decade—plan ahead, don't panic.</li><li><strong>Windows Server 2008 / 2008 R2 and older:</strong> Long dead. If you're here, this is urgent.</li></ul>
-<div class="warning-box"><p><strong>Verify the exact dates for your versions</strong> on Microsoft's official Lifecycle pages before acting—Microsoft occasionally adjusts dates and offers paid Extended Security Updates (ESU) for some products. The point isn't the precise day; it's knowing whether you're already past it.</p></div>
+<ul><li><strong>Windows Server 2012 / 2012 R2:</strong> Extended support ended in October 2023, and the paid Extended Security Updates that followed ran out on 13 October 2026. No more patches of any kind—any business still on it is exposed today. <a href="../microsoft-end-of-support-lookup.html#ws-2012r2">See the dates</a>.</li><li><strong>SQL Server 2012:</strong> Ended in 2022. <strong>SQL Server 2014:</strong> ended in 2024. Both are past end of support.</li><li><strong>Windows Server 2016:</strong> Extended support ends on 12 January 2027, and Microsoft has not announced paid ESU for it. If you run it, plan the move now. <a href="../microsoft-end-of-support-lookup.html#ws-2016">See the dates</a>.</li><li><strong>Windows Server 2019:</strong> Supported until 9 January 2029—plan ahead, don't panic.</li><li><strong>Windows Server 2008 / 2008 R2 and older:</strong> Long dead. If you're here, this is urgent.</li></ul>
+<div class="warning-box"><p><strong>Verify the exact dates for your versions</strong> on Microsoft's official Lifecycle pages, or in our <a href="../microsoft-end-of-support-lookup.html">Microsoft end-of-support lookup</a>, before acting—Microsoft occasionally adjusts dates and offers paid Extended Security Updates (ESU) for some products. The point isn't the precise day; it's knowing whether you're already past it.</p></div>
 <h2>Why an Unsupported Server Is a Real Problem—Not a Theoretical One</h2>
 <h3>1. Security: No More Patches</h3>
 <p>This is the big one. After end of support, newly discovered vulnerabilities never get fixed. Attackers specifically hunt for unpatched, end-of-life servers because they're reliable targets. Ransomware crews love them. Your firewall and antivirus help, but they can't close holes in the operating system itself. Every month past end-of-life, the known-but-unpatched vulnerability list only grows.</p>
@@ -205,7 +205,7 @@
 <h3>2. Move to the Cloud</h3>
 <p>Rehosting on Azure (or another cloud) shifts the infrastructure burden off your back-office machine. It can simplify patching and backups and improve resilience. It's not automatically cheaper or simpler for every small business, but for many it removes the "who owns this server?" problem permanently. We've written separately on cloud vs. on-premise trade-offs.</p>
 <h3>3. Paid Extended Security Updates (Stopgap Only)</h3>
-<p>Microsoft sells Extended Security Updates for some end-of-life products, buying you continued patches for a limited time at a recurring cost. Treat this as a bridge—a way to buy a year or two to plan a proper migration—not a destination. The cost rises over time precisely to push you to upgrade.</p>
+<p>Microsoft sells Extended Security Updates for some end-of-life products, buying you continued patches for a limited time at a recurring cost. Treat this as a bridge—a way to buy a year or two to plan a proper migration—not a destination. The cost rises over time precisely to push you to upgrade, and the bridge does end: ESU for Windows Server 2012 / 2012 R2 ran out on 13 October 2026.</p>
 <h3>4. Isolate and Reduce Exposure (Interim)</h3>
 <p>If migration genuinely can't happen immediately, reduce the blast radius: take the server off the public internet, tighten network segmentation so it can't reach (or be reached by) everything, restrict access, and ensure rock-solid offline backups. This lowers risk—it does not remove it. Use the time it buys to migrate.</p>
 <div class="warning-box"><p><strong>An end-of-life server directly exposed to the internet is a genuine emergency.</strong> If your old Windows Server has open remote-desktop or other ports facing the world, treat that as a drop-everything problem—those are precisely how unpatched servers get ransomwared.</p></div>
@@ -241,7 +241,7 @@
                   <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                  <p>Check the version (Server Manager or system properties for Windows; run SELECT @@VERSION in SQL Server) and look it up on Microsoft's official Lifecycle pages. As a rough guide: Windows Server 2012/2012 R2 and SQL Server 2012/2014 are already past end of support. If you're not sure what version you have, that uncertainty is itself a reason to get an assessment.</p>
+                  <p>Check the version (Server Manager or system properties for Windows; run SELECT @@VERSION in SQL Server) and look it up on Microsoft's official Lifecycle pages. As a rough guide: Windows Server 2012/2012 R2 and SQL Server 2012/2014 are already past end of support, and Windows Server 2016 follows on 12 January 2027. If you're not sure what version you have, that uncertainty is itself a reason to get an assessment.</p>
                 </div>
               </div>
             

@@ -12454,7 +12454,7 @@
       },
       {
         "type": "paragraph",
-        "text": "This is the part a proper booking layer handles quietly: confirmations and reminders sent automatically, availability that reflects cancellations the moment they happen, and a record of every booking—completed, cancelled or missed—attached to the customer who made it, so the numbers are there when you want to look."
+        "text": "This is the part a proper booking layer handles quietly: confirmations and reminders sent automatically, availability that reflects cancellations the moment they happen, and a record of every booking and cancellation with the customer who made it, so the numbers are there when you want to look."
       },
       {
         "type": "cta",

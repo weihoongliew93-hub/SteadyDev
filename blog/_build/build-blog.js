@@ -68,7 +68,7 @@ function productCallout(post) {
     text: 'SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN\'s rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in.' };
   else if (has('venue booking', 'double booking')) c = {
     label: 'Taking bookings for courts, rooms or studios?', href: '../venue-booking.html', link: 'See Venue Booking',
-    text: 'SteadyDevs Venue Booking is a WordPress plugin with live availability, approvals, deposits and automatic reminders, so double bookings and no-shows stop costing you.' };
+    text: 'SteadyDevs Venue Booking is a WordPress plugin with live availability, approvals, automatic reminders and online payment at booking, so double bookings and no-shows stop costing you.' };
   else if (/cloud/.test(post.slug)) c = {
     label: 'Cloud bill higher than it should be?', href: '../cloud-cost-audit.html', link: 'See the cloud cost audit',
     text: 'We review what you run and what you pay for, and show where the money goes, before you commit to a migration or a bigger plan.' };
