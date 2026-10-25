@@ -37,7 +37,7 @@ jobs:
       - name: Leave internal files out of the site
         run: |
           rm -rf einvoice-docs docs i18n blog/_build
-          find . -path ./.git -prune -o \( -name '*.md' -o -name '*.py' -o -name '*.bat' \) -type f -print -delete
+          find . -type f -not -path './.git/*' \( -name '*.md' -o -name '*.py' -o -name '*.bat' \) -print -delete
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
