@@ -2354,6 +2354,7 @@
       "Architecture"
     ],
     "author": "SteadyDevs",
+    "published": true,
     "heroImage": "images/blog/refactor-vs-rewrite.jpg",
     "heroImageAlt": "Developer reviewing code architecture decisions",
     "content": [
@@ -2673,8 +2674,8 @@
         "text": "<em style=\"color: #9CA3AF;\">Facing this decision in your own system? <a href=\"../contact.html\" style=\"color: #60A5FA;\">Let's talk</a> about what makes sense for your specific situation.</em>"
       }
     ],
-    "seoTitle": "Refactor or Rewrite a Legacy .NET System?",
-    "metaDescription": "When refactoring a legacy .NET system makes sense and when a rewrite is justified, from 11 years of keeping production systems running."
+    "seoTitle": "Refactor vs Rewrite: .NET Refactoring or a Rebuild?",
+    "metaDescription": "Refactor or rewrite your legacy .NET app? The signs that refactoring is the safer bet, the rare cases a rewrite is justified, and a decision framework."
   },
   {
     "id": "5-warning-signs-your-legacy-dotnet-system-needs-attention",
@@ -2690,6 +2691,7 @@
       "Maintenance"
     ],
     "author": "SteadyDevs",
+    "published": true,
     "heroImage": "images/blog/legacy-dotnet-warning-signs.jpg",
     "heroImageAlt": "Code displayed on laptop screen representing legacy .NET systems",
     "content": [

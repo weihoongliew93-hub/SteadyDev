@@ -7,7 +7,8 @@
   'use strict';
   
   const container = document.getElementById('relatedArticles');
-  if (!container) return;
+  // Built pages already carry their related posts (build-blog.js)
+  if (!container || container.children.length) return;
   
   const currentPostId = container.dataset.currentPost;
   const currentTags = JSON.parse(container.dataset.currentTags || '[]');
@@ -34,7 +35,7 @@
     
     allPosts.forEach(post => {
       // Skip current post and unpublished posts
-      if (post.id === currentId || !post.published) return;
+      if (post.id === currentId || post.published === false) return;
       
       const postTags = post.tags || [];
       const sharedTags = currentTags.filter(tag => postTags.includes(tag));

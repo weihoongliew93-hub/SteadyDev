@@ -239,7 +239,7 @@
     fetch('blog-index.json')
       .then(response => response.json())
       .then(posts => {
-        const publishedPosts = posts.filter(post => post.published);
+        const publishedPosts = posts.filter(post => post.published !== false);
         renderQuickNav(publishedPosts);
         renderTopics(publishedPosts);
       })

@@ -16,8 +16,9 @@ const blogPosts = JSON.parse(fs.readFileSync('../blog-posts.json', 'utf8'));
 // version bumping. Paths are relative to this script's dir (blog/_build).
 function assetVersion(relPath) {
   try {
-    const buf = fs.readFileSync(path.join(__dirname, relPath));
-    return crypto.createHash('md5').update(buf).digest('hex').slice(0, 8);
+    // LF-normalised so a Windows (CRLF) checkout hashes the same as CI
+    const text = fs.readFileSync(path.join(__dirname, relPath), 'utf8').replace(/\r\n/g, '\n');
+    return crypto.createHash('md5').update(text).digest('hex').slice(0, 8);
   } catch (e) {
     console.warn(`⚠️  Could not hash ${relPath} (${e.message}); falling back to timestamp.`);
     return String(Date.now());
@@ -159,6 +160,31 @@ function extractHowToSteps(content) {
 }
 
 // HTML template
+const livePosts = blogPosts
+  .filter(p => p.published !== false)
+  .sort((a, b) => b.date.localeCompare(a.date));
+
+// Same pick as related-posts.js: most shared tags, then newest, top 3.
+function relatedPostsSection(post) {
+  const tags = post.tags || [];
+  const related = livePosts
+    .filter(p => p.id !== post.id)
+    .map(p => ({ p, shared: tags.filter(t => (p.tags || []).includes(t)) }))
+    .filter(r => r.shared.length > 0)
+    .sort((a, b) => b.shared.length - a.shared.length || b.p.date.localeCompare(a.p.date))
+    .slice(0, 3);
+  if (!related.length) return '';
+
+  const cards = related.map(({ p, shared }) => {
+    const excerpt = p.excerpt.length > 120 ? p.excerpt.substring(0, 120) + '...' : p.excerpt;
+    const img = p.heroImage
+      ? `<img src="../${p.heroImage}" alt="${p.heroImageAlt || p.title}" class="related-card__img" loading="lazy">`
+      : '';
+    return `<a href="${p.slug}.html" class="f-card f-card--link related-card">${img}<h3 class="f-card__title related-card__title">${p.title}</h3><p class="f-card__text">${excerpt}</p><div class="f-tags">${shared.slice(0, 2).map(t => `<span class="f-tag">${t}</span>`).join('')}</div><div class="f-card__foot related-card__foot"><span>${p.readTime}</span><span>Read article →</span></div></a>`;
+  }).join('');
+  return `<section class="related-posts-section"><h2 class="related-posts-title">Continue reading</h2><div class="f-grid related-posts-grid">${cards}</div></section>`;
+}
+
 function generateHTML(post) {
   // Render content blocks
   let contentHTML = '';
@@ -257,9 +283,10 @@ function generateHTML(post) {
   const isGuide = isGuideArticle(post.title);
   const howToSteps = isGuide ? extractHowToSteps(post.content) : [];
   
-  // Placeholder for dynamically loaded related posts
+  // Related posts are written in at build time so crawlers see the links without
+  // running JS; related-posts.js only fills the box when it is empty.
   const relatedPostsHTML = `
-    <div id="relatedArticles" data-current-post="${post.id}" data-current-tags='${JSON.stringify(post.tags || [])}'></div>`;
+    <div id="relatedArticles" data-current-post="${post.id}" data-current-tags='${JSON.stringify(post.tags || [])}'>${relatedPostsSection(post)}</div>`;
   
   // Generate HowTo schema if applicable
   const howToSchema = isGuide && howToSteps.length > 0 ? `
@@ -797,6 +824,29 @@ blogPosts.forEach(post => {
 const index = blogPosts.map(({ content, ...rest }) => rest);
 fs.writeFileSync('../blog-index.json', JSON.stringify(index));
 console.log(`✅ Generated: blog-index.json (${Math.round(JSON.stringify(index).length / 1024)} KB)`);
+
+// The blog index lists posts from blog-index.json in JS, so without this /blog/ is an
+// empty shell to a crawler and the posts have no static links. Every live post is written
+// between the markers; the page script replaces it with its paged, filterable list.
+const listHTML = livePosts.map(post => {
+  const category = (post.tags && post.tags.length) ? post.tags[0] : 'Article';
+  const thumb = post.heroImage
+    ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" loading="lazy">`
+    : `<span class="bl-thumb-fallback" aria-hidden="true"></span>`;
+  return `<a href="${post.slug}.html" class="f-card f-card--link bl-row"><div class="bl-thumb">${thumb}</div><div class="bl-body"><span class="f-mono f-small bl-cat">${category}</span><h3 class="f-card__title">${post.title}</h3><p class="f-card__text bl-clamp">${post.excerpt}</p><div class="bl-meta"><span>${post.dateDisplay} · ${post.readTime}</span><span>Read article →</span></div></div></a>`;
+}).join('\n');
+const indexPath = '../index.html';
+const indexHTML = fs.readFileSync(indexPath, 'utf8');
+const listed = indexHTML.replace(
+  /(<!-- static-list:start -->)[\s\S]*?(<!-- static-list:end -->)/,
+  `$1\n${listHTML}\n$2`
+);
+if (listed === indexHTML && !indexHTML.includes('<!-- static-list:start -->')) {
+  console.warn('⚠️  blog/index.html has no static-list markers; post list not written.');
+} else {
+  fs.writeFileSync(indexPath, listed);
+  console.log(`✅ Generated: index.html static list (${livePosts.length} posts)`);
+}
 
 console.log(`\n🎉 Done! Generated ${generatedCount} blog post(s), skipped ${skippedCount} standalone post(s).`);
 console.log('\n📝 Next steps:');

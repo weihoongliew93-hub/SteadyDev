@@ -80,6 +80,12 @@ jobs:
             git push
           fi
 
+      # After the commit, so the repo keeps the rest of the queue
+      - name: Keep scheduled posts out of the public JSON
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        working-directory: blog/_build
+        run: node strip-unpublished.js
+
       - name: Setup Pages
         if: steps.release.outputs.count != '0' && inputs.dry_run != true
         uses: actions/configure-pages@v5
