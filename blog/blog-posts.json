@@ -12509,12 +12509,13 @@
   },
   {
     "id": "self-billed-einvoice-malaysia-guide",
-    "title": "Self-Billed E-Invoices: The LHDN Rule Most Malaysian SMEs Don't Realise Applies to Them",
+    "title": "Self-Billed E-Invoices in Malaysia: The LHDN Guideline Explained (2026)",
     "slug": "self-billed-einvoice-malaysia-guide",
-    "excerpt": "You've sorted out issuing e-invoices to your customers. But there's a second obligation that catches businesses out: transactions where you have to issue an e-invoice to yourself. Here's when self-billed e-invoices apply and what your system needs to handle them.",
+    "excerpt": "Most businesses sorted out e-invoicing their customers. Self-billing is the other half: the transactions where you, the buyer, must issue the e-invoice. Here are the 9 cases in LHDN's guideline, the deadlines, the TINs to use, and what your system needs to handle them.",
     "date": "2026-09-17",
     "dateDisplay": "September 17, 2026",
-    "readTime": "9 min read",
+    "updated": "2026-10-25",
+    "readTime": "13 min read",
     "tags": [
       "E-Invoice",
       "Compliance",
@@ -12533,49 +12534,125 @@
       },
       {
         "type": "paragraph",
-        "text": "The half that gets missed is the mirror image: <strong>transactions where the buyer, not the seller, has to issue the e-invoice.</strong> LHDN calls these self-billed e-invoices, and they apply to situations far more ordinary than the name suggests. Businesses that assumed self-billing was an edge case for large corporates are often surprised to find they've been accumulating unreported transactions."
+        "text": "The half that gets missed is the mirror image: <strong>transactions where the buyer, not the seller, has to issue the e-invoice.</strong> LHDN calls these self-billed e-invoices. They cover situations far more ordinary than the name suggests, such as foreign software subscriptions, agent commissions and renting from a landlord who isn't in business."
       },
       {
         "type": "warning",
-        "text": "<strong>Why this matters:</strong> a self-billed e-invoice isn't optional paperwork. Without it, the expense may not be substantiated for tax purposes—which turns a documentation gap into a deduction you can't claim."
+        "text": "<strong>Why this matters:</strong> for these transactions, the validated self-billed e-invoice is your proof of expense. Without it, the expense may not be substantiated for tax purposes—which turns a documentation gap into a deduction you can't claim."
       },
       {
         "type": "heading2",
-        "text": "What a Self-Billed E-Invoice Actually Is"
+        "text": "What a Self-Billed E-Invoice Is"
       },
       {
         "type": "paragraph",
-        "text": "Normally the seller issues the invoice and the buyer receives it. A self-billed e-invoice inverts that: <strong>you, as the buyer, create the e-invoice recording the transaction, because the supplier either can't or isn't required to issue one.</strong>"
+        "text": "Normally the seller issues the e-invoice and the buyer receives it. With a self-billed e-invoice, <strong>you, as the buyer, take the role of the supplier:</strong> you create the e-invoice, submit it to LHDN through MyInvois, and use the validated document as your proof of expense. The other party then doesn't need to issue one for that transaction."
       },
       {
         "type": "paragraph",
-        "text": "You are effectively documenting your own expense in a form LHDN can validate, standing in for a supplier who isn't part of the e-invoicing system."
+        "text": "Once it is validated, you must share it with the supplier. LHDN currently accepts either the validated e-invoice or its visual representation (the version with the QR code)."
       },
       {
         "type": "heading2",
-        "text": "The Situations Where It Applies"
+        "text": "The 9 Transactions in LHDN's Guideline"
       },
       {
         "type": "paragraph",
-        "text": "The common triggers are more everyday than most owners expect:"
+        "text": "Section 8.3 of LHDN's e-Invoice Specific Guideline lists every case where the buyer issues a self-billed e-invoice. <strong>The list is closed:</strong> LHDN's FAQ says that if a transaction isn't on it, you are not allowed to self-bill it."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Payments to agents, dealers and distributors.</strong> Commissions and other incentives, in money or otherwise, whether the agent is an individual or a company. The business making the payment issues it.",
+          "<strong>Goods or services from foreign suppliers.</strong> Imported goods, overseas services, and the software subscriptions, cloud hosting and advertising almost every business now pays for—including purchases made through foreign e-commerce platforms. The Malaysian buyer issues it.",
+          "<strong>Profit distributions,</strong> such as dividends. The company making the distribution issues it.",
+          "<strong>E-commerce transactions.</strong> The platform or intermediary issues it to the merchants and service providers it pays, such as drivers and riders.",
+          "<strong>Pay-outs to betting and gaming winners.</strong> The licensed operator issues it. Pay-outs in casinos and from gaming machines are exempt until further notice.",
+          "<strong>Transactions with individuals who are not conducting a business.</strong> Buying a used laptop from an employee, or renting premises from a landlord who isn't in business. This applies only when none of the other cases do.",
+          "<strong>Interest payments.</strong> The payer issues it, except where a financial institution charges interest to the public, an employee pays interest to the employer, a foreign payor pays a Malaysian taxpayer, a Malaysian group treasury company charges its related companies, or a business charges late payment interest. In those cases the lender issues an ordinary e-invoice.",
+          "<strong>Insurance claims, compensation and benefit payments.</strong> The insurer issues it to the policyholder or beneficiary.",
+          "<strong>Capital reductions, share or unit redemptions, share buybacks, returns of capital and liquidation proceeds.</strong> The company paying the investor issues it."
+        ]
+      },
+      {
+        "type": "warning",
+        "text": "<strong>What is not on the list:</strong> a Malaysian supplier who simply hasn't sent you an e-invoice. LHDN's own example is a business buying cupcakes from a roadside stall that gives a handwritten receipt: the business may not self-bill, and keeps the receipt as its evidence instead."
+      },
+      {
+        "type": "tip",
+        "text": "A quick way to find your exposure: list every recurring payment leaving your business that does <em>not</em> arrive with a Malaysian e-invoice, then check each one against the nine cases above. Foreign SaaS subscriptions, cloud hosting, overseas advertising, agent commissions and rent paid to individuals usually surface immediately."
+      },
+      {
+        "type": "heading2",
+        "text": "When You Must Issue It"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most e-invoices have no fixed deadline beyond your normal invoicing practice. Self-billed e-invoices for imports and consolidated self-billed e-invoices do:"
       },
       {
         "type": "list",
         "items": [
-          "<strong>Payments to foreign suppliers.</strong> Overseas vendors aren't subject to Malaysian e-invoicing, so imported goods and services—including the software subscriptions almost every business now pays for—typically require a self-billed e-invoice from you.",
-          "<strong>Payments to individuals who aren't in business.</strong> Freelancers, part-timers and casual service providers operating outside a registered business often can't issue an e-invoice, so the buyer documents it instead.",
-          "<strong>Commissions, incentives and agent payouts.</strong> Where you pay a commission to an agent or dealer, the payer commonly issues the self-billed document.",
-          "<strong>Certain claims and disbursements.</strong> Expense reimbursements and similar items where no supplier invoice exists in the required form.",
-          "<strong>Selected transaction types named by LHDN.</strong> Including specific categories such as profit distributions and certain interest or prize payments."
+          "<strong>Imported goods:</strong> by the end of the second month after the month customs clearance is obtained. Include the customs form reference number (for example, Customs Form No. 1).",
+          "<strong>Imported services:</strong> by the end of the month after the month you paid or received the foreign supplier's invoice, whichever came first.",
+          "<strong>Consolidated self-billed e-invoices:</strong> within 7 calendar days after the month end.",
+          "<strong>Capital reductions, redemptions, buybacks and similar:</strong> on the date of the written agreement, or of government approval where that is required, or on completion where there is no written agreement.",
+          "<strong>Everything else:</strong> in line with your normal practice. Agent commissions can follow the periodic statements you already send, and both agent payments and interest can be done on an accrual or a paid basis, as long as you apply it consistently."
         ]
       },
       {
         "type": "paragraph",
-        "text": "The pattern is consistent: whenever value flows out of your business to someone who isn't going to produce a validated e-invoice, the documentation obligation shifts to you."
+        "text": "When one foreign invoice is shipped in several parts, and the invoice was issued by the time the first shipment cleared customs, you issue one self-billed e-invoice for the first clearance and none for the later shipments."
+      },
+      {
+        "type": "heading2",
+        "text": "Which TIN to Use for the Supplier"
+      },
+      {
+        "type": "paragraph",
+        "text": "The supplier on a self-billed e-invoice is often someone with no Malaysian tax number. LHDN provides general TINs for these cases:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Foreign supplier with no Malaysian TIN:</strong> EI00000000030. Check with the supplier first: the general TIN is only for suppliers LHDN hasn't given a TIN.",
+          "<strong>Malaysian individual who gives only a MyKad or MyTentera number:</strong> EI00000000010, with that number as their ID.",
+          "<strong>Individual who gives only a TIN:</strong> that TIN, with 000000000000 as the ID number.",
+          "<strong>Consolidated self-billed e-invoice:</strong> supplier name \"General Public\", TIN EI00000000010 and registration number NA."
+        ]
       },
       {
         "type": "tip",
-        "text": "A quick way to find your exposure: list every recurring payment leaving your business that does <em>not</em> arrive with a Malaysian tax invoice attached. Foreign SaaS subscriptions, cloud hosting, overseas advertising spend and freelancer payments usually surface immediately."
+        "text": "Not sure a TIN and ID pair will pass? Our free <a href=\"../e-invoice-tin-checker.html\">e-Invoice TIN checker</a> tests the combination against LHDN's rules, including which general TIN may go with which ID, before you submit."
+      },
+      {
+        "type": "heading2",
+        "text": "When You Can Consolidate"
+      },
+      {
+        "type": "paragraph",
+        "text": "By default, every self-billed transaction gets its own e-invoice. Even invoices from the same foreign supplier can't be combined. Consolidation is allowed only for:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Transactions with individuals who are not conducting a business",
+          "Interest paid to the public at large, whether businesses or individuals",
+          "Insurance claims, compensation and benefits paid to individuals not in business, or to government bodies",
+          "Self-billed transactions involving your own overseas branches or offices"
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "Imports: Three Details People Get Wrong"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>The value.</strong> Use the actual transaction value on the foreign supplier's invoice. Extra charges under the agreed incoterms go in the \"other charges\" details.",
+          "<strong>Duties and taxes.</strong> Leave out the import duty and sales tax collected by Customs. They don't belong on the self-billed e-invoice.",
+          "<strong>Currency.</strong> The e-invoice can be in the supplier's currency. Add the RM equivalent only where a tax rule requires it."
+        ]
       },
       {
         "type": "heading2",
@@ -12591,7 +12668,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Your system has to generate a properly structured e-invoice where your own business appears as the buyer and a third party—often foreign, often without a Malaysian tax identification number—appears as the supplier. Many systems simply have no screen for this."
+        "text": "Your system has to generate an e-invoice where your own business is the issuer and a third party—often foreign, often without a Malaysian TIN—appears as the supplier. MyInvois has its own document types for this: 11 for a self-billed invoice, and 12, 13 and 14 for self-billed credit, debit and refund notes. Many systems simply have no screen for it."
       },
       {
         "type": "heading3",
@@ -12599,15 +12676,15 @@
       },
       {
         "type": "paragraph",
-        "text": "Foreign suppliers won't have a TIN in the usual format, and individuals may not have a business registration number. The submission still has to satisfy validation, using the identification rules LHDN specifies for these cases. Hard-coded local-format validation is a frequent breakage point."
+        "text": "Foreign suppliers won't have a TIN in the usual format, and individuals may not have a business registration number. The submission still has to pass validation using the general TINs above. Hard-coded local-format validation is a frequent breakage point."
       },
       {
         "type": "heading3",
-        "text": "3. Submitting and storing the validated document"
+        "text": "3. Submitting, sharing and storing the validated document"
       },
       {
         "type": "paragraph",
-        "text": "The self-billed e-invoice goes through MyInvois validation like any other. You need the validation response, the unique identifier and the QR-bearing document stored against the expense record, not sitting in a folder somewhere."
+        "text": "The self-billed e-invoice goes through MyInvois validation like any other. You need the validation response, the unique identifier and the QR-bearing document stored against the expense record, and a way to send the validated copy to the supplier."
       },
       {
         "type": "heading3",
@@ -12628,10 +12705,11 @@
       {
         "type": "orderedList",
         "items": [
-          "<strong>Identify which of your payment flows trigger self-billing.</strong> Usually a short list: foreign subscriptions, overseas services, freelancer payments, commissions.",
+          "<strong>Identify which of your payment flows trigger self-billing.</strong> Check them against the nine cases. Usually it is a short list: foreign subscriptions, overseas services, commissions, rent to individuals.",
           "<strong>Decide where the document originates.</strong> Often the purchase or payment entry you already capture—so the self-billed e-invoice is generated from data staff are entering anyway, not typed a second time.",
-          "<strong>Add a document type flag rather than a new module.</strong> The same submission plumbing that sends your sales e-invoices can send self-billed ones, with the party fields reversed and the type set accordingly.",
-          "<strong>Relax identification validation for non-Malaysian parties.</strong> Follow LHDN's rules for foreign and individual suppliers instead of your existing local-format checks.",
+          "<strong>Add a document type rather than a new module.</strong> The same submission plumbing that sends your sales e-invoices can send self-billed ones, with the party fields reversed and the type set to 11.",
+          "<strong>Accept LHDN's general TINs for non-Malaysian and individual suppliers.</strong> EI00000000030 for foreign suppliers and EI00000000010 for individuals, instead of your existing local-format checks.",
+          "<strong>Track the deadlines.</strong> Imported goods and services have month-end deadlines that run from customs clearance or payment, so the system should know which date applies.",
           "<strong>Store the validated result against the expense.</strong> So that when a query comes, the substantiation is one click from the transaction rather than a manual search.",
           "<strong>Run a back-check on the period since the mandate applied to you.</strong> Find the transactions that should have had self-billed documents and work out, with your tax agent, how to address them."
         ]
@@ -12651,10 +12729,12 @@
         "type": "list",
         "items": [
           "<strong>Assuming foreign purchases are out of scope.</strong> The supplier being outside Malaysia is exactly what creates the obligation, not what removes it.",
-          "<strong>Treating self-billed documents as internal paperwork.</strong> They're submitted and validated through MyInvois like any other e-invoice, not filed locally.",
+          "<strong>Self-billing things that aren't on the list.</strong> A Malaysian supplier who hasn't sent an e-invoice is not a reason to self-bill. Only the nine cases qualify.",
+          "<strong>Consolidating foreign purchases.</strong> A month of invoices from the same overseas supplier still needs one self-billed e-invoice each.",
+          "<strong>Adding import duty and sales tax.</strong> The value is what the foreign supplier charged. Customs duties and taxes stay off.",
           "<strong>Recording them as sales.</strong> Built on the sales module without a separate document type, they end up inflating revenue.",
           "<strong>Doing it manually in the portal and never reconciling.</strong> Portal-entered documents that don't flow back into your system leave your records and your submissions permanently out of sync.",
-          "<strong>Leaving it to year-end.</strong> These are transaction-time documents. Reconstructing months of them at once is far more expensive than issuing them as you go."
+          "<strong>Leaving it to year-end.</strong> Import deadlines run month by month. Reconstructing months of documents at once is far more expensive than issuing them as you go."
         ]
       },
       {
@@ -12667,7 +12747,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The fix is rarely dramatic. Most systems need a second document path, not a replacement—but it does need to be deliberate, because nobody is going to chase you for an invoice you were supposed to write to yourself."
+        "text": "The rules themselves are narrow: nine cases, a few deadlines and four general TINs. Most systems need a second document path, not a replacement—but it does need to be deliberate, because nobody is going to chase you for an invoice you were supposed to write to yourself."
       },
       {
         "type": "faq",
@@ -12675,11 +12755,19 @@
         "items": [
           {
             "question": "Do I need a self-billed e-invoice for overseas software subscriptions?",
-            "answer": "Generally yes—payments to foreign suppliers are one of the most common self-billing triggers, and software and cloud subscriptions are the ones most businesses overlook because the amounts are small and recurring. Confirm your specific situation with your tax agent."
+            "answer": "Yes. Services from foreign suppliers are one of the nine self-billed cases, and software and cloud subscriptions are the ones most businesses overlook because the amounts are small and recurring. Issue it by the end of the month after the month you paid or received the invoice, whichever came first."
           },
           {
-            "question": "What if the foreign supplier has no Malaysian TIN?",
-            "answer": "That's the expected case. LHDN provides identification rules for foreign suppliers and for individuals without business registration. The problem is usually your system's validation, which often assumes a local format and rejects anything else."
+            "question": "Can I issue a self-billed e-invoice if my Malaysian supplier didn't send me an e-invoice?",
+            "answer": "No. Self-billing is only allowed for the nine transactions in Section 8.3 of LHDN's e-Invoice Specific Guideline. If a supplier who should e-invoice you hasn't, ask them for one; if they aren't yet required to, keep their receipt or invoice as your evidence."
+          },
+          {
+            "question": "What TIN do I use for a foreign supplier with no Malaysian TIN?",
+            "answer": "EI00000000030, LHDN's general TIN for foreign suppliers on self-billed e-invoices. Check with the supplier first, because the general TIN is meant only for suppliers that LHDN hasn't given a TIN."
+          },
+          {
+            "question": "Can I combine all my invoices from one foreign supplier into one self-billed e-invoice?",
+            "answer": "No. Each transaction with a foreign supplier needs its own self-billed e-invoice. Consolidation is allowed only for individuals not in business, interest paid to the public, certain insurance payments and transactions involving your own overseas branches."
           },
           {
             "question": "Can I just issue self-billed e-invoices through the MyInvois portal manually?",
@@ -12691,7 +12779,7 @@
           },
           {
             "question": "How much work is it to add self-billing to an existing legacy system?",
-            "answer": "Usually less than owners fear, if the system already submits e-invoices. The submission plumbing is reused; the work is in a new document path, relaxed party validation and storing the validated result against the expense. It's typically a scoped project, not a rebuild."
+            "answer": "Usually less than owners fear, if the system already submits e-invoices. The submission plumbing is reused; the work is in a new document type, accepting the general TINs and storing the validated result against the expense. It's typically a scoped project, not a rebuild."
           },
           {
             "question": "What happens if we've missed self-billed e-invoices for past months?",
@@ -12700,8 +12788,8 @@
         ]
       }
     ],
-    "seoTitle": "Self-Billed E-Invoices in Malaysia: When You Must",
-    "metaDescription": "When LHDN requires you to issue an e-invoice to yourself, the transactions that trigger it, and what your system needs to handle them."
+    "seoTitle": "Self-Billed E-Invoice Malaysia: LHDN Guideline (2026)",
+    "metaDescription": "The 9 transactions where LHDN requires a self-billed e-invoice, the deadlines, which TIN to use for foreign and individual suppliers, and when you can consolidate."
   },
   {
     "id": "backup-restore-testing-legacy-systems",
