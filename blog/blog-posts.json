@@ -12541,6 +12541,10 @@
         "text": "<strong>Why this matters:</strong> for these transactions, the validated self-billed e-invoice is your proof of expense. Without it, the expense may not be substantiated for tax purposes—which turns a documentation gap into a deduction you can't claim."
       },
       {
+        "type": "warning",
+        "text": "Sources: LHDN's <a href=\"https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf\">e-Invoice Specific Guideline v4.9</a> (sections 3.6.5 and 8) and the <a href=\"https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf\">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent."
+      },
+      {
         "type": "heading2",
         "text": "What a Self-Billed E-Invoice Is"
       },
@@ -12616,7 +12620,7 @@
         "type": "list",
         "items": [
           "<strong>Foreign supplier with no Malaysian TIN:</strong> EI00000000030. Check with the supplier first: the general TIN is only for suppliers LHDN hasn't given a TIN.",
-          "<strong>Malaysian individual who gives only a MyKad or MyTentera number:</strong> EI00000000010, with that number as their ID.",
+          "<strong>Individual who gives only a MyKad, MyTentera, MyPR or MyKAS number:</strong> EI00000000010, with that number as their ID.",
           "<strong>Individual who gives only a TIN:</strong> that TIN, with 000000000000 as the ID number.",
           "<strong>Consolidated self-billed e-invoice:</strong> supplier name \"General Public\", TIN EI00000000010 and registration number NA."
         ]
