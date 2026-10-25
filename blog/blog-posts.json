@@ -15723,5 +15723,26 @@
     ],
     "seoTitle": "E-Invoice SVDP: Fix Past Mistakes Before 2028",
     "metaDescription": "LHDN's Special Voluntary Disclosure Programme lets you correct missed or wrong e-invoices without penalties until 31 December 2027. How it works."
+  },
+  {
+    "id": "windows-server-end-of-life-legacy-system-risk",
+    "title": "Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?",
+    "slug": "windows-server-end-of-life-legacy-system-risk",
+    "excerpt": "Your business system works, so the aging Windows Server and SQL Server underneath it are easy to ignore. But when Microsoft ends support, those quiet servers become a security, compliance and insurance liability. Here is how to find out where you stand.",
+    "date": "2026-06-21",
+    "dateDisplay": "June 21, 2026",
+    "updated": "2026-10-24",
+    "readTime": "11 min read",
+    "tags": [
+      "Windows Server",
+      "SQL Server",
+      "Security",
+      "Legacy Systems",
+      "Infrastructure"
+    ],
+    "author": "SteadyDevs",
+    "published": true,
+    "heroImage": "images/blog/windows-server-end-of-life.jpg",
+    "heroImageAlt": "Aging Windows Server infrastructure reaching end of life"
   }
 ]

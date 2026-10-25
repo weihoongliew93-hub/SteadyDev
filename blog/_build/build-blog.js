@@ -160,6 +160,12 @@ function extractHowToSteps(content) {
 }
 
 // HTML template
+// Text placed inside an HTML attribute: a quote in a description would otherwise end
+// the attribute early, and Google would read the description as empty.
+function attr(text) {
+  return String(text).replace(/&(?![a-z]+;|#d+;)/gi, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 const livePosts = blogPosts
   .filter(p => p.published !== false)
   .sort((a, b) => b.date.localeCompare(a.date));
@@ -178,7 +184,7 @@ function relatedPostsSection(post) {
   const cards = related.map(({ p, shared }) => {
     const excerpt = p.excerpt.length > 120 ? p.excerpt.substring(0, 120) + '...' : p.excerpt;
     const img = p.heroImage
-      ? `<img src="../${p.heroImage}" alt="${p.heroImageAlt || p.title}" class="related-card__img" loading="lazy">`
+      ? `<img src="../${p.heroImage}" alt="${attr(p.heroImageAlt || p.title)}" class="related-card__img" loading="lazy">`
       : '';
     return `<a href="${p.slug}.html" class="f-card f-card--link related-card">${img}<h3 class="f-card__title related-card__title">${p.title}</h3><p class="f-card__text">${excerpt}</p><div class="f-tags">${shared.slice(0, 2).map(t => `<span class="f-tag">${t}</span>`).join('')}</div><div class="f-card__foot related-card__foot"><span>${p.readTime}</span><span>Read article →</span></div></a>`;
   }).join('');
@@ -228,7 +234,7 @@ function generateHTML(post) {
       case 'image':
         contentHTML += `
           <figure class="blog-figure">
-            <img src="../${block.src}" alt="${block.alt}">
+            <img src="../${block.src}" alt="${attr(block.alt)}">
             ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
           </figure>\n`;
         break;
@@ -257,7 +263,7 @@ function generateHTML(post) {
   const heroSrc = post.heroImage ? displayImage(post.heroImage) : null;
   const heroSize = heroSrc ? imageSize(heroSrc) : null;
   const heroImageHTML = heroSrc
-    ? `<img src="../${heroSrc}" alt="${post.heroImageAlt || post.title}" class="blog-hero-image"${heroSize ? ` width="${heroSize.w}" height="${heroSize.h}"` : ''} fetchpriority="high" decoding="async">`
+    ? `<img src="../${heroSrc}" alt="${attr(post.heroImageAlt || post.title)}" class="blog-hero-image"${heroSize ? ` width="${heroSize.w}" height="${heroSize.h}"` : ''} fetchpriority="high" decoding="async">`
     : '';
 
   // Calculate word count
@@ -337,7 +343,7 @@ function generateHTML(post) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>${seoTitle} | SteadyDevs</title>
-  <meta name="description" content="${metaDescription}">
+  <meta name="description" content="${attr(metaDescription)}">
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -347,14 +353,14 @@ function generateHTML(post) {
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://steadydevs.com/blog/${post.slug}.html">
-  <meta property="og:title" content="${seoTitle}">
-  <meta property="og:description" content="${metaDescription}">
+  <meta property="og:title" content="${attr(seoTitle)}">
+  <meta property="og:description" content="${attr(metaDescription)}">
   <meta property="og:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${seoTitle}">
-  <meta name="twitter:description" content="${metaDescription}">
+  <meta name="twitter:title" content="${attr(seoTitle)}">
+  <meta name="twitter:description" content="${attr(metaDescription)}">
   <meta name="twitter:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
   
   <!-- Canonical URL -->
@@ -427,7 +433,7 @@ function generateHTML(post) {
   <meta property="article:modified_time" content="${isoModifiedDate}">
   <meta property="article:author" content="SteadyDevs">
   <meta property="article:section" content="${articleSection}">
-  <meta property="article:tag" content="${tagString}">
+  <meta property="article:tag" content="${attr(tagString)}">
   
   <!-- Alternate Language Tags -->
   <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/${post.slug}.html" />
@@ -831,7 +837,7 @@ console.log(`✅ Generated: blog-index.json (${Math.round(JSON.stringify(index).
 const listHTML = livePosts.map(post => {
   const category = (post.tags && post.tags.length) ? post.tags[0] : 'Article';
   const thumb = post.heroImage
-    ? `<img src="../${post.heroImage}" alt="${post.heroImageAlt || post.title}" loading="lazy">`
+    ? `<img src="../${post.heroImage}" alt="${attr(post.heroImageAlt || post.title)}" loading="lazy">`
     : `<span class="bl-thumb-fallback" aria-hidden="true"></span>`;
   return `<a href="${post.slug}.html" class="f-card f-card--link bl-row"><div class="bl-thumb">${thumb}</div><div class="bl-body"><span class="f-mono f-small bl-cat">${category}</span><h3 class="f-card__title">${post.title}</h3><p class="f-card__text bl-clamp">${post.excerpt}</p><div class="bl-meta"><span>${post.dateDisplay} · ${post.readTime}</span><span>Read article →</span></div></div></a>`;
 }).join('\n');

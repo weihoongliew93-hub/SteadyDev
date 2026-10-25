@@ -86,6 +86,12 @@ jobs:
         working-directory: blog/_build
         run: node strip-unpublished.js
 
+      - name: Leave internal files out of the site
+        if: steps.release.outputs.count != '0' && inputs.dry_run != true
+        run: |
+          rm -rf einvoice-docs docs i18n blog/_build
+          find . -path ./.git -prune -o \( -name '*.md' -o -name '*.py' -o -name '*.bat' \) -type f -print -delete
+
       - name: Setup Pages
         if: steps.release.outputs.count != '0' && inputs.dry_run != true
         uses: actions/configure-pages@v5
