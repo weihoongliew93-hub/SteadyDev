@@ -310,3 +310,29 @@
 
   mount(html);
 })();
+
+/*
+ * Conversion events for Google Analytics. One delegated listener on every page that loads
+ * this file, so a new button needs no tagging: what counts is where the link goes.
+ * Mark these as key events in GA (Admin > Events) to see which pages lead to enquiries.
+ */
+(function () {
+  function linkEvent(href) {
+    if (/^mailto:/i.test(href)) return ['contact_email_click', { method: 'email' }];
+    if (/^https:\/\/checkout\.freemius\.com\//i.test(href)) return ['checkout_click', { product: 'venue_booking' }];
+    var plugin = href.match(/^https:\/\/wordpress\.org\/plugins\/([a-z0-9-]+)\/?$/i);
+    if (plugin) return ['plugin_download_click', { product: plugin[1] }];
+    var zip = href.match(/([a-z0-9-]+?)(?:-\d[\d.]*)?\.zip$/i);
+    if (zip) return ['plugin_download_click', { product: zip[1] }];
+    if (/(^|\/)contact\.html([?#]|$)/i.test(href)) return ['contact_cta_click', {}];
+    return null;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || typeof gtag !== 'function') return;
+    var ev = linkEvent(a.getAttribute('href'));
+    if (!ev) return;
+    ev[1].link_text = (a.textContent || '').trim().slice(0, 100);
+    gtag('event', ev[0], ev[1]);
+  }, true);
+})();

@@ -46,7 +46,6 @@ const add = (loc, lastmod, changefreq, priority) => entries.push({ loc, lastmod,
 // --- Main pages (edit this list when you add/remove a top-level page) ---
 const MAIN = [
   { file: 'index.html',         loc: '/',                   changefreq: 'monthly', priority: '1.0' },
-  { file: 'index.html',         loc: '/index.html',         changefreq: 'monthly', priority: '1.0' },
   { file: 'solutions.html',     loc: '/solutions.html',     changefreq: 'monthly', priority: '0.95' },
   { file: 'portfolio.html',     loc: '/portfolio.html',     changefreq: 'monthly', priority: '0.9' },
   { file: 'einvoice.html',      loc: '/einvoice.html',      changefreq: 'monthly', priority: '0.9' },
@@ -73,11 +72,10 @@ const MAIN = [
 MAIN.forEach(p => { if (fs.existsSync(path.join(ROOT, p.file))) add(p.loc, mtime(p.file), p.changefreq, p.priority); });
 
 // --- Translations: /ms/ and /zh/ copies of main pages (built by i18n/publish.py) ---
-// Listed only once published, i.e. without the noindex that marks a draft. "/index.html"
-// is skipped: "/ms/" already stands for the translated home page.
+// Listed only once published, i.e. without the noindex that marks a draft.
 ['ms', 'zh'].forEach(lang => MAIN.forEach(p => {
   const file = lang + '/' + p.file;
-  if (p.loc === '/index.html' || !fs.existsSync(path.join(ROOT, file))) return;
+  if (!fs.existsSync(path.join(ROOT, file))) return;
   if (/<meta(?=[^>]*name="robots")(?=[^>]*content="noindex)/.test(fs.readFileSync(path.join(ROOT, file), 'utf8'))) return;
   add('/' + lang + p.loc, mtime(file), p.changefreq, p.priority);
 }));
@@ -91,7 +89,6 @@ fs.readdirSync(ROOT)
 // --- Blog index / feed / topics ---
 add('/blog/feed.xml',    mtime('blog/feed.xml'), 'weekly', '0.7');
 add('/blog/',            TODAY,                  'weekly', '0.8');
-add('/blog/index.html',  mtime('blog/index.html'), 'weekly', '0.8');
 add('/blog/topics.html', mtime('blog/topics.html'), 'weekly', '0.8');
 
 // --- Blog posts (auto-discovered; drafts skipped) ---
