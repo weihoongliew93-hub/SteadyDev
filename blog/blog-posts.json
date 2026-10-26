@@ -15035,7 +15035,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The risk doesn't arrive on the deadline. It grows over the following months, with each vulnerability that's found and never patched."
+        "text": "The risk doesn't arrive on the deadline. It grows over the following months, with each vulnerability that's found and never patched. For how this plays out across every Windows Server and SQL Server version, and how to check what you run, see <a href=\"windows-server-end-of-life-legacy-system-risk.html\">our end-of-life guide</a>."
       },
       {
         "type": "warning",
