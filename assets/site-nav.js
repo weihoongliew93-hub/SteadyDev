@@ -52,7 +52,11 @@
     { file: 'steadypost.html', name: 'SteadyPost', tagline: {
         en: 'Bulk-import posts from Excel or CSV \u2014 free',
         ms: 'Import siaran secara pukal daripada Excel atau CSV \u2014 percuma',
-        zh: '从 Excel 或 CSV 批量导入文章，免费' } }
+        zh: '从 Excel 或 CSV 批量导入文章，免费' } },
+    { file: 'upkeep-check.html', name: 'Upkeep Check', tagline: {
+        en: 'Find closed, abandoned and outdated plugins — free',
+        ms: 'Cari pemalam yang ditutup, terbiar dan lapuk — percuma',
+        zh: '找出已下架、无人维护和过时的插件，免费' } }
   ];
   // The EInvoice menu: the platform, then the e-invoice tools.
   var EINVOICE = { file: 'einvoice.html', name: { en: 'EInvoice Platform', ms: 'Platform EInvoice', zh: 'EInvoice 平台' }, tagline: {

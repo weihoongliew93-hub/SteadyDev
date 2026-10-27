@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>SteadyDevs Upkeep Check: Find Abandoned WordPress Plugins</title>
+  <meta name="description" content="Free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with your WordPress version, and checks your PHP version's security support.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://steadydevs.com/upkeep-check">
+  <meta property="og:title" content="SteadyDevs Upkeep Check — know which plugins have gone quiet">
+  <meta property="og:description" content="A free WordPress plugin that flags closed, abandoned and out-of-date plugins, and tells you when your PHP version stops getting security fixes.">
+  <meta property="og:image" content="https://steadydevs.com/images/upkeep-check/og-upkeep-check.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SteadyDevs Upkeep Check — know which plugins have gone quiet">
+  <meta name="twitter:description" content="Free WordPress plugin: find closed, abandoned and out-of-date plugins, and check your PHP version's support.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/upkeep-check/og-upkeep-check.png">
+
+  <link rel="canonical" href="https://steadydevs.com/upkeep-check">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SteadyDevs Upkeep Check",
+    "applicationCategory": "SecurityApplication",
+    "applicationSubCategory": "WordPress plugin",
+    "operatingSystem": "WordPress 6.0+",
+    "softwareVersion": "1.1.0",
+    "description": "A free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with the running WordPress version, checks whether the PHP version still gets security fixes, and adds the result to Site Health.",
+    "url": "https://steadydevs.com/upkeep-check",
+    "downloadUrl": "https://wordpress.org/plugins/steadydevs-upkeep-check/",
+    "image": "https://steadydevs.com/images/upkeep-check/og-upkeep-check.png",
+    "screenshot": "https://steadydevs.com/images/upkeep-check/report.webp",
+    "license": "https://www.gnu.org/licenses/gpl-2.0.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Steady Devs Solutions", "url": "https://steadydevs.com" },
+    "featureList": [
+      "Flags plugins closed on WordPress.org, with the date and reason",
+      "Flags plugins with no update in over one or two years",
+      "Flags plugins not tested with your WordPress version",
+      "Shows updates waiting, including ones WordPress is holding back",
+      "Lists inactive plugins to delete",
+      "Checks your PHP version's security support dates",
+      "Adds the result to Tools → Site Health"
+    ]
+  }
+  </script>
+
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=13">
+
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <style>
+    /* Upkeep Check page (design F). Uses f.css tokens only; everything is uc- prefixed. */
+
+    /* Hero: a plugin list with its verdicts */
+    .uc-hero-visual { display: flex; flex-direction: column; gap: 16px; }
+    .uc-list { padding: 0; overflow: hidden; }
+    .uc-list__bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+    .uc-list__bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: inline-block; }
+    .uc-list__bar span { margin-left: 6px; }
+    .uc-list table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .uc-list th, .uc-list td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+    .uc-list th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--faint); background: var(--surface-inset); }
+    .uc-list td { color: var(--text-soft); }
+    .uc-list tr:last-child td { border-bottom: 0; }
+    .uc-list .uc-name { color: var(--text-strong); white-space: normal; }
+    .uc-chip { display: inline-block; font-family: var(--mono); font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .uc-chip--ok { color: var(--ok); border-color: currentColor; }
+    .uc-chip--bad { color: var(--crimson-text); border-color: var(--crimson-line); background: var(--crimson-soft); }
+    .uc-notice { align-self: flex-end; width: min(100%, 380px); }
+    .uc-notice .f-sys__body { padding: 16px; }
+    @media (max-width: 480px) { .uc-list th:nth-child(2), .uc-list td:nth-child(2) { display: none; } }
+
+    /* Tour: copy beside a real screenshot */
+    .uc-tour { display: grid; gap: 112px; }
+    .uc-feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+    .uc-feature--flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .uc-feature--flip .uc-feature__copy { order: 2; }
+    .uc-feature__copy .f-h3 { font-size: 26px; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px; }
+    .uc-feature__copy > p { color: var(--muted); margin-bottom: 18px; }
+    .uc-shot { display: block; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .uc-shot img { width: 100%; }
+    .uc-shot--crop { max-height: 560px; position: relative; }
+    .uc-shot--crop::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(transparent, var(--surface)); pointer-events: none; }
+    @media (max-width: 900px) {
+      .uc-tour { gap: 72px; }
+      .uc-feature, .uc-feature--flip { grid-template-columns: 1fr; gap: 28px; }
+      .uc-feature--flip .uc-feature__copy { order: 0; }
+    }
+
+    /* Price card */
+    .uc-free { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    @media (max-width: 860px) { .uc-free { grid-template-columns: 1fr; } }
+    .uc-free .f-price small { margin-left: 4px; }
+
+    /* Enquiry form */
+    .uc-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; }
+    .uc-enquiry .f-card { padding: 28px; }
+    .uc-enquiry h3 { margin-bottom: 8px; }
+    .uc-enquiry > .f-card > p { color: var(--muted); margin-bottom: 20px; }
+    .uc-note { border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+    .uc-note--ok { border: 1px solid var(--ok); color: var(--ok); }
+    .uc-note--err { border: 1px solid var(--crimson-line); background: var(--crimson-soft); color: var(--crimson-text); }
+    .uc-note--err a { color: var(--crimson-text); }
+    .f-faq details a, .f-faq details code { color: var(--text-strong); }
+    .f-faq details code { font-family: var(--mono); font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=6"></script>
+  <main id="main">
+
+    <!-- ============================================================ HERO -->
+    <section class="f-glow-top">
+      <div class="f-container f-hero">
+        <div class="f-hero__grid">
+          <div class="f-hero__copy">
+            <p class="f-eyebrow">SteadyDevs Upkeep Check · free WordPress plugin</p>
+            <h1 class="f-h1">Know which plugins have <span class="f-dim">gone quiet.</span></h1>
+            <p class="f-lead">A plugin that stops getting updates stops getting security fixes, and WordPress won't warn you. Upkeep Check finds the plugins that were closed, abandoned or left behind, and tells you in plain words what to do about each one.</p>
+            <div class="f-actions">
+              <a class="f-btn f-btn--primary f-btn--glow" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" data-uc-download="hero" rel="noopener">Download Upkeep Check — free</a>
+              <a class="f-btn f-btn--secondary" href="#tour">See how it works</a>
+            </div>
+            <p class="f-note" style="margin-top: 16px">Version 1.1.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · listed on WordPress.org</p>
+          </div>
+
+          <div class="f-hero__aside uc-hero-visual" aria-label="Illustration: a list of installed plugins with Upkeep Check's verdict on each">
+            <div class="f-card uc-list">
+              <div class="uc-list__bar"><i></i><i></i><i></i><span>Tools → Upkeep Check</span></div>
+              <table aria-hidden="true">
+                <thead><tr><th>Plugin</th><th>Last updated</th><th>Verdict</th></tr></thead>
+                <tbody>
+                  <tr><td class="uc-name">Widget Logic</td><td>—</td><td><span class="uc-chip uc-chip--bad">closed</span></td></tr>
+                  <tr><td class="uc-name">Simple Image Widget</td><td>Jul 2025</td><td><span class="uc-chip">no update in a year</span></td></tr>
+                  <tr><td class="uc-name">Contact Form 7</td><td>Oct 2026</td><td><span class="uc-chip">update held back</span></td></tr>
+                  <tr><td class="uc-name">Classic Editor</td><td>May 2026</td><td><span class="uc-chip uc-chip--ok">maintained</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="f-sys uc-notice">
+              <span class="f-sys__c f-sys__c--tl" aria-hidden="true"></span><span class="f-sys__c f-sys__c--br" aria-hidden="true"></span>
+              <div class="f-sys__head"><span class="f-sys__title">ACT NOW</span><span class="f-sys__tag">SITE HEALTH</span></div>
+              <div class="f-sys__body">
+                <p class="f-sys__lead" style="font-size: 16px">1 plugin is closed or looks abandoned</p>
+                <p>Widget Logic was closed on WordPress.org on 14 April 2026. Replace it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="f-strip">
+      <div class="f-container f-strip__inner">
+        <span>Built for</span>
+        <strong>Site owners</strong><strong>Agencies with client sites</strong><strong>Security reviews</strong><strong>Site handovers</strong><strong>Hosting audits</strong>
+      </div>
+    </div>
+
+    <!-- ============================================================ TOUR -->
+    <section class="f-section" id="tour">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">How it works</p>
+          <h2 class="f-h2">One button, one report, no guesswork</h2>
+          <p class="f-sub">These are real screenshots, from a check on a demo site against the live WordPress.org directory.</p>
+        </div>
+
+        <div class="uc-tour">
+          <div class="uc-feature">
+            <div class="uc-feature__copy">
+              <p class="f-eyebrow">The report</p>
+              <h3 class="f-h3">Every plugin, worst first, with what to do</h3>
+              <p>Go to Tools → Upkeep Check and press Check my plugins. Each plugin gets a verdict you can act on, next to the facts behind it: when it was last updated, the WordPress version it was tested with and how many sites use it.</p>
+              <ul class="f-checks">
+                <li>Closed plugins show the date and the reason WordPress.org gives</li>
+                <li>Your PHP and WordPress versions are checked on the same page</li>
+                <li>Custom and premium plugins are marked as not checkable, never mistaken for a directory plugin with the same folder name</li>
+              </ul>
+            </div>
+            <a class="uc-shot uc-shot--crop" href="images/upkeep-check/report.webp" target="_blank" rel="noopener">
+              <img src="images/upkeep-check/report.webp" width="1280" height="1400" loading="lazy" alt="Upkeep Check report: PHP and WordPress status, summary counts, and a table of plugins with findings such as closed on WordPress.org, update available and no update in over a year.">
+            </a>
+          </div>
+
+          <div class="uc-feature uc-feature--flip">
+            <div class="uc-feature__copy">
+              <p class="f-eyebrow">Site Health</p>
+              <h3 class="f-h3">The result stays where you already look</h3>
+              <p>After a check, Tools → Site Health shows a critical issue when a plugin is closed or abandoned, and a recommendation when updates are waiting. It reads the saved report, so opening Site Health stays as fast as before.</p>
+              <ul class="f-checks">
+                <li>Names the plugins to replace</li>
+                <li>Links straight back to the full report</li>
+                <li>No nagging before you've run a first check</li>
+              </ul>
+            </div>
+            <a class="uc-shot" href="images/upkeep-check/site-health.webp" target="_blank" rel="noopener">
+              <img src="images/upkeep-check/site-health.webp" width="1280" height="1000" loading="lazy" alt="WordPress Site Health showing the critical issue: 1 plugin is closed or looks abandoned.">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== FEATURES -->
+    <section id="features" class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">What it checks</p>
+          <h2 class="f-h2">The things WordPress doesn't tell you</h2>
+          <p class="f-sub">The Plugins screen shows updates. It doesn't show which plugins will never get another one.</p>
+        </div>
+        <div class="f-grid">
+          <article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Closed on WordPress.org</h3><p class="f-card__text">Plugins removed from the directory, often for a security issue, keep running on your site with no warning. Upkeep Check shows when and why they were closed.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Abandoned</h3><p class="f-card__text">No update in over two years is flagged to act on. No update in over a year is flagged to keep an eye on.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Untested</h3><p class="f-card__text">Plugins whose authors haven't tested them with the version of WordPress you run.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Updates held back</h3><p class="f-card__text">When the directory has a newer version than WordPress offers your site, usually because it needs a newer PHP or WordPress, you're told why the update isn't showing.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">Inactive plugins</h3><p class="f-card__text">Switched off but still on the server. Delete the ones you don't need.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">PHP support dates</h3><p class="f-card__text">Whether your PHP version still gets security fixes, and the date it stops, from php.net's own schedule.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== PRIVACY -->
+    <section class="f-section">
+      <div class="f-container">
+        <div class="f-split">
+          <div class="f-split__main">
+            <p class="f-eyebrow">Light by design</p>
+            <h2 class="f-h2">Nothing runs until you press the button</h2>
+            <p class="f-sub">No background scans, nothing on the front end of your site, and no account. One option holds the last report, and deleting the plugin removes it.</p>
+          </div>
+          <aside class="f-split__aside">
+            <div class="f-callout f-callout--tip" style="margin: 0">
+              <span class="f-callout__label">What leaves your site</span>
+              Only the directory slug of each installed plugin, such as <span class="f-mono">akismet</span>, sent to the public WordPress.org Plugins API when you run a check. Nothing about your content, your users or your visitors.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== GET IT -->
+    <section class="f-section f-section--alt" id="get">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Get started</p>
+          <h2 class="f-h2">Free. Every check. No catch.</h2>
+        </div>
+        <div class="uc-free">
+          <div class="f-card f-price-card f-price-card--featured">
+            <span class="f-ribbon">Upkeep Check 1.1.0</span>
+            <div class="f-price">$0 <small>forever</small></div>
+            <ul class="f-checks">
+              <li>Every check on this page, for every plugin you have</li>
+              <li>Unlimited sites</li>
+              <li>Open source under the GPL</li>
+              <li>Listed in the WordPress.org plugin directory</li>
+            </ul>
+            <a class="f-btn f-btn--primary" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" data-uc-download="pricing" rel="noopener">Get it on WordPress.org</a>
+          </div>
+          <div class="f-card">
+            <h3 class="f-card__title" style="margin-bottom: 18px">Your first report in two minutes</h3>
+            <ol class="f-steps" style="grid-template-columns: 1fr; border-top: 0">
+              <li><div class="f-steps__n">01</div><div class="f-steps__t">Install</div><div class="f-steps__d">Plugins → Add New Plugin, search for "SteadyDevs Upkeep Check", install and activate.</div></li>
+              <li><div class="f-steps__n">02</div><div class="f-steps__t">Check</div><div class="f-steps__d">Tools → Upkeep Check → Check my plugins.</div></li>
+              <li><div class="f-steps__n">03</div><div class="f-steps__t">Act on the top rows</div><div class="f-steps__d">Replace what's closed or abandoned, update what's waiting, delete what's inactive.</div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== DONE-FOR-YOU -->
+    <section class="f-section">
+      <div class="f-container">
+        <article class="f-card f-card--accent" style="padding: 36px">
+          <div class="f-split" style="gap: 32px; align-items: center">
+            <div class="f-split__main">
+              <p class="f-eyebrow">Found something you can't just switch off?</p>
+              <h2 class="f-h2" style="font-size: clamp(26px, 3vw, 32px)">Replacing a plugin your site depends on?</h2>
+              <p class="f-sub">An abandoned plugin that runs your forms, bookings or checkout can't simply be deleted. Our engineers can find a maintained replacement, move your data across and switch over without downtime.</p>
+            </div>
+            <div class="f-actions">
+              <a class="f-btn f-btn--secondary" href="contact.html">Talk to an engineer</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================= FAQ -->
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">FAQ</p>
+          <h2 class="f-h2">Common questions</h2>
+        </div>
+        <div class="f-faq">
+          <details><summary>Is Upkeep Check really free?</summary><div>Yes. Every check is in the free plugin, with no limits, and it's open source under the GPL. There is no paid version. If you'd like help replacing what it finds, that's a separate <a href="solutions.html">engineering service</a>.</div></details>
+          <details><summary>Does it slow my site down?</summary><div>No. It does nothing on the front end, and nothing in the admin until you press the button. Site Health only reads the last saved report.</div></details>
+          <details><summary>What does "closed" mean?</summary><div>WordPress.org removed the plugin from its directory, for example for a security issue or a guideline violation, or because the author asked. A closed plugin gets no more updates through WordPress, even if it is still installed on thousands of sites.</div></details>
+          <details><summary>Why is one of my plugins "not checkable"?</summary><div>It doesn't come from the WordPress.org directory: it's a premium plugin, a custom one, or it updates from somewhere else. Upkeep Check won't guess about it. Ask its developer whether it is still maintained.</div></details>
+          <details><summary>Is an old plugin always a problem?</summary><div>Not always. Some small plugins are finished and still work. That's why one to two years without an update is marked "keep an eye on it", and only over two years, or a closure, is marked to act on.</div></details>
+          <details><summary>Where do the PHP dates come from?</summary><div>From php.net's supported versions page. They're built into the plugin, so checking PHP sends nothing anywhere.</div></details>
+          <details><summary>What are the requirements?</summary><div>WordPress 6.0 or newer and PHP 7.4 or newer.</div></details>
+          <details><summary>Is it on WordPress.org?</summary><div>Yes, it's listed at <a href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">wordpress.org/plugins/steadydevs-upkeep-check</a>. Install it from Plugins → Add New Plugin in your dashboard, and updates arrive there automatically.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= CTA -->
+    <section class="f-glow-bottom">
+      <div class="f-container f-cta" id="enquire">
+        <h2 class="f-h2">Find out what's quietly out of date.</h2>
+        <p>Download Upkeep Check, press one button, and see which plugins need you.</p>
+        <div class="f-actions">
+          <a class="f-btn f-btn--primary f-btn--glow" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" data-uc-download="footer" rel="noopener">Download Upkeep Check — free</a>
+          <a class="f-btn f-btn--secondary" href="#ucEnquiryForm">Ask a question</a>
+        </div>
+
+        <!-- Questions and feature requests land in the same inbox as the main
+             contact form, tagged with the product and the visit's UTM
+             attribution so plugin leads can be read per channel. -->
+        <div class="uc-enquiry">
+          <div class="f-card">
+            <h3 class="f-h3">Question, bug or feature request?</h3>
+            <p>Tell us what you found or what you'd like it to check. We usually reply within one business day.</p>
+
+            <div id="ucEnquiryOk" class="uc-note uc-note--ok" hidden>Got it — thanks! We'll get back to you within one business day.</div>
+            <div id="ucEnquiryErr" class="uc-note uc-note--err" hidden>Something went wrong sending that. Please email us at <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>.</div>
+
+            <form id="ucEnquiryForm" class="f-form" action="https://formspree.io/f/xpqooaea" method="POST">
+              <input type="hidden" name="_subject" value="Upkeep Check enquiry">
+              <input type="hidden" name="product" value="Upkeep Check">
+              <input type="hidden" name="attribution" id="ucEnquiryAttr" value="">
+              <div class="f-form__row">
+                <div class="f-field"><label for="ucEnqName">Your name</label><input type="text" id="ucEnqName" name="name" required autocomplete="name"></div>
+                <div class="f-field"><label for="ucEnqEmail">Email</label><input type="email" id="ucEnqEmail" name="email" required autocomplete="email"></div>
+              </div>
+              <div class="f-field">
+                <label for="ucEnqUse">What are you checking?</label>
+                <select id="ucEnqUse" name="use_case">
+                  <option value="">Select one (optional)…</option>
+                  <option>My own site</option>
+                  <option>Client sites (agency)</option>
+                  <option>A site I'm taking over</option>
+                  <option>Replacing an abandoned plugin</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="f-field">
+                <label for="ucEnqMsg">Your question or request</label>
+                <textarea id="ucEnqMsg" name="message" required placeholder="e.g. Can it check themes too?"></textarea>
+              </div>
+              <div><button type="submit" id="ucEnqSubmit" class="f-btn f-btn--primary">Send it</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col">
+          <h2>Offerings</h2>
+          <ul>
+            <li><a href="solutions.html">Engineering services</a></li>
+            <li><a href="einvoice.html">EInvoice Platform</a></li>
+            <li><a href="venue-booking.html">Venue Booking</a></li>
+            <li><a href="steadypost.html">SteadyPost</a></li>
+            <li><a href="upkeep-check.html">Upkeep Check</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Case studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>More</h2>
+          <ul>
+            <li><a href="pricing-terms.html">Pricing terms</a></li>
+            <li><a href="my-account.html">My account</a></li>
+            <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="ff__col">
+          <h2>Free tools</h2>
+          <ul>
+            <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li>
+            <li><a href="msic-code-lookup.html">MSIC code lookup</a></li>
+            <li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li>
+            <li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li>
+            <li><a href="free-tools.html">All free tools &rarr;</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ff__base">
+        <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+        <span>Malaysia · Singapore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // UTM attribution for this visit, carried into GA4 events and the
+      // enquiry email so downloads and leads can be read per channel.
+      var params = new URLSearchParams(location.search);
+      var attr = {
+        source: params.get('utm_source') || '(none)',
+        medium: params.get('utm_medium') || '(none)',
+        campaign: params.get('utm_campaign') || '(none)'
+      };
+
+      function track(name, extra) {
+        if (typeof gtag !== 'function') { return; }
+        var payload = { utm_source: attr.source, utm_medium: attr.medium, utm_campaign: attr.campaign, product: 'upkeep-check' };
+        Object.keys(extra || {}).forEach(function (k) { payload[k] = extra[k]; });
+        try { gtag('event', name, payload); } catch (e) { /* analytics blocked: carry on */ }
+      }
+
+      // Downloads are the conversion for a free plugin.
+      document.querySelectorAll('[data-uc-download]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          track('plugin_download', { placement: link.getAttribute('data-uc-download') });
+        });
+      });
+
+      var form = document.getElementById('ucEnquiryForm');
+      if (!form) { return; }
+      document.getElementById('ucEnquiryAttr').value = attr.source + ' / ' + attr.medium + ' / ' + attr.campaign;
+
+      // Submitted over fetch so the visitor stays on the page; on failure
+      // they get the email address rather than a dead end.
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('ucEnqSubmit');
+        var ok = document.getElementById('ucEnquiryOk');
+        var err = document.getElementById('ucEnquiryErr');
+        ok.hidden = true;
+        err.hidden = true;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+          .then(function (res) {
+            if (!res.ok) { throw new Error('formspree ' + res.status); }
+            track('enquiry_submit', { use_case: form.use_case.value || '(none)' });
+            form.reset();
+            form.hidden = true;
+            ok.hidden = false;
+            ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .catch(function () { err.hidden = false; })
+          .then(function () { btn.disabled = false; btn.textContent = 'Send it'; });
+      });
+    })();
+  </script>
+</body>
+</html>
