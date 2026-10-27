@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Why Every Venue Booking Needs Your Approval | SteadyDevs</title>
+  <meta name="description" content="Why SteadyDevs Venue Booking asks you to approve each booking, what the approval queue looks like day to day, and who it suits.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/why-every-booking-needs-approval-venue-booking-plugin.html">
+  <meta property="og:title" content="Why Every Venue Booking Needs Your Approval">
+  <meta property="og:description" content="Why SteadyDevs Venue Booking asks you to approve each booking, what the approval queue looks like day to day, and who it suits.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/approval-workflow-cover.svg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Every Venue Booking Needs Your Approval">
+  <meta name="twitter:description" content="Why SteadyDevs Venue Booking asks you to approve each booking, what the approval queue looks like day to day, and who it suits.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/approval-workflow-cover.svg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/why-every-booking-needs-approval-venue-booking-plugin.html">
+  
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="../images/blog/approval-workflow-cover.svg" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Nothing Is Confirmed Until You Say So: Why Every Booking Needs Approval",
+    "alternativeHeadline": "Some venue owners push back when they hear every booking in SteadyDevs Venue Booking needs their approval. Her",
+    "image": "https://steadydevs.com/images/blog/approval-workflow-cover.svg",
+    "datePublished": "2026-10-27T00:00:00+08:00",
+    "dateModified": "2026-10-27T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Why SteadyDevs Venue Booking asks you to approve each booking, what the approval queue looks like day to day, and who it suits.",
+    "articleSection": "Software Development",
+    "articleBody": "Some venue owners push back when they hear every booking in SteadyDevs Venue Booking needs their approval. Here's why we built it that way, what the approval queue looks like day to day, and who it is—and isn't—right for.",
+    "wordCount": 819,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Venue Booking"
+      },
+      {
+        "@type": "Thing",
+        "name": "Operations"
+      },
+      {
+        "@type": "Thing",
+        "name": "WordPress"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "venue booking, operations, wordpress, product",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/why-every-booking-needs-approval-venue-booking-plugin.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I let some bookings auto-confirm and review only the rest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not in the current plugin. Every booking goes through the queue. If a partial auto-confirm rule would make the difference for your venue, let us know—requests like that shape what we build next."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the customer get told when their booking is approved?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Approval and rejection each trigger an email to the customer automatically, using HTML templates you can edit and preview in the dashboard."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can staff approve bookings, or only the site administrator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In the free plugin, approving bookings requires an administrator account on your WordPress site. If you need a front-desk login that can manage the day's bookings without full admin rights, tell us—it's one of the most requested additions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to a pending booking I never act on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It keeps holding its slot—pending and approved bookings both occupy their time on the form, and only rejecting or cancelling releases it. So an ignored request quietly blocks that slot for everyone else. Clear the queue daily and reject what you won't honour."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-10-27T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-10-27T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Venue Booking, Operations, WordPress, Product">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/why-every-booking-needs-approval-venue-booking-plugin.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/why-every-booking-needs-approval-venue-booking-plugin.html" />
+  
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=6"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Nothing Is Confirmed Until You Say So: Why Every Booking Needs Approval</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Nothing Is Confirmed Until You Say So: Why Every Booking Needs Approval",
+        "item": "https://steadydevs.com/blog/why-every-booking-needs-approval-venue-booking-plugin.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content" id="main">
+      <article>
+        <img src="../images/blog/approval-workflow-cover.svg" alt="Cover graphic of three booking requests marked pending, approved and rejected" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
+        <div class="blog-header">
+          <h1>Nothing Is Confirmed Until You Say So: Why Every Booking Needs Approval</h1>
+          <div class="blog-meta">October 27, 2026 | 6 min read</div>
+        </div>
+        <p>A design decision in <strong>SteadyDevs Venue Booking</strong> that some venue owners push back on at first: every booking needs your approval.</p>
+<p>No instant confirmation. The customer picks a slot, submits, and sees that their request is pending. You get it in your WordPress dashboard. You approve, reject or cancel. They get an email the moment you decide, from a template you can edit with a live preview.</p>
+<p>"Isn't that more work?" is the usual first reaction. This post is our honest answer: what the approval queue is for, what it costs you in time, and the kind of venue it's wrong for.</p>
+<h2>Why we made approval mandatory</h2>
+<h3>You know things the form doesn't</h3>
+<p>The regular who always pays late. The group of eight that booked the small studio but needs the big one. The tournament that's blocking Court 1 next Saturday and hasn't been put in the system yet. A form can only check what it's been told; an owner checks everything else. Approval is the moment that knowledge gets applied.</p>
+<h3>Approval is where double-booking protection lives</h3>
+<p>When you approve a booking, the plugin checks for an existing approved booking that overlaps the same resource, date and time, and blocks the approval if it finds one. Because the check and the confirmation are the same action, there's no gap for a second confirmation to slip through. We covered the mechanics in <a href="how-double-booking-protection-works-venue-booking-plugin.html">a separate post</a>. Remove approval and you remove the guarantee.</p>
+<h3>Nothing is promised that you haven't looked at</h3>
+<p>An instantly-confirmed booking is a promise your website made on your behalf. A pending booking is a request. The difference matters most when you have to say no: cancelling a confirmation feels like a broken promise, while declining a request is just an answer.</p>
+<h2>What it costs you in practice</h2>
+<p>Less than people expect. The approval queue is a list in your dashboard: resource, date, time, customer, status. Approving is one click. Rejecting is one click. The customer email goes out automatically either way.</p>
+<p>For a venue taking ten to thirty bookings a day, that's a few minutes once or twice a day—usually less time than the WhatsApp back-and-forth it replaces. The <a href="stop-taking-bookings-over-whatsapp-venue-booking.html">owners who've moved off WhatsApp</a> tend to notice the saving within the first week.</p>
+<div class="tip-box"><p><strong>A habit that works well:</strong> clear the queue at opening and once mid-afternoon. A pending request holds its slot until you act on it, so a quick pass keeps the calendar accurate, and customers see "pending" for at most a few hours.</p></div>
+<h2>Who this is wrong for</h2>
+<p>We'd rather say this plainly than have you find out after installing. If your venue needs bookings to confirm instantly with nobody looking—an unstaffed facility with keypad access, or a high-volume operation where a few hours of "pending" would cost you customers—the current plugin isn't the right fit. Approval can't be switched off.</p>
+<p>For most venues that book by the hour—driving ranges, sim bays, racket clubs, studios, treatment rooms, meeting rooms—the owner or front desk is already the person who decides whether a booking works. The plugin keeps them in that seat instead of automating them out of it.</p>
+<h2>What the customer sees</h2>
+<ol><li>They choose a date and time, then a resource, and confirm their details in a 3-step form that only shows available slots.</li><li>They see a message that their request has been received and is awaiting approval.</li><li>When you approve or reject, they receive an email within moments, worded however you've set the template.</li><li>If approved, they turn up. If not, they already know and can book another slot.</li></ol>
+
+          <div class="cta-box">
+            <h3>Stay in Control of Your Own Calendar</h3>
+            <p>SteadyDevs Venue Booking is free on the WordPress.org plugin directory—live availability, an approval queue, double-booking protection and unlimited resources, with nothing that expires. The Pro edition adds automatic reminders, the Class Portal and more, with a 14-day free trial.</p>
+            <a href="https://steadydevs.com/venue-booking.html" class="f-btn f-btn--primary cta-button">See Plans and Pro Features</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I let some bookings auto-confirm and review only the rest?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not in the current plugin. Every booking goes through the queue. If a partial auto-confirm rule would make the difference for your venue, let us know—requests like that shape what we build next.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does the customer get told when their booking is approved?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes. Approval and rejection each trigger an email to the customer automatically, using HTML templates you can edit and preview in the dashboard.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can staff approve bookings, or only the site administrator?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>In the free plugin, approving bookings requires an administrator account on your WordPress site. If you need a front-desk login that can manage the day's bookings without full admin rights, tell us—it's one of the most requested additions.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">What happens to a pending booking I never act on?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It keeps holding its slot—pending and approved bookings both occupy their time on the form, and only rejecting or cancelling releases it. So an ignored request quietly blocks that slot for everyone else. Clear the queue daily and reject what you won't honour.</p>
+                </div>
+              </div>
+            
+          </div>
+
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Taking bookings for courts, rooms or studios?</span>
+        <p>SteadyDevs Venue Booking is a WordPress plugin with live availability, approvals, automatic reminders and online payment at booking, so double bookings and no-shows stop costing you. <a href="../venue-booking.html">See Venue Booking &rarr;</a></p>
+      </aside>
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="why-every-booking-needs-approval-venue-booking-plugin" data-current-tags='["Venue Booking","Operations","WordPress","Product"]'><section class="related-posts-section"><h2 class="related-posts-title">Continue reading</h2><div class="f-grid related-posts-grid"><a href="venue-booking-plugin-no-external-connections.html" class="f-card f-card--link related-card"><img src="../images/blog/no-external-connections-cover.svg" alt="Cover graphic of a padlock over a WordPress site with no outgoing connections" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections</h3><p class="f-card__text">The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through Wor...</p><div class="f-tags"><span class="f-tag">Venue Booking</span><span class="f-tag">WordPress</span></div><div class="f-card__foot related-card__foot"><span>6 min read</span><span>Read article →</span></div></a><a href="how-double-booking-protection-works-venue-booking-plugin.html" class="f-card f-card--link related-card"><img src="../images/blog/double-booking-protection-cover.svg" alt="Cover graphic of a booking grid where one slot is blocked from being approved twice" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">How Double-Booking Protection Actually Works in SteadyDevs Venue Booking</h3><p class="f-card__text">Most booking forms check availability when the page loads and hope for the best. Here's how our WordPress plugin makes s...</p><div class="f-tags"><span class="f-tag">Venue Booking</span><span class="f-tag">WordPress</span></div><div class="f-card__foot related-card__foot"><span>6 min read</span><span>Read article →</span></div></a><a href="prevent-double-bookings-courts-studios-rental-spaces.html" class="f-card f-card--link related-card"><img src="../images/blog/prevent-double-bookings-cover.svg" alt="Cover graphic showing two colliding court bookings resolving into a single confirmed booking" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</h3><p class="f-card__text">A double-booked slot doesn't just cost you one booking—it costs you the customer who shows up to find someone else alrea...</p><div class="f-tags"><span class="f-tag">Venue Booking</span><span class="f-tag">Operations</span></div><div class="f-card__foot related-card__foot"><span>7 min read</span><span>Read article →</span></div></a></div></section></div>
+    </main>
+  </div>
+
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Free tools</h2>
+            <ul>
+              <li><a href="../e-invoice-checker.html">Do I need to e-invoice?</a></li>
+              <li><a href="../msic-code-lookup.html">MSIC code lookup</a></li>
+              <li><a href="../microsoft-end-of-support-lookup.html">End-of-support lookup</a></li>
+              <li><a href="../legacy-system-risk-scorecard.html">Risk scorecard</a></li>
+              <li><a href="../free-tools.html">All free tools &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth < 1100) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth < 1100) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1100 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1100) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>

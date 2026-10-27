@@ -13657,7 +13657,7 @@
       "Product"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/approval-workflow-cover.svg",
     "heroImageAlt": "Cover graphic of three booking requests marked pending, approved and rejected",
     "content": [
