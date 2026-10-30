@@ -8,13 +8,27 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>E-Invoice Relaxation Until 2027: What Phase 4 Businesses Can and Can't Do</title>
+      <link>https://steadydevs.com/blog/einvoice-interim-relaxation-2027-what-you-can-do.html</link>
+      <description>Phase 4 businesses have until 31 December 2027 before full e-invoice enforcement. The relaxation is generous, but it has conditions. Here's exactly what it allows, what it still requires, and how to use it well.</description>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/einvoice-interim-relaxation-2027-what-you-can-do.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>E-Invoice</category>
+      <category>LHDN</category>
+      <category>Compliance</category>
+      <category>MyInvois</category>
+      <category>SME Malaysia</category>
+    </item>
 
     <item>
       <title>Nothing Is Confirmed Until You Say So: Why Every Booking Needs Approval</title>
