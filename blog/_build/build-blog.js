@@ -70,6 +70,12 @@ function productCallout(post) {
   else if (has('venue booking', 'double booking')) c = {
     label: 'Taking bookings for courts, rooms or studios?', href: '../venue-booking.html', link: 'See Venue Booking',
     text: 'SteadyDevs Venue Booking is a WordPress plugin with live availability, approvals, automatic reminders and online payment at booking, so double bookings and no-shows stop costing you.' };
+  else if (has('upkeep check')) c = {
+    label: 'Which plugins on your site have gone quiet?', href: '../upkeep-check.html', link: 'See Upkeep Check',
+    text: 'SteadyDevs Upkeep Check is a free WordPress plugin that finds closed, abandoned and untested plugins, checks your PHP version\'s support dates, and keeps a record of what changed before something broke.' };
+  else if (has('steadypost', 'content migration')) c = {
+    label: 'Importing posts or pages from a spreadsheet?', href: '../steadypost.html', link: 'See SteadyPost',
+    text: 'SteadyPost is a free WordPress plugin that turns Excel or CSV rows into posts and pages, with a dry run, re-imports that never duplicate, and one-click undo.' };
   else if (/cloud/.test(post.slug)) c = {
     label: 'Cloud bill higher than it should be?', href: '../cloud-cost-audit.html', link: 'See the cloud cost audit',
     text: 'We review what you run and what you pay for, and show where the money goes, before you commit to a migration or a bigger plan.' };

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>WordPress Broke After an Update? See What Changed | SteadyDevs</title>
+  <meta name="description" content="When a WordPress site breaks, the first question is what changed. Upkeep Check 1.2 keeps a free, local record of updates and the fatal errors that followed them.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/wordpress-site-broke-after-update-what-changed.html">
+  <meta property="og:title" content="WordPress Broke After an Update? See What Changed">
+  <meta property="og:description" content="When a WordPress site breaks, the first question is what changed. Upkeep Check 1.2 keeps a free, local record of updates and the fatal errors that followed them.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/upkeep-check-what-changed-cover.svg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WordPress Broke After an Update? See What Changed">
+  <meta name="twitter:description" content="When a WordPress site breaks, the first question is what changed. Upkeep Check 1.2 keeps a free, local record of updates and the fatal errors that followed them.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/upkeep-check-what-changed-cover.svg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/wordpress-site-broke-after-update-what-changed.html">
+  
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="../images/blog/upkeep-check-what-changed-cover.svg" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your WordPress Site Broke After an Update. Which One?",
+    "alternativeHeadline": "When a WordPress site stops working, the first question is always the same: what changed? Most sites can't ans",
+    "image": "https://steadydevs.com/images/blog/upkeep-check-what-changed-cover.svg",
+    "datePublished": "2026-11-01T00:00:00+08:00",
+    "dateModified": "2026-11-01T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "When a WordPress site breaks, the first question is what changed. Upkeep Check 1.2 keeps a free, local record of updates and the fatal errors that followed them.",
+    "articleSection": "Software Development",
+    "articleBody": "When a WordPress site stops working, the first question is always the same: what changed? Most sites can't answer it. Upkeep Check 1.2 adds a free, local record of updates and the fatal errors that followed, so the answer is on one screen.",
+    "wordCount": 1555,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "WordPress"
+      },
+      {
+        "@type": "Thing",
+        "name": "Upkeep Check"
+      },
+      {
+        "@type": "Thing",
+        "name": "Maintenance"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "wordpress, upkeep check, maintenance, product",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/wordpress-site-broke-after-update-what-changed.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does What changed? send anything off my site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The record is kept in one option in your WordPress database and is never transmitted. The only outside request Upkeep Check makes is to the WordPress.org directory when you run a plugin check, and that sends only each plugin's slug."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does recording changes slow my site down?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Something is written only when a change happens or a fatal error occurs, which on a healthy site is a few times a week. On an ordinary page load the plugin does nothing except register that it's there."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it roll the plugin back for me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not in this version. WordPress itself already reverts a plugin update that fails with a fatal error during the update. What changed? is for the more common case, where the update succeeds and the site breaks afterwards: it tells you which plugin to roll back, and you do it with the plugin's previous version or a rollback plugin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why wasn't an error I saw recorded?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most likely it happened before Upkeep Check loaded: in wp-config.php, in a must-use plugin, or in a plugin WordPress loads earlier. It may also have been a warning or notice rather than a fatal error; those aren't recorded. The report page says so under the list."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work with WooCommerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It records changes to any plugin or theme and errors in any of them. A fatal error in a WooCommerce payment extension shows up with that extension's name, and the changes to it before the error."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Upkeep Check really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every feature, including What changed?, is in the free plugin under the GPL. There is no paid version."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-11-01T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-11-01T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="WordPress, Upkeep Check, Maintenance, Product">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/wordpress-site-broke-after-update-what-changed.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/wordpress-site-broke-after-update-what-changed.html" />
+  
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=7"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Your WordPress Site Broke After an Update. Which One?</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Your WordPress Site Broke After an Update. Which One?",
+        "item": "https://steadydevs.com/blog/wordpress-site-broke-after-update-what-changed.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content" id="main">
+      <article>
+        <img src="../images/blog/upkeep-check-what-changed-cover.svg" alt="Cover graphic of a timeline showing a plugin update followed four minutes later by a fatal error" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
+        <div class="blog-header">
+          <h1>Your WordPress Site Broke After an Update. Which One?</h1>
+          <div class="blog-meta">November 1, 2026 | 7 min read</div>
+        </div>
+        <p>The message arrives on a Monday morning: "Checkout stopped working over the weekend. Nobody touched anything."</p>
+<p>Somebody did. WordPress ran an automatic plugin update at 3am. Your host moved the server to a newer PHP version. A colleague pressed Update All on Friday afternoon and went home. None of those people think of themselves as having "touched" the site, and none of them left a note.</p>
+<p>So the person who has to fix it starts the way everyone does: deactivate plugins one by one and reload the page. On a site with forty plugins that is an afternoon, and it tells you what to switch off, not what to put back.</p>
+<h2>Why "what changed?" is the right first question</h2>
+<p>Most WordPress breakages are regressions. The site worked, something changed, the site stopped working. The change is nearly always one of a handful of things: a plugin or theme update, a plugin switched on or off, a WordPress core update, or a PHP version change on the server.</p>
+<p>Once you know which change it was, the fix is usually a few minutes: roll the plugin back, deactivate it, or ask the host to put PHP back while the plugin's author catches up. The hard part isn't fixing. It's knowing where to look.</p>
+<p>That is the same situation we see in <a href="../solutions.html">legacy .NET and POS systems</a>: the system that nobody understands any more is the one where nobody can say what changed last week. WordPress is just the most common place it happens.</p>
+<h2>What WordPress tells you, and what it doesn't</h2>
+<p>WordPress keeps surprisingly little of this. The Updates screen shows what is <em>waiting</em> to be updated, not what <em>was</em> updated and when. Site Health describes the current state, not how it got there. When a plugin crashes a protected page, recovery mode emails the admin and names the plugin, which is genuinely useful, but it only covers errors on the login page, the admin and a few other places. A fatal error on your checkout page sends no email.</p>
+<p>The PHP error log is off by default, and when it is on it lives in a file most site owners never open. Activity-log plugins record who did what, but they live in a different screen from the errors, so joining the two is still your job.</p>
+<h2>What Upkeep Check 1.2 records</h2>
+<p>Version 1.2 of <a href="../upkeep-check.html">SteadyDevs Upkeep Check</a>, our free WordPress plugin, adds a section called <strong>What changed?</strong> to its report. It keeps a record on your own site of:</p>
+<ul><li><strong>Plugin and theme changes:</strong> updates, installs, activations, deactivations and deletions, with the version before and after and who made the change.</li><li><strong>WordPress and PHP version changes</strong>, including ones made by your host. Changes made outside WordPress, over FTP or by a deployment tool, are picked up by an hourly comparison.</li><li><strong>Fatal errors</strong>, the kind that produce a white screen or "There has been a critical error on this website", with the message, the file and line, and the plugin or theme that file belongs to.</li><li><strong>Failed emails</strong>, with the mailer's error message. Never the recipient or the subject.</li></ul>
+<h3>Next to the error, the changes before it</h3>
+<p>The part that saves the afternoon is how the two halves are shown together. Under every fatal error, the report lists the changes made in the 24 hours before it, with the change to the same plugin first:</p>
+<div class="tip-box"><p><strong>10:41 — Fatal error in Page Builder Pro:</strong> Uncaught TypeError in page-builder-pro/includes/render.php:212<br><br><strong>In the 24 hours before this error:</strong><br>• Page Builder Pro updated from 3.20.1 to 3.21.0, by Aisyah (4 minutes earlier) <em>the same plugin the error is in</em><br>• WP Super Cache activated, by Aisyah (1 hour earlier)</p></div>
+<p>Notice what it doesn't say. It doesn't claim "87% confidence" that the update caused the error. It shows you that the error started four minutes after the update, in the plugin that was updated, and lets you draw the obvious conclusion. Where nothing changed in the 24 hours before an error, it says that too, which is just as useful: you can stop hunting for an update and look at the server instead.</p>
+<p>When the site has had fatal errors in the past week, a red notice at the top of Tools → Upkeep Check says how many and where the latest one was, so you don't have to scroll to find out.</p>
+<h2>What it can't do</h2>
+<p>We would rather you knew the limits before you installed it than after.</p>
+<ul><li>A fatal error is caught only if it happens <em>after</em> this plugin has loaded. An error in wp-config.php, or in a plugin that WordPress loads earlier in the alphabet, isn't recorded.</li><li>Warnings, notices and deprecations are not recorded. They are too noisy to be useful on a live site, and recording them would slow it down.</li><li>It isn't uptime monitoring. It records what happened on the site; it doesn't ping the site from outside to see if it's up.</li><li>It covers one site. There is no dashboard across sites.</li><li>It keeps 90 days and at most 500 events, in one option in your database. Nothing is sent anywhere, and deleting the plugin deletes the record.</li></ul>
+<h2>The rest of Upkeep Check</h2>
+<p>What changed? sits next to what Upkeep Check already did. Press <strong>Check my plugins</strong> and it asks the WordPress.org directory about every installed plugin and theme, then tells you in plain words which ones are quietly becoming a risk:</p>
+<ul><li><strong>Closed on WordPress.org</strong>, with the date and the reason, such as "Security Issue". A closed plugin keeps running on your site and will never get a fix.</li><li><strong>Abandoned</strong>: no update in over two years. Over one year is flagged as worth a look.</li><li><strong>Untested</strong> with the version of WordPress you run, or with an update WordPress is holding back because your PHP is too old.</li><li><strong>Your PHP version</strong>, and the date it stops getting security fixes.</li><li>Results also appear on the Plugins screen under each affected plugin, and in Tools → Site Health. An optional weekly check emails you only when something newly needs attention.</li></ul>
+<h2>How to use it when something breaks</h2>
+<ol><li>Open <strong>Tools → Upkeep Check</strong>. If there have been fatal errors this week, a red notice says so at the top.</li><li>Read the error in <strong>What changed?</strong> and the changes listed under it. A change to the same plugin, minutes before, is your first suspect.</li><li>Roll that plugin back to its previous version, or deactivate it, and reload the page that was failing.</li><li>If the error stops, you're done for now: tell the plugin's author, and keep the old version until they fix it. If it doesn't, move to the next change on the list.</li><li>If nothing changed in the 24 hours before the error, ask your host what changed on the server. A PHP version change is recorded if WordPress saw it, but a server move or a memory limit change isn't.</li></ol>
+
+          <div class="cta-box">
+            <h3>Download SteadyDevs Upkeep Check</h3>
+            <p>Free, open source, listed on WordPress.org. Every check and the full What changed? record, with no account, no limits and nothing sent off your site.</p>
+            <a href="https://wordpress.org/plugins/steadydevs-upkeep-check/" class="f-btn f-btn--primary cta-button">Get it on WordPress.org</a>
+          </div>
+<p>If you look after sites for other people, the same record is available from the command line: <code>wp upkeep timeline</code> prints the changes and errors, newest first, and <code>--format=json</code> feeds it into whatever you already use. The report page has a <strong>Clear history</strong> button for when you hand a site over.</p>
+<p>And if what the record shows you is a plugin that keeps breaking and whose author has gone quiet, <a href="../contact.html">talk to us</a>. Replacing a plugin a busy site depends on, without downtime, is the kind of work we do every week.</p>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does What changed? send anything off my site?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. The record is kept in one option in your WordPress database and is never transmitted. The only outside request Upkeep Check makes is to the WordPress.org directory when you run a plugin check, and that sends only each plugin's slug.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does recording changes slow my site down?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. Something is written only when a change happens or a fatal error occurs, which on a healthy site is a few times a week. On an ordinary page load the plugin does nothing except register that it's there.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Will it roll the plugin back for me?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not in this version. WordPress itself already reverts a plugin update that fails with a fatal error during the update. What changed? is for the more common case, where the update succeeds and the site breaks afterwards: it tells you which plugin to roll back, and you do it with the plugin's previous version or a rollback plugin.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Why wasn't an error I saw recorded?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Most likely it happened before Upkeep Check loaded: in wp-config.php, in a must-use plugin, or in a plugin WordPress loads earlier. It may also have been a warning or notice rather than a fatal error; those aren't recorded. The report page says so under the list.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="4">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does it work with WooCommerce?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes. It records changes to any plugin or theme and errors in any of them. A fatal error in a WooCommerce payment extension shows up with that extension's name, and the changes to it before the error.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="5">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is Upkeep Check really free?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes. Every feature, including What changed?, is in the free plugin under the GPL. There is no paid version.</p>
+                </div>
+              </div>
+            
+          </div>
+
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Which plugins on your site have gone quiet?</span>
+        <p>SteadyDevs Upkeep Check is a free WordPress plugin that finds closed, abandoned and untested plugins, checks your PHP version's support dates, and keeps a record of what changed before something broke. <a href="../upkeep-check.html">See Upkeep Check &rarr;</a></p>
+      </aside>
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="wordpress-site-broke-after-update-what-changed" data-current-tags='["WordPress","Upkeep Check","Maintenance","Product"]'><section class="related-posts-section"><h2 class="related-posts-title">Continue reading</h2><div class="f-grid related-posts-grid"><a href="why-every-booking-needs-approval-venue-booking-plugin.html" class="f-card f-card--link related-card"><img src="../images/blog/approval-workflow-cover.svg" alt="Cover graphic of three booking requests marked pending, approved and rejected" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Nothing Is Confirmed Until You Say So: Why Every Booking Needs Approval</h3><p class="f-card__text">Some venue owners push back when they hear every booking in SteadyDevs Venue Booking needs their approval. Here's why we...</p><div class="f-tags"><span class="f-tag">WordPress</span><span class="f-tag">Product</span></div><div class="f-card__foot related-card__foot"><span>6 min read</span><span>Read article →</span></div></a><a href="venue-booking-plugin-no-external-connections.html" class="f-card f-card--link related-card"><img src="../images/blog/no-external-connections-cover.svg" alt="Cover graphic of a padlock over a WordPress site with no outgoing connections" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Nothing Leaves Your Server: Why Our Venue Booking Plugin Makes Zero External Connections</h3><p class="f-card__text">The free SteadyDevs Venue Booking plugin stores every booking in your own WordPress database and sends email through Wor...</p><div class="f-tags"><span class="f-tag">WordPress</span><span class="f-tag">Product</span></div><div class="f-card__foot related-card__foot"><span>6 min read</span><span>Read article →</span></div></a><a href="how-double-booking-protection-works-venue-booking-plugin.html" class="f-card f-card--link related-card"><img src="../images/blog/double-booking-protection-cover.svg" alt="Cover graphic of a booking grid where one slot is blocked from being approved twice" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">How Double-Booking Protection Actually Works in SteadyDevs Venue Booking</h3><p class="f-card__text">Most booking forms check availability when the page loads and hope for the best. Here's how our WordPress plugin makes s...</p><div class="f-tags"><span class="f-tag">WordPress</span><span class="f-tag">Product</span></div><div class="f-card__foot related-card__foot"><span>6 min read</span><span>Read article →</span></div></a></div></section></div>
+    </main>
+  </div>
+
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Free tools</h2>
+            <ul>
+              <li><a href="../e-invoice-checker.html">Do I need to e-invoice?</a></li>
+              <li><a href="../msic-code-lookup.html">MSIC code lookup</a></li>
+              <li><a href="../microsoft-end-of-support-lookup.html">End-of-support lookup</a></li>
+              <li><a href="../legacy-system-risk-scorecard.html">Risk scorecard</a></li>
+              <li><a href="../free-tools.html">All free tools &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth < 1100) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth < 1100) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1100 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1100) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>

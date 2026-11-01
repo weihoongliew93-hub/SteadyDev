@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>SteadyDevs Upkeep Check: Find Abandoned WordPress Plugins</title>
-  <meta name="description" content="Free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with your WordPress version, and checks your PHP version's security support.">
+  <meta name="description" content="Free WordPress plugin that finds closed, abandoned, out-of-date or untested plugins, checks your PHP version's security support, and records what changed before your site broke.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://steadydevs.com/upkeep-check">
   <meta property="og:title" content="SteadyDevs Upkeep Check — know which plugins have gone quiet">
-  <meta property="og:description" content="A free WordPress plugin that flags closed, abandoned and out-of-date plugins, and tells you when your PHP version stops getting security fixes.">
+  <meta property="og:description" content="A free WordPress plugin that flags closed, abandoned and out-of-date plugins, tells you when your PHP version stops getting security fixes, and shows what changed before your site broke.">
   <meta property="og:image" content="https://steadydevs.com/images/upkeep-check/og-upkeep-check.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,10 +23,14 @@
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SteadyDevs Upkeep Check — know which plugins have gone quiet">
-  <meta name="twitter:description" content="Free WordPress plugin: find closed, abandoned and out-of-date plugins, and check your PHP version's support.">
+  <meta name="twitter:description" content="Free WordPress plugin: find closed, abandoned and out-of-date plugins, check your PHP version's support, and see what changed before your site broke.">
   <meta name="twitter:image" content="https://steadydevs.com/images/upkeep-check/og-upkeep-check.png">
 
   <link rel="canonical" href="https://steadydevs.com/upkeep-check">
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/upkeep-check">
+  <link rel="alternate" hreflang="ms" href="https://steadydevs.com/ms/upkeep-check">
+  <link rel="alternate" hreflang="zh-Hans" href="https://steadydevs.com/zh/upkeep-check">
+  <link rel="alternate" hreflang="x-default" href="https://steadydevs.com/upkeep-check">
 
   <script type="application/ld+json">
   {
@@ -36,8 +40,8 @@
     "applicationCategory": "SecurityApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.1.0",
-    "description": "A free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with the running WordPress version, checks whether the PHP version still gets security fixes, and adds the result to Site Health.",
+    "softwareVersion": "1.2.0",
+    "description": "A free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with the running WordPress version, checks whether the PHP version still gets security fixes, adds the result to Site Health, and records plugin, theme, WordPress and PHP changes with the fatal errors that followed them.",
     "url": "https://steadydevs.com/upkeep-check",
     "downloadUrl": "https://wordpress.org/plugins/steadydevs-upkeep-check/",
     "image": "https://steadydevs.com/images/upkeep-check/og-upkeep-check.png",
@@ -52,7 +56,8 @@
       "Shows updates waiting, including ones WordPress is holding back",
       "Lists inactive plugins to delete",
       "Checks your PHP version's security support dates",
-      "Adds the result to Tools → Site Health"
+      "Adds the result to Tools → Site Health",
+      "Records plugin, theme, WordPress and PHP changes, with the fatal errors and failed emails that followed"
     ]
   }
   </script>
@@ -139,7 +144,7 @@
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=6"></script>
+  <script src="assets/site-nav.js?v=7"></script>
   <main id="main">
 
     <!-- ============================================================ HERO -->
@@ -154,7 +159,7 @@
               <a class="f-btn f-btn--primary f-btn--glow" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" data-uc-download="hero" rel="noopener">Download Upkeep Check — free</a>
               <a class="f-btn f-btn--secondary" href="#tour">See how it works</a>
             </div>
-            <p class="f-note" style="margin-top: 16px">Version 1.1.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · listed on WordPress.org</p>
+            <p class="f-note" style="margin-top: 16px">Version 1.2.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · listed on WordPress.org</p>
           </div>
 
           <div class="f-hero__aside uc-hero-visual" aria-label="Illustration: a list of installed plugins with Upkeep Check's verdict on each">
@@ -250,6 +255,7 @@
           <article class="f-card f-card--compact"><h3 class="f-card__title">Updates held back</h3><p class="f-card__text">When the directory has a newer version than WordPress offers your site, usually because it needs a newer PHP or WordPress, you're told why the update isn't showing.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Inactive plugins</h3><p class="f-card__text">Switched off but still on the server. Delete the ones you don't need.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">PHP support dates</h3><p class="f-card__text">Whether your PHP version still gets security fixes, and the date it stops, from php.net's own schedule.</p></article>
+          <article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">What changed before it broke</h3><p class="f-card__text">New in 1.2. A record of plugin, theme, WordPress and PHP changes, with who made them, and the fatal errors and failed emails that followed. Each error lists the changes made in the 24 hours before it. <a href="blog/wordpress-site-broke-after-update-what-changed.html">Read how it works</a>.</p></article>
         </div>
       </div>
     </section>
@@ -260,8 +266,8 @@
         <div class="f-split">
           <div class="f-split__main">
             <p class="f-eyebrow">Light by design</p>
-            <h2 class="f-h2">Nothing runs until you press the button</h2>
-            <p class="f-sub">No background scans, nothing on the front end of your site, and no account. One option holds the last report, and deleting the plugin removes it.</p>
+            <h2 class="f-h2">Checks run only when you press the button</h2>
+            <p class="f-sub">No background scans and no account. The directory check runs when you ask for it, or weekly if you turn that on. The record of changes is written only when something changes or a fatal error happens, and it never leaves your site. Deleting the plugin removes everything it stored.</p>
           </div>
           <aside class="f-split__aside">
             <div class="f-callout f-callout--tip" style="margin: 0">
@@ -282,7 +288,7 @@
         </div>
         <div class="uc-free">
           <div class="f-card f-price-card f-price-card--featured">
-            <span class="f-ribbon">Upkeep Check 1.1.0</span>
+            <span class="f-ribbon">Upkeep Check 1.2.0</span>
             <div class="f-price">$0 <small>forever</small></div>
             <ul class="f-checks">
               <li>Every check on this page, for every plugin you have</li>
@@ -331,7 +337,8 @@
         </div>
         <div class="f-faq">
           <details><summary>Is Upkeep Check really free?</summary><div>Yes. Every check is in the free plugin, with no limits, and it's open source under the GPL. There is no paid version. If you'd like help replacing what it finds, that's a separate <a href="solutions.html">engineering service</a>.</div></details>
-          <details><summary>Does it slow my site down?</summary><div>No. It does nothing on the front end, and nothing in the admin until you press the button. Site Health only reads the last saved report.</div></details>
+          <details><summary>Does it slow my site down?</summary><div>No. The directory check runs only when you press the button or on the weekly schedule, and Site Health only reads the last saved report. Recording a change happens only when something changes; on an ordinary page load the plugin does nothing except register that it's there.</div></details>
+          <details><summary>What does "What changed?" record?</summary><div>Plugin and theme updates, installs, activations, deactivations and deletions, WordPress and PHP version changes, fatal errors with the plugin or theme they happened in, and failed emails with the mailer's error. Under each error it lists the changes made in the 24 hours before it. It keeps 90 days on your own site and sends nothing anywhere. It can't catch an error that happens before the plugin loads, and it doesn't record warnings or notices.</div></details>
           <details><summary>What does "closed" mean?</summary><div>WordPress.org removed the plugin from its directory, for example for a security issue or a guideline violation, or because the author asked. A closed plugin gets no more updates through WordPress, even if it is still installed on thousands of sites.</div></details>
           <details><summary>Why is one of my plugins "not checkable"?</summary><div>It doesn't come from the WordPress.org directory: it's a premium plugin, a custom one, or it updates from somewhere else. Upkeep Check won't guess about it. Ask its developer whether it is still maintained.</div></details>
           <details><summary>Is an old plugin always a problem?</summary><div>Not always. Some small plugins are finished and still work. That's why one to two years without an update is marked "keep an eye on it", and only over two years, or a closure, is marked to act on.</div></details>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html data-design="f" lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>SteadyDevs Upkeep Check：找出被遗弃的 WordPress 插件</title>
+<meta content="免费 WordPress 插件：找出已关闭、被遗弃、过时或未经测试的插件，检查您 PHP 版本的安全支持，并记录网站出问题前发生了什么变化。" name="description"/>
+<!-- Favicons -->
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../images/favicon.svg" rel="apple-touch-icon" sizes="180x180"/>
+<!-- Open Graph / Social Media Meta Tags -->
+<meta content="product" property="og:type"/>
+<meta content="https://steadydevs.com/zh/upkeep-check" property="og:url"/>
+<meta content="SteadyDevs Upkeep Check：找出被遗弃的 WordPress 插件" property="og:title"/>
+<meta content="免费 WordPress 插件：找出已关闭、被遗弃、过时或未经测试的插件，检查您 PHP 版本的安全支持，并记录网站出问题前发生了什么变化。" property="og:description"/>
+<meta content="https://steadydevs.com/images/upkeep-check/og-upkeep-check.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Twitter Card Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="SteadyDevs Upkeep Check：找出被遗弃的 WordPress 插件" name="twitter:title"/>
+<meta content="免费 WordPress 插件：找出已关闭、被遗弃、过时或未经测试的插件，检查您 PHP 版本的安全支持，并记录网站出问题前发生了什么变化。" name="twitter:description"/>
+<meta content="https://steadydevs.com/images/upkeep-check/og-upkeep-check.png" name="twitter:image"/>
+<link href="https://steadydevs.com/zh/upkeep-check" rel="canonical"/><link href="https://steadydevs.com/upkeep-check" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/upkeep-check" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/upkeep-check" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/upkeep-check" hreflang="en" rel="alternate"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SteadyDevs Upkeep Check",
+    "applicationCategory": "SecurityApplication",
+    "applicationSubCategory": "WordPress plugin",
+    "operatingSystem": "WordPress 6.0+",
+    "softwareVersion": "1.2.0",
+    "description": "A free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with the running WordPress version, checks whether the PHP version still gets security fixes, adds the result to Site Health, and records plugin, theme, WordPress and PHP changes with the fatal errors that followed them.",
+    "url": "https://steadydevs.com/upkeep-check",
+    "downloadUrl": "https://wordpress.org/plugins/steadydevs-upkeep-check/",
+    "image": "https://steadydevs.com/images/upkeep-check/og-upkeep-check.png",
+    "screenshot": "https://steadydevs.com/images/upkeep-check/report.webp",
+    "license": "https://www.gnu.org/licenses/gpl-2.0.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Steady Devs Solutions", "url": "https://steadydevs.com" },
+    "featureList": [
+      "Flags plugins closed on WordPress.org, with the date and reason",
+      "Flags plugins with no update in over one or two years",
+      "Flags plugins not tested with your WordPress version",
+      "Shows updates waiting, including ones WordPress is holding back",
+      "Lists inactive plugins to delete",
+      "Checks your PHP version's security support dates",
+      "Adds the result to Tools → Site Health",
+      "Records plugin, theme, WordPress and PHP changes, with the fatal errors and failed emails that followed"
+    ]
+  }
+  </script>
+<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta content="#0A0B0F" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="../assets/f.css?v=13" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+<style>
+    /* Upkeep Check page (design F). Uses f.css tokens only; everything is uc- prefixed. */
+
+    /* Hero: a plugin list with its verdicts */
+    .uc-hero-visual { display: flex; flex-direction: column; gap: 16px; }
+    .uc-list { padding: 0; overflow: hidden; }
+    .uc-list__bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+    .uc-list__bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: inline-block; }
+    .uc-list__bar span { margin-left: 6px; }
+    .uc-list table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .uc-list th, .uc-list td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+    .uc-list th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--faint); background: var(--surface-inset); }
+    .uc-list td { color: var(--text-soft); }
+    .uc-list tr:last-child td { border-bottom: 0; }
+    .uc-list .uc-name { color: var(--text-strong); white-space: normal; }
+    .uc-chip { display: inline-block; font-family: var(--mono); font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .uc-chip--ok { color: var(--ok); border-color: currentColor; }
+    .uc-chip--bad { color: var(--crimson-text); border-color: var(--crimson-line); background: var(--crimson-soft); }
+    .uc-notice { align-self: flex-end; width: min(100%, 380px); }
+    .uc-notice .f-sys__body { padding: 16px; }
+    @media (max-width: 480px) { .uc-list th:nth-child(2), .uc-list td:nth-child(2) { display: none; } }
+
+    /* Tour: copy beside a real screenshot */
+    .uc-tour { display: grid; gap: 112px; }
+    .uc-feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+    .uc-feature--flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .uc-feature--flip .uc-feature__copy { order: 2; }
+    .uc-feature__copy .f-h3 { font-size: 26px; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px; }
+    .uc-feature__copy > p { color: var(--muted); margin-bottom: 18px; }
+    .uc-shot { display: block; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .uc-shot img { width: 100%; }
+    .uc-shot--crop { max-height: 560px; position: relative; }
+    .uc-shot--crop::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(transparent, var(--surface)); pointer-events: none; }
+    @media (max-width: 900px) {
+      .uc-tour { gap: 72px; }
+      .uc-feature, .uc-feature--flip { grid-template-columns: 1fr; gap: 28px; }
+      .uc-feature--flip .uc-feature__copy { order: 0; }
+    }
+
+    /* Price card */
+    .uc-free { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    @media (max-width: 860px) { .uc-free { grid-template-columns: 1fr; } }
+    .uc-free .f-price small { margin-left: 4px; }
+
+    /* Enquiry form */
+    .uc-enquiry { max-width: 640px; margin: 48px auto 0; text-align: left; }
+    .uc-enquiry .f-card { padding: 28px; }
+    .uc-enquiry h3 { margin-bottom: 8px; }
+    .uc-enquiry > .f-card > p { color: var(--muted); margin-bottom: 20px; }
+    .uc-note { border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+    .uc-note--ok { border: 1px solid var(--ok); color: var(--ok); }
+    .uc-note--err { border: 1px solid var(--crimson-line); background: var(--crimson-soft); color: var(--crimson-text); }
+    .uc-note--err a { color: var(--crimson-text); }
+    .f-faq details a, .f-faq details code { color: var(--text-strong); }
+    .f-faq details code { font-family: var(--mono); font-size: 0.9em; }
+  </style>
+</head>
+<body>
+<a class="f-skip" href="#main">跳到内容</a>
+<div id="sd-site-nav"></div>
+<script src="../assets/site-nav.js?v=7"></script>
+<main id="main">
+<!-- ============================================================ HERO -->
+<section class="f-glow-top">
+<div class="f-container f-hero">
+<div class="f-hero__grid">
+<div class="f-hero__copy">
+<p class="f-eyebrow">SteadyDevs Upkeep Check · 免费 WordPress 插件</p>
+<h1 class="f-h1">知道哪些插件已经<span class="f-dim">悄然停更。</span></h1>
+<p class="f-lead">插件一旦停止更新，就不再获得安全修复，而 WordPress 不会提醒您。Upkeep Check 找出已被关闭、遗弃或落后的插件，并用直白的话告诉您每一个该怎么处理。</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-uc-download="hero" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">下载 Upkeep Check — 免费</a>
+<a class="f-btn f-btn--secondary" href="#tour">看看它如何工作</a></div>
+<p class="f-note" style="margin-top: 16px">版本 1.2.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · 已上架 WordPress.org</p>
+</div>
+<div aria-label="示意图：已安装插件列表及 Upkeep Check 对每个插件的结论" class="f-hero__aside uc-hero-visual">
+<div class="f-card uc-list">
+<div class="uc-list__bar"><i></i><i></i><i></i><span>Tools → Upkeep Check</span></div>
+<table aria-hidden="true">
+<thead><tr><th>Plugin</th><th>Last updated</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="uc-name">Widget Logic</td><td>—</td><td><span class="uc-chip uc-chip--bad">closed</span></td></tr>
+<tr><td class="uc-name">Simple Image Widget</td><td>Jul 2025</td><td><span class="uc-chip">no update in a year</span></td></tr>
+<tr><td class="uc-name">Contact Form 7</td><td>Oct 2026</td><td><span class="uc-chip">update held back</span></td></tr>
+<tr><td class="uc-name">Classic Editor</td><td>May 2026</td><td><span class="uc-chip uc-chip--ok">maintained</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="f-sys uc-notice">
+<span aria-hidden="true" class="f-sys__c f-sys__c--tl"></span><span aria-hidden="true" class="f-sys__c f-sys__c--br"></span>
+<div class="f-sys__head"><span class="f-sys__title">ACT NOW</span><span class="f-sys__tag">SITE HEALTH</span></div>
+<div class="f-sys__body">
+<p class="f-sys__lead" style="font-size: 16px">1 plugin is closed or looks abandoned</p>
+<p>Widget Logic was closed on WordPress.org on 14 April 2026. Replace it.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="f-strip">
+<div class="f-container f-strip__inner"><span>适用于</span>
+<strong>网站所有者</strong><strong>管理客户网站的代理机构</strong><strong>安全审查</strong><strong>网站交接</strong><strong>主机审计</strong></div>
+</div>
+<!-- ============================================================ TOUR -->
+<section class="f-section" id="tour">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">工作原理</p>
+<h2 class="f-h2">一个按钮，一份报告，不用猜</h2>
+<p class="f-sub">这些是真实截图，来自在演示网站上对照 WordPress.org 正式目录进行的一次检查。</p>
+</div>
+<div class="uc-tour">
+<div class="uc-feature">
+<div class="uc-feature__copy">
+<p class="f-eyebrow">报告</p>
+<h3 class="f-h3">每个插件，最严重的排最前，并附处理建议</h3>
+<p>进入 Tools → Upkeep Check，点击 Check my plugins。每个插件都会得到一个可以据以行动的结论，旁边是支撑它的事实：上次更新时间、测试过的 WordPress 版本，以及有多少网站在使用它。</p>
+<ul class="f-checks">
+<li>已关闭的插件会显示 WordPress.org 给出的日期和原因</li>
+<li>您的 PHP 和 WordPress 版本在同一页面检查</li>
+<li>自定义和付费插件标记为无法检查，绝不会被误认成目录中同名文件夹的插件</li>
+</ul>
+</div>
+<a class="uc-shot uc-shot--crop" href="../images/upkeep-check/report.webp" rel="noopener" target="_blank">
+<img alt="Upkeep Check 报告：PHP 和 WordPress 状态、汇总数量，以及插件表格，列出诸如在 WordPress.org 上已关闭、有可用更新、超过一年未更新等发现。" height="1400" loading="lazy" src="../images/upkeep-check/report.webp" width="1280"/>
+</a>
+</div>
+<div class="uc-feature uc-feature--flip">
+<div class="uc-feature__copy">
+<p class="f-eyebrow">Site Health</p>
+<h3 class="f-h3">结果就留在您平时查看的地方</h3>
+<p>检查之后，Tools → Site Health 会在有插件被关闭或遗弃时显示严重问题，在有更新待处理时显示建议。它读取的是已保存的报告，所以打开 Site Health 和以前一样快。</p>
+<ul class="f-checks">
+<li>点名需要更换的插件</li>
+<li>直接链接回完整报告</li>
+<li>在您运行第一次检查之前不会反复提醒</li>
+</ul>
+</div>
+<a class="uc-shot" href="../images/upkeep-check/site-health.webp" rel="noopener" target="_blank">
+<img alt="WordPress Site Health 显示严重问题：1 plugin is closed or looks abandoned。" height="1000" loading="lazy" src="../images/upkeep-check/site-health.webp" width="1280"/>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== FEATURES -->
+<section class="f-section f-section--alt" id="features">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">检查内容</p>
+<h2 class="f-h2">WordPress 不会告诉您的事</h2>
+<p class="f-sub">Plugins 页面显示的是更新。它不会显示哪些插件再也不会有更新了。</p>
+</div>
+<div class="f-grid">
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">在 WordPress.org 上已关闭</h3><p class="f-card__text">被移出目录的插件（通常因为安全问题）仍在您的网站上运行，没有任何警告。Upkeep Check 会显示它何时、为何被关闭。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">被遗弃</h3><p class="f-card__text">超过两年没有更新的，标记为需要处理。超过一年没有更新的，标记为需要留意。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">未经测试</h3><p class="f-card__text">作者尚未在您所用 WordPress 版本上测试过的插件。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">被扣住的更新</h3><p class="f-card__text">当目录中的版本比 WordPress 提供给您网站的更新（通常因为它需要更新的 PHP 或 WordPress），会告诉您为什么该更新没有出现。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">未启用的插件</h3><p class="f-card__text">已停用但仍留在服务器上。删掉您不需要的。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">PHP 支持日期</h3><p class="f-card__text">您的 PHP 版本是否仍获得安全修复，以及截止日期，来自 php.net 自己的时间表。</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">出问题前发生了什么变化</h3><p class="f-card__text">1.2 新增。记录插件、主题、WordPress 和 PHP 的变化、操作者，以及随后发生的致命错误和发送失败的邮件。每个错误都会列出它之前 24 小时内的变化。<a href="../blog/wordpress-site-broke-after-update-what-changed.html">了解它如何工作</a>。</p></article>
+</div>
+</div>
+</section>
+<!-- ===================================================== PRIVACY -->
+<section class="f-section">
+<div class="f-container">
+<div class="f-split">
+<div class="f-split__main">
+<p class="f-eyebrow">轻量设计</p>
+<h2 class="f-h2">只有在您点击按钮时才运行检查</h2>
+<p class="f-sub">没有后台扫描，不需要账户。目录检查在您要求时运行，或在您开启后每周运行一次。变化记录只在发生变化或出现致命错误时写入，而且绝不离开您的网站。删除本插件会清除它保存的一切。</p>
+</div>
+<aside class="f-split__aside">
+<div class="f-callout f-callout--tip" style="margin: 0"><span class="f-callout__label">离开您网站的信息</span>
+              仅有每个已安装插件的目录 slug（例如 <span class="f-mono">akismet</span>），在您运行检查时发送到公开的 WordPress.org Plugins API。不涉及您的内容、用户或访客的任何信息。</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- ========================================================== GET IT -->
+<section class="f-section f-section--alt" id="get">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">开始使用</p>
+<h2 class="f-h2">免费。每项检查。没有附加条件。</h2>
+</div>
+<div class="uc-free">
+<div class="f-card f-price-card f-price-card--featured">
+<span class="f-ribbon">Upkeep Check 1.2.0</span>
+<div class="f-price">$0 <small>永久</small></div>
+<ul class="f-checks">
+<li>本页的每项检查，覆盖您的每个插件</li>
+<li>网站数量不限</li>
+<li>GPL 开源</li>
+<li>已收录于 WordPress.org 插件目录</li>
+</ul>
+<a class="f-btn f-btn--primary" data-uc-download="pricing" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">到 WordPress.org 获取</a>
+</div>
+<div class="f-card">
+<h3 class="f-card__title" style="margin-bottom: 18px">两分钟出第一份报告</h3>
+<ol class="f-steps" style="grid-template-columns: 1fr; border-top: 0">
+<li><div class="f-steps__n">01</div><div class="f-steps__t">安装</div><div class="f-steps__d">Plugins → Add New Plugin，搜索“SteadyDevs Upkeep Check”，安装并启用。</div></li>
+<li><div class="f-steps__n">02</div><div class="f-steps__t">检查</div><div class="f-steps__d">Tools → Upkeep Check → Check my plugins。</div></li>
+<li><div class="f-steps__n">03</div><div class="f-steps__t">处理最上面几行</div><div class="f-steps__d">更换已关闭或被遗弃的，更新待更新的，删除未启用的。</div></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================== DONE-FOR-YOU -->
+<section class="f-section">
+<div class="f-container">
+<article class="f-card f-card--accent" style="padding: 36px">
+<div class="f-split" style="gap: 32px; align-items: center">
+<div class="f-split__main">
+<p class="f-eyebrow">发现了不能说停就停的插件？</p>
+<h2 class="f-h2" style="font-size: clamp(26px, 3vw, 32px)">要更换网站赖以运行的插件？</h2>
+<p class="f-sub">一个运行着您的表单、预订或结账的被遗弃插件，不能一删了之。我们的工程师可以找到仍在维护的替代品，迁移您的数据，并在不停机的情况下完成切换。</p>
+</div>
+<div class="f-actions"><a class="f-btn f-btn--secondary" href="contact.html">与工程师聊聊</a></div>
+</div>
+</article>
+</div>
+</section>
+<!-- ============================================================= FAQ -->
+<section class="f-section f-section--alt">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">常见问题</p>
+<h2 class="f-h2">常见问题解答</h2>
+</div>
+<div class="f-faq">
+<details><summary>Upkeep Check 真的免费吗？</summary><div>是的。每项检查都包含在免费插件中，没有限制，并以 GPL 开源。没有付费版本。如果您需要帮助更换它找到的插件，那是另外的<a href="solutions.html">工程服务</a>。</div></details>
+<details><summary>它会拖慢我的网站吗？</summary><div>不会。目录检查只在您点击按钮或按每周计划运行，Site Health 只读取上次保存的报告。只有在发生变化时才会记录；在普通页面加载时，本插件除了注册自身之外什么也不做。</div></details>
+<details><summary>“What changed?”记录些什么？</summary><div>插件和主题的更新、安装、启用、停用和删除，WordPress 和 PHP 的版本变化，致命错误及其所在的插件或主题，以及发送失败的邮件及邮件程序给出的错误。在每个错误下方，列出它之前 24 小时内的变化。记录在您自己的网站上保留 90 天，不向任何地方发送。它无法捕获在本插件加载之前发生的错误，也不记录警告或通知。</div></details>
+<details><summary>“已关闭”是什么意思？</summary><div>WordPress.org 把该插件移出了目录，例如因为安全问题或违反准则，或者应作者要求。已关闭的插件不会再通过 WordPress 获得更新，即使它仍安装在成千上万个网站上。</div></details>
+<details><summary>为什么我的某个插件“无法检查”？</summary><div>它不来自 WordPress.org 目录：它是付费插件、自定义插件，或从别处更新。Upkeep Check 不会对它妄加猜测。请询问其开发者是否仍在维护。</div></details>
+<details><summary>旧插件一定有问题吗？</summary><div>不一定。有些小插件已经完成，仍然好用。所以一到两年没有更新只标记为“留意”，只有超过两年没有更新，或者已被关闭，才标记为需要处理。</div></details>
+<details><summary>PHP 日期从哪里来？</summary><div>来自 php.net 的受支持版本页面。它们内置在插件中，所以检查 PHP 不会向任何地方发送信息。</div></details>
+<details><summary>有什么要求？</summary><div>WordPress 6.0 或更新版本，PHP 7.4 或更新版本。</div></details>
+<details><summary>它在 WordPress.org 上吗？</summary><div>在。它收录于 <a href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">wordpress.org/plugins/steadydevs-upkeep-check</a>。在您的后台通过 Plugins → Add New Plugin 安装，更新会自动送达。</div></details>
+</div>
+</div>
+</section>
+<!-- ============================================================= CTA -->
+<section class="f-glow-bottom">
+<div class="f-container f-cta" id="enquire">
+<h2 class="f-h2">看看有什么在悄悄过时。</h2>
+<p>下载 Upkeep Check，点一个按钮，看看哪些插件需要您处理。</p>
+<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-uc-download="footer" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">下载 Upkeep Check — 免费</a>
+<a class="f-btn f-btn--secondary" href="#ucEnquiryForm">提个问题</a></div>
+<!-- Questions and feature requests land in the same inbox as the main
+             contact form, tagged with the product and the visit's UTM
+             attribution so plugin leads can be read per channel. -->
+<div class="uc-enquiry">
+<div class="f-card">
+<h3 class="f-h3">有问题、Bug 或功能建议？</h3>
+<p>告诉我们您发现了什么，或希望它检查什么。我们通常在一个工作日内回复。</p>
+<div class="uc-note uc-note--ok" hidden="" id="ucEnquiryOk">已收到，谢谢！我们会在一个工作日内回复您。</div>
+<div class="uc-note uc-note--err" hidden="" id="ucEnquiryErr">发送时出了点问题。请发邮件到 <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>。</div>
+<form action="https://formspree.io/f/xpqooaea" class="f-form" id="ucEnquiryForm" method="POST"><input name="language" type="hidden" value="Chinese"/>
+<input name="_subject" type="hidden" value="Upkeep Check enquiry"/>
+<input name="product" type="hidden" value="Upkeep Check"/>
+<input id="ucEnquiryAttr" name="attribution" type="hidden" value=""/>
+<div class="f-form__row">
+<div class="f-field"><label for="ucEnqName">您的姓名</label><input autocomplete="name" id="ucEnqName" name="name" required="" type="text"/></div>
+<div class="f-field"><label for="ucEnqEmail">电子邮箱</label><input autocomplete="email" id="ucEnqEmail" name="email" required="" type="email"/></div>
+</div>
+<div class="f-field">
+<label for="ucEnqUse">您在检查什么？</label>
+<select id="ucEnqUse" name="use_case">
+<option value="">请选择（可选）……</option>
+<option>我自己的网站</option>
+<option>客户网站（代理机构）</option>
+<option>我正在接手的网站</option>
+<option>更换被遗弃的插件</option>
+<option>其他</option>
+</select>
+</div>
+<div class="f-field">
+<label for="ucEnqMsg">您的问题或需求</label>
+<textarea id="ucEnqMsg" name="message" placeholder="例如：它也能检查主题吗？" required=""></textarea>
+</div>
+<div><button class="f-btn f-btn--primary" id="ucEnqSubmit" type="submit">发送</button></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="ff">
+<div class="f-container">
+<div class="ff__grid">
+<div class="ff__brand">
+<a class="fh__logo" href="index.html"><svg aria-hidden="true" class="fh__mark" focusable="false" viewbox="1 5 23 30"><rect class="sd-b1" height="10" rx="2" width="10" x="2" y="24"></rect><rect class="sd-b2" height="16" rx="2" width="10" x="13" y="18"></rect><rect class="sd-b3" height="10" rx="2" width="10" x="2" y="12"></rect><rect class="sd-b4" height="10" rx="2" width="10" x="13" y="6"></rect></svg>SteadyDevs</a>
+<p>为马来西亚企业承受不起损失的系统，提供软件与工程服务。</p>
+</div>
+<div class="ff__col">
+<h2>产品与服务</h2>
+<ul>
+<li><a href="solutions.html">工程服务</a></li>
+<li><a href="einvoice.html">EInvoice 平台</a></li>
+<li><a href="venue-booking.html">Venue Booking</a></li>
+<li><a href="steadypost.html">SteadyPost</a></li>
+<li><a href="upkeep-check.html">Upkeep Check</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>公司</h2>
+<ul>
+<li><a href="about.html">关于我们</a></li>
+<li><a href="portfolio.html">案例研究</a></li>
+<li><a href="../blog/index.html">博客</a></li>
+<li><a href="contact.html">联系我们</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>更多</h2>
+<ul>
+<li><a href="pricing-terms.html">价格条款</a></li>
+<li><a href="../my-account.html">我的账户</a></li>
+<li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+</ul>
+</div>
+<div class="ff__col">
+<h2>免费工具</h2>
+<ul>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li>
+<li><a href="msic-code-lookup.html">MSIC 代码查询</a></li>
+<li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li>
+<li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li>
+<li><a href="../free-tools.html">全部免费工具 →</a></li>
+</ul>
+</div>
+</div>
+<div class="ff__base">
+<span>© 2026 Steady Devs Solutions · SSM 202603092285</span>
+<span>Malaysia · Singapore</span>
+</div>
+</div>
+</footer>
+<script>
+    (function () {
+      // UTM attribution for this visit, carried into GA4 events and the
+      // enquiry email so downloads and leads can be read per channel.
+      var params = new URLSearchParams(location.search);
+      var attr = {
+        source: params.get('utm_source') || '(none)',
+        medium: params.get('utm_medium') || '(none)',
+        campaign: params.get('utm_campaign') || '(none)'
+      };
+
+      function track(name, extra) {
+        if (typeof gtag !== 'function') { return; }
+        var payload = { utm_source: attr.source, utm_medium: attr.medium, utm_campaign: attr.campaign, product: 'upkeep-check' };
+        Object.keys(extra || {}).forEach(function (k) { payload[k] = extra[k]; });
+        try { gtag('event', name, payload); } catch (e) { /* analytics blocked: carry on */ }
+      }
+
+      // Downloads are the conversion for a free plugin.
+      document.querySelectorAll('[data-uc-download]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          track('plugin_download', { placement: link.getAttribute('data-uc-download') });
+        });
+      });
+
+      var form = document.getElementById('ucEnquiryForm');
+      if (!form) { return; }
+      document.getElementById('ucEnquiryAttr').value = attr.source + ' / ' + attr.medium + ' / ' + attr.campaign;
+
+      // Submitted over fetch so the visitor stays on the page; on failure
+      // they get the email address rather than a dead end.
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('ucEnqSubmit');
+        var ok = document.getElementById('ucEnquiryOk');
+        var err = document.getElementById('ucEnquiryErr');
+        ok.hidden = true;
+        err.hidden = true;
+        btn.disabled = true;
+        btn.textContent = '发送中……';
+
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+          .then(function (res) {
+            if (!res.ok) { throw new Error('formspree ' + res.status); }
+            track('enquiry_submit', { use_case: form.use_case.value || '(none)' });
+            form.reset();
+            form.hidden = true;
+            ok.hidden = false;
+            ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .catch(function () { err.hidden = false; })
+          .then(function () { btn.disabled = false; btn.textContent = '发送'; });
+      });
+    })();
+  </script>
+</body>
+</html>

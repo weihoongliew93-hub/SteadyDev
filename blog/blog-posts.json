@@ -1,5 +1,393 @@
 [
   {
+    "id": "wordpress-site-broke-after-update-what-changed",
+    "title": "Your WordPress Site Broke After an Update. Which One?",
+    "slug": "wordpress-site-broke-after-update-what-changed",
+    "excerpt": "When a WordPress site stops working, the first question is always the same: what changed? Most sites can't answer it. Upkeep Check 1.2 adds a free, local record of updates and the fatal errors that followed, so the answer is on one screen.",
+    "date": "2026-11-01",
+    "dateDisplay": "November 1, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "WordPress",
+      "Upkeep Check",
+      "Maintenance",
+      "Product"
+    ],
+    "author": "SteadyDevs",
+    "published": true,
+    "heroImage": "images/blog/upkeep-check-what-changed-cover.svg",
+    "heroImageAlt": "Cover graphic of a timeline showing a plugin update followed four minutes later by a fatal error",
+    "seoTitle": "WordPress Broke After an Update? See What Changed",
+    "metaDescription": "When a WordPress site breaks, the first question is what changed. Upkeep Check 1.2 keeps a free, local record of updates and the fatal errors that followed them.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "The message arrives on a Monday morning: \"Checkout stopped working over the weekend. Nobody touched anything.\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Somebody did. WordPress ran an automatic plugin update at 3am. Your host moved the server to a newer PHP version. A colleague pressed Update All on Friday afternoon and went home. None of those people think of themselves as having \"touched\" the site, and none of them left a note."
+      },
+      {
+        "type": "paragraph",
+        "text": "So the person who has to fix it starts the way everyone does: deactivate plugins one by one and reload the page. On a site with forty plugins that is an afternoon, and it tells you what to switch off, not what to put back."
+      },
+      {
+        "type": "heading2",
+        "text": "Why \"what changed?\" is the right first question"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most WordPress breakages are regressions. The site worked, something changed, the site stopped working. The change is nearly always one of a handful of things: a plugin or theme update, a plugin switched on or off, a WordPress core update, or a PHP version change on the server."
+      },
+      {
+        "type": "paragraph",
+        "text": "Once you know which change it was, the fix is usually a few minutes: roll the plugin back, deactivate it, or ask the host to put PHP back while the plugin's author catches up. The hard part isn't fixing. It's knowing where to look."
+      },
+      {
+        "type": "paragraph",
+        "text": "That is the same situation we see in <a href=\"../solutions.html\">legacy .NET and POS systems</a>: the system that nobody understands any more is the one where nobody can say what changed last week. WordPress is just the most common place it happens."
+      },
+      {
+        "type": "heading2",
+        "text": "What WordPress tells you, and what it doesn't"
+      },
+      {
+        "type": "paragraph",
+        "text": "WordPress keeps surprisingly little of this. The Updates screen shows what is <em>waiting</em> to be updated, not what <em>was</em> updated and when. Site Health describes the current state, not how it got there. When a plugin crashes a protected page, recovery mode emails the admin and names the plugin, which is genuinely useful, but it only covers errors on the login page, the admin and a few other places. A fatal error on your checkout page sends no email."
+      },
+      {
+        "type": "paragraph",
+        "text": "The PHP error log is off by default, and when it is on it lives in a file most site owners never open. Activity-log plugins record who did what, but they live in a different screen from the errors, so joining the two is still your job."
+      },
+      {
+        "type": "heading2",
+        "text": "What Upkeep Check 1.2 records"
+      },
+      {
+        "type": "paragraph",
+        "text": "Version 1.2 of <a href=\"../upkeep-check.html\">SteadyDevs Upkeep Check</a>, our free WordPress plugin, adds a section called <strong>What changed?</strong> to its report. It keeps a record on your own site of:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Plugin and theme changes:</strong> updates, installs, activations, deactivations and deletions, with the version before and after and who made the change.",
+          "<strong>WordPress and PHP version changes</strong>, including ones made by your host. Changes made outside WordPress, over FTP or by a deployment tool, are picked up by an hourly comparison.",
+          "<strong>Fatal errors</strong>, the kind that produce a white screen or \"There has been a critical error on this website\", with the message, the file and line, and the plugin or theme that file belongs to.",
+          "<strong>Failed emails</strong>, with the mailer's error message. Never the recipient or the subject."
+        ]
+      },
+      {
+        "type": "heading3",
+        "text": "Next to the error, the changes before it"
+      },
+      {
+        "type": "paragraph",
+        "text": "The part that saves the afternoon is how the two halves are shown together. Under every fatal error, the report lists the changes made in the 24 hours before it, with the change to the same plugin first:"
+      },
+      {
+        "type": "tip",
+        "text": "<strong>10:41 — Fatal error in Page Builder Pro:</strong> Uncaught TypeError in page-builder-pro/includes/render.php:212<br><br><strong>In the 24 hours before this error:</strong><br>• Page Builder Pro updated from 3.20.1 to 3.21.0, by Aisyah (4 minutes earlier) <em>the same plugin the error is in</em><br>• WP Super Cache activated, by Aisyah (1 hour earlier)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Notice what it doesn't say. It doesn't claim \"87% confidence\" that the update caused the error. It shows you that the error started four minutes after the update, in the plugin that was updated, and lets you draw the obvious conclusion. Where nothing changed in the 24 hours before an error, it says that too, which is just as useful: you can stop hunting for an update and look at the server instead."
+      },
+      {
+        "type": "paragraph",
+        "text": "When the site has had fatal errors in the past week, a red notice at the top of Tools → Upkeep Check says how many and where the latest one was, so you don't have to scroll to find out."
+      },
+      {
+        "type": "heading2",
+        "text": "What it can't do"
+      },
+      {
+        "type": "paragraph",
+        "text": "We would rather you knew the limits before you installed it than after."
+      },
+      {
+        "type": "list",
+        "items": [
+          "A fatal error is caught only if it happens <em>after</em> this plugin has loaded. An error in wp-config.php, or in a plugin that WordPress loads earlier in the alphabet, isn't recorded.",
+          "Warnings, notices and deprecations are not recorded. They are too noisy to be useful on a live site, and recording them would slow it down.",
+          "It isn't uptime monitoring. It records what happened on the site; it doesn't ping the site from outside to see if it's up.",
+          "It covers one site. There is no dashboard across sites.",
+          "It keeps 90 days and at most 500 events, in one option in your database. Nothing is sent anywhere, and deleting the plugin deletes the record."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "The rest of Upkeep Check"
+      },
+      {
+        "type": "paragraph",
+        "text": "What changed? sits next to what Upkeep Check already did. Press <strong>Check my plugins</strong> and it asks the WordPress.org directory about every installed plugin and theme, then tells you in plain words which ones are quietly becoming a risk:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Closed on WordPress.org</strong>, with the date and the reason, such as \"Security Issue\". A closed plugin keeps running on your site and will never get a fix.",
+          "<strong>Abandoned</strong>: no update in over two years. Over one year is flagged as worth a look.",
+          "<strong>Untested</strong> with the version of WordPress you run, or with an update WordPress is holding back because your PHP is too old.",
+          "<strong>Your PHP version</strong>, and the date it stops getting security fixes.",
+          "Results also appear on the Plugins screen under each affected plugin, and in Tools → Site Health. An optional weekly check emails you only when something newly needs attention."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "How to use it when something breaks"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Open <strong>Tools → Upkeep Check</strong>. If there have been fatal errors this week, a red notice says so at the top.",
+          "Read the error in <strong>What changed?</strong> and the changes listed under it. A change to the same plugin, minutes before, is your first suspect.",
+          "Roll that plugin back to its previous version, or deactivate it, and reload the page that was failing.",
+          "If the error stops, you're done for now: tell the plugin's author, and keep the old version until they fix it. If it doesn't, move to the next change on the list.",
+          "If nothing changed in the 24 hours before the error, ask your host what changed on the server. A PHP version change is recorded if WordPress saw it, but a server move or a memory limit change isn't."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Download SteadyDevs Upkeep Check",
+        "text": "Free, open source, listed on WordPress.org. Every check and the full What changed? record, with no account, no limits and nothing sent off your site.",
+        "buttonText": "Get it on WordPress.org",
+        "buttonLink": "https://wordpress.org/plugins/steadydevs-upkeep-check/"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you look after sites for other people, the same record is available from the command line: <code>wp upkeep timeline</code> prints the changes and errors, newest first, and <code>--format=json</code> feeds it into whatever you already use. The report page has a <strong>Clear history</strong> button for when you hand a site over."
+      },
+      {
+        "type": "paragraph",
+        "text": "And if what the record shows you is a plugin that keeps breaking and whose author has gone quiet, <a href=\"../contact.html\">talk to us</a>. Replacing a plugin a busy site depends on, without downtime, is the kind of work we do every week."
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Does What changed? send anything off my site?",
+            "answer": "No. The record is kept in one option in your WordPress database and is never transmitted. The only outside request Upkeep Check makes is to the WordPress.org directory when you run a plugin check, and that sends only each plugin's slug."
+          },
+          {
+            "question": "Does recording changes slow my site down?",
+            "answer": "No. Something is written only when a change happens or a fatal error occurs, which on a healthy site is a few times a week. On an ordinary page load the plugin does nothing except register that it's there."
+          },
+          {
+            "question": "Will it roll the plugin back for me?",
+            "answer": "Not in this version. WordPress itself already reverts a plugin update that fails with a fatal error during the update. What changed? is for the more common case, where the update succeeds and the site breaks afterwards: it tells you which plugin to roll back, and you do it with the plugin's previous version or a rollback plugin."
+          },
+          {
+            "question": "Why wasn't an error I saw recorded?",
+            "answer": "Most likely it happened before Upkeep Check loaded: in wp-config.php, in a must-use plugin, or in a plugin WordPress loads earlier. It may also have been a warning or notice rather than a fatal error; those aren't recorded. The report page says so under the list."
+          },
+          {
+            "question": "Does it work with WooCommerce?",
+            "answer": "Yes. It records changes to any plugin or theme and errors in any of them. A fatal error in a WooCommerce payment extension shows up with that extension's name, and the changes to it before the error."
+          },
+          {
+            "question": "Is Upkeep Check really free?",
+            "answer": "Yes. Every feature, including What changed?, is in the free plugin under the GPL. There is no paid version."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "import-wordpress-posts-from-excel-without-duplicates",
+    "title": "Moving 800 Pages into WordPress from a Spreadsheet, Without Duplicates or Regrets",
+    "slug": "import-wordpress-posts-from-excel-without-duplicates",
+    "excerpt": "Bulk imports go wrong in three predictable ways: duplicates when you run them twice, half-finished runs you can't undo, and mistakes you only see after publishing. Here's how to import hundreds of posts or pages from Excel or CSV without any of them.",
+    "date": "2026-11-04",
+    "dateDisplay": "November 4, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "WordPress",
+      "SteadyPost",
+      "Content Migration",
+      "Product"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/steadypost-spreadsheet-import-cover.svg",
+    "heroImageAlt": "Cover graphic of a spreadsheet of location pages becoming published WordPress posts, with a dry run and undo",
+    "seoTitle": "Import WordPress Posts from Excel or CSV, Safely",
+    "metaDescription": "How to import hundreds of WordPress posts or pages from Excel or CSV with a dry run, no duplicates on re-import and one-click undo, using the free SteadyPost plugin.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "The job sounds small when it's described. \"We have a spreadsheet of our branches. Can you make a page for each one?\" Or: \"The old system has 800 product descriptions. We need them on the new WordPress site by the launch.\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Then someone opens WordPress, clicks Add New, and starts pasting. Title, paste. Content, paste, fix the formatting. Set the category. Upload the image. Publish. Next row. At four minutes a page, 800 pages is seven working days of the most boring work in the company, and by day three the categories are inconsistent and nobody remembers which rows are done."
+      },
+      {
+        "type": "paragraph",
+        "text": "We built <a href=\"../steadypost.html\">SteadyPost</a>, a free WordPress plugin, because we kept doing this job for clients moving content out of <a href=\"../solutions.html\">systems that were being retired</a>. This post is about how to do a bulk import so that it works the first time, and so that it can be run again next month without making a mess."
+      },
+      {
+        "type": "heading2",
+        "text": "The three ways bulk imports go wrong"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every importer we tried before writing our own failed in at least one of these ways."
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Duplicates on the second run.</strong> You import 800 rows, spot a typo in the spreadsheet, fix it, import again. Now you have 1,600 posts, half of them wrong.",
+          "<strong>Half-finished runs you can't undo.</strong> The import stops at row 412 with a timeout. Some posts exist, some don't, and the only way back is deleting them by hand, hoping you don't delete anything that was already there.",
+          "<strong>Mistakes you only see after publishing.</strong> The category column was mapped to tags. The image filenames didn't match. The publish date column was read as American dates. All of it is live before anyone notices."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The fixes for these are not clever. They are the things any careful person would want: a preview before anything is saved, an import that recognises its own posts, and an undo button. Most importers skip them because they are more work to build than the import itself."
+      },
+      {
+        "type": "heading2",
+        "text": "Start from the sheet, not the import screen"
+      },
+      {
+        "type": "paragraph",
+        "text": "Half of import problems are spreadsheet problems, so SteadyPost starts with the spreadsheet. Download a template from the plugin and you get an Excel file with a frozen header row, a dropdown for the Status column, and an Instructions sheet explaining each column. Columns for your site's own custom fields and custom taxonomies are added automatically, so a site with an \"Opening hours\" field gets an \"Opening hours\" column."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fill it in with Excel, Google Sheets or LibreOffice. Content can be plain text, Markdown or HTML, detected row by row, and block-editor markup is kept exactly as it is. Images are referred to by filename: write <code>hero-shah-alam.jpg</code> in the image column, upload a zip of the images alongside the sheet, and each one is added to the media library once, even if six rows use it."
+      },
+      {
+        "type": "paragraph",
+        "text": "If you already have a spreadsheet in a different shape, you don't have to rebuild it. Map its columns to WordPress fields on the Import screen and SteadyPost remembers the mapping."
+      },
+      {
+        "type": "heading2",
+        "text": "Dry run: see the before and after"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before anything is saved, run the import as a <strong>dry run</strong>. It shows every row and what would happen to it: created, updated, skipped or, for rows that have disappeared from the sheet, drafted or trashed. For each post that would be updated, it lists every field that would change, with what it says now and what it will say after."
+      },
+      {
+        "type": "paragraph",
+        "text": "It also flags the things that go wrong quietly: categories that don't exist yet and would be created, authors who don't match a user, images that aren't in the zip. You fix those in the sheet, run the dry run again, and only press Import when the preview says what you expect."
+      },
+      {
+        "type": "tip",
+        "text": "Do the first import with ten rows, not eight hundred. Check the ten pages in the browser, fix whatever is off in the template, then import the rest. The dry run makes this cheap."
+      },
+      {
+        "type": "heading2",
+        "text": "Re-import without duplicates"
+      },
+      {
+        "type": "paragraph",
+        "text": "SteadyPost remembers which post each row became. Run the same sheet again and it updates those posts instead of creating new ones. Rows that haven't changed since the last import are skipped, so re-importing a sheet of 800 rows to fix 3 of them takes seconds."
+      },
+      {
+        "type": "paragraph",
+        "text": "Two details matter here. A post that someone has edited in WordPress since the last import is always updated, so the sheet wins, which is what you want when the sheet is the source of truth. And when a row is deleted from the sheet, you choose what happens to its post: nothing, back to draft, or into the Trash. The dry run lists those first, so a row deleted by accident doesn't take a page with it."
+      },
+      {
+        "type": "heading2",
+        "text": "One template, a page for every row"
+      },
+      {
+        "type": "paragraph",
+        "text": "The branches-and-locations job has a better answer than 800 rows of copied text. Write the page once as a template and let each row fill in the details."
+      },
+      {
+        "type": "paragraph",
+        "text": "Put a column name in double braces anywhere in the title, slug, content, excerpt, parent page or SEO fields: <code>Plumber in {{Area}}</code>. Give empty cells a fallback: <code>From {{Price|RM80}}</code>. Show a sentence only when a column has a value: <code>{{#Landmark}}Five minutes from {{Landmark}}.{{/Landmark}}</code>. A row's own cell always wins, so the three branches that deserve hand-written copy can have it while the rest use the template."
+      },
+      {
+        "type": "paragraph",
+        "text": "A Parent column files each page under another by title, slug, path or ID, so a single sheet builds <code>/locations/selangor/petaling-jaya/</code> with the right hierarchy, page order and template."
+      },
+      {
+        "type": "heading2",
+        "text": "Undo the whole run"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every import is recorded with its full row-by-row log, and every run can be undone. Posts the run created go to the Trash. Posts it updated are restored to the revision saved just before the import touched them. Posts it drafted or trashed for a deleted row get their earlier status back. An import that turns out to be wrong at 4:55pm is reversed by 4:56."
+      },
+      {
+        "type": "heading2",
+        "text": "Bulk-editing what's already there"
+      },
+      {
+        "type": "paragraph",
+        "text": "The same machinery works backwards. Export any post type, filtered by status, category or date, to Excel or CSV. Edit 300 SEO descriptions in a spreadsheet, where you can see them side by side, then upload the file and they're all updated. This works for posts SteadyPost didn't create, which makes it a bulk editor for an existing site, not only an importer for a new one."
+      },
+      {
+        "type": "heading2",
+        "text": "For developers"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<code>wp steadypost import pages.xlsx --dry-run</code> from WP-CLI, with <code>--rows=2,5</code> to pick rows, <code>--missing=draft</code> for deleted rows and <code>--format=json</code> for scripts. Imports from the command line use the same settings and show in History.",
+          "<code>wp steadypost history</code> and <code>wp steadypost undo &lt;run-id&gt;</code>.",
+          "SEO columns are written to Yoast SEO, Rank Math or SEOPress, whichever is active, or to meta keys you name.",
+          "Optionally, read rows straight from a Google Sheet and re-import on a schedule, or point a row at a Google Doc for its body. If you don't use the Google features, the plugin makes no outside requests at all."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "When it's a bigger migration"
+      },
+      {
+        "type": "paragraph",
+        "text": "A spreadsheet is a good halfway house for content leaving an old system. Export from the old database into Excel, clean it up where everyone can see it, then import. The cleaning is where the real decisions get made: which of the 800 products still exist, which categories merge, what the URLs should be so the old links keep working."
+      },
+      {
+        "type": "paragraph",
+        "text": "If the export itself is the problem, because the old system is a <a href=\"developer-says-system-too-old-to-fix.html\">database nobody has documentation for</a>, that is the part we can do for you. The import afterwards you can do yourself."
+      },
+      {
+        "type": "cta",
+        "title": "Download SteadyPost",
+        "text": "Free, open source, listed on WordPress.org. Templates, dry run, re-imports without duplicates, undo and export, with no account and no paid tier.",
+        "buttonText": "Get it on WordPress.org",
+        "buttonLink": "https://wordpress.org/plugins/steadypost/"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Is SteadyPost free?",
+            "answer": "Yes. Every feature described here is in the free plugin on WordPress.org, under the GPL. There is no paid version and no row limit."
+          },
+          {
+            "question": "Which file formats does it read?",
+            "answer": "Excel (.xlsx) and CSV. Optionally, a Google Sheet by link or through a service account for private sheets."
+          },
+          {
+            "question": "Can it import pages as well as posts, and custom post types?",
+            "answer": "Yes. Pages can be filed in a hierarchy with a Parent column, given a page order and a page template. Custom post types and their custom fields and taxonomies are supported, and the templates add the columns for them automatically."
+          },
+          {
+            "question": "What happens to Gutenberg block content?",
+            "answer": "Block markup in a cell is kept exactly as it is. Plain text and Markdown are converted to blocks; HTML is kept as HTML."
+          },
+          {
+            "question": "Does it send my content anywhere?",
+            "answer": "No. Uploaded spreadsheets are stored in a private folder in wp-content/uploads that is blocked from the web and replaced each time you upload a new one. The only outside requests are to Google, and only if you choose to use the Google Sheets or Docs features."
+          },
+          {
+            "question": "What if the import stops halfway?",
+            "answer": "Open History and undo the run. The posts it created go to the Trash and the ones it updated are restored. Then fix the cause, usually a server timeout on a very large zip of images, and run it again. Rows that already imported correctly are recognised and not duplicated."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "pdpa-compliance-legacy-system-malaysian-guide",
     "title": "Is Your Legacy System PDPA-Compliant? A Practical Guide for Malaysian Businesses",
     "slug": "pdpa-compliance-legacy-system-malaysian-guide",
