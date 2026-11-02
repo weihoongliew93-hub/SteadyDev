@@ -102,7 +102,7 @@ B = {
  'b109': 'Tempoh semakan sebelum bayaran akhir 50%, termasuk sesi penyerahan.',
  'b110': 'Butiran pembayaran',
  'b111': 'Jadual',
- 'b112': 'Projek: deposit 50%, 50% apabila siap. Upah jurutera bulanan: dibilkan setiap bulan.',
+ 'b112': 'Projek: deposit 50%, 50% apabila siap. Upah jurutera bulanan: dibilkan setiap bulan, atau prabayar 6 bulan untuk diskaun 8% dan 12 bulan untuk diskaun 10%. Jam yang tidak digunakan bagi Jurutera pasukan dan Ketua kejuruteraan dibawa satu bulan ke hadapan.',
  'b113': 'Kaedah',
  'b114': 'Pindahan bank (akaun Malaysia) atau pindahan wang antarabangsa',
  'b115': 'Mata wang',
