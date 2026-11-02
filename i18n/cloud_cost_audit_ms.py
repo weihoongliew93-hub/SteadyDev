@@ -1,7 +1,7 @@
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from footer_i18n import footer
 HEAD = {
     'title': 'Kurangkan Bil Google Cloud atau AWS dengan Selamat | SteadyDevs',
-    'description': 'Kurangkan bil GCP atau AWS tanpa merosakkan sistem pengeluaran: semakan baca sahaja dahulu, bukti untuk setiap perubahan. Penalaan dari RM1,999.',
+    'description': 'Kurangkan bil GCP atau AWS tanpa merosakkan sistem pengeluaran: semakan baca sahaja dahulu, bukti untuk setiap perubahan. Penalaan dari RM1,976.',
 }
 B = {
  'b0': 'Langkau ke kandungan',
@@ -57,7 +57,7 @@ B = {
  'b50': 'Akses baca sahaja, tanpa komitmen. Tiga baris perbelanjaan terbesar anda diterangkan, anggaran julat penjimatan, dan jawapan jujur sama ada ia berbaloi untuk diteruskan.',
  'b51': 'Dapatkan triage percuma',
  'b52': 'Kos awan: Penalaan',
- 'b53': 'RM1,999<small> tetap</small>',
+ 'b53': 'RM1,976<small> tetap</small>',
  'b54': 'Untuk bil sekitar RM1,000–6,000 sebulan · 3 hari bekerja',
  'b55': 'Alamat IP yang tidak digunakan, cakera terbiar dan snapshot lapuk dibuang',
  'b56': 'Saiz mesin yang terlalu besar diselaraskan, selepas semakan memori',

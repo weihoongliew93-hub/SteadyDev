@@ -1,7 +1,7 @@
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from footer_i18n import footer
 HEAD = {
     'title': '安全降低 Google Cloud 或 AWS 账单 | SteadyDevs',
-    'description': '在不影响正式环境的前提下降低 GCP 或 AWS 账单：先只读审查，每项改动都有依据。优化调整 RM1,999 起。',
+    'description': '在不影响正式环境的前提下降低 GCP 或 AWS 账单：先只读审查，每项改动都有依据。优化调整 RM1,976 起。',
 }
 B = {
  'b0': '跳至内容',
@@ -57,7 +57,7 @@ B = {
  'b50': '只读权限，无需任何承诺。为您解释三大支出项目，给出预计可节省的范围，并坦诚告诉您是否值得进一步处理。',
  'b51': '获取免费初步诊断',
  'b52': '云成本：优化调整',
- 'b53': 'RM1,999<small> 固定价格</small>',
+ 'b53': 'RM1,976<small> 固定价格</small>',
  'b54': '适合每月账单约 RM1,000–6,000 · 3 个工作日',
  'b55': '清除未使用的 IP 地址、无主磁盘和过期快照',
  'b56': '检查内存后，把过大的机器调整到合适规格',

@@ -1,7 +1,7 @@
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from footer_i18n import footer
 HEAD = {
     'title': 'Pakar Sistem .NET Lama di Malaysia | SteadyDevs',
-    'description': 'Jurutera Malaysia yang menstabilkan dan membaiki sistem .NET dan POS lama dari RM3,999, serta platform e-Invois LHDN untuk mana-mana POS atau ERP.',
+    'description': 'Jurutera Malaysia yang menstabilkan dan membaiki sistem .NET dan POS lama dari RM3,860, serta platform e-Invois LHDN untuk mana-mana POS atau ERP.',
 }
 B = {
  'b0': 'Langkau ke kandungan',
@@ -33,7 +33,7 @@ B = {
  'b26': 'Apa yang kami lakukan',
  'b27': 'Satu pasukan, tiga cara membantu',
  'b28': 'Kejuruteraan untuk sistem yang anda sudah ada, dan dua produk untuk masalah yang kami selesaikan berulang kali untuk pelanggan.',
- 'b33': '<span class="f-path__kicker">Perkhidmatan kejuruteraan</span> <span class="f-path__title">.NET lama, distabilkan</span> <span class="f-path__desc">Kecacatan, kelembapan dan kod yang rapuh dibaiki tanpa menulis semula.</span> <span class="f-path__foot"><span>Harga tetap dari RM 3,999</span><span aria-hidden="true">→</span></span>',
+ 'b33': '<span class="f-path__kicker">Perkhidmatan kejuruteraan</span> <span class="f-path__title">.NET lama, distabilkan</span> <span class="f-path__desc">Kecacatan, kelembapan dan kod yang rapuh dibaiki tanpa menulis semula.</span> <span class="f-path__foot"><span>Harga tetap dari RM 3,860</span><span aria-hidden="true">→</span></span>',
  'b34': '<span class="f-mono">INV-10482</span><span class="f-ok">Diluluskan</span>',
  'b35': '<span class="f-mono">INV-10483</span><span class="f-ok">Diluluskan</span>',
  'b36': '<span class="f-mono">INV-10484</span><span class="f-warn">Perlu TIN pembeli</span>',

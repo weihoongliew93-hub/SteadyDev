@@ -1,7 +1,7 @@
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from footer_i18n import footer
 HEAD = {
     'title': '马来西亚旧版 .NET 系统专家 | SteadyDevs',
-    'description': '马来西亚工程团队，RM3,999 起稳定并修复旧版 .NET 和 POS 系统，另有支持任何 POS 或 ERP 的 LHDN 电子发票平台。',
+    'description': '马来西亚工程团队，RM3,860 起稳定并修复旧版 .NET 和 POS 系统，另有支持任何 POS 或 ERP 的 LHDN 电子发票平台。',
 }
 B = {
  'b0': '跳至内容',
@@ -33,7 +33,7 @@ B = {
  'b26': '我们的服务',
  'b27': '一个团队，三种帮助方式',
  'b28': '为您现有的系统提供工程服务，另有两款产品，解决我们为客户反复处理的问题。',
- 'b33': '<span class="f-path__kicker">工程服务</span> <span class="f-path__title">旧版 .NET，恢复稳定</span> <span class="f-path__desc">无需重写，修复缺陷、性能问题和脆弱的代码。</span> <span class="f-path__foot"><span>固定价格，RM 3,999 起</span><span aria-hidden="true">→</span></span>',
+ 'b33': '<span class="f-path__kicker">工程服务</span> <span class="f-path__title">旧版 .NET，恢复稳定</span> <span class="f-path__desc">无需重写，修复缺陷、性能问题和脆弱的代码。</span> <span class="f-path__foot"><span>固定价格，RM 3,860 起</span><span aria-hidden="true">→</span></span>',
  'b34': '<span class="f-mono">INV-10482</span><span class="f-ok">已批准</span>',
  'b35': '<span class="f-mono">INV-10483</span><span class="f-ok">已批准</span>',
  'b36': '<span class="f-mono">INV-10484</span><span class="f-warn">需要买家 TIN</span>',
