@@ -8,13 +8,26 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Tue, 03 Nov 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>Moving 800 Pages into WordPress from a Spreadsheet, Without Duplicates or Regrets</title>
+      <link>https://steadydevs.com/blog/import-wordpress-posts-from-excel-without-duplicates.html</link>
+      <description>Bulk imports go wrong in three predictable ways: duplicates when you run them twice, half-finished runs you can't undo, and mistakes you only see after publishing. Here's how to import hundreds of posts or pages from Excel or CSV without any of them.</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/import-wordpress-posts-from-excel-without-duplicates.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>WordPress</category>
+      <category>SteadyPost</category>
+      <category>Content Migration</category>
+      <category>Product</category>
+    </item>
 
     <item>
       <title>Your POS Vendor Got Acquired (or Shut Down): A Survival Guide</title>

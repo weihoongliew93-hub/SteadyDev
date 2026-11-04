@@ -209,7 +209,7 @@
       "Product"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/steadypost-spreadsheet-import-cover.svg",
     "heroImageAlt": "Cover graphic of a spreadsheet of location pages becoming published WordPress posts, with a dry run and undo",
     "seoTitle": "Import WordPress Posts from Excel or CSV, Safely",
