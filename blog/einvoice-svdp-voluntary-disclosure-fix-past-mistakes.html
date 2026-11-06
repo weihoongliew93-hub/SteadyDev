@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>E-Invoice SVDP: Fix Past Mistakes Before 2028 | SteadyDevs</title>
+  <meta name="description" content="LHDN's Special Voluntary Disclosure Programme lets you correct missed or wrong e-invoices without penalties until 31 December 2027. How it works.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/einvoice-svdp-voluntary-disclosure-fix-past-mistakes.html">
+  <meta property="og:title" content="E-Invoice SVDP: Fix Past Mistakes Before 2028">
+  <meta property="og:description" content="LHDN's Special Voluntary Disclosure Programme lets you correct missed or wrong e-invoices without penalties until 31 December 2027. How it works.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/einvoice-svdp-cover.svg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="E-Invoice SVDP: Fix Past Mistakes Before 2028">
+  <meta name="twitter:description" content="LHDN's Special Voluntary Disclosure Programme lets you correct missed or wrong e-invoices without penalties until 31 December 2027. How it works.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/einvoice-svdp-cover.svg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/einvoice-svdp-voluntary-disclosure-fix-past-mistakes.html">
+  
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="../images/blog/einvoice-svdp-cover.svg" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The E-Invoice Voluntary Disclosure Programme: How to Fix Past Mistakes Before 2028",
+    "alternativeHeadline": "Missed e-invoice submissions or sent ones with errors? LHDN's Special Voluntary Disclosure Programme lets you ",
+    "image": "https://steadydevs.com/images/blog/einvoice-svdp-cover.svg",
+    "datePublished": "2026-11-06T00:00:00+08:00",
+    "dateModified": "2026-11-06T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "LHDN's Special Voluntary Disclosure Programme lets you correct missed or wrong e-invoices without penalties until 31 December 2027. How it works.",
+    "articleSection": "Compliance & Regulation",
+    "articleBody": "Missed e-invoice submissions or sent ones with errors? LHDN's Special Voluntary Disclosure Programme lets you correct them without penalties until 31 December 2027. Here's how it works and the details that trip people up.",
+    "wordCount": 803,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "E-Invoice"
+      },
+      {
+        "@type": "Thing",
+        "name": "LHDN"
+      },
+      {
+        "@type": "Thing",
+        "name": "Compliance"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "e-invoice, lhdn, compliance, myinvois",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/einvoice-svdp-voluntary-disclosure-fix-past-mistakes.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need to apply to join the SVDP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. LHDN's FAQ says no separate registration or application is required. You correct the non-compliance within the programme period using the specified method and document versions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I fixed some errors before 7 July 2026. Do I need to redo them?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Corrections made before the programme started continue to be recognised, provided they were made in good faith and are accurate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I lump several missed months into one consolidated e-invoice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Missed consolidated e-invoices must be submitted per month of transaction, not as a lump sum across months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Our software vendor caused the errors. Are we still responsible?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LHDN treats compliance as the taxpayer's responsibility even when a vendor is involved, but you can use the SVDP to correct the errors."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-11-06T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-11-06T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Compliance & Regulation">
+  <meta property="article:tag" content="E-Invoice, LHDN, Compliance, MyInvois">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/einvoice-svdp-voluntary-disclosure-fix-past-mistakes.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/einvoice-svdp-voluntary-disclosure-fix-past-mistakes.html" />
+  
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=6"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The E-Invoice Voluntary Disclosure Programme: How to Fix Past Mistakes Before 2028</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The E-Invoice Voluntary Disclosure Programme: How to Fix Past Mistakes Before 2028",
+        "item": "https://steadydevs.com/blog/einvoice-svdp-voluntary-disclosure-fix-past-mistakes.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content" id="main">
+      <article>
+        <img src="../images/blog/einvoice-svdp-cover.svg" alt="Cover graphic: LHDN e-Invoice Special Voluntary Disclosure Programme until 31 December 2027" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
+        <div class="blog-header">
+          <h1>The E-Invoice Voluntary Disclosure Programme: How to Fix Past Mistakes Before 2028</h1>
+          <div class="blog-meta">November 6, 2026 | 7 min read</div>
+        </div>
+        <p>Almost every business that has gone live with e-invoicing has a month it would rather forget. A consolidated e-invoice that went out late, or not at all. A batch with the wrong classification code. Buyer addresses that were never complete.</p>
+<p>LHDN has given businesses a clean way to put that right. The <strong>e-Invoice Special Voluntary Disclosure Programme (SVDP)</strong> runs from <strong>7 July 2026 to 31 December 2027</strong>. Under it, LHDN won't carry out compliance reviews or impose penalties or prosecution on the e-invoices you disclose.</p>
+<div class="warning-box"><p>Sources: LHDN's <a href="https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/">e-Invoice implementation timeline</a> (updated 30 August 2026), the <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">e-Invoice Specific Guideline v4.9</a> (7 September 2026) and the <a href="https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent.</p></div>
+<h2>Who It's For</h2>
+<p>Section 17 of the e-Invoice Specific Guideline covers taxpayers who:</p>
+<ul><li>didn't submit, or missed submitting, e-invoices for any period since their mandatory date;</li><li>submitted e-invoices that contain errors or don't meet the specifications;</li><li>haven't submitted any e-invoices at all since their mandatory date; or</li><li>are undergoing, or have been told they will undergo, an LHDN e-invoice compliance review.</li></ul>
+<h2>How It Works</h2>
+<p><strong>There's no registration or application.</strong> You take part simply by correcting the non-compliance within the programme period, in the way LHDN specifies:</p>
+<ul><li><strong>For e-invoices with errors:</strong> issue a credit note e-invoice to reverse the incorrect one, then issue a new e-invoice with the correct details. LHDN's FAQ gives the example of a bookstore that used a default classification code and corrects it this way.</li><li><strong>For missed consolidated e-invoices:</strong> submit them <strong>one per month</strong>, for the month the transactions happened. LHDN's example of a company that missed January to April 2026 needs four separate consolidated e-invoices, not one covering all four months.</li><li><strong>For transactions left out of a consolidated e-invoice:</strong> either credit the original and issue a complete replacement, or issue a separate consolidated e-invoice for the omitted transactions.</li></ul>
+<h2>The Technical Detail That Trips People Up</h2>
+<p>SVDP submissions must use special e-invoice document versions: <strong>"SVDP 1.2"</strong> if you submit without a digital signature, or <strong>"SVDP 1.3"</strong> with one. These versions are only for voluntary disclosures and can't be used for normal submissions.</p>
+<p>That matters if your e-invoices come from software. A system built to send the standard versions won't produce SVDP submissions on its own. Check with your provider or developer before you assume you can disclose through your usual system.</p>
+<div class="tip-box"><p>An e-invoice still within its 72-hour cancellation window doesn't need the SVDP. You can cancel it and issue a corrected one in the normal way.</p></div>
+<h2>When the Protection Doesn't Apply</h2>
+<ul><li><strong>If the disclosed e-invoices themselves don't comply</strong> with the requirements. A disclosure has to be done properly to count.</li><li><strong>If the case involves fraud, wilful default or negligence.</strong></li><li><strong>If you rely on your vendor to take the blame.</strong> LHDN's FAQ is clear that responsibility stays with the taxpayer even when a service provider or system vendor caused the problem, though you can still use the SVDP to fix it.</li></ul>
+<p>Each company in a group must make its own disclosure; there's no single group submission. You can make further disclosures if you find more problems later, as long as they're within the programme period.</p>
+<h2>A Practical Clean-Up Plan</h2>
+<ol><li><strong>Reconcile.</strong> Compare your sales and purchase records month by month against what MyInvois shows as validated. Gaps and mismatches are your disclosure list.</li><li><strong>Check the data, not just the totals.</strong> Classification codes, buyer details and tax types are common silent errors.</li><li><strong>Fix the cause first.</strong> Disclosing past months while the same error continues just creates next month's disclosure.</li><li><strong>Submit month by month</strong> in the SVDP versions, and keep a record of what you disclosed and when.</li><li><strong>Finish well before 31 December 2027.</strong> Validation problems take time to resolve, and the year-end will be busy for everyone.</li></ol>
+
+          <div class="cta-box">
+            <h3>Running an Older System That Can't Talk to MyInvois?</h3>
+            <p>We connect legacy .NET, SQL Server and custom POS systems to MyInvois without a rebuild. Get an honest view of what your system needs and what it costs.</p>
+            <a href="../contact.html" class="f-btn f-btn--primary cta-button">Talk to Us</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">Do I need to apply to join the SVDP?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. LHDN's FAQ says no separate registration or application is required. You correct the non-compliance within the programme period using the specified method and document versions.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">I fixed some errors before 7 July 2026. Do I need to redo them?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. Corrections made before the programme started continue to be recognised, provided they were made in good faith and are accurate.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Can I lump several missed months into one consolidated e-invoice?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. Missed consolidated e-invoices must be submitted per month of transaction, not as a lump sum across months.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Our software vendor caused the errors. Are we still responsible?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes. LHDN treats compliance as the taxpayer's responsibility even when a vendor is involved, but you can use the SVDP to correct the errors.</p>
+                </div>
+              </div>
+            
+          </div>
+
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Filing e-invoices with LHDN?</span>
+        <p>SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN's rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in. <a href="../einvoice.html">See the e-Invoice platform &rarr;</a></p>
+      </aside>
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="einvoice-svdp-voluntary-disclosure-fix-past-mistakes" data-current-tags='["E-Invoice","LHDN","Compliance","MyInvois"]'><section class="related-posts-section"><h2 class="related-posts-title">Continue reading</h2><div class="f-grid related-posts-grid"><a href="einvoice-interim-relaxation-2027-what-you-can-do.html" class="f-card f-card--link related-card"><img src="../images/blog/einvoice-relaxation-2027-cover.svg" alt="Cover graphic: Phase 4 e-invoice interim relaxation until 31 December 2027" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">E-Invoice Relaxation Until 2027: What Phase 4 Businesses Can and Can't Do</h3><p class="f-card__text">Phase 4 businesses have until 31 December 2027 before full e-invoice enforcement. The relaxation is generous, but it has...</p><div class="f-tags"><span class="f-tag">E-Invoice</span><span class="f-tag">LHDN</span></div><div class="f-card__foot related-card__foot"><span>7 min read</span><span>Read article →</span></div></a><a href="self-billed-einvoice-malaysia-guide.html" class="f-card f-card--link related-card"><img src="../images/blog/self-billed-einvoice-cover.svg" alt="Cover graphic showing a foreign supplier invoice becoming a validated self-billed e-invoice issued by the buyer" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Self-Billed E-Invoices in Malaysia: The LHDN Guideline Explained (2026)</h3><p class="f-card__text">Most businesses sorted out e-invoicing their customers. Self-billing is the other half: the transactions where you, the ...</p><div class="f-tags"><span class="f-tag">E-Invoice</span><span class="f-tag">LHDN</span></div><div class="f-card__foot related-card__foot"><span>13 min read</span><span>Read article →</span></div></a><a href="einvoice-rm3-million-exemption-who-still-must-comply.html" class="f-card f-card--link related-card"><img src="../images/blog/einvoice-exemption-check-cover.svg" alt="Cover graphic: checking whether a business under RM3 million is really exempt from e-invoicing" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Under RM3 Million but Not Exempt: The E-Invoice Rule Catching Small Companies Out</h3><p class="f-card__text">The RM3 million e-invoice exemption sounds simple, but it doesn't apply to subsidiaries, companies with corporate shareh...</p><div class="f-tags"><span class="f-tag">E-Invoice</span><span class="f-tag">LHDN</span></div><div class="f-card__foot related-card__foot"><span>6 min read</span><span>Read article →</span></div></a></div></section></div>
+    </main>
+  </div>
+
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Free tools</h2>
+            <ul>
+              <li><a href="../e-invoice-checker.html">Do I need to e-invoice?</a></li>
+              <li><a href="../msic-code-lookup.html">MSIC code lookup</a></li>
+              <li><a href="../microsoft-end-of-support-lookup.html">End-of-support lookup</a></li>
+              <li><a href="../legacy-system-risk-scorecard.html">Risk scorecard</a></li>
+              <li><a href="../free-tools.html">All free tools &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth < 1100) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth < 1100) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1100 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1100) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
