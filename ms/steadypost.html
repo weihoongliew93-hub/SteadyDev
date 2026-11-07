@@ -33,7 +33,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.5.0",
+    "softwareVersion": "1.6.0",
     "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
     "url": "https://steadydevs.com/steadypost",
     "downloadUrl": "https://wordpress.org/plugins/steadypost/",
@@ -56,7 +56,8 @@
       "Page templates with {{Column}} placeholders",
       "Dry run with before and after for every changed field",
       "Skips rows that have not changed since the last import",
-      "WP-CLI commands for import, history and undo"
+      "WP-CLI commands for import, history and undo",
+      "Imports WooCommerce products: SKU, prices, stock, weight and gallery, matched by SKU"
     ]
   }
   </script>
@@ -162,7 +163,7 @@
 <p class="f-lead">Rancang siaran dalam Excel, CSV atau Google Sheets. SteadyPost menukar setiap baris kepada siaran WordPress — kandungan, kategori, imej dan medan SEO — dan membolehkan anda menyemaknya, membuat asal dan menyuntingnya secara pukal kemudian.</p>
 <div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="hero" href="https://wordpress.org/plugins/steadypost/" rel="noopener">Muat turun SteadyPost — percuma</a>
 <a class="f-btn f-btn--secondary" href="#tour">Lihat cara ia berfungsi</a></div>
-<p class="f-note" style="margin-top: 16px">Versi 1.5.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">cuba dengan hamparan contoh kami</a></p>
+<p class="f-note" style="margin-top: 16px">Versi 1.6.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">cuba dengan hamparan contoh kami</a></p>
 </div>
 <div aria-label="Ilustrasi: baris hamparan menjadi siaran WordPress" class="f-hero__aside sp-hero-visual">
 <div class="f-card sp-sheet">
@@ -191,7 +192,7 @@
 </section>
 <div class="f-strip">
 <div class="f-container f-strip__inner"><span>Dibina untuk</span>
-<strong>Kalendar kandungan</strong><strong>Kemas kini SEO secara pukal</strong><strong>Senarai produk &amp; direktori</strong><strong>Senarai acara</strong><strong>Pemindahan laman</strong><strong>Serahan agensi</strong><strong>Halaman lokasi &amp; perkhidmatan</strong></div>
+<strong>Kalendar kandungan</strong><strong>Kemas kini SEO secara pukal</strong><strong>Senarai produk &amp; direktori</strong><strong>Senarai acara</strong><strong>Pemindahan laman</strong><strong>Serahan agensi</strong><strong>Halaman lokasi &amp; perkhidmatan</strong><strong>Katalog WooCommerce</strong></div>
 </div>
 <!-- ============================================================ TOUR -->
 <section class="f-section" id="tour">
@@ -319,6 +320,7 @@
 <article class="f-card f-card--compact"><h3 class="f-card__title">WP-CLI untuk pembangun</h3><p class="f-card__text"><span class="f-mono">wp steadypost import</span> dengan larian percubaan, serta sejarah dan buat asal, untuk skrip dan aliran kerja agensi. <span class="f-mono">--results</span> menyimpan apa yang berlaku pada setiap baris sebagai CSV.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Kategori, tag &amp; taksonomi</h3><p class="f-card__text">Dipisahkan dengan koma, dicipta jika belum ada. Sebarang taksonomi tersuai boleh digunakan melalui lajur <span class="f-mono">tax:</span>.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Medan tersuai &amp; ACF</h3><p class="f-card__text">Meta siaran yang didaftarkan dan medan Advanced Custom Fields yang ringkas muncul sebagai lajur templat secara automatik.</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">Produk WooCommerce</h3><p class="f-card__text">SKU, harga biasa dan harga jualan, stok, berat dan galeri untuk produk ringkas, ditulis sebagaimana WooCommerce menulisnya. Baris yang SKU-nya sepadan dengan sesuatu produk akan mengemas kini produk itu, jadi senarai harga pembekal boleh mengemas kini kedai anda.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Medan SEO ditulis untuk anda</h3><p class="f-card__text">Tajuk meta, penerangan dan kata kunci terus masuk ke Yoast SEO, Rank Math atau SEOPress — atau kunci meta yang anda namakan.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Penjadualan mengikut zon waktu anda</h3><p class="f-card__text">Tetapkan tarikh terbit dan status "scheduled". 9:00 bermaksud pukul sembilan pagi di zon waktu laman anda.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Google Sheets &amp; Docs, pilihan</h3><p class="f-card__text">Lebih suka Google? Baca baris terus dari Sheet mengikut jadual, dan ambil kandungan siaran dari Google Doc, termasuk imejnya.</p></article>
@@ -334,7 +336,7 @@
 <h2 class="f-h2">Sesuai dengan sistem yang anda sudah ada</h2>
 <p class="f-sub">Tiada apa-apa yang perlu diganti. SteadyPost menulis siaran WordPress biasa, jadi tema, editor dan pemalam anda terus berfungsi seperti biasa.</p>
 <div class="f-tags sp-works" style="margin-top: 28px"><span class="f-tag">Microsoft Excel</span><span class="f-tag">Google Sheets</span><span class="f-tag">Apple Numbers</span><span class="f-tag">LibreOffice</span>
-<span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span>
+<span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span><span class="f-tag">WooCommerce</span>
 <span class="f-tag">Editor blok</span><span class="f-tag">Editor klasik</span><span class="f-tag">Google Docs</span><span class="f-tag">Sebarang jenis siaran</span></div>
 </div>
 <aside class="f-split__aside">
@@ -353,7 +355,7 @@
 </div>
 <div class="sp-free">
 <div class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">SteadyPost 1.5.0</span>
+<span class="f-ribbon">SteadyPost 1.6.0</span>
 <div class="f-price">$0 <small>selama-lamanya</small></div>
 <ul class="f-checks">
 <li>Setiap ciri di halaman ini — tiada yang dikunci, tiada yang dihadkan</li>
@@ -407,6 +409,7 @@
 <details><summary>Bagaimana imej berfungsi?</summary><div>Letakkan URL imej dalam lajur Featured Image dan ia dimuat turun ke pustaka media anda. Atau muat naik fail zip berisi imej pada skrin Import dan rujuk imej mengikut nama fail — <code>hero.jpg</code> sebagai imej pilihan, atau <code>![alt](photo.png)</code> dalam kandungan. Nama fail yang tiada dalam zip akan dicari dalam pustaka media anda. Setiap imej ditambah sekali sahaja, walau berapa banyak baris yang menggunakannya.</div></details>
 <details><summary>Adakah saya memerlukan akaun Google?</summary><div>Tidak. SteadyPost berfungsi sepenuhnya daripada fail yang anda muat naik. Google Sheets dan Google Docs ialah tambahan pilihan untuk pasukan yang sudah merancang kandungan di sana.</div></details>
 <details><summary>Adakah ia serasi dengan pemalam SEO saya?</summary><div>Tajuk meta, penerangan dan kata kunci ditulis ke dalam Yoast SEO, Rank Math atau SEOPress — mana-mana yang aktif — serta medan SEO tema Mikado/Qode, atau mana-mana kunci meta yang anda namakan. All in One SEO menyimpan datanya dalam jadualnya sendiri, jadi ia tidak disokong.</div></details>
+<details><summary>Bolehkah saya mengimport produk WooCommerce?</summary><div>Ya, produk ringkas. Tetapkan jenis siaran kepada product dan tambah lajur SKU, Regular Price, Sale Price, Stock, Stock Status, Weight dan Gallery; templat yang dimuat turun dengan Product sebagai jenis siaran lalai sudah mempunyainya. Categories dan Tags mengisi kategori dan tag produk. Baris dipadankan dengan produk sedia ada melalui SKU, dan larian percubaan menunjukkan setiap perubahan harga dan stok sebelum apa-apa disimpan. Produk berubah-ubah (variable) mengekalkan harganya, dan atribut serta variasi tidak diimport.</div></details>
 <details><summary>Apakah keperluannya?</summary><div>WordPress 6.0 atau lebih baharu dan PHP 7.4 atau lebih baharu. Fail Excel memerlukan sambungan Zip PHP, yang ada pada hampir semua hos; tanpanya, CSV masih berfungsi.</div></details>
 <details><summary>Adakah ia ada di WordPress.org?</summary><div>Ya, ia disenaraikan di <a href="https://wordpress.org/plugins/steadypost/" rel="noopener">wordpress.org/plugins/steadypost</a>. Pasangnya dari Plugins → Add New Plugin dalam papan pemuka anda, dan kemas kini akan tiba di situ secara automatik.</div></details>
 </div>
@@ -450,7 +453,7 @@
 </div>
 <div class="f-field">
 <label for="spEnqMsg">Soalan atau permintaan anda</label>
-<textarea id="spEnqMsg" name="message" placeholder="cth. Bolehkah saya import produk WooCommerce juga?" required=""></textarea>
+<textarea id="spEnqMsg" name="message" placeholder="cth. Bolehkah ia mengimport variasi produk juga?" required=""></textarea>
 </div>
 <div><button class="f-btn f-btn--primary" id="spEnqSubmit" type="submit">Hantar</button></div>
 </form>

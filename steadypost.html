@@ -41,7 +41,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.5.0",
+    "softwareVersion": "1.6.0",
     "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
     "url": "https://steadydevs.com/steadypost",
     "downloadUrl": "https://wordpress.org/plugins/steadypost/",
@@ -64,7 +64,8 @@
       "Page templates with {{Column}} placeholders",
       "Dry run with before and after for every changed field",
       "Skips rows that have not changed since the last import",
-      "WP-CLI commands for import, history and undo"
+      "WP-CLI commands for import, history and undo",
+      "Imports WooCommerce products: SKU, prices, stock, weight and gallery, matched by SKU"
     ]
   }
   </script>
@@ -176,7 +177,7 @@
               <a class="f-btn f-btn--primary f-btn--glow" href="https://wordpress.org/plugins/steadypost/" data-sp-download="hero" rel="noopener">Download SteadyPost — free</a>
               <a class="f-btn f-btn--secondary" href="#tour">See how it works</a>
             </div>
-            <p class="f-note" style="margin-top: 16px">Version 1.5.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · <a href="downloads/steadypost-sample-content-calendar.xlsx" data-sp-download="sample">try it with our sample spreadsheet</a></p>
+            <p class="f-note" style="margin-top: 16px">Version 1.6.0 · GPL, free forever · WordPress 6.0+ · PHP 7.4+ · no account, no sign-up · <a href="downloads/steadypost-sample-content-calendar.xlsx" data-sp-download="sample">try it with our sample spreadsheet</a></p>
           </div>
 
           <div class="f-hero__aside sp-hero-visual" aria-label="Illustration: spreadsheet rows becoming WordPress posts">
@@ -209,7 +210,7 @@
       <div class="f-container f-strip__inner">
         <span>Built for</span>
         <strong>Content calendars</strong><strong>Bulk SEO updates</strong><strong>Product &amp; directory listings</strong><strong>Event listings</strong><strong>Site migrations</strong><strong>Agency handovers</strong><strong>Location &amp; service pages</strong>
-      </div>
+      <strong>WooCommerce catalogues</strong></div>
     </div>
 
     <!-- ============================================================ TOUR -->
@@ -344,6 +345,7 @@
           <article class="f-card f-card--compact"><h3 class="f-card__title">WP-CLI for developers</h3><p class="f-card__text"><span class="f-mono">wp steadypost import</span> with a dry run, plus history and undo, for scripts and agency workflows. <span class="f-mono">--results</span> saves what happened to every row as a CSV.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Categories, tags &amp; taxonomies</h3><p class="f-card__text">Comma-separated, created if they're missing. Any custom taxonomy works through a <span class="f-mono">tax:</span> column.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Custom fields &amp; ACF</h3><p class="f-card__text">Registered post meta and simple Advanced Custom Fields fields appear as template columns automatically.</p></article>
+          <article class="f-card f-card--compact"><h3 class="f-card__title">WooCommerce products</h3><p class="f-card__text">SKU, regular and sale price, stock, weight and gallery for simple products, written the way WooCommerce writes them. A row whose SKU matches a product updates it, so a supplier's price list can update your store.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">SEO fields written for you</h3><p class="f-card__text">Meta title, description and keywords go straight into Yoast SEO, Rank Math or SEOPress — or meta keys you name.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Scheduling in your timezone</h3><p class="f-card__text">Set a publish date and status "scheduled". 9:00 means nine in the morning where your site is.</p></article>
           <article class="f-card f-card--compact"><h3 class="f-card__title">Google Sheets &amp; Docs, optional</h3><p class="f-card__text">Prefer Google? Read rows straight from a Sheet on a schedule, and pull a post's body from a Google Doc, images included.</p></article>
@@ -361,7 +363,7 @@
             <p class="f-sub">Nothing to replace. SteadyPost writes ordinary WordPress posts, so your theme, editor and plugins keep working as they do.</p>
             <div class="f-tags sp-works" style="margin-top: 28px">
               <span class="f-tag">Microsoft Excel</span><span class="f-tag">Google Sheets</span><span class="f-tag">Apple Numbers</span><span class="f-tag">LibreOffice</span>
-              <span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span>
+              <span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span><span class="f-tag">WooCommerce</span>
               <span class="f-tag">Block editor</span><span class="f-tag">Classic editor</span><span class="f-tag">Google Docs</span><span class="f-tag">Any post type</span>
             </div>
           </div>
@@ -384,7 +386,7 @@
         </div>
         <div class="sp-free">
           <div class="f-card f-price-card f-price-card--featured">
-            <span class="f-ribbon">SteadyPost 1.5.0</span>
+            <span class="f-ribbon">SteadyPost 1.6.0</span>
             <div class="f-price">$0 <small>forever</small></div>
             <ul class="f-checks">
               <li>Every feature on this page — nothing locked, nothing capped</li>
@@ -442,6 +444,7 @@
           <details><summary>How do images work?</summary><div>Put an image URL in the Featured Image column and it's downloaded into your media library. Or upload a zip of images on the Import screen and refer to them by filename — <code>hero.jpg</code> as the featured image, or <code>![alt](photo.png)</code> in the content. A filename that isn't in the zip is looked up in your media library. Each image is added once, however many rows use it.</div></details>
           <details><summary>Do I need a Google account?</summary><div>No. SteadyPost works entirely from files you upload. Google Sheets and Google Docs are an optional extra for teams who already plan content there.</div></details>
           <details><summary>Does it work with my SEO plugin?</summary><div>Meta title, description and keywords are written into Yoast SEO, Rank Math or SEOPress — whichever is active — as well as Mikado/Qode theme SEO fields, or any meta keys you name. All in One SEO stores its data in its own table, so it isn't supported.</div></details>
+          <details><summary>Can I import WooCommerce products?</summary><div>Yes, simple products. Set the post type to product and add SKU, Regular Price, Sale Price, Stock, Stock Status, Weight and Gallery columns; a template downloaded with Product as the default post type has them already. Categories and Tags fill product categories and tags. Rows are matched to existing products by SKU, and the dry run shows each price and stock change before anything is saved. Variable products keep their prices, and attributes and variations aren't imported.</div></details>
           <details><summary>What are the requirements?</summary><div>WordPress 6.0 or newer and PHP 7.4 or newer. Excel files need PHP's Zip extension, which almost every host has; without it, CSV still works.</div></details>
           <details><summary>Is it on WordPress.org?</summary><div>Yes, it's listed at <a href="https://wordpress.org/plugins/steadypost/" rel="noopener">wordpress.org/plugins/steadypost</a>. Install it from Plugins → Add New Plugin in your dashboard, and updates arrive there automatically.</div></details>
         </div>
@@ -491,7 +494,7 @@
               </div>
               <div class="f-field">
                 <label for="spEnqMsg">Your question or request</label>
-                <textarea id="spEnqMsg" name="message" required placeholder="e.g. Can I import WooCommerce products too?"></textarea>
+                <textarea id="spEnqMsg" name="message" required placeholder="e.g. Can it import product variations too?"></textarea>
               </div>
               <div><button type="submit" id="spEnqSubmit" class="f-btn f-btn--primary">Send it</button></div>
             </form>

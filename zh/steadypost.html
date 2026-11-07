@@ -33,7 +33,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.5.0",
+    "softwareVersion": "1.6.0",
     "description": "A free WordPress plugin that creates and updates posts in bulk from a CSV or Excel spreadsheet, with a preview, a dry run, import history with undo, and export for bulk editing.",
     "url": "https://steadydevs.com/steadypost",
     "downloadUrl": "https://wordpress.org/plugins/steadypost/",
@@ -56,7 +56,8 @@
       "Page templates with {{Column}} placeholders",
       "Dry run with before and after for every changed field",
       "Skips rows that have not changed since the last import",
-      "WP-CLI commands for import, history and undo"
+      "WP-CLI commands for import, history and undo",
+      "Imports WooCommerce products: SKU, prices, stock, weight and gallery, matched by SKU"
     ]
   }
   </script>
@@ -162,7 +163,7 @@
 <p class="f-lead">在 Excel、CSV 或 Google Sheets 里规划文章。SteadyPost 把每一行变成一篇 WordPress 文章——内容、分类、图片和 SEO 字段——之后还能检查、撤销和批量编辑。</p>
 <div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-sp-download="hero" href="https://wordpress.org/plugins/steadypost/" rel="noopener">免费下载 SteadyPost</a>
 <a class="f-btn f-btn--secondary" href="#tour">看看如何运作</a></div>
-<p class="f-note" style="margin-top: 16px">版本 1.5.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">用我们的示例电子表格试试</a></p>
+<p class="f-note" style="margin-top: 16px">版本 1.6.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · <a data-sp-download="sample" href="../downloads/steadypost-sample-content-calendar.xlsx">用我们的示例电子表格试试</a></p>
 </div>
 <div aria-label="示意图：电子表格的每一行变成 WordPress 文章" class="f-hero__aside sp-hero-visual">
 <div class="f-card sp-sheet">
@@ -191,7 +192,7 @@
 </section>
 <div class="f-strip">
 <div class="f-container f-strip__inner"><span>适用于</span>
-<strong>内容日历</strong><strong>批量更新 SEO</strong><strong>产品与名录列表</strong><strong>活动列表</strong><strong>网站迁移</strong><strong>代理商交接</strong><strong>地区与服务页面</strong></div>
+<strong>内容日历</strong><strong>批量更新 SEO</strong><strong>产品与名录列表</strong><strong>活动列表</strong><strong>网站迁移</strong><strong>代理商交接</strong><strong>地区与服务页面</strong><strong>WooCommerce 商品目录</strong></div>
 </div>
 <!-- ============================================================ TOUR -->
 <section class="f-section" id="tour">
@@ -319,6 +320,7 @@
 <article class="f-card f-card--compact"><h3 class="f-card__title">面向开发者的 WP-CLI</h3><p class="f-card__text"><span class="f-mono">wp steadypost import</span> 支持试运行，另有历史记录和撤销命令，适合脚本和代理商的工作流程。 <span class="f-mono">--results</span> 会把每一行的处理结果存成 CSV。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">分类、标签与分类法</h3><p class="f-card__text">用逗号分隔，不存在时自动创建。任何自定义分类法都可通过 <span class="f-mono">tax:</span> 列使用。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">自定义字段与 ACF</h3><p class="f-card__text">已注册的文章元数据和简单的 Advanced Custom Fields 字段，会自动作为模板列出现。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">WooCommerce 商品</h3><p class="f-card__text">为简单商品导入 SKU、原价和促销价、库存、重量和图库图片，写入方式与 WooCommerce 自身一致。SKU 与现有商品相同的行会更新该商品，所以供应商的价目表可以直接更新您的商店。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">SEO 字段自动写好</h3><p class="f-card__text">Meta 标题、描述和关键词直接写入 Yoast SEO、Rank Math 或 SEOPress——或您指定的 meta 键。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">按您的时区排程</h3><p class="f-card__text">设定发布日期并把状态设为 "scheduled"。9:00 就是您网站所在时区的早上九点。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Google Sheets 与 Docs，可选</h3><p class="f-card__text">更喜欢 Google？可按排程直接从 Sheet 读取行，并从 Google Doc 获取文章正文，连图片一起。</p></article>
@@ -334,7 +336,7 @@
 <h2 class="f-h2">配合您现有的工具</h2>
 <p class="f-sub">无需替换任何东西。SteadyPost 写入的是普通的 WordPress 文章，您的主题、编辑器和插件照常运作。</p>
 <div class="f-tags sp-works" style="margin-top: 28px"><span class="f-tag">Microsoft Excel</span><span class="f-tag">Google Sheets</span><span class="f-tag">Apple Numbers</span><span class="f-tag">LibreOffice</span>
-<span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span>
+<span class="f-tag">Yoast SEO</span><span class="f-tag">Rank Math</span><span class="f-tag">SEOPress</span><span class="f-tag">Advanced Custom Fields</span><span class="f-tag">WooCommerce</span>
 <span class="f-tag">区块编辑器</span><span class="f-tag">经典编辑器</span><span class="f-tag">Google Docs</span><span class="f-tag">任何文章类型</span></div>
 </div>
 <aside class="f-split__aside">
@@ -353,7 +355,7 @@
 </div>
 <div class="sp-free">
 <div class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">SteadyPost 1.5.0</span>
+<span class="f-ribbon">SteadyPost 1.6.0</span>
 <div class="f-price">$0 <small>永久</small></div>
 <ul class="f-checks">
 <li>本页所列的每项功能——不锁定，不设上限</li>
@@ -407,6 +409,7 @@
 <details><summary>图片怎么处理？</summary><div>在 Featured Image 列放图片 URL，图片就会下载到您的媒体库。也可以在 Import 页面上传图片 zip 包，再按文件名引用——<code>hero.jpg</code> 作为特色图片，或在内容中写 <code>![alt](photo.png)</code>。zip 包里没有的文件名，会到您的媒体库中查找。无论多少行用到同一张图片，它都只会添加一次。</div></details>
 <details><summary>需要 Google 账户吗？</summary><div>不需要。SteadyPost 完全靠您上传的文件运作。Google Sheets 和 Google Docs 是可选功能，适合本来就在那里规划内容的团队。</div></details>
 <details><summary>能配合我的 SEO 插件吗？</summary><div>Meta 标题、描述和关键词会写入 Yoast SEO、Rank Math 或 SEOPress（以启用中的为准），也支持 Mikado/Qode 主题的 SEO 字段，或您指定的任何 meta 键。All in One SEO 把数据存放在自己的数据表中，因此不支持。</div></details>
+<details><summary>可以导入 WooCommerce 商品吗？</summary><div>可以，限简单商品。把文章类型设为 product，并添加 SKU、Regular Price、Sale Price、Stock、Stock Status、Weight 和 Gallery 列；以 Product 为默认文章类型下载的模板已经包含这些列。Categories 和 Tags 会写入商品分类和标签。各行按 SKU 匹配现有商品，试运行会在保存前列出每项价格和库存的变化。可变商品保留原有价格，属性和变体不会导入。</div></details>
 <details><summary>有什么系统要求？</summary><div>WordPress 6.0 或更新版本，以及 PHP 7.4 或更新版本。Excel 文件需要 PHP 的 Zip 扩展，几乎所有主机都有；没有它，CSV 仍然可用。</div></details>
 <details><summary>在 WordPress.org 上有吗？</summary><div>有，已上架 <a href="https://wordpress.org/plugins/steadypost/" rel="noopener">wordpress.org/plugins/steadypost</a>。在后台的 Plugins → Add New Plugin 中即可安装，更新也会自动出现在那里。</div></details>
 </div>
@@ -450,7 +453,7 @@
 </div>
 <div class="f-field">
 <label for="spEnqMsg">您的问题或需求</label>
-<textarea id="spEnqMsg" name="message" placeholder="例如：也可以导入 WooCommerce 产品吗？" required=""></textarea>
+<textarea id="spEnqMsg" name="message" placeholder="例如：也可以导入商品变体吗？" required=""></textarea>
 </div>
 <div><button class="f-btn f-btn--primary" id="spEnqSubmit" type="submit">发送</button></div>
 </form>
