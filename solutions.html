@@ -52,6 +52,87 @@
       document.head.appendChild(s);
     });
   </script>
+  <!-- FAQ schema -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should we rewrite the system instead of fixing it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually not. A rewrite takes longer and costs more than anyone plans for, and the business has to keep running on the old system while it happens. We stabilise what you have first, then modernise the parts that hold you back, one module at a time. If a rewrite really is the right call, the written assessment will say so, with reasons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the problem turns out to be unfixable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The free strategy session is where we tell you whether we can help. A fixed quote is only issued when we are confident of the outcome. If you change your mind before work starts, the deposit is refunded in full. If a project stops mid-way, you pay only for work completed, with documentation of what was done."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need access to our source code and production systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Source code, yes: without it we can only guess. Production and database access only when a fix needs it, through accounts you create and can revoke, and never as the first step. Customer data stays on your servers; we do not copy databases off-site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will you sign an NDA, and how is our data handled?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We sign NDAs and work within your security requirements. All code and project information is treated as confidential, personal data is handled under the PDPA, and every change made to your system is recorded so your team can see exactly what was touched."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Our original developer has left and there is no documentation. Can you still help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is the most common starting point. The System Understanding & Roadmap package exists for exactly this: we read the code, map how data moves through it, and hand you architecture documentation your team can keep. Fixes can start before the documentation is complete when something is urgent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which technologies do you work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Primarily C# and .NET, from .NET Framework WinForms, WPF and ASP.NET WebForms or MVC through to current .NET, with SQL Server behind it. Also PHP, WordPress, JavaScript and React. If your system mixes several of these, that is normal for us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you start, and is this emergency support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You hear back within 1–2 business days, the free session follows, and projects usually start within 1–2 weeks of the written quote. Work is scheduled, not on-call: we do not sell 2 a.m. emergency response, and we say so up front. The RM387 System Health Check is the fastest way to get an engineer looking at your code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can our current vendor or in-house team keep working alongside you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We work from your repository, document each change, and brief your team at handover, so nothing depends on us staying. Many clients keep a monthly plan afterwards; others take the handover and continue on their own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the project ends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rescue and stabilisation work carries a 30-day warranty, and every project ends with a review period before the final payment and a handover session. If you want someone to keep an eye on the system, the monthly engineer plans start at RM497."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
@@ -237,6 +318,8 @@
           <a class="f-btn f-btn--primary" href="contact.html">Book your strategy session</a>
         </div>
 
+        <div class="f-callout f-callout--tip" style="margin: 0 0 24px"><span class="f-callout__label">If it doesn't work out</span>Change your mind before work starts and the deposit is refunded in full. If a project stops mid-way, you pay only for work completed, with documentation of what was done. Rescue and stabilisation work carries a 30-day warranty, and nothing is final until you have reviewed it.</div>
+
         <div class="f-grid f-grid--2">
           <article id="rescue" class="f-card f-price-card">
             <h3 class="f-card__title">Legacy System Rescue</h3>
@@ -312,7 +395,7 @@
           <a class="f-btn f-btn--secondary" href="contact.html?package=Single%20Automation">Automate one task</a>
         </div>
 
-        <p class="f-note" style="margin-top: 28px">Not a one-off project? <a href="#retainer-section">Hire an engineer monthly instead</a> (plans above). Partnership credits, guarantees and payment terms are on the <a href="pricing-terms.html">pricing terms</a> page.</p>
+        <p class="f-note" style="margin-top: 28px">Not a one-off project? <a href="#retainer-section">Hire an engineer monthly instead</a> (plans above). Partnership credits, cancellation terms and payment details are on the <a href="pricing-terms.html">pricing terms</a> page.</p>
       </div>
     </section>
 
@@ -359,8 +442,21 @@
             </table>
           </div>
 
-          <h3 class="f-h3">What you'll need to provide</h3>
-          <p class="f-muted" style="margin-top: 8px">Access to your source code and relevant documentation, so we can understand the architecture, diagnose root causes, deliver reliable fixes and give actionable recommendations.</p>
+          <h3 class="f-h3">What you walk away with</h3>
+          <ul class="f-checks" style="margin-top: 8px">
+            <li>A written assessment before any commitment: findings, timeline and a fixed price</li>
+            <li>A record of every change made, with the reason for each</li>
+            <li>Documentation and a handover session, so nothing depends on us staying</li>
+            <li>A 30-day warranty on rescue and stabilisation work</li>
+          </ul>
+
+          <h3 class="f-h3" style="margin-top: 32px">How we access your system</h3>
+          <ul class="f-checks" style="margin-top: 8px">
+            <li>Source code first, read-only, from your repository or an export you control</li>
+            <li>Production and database access only when a fix needs it, through accounts you create and can revoke</li>
+            <li>Customer data stays on your servers; no databases are copied off-site</li>
+            <li>NDA signed on request; personal data handled under the PDPA</li>
+          </ul>
           <div class="f-callout f-callout--tip"><span class="f-callout__label">Privacy &amp; security</span>All code and project information is treated as strictly confidential. We can sign NDAs and work within your security requirements.</div>
         </div>
 
@@ -378,6 +474,26 @@
             <div class="f-sys__foot"><b>REWARD</b> · a stable system your team can change with confidence</div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section id="faq" class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head">
+          <p class="f-eyebrow">Before you ask</p>
+          <h2 class="f-h2">Common questions about working with us</h2>
+        </div>
+        <div class="f-faq">
+          <details><summary>Should we rewrite the system instead of fixing it?</summary><div>Usually not. A rewrite takes longer and costs more than anyone plans for, and the business has to keep running on the old system while it happens. We stabilise what you have first, then modernise the parts that hold you back, one module at a time. If a rewrite really is the right call, the written assessment will say so, with reasons.</div></details>
+          <details><summary>What if the problem turns out to be unfixable?</summary><div>The free strategy session is where we tell you whether we can help. A fixed quote is only issued when we are confident of the outcome. If you change your mind before work starts, the deposit is refunded in full. If a project stops mid-way, you pay only for work completed, with documentation of what was done.</div></details>
+          <details><summary>Do you need access to our source code and production systems?</summary><div>Source code, yes: without it we can only guess. Production and database access only when a fix needs it, through accounts you create and can revoke, and never as the first step. Customer data stays on your servers; we do not copy databases off-site.</div></details>
+          <details><summary>Will you sign an NDA, and how is our data handled?</summary><div>Yes. We sign NDAs and work within your security requirements. All code and project information is treated as confidential, personal data is handled under the PDPA, and every change made to your system is recorded so your team can see exactly what was touched.</div></details>
+          <details><summary>Our original developer has left and there is no documentation. Can you still help?</summary><div>That is the most common starting point. The System Understanding &amp; Roadmap package exists for exactly this: we read the code, map how data moves through it, and hand you architecture documentation your team can keep. Fixes can start before the documentation is complete when something is urgent.</div></details>
+          <details><summary>Which technologies do you work with?</summary><div>Primarily C# and .NET, from .NET Framework WinForms, WPF and ASP.NET WebForms or MVC through to current .NET, with SQL Server behind it. Also PHP, WordPress, JavaScript and React. If your system mixes several of these, that is normal for us.</div></details>
+          <details><summary>How quickly can you start, and is this emergency support?</summary><div>You hear back within 1&ndash;2 business days, the free session follows, and projects usually start within 1&ndash;2 weeks of the written quote. Work is scheduled, not on-call: we do not sell 2 a.m. emergency response, and we say so up front. The RM387 System Health Check is the fastest way to get an engineer looking at your code.</div></details>
+          <details><summary>Can our current vendor or in-house team keep working alongside you?</summary><div>Yes. We work from your repository, document each change, and brief your team at handover, so nothing depends on us staying. Many clients keep a monthly plan afterwards; others take the handover and continue on their own.</div></details>
+          <details><summary>What happens after the project ends?</summary><div>Rescue and stabilisation work carries a 30-day warranty, and every project ends with a review period before the final payment and a handover session. If you want someone to keep an eye on the system, the monthly engineer plans start at RM497.</div></details>
+        </div>
       </div>
     </section>
 

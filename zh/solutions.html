@@ -43,6 +43,87 @@
       document.head.appendChild(s);
     });
   </script>
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "我们应该重写系统，而不是修复它吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通常不需要。重写所需的时间和费用总是超出预期，而且在此期间业务仍要依靠旧系统运行。我们会先稳定现有系统，再逐个模块地现代化那些拖累您的部分。如果重写确实是正确的选择，书面评估会说明，并给出理由。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如果问题最终无法修复怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "免费策略会谈就是我们告诉您能否帮忙的时候。只有在对结果有把握时，我们才会给出固定报价。开工前改变主意，订金全额退还。项目中途停止，您只需为已完成的工作付费，并附上工作记录。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "你们需要访问我们的源代码和生产系统吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "源代码是需要的：没有它我们只能猜测。生产环境和数据库只在修复需要时才访问，使用您创建并可撤销的账户，而且绝不会是第一步。客户数据留在您的服务器上；我们不会把数据库复制到外部。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "你们会签保密协议吗？我们的数据如何处理？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "会。我们签署保密协议，并按您的安全要求工作。所有代码和项目信息均视为机密，个人数据按 PDPA 处理，对系统的每一处改动都有记录，您的团队可以清楚看到动过哪里。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "原来的开发人员已经离开，也没有文档。你们还能帮忙吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "这是最常见的起点。系统梳理与路线图方案正是为此而设：我们阅读代码，梳理数据在其中的流转，并交给您的团队可以长期保留的架构文档。遇到紧急情况，修复可以在文档完成之前先开始。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "你们使用哪些技术？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主要是 C# 和 .NET，从 .NET Framework 的 WinForms、WPF、ASP.NET WebForms 或 MVC 到当前的 .NET，后端为 SQL Server。也包括 PHP、WordPress、JavaScript 和 React。如果您的系统混用了其中几种，对我们来说很正常。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "你们多快能开始？这是紧急支援吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "您会在 1–2 个工作日内收到回复，随后是免费会谈，项目通常在书面报价后 1–2 周内开始。工作是按计划安排的，不是随叫随到：我们不提供凌晨两点的紧急响应，这一点我们事先说明。RM387 的系统健康检查是让工程师最快开始查看您代码的方式。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我们现有的供应商或内部团队可以继续与你们一起工作吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。我们在您的代码仓库中工作，记录每一处改动，并在交接时向您的团队说明，所以不会因我们离开而受影响。很多客户之后会保留按月方案；也有客户完成交接后自行继续。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "项目结束后会怎样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "救援与稳定化工作附带 30 天保修，每个项目都以付尾款前的审核期和交接会议收尾。如果您希望有人持续关注系统，按月工程师方案从 RM497 起。"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 <a class="f-skip" href="#main">跳至内容</a>
@@ -172,6 +253,7 @@
 </div>
 <a class="f-btn f-btn--primary" href="contact.html">预约策略咨询</a>
 </div>
+<div class="f-callout f-callout--tip" style="margin: 0 0 24px"><span class="f-callout__label">如果合作不顺利</span>开工前改变主意，订金全额退还。项目中途停止，您只需为已完成的工作付费，并附上工作记录。救援与稳定化工作附带 30 天保修，在您审核确认之前，一切都不算最终定案。</div>
 <div class="f-grid f-grid--2">
 <article class="f-card f-price-card" id="rescue">
 <h3 class="f-card__title">旧系统抢救</h3>
@@ -242,7 +324,7 @@
 </div>
 <a class="f-btn f-btn--secondary" href="contact.html?package=Single%20Automation">自动化一项任务</a>
 </div>
-<p class="f-note" style="margin-top: 28px">不是一次性项目？<a href="#retainer-section">改为按月聘请工程师</a>（见上方配套）。合作积分、保证和付款条款请见<a href="pricing-terms.html">价格条款</a>页面。</p>
+<p class="f-note" style="margin-top: 28px">不是一次性项目？<a href="#retainer-section">改为按月聘请工程师</a>（见上方方案）。合作积分、取消条款和付款细则见<a href="pricing-terms.html">价格条款</a>页面。</p>
 </div>
 </section>
 <section class="f-section f-section--alt">
@@ -272,8 +354,20 @@
 <tr><td>月度工程师</td><td>持续进行，每月按计划安排</td></tr>
 </table>
 </div>
-<h3 class="f-h3">您需要提供什么</h3>
-<p class="f-muted" style="margin-top: 8px">源代码和相关文档的访问权限，以便我们了解架构、诊断根本原因、提供可靠的修复，并给出可执行的建议。</p>
+<h3 class="f-h3">您将获得什么</h3>
+<ul class="f-checks" style="margin-top: 8px">
+<li>承诺前先有书面评估：发现的问题、时间表和固定价格</li>
+<li>每一处改动都有记录，并注明原因</li>
+<li>文档和交接会议，不会因我们离开而受影响</li>
+<li>救援与稳定化工作享 30 天保修</li>
+</ul>
+<h3 class="f-h3" style="margin-top: 32px">我们如何访问您的系统</h3>
+<ul class="f-checks" style="margin-top: 8px">
+<li>先看源代码，只读权限，来自您的代码仓库或您掌控的导出文件</li>
+<li>仅在修复需要时才访问生产环境和数据库，使用您创建并可随时撤销的账户</li>
+<li>客户数据留在您的服务器上；不会把数据库复制到外部</li>
+<li>可应要求签署保密协议（NDA）；个人数据按 PDPA 处理</li>
+</ul>
 <div class="f-callout f-callout--tip"><span class="f-callout__label">隐私与安全</span>所有代码和项目资料都会严格保密。我们可以签署保密协议（NDA），并按照您的安全要求工作。</div>
 </div>
 <aside aria-label="合作步骤" class="f-split__aside">
@@ -290,6 +384,25 @@
 <div class="f-sys__foot"><b>奖励</b> · 一个稳定、您的团队可以放心修改的系统</div>
 </div>
 </aside>
+</div>
+</section>
+<section class="f-section f-section--alt" id="faq">
+<div class="f-container">
+<div class="f-head">
+<p class="f-eyebrow">常见疑问</p>
+<h2 class="f-h2">与我们合作的常见问题</h2>
+</div>
+<div class="f-faq">
+<details><summary>我们应该重写系统，而不是修复它吗？</summary><div>通常不需要。重写所需的时间和费用总是超出预期，而且在此期间业务仍要依靠旧系统运行。我们会先稳定现有系统，再逐个模块地现代化那些拖累您的部分。如果重写确实是正确的选择，书面评估会说明，并给出理由。</div></details>
+<details><summary>如果问题最终无法修复怎么办？</summary><div>免费策略会谈就是我们告诉您能否帮忙的时候。只有在对结果有把握时，我们才会给出固定报价。开工前改变主意，订金全额退还。项目中途停止，您只需为已完成的工作付费，并附上工作记录。</div></details>
+<details><summary>你们需要访问我们的源代码和生产系统吗？</summary><div>源代码是需要的：没有它我们只能猜测。生产环境和数据库只在修复需要时才访问，使用您创建并可撤销的账户，而且绝不会是第一步。客户数据留在您的服务器上；我们不会把数据库复制到外部。</div></details>
+<details><summary>你们会签保密协议吗？我们的数据如何处理？</summary><div>会。我们签署保密协议，并按您的安全要求工作。所有代码和项目信息均视为机密，个人数据按 PDPA 处理，对系统的每一处改动都有记录，您的团队可以清楚看到动过哪里。</div></details>
+<details><summary>原来的开发人员已经离开，也没有文档。你们还能帮忙吗？</summary><div>这是最常见的起点。系统梳理与路线图方案正是为此而设：我们阅读代码，梳理数据在其中的流转，并交给您的团队可以长期保留的架构文档。遇到紧急情况，修复可以在文档完成之前先开始。</div></details>
+<details><summary>你们使用哪些技术？</summary><div>主要是 C# 和 .NET，从 .NET Framework 的 WinForms、WPF、ASP.NET WebForms 或 MVC 到当前的 .NET，后端为 SQL Server。也包括 PHP、WordPress、JavaScript 和 React。如果您的系统混用了其中几种，对我们来说很正常。</div></details>
+<details><summary>你们多快能开始？这是紧急支援吗？</summary><div>您会在 1–2 个工作日内收到回复，随后是免费会谈，项目通常在书面报价后 1–2 周内开始。工作是按计划安排的，不是随叫随到：我们不提供凌晨两点的紧急响应，这一点我们事先说明。RM387 的系统健康检查是让工程师最快开始查看您代码的方式。</div></details>
+<details><summary>我们现有的供应商或内部团队可以继续与你们一起工作吗？</summary><div>可以。我们在您的代码仓库中工作，记录每一处改动，并在交接时向您的团队说明，所以不会因我们离开而受影响。很多客户之后会保留按月方案；也有客户完成交接后自行继续。</div></details>
+<details><summary>项目结束后会怎样？</summary><div>救援与稳定化工作附带 30 天保修，每个项目都以付尾款前的审核期和交接会议收尾。如果您希望有人持续关注系统，按月工程师方案从 RM497 起。</div></details>
+</div>
 </div>
 </section>
 <section class="f-section f-section--alt" id="einvoice">

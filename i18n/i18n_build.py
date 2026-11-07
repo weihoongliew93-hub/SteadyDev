@@ -53,6 +53,18 @@ for s in list(soup.find_all(string=True)):
 html_tag = soup.html
 html_tag['lang'] = LANGS[lang][0]
 soup.title.string = tr.HEAD['title']
+# A FAQPage schema is rebuilt from the page's own (now translated) FAQ list, so search
+# engines see the questions in the page's language rather than the English original.
+import json
+for s in soup.find_all('script', type='application/ld+json'):
+    try: data = json.loads(s.string or '')
+    except ValueError: continue
+    faq = [(d.summary, d.find('div')) for d in soup.select('.f-faq details') if d.summary]
+    if isinstance(data, dict) and data.get('@type') == 'FAQPage' and faq:
+        data['mainEntity'] = [{'@type': 'Question', 'name': q.get_text(' ', strip=True),
+                               'acceptedAnswer': {'@type': 'Answer', 'text': a.get_text(' ', strip=True) if a else ''}}
+                              for q, a in faq]
+        s.string = '\n' + json.dumps(data, ensure_ascii=False, indent=2) + '\n  '
 # Every language's URL is the English canonical path under its folder, so a page served
 # without ".html" (/venue-booking) keeps that form in /ms/ and /zh/, and the alternates
 # below agree with each copy's own canonical.

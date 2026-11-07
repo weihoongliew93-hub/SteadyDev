@@ -20,12 +20,12 @@ B = {
  'b10': '性能',
  'b11': '自动化',
  'b12': '内部工具',
- 'b13': '''<!-- Wallhub case study hidden per request. To restore, remove the comment wrapper below. -->
+ 'b13': '''<!-- Interior-materials retailer case study hidden per request. To restore, remove the comment wrapper below. -->
 <!--
         <div class="sd-dcard" data-cat="web">
           <div class="sd-thumb"><span class="sd-thumb-icon">🧾</span></div>
           <div class="sd-cat">Web Application</div>
-          <h3>Sales &amp; Inventory System — Wallhub</h3>
+          <h3>Sales &amp; Inventory System — interior-materials retailer</h3>
           <div class="sd-tags">
             <span class="sd-tag sd-tag--dark">★ Featured</span>
             <span class="sd-tag sd-tag--dark">.NET 8</span>

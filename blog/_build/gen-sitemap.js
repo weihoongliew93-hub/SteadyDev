@@ -84,6 +84,7 @@ MAIN.forEach(p => { if (fs.existsSync(path.join(ROOT, p.file))) add(p.loc, mtime
 // --- Portfolio case studies (auto-discovered) ---
 fs.readdirSync(ROOT)
   .filter(f => f.startsWith('case-') && f.endsWith('.html'))
+  .filter(f => !/<meta(?=[^>]*name="robots")(?=[^>]*content="noindex)/.test(fs.readFileSync(path.join(ROOT, f), 'utf8')))
   .sort()
   .forEach(f => add('/' + f, mtime(f), 'monthly', '0.7'));
 
