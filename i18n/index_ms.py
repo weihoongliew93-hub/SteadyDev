@@ -5,7 +5,7 @@ HEAD = {
 }
 B = {
  'b0': 'Langkau ke kandungan',
- 'b1': 'Perisian dan kejuruteraan · Malaysia &amp; Singapura',
+ 'b1': 'Perisian dan kejuruteraan · Malaysia &amp; Singapura · juga dalam English dan 中文',
  'b2': 'Perisian kritikal, <span class="f-dim">terus berjalan.</span>',
  'b3': 'SteadyDevs membina perisian pematuhan dan tempahan, serta menstabilkan sistem .NET lama yang menjadi tulang belakang perniagaan Malaysia.',
  'b4': '<a class="f-btn f-btn--primary" href="contact.html">Tempah konsultasi</a> <a class="f-btn f-btn--secondary" href="#paths">Lihat apa yang kami lakukan</a>',

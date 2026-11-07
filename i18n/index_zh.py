@@ -5,7 +5,7 @@ HEAD = {
 }
 B = {
  'b0': '跳至内容',
- 'b1': '软件与工程 · 马来西亚及新加坡',
+ 'b1': '软件与工程 · 马来西亚及新加坡 · 也提供英文和马来文版本',
  'b2': '关键软件，<span class="f-dim">不停摆。</span>',
  'b3': 'SteadyDevs 开发合规与预约软件，并为马来西亚企业所依赖的旧版 .NET 系统保驾护航。',
  'b4': '<a class="f-btn f-btn--primary" href="contact.html">预约咨询</a> <a class="f-btn f-btn--secondary" href="#paths">了解我们的服务</a>',

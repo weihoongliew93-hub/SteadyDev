@@ -839,7 +839,7 @@
 <h2 class="f-h2">从连接到合规</h2>
 </div>
 <ol class="f-steps">
-<li><div class="f-steps__n">01</div><div class="f-steps__t">连接</div><div class="f-steps__d">为您的 POS 或 ERP 安装适配器插件，或生成 API 密钥，将发票推送到 REST 接口。</div></li>
+<li><div class="f-steps__n">01</div><div class="f-steps__t">连接</div><div class="f-steps__d">生成 API 密钥并把发票推送到 REST 接口，上传电子表格，或由我们为您系统的导出格式编写映射适配器。</div></li>
 <li><div class="f-steps__n">02</div><div class="f-steps__t">验证</div><div class="f-steps__d">每张发票都要通过三层检查。问题会连同说明出现在您的仪表板上；没有问题的发票会自动排队。</div></li>
 <li><div class="f-steps__n">03</div><div class="f-steps__t">提交</div><div class="f-steps__d">发票以您的 TIN 提交到 MyInvois。LHDN 截止时间过后不会再发送。</div></li>
 <li><div class="f-steps__n">04</div><div class="f-steps__t">同步并通知</div><div class="f-steps__d">每 5 分钟检查一次状态，更新您的仪表板，并通过 webhook 通知您的系统。</div></li>
@@ -1048,12 +1048,12 @@
 <div class="f-head">
 <p class="f-eyebrow">系统对接</p>
 <h2 class="f-h2">与您现有的系统配合使用</h2>
-<p class="f-sub">适配器插件系统可连接任何数据来源，无需重写整个系统。</p>
+<p class="f-sub">三种接入方式，今天就都可用：REST API、电子表格上传，以及由我们为您系统的导出格式编写的映射适配器。目前还没有预制的品牌连接器；早期合作伙伴的适配器会在上线对接时由我们编写。</p>
 </div>
 <div class="f-grid">
-<article class="f-card f-card--compact"><h3 class="f-card__title">POS 系统</h3><p class="f-card__text">StoreHub 或任何定制 POS。通过 REST API 推送发票，或安装现成的适配器插件。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">ERP / 会计系统</h3><p class="f-card__text">SQL Accounting、AutoCount、SAP，或任何具备导出功能的 ERP。也支持 Excel 和 CSV 上传。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">电子商务</h3><p class="f-card__text">WooCommerce、Shopify 或定制的结账流程。每完成一笔订单，就由 webhook 触发适配器处理。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">POS 系统</h3><p class="f-card__text">StoreHub 或任何定制 POS。通过 REST API 推送发票，或由我们在早期接入对接时为您的 POS 导出格式编写映射适配器。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">ERP / 会计系统</h3><p class="f-card__text">SQL Account、AutoCount、SAP 或任何可以导出数据的 ERP。上传 Excel 或 CSV 导出文件（提供模板，导入前可先试运行），或通过 API 推送。</p></article>
+<article class="f-card f-card--compact"><h3 class="f-card__title">电子商务</h3><p class="f-card__text">WooCommerce、Shopify 或定制的结账流程。从您商店的 webhook 把每笔完成的订单发送到 REST API；预制的商店插件目前尚未提供。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">定制系统</h3><p class="f-card__text">任何能发出 HTTP POST 的系统都能对接，使用 API 密钥验证，无需繁琐的 OAuth 流程。</p></article>
 </div>
 </div>
