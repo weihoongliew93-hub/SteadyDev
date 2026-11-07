@@ -8,7 +8,7 @@ B = {
  'b0': 'Langkau ke kandungan',
  'b1': 'Platform EInvoice · dalam versi beta, rakan akses awal dialu-alukan',
  'b2': 'e-Invois LHDN yang berjalan <span class="f-dim">dengan senyap di latar belakang.</span>',
- 'b3': 'Sambungkan sistem POS, ERP atau perakaunan anda sekali sahaja. Setiap invois disahkan mengikut peraturan LHDN, ditandatangani secara digital dan dihantar ke MyInvois secara automatik. Tiada kerja manual, tiada kod penolakan yang mengelirukan, tiada tarikh akhir yang terlepas.',
+ 'b3': 'Untuk perniagaan yang sudah menggunakan sistem POS, ERP atau perakaunan yang tidak dapat menghantar ke MyInvois dengan sendirinya. Sambungkan sekali sahaja; setiap invois disahkan mengikut peraturan LHDN dan dihantar secara automatik. Tiada kerja manual, tiada kod penolakan yang mengelirukan, tiada tarikh akhir yang terlepas.',
  'b4': '<a class="f-btn ei-btn-invert" href="contact.html?ref=einvoice-cta">Mohon akses awal</a> <a class="f-btn f-btn--secondary" href="#demo">Cuba demo langsung</a>',
  'b5': 'Dari RM 29 sebulan · tiada kontrak · percubaan percuma 30 hari · eksport data anda bila-bila masa · <a href="#pricing">bandingkan pelan</a>',
  'b6': '<span>Diluluskan bulan ini</span><b>1,284</b>',

@@ -7,7 +7,7 @@ B = {
  'b0': '跳至内容',
  'b1': 'EInvoice 平台 · 测试阶段，欢迎抢先体验合作伙伴',
  'b2': 'LHDN 电子发票，<span class="f-dim">在后台安静运行。</span>',
- 'b3': '只需连接一次您的 POS、ERP 或会计系统。每张发票都会按照 LHDN 规则验证、数字签名，并自动提交到 MyInvois。无需手动操作，没有难懂的拒绝代码，不再错过提交期限。',
+ 'b3': '适用于已在使用 POS、ERP 或会计系统，但该系统本身无法提交到 MyInvois 的企业。只需连接一次；每张发票都会按照 LHDN 规则验证并自动提交。无需手动操作，没有难懂的拒绝代码，不再错过提交期限。',
  'b4': '<a class="f-btn ei-btn-invert" href="contact.html?ref=einvoice-cta">申请抢先体验</a> <a class="f-btn f-btn--secondary" href="#demo">试用在线演示</a>',
  'b5': '每月 RM 29 起 · 无合约 · 30 天免费试用 · 随时导出数据 · <a href="#pricing">比较配套</a>',
  'b6': '<span>本月已批准</span><b>1,284</b>',

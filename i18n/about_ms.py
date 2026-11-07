@@ -34,7 +34,7 @@ B = {
  'b28': 'Kemas kini berkala dan penerangan terperinci tentang apa yang dilakukan dan sebabnya.',
  'b29': 'Cara kami bekerja',
  'b30': 'Menetapkan jangkaan',
- 'b31': 'SteadyDevs beroperasi sebagai <strong style="color: var(--text-strong)">perkhidmatan separuh masa</strong> yang menumpukan pada pembaikan berstruktur dan sokongan bukan kritikal, bukan respons kecemasan masa nyata.',
+ 'b31': 'SteadyDevs bekerja secara <strong style="color: var(--text-strong)">berjadual</strong>: pembaikan, penambahbaikan dan analisis yang dirancang, setiap satu dengan skop bertulis sebelum bermula. Respons kecemasan atas panggilan bukan sesuatu yang kami tawarkan, dan kami nyatakannya dari awal.',
  'b32': 'Maksudnya',
  'b33': 'Tersedia setiap hari (lihat <a href="contact.html">halaman hubungi</a> untuk butiran)',
  'b34': 'Projek dirancang dan skopnya ditetapkan sebelum kerja bermula',
