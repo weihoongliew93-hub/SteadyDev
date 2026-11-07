@@ -15,6 +15,7 @@
     ],
     "author": "SteadyDevs",
     "published": true,
+    "updated": "2026-11-07",
     "heroImage": "images/blog/upkeep-check-what-changed-cover.svg",
     "heroImageAlt": "Cover graphic of a timeline showing a plugin update followed four minutes later by a fatal error",
     "seoTitle": "WordPress Broke After an Update? See What Changed",
@@ -142,7 +143,7 @@
         "items": [
           "Open <strong>Tools → Upkeep Check</strong>. If there have been fatal errors this week, a red notice says so at the top.",
           "Read the error in <strong>What changed?</strong> and the changes listed under it. A change to the same plugin, minutes before, is your first suspect.",
-          "Roll that plugin back to its previous version, or deactivate it, and reload the page that was failing.",
+          "Press <strong>Roll back</strong> under the error to reinstall the previous version from WordPress.org, or deactivate the plugin, and reload the page that was failing.",
           "If the error stops, you're done for now: tell the plugin's author, and keep the old version until they fix it. If it doesn't, move to the next change on the list.",
           "If nothing changed in the 24 hours before the error, ask your host what changed on the server. A PHP version change is recorded if WordPress saw it, but a server move or a memory limit change isn't."
         ]
@@ -176,7 +177,7 @@
           },
           {
             "question": "Will it roll the plugin back for me?",
-            "answer": "Not in this version. WordPress itself already reverts a plugin update that fails with a fatal error during the update. What changed? is for the more common case, where the update succeeds and the site breaks afterwards: it tells you which plugin to roll back, and you do it with the plugin's previous version or a rollback plugin."
+            "answer": "Yes, since version 1.3. When a fatal error followed an update of the same plugin, the error shows a Roll back button that reinstalls the version it was updated from, straight from WordPress.org. It works for plugins from the WordPress.org directory, on servers WordPress can write to without FTP details; for anything else it tells you what to do instead. WordPress itself already reverts an update that fails during the update, so this is for the more common case, where the update succeeds and the site breaks afterwards."
           },
           {
             "question": "Why wasn't an error I saw recorded?",

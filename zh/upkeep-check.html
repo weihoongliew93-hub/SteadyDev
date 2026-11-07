@@ -32,7 +32,7 @@
     "applicationCategory": "SecurityApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.2.0",
+    "softwareVersion": "1.3.0",
     "description": "A free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with the running WordPress version, checks whether the PHP version still gets security fixes, adds the result to Site Health, and records plugin, theme, WordPress and PHP changes with the fatal errors that followed them.",
     "url": "https://steadydevs.com/upkeep-check",
     "downloadUrl": "https://wordpress.org/plugins/steadydevs-upkeep-check/",
@@ -49,7 +49,8 @@
       "Lists inactive plugins to delete",
       "Checks your PHP version's security support dates",
       "Adds the result to Tools → Site Health",
-      "Records plugin, theme, WordPress and PHP changes, with the fatal errors and failed emails that followed"
+      "Records plugin, theme, WordPress and PHP changes, with the fatal errors and failed emails that followed",
+      "Rolls a plugin back to its previous version after an update breaks the site"
     ]
   }
   </script>
@@ -145,7 +146,7 @@
 <p class="f-lead">插件一旦停止更新，就不再获得安全修复，而 WordPress 不会提醒您。Upkeep Check 找出已被关闭、遗弃或落后的插件，并用直白的话告诉您每一个该怎么处理。</p>
 <div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-uc-download="hero" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">下载 Upkeep Check — 免费</a>
 <a class="f-btn f-btn--secondary" href="#tour">看看它如何工作</a></div>
-<p class="f-note" style="margin-top: 16px">版本 1.2.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · 已上架 WordPress.org</p>
+<p class="f-note" style="margin-top: 16px">版本 1.3.0 · GPL，永久免费 · WordPress 6.0+ · PHP 7.4+ · 无需账户，无需注册 · 已上架 WordPress.org</p>
 </div>
 <div aria-label="示意图：已安装插件列表及 Upkeep Check 对每个插件的结论" class="f-hero__aside uc-hero-visual">
 <div class="f-card uc-list">
@@ -233,7 +234,7 @@
 <article class="f-card f-card--compact"><h3 class="f-card__title">被扣住的更新</h3><p class="f-card__text">当目录中的版本比 WordPress 提供给您网站的更新（通常因为它需要更新的 PHP 或 WordPress），会告诉您为什么该更新没有出现。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">未启用的插件</h3><p class="f-card__text">已停用但仍留在服务器上。删掉您不需要的。</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">PHP 支持日期</h3><p class="f-card__text">您的 PHP 版本是否仍获得安全修复，以及截止日期，来自 php.net 自己的时间表。</p></article>
-<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">出问题前发生了什么变化</h3><p class="f-card__text">1.2 新增。记录插件、主题、WordPress 和 PHP 的变化、操作者，以及随后发生的致命错误和发送失败的邮件。每个错误都会列出它之前 24 小时内的变化。<a href="../blog/wordpress-site-broke-after-update-what-changed.html">了解它如何工作</a>。</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">出问题前发生了什么变化</h3><p class="f-card__text">记录插件、主题、WordPress 和 PHP 的变化、操作者，以及随后发生的致命错误和发送失败的邮件。每个错误都会列出它之前 24 小时内的变化；如果之前正好更新过同一个插件，一个按钮就能把它回滚到上一个版本。<a href="../blog/wordpress-site-broke-after-update-what-changed.html">了解它如何工作</a>。</p></article>
 </div>
 </div>
 </section>
@@ -262,7 +263,7 @@
 </div>
 <div class="uc-free">
 <div class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">Upkeep Check 1.2.0</span>
+<span class="f-ribbon">Upkeep Check 1.3.0</span>
 <div class="f-price">$0 <small>永久</small></div>
 <ul class="f-checks">
 <li>本页的每项检查，覆盖您的每个插件</li>
@@ -308,7 +309,7 @@
 <div class="f-faq">
 <details><summary>Upkeep Check 真的免费吗？</summary><div>是的。每项检查都包含在免费插件中，没有限制，并以 GPL 开源。没有付费版本。如果您需要帮助更换它找到的插件，那是另外的<a href="solutions.html">工程服务</a>。</div></details>
 <details><summary>它会拖慢我的网站吗？</summary><div>不会。目录检查只在您点击按钮或按每周计划运行，Site Health 只读取上次保存的报告。只有在发生变化时才会记录；在普通页面加载时，本插件除了注册自身之外什么也不做。</div></details>
-<details><summary>“What changed?”记录些什么？</summary><div>插件和主题的更新、安装、启用、停用和删除，WordPress 和 PHP 的版本变化，致命错误及其所在的插件或主题，以及发送失败的邮件及邮件程序给出的错误。在每个错误下方，列出它之前 24 小时内的变化。记录在您自己的网站上保留 90 天，不向任何地方发送。它无法捕获在本插件加载之前发生的错误，也不记录警告或通知。</div></details>
+<details><summary>“What changed?”记录些什么？</summary><div>插件和主题的更新、安装、启用、停用和删除，WordPress 和 PHP 的版本变化，致命错误及其所在的插件或主题，以及发送失败的邮件及邮件程序给出的错误。在每个错误下方，列出它之前 24 小时内的变化。记录在您自己的网站上保留 90 天，不向任何地方发送。它无法捕获在本插件加载之前发生的错误，也不记录警告或通知。自 1.3 起，如果错误发生在同一插件更新之后，会提供一个按钮，从 WordPress.org 重新安装上一个版本。</div></details>
 <details><summary>“已关闭”是什么意思？</summary><div>WordPress.org 把该插件移出了目录，例如因为安全问题或违反准则，或者应作者要求。已关闭的插件不会再通过 WordPress 获得更新，即使它仍安装在成千上万个网站上。</div></details>
 <details><summary>为什么我的某个插件“无法检查”？</summary><div>它不来自 WordPress.org 目录：它是付费插件、自定义插件，或从别处更新。Upkeep Check 不会对它妄加猜测。请询问其开发者是否仍在维护。</div></details>
 <details><summary>旧插件一定有问题吗？</summary><div>不一定。有些小插件已经完成，仍然好用。所以一到两年没有更新只标记为“留意”，只有超过两年没有更新，或者已被关闭，才标记为需要处理。</div></details>

@@ -32,7 +32,7 @@
     "applicationCategory": "SecurityApplication",
     "applicationSubCategory": "WordPress plugin",
     "operatingSystem": "WordPress 6.0+",
-    "softwareVersion": "1.2.0",
+    "softwareVersion": "1.3.0",
     "description": "A free WordPress plugin that finds plugins closed on WordPress.org, abandoned, out of date or untested with the running WordPress version, checks whether the PHP version still gets security fixes, adds the result to Site Health, and records plugin, theme, WordPress and PHP changes with the fatal errors that followed them.",
     "url": "https://steadydevs.com/upkeep-check",
     "downloadUrl": "https://wordpress.org/plugins/steadydevs-upkeep-check/",
@@ -49,7 +49,8 @@
       "Lists inactive plugins to delete",
       "Checks your PHP version's security support dates",
       "Adds the result to Tools → Site Health",
-      "Records plugin, theme, WordPress and PHP changes, with the fatal errors and failed emails that followed"
+      "Records plugin, theme, WordPress and PHP changes, with the fatal errors and failed emails that followed",
+      "Rolls a plugin back to its previous version after an update breaks the site"
     ]
   }
   </script>
@@ -145,7 +146,7 @@
 <p class="f-lead">Pemalam yang berhenti menerima kemas kini turut berhenti menerima pembetulan keselamatan, dan WordPress tidak akan memberi amaran. Upkeep Check mencari pemalam yang telah ditutup, terbiar atau ditinggalkan, dan memberitahu anda dengan jelas apa yang perlu dilakukan terhadap setiap satu.</p>
 <div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" data-uc-download="hero" href="https://wordpress.org/plugins/steadydevs-upkeep-check/" rel="noopener">Muat turun Upkeep Check — percuma</a>
 <a class="f-btn f-btn--secondary" href="#tour">Lihat cara ia berfungsi</a></div>
-<p class="f-note" style="margin-top: 16px">Versi 1.2.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · disenaraikan di WordPress.org</p>
+<p class="f-note" style="margin-top: 16px">Versi 1.3.0 · GPL, percuma selama-lamanya · WordPress 6.0+ · PHP 7.4+ · tiada akaun, tiada pendaftaran · disenaraikan di WordPress.org</p>
 </div>
 <div aria-label="Ilustrasi: senarai pemalam yang dipasang dengan keputusan Upkeep Check bagi setiap satu" class="f-hero__aside uc-hero-visual">
 <div class="f-card uc-list">
@@ -233,7 +234,7 @@
 <article class="f-card f-card--compact"><h3 class="f-card__title">Kemas kini ditahan</h3><p class="f-card__text">Apabila direktori mempunyai versi yang lebih baharu daripada yang ditawarkan WordPress kepada laman anda, biasanya kerana ia memerlukan PHP atau WordPress yang lebih baharu, anda diberitahu mengapa kemas kini itu tidak muncul.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Pemalam tidak aktif</h3><p class="f-card__text">Dimatikan tetapi masih ada di pelayan. Padamkan yang tidak anda perlukan.</p></article>
 <article class="f-card f-card--compact"><h3 class="f-card__title">Tarikh sokongan PHP</h3><p class="f-card__text">Sama ada versi PHP anda masih menerima pembetulan keselamatan, dan tarikh ia berhenti, daripada jadual php.net sendiri.</p></article>
-<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Apa yang berubah sebelum ia rosak</h3><p class="f-card__text">Baharu dalam 1.2. Rekod perubahan pemalam, tema, WordPress dan PHP, berserta siapa yang membuatnya, dan ralat maut serta e-mel gagal yang menyusul. Setiap ralat menyenaraikan perubahan yang dibuat dalam 24 jam sebelumnya. <a href="../blog/wordpress-site-broke-after-update-what-changed.html">Baca cara ia berfungsi</a>.</p></article>
+<article class="f-card f-card--compact f-card--accent"><h3 class="f-card__title">Apa yang berubah sebelum ia rosak</h3><p class="f-card__text">Rekod perubahan pemalam, tema, WordPress dan PHP, berserta siapa yang membuatnya, dan ralat maut serta e-mel gagal yang menyusul. Setiap ralat menyenaraikan perubahan yang dibuat dalam 24 jam sebelumnya, dan jika pemalam yang sama dikemas kini sejurus sebelum itu, satu butang mengembalikannya ke versi terdahulu. <a href="../blog/wordpress-site-broke-after-update-what-changed.html">Baca cara ia berfungsi</a>.</p></article>
 </div>
 </div>
 </section>
@@ -262,7 +263,7 @@
 </div>
 <div class="uc-free">
 <div class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">Upkeep Check 1.2.0</span>
+<span class="f-ribbon">Upkeep Check 1.3.0</span>
 <div class="f-price">$0 <small>selama-lamanya</small></div>
 <ul class="f-checks">
 <li>Setiap semakan di halaman ini, untuk setiap pemalam yang anda ada</li>
@@ -308,7 +309,7 @@
 <div class="f-faq">
 <details><summary>Adakah Upkeep Check benar-benar percuma?</summary><div>Ya. Setiap semakan ada dalam pemalam percuma ini, tanpa had, dan ia sumber terbuka di bawah GPL. Tiada versi berbayar. Jika anda mahukan bantuan mengganti apa yang ditemuinya, itu <a href="solutions.html">perkhidmatan kejuruteraan</a> yang berasingan.</div></details>
 <details><summary>Adakah ia melambatkan laman saya?</summary><div>Tidak. Semakan direktori hanya berjalan apabila anda menekan butang atau mengikut jadual mingguan, dan Site Health hanya membaca laporan terakhir yang disimpan. Perubahan direkodkan hanya apabila sesuatu berubah; pada pemuatan halaman biasa, pemalam ini tidak melakukan apa-apa selain mendaftarkan kehadirannya.</div></details>
-<details><summary>Apa yang direkodkan oleh "What changed?"?</summary><div>Kemas kini, pemasangan, pengaktifan, penyahaktifan dan pemadaman pemalam dan tema, perubahan versi WordPress dan PHP, ralat maut berserta pemalam atau tema tempat ia berlaku, dan e-mel gagal berserta ralat daripada penghantar mel. Di bawah setiap ralat, ia menyenaraikan perubahan yang dibuat dalam 24 jam sebelumnya. Ia menyimpan 90 hari di laman anda sendiri dan tidak menghantar apa-apa ke mana-mana. Ia tidak dapat menangkap ralat yang berlaku sebelum pemalam ini dimuatkan, dan tidak merekodkan amaran atau notis.</div></details>
+<details><summary>Apa yang direkodkan oleh "What changed?"?</summary><div>Kemas kini, pemasangan, pengaktifan, penyahaktifan dan pemadaman pemalam dan tema, perubahan versi WordPress dan PHP, ralat maut berserta pemalam atau tema tempat ia berlaku, dan e-mel gagal berserta ralat daripada penghantar mel. Di bawah setiap ralat, ia menyenaraikan perubahan yang dibuat dalam 24 jam sebelumnya. Ia menyimpan 90 hari di laman anda sendiri dan tidak menghantar apa-apa ke mana-mana. Ia tidak dapat menangkap ralat yang berlaku sebelum pemalam ini dimuatkan, dan tidak merekodkan amaran atau notis. Sejak 1.3, ralat yang menyusuli kemas kini pemalam yang sama menawarkan butang untuk memasang semula versi terdahulu daripada WordPress.org.</div></details>
 <details><summary>Apakah maksud "ditutup"?</summary><div>WordPress.org telah membuang pemalam itu daripada direktorinya, contohnya kerana isu keselamatan atau pelanggaran garis panduan, atau atas permintaan pembangunnya. Pemalam yang ditutup tidak menerima kemas kini lagi melalui WordPress, walaupun ia masih dipasang di beribu-ribu laman.</div></details>
 <details><summary>Mengapa salah satu pemalam saya "tidak boleh disemak"?</summary><div>Ia bukan daripada direktori WordPress.org: ia pemalam premium, pemalam tersuai, atau ia dikemas kini dari tempat lain. Upkeep Check tidak akan meneka tentangnya. Tanya pembangunnya sama ada ia masih diselenggara.</div></details>
 <details><summary>Adakah pemalam lama sentiasa bermasalah?</summary><div>Tidak semestinya. Sesetengah pemalam kecil sudah lengkap dan masih berfungsi. Sebab itulah satu hingga dua tahun tanpa kemas kini ditandakan "perhatikan", dan hanya lebih dua tahun, atau penutupan, ditandakan untuk ditindak.</div></details>
