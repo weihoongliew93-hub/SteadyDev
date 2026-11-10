@@ -14403,7 +14403,7 @@
       "Customization"
     ],
     "author": "SteadyDevs",
-    "published": false,
+    "published": true,
     "heroImage": "images/blog/vendor-customizations-cover.svg",
     "heroImageAlt": "Cover graphic of a standard software box with a custom module bolted on and support marked unavailable",
     "content": [
