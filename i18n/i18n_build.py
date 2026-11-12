@@ -113,7 +113,7 @@ for tag in soup.find_all(True):
 # Placeholders and labels carried in attributes.
 for el in soup.find_all(attrs={'placeholder': True}):
     el['placeholder'] = getattr(tr, 'ATTR', {}).get(el['placeholder'], el['placeholder'])
-for name in ('aria-label', 'alt', 'title'):
+for name in ('aria-label', 'alt', 'title', 'label'):
     for el in soup.find_all(attrs={name: True}):
         if el.name != 'link':
             el[name] = getattr(tr, 'ATTR', {}).get(el[name], el[name])

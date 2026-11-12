@@ -15,12 +15,12 @@
 <meta content="https://steadydevs.com/zh/contact.html" property="og:url"/>
 <meta content="联系 SteadyDevs：旧系统与电子发票咨询" property="og:title"/>
 <meta content="免费 30 分钟咨询，并为您的系统或电子发票需求提供书面评估。马来西亚资深工程师，一个工作日内回复。" property="og:description"/>
-<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" property="og:image"/>
+<meta content="https://steadydevs.com/images/steadydevs-og.png" property="og:image"/>
 <!-- Twitter Card Meta Tags -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="联系 SteadyDevs：旧系统与电子发票咨询" name="twitter:title"/>
 <meta content="免费 30 分钟咨询，并为您的系统或电子发票需求提供书面评估。马来西亚资深工程师，一个工作日内回复。" name="twitter:description"/>
-<meta content="https://steadydevs.com/images/SteadyDevsLogo.svg" name="twitter:image"/>
+<meta content="https://steadydevs.com/images/steadydevs-og.png" name="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://steadydevs.com/zh/contact.html" rel="canonical"/><link href="https://steadydevs.com/contact.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/contact.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/contact.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/contact.html" hreflang="en" rel="alternate"/>
 <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
@@ -45,48 +45,6 @@
     });
   </script>
 <!-- FAQ Schema for SEO -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "How long does a typical project take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most rescue projects take 2-4 weeks depending on complexity. System analysis and documentation projects typically take 3-6 weeks. Stabilization projects run 1-3 months. We'll provide a detailed timeline during the free consultation."
-      }
-    },{
-      "@type": "Question",
-      "name": "Do you work with systems outside of .NET?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! While .NET is our primary expertise, we work with PHP, JavaScript, React, WordPress, and other technologies. Our technology-agnostic approach focuses on understanding your specific system regardless of tech stack."
-      }
-    },{
-      "@type": "Question",
-      "name": "What if my system is very old or uses outdated technology?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "That's our specialty. We regularly work with legacy .NET Framework systems, older PHP versions, and complex codebases built years ago. Age isn't a barrier—we focus on making your system stable and maintainable."
-      }
-    },{
-      "@type": "Question",
-      "name": "Do I need to provide source code access?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, most projects require source code access for effective diagnosis and fixes. We sign NDAs and treat all client code with strict confidentiality."
-      }
-    },{
-      "@type": "Question",
-      "name": "What's included in the free consultation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A 30-minute discussion about your situation, expert guidance and recommendations, plus a detailed written assessment via email with timeline and investment required. No obligation to proceed."
-      }
-    }]
-  }
-  </script>
 <style>
     /* Contact page (design F). Uses f.css tokens only. */
     .ct-form-card { padding: 32px; }
@@ -142,24 +100,34 @@
 <label for="package">感兴趣的配套（可选）</label>
 <select id="package" name="package">
 <option value="">请选择配套……</option>
+<optgroup label="还不确定">
+<option value="Free Strategy Session">免费策略会谈（不收费）</option>
+<option value="Not sure yet">还不确定 / 需要建议</option>
+</optgroup>
+<optgroup label="项目（固定价格）">
 <option value="Legacy System Rescue">旧系统抢救（RM3,860 起）</option>
 <option value="System Understanding &amp; Roadmap">系统梳理与路线图（RM6,840 起）</option>
 <option value="System Stabilization Project">系统稳定项目（RM10,760 起）</option>
 <option value="Business Automation">业务自动化（RM6,840 起）</option>
 <option value="Single Automation">单项自动化（RM2,940 起）</option>
+</optgroup>
+<optgroup label="按月聘请工程师">
 <option value="System Health Check">系统健康检查（RM387，一次性诊断）</option>
-<option value="Cloud Cost Triage">云成本：免费初步诊断</option>
-<option value="Cloud Tune-up">云成本：优化调整（RM1,976）</option>
-<option value="Cloud Cost Audit">云成本：全面审计（RM5,860 起）</option>
-<option value="Cloud Cost Implementation">云成本：落实执行（RM2,940 起）</option>
+<option value="Engineer Retainer - Advisor">顾问（每月 RM497）</option>
+<option value="Engineer Retainer - Part-time Engineer">兼职工程师（每月 RM1,476）</option>
+<option value="Engineer Retainer - Team Engineer">团队工程师（每月 RM2,476）</option>
+<option value="Engineer Retainer - Engineering Lead">工程主管（每月 RM4,452）</option>
+<option value="Engineer Retainer">还不确定选哪个方案</option>
+</optgroup>
+<optgroup label="云成本">
+<option value="Cloud Cost Triage">免费初步诊断</option>
+<option value="Cloud Tune-up">优化调整（RM1,976）</option>
+<option value="Cloud Cost Audit">全面审计（RM5,860 起）</option>
+<option value="Cloud Cost Implementation">实施（RM2,940 起）</option>
+</optgroup>
+<optgroup label="电子发票">
 <option value="EInvoice Platform - Early Access">EInvoice 平台 - 抢先体验（测试版）</option>
-<option value="Engineer Retainer - Advisor">聘请工程师：顾问（每月 RM497）</option>
-<option value="Engineer Retainer - Part-time Engineer">聘请工程师：兼职工程师（每月 RM1,476）</option>
-<option value="Engineer Retainer - Team Engineer">聘请工程师：团队工程师（每月 RM2,476）</option>
-<option value="Engineer Retainer - Engineering Lead">聘请工程师：工程主管（每月 RM4,452）</option>
-<option value="Engineer Retainer">聘请工程师：还不确定选哪个</option>
-<option value="Free Strategy Session">免费策略咨询</option>
-<option value="Not sure yet">还不确定 / 需要建议</option>
+</optgroup>
 </select>
 </div>
 <div class="form-group">
