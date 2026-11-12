@@ -50,6 +50,18 @@ function imageSize(relPath) {
   return null;
 }
 
+// Social networks do not render SVG previews, so an SVG cover is swapped for the PNG
+// rendered beside it (same name, .png), and a post with no cover uses the site card.
+function shareImage(post) {
+  const img = post.heroImage;
+  if (!img) return 'images/steadydevs-og.png';
+  if (/\.svg$/i.test(img)) {
+    const png = img.replace(/\.svg$/i, '.png');
+    return fs.existsSync(path.join(__dirname, '../..', png)) ? png : 'images/steadydevs-og.png';
+  }
+  return img;
+}
+
 // The page shows a WebP beside the JPEG when one exists (a tenth of the weight); the JPEG
 // stays for og:image, which not every network reads as WebP.
 function displayImage(relPath) {
@@ -310,7 +322,7 @@ function generateHTML(post) {
     "@type": "HowTo",
     "name": "${post.title.replace(/"/g, '\\"')}",
     "description": "${post.excerpt.replace(/"/g, '\\"')}",
-    "image": "https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}",
+    "image": "https://steadydevs.com/${shareImage(post)}",
     "step": [
       ${howToSteps.map(step => `{
         "@type": "HowToStep",
@@ -361,13 +373,13 @@ function generateHTML(post) {
   <meta property="og:url" content="https://steadydevs.com/blog/${post.slug}.html">
   <meta property="og:title" content="${attr(seoTitle)}">
   <meta property="og:description" content="${attr(metaDescription)}">
-  <meta property="og:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
+  <meta property="og:image" content="https://steadydevs.com/${shareImage(post)}">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${attr(seoTitle)}">
   <meta name="twitter:description" content="${attr(metaDescription)}">
-  <meta name="twitter:image" content="https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}">
+  <meta name="twitter:image" content="https://steadydevs.com/${shareImage(post)}">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://steadydevs.com/blog/${post.slug}.html">
@@ -388,7 +400,7 @@ function generateHTML(post) {
     "@type": "BlogPosting",
     "headline": "${post.title.replace(/"/g, '\\"')}",
     "alternativeHeadline": "${post.excerpt.replace(/"/g, '\\"').substring(0, 110)}",
-    "image": "https://steadydevs.com/${post.heroImage || 'images/SteadyDevsLogo.svg'}",
+    "image": "https://steadydevs.com/${shareImage(post)}",
     "datePublished": "${isoPublishDate}",
     "dateModified": "${isoModifiedDate}",
     "author": {
