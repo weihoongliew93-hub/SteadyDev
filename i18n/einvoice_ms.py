@@ -256,7 +256,7 @@ B = {
  'b291': 'Lagi',
  'b292': '<a href="pricing-terms.html">Terma harga</a>',
  'b293': '<a href="my-account.html">Akaun saya</a>',
- 'b296': '<a href="https://einvoice-platform.onrender.com/" rel="noopener" style="background: var(--system); color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;" target="_blank">Cuba demo →</a> <a href="contact.html?ref=einvoice-sticky" style="color: var(--system); font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">Mohon akses →</a>',
+ 'b296': '<a href="https://demo.129-221-144-95.sslip.io/" rel="noopener" style="background: var(--system); color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;" target="_blank">Cuba demo →</a> <a href="contact.html?ref=einvoice-sticky" style="color: var(--system); font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">Mohon akses →</a>',
 }
 
 # 22 Oct: claims made accurate

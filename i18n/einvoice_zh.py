@@ -255,7 +255,7 @@ B = {
  'b291': '更多',
  'b292': '<a href="pricing-terms.html">价格条款</a>',
  'b293': '<a href="my-account.html">我的账户</a>',
- 'b296': '<a href="https://einvoice-platform.onrender.com/" rel="noopener" style="background: var(--system); color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;" target="_blank">试用演示 →</a> <a href="contact.html?ref=einvoice-sticky" style="color: var(--system); font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">申请使用 →</a>',
+ 'b296': '<a href="https://demo.129-221-144-95.sslip.io/" rel="noopener" style="background: var(--system); color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;" target="_blank">试用演示 →</a> <a href="contact.html?ref=einvoice-sticky" style="color: var(--system); font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">申请使用 →</a>',
 }
 
 # 22 Oct: claims made accurate
