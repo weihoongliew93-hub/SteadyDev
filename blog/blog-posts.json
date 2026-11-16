@@ -15542,6 +15542,530 @@
     "metaDescription": "SQL Server 2016 support ended July 2026; Windows Server 2016 follows January 2027. What changes for your system and how to choose your next step."
   },
   {
+    "id": "einvoice-setup-guided-vs-system-connection",
+    "title": "Setting Up E-Invoicing: When a Guided Setup Is Enough and When You Need a System Connection",
+    "slug": "einvoice-setup-guided-vs-system-connection",
+    "excerpt": "Most of the work in getting started with LHDN e-invoicing happens once: access, certificate, buyer and product data, and the first real submissions. Here's what that setup involves, and how to tell whether you can file from a spreadsheet or need your POS, ERP or store connected.",
+    "date": "2026-12-15",
+    "dateDisplay": "December 15, 2026",
+    "readTime": "7 min read",
+    "tags": [
+      "E-Invoice",
+      "MyInvois",
+      "Malaysia",
+      "Compliance"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/einvoice-setup-cover.svg",
+    "heroImageAlt": "Cover graphic showing two setup paths for e-invoicing: filing from a spreadsheet, or connecting a POS or ERP system",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ask a business owner what slows down their e-invoicing and the answer is rarely the monthly filing. It's the first few weeks: getting into MyInvois, sorting out a digital certificate, cleaning up buyer details, and working out how invoices get from wherever they live today into LHDN's system."
+      },
+      {
+        "type": "paragraph",
+        "text": "That work happens once. Done properly, everything after it becomes routine. Done in a rush, it shows up as rejected submissions and a month-end scramble. This post walks through what setup actually involves and the one question that decides how much of it you need: <strong>can you file from a spreadsheet, or does your system need to be connected?</strong>"
+      },
+      {
+        "type": "heading2",
+        "text": "What every business has to set up, whatever its size"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>MyInvois access.</strong> Your company's login on LHDN's MyInvois portal, and the client ID and secret that let a platform submit on your behalf.",
+          "<strong>A digital certificate,</strong> if you submit through the API. It's bought from an LHDN-approved certificate provider and has an expiry date, which is easy to forget a year later.",
+          "<strong>Your business profile:</strong> TIN, registration number, SST details where they apply, address and MSIC code. These go on every e-invoice, so a mistake here repeats on every one.",
+          "<strong>Buyers and products.</strong> Regular buyers need their TIN and registration details; products need classification codes and tax treatment.",
+          "<strong>Your month-end routine,</strong> especially the consolidated e-invoice for sales to customers who didn't ask for their own. We covered how that works in <a href=\"einvoice-b2c-consolidation-retail-guide.html\">our B2C consolidation guide</a>."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "<strong>Most early rejections are data problems, not system problems.</strong> A buyer TIN in the wrong format or a missing classification code fails validation however good your software is. See <a href=\"einvoice-validation-errors-rejections-fix-guide.html\">the most common validation errors</a> before you start."
+      },
+      {
+        "type": "heading2",
+        "text": "The deciding question: where do your invoices come from?"
+      },
+      {
+        "type": "heading3",
+        "text": "Filing from a spreadsheet or dashboard is enough when..."
+      },
+      {
+        "type": "list",
+        "items": [
+          "You issue a manageable number of invoices, or mostly one consolidated e-invoice a month.",
+          "Your accounting or billing software can export to Excel or CSV.",
+          "Someone in the office can spend a few minutes a day or week uploading and checking."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Here the setup work is mostly about mapping: making sure the columns in <em>your</em> export land in the right e-invoice fields, and testing it with real data before anything goes to LHDN."
+      },
+      {
+        "type": "heading3",
+        "text": "You need a system connection when..."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Invoices are created in a POS, ERP or online store at a volume where re-keying or daily uploads would be a job in itself.",
+          "Customers ask for their own e-invoice at the counter or checkout and expect it promptly.",
+          "You already have errors from typing the same sale into two systems."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "A connection takes your system's export or API and sends invoices across automatically. The extra work is in mapping your system's data correctly and testing it in LHDN's sandbox before going live, because a mapping mistake in an automated connection repeats on every invoice until someone notices."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Don't let the relaxation period make you wait.</strong> LHDN has eased some requirements for smaller businesses, as we explained in <a href=\"einvoice-interim-relaxation-2027-what-you-can-do.html\">our post on the interim relaxation</a>. That buys time to set up properly; it isn't a reason to leave setup until the deadline, when every provider and consultant is busy."
+      },
+      {
+        "type": "heading2",
+        "text": "How we handle setup"
+      },
+      {
+        "type": "paragraph",
+        "text": "Our <a href=\"../einvoice.html\">e-invoice platform</a> can be set up by yourself on any plan, including Free. For businesses that would rather not, we offer two one-off <a href=\"../einvoice.html#setup\">setup services</a>:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Guided setup (RM490 one-off)</strong> for filing from a spreadsheet or the dashboard. About two hours together online: your MyInvois access and certificate step by step, business profile, buyers and products, your own Excel export mapped and test-imported, your first e-invoices filed with you on a call, and your first month-end consolidated e-invoice walked through.",
+          "<strong>System connection (from RM1,490 one-off)</strong> for a POS, ERP or online store. Everything in the guided setup, plus your system's export or API connected and mapped, tested against LHDN's sandbox before going live, a check of your first real day of invoices, and 30 days of fixes to the connection. The price is fixed after a free 20-minute call."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Either way, what we set up stays yours. A digital certificate, if you need one, is bought from an approved provider and paid to them directly."
+      },
+      {
+        "type": "cta",
+        "title": "Want E-Invoicing Set Up Properly the First Time?",
+        "text": "Tell us how you invoice today and we'll tell you which setup fits, or whether you can simply do it yourself.",
+        "buttonText": "Ask About Setup",
+        "buttonLink": "../contact.html?ref=einvoice-setup"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Can I set up e-invoicing myself?",
+            "answer": "Yes. Many small businesses do. The setup services are for those who would rather not spend the time learning MyInvois, certificates and field mapping, or who want their first submissions checked by someone who has done it before."
+          },
+          {
+            "question": "Do I need a digital certificate?",
+            "answer": "You need one if invoices are submitted through LHDN's API, which is how platforms and system connections work. It's bought from an LHDN-approved certificate provider, and it expires, so put the renewal date in your calendar."
+          },
+          {
+            "question": "Our POS isn't a well-known brand. Can it still be connected?",
+            "answer": "Usually, yes. If it can export sales to a file or send data to a web address, the connection can be built around that. The free 20-minute call is where we check what your system can actually do before quoting."
+          },
+          {
+            "question": "What happens after the setup is finished?",
+            "answer": "You file on your own, on whichever plan suits your volume. The system connection includes 30 days of fixes to the connection after it goes live."
+          }
+        ]
+      }
+    ],
+    "seoTitle": "E-Invoice Setup: Spreadsheet or System Connection?",
+    "metaDescription": "What LHDN e-invoice setup involves, and how to tell whether you can file from a spreadsheet or need your POS, ERP or online store connected."
+  },
+  {
+    "id": "why-pos-system-getting-slower",
+    "title": "Why Your POS System Gets Slower Every Month (And How to Fix It)",
+    "slug": "why-pos-system-getting-slower",
+    "excerpt": "A POS that was quick on day one and crawls three years later usually isn't broken. It's carrying every transaction it ever recorded with nobody looking after the database underneath. Here are the usual causes, and how to tell whether it needs maintenance or replacing.",
+    "date": "2026-12-22",
+    "dateDisplay": "December 22, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "POS Systems",
+      "Performance",
+      "Database",
+      "Retail"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/pos-slower-cover.svg",
+    "heroImageAlt": "Cover graphic of a checkout response-time chart climbing month after month",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "It starts small. The end-of-day report takes a little longer. Searching for a customer pauses for a second. Then one busy Saturday the checkout hangs while a queue builds, and someone suggests the system is \"just old\"."
+      },
+      {
+        "type": "paragraph",
+        "text": "Age is rarely the real cause. A POS system slows down because its database grows every day and, in most small businesses, nobody is maintaining it. The good news is that this is usually fixable without replacing anything."
+      },
+      {
+        "type": "heading2",
+        "text": "The five usual causes"
+      },
+      {
+        "type": "heading3",
+        "text": "1. Years of transaction history in the same tables"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every sale, line item, payment and stock movement is kept. After a few years, the tables the checkout reads from can hold millions of rows, most of which nobody needs day to day. Queries that were instant on a small table now have far more to search."
+      },
+      {
+        "type": "heading3",
+        "text": "2. Indexes that have fragmented or were never there"
+      },
+      {
+        "type": "paragraph",
+        "text": "Indexes are what let a database find a record without reading the whole table. With constant inserts and updates they become fragmented, and statistics the database uses to plan queries go stale. Some systems were also shipped without the indexes that real-world use turned out to need."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Transaction log files growing unchecked"
+      },
+      {
+        "type": "paragraph",
+        "text": "On SQL Server, a database set to the full recovery model keeps every change in its log until a log backup is taken. If nobody set those backups up, the log grows until the disk is nearly full, and a full disk slows everything down before it stops it."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Temporary data that never gets cleaned up"
+      },
+      {
+        "type": "paragraph",
+        "text": "Suspended bills, abandoned carts, staging tables from imports, old sync queues: many POS systems create working data that was meant to be cleared and never is."
+      },
+      {
+        "type": "heading3",
+        "text": "5. No maintenance schedule at all"
+      },
+      {
+        "type": "paragraph",
+        "text": "Behind all four is the same gap. Databases need routine care: index and statistics maintenance, log backups, integrity checks, and someone watching disk space. In many businesses the vendor installed the system and that was the last time anyone looked."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Don't let anyone \"clean up\" by deleting old sales.</strong> Transaction records are needed for tax, audits and e-invoicing. Old data should be archived to tables or a database the checkout doesn't read, not deleted, and only after a tested backup."
+      },
+      {
+        "type": "heading2",
+        "text": "How to tell where the slowdown is"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Write down what's slow and when.</strong> \"Checkout on busy afternoons\" points somewhere different from \"the monthly report\".",
+          "<strong>Check disk space</strong> on the server and the size of the database and log files.",
+          "<strong>Look at the slowest queries.</strong> SQL Server and most other databases can show which queries take the most time. Usually a handful cause most of the pain.",
+          "<strong>Check whether any maintenance jobs exist</strong> and when they last ran successfully.",
+          "<strong>Check the hardware last,</strong> not first. A faster server hides the problem for a while; the database keeps growing."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "<strong>Before anyone changes the database, test a restore.</strong> Index rebuilds and archiving are routine work, but they're still changes to the data your business runs on. <a href=\"backup-restore-testing-legacy-systems.html\">Your backup isn't a backup until you've restored it.</a>"
+      },
+      {
+        "type": "heading2",
+        "text": "Optimise or replace?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Optimising is the right call far more often than people expect. Archiving old data, fixing a few indexes and setting up a maintenance schedule commonly brings a slow system back to how it felt when it was new, for a fraction of the cost of a replacement."
+      },
+      {
+        "type": "paragraph",
+        "text": "Replacement starts to make sense when the slowdown is only one of several problems: the vendor no longer supports it, it can't connect to e-invoicing or payment providers, or it runs on a platform that's out of support. We wrote about that last case in <a href=\"windows-server-sql-server-2016-end-of-support.html\">our post on the 2016 end-of-support deadlines</a>. For the bigger decision, see <a href=\"legacy-system-saved-honest-assessment-framework.html\">how to know if your legacy system can be saved</a>."
+      },
+      {
+        "type": "cta",
+        "title": "Is Your POS Slowing Down?",
+        "text": "We find what's actually making it slow, fix the database safely after a tested backup, and set up the maintenance it should have had from the start.",
+        "buttonText": "Get a Free Assessment",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Will a faster server fix a slow POS?",
+            "answer": "Sometimes, for a while. If the cause is unmaintained indexes or a growing database, the slowdown comes back as the data keeps growing. It's better to find the cause first and upgrade hardware only if the numbers show you need to."
+          },
+          {
+            "question": "Is it safe to delete old transactions to speed things up?",
+            "answer": "No. You need those records for tax, audits and e-invoicing. Old data can be moved to archive tables the checkout doesn't read, which gives the same speed benefit without losing anything."
+          },
+          {
+            "question": "How often should database maintenance run?",
+            "answer": "It depends on the system, but typically statistics and index maintenance weekly, log backups many times a day for databases in full recovery, and integrity checks weekly, all outside trading hours."
+          },
+          {
+            "question": "Can this be done without closing the shop?",
+            "answer": "Most of it can, by scheduling the work outside trading hours. Larger one-off jobs, such as the first archive of years of history, are planned for a quiet night with a tested rollback."
+          }
+        ]
+      }
+    ],
+    "seoTitle": "Why Your POS System Gets Slower (And How to Fix It)",
+    "metaDescription": "A slow POS is usually an unmaintained database, not an old system. The five usual causes, how to find the slowdown, and when to optimise or replace."
+  },
+  {
+    "id": "year-rollover-bugs-older-business-systems",
+    "title": "The New Year Bug Check: What Breaks in Older Business Systems on 1 January",
+    "slug": "year-rollover-bugs-older-business-systems",
+    "excerpt": "Invoice numbers that reset into duplicates, reports with the year hardcoded, a week 53 nobody planned for, and certificates that expire over the holidays. A short list of what to check in an older system before the year rolls over.",
+    "date": "2026-12-29",
+    "dateDisplay": "December 29, 2026",
+    "readTime": "6 min read",
+    "tags": [
+      "Legacy Systems",
+      "Maintenance",
+      "Risk Management",
+      "E-Invoice"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/year-rollover-cover.svg",
+    "heroImageAlt": "Cover graphic of a calendar flipping from 31 December to 1 January with warning markers",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Most system failures are random. Year-end ones aren't: they happen on the same night every year, to code that worked perfectly for the previous twelve months. Older systems are especially prone to them, because whoever wrote the year-handling logic may have left long ago."
+      },
+      {
+        "type": "paragraph",
+        "text": "If your business runs on an older POS, ERP or in-house system, these are the things worth checking this week, before the first invoice of 2027 is issued."
+      },
+      {
+        "type": "heading2",
+        "text": "1. Document numbering"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many systems put the year in invoice, receipt or order numbers, such as INV-2026-00451, and restart the counter each January. Check two things: that the new year's prefix actually changes, and that the reset can't produce a number already used. Duplicate document numbers cause trouble with accounting, with customers, and with e-invoice submissions."
+      },
+      {
+        "type": "heading2",
+        "text": "2. Years written into the code"
+      },
+      {
+        "type": "paragraph",
+        "text": "Report filters set to \"2020 to 2026\", tax rate tables that end on 31 December, dropdowns that list years up to the one the developer was in. These are surprisingly common in custom systems and only appear when the calendar moves past them."
+      },
+      {
+        "type": "heading2",
+        "text": "3. Week 53"
+      },
+      {
+        "type": "paragraph",
+        "text": "Under the ISO week system, 2026 has 53 weeks; the last one runs from Monday 28 December to Sunday 3 January. Weekly reports, rosters and payroll periods built on the assumption of 52 weeks can misfile those days or skip them entirely."
+      },
+      {
+        "type": "heading2",
+        "text": "4. Financial year close"
+      },
+      {
+        "type": "paragraph",
+        "text": "If your financial year ends on 31 December, the system may need a year-end close, opening balances carried forward, or a new period opened before January transactions can post. Know who does this and when, before staff try to post on 2 January and find the period closed."
+      },
+      {
+        "type": "heading2",
+        "text": "5. Things that expire"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>SSL/TLS certificates</strong> on websites, APIs and payment connections.",
+          "<strong>Software licences and subscriptions</strong> that renew on 1 January.",
+          "<strong>Your e-invoice digital certificate,</strong> if you submit through the API. Check its expiry date.",
+          "<strong>Passwords and API keys</strong> on connections to banks, couriers and marketplaces that rotate on a fixed schedule.",
+          "<strong>Public holiday tables</strong> in booking, payroll or delivery systems that need the new year's dates loaded."
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "6. December's consolidated e-invoice"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you issue a monthly consolidated e-invoice for customers who didn't request their own, December's is due within seven days of month end, right when many offices are short-staffed. Assign it to someone now. Our <a href=\"einvoice-b2c-consolidation-retail-guide.html\">B2C consolidation guide</a> covers how it works."
+      },
+      {
+        "type": "tip",
+        "text": "<strong>The cheapest test is a test system with the clock moved forward.</strong> If you have a copy of your system, set its date to 1 January and issue a test invoice, run a report and post a transaction. If you don't have one, that's a gap worth closing in 2027."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>Don't fix things in production on 31 December.</strong> If you find a problem now, a manual workaround for the first week is usually safer than a rushed code change during your quietest-staffed days. The reasoning is the same as in <a href=\"year-end-change-freeze-legacy-system.html\">our year-end change freeze post</a>."
+      },
+      {
+        "type": "heading2",
+        "text": "On 2 January, check the first real transactions"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "Look at the first invoice, receipt and order numbers of the year.",
+          "Run one of each key report for January and confirm the figures make sense.",
+          "Check that scheduled jobs and integrations ran overnight on 1 January.",
+          "Confirm December's e-invoices, including the consolidated one, were submitted and validated."
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Worried About What 1 January Will Do?",
+        "text": "We review older systems for date and year-handling problems and fix them safely, with a tested rollback, outside your busy periods.",
+        "buttonText": "Talk to Us",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Our system worked fine last January. Do we still need to check?",
+            "answer": "It's still worth a quick check. Some problems only appear in particular years, such as week 53, or once a hardcoded list of years runs out. Changes made during the year can also introduce new ones."
+          },
+          {
+            "question": "What should we do if invoice numbering breaks on 1 January?",
+            "answer": "Stop issuing documents from the affected sequence, note the last good number, and get it fixed before continuing. Issuing duplicates and correcting later is much harder, especially once e-invoices have been submitted."
+          },
+          {
+            "question": "How do we find out when our certificates expire?",
+            "answer": "For websites and APIs, your developer or hosting provider can list them in minutes. For the e-invoice certificate, the expiry date is on the certificate itself and from your provider; some e-invoice platforms also warn you before it expires."
+          }
+        ]
+      }
+    ],
+    "seoTitle": "Year-End Bug Check for Older Business Systems",
+    "metaDescription": "Invoice numbers, hardcoded years, week 53, year-end close and expiring certificates: what to check in an older business system before 1 January."
+  },
+  {
+    "id": "budget-2027-older-business-system",
+    "title": "Budgeting for an Older Business System in 2027: What to Fix, What to Keep, What to Replace",
+    "slug": "budget-2027-older-business-system",
+    "excerpt": "Most businesses only spend on their core system when something breaks. A simple one-page plan for 2027 sorts the work into what must be fixed, what can be left alone, and what should be replaced, so the money goes where the risk is.",
+    "date": "2027-01-05",
+    "dateDisplay": "January 5, 2027",
+    "readTime": "7 min read",
+    "tags": [
+      "Legacy Systems",
+      "Planning",
+      "Costs",
+      "Risk Management"
+    ],
+    "author": "SteadyDevs",
+    "published": false,
+    "heroImage": "images/blog/budget-2027-cover.svg",
+    "heroImageAlt": "Cover graphic of a one-page 2027 plan split into fix, keep and replace columns",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "For many small and mid-sized businesses, the budget line for the core system is whatever the last emergency cost. That's the most expensive way to run software: work is done in a hurry, at the worst time, by whoever is available."
+      },
+      {
+        "type": "paragraph",
+        "text": "January is a good time to change that. You don't need a large IT strategy. You need one page that sorts what you run into three groups, and a rough number next to each."
+      },
+      {
+        "type": "heading2",
+        "text": "Step 1: List what you actually run"
+      },
+      {
+        "type": "paragraph",
+        "text": "Write down every system the business depends on: POS, accounting, ERP, online store, booking, e-invoicing, plus the servers and databases underneath them. For each, note who supports it today, what it runs on, and the last time it failed. This list alone usually turns up a surprise or two."
+      },
+      {
+        "type": "heading2",
+        "text": "Step 2: Sort everything into fix, keep or replace"
+      },
+      {
+        "type": "heading3",
+        "text": "Fix: risks with a date on them"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Platforms leaving support.</strong> Windows Server 2016 leaves extended support on 12 January 2027, and SQL Server 2016 already has. See <a href=\"windows-server-sql-server-2016-end-of-support.html\">what that means and your options</a>.",
+          "<strong>Backups nobody has restored.</strong> A test restore is cheap compared with finding out during a disaster. <a href=\"backup-restore-testing-legacy-systems.html\">Here's why it matters.</a>",
+          "<strong>Knowledge held by one person.</strong> If one developer or staff member is the only one who understands the system, a <a href=\"system-handover-documentation-checklist.html\">handover document</a> is worth budgeting for.",
+          "<strong>Compliance work,</strong> such as e-invoicing for businesses whose deadline falls in the year."
+        ]
+      },
+      {
+        "type": "heading3",
+        "text": "Keep: systems that work and are supported"
+      },
+      {
+        "type": "paragraph",
+        "text": "A system doesn't need replacing because it's old. If it does the job, runs on a supported platform, can be backed up and restored, and more than one person can look after it, budget for routine maintenance and leave it alone. That's often the best value on the list."
+      },
+      {
+        "type": "heading3",
+        "text": "Replace: when fixing costs more than it saves"
+      },
+      {
+        "type": "paragraph",
+        "text": "Replacement belongs on the list when the vendor is gone, the system can't connect to things you now need, or every change takes weeks and breaks something else. Even then, plan it for the year rather than starting it in a panic. <a href=\"legacy-system-saved-honest-assessment-framework.html\">Our assessment framework</a> helps with that call."
+      },
+      {
+        "type": "heading2",
+        "text": "Step 3: Put rough numbers and dates against each line"
+      },
+      {
+        "type": "orderedList",
+        "items": [
+          "<strong>Fixed-date items first,</strong> scheduled before their deadlines.",
+          "<strong>A maintenance amount for each \"keep\" system:</strong> updates, database care, monitoring.",
+          "<strong>A contingency,</strong> because something unplanned will still happen. It's better as a budget line than a surprise.",
+          "<strong>Replacements last,</strong> with the assessment done in the first half of the year so the work avoids your peak season."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "<strong>Plan around your busy months.</strong> If your peak is November and December, the year's risky changes belong between February and September. We explained why in <a href=\"year-end-change-freeze-legacy-system.html\">our post on the year-end change freeze</a>."
+      },
+      {
+        "type": "warning",
+        "text": "<strong>An empty \"fix\" column is a warning sign, not good news.</strong> It usually means nobody has looked recently, not that nothing needs doing."
+      },
+      {
+        "type": "cta",
+        "title": "Want an Honest List for 2027?",
+        "text": "We review your systems, sort them into fix, keep and replace, and give you plain-language estimates you can put in a budget.",
+        "buttonText": "Get an Assessment",
+        "buttonLink": "../contact.html"
+      },
+      {
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "How much should a small business budget for its core system?",
+            "answer": "There's no fixed percentage that fits everyone. A useful starting point is to add up what you spent on the system last year, including emergencies and staff time lost to downtime. Most businesses find planned maintenance costs less than that."
+          },
+          {
+            "question": "Should we replace everything at once?",
+            "answer": "Rarely. Replacing one system at a time, starting with the one carrying the most risk, keeps the business running and lets you learn from the first project before starting the next."
+          },
+          {
+            "question": "What if we don't know what our systems run on?",
+            "answer": "That's the first item for the budget. An inventory and health check is a small piece of work, and every other decision depends on it."
+          }
+        ]
+      }
+    ],
+    "seoTitle": "Budgeting for an Older Business System in 2027",
+    "metaDescription": "A one-page 2027 plan for an older business system: what to fix before deadlines, what to keep and maintain, and what to replace."
+  },
+  {
     "id": "lhdn-einvoice-rm3-million-exemption-2028-deadline",
     "title": "LHDN Moves the E-Invoice Goalposts Again: RM3 Million Exemption and a 2028 Deadline",
     "slug": "lhdn-einvoice-rm3-million-exemption-2028-deadline",
