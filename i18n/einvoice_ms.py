@@ -242,7 +242,7 @@ B = {
  'b277': 'Sedia untuk mengautomasikan penghantaran LHDN anda?',
  'b278': 'Cuba demo langsung dahulu, tanpa pendaftaran. Apabila anda bersedia, kami akan membimbing anda menyambung sistem dan menyediakan kelayakan LHDN anda.',
  'b279': '<a class="f-btn f-btn--primary f-btn--glow" href="contact.html?ref=einvoice-cta">Mohon akses awal</a> <a class="f-btn f-btn--secondary" href="#demo">Cuba demo dahulu</a>',
- 'b280': 'Percubaan percuma 30 hari bagi semua pelan berbayar · tiada yuran persediaan · batal bila-bila masa',
+ 'b280': 'Percubaan percuma 30 hari bagi semua pelan berbayar · percuma jika anda sediakan sendiri · batal bila-bila masa',
  'b281': 'Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.',
  'b282': 'Tawaran',
  'b283': '<a href="solutions.html">Perkhidmatan kejuruteraan</a>',

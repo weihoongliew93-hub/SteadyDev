@@ -241,7 +241,7 @@ B = {
  'b277': '准备好让 LHDN 提交自动化了吗？',
  'b278': '先试用在线演示，无需注册。准备好之后，我们会协助您连接系统并设置 LHDN 凭证。',
  'b279': '<a class="f-btn f-btn--primary f-btn--glow" href="contact.html?ref=einvoice-cta">申请抢先体验</a> <a class="f-btn f-btn--secondary" href="#demo">先试用演示</a>',
- 'b280': '所有付费配套 30 天免费试用 · 无开通费 · 随时取消',
+ 'b280': '所有付费配套 30 天免费试用 · 自行开通免费 · 随时取消',
  'b281': '为马来西亚企业承受不起损失的系统，提供软件与工程服务。',
  'b282': '产品与服务',
  'b283': '<a href="solutions.html">工程服务</a>',
