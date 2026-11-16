@@ -40,7 +40,7 @@ B = {
  'b11': '即 <span data-o="count"></span> 张漏开的电子发票，每张 RM200 至 RM20,000。法庭还可判处最多 6 个月监禁，并在此范围内决定罚款金额。',
  'b12': '通过 SteadyDevs 开立这些发票，<span data-o="plan"></span> 配套<strong>每月 RM <span data-o="cost"></span></strong>。',
  'b13': '每月超过 20,000 张发票，请<a href="contact.html">联系我们</a>了解定制配套。',
- 'b14': '<a href="einvoice.html">了解电子发票平台 →</a>',
+ 'b14': '<a href="einvoice.html">了解电子发票平台 →</a> <a href="einvoice.html#demo">或试用在线演示，无需注册 →</a>',
  'b15': '计算方式：LHDN 常见问题说明，罚款按每一次违规计算，因此本计算器把每一张没有开立的发票算作一次。LHDN 尚未公布实际如何计算次数，请把结果视为风险规模，而不是可能收到的罚单。并非法律建议。已于 2026 年 10 月 23 日对照 <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN 电子发票常见问题（2026 年 9 月 4 日更新）</a>核对。',
  'b16': '先别担心',
  'b17': '第四阶段开立合并电子发票，可以到 2028 年',

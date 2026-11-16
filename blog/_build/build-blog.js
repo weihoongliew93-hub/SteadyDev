@@ -78,6 +78,7 @@ function productCallout(post) {
   let c;
   if (has('e-invoice', 'lhdn', 'myinvois', 'invoice')) c = {
     label: 'Filing e-invoices with LHDN?', href: '../einvoice.html', link: 'See the e-Invoice platform',
+    demo: '../einvoice.html#demo',
     text: 'SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN\'s rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in.' };
   else if (has('venue booking', 'double booking')) c = {
     label: 'Taking bookings for courts, rooms or studios?', href: '../venue-booking.html', link: 'See Venue Booking',
@@ -97,7 +98,7 @@ function productCallout(post) {
   return `
       <aside class="f-callout f-callout--tip blog-product-callout">
         <span class="f-callout__label">${c.label}</span>
-        <p>${c.text} <a href="${c.href}">${c.link} &rarr;</a></p>
+        <p>${c.text} <a href="${c.href}">${c.link} &rarr;</a>${c.demo ? ` <a href="${c.demo}">Or try the live demo, no sign-up &rarr;</a>` : ''}</p>
       </aside>`;
 }
 
@@ -475,7 +476,7 @@ function generateHTML(post) {
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="../assets/site-nav.js?v=6"></script>
+  <script src="../assets/site-nav.js?v=8"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
   <div class="f-container blog-crumbs">

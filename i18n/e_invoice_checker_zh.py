@@ -80,7 +80,7 @@ B = {
  'b56': '<strong>宽松期至 2027 年 12 月 31 日。</strong>在此之前，您可以每月为所有销售（包括超过 RM10,000 的单笔销售）开立一张合并电子发票，在月底后 7 天内提交。只要照做，LHDN 就不会依第 120 条起诉。2028 年 1 月 1 日起，全面规则生效。',
  'b57': '漏了几个月？LHDN 的特别自愿披露计划开放至 2027 年 12 月 31 日。',
  'b58': '在必须开立电子发票时没有开立，是《1967 年所得税法令》第 120(1)(d) 条下的罪行：每一次违规可被罚款 RM200 至 RM20,000，或监禁最多 6 个月，或两者兼施。',
- 'b59': '<a href="einvoice.html">直接从您现有的系统把电子发票提交给 LHDN →</a>',
+ 'b59': '<a href="einvoice.html">直接从您现有的系统把电子发票提交给 LHDN →</a> <a href="einvoice.html#demo">或试用在线演示，无需注册 →</a>',
  'b60': '本工具是对 LHDN 已公布规则的指南，并非税务建议。已于 2026 年 10 月 23 日对照 <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN 电子发票常见问题（2026 年 9 月 4 日更新）</a>核对。LHDN 曾多次更改这些日期，请向 LHDN 或您的税务代理确认。',
  'b61': '常见问题',
  'b72': '<span class="f-callout__label">更多免费工具</span>每张电子发票都需要填写卖方的 MSIC 代码，而 LHDN 只接受其清单上的代码。<a href="msic-code-lookup.html">查找您的 MSIC 代码 →</a>想知道不开电子发票可能被罚多少？<a href="e-invoice-penalty-calculator.html">估算罚款 →</a>',

@@ -60,6 +60,7 @@ const MAIN = [
   { file: 'manual-invoicing-cost-calculator.html', loc: '/manual-invoicing-cost-calculator.html', changefreq: 'monthly', priority: '0.7' },
   { file: 'wordpress-csv-import-checker.html', loc: '/wordpress-csv-import-checker.html', changefreq: 'monthly', priority: '0.7' },
   { file: 'venue-no-show-calculator.html', loc: '/venue-no-show-calculator.html', changefreq: 'monthly', priority: '0.7' },
+  { file: 'wordpress-plugins.html', loc: '/wordpress-plugins.html', changefreq: 'monthly', priority: '0.8' },
   // Product pages served without ".html": the loc matches each page's canonical URL.
   { file: 'venue-booking.html', loc: '/venue-booking',      changefreq: 'monthly', priority: '0.9' },
   { file: 'steadypost.html',    loc: '/steadypost',         changefreq: 'monthly', priority: '0.8' },

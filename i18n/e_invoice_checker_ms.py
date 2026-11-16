@@ -80,7 +80,7 @@ B = {
  'b56': '<strong>Tempoh kelonggaran sehingga 31 Disember 2027.</strong> Sehingga itu anda boleh mengeluarkan satu e-Invois disatukan sebulan bagi semua jualan, termasuk jualan tunggal melebihi RM10,000, dalam tempoh 7 hari selepas akhir bulan. Jika anda berbuat demikian, LHDN tidak akan mendakwa di bawah seksyen 120. Mulai 1 Januari 2028, peraturan penuh terpakai.',
  'b57': 'Terlepas beberapa bulan? Program Pengakuan Sukarela Khas LHDN dibuka sehingga 31 Disember 2027.',
  'b58': 'Tidak mengeluarkan e-Invois apabila diwajibkan ialah satu kesalahan di bawah seksyen 120(1)(d) Akta Cukai Pendapatan 1967: denda RM200 hingga RM20,000, penjara sehingga 6 bulan, atau kedua-duanya, bagi setiap ketidakpatuhan.',
- 'b59': '<a href="einvoice.html">Hantar e-Invois ke LHDN daripada sistem yang anda gunakan sekarang →</a>',
+ 'b59': '<a href="einvoice.html">Hantar e-Invois ke LHDN daripada sistem yang anda gunakan sekarang →</a> <a href="einvoice.html#demo">Atau cuba demo langsung, tanpa daftar →</a>',
  'b60': 'Panduan kepada peraturan yang diterbitkan LHDN, bukan nasihat cukai. Disemak pada 23 Oktober 2026 berdasarkan <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">Soalan Lazim e-Invois LHDN (dikemas kini 4 September 2026)</a>. LHDN telah mengubah tarikh-tarikh ini lebih daripada sekali, jadi sahkan tarikh anda dengan LHDN atau ejen cukai anda.',
  'b61': 'Soalan lazim',
  'b72': '<span class="f-callout__label">Lagi alat percuma</span> Setiap e-Invois memerlukan kod MSIC penjual, dan LHDN hanya menerima kod dalam senarainya sendiri. <a href="msic-code-lookup.html">Cari kod MSIC anda →</a> Ingin tahu kos jika tidak mengeluarkan e-Invois? <a href="e-invoice-penalty-calculator.html">Anggarkan dendanya →</a>',

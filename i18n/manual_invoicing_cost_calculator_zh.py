@@ -38,7 +38,7 @@ B = {
  'b33': '会，它多了一个步骤。每张电子发票都必须通过 MyInvois 门户或 API 提交到 LHDN 的 MyInvois 系统，并在交给买方之前通过验证。如果您目前是手动录入发票，在 MyInvois 门户中输入可能意味着要再录入一次。',
  'b34': '自动化开票能省下全部这笔钱吗？',
  'b35': '不能。仍然需要有人审核和批准发票、处理例外情况，而自动化本身也有成本。这里的数字是手动流程目前的成本，也就是衡量任何改变时应该对照的数字。',
- 'b36': '<span class="f-callout__label">下一步</span>\n          直接从您现有的系统向 LHDN 提交电子发票：<a href="einvoice.html">电子发票平台</a>每月 10 张发票以内免费。想让发票根据订单自动生成？请看<a href="solutions.html#automation">业务自动化 →</a>',
+ 'b36': '<span class="f-callout__label">下一步</span>\n          直接从您现有的系统向 LHDN 提交电子发票：<a href="einvoice.html">电子发票平台</a>每月 10 张发票以内免费，还可以<a href="einvoice.html#demo">试用在线演示</a>，无需注册。想让发票根据订单自动生成？请看<a href="solutions.html#automation">业务自动化 →</a>',
  'b37': '为马来西亚企业承受不起损失的系统，提供软件与工程服务。',
  'b38': '产品与服务',
  'b39': '<a href="solutions.html">工程服务</a>',

@@ -24,13 +24,13 @@
   // /zh/ copies are published.
   var TRANSLATED = ['index.html', 'einvoice.html', 'contact.html', 'msic-code-lookup.html', 'solutions.html',
     'pricing-terms.html', 'about.html', 'portfolio.html', 'cloud-cost-audit.html', 'venue-booking.html', 'steadypost.html',
-    'e-invoice-checker.html', 'upkeep-check.html'];
+    'e-invoice-checker.html', 'upkeep-check.html', 'wordpress-plugins.html'];
   var T = {
-    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', tools: 'Free tools', allTools: 'All free tools', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
+    en: { engineering: 'Engineering', plugins: 'WordPress Plugins', tools: 'Free tools', allTools: 'All free tools', allPlugins: 'All WordPress plugins', cases: 'Case studies', blog: 'Blog', about: 'About', cta: 'Book a consultation', language: 'Language',
           langNote: 'This page is in English only. Other languages open their home page.' },
-    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', tools: 'Alat percuma', allTools: 'Semua alat percuma', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
+    ms: { engineering: 'Kejuruteraan', plugins: 'Pemalam WordPress', tools: 'Alat percuma', allTools: 'Semua alat percuma', allPlugins: 'Semua pemalam WordPress', cases: 'Kajian kes', blog: 'Blog', about: 'Tentang kami', cta: 'Tempah konsultasi', language: 'Bahasa',
           langNote: 'Halaman ini dalam Bahasa Inggeris sahaja. Bahasa lain membuka laman utamanya.' },
-    zh: { engineering: '工程服务', plugins: 'WordPress 插件', tools: '免费工具', allTools: '全部免费工具', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
+    zh: { engineering: '工程服务', plugins: 'WordPress 插件', tools: '免费工具', allTools: '全部免费工具', allPlugins: '全部 WordPress 插件', cases: '案例研究', blog: '博客', about: '关于我们', cta: '预约咨询', language: '语言',
           langNote: '此页面仅有英文版。选择其他语言将打开该语言的首页。' }
   }[lang];
   // Link to a page in the current language when it exists in that language.
@@ -108,7 +108,7 @@
     if (file === 'solutions.html' || file === 'pricing-terms.html' || file === 'cloud-cost-audit.html' || file.indexOf('packages') === 0) return 'solutions';
     if (file === 'einvoice.html') return isF ? 'einvoice' : 'products';
     if (currentTool || pageFile === 'free-tools.html') return 'tools';
-    if (currentPlugin) return isF ? 'plugins' : 'products';
+    if (currentPlugin || pageFile === 'wordpress-plugins.html') return isF ? 'plugins' : 'products';
     if (file === 'portfolio.html' || file.indexOf('case-') === 0) return 'portfolio';
     if (file === 'contact.html') return 'contact';
     if (file === 'my-account.html') return 'account';
@@ -175,7 +175,8 @@
     };
     var pluginsMenu = group('fhPlugins', T.plugins, 'plugins', PLUGINS.map(function (p) {
       return item(base + p.file, p.name, p.tagline[lang], p === currentPlugin);
-    }).join(''));
+    }).join('') +
+      '<a class="fh__panel-all" href="' + page('wordpress-plugins.html') + '"' + (pageFile === 'wordpress-plugins.html' ? ' aria-current="page"' : '') + '>' + T.allPlugins + ' &rarr;</a>');
     var einvoiceMenu = group('fhEinvoice', 'EInvoice', 'einvoice',
       item(page(EINVOICE.file), EINVOICE.name[lang], EINVOICE.tagline[lang], pageFile === EINVOICE.file) +
       '<p class="fh__panel-label">' + T.tools + '</p>' +

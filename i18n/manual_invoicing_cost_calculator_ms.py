@@ -40,7 +40,7 @@ B = {
  'b33': 'Ya, ia menambah satu langkah. Setiap e-Invois perlu dihantar ke sistem MyInvois LHDN, melalui Portal MyInvois atau API, dan disahkan sebelum anda berkongsinya dengan pembeli. Jika anda menaip invois secara manual hari ini, memasukkannya dalam Portal MyInvois boleh bermakna menaipnya kali kedua.',
  'b34': 'Adakah automasi invois akan menjimatkan keseluruhan jumlah ini?',
  'b35': 'Tidak. Seseorang masih perlu menyemak dan meluluskan invois serta menguruskan pengecualian, dan automasi ada kosnya sendiri. Angka di sini ialah kos proses manual hari ini, iaitu angka untuk dibandingkan dengan sebarang perubahan.',
- 'b36': '<span class="f-callout__label">Langkah seterusnya</span>\n          Hantar e-Invois ke LHDN daripada sistem yang sudah anda gunakan: <a href="einvoice.html">platform e-Invois</a> bermula percuma untuk 10 invois sebulan. Mahu invois dicipta sendiri daripada pesanan anda? Lihat <a href="solutions.html#automation">automasi perniagaan →</a>',
+ 'b36': '<span class="f-callout__label">Langkah seterusnya</span>\n          Hantar e-Invois ke LHDN daripada sistem yang sudah anda gunakan: <a href="einvoice.html">platform e-Invois</a> bermula percuma untuk 10 invois sebulan, dan anda boleh <a href="einvoice.html#demo">mencuba demo langsung</a> tanpa mendaftar. Mahu invois dicipta sendiri daripada pesanan anda? Lihat <a href="solutions.html#automation">automasi perniagaan →</a>',
  'b37': 'Perisian dan kejuruteraan untuk sistem yang tidak mampu dihilangkan oleh perniagaan Malaysia.',
  'b38': 'Tawaran',
  'b39': '<a href="solutions.html">Perkhidmatan kejuruteraan</a>',

@@ -69,7 +69,7 @@ B = {
  'b65': '<span class="f-badge">需核对</span> <strong>2027 年 12 月 31 日前允许。</strong>在宽限期内，第 4 阶段企业可以合并所有销售，包括超过 RM10,000 的销售。从 2028 年 1 月 1 日起，这类销售需要单独开立附有买方资料的电子发票。',
  'b66': '在合并电子发票上，买方名称还要填 General Public，地址填 NA，州代码填 17，每一行的分类代码都填 004。',
  'b67': '这里只检查格式和 LHDN 的规则，无法判断 TIN 是否已注册或是否属于这位买方。买方可在 <a href="https://mytax.hasil.gov.my">MyTax</a> 中查看自己的 TIN，而连接到 MyInvois 的系统可以通过 LHDN 的 Validate TIN API 核对 TIN 与证件号码。',
- 'b68': '<a href="einvoice.html">在每张发票送达 LHDN 之前都进行这些检查 →</a>',
+ 'b68': '<a href="einvoice.html">在每张发票送达 LHDN 之前都进行这些检查 →</a> <a href="einvoice.html#demo">或试用在线演示，无需注册 →</a>',
  'b69': '这是格式检查，并非税务建议。规则来自 LHDN 的<a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">电子发票特定指南 v4.9</a>（2026 年 9 月 7 日：第 3.7 节、第 16.2 节、附录 1、2 和 4）、<a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Guideline.pdf">电子发票指南 v4.8</a>、<a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">电子发票常见问题</a>（2026 年 9 月 4 日，第 32 至 36 题），以及 MyInvois SDK 的<a href="https://sdk.myinvois.hasil.gov.my/documents/invoice-v1-1/">发票字段规则</a>和 <a href="https://sdk.myinvois.hasil.gov.my/einvoicingapi/01-validate-taxpayer-tin/">Validate TIN API</a>。电话至少 8 个字符、"N/A" 被拒绝，以及 LHDN 在接受后把通用 TIN 错误标记为无效，这几点来自我们在 2026 年 10 月向 LHDN 测试环境的实际提交；SDK 并未说明。已于 2026 年 10 月 23 日核实。',
  'b70': '该用哪个通用 TIN',
  'b71': '当对方没有 TIN 时，LHDN 提供四个通用 TIN。每个都适用于特定情况，用错了电子发票就会被标记为无效。',

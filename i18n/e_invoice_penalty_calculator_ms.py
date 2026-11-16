@@ -40,7 +40,7 @@ B = {
  'b11': 'Iaitu <span data-o="count"></span> e-Invois yang tertinggal, pada RM200 hingga RM20,000 setiap satu. Mahkamah juga boleh mengenakan penjara sehingga 6 bulan. Mahkamah menentukan jumlahnya dalam julat itu.',
  'b12': 'Mengeluarkannya melalui SteadyDevs berharga <strong>RM <span data-o="cost"></span> sebulan</strong> dengan pelan <span data-o="plan"></span>.',
  'b13': 'Melebihi 20,000 invois sebulan, <a href="contact.html">hubungi kami</a> untuk pelan khas.',
- 'b14': '<a href="einvoice.html">Lihat platform e-Invois →</a>',
+ 'b14': '<a href="einvoice.html">Lihat platform e-Invois →</a> <a href="einvoice.html#demo">Atau cuba demo langsung, tanpa daftar →</a>',
  'b15': 'Cara pengiraan: Soalan Lazim LHDN menyatakan denda dikenakan bagi setiap ketidakpatuhan, jadi kalkulator ini mengira setiap invois yang tidak dikeluarkan sebagai satu. LHDN belum menerbitkan cara ia mengiranya dalam amalan, jadi anggap ini sebagai saiz risiko, bukan jumlah yang mungkin dikenakan. Bukan nasihat undang-undang. Disemak pada 23 Oktober 2026 berdasarkan <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">Soalan Lazim e-Invois LHDN (dikemas kini 4 September 2026)</a>.',
  'b16': 'Sebelum anda bimbang',
  'b17': 'Fasa 4 ada masa sehingga 2028, jika mengeluarkan e-Invois disatukan',
