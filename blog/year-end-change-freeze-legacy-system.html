@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Year-End Change Freeze: What to Fix First | SteadyDevs</title>
+  <meta name="description" content="December brings peak load and an unreachable developer. Which few fixes to make first, and why a short change freeze is cheap insurance.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html">
+  <meta property="og:title" content="Year-End Change Freeze: What to Fix First">
+  <meta property="og:description" content="December brings peak load and an unreachable developer. Which few fixes to make first, and why a short change freeze is cheap insurance.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/year-end-change-freeze-cover.png">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Year-End Change Freeze: What to Fix First">
+  <meta name="twitter:description" content="December brings peak load and an unreachable developer. Which few fixes to make first, and why a short change freeze is cheap insurance.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/year-end-change-freeze-cover.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html">
+  
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="../images/blog/year-end-change-freeze-cover.svg" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
+  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)",
+    "alternativeHeadline": "December is when your systems carry the most load and your developer is hardest to reach. A short, deliberate ",
+    "image": "https://steadydevs.com/images/blog/year-end-change-freeze-cover.png",
+    "datePublished": "2026-11-17T00:00:00+08:00",
+    "dateModified": "2026-11-17T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "December brings peak load and an unreachable developer. Which few fixes to make first, and why a short change freeze is cheap insurance.",
+    "articleSection": "Legacy Systems Management",
+    "articleBody": "December is when your systems carry the most load and your developer is hardest to reach. A short, deliberate change freeze—with the right few fixes done first—is the cheapest insurance a business running an older system can buy.",
+    "wordCount": 1037,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Legacy Systems"
+      },
+      {
+        "@type": "Thing",
+        "name": "Risk Management"
+      },
+      {
+        "@type": "Thing",
+        "name": "Retail"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "legacy systems, risk management, retail, maintenance",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When should a year-end change freeze start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most retail and F&B businesses, one to two weeks before trading peaks—typically late November or the first week of December—and running until the first full week of January. The exact dates matter less than agreeing them in advance and telling everyone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a change freeze apply to SaaS tools we don't control?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can't stop a vendor from releasing, but you can avoid switching on new features, changing integrations or migrating plans during the peak. Ask key vendors whether they run their own freeze; many do."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if a security patch arrives during the freeze?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Assess it: is the vulnerability being actively exploited, and is your system exposed to it? If yes, apply it carefully with a tested rollback. If it's routine, schedule it for the first maintenance window in January."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "We only have one developer. Is a freeze still worth it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Even more so. With one person, every change during the peak depends on them being reachable. A freeze means their absence is an inconvenience rather than a risk."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-11-17T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-11-17T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Legacy Systems Management">
+  <meta property="article:tag" content="Legacy Systems, Risk Management, Retail, Maintenance">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html" />
+  
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=8"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+
+  <div class="f-container blog-crumbs">
+    <nav class="f-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)</span>
+    </nav>
+  </div>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)",
+        "item": "https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content" id="main">
+      <article>
+        <img src="../images/blog/year-end-change-freeze-cover.svg" alt="Cover graphic of a December calendar with a padlock marking the change freeze window" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
+        <div class="blog-header">
+          <h1>The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)</h1>
+          <div class="blog-meta">November 17, 2026 | 7 min read</div>
+        </div>
+        <p>For most retailers, F&B operators and distributors, the last six weeks of the year carry more transactions than any other stretch. They are also the weeks when staff take leave, suppliers close early, and the one developer who understands your system is on a plane.</p>
+<p>That combination is why so many "the system went down during the sale" stories happen in December. Not because something new broke on its own, but because something was changed in a hurry the week before.</p>
+<p>A change freeze is the simple answer: pick a date, finish the essential work before it, and stop changing production until the peak is over. Here's how to do it without freezing in the wrong things.</p>
+<h2>Why changes are riskier in December</h2>
+<ul><li><strong>Load is highest.</strong> A slow query that nobody notices in March can lock the checkout when transaction volume doubles.</li><li><strong>Recovery is slowest.</strong> The people who can diagnose and roll back a change are least likely to be available.</li><li><strong>The cost of downtime is highest.</strong> An hour offline on a peak Saturday is worth many ordinary weekdays.</li><li><strong>Pressure produces shortcuts.</strong> "Just push the promo pricing change tonight" is how untested code reaches the till.</li></ul>
+<p>None of these mean you should never touch the system in Q4. They mean the threshold for "worth the risk" should rise sharply as the peak approaches.</p>
+<h2>Before the freeze: the short list worth doing</h2>
+<p>The weeks before the freeze are for reducing risk, not adding features. In our experience the useful list is short:</p>
+<h3>1. Prove your backup actually restores</h3>
+<p>Not "the backup job shows green"—an actual restore onto another machine, with someone checking the data is complete. If the worst happens on 20 December, this is the thing you'll need. We've written about <a href="backup-restore-testing-legacy-systems.html">why a backup isn't a backup until you've restored it</a>.</p>
+<h3>2. Check disk space and database growth</h3>
+<p>Peak volume grows transaction tables and log files faster than usual. A database server that runs out of disk mid-December stops taking sales. Check free space, how fast it has been shrinking, and whether log files are being trimmed.</p>
+<h3>3. Fix the known, recurring problems</h3>
+<p>If there's an error the team already works around—"if the receipt printer hangs, restart the terminal"—now is the time to fix it properly or at least write the workaround down where every shift can find it.</p>
+<h3>4. Renew anything that expires over the holidays</h3>
+<p>SSL certificates, domain names, software licences, payment gateway credentials and API keys all expire on a date, and that date does not check your calendar. List them, and renew anything due before mid-January now.</p>
+<h3>5. Get promotional configuration in early</h3>
+<p>Year-end promotions, price changes and new SKUs are the most common reason for a late change. Agree the promotions early, load them before the freeze, and test them on a non-production copy.</p>
+<div class="tip-box"><p><strong>A useful rule:</strong> if a change can't be tested and rolled back before the freeze date, it waits until January. "We'll be careful" is not a rollback plan.</p></div>
+<h2>During the freeze: what is still allowed</h2>
+<p>A freeze isn't a ban on all work. It's a ban on <em>optional</em> change. Write down what still qualifies:</p>
+<ul><li><strong>Fixes for an active outage</strong> or a bug that is losing money right now.</li><li><strong>Security patches</strong> for a vulnerability being actively exploited—applied carefully, with a rollback ready.</li><li><strong>Data and configuration changes</strong> that have been pre-approved, such as switching on a promotion that was loaded and tested earlier.</li></ul>
+<p>Everything else—new reports, UI tweaks, "while we're in there" refactoring, version upgrades—waits. If someone asks for an exception, the question is simple: what happens if we wait until January? If the honest answer is "nothing much," it waits.</p>
+<div class="warning-box"><p><strong>Watch for the urgent-looking feature.</strong> "The boss wants a new sales dashboard for the year-end review" feels pressing, but it touches the same database the checkout uses. Build it in January, or build it against a copy of the data.</p></div>
+<h2>Have a plan for when something breaks anyway</h2>
+<p>A freeze lowers the odds of an incident; it doesn't remove them. Before the peak starts, make sure the business can answer these without a phone call to someone on leave:</p>
+<ol><li>Who is on call each day of the peak period, and how do we reach them?</li><li>If the system is down, can we keep selling? Offline mode, manual receipts, a card terminal that works without the POS?</li><li>Where are the admin passwords, server addresses and vendor support numbers kept?</li><li>Who has authority to decide to roll something back?</li></ol>
+<p>Fifteen minutes spent writing this down in November is worth hours of panic on a crowded Saturday.</p>
+<h2>After the peak: the change backlog</h2>
+<p>Keep a running list of everything that was deferred during the freeze. In the first two weeks of January, review it calmly: some items will have turned out not to matter, and the ones that do can be scheduled, tested and released properly—when your systems and your people are under the least pressure of the year.</p>
+
+          <div class="cta-box">
+            <h3>Want a Pre-Peak Health Check?</h3>
+            <p>We review backups, disk and database growth, expiring certificates and known recurring errors on older systems—so the busiest month of the year isn't the riskiest one.</p>
+            <a href="../contact.html" class="f-btn f-btn--primary cta-button">Book a Health Check</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">When should a year-end change freeze start?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>For most retail and F&B businesses, one to two weeks before trading peaks—typically late November or the first week of December—and running until the first full week of January. The exact dates matter less than agreeing them in advance and telling everyone.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Does a change freeze apply to SaaS tools we don't control?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>You can't stop a vendor from releasing, but you can avoid switching on new features, changing integrations or migrating plans during the peak. Ask key vendors whether they run their own freeze; many do.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">What if a security patch arrives during the freeze?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Assess it: is the vulnerability being actively exploited, and is your system exposed to it? If yes, apply it carefully with a tested rollback. If it's routine, schedule it for the first maintenance window in January.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">We only have one developer. Is a freeze still worth it?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Even more so. With one person, every change during the peak depends on them being reachable. A freeze means their absence is an inconvenience rather than a risk.</p>
+                </div>
+              </div>
+            
+          </div>
+
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Keeping a business-critical system running?</span>
+        <p>Our engineers stabilise, fix and extend legacy .NET, POS and in-house systems, without the risky rewrite. <a href="../solutions.html">See how we work &rarr;</a></p>
+      </aside>
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="year-end-change-freeze-legacy-system" data-current-tags='["Legacy Systems","Risk Management","Retail","Maintenance"]'><section class="related-posts-section"><h2 class="related-posts-title">Continue reading</h2><div class="f-grid related-posts-grid"><a href="what-happens-delay-legacy-system-maintenance.html" class="f-card f-card--link related-card"><img src="../images/blog/delay-maintenance-consequences.jpg" alt="Consequences of delaying system maintenance" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">What Happens When You Delay Legacy System Maintenance</h3><p class="f-card__text">Every month you delay maintaining your legacy system, the problems compound. Here's the predictable cascade of consequen...</p><div class="f-tags"><span class="f-tag">Legacy Systems</span><span class="f-tag">Risk Management</span></div><div class="f-card__foot related-card__foot"><span>11 min read</span><span>Read article →</span></div></a><a href="price-ignoring-small-bug-production-system.html" class="f-card f-card--link related-card"><img src="../images/blog/small-bug-big-cost.jpg" alt="Software bug causing system problems" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">The Price of Ignoring That 'Small' Bug in Your Production System</h3><p class="f-card__text">That minor bug you're postponing? It's costing you more than you think. Real examples of how small ignored bugs cascade ...</p><div class="f-tags"><span class="f-tag">Legacy Systems</span><span class="f-tag">Maintenance</span></div><div class="f-card__foot related-card__foot"><span>9 min read</span><span>Read article →</span></div></a><a href="5-warning-signs-your-legacy-dotnet-system-needs-attention.html" class="f-card f-card--link related-card"><img src="../images/blog/legacy-dotnet-warning-signs.jpg" alt="Code displayed on laptop screen representing legacy .NET systems" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">5 Warning Signs Your Legacy .NET System Needs Professional Attention</h3><p class="f-card__text">Is your legacy .NET system showing signs of trouble? Learn the 5 critical warning signs that indicate it's time to seek ...</p><div class="f-tags"><span class="f-tag">Legacy Systems</span><span class="f-tag">Maintenance</span></div><div class="f-card__foot related-card__foot"><span>8 min read</span><span>Read article →</span></div></a></div></section></div>
+    </main>
+  </div>
+
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Free tools</h2>
+            <ul>
+              <li><a href="../e-invoice-checker.html">Do I need to e-invoice?</a></li>
+              <li><a href="../msic-code-lookup.html">MSIC code lookup</a></li>
+              <li><a href="../microsoft-end-of-support-lookup.html">End-of-support lookup</a></li>
+              <li><a href="../legacy-system-risk-scorecard.html">Risk scorecard</a></li>
+              <li><a href="../free-tools.html">All free tools &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth < 1100) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth < 1100) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1100 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1100) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>

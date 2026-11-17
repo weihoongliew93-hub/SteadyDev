@@ -8,13 +8,26 @@
     <link>https://steadydevs.com/blog/</link>
     <description>Expert insights on maintaining, stabilizing, and improving legacy .NET systems. Practical tips and real-world case studies from 11+ years of production experience.</description>
     <language>en-my</language>
-    <lastBuildDate>Mon, 16 Nov 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://steadydevs.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://steadydevs.com/images/SteadyDevsLogo.svg</url>
       <title>SteadyDevs Blog</title>
       <link>https://steadydevs.com/blog/</link>
     </image>
+
+    <item>
+      <title>The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)</title>
+      <link>https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html</link>
+      <description>December is when your systems carry the most load and your developer is hardest to reach. A short, deliberate change freeze—with the right few fixes done first—is the cheapest insurance a business running an older system can buy.</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0800</pubDate>
+      <guid>https://steadydevs.com/blog/year-end-change-freeze-legacy-system.html</guid>
+      <dc:creator>SteadyDevs</dc:creator>
+      <category>Legacy Systems</category>
+      <category>Risk Management</category>
+      <category>Retail</category>
+      <category>Maintenance</category>
+    </item>
 
     <item>
       <title>Why Your POS/ERP Vendor Won't Support Your Customizations (And What to Do About It)</title>
