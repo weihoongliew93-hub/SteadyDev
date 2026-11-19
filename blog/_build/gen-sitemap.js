@@ -55,6 +55,8 @@ const MAIN = [
   { file: 'free-tools.html', loc: '/free-tools.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'e-invoice-tin-checker.html', loc: '/e-invoice-tin-checker.html', changefreq: 'monthly', priority: '0.7' },
   { file: 'myinvois-error-codes.html', loc: '/myinvois-error-codes.html', changefreq: 'monthly', priority: '0.7' },
+  { file: 'myinvois-code-lookup.html', loc: '/myinvois-code-lookup.html', changefreq: 'monthly', priority: '0.7' },
+  { file: 'e-invoice-json-checker.html', loc: '/e-invoice-json-checker.html', changefreq: 'monthly', priority: '0.7' },
   { file: 'microsoft-end-of-support-lookup.html', loc: '/microsoft-end-of-support-lookup.html', changefreq: 'monthly', priority: '0.7' },
   { file: 'legacy-system-risk-scorecard.html', loc: '/legacy-system-risk-scorecard.html', changefreq: 'monthly', priority: '0.7' },
   { file: 'downtime-cost-calculator.html', loc: '/downtime-cost-calculator.html', changefreq: 'monthly', priority: '0.7' },

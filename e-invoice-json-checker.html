@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MyInvois JSON Checker: Validate an e-Invoice Before Submitting | SteadyDevs</title>
+  <meta name="description" content="Paste a MyInvois UBL JSON e-invoice and see what LHDN would refuse: codes, TIN pairings, phone, email, state, units and totals. Free, runs in your browser, nothing uploaded.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/e-invoice-json-checker.html">
+  <meta property="og:title" content="MyInvois JSON checker: catch LHDN rejections before you submit">
+  <meta property="og:description" content="Paste a MyInvois UBL JSON e-invoice and see what LHDN would refuse: codes, TIN pairings, phone, email, state, units and totals. Free, runs in your browser, nothing uploaded.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/e-invoice-json-checker.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my e-invoice JSON uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The checker runs in your browser. The document you paste or open is read on your own computer and never sent to us or anyone else."}}, {"@type": "Question", "name": "Does passing this check mean LHDN will accept the e-invoice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It catches the mistakes that most often get e-invoices refused or marked Invalid: missing or wrong codes, general TIN pairings, phone and email formats, and totals that don't add up. LHDN also checks the TIN against its records, the digital signature on version 1.1 and its full schema, which only a submission to its sandbox can confirm."}}, {"@type": "Question", "name": "Which format does it read?", "acceptedAnswer": {"@type": "Answer", "text": "MyInvois UBL 2.1 JSON, the document you send to LHDN's submission API, with values written as arrays of objects carrying an underscore key. XML documents are not checked here."}}, {"@type": "Question", "name": "Why does the issue time need a Z?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN takes the issue date and time in UTC, and the time must end with Z, for example 01:30:00Z. Without it the document is refused with an invalid issuance date time format. Malaysian time is 8 hours ahead of UTC, so a sale at 9:30 in the morning is 01:30:00Z."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=13">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* e-invoice JSON checker (design F): document on the left, problems beside it. */
+    .jc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 900px) { .jc { grid-template-columns: 1fr; } }
+    .jc [hidden] { display: none; }
+    .jc textarea { width: 100%; min-height: 380px; font-family: var(--mono); font-size: 13px; line-height: 1.5; resize: vertical; }
+    .jc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; align-items: center; }
+    .jc-file { font-size: 14px; color: var(--faint); }
+    .jc-result { display: grid; gap: 12px; }
+    .jc-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .jc-head { font-size: 20px; font-weight: 600; color: var(--text-strong); line-height: 1.35; }
+    .jc-dim { color: var(--faint); font-size: 14px; }
+    .jc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .jc-list li { border-top: 1px solid var(--border-soft); padding-top: 12px; color: var(--text-soft); }
+    .jc-list .f-badge { margin-right: 6px; vertical-align: 1px; }
+    .jc-path { display: block; font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 4px; overflow-wrap: anywhere; }
+    .jc-sum { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--text-soft); }
+    .jc-sum b { color: var(--text-strong); }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=8"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; for developers and integrators</p>
+        <h1 class="f-h1">MyInvois JSON checker</h1>
+        <p class="f-lead">Paste the UBL JSON your system sends to LHDN, or open the file, and see what would get it refused or marked Invalid, with the field and the fix for each. It runs in your browser: the document never leaves your computer.</p>
+        <div class="jc">
+          <div>
+            <div class="f-field">
+              <label for="jcInput">e-Invoice JSON (MyInvois UBL 2.1)</label>
+              <textarea class="f-input" id="jcInput" spellcheck="false" placeholder='{"_D": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2", "Invoice": [ ... ]}'></textarea>
+            </div>
+            <div class="jc-actions">
+              <button class="f-btn f-btn--primary" type="button" id="jcCheck">Check the e-invoice</button>
+              <button class="f-btn f-btn--secondary" type="button" id="jcSample">Load an example with mistakes</button>
+              <label class="jc-file">or open a .json file <input type="file" id="jcFile" accept=".json,application/json"></label>
+            </div>
+          </div>
+          <div class="f-card jc-result" id="jcResult" aria-live="polite">
+            <p class="jc-label">Result</p>
+            <p class="jc-head" id="jcHead">Paste a document and press Check.</p>
+            <div class="jc-sum" id="jcSum" hidden></div>
+            <ul class="jc-list" id="jcList"></ul>
+            <p class="jc-dim" id="jcFoot" hidden>These checks catch the mistakes that most often get e-invoices refused. LHDN also checks the TIN against its records, the signature on version 1.1 and its full schema: only its sandbox can confirm those. <a href="myinvois-error-codes.html">What LHDN's error codes mean &rarr;</a></p>
+          </div>
+        </div>
+        <p class="f-note">Checks follow LHDN's code lists in the <a href="https://sdk.myinvois.hasil.gov.my/codes/">MyInvois SDK</a>, the <a href="https://sdk.myinvois.hasil.gov.my/documents/invoice-v1-1/">invoice field rules</a> and the <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">e-Invoice Specific Guideline v4.9</a>. The general TIN, phone, email and UTC time rules also come from our own submissions to LHDN's test environment in October 2026. Format checks, not tax advice. Checked on 19 November 2026.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">What it checks</h2></div>
+        <div class="f-table-wrap">
+          <table class="f-table">
+            <thead><tr><th>Part</th><th>Checks</th></tr></thead>
+            <tbody>
+              <tr><td>Document</td><td>Invoice number, issue date, issue time in UTC ending with Z, document type code, currency code, and on credit, debit and refund notes the original e-invoice's LHDN UUID.</td></tr>
+              <tr><td>Seller and buyer</td><td>TIN present, the general TIN pairings behind ERR222, ERR228, ERR236 and ERR237, contact number of at least 8 characters, email format, state and country codes, name, and the seller's MSIC code.</td></tr>
+              <tr><td>Each line</td><td>Unit of measure, classification and tax type codes against LHDN's lists, an exemption reason on tax type E, and tax worked out from the rate.</td></tr>
+              <tr><td>Totals</td><td>Line amounts add up to the document totals, tax totals match, and the RM10,000 single-sale rule on consolidated and general-TIN e-invoices.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>Is my e-invoice JSON uploaded anywhere?</summary><div>No. The checker runs in your browser. The document you paste or open is read on your own computer and never sent to us or anyone else.</div></details><details><summary>Does passing this check mean LHDN will accept the e-invoice?</summary><div>No. It catches the mistakes that most often get e-invoices refused or marked Invalid: missing or wrong codes, general TIN pairings, phone and email formats, and totals that don't add up. LHDN also checks the TIN against its records, the digital signature on version 1.1 and its full schema, which only a submission to its sandbox can confirm.</div></details><details><summary>Which format does it read?</summary><div>MyInvois UBL 2.1 JSON, the document you send to LHDN's submission API, with values written as arrays of objects carrying an underscore key. XML documents are not checked here.</div></details><details><summary>Why does the issue time need a Z?</summary><div>LHDN takes the issue date and time in UTC, and the time must end with Z, for example 01:30:00Z. Without it the document is refused with an invalid issuance date time format. Malaysian time is 8 hours ahead of UTC, so a sale at 9:30 in the morning is 01:30:00Z.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Skip the JSON altogether</span>
+          Our e-Invoice platform builds this document for you from your POS, ERP or Excel export, runs these checks on every invoice and resubmits corrected ones for free. <a href="einvoice.html">See the e-Invoice platform &rarr;</a> <a href="einvoice.html#demo">Try the live demo, no sign-up &rarr;</a> Looking for a code? <a href="myinvois-code-lookup.html">MyInvois code lookup &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var GEN_PUBLIC = 'EI00000000010', GEN_FOREIGN_BUYER = 'EI00000000020', GEN_FOREIGN_SUPPLIER = 'EI00000000030', GEN_GOV = 'EI00000000040';
+      var GENERAL = [GEN_PUBLIC, GEN_FOREIGN_BUYER, GEN_FOREIGN_SUPPLIER, GEN_GOV];
+      // The e-Invoice platform's typo check: LHDN's prefixes, then 10 or 11 digits. LHDN publishes
+      // no full format, so a miss is "check", never "fix".
+      var TIN_RE = /^(IG|C|CS|D|E|F|FA|PT|TA|TC|TN|TR|TP|J|LE)\d{10,11}$/;
+      var PLACEHOLDER = /^(N\/A|N\.A\.?|-+|NIL|NONE|NULL)$/i;
+      var NOTE_TYPES = ['02', '03', '04', '12', '13', '14'], SELF_BILLED = ['11', '12', '13', '14'];
+      var ID_SCHEMES = ['NRIC', 'BRN', 'PASSPORT', 'ARMY'];
+      var codes = null;
+
+      var $ = function (id) { return document.getElementById(id); };
+      function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+      function loadCodes() {
+        if (codes) return Promise.resolve(codes);
+        return fetch('assets/myinvois-codes.json?v=2026-11-19').then(function (r) { return r.json(); }).then(function (d) {
+          codes = {};
+          Object.keys(d.lists).forEach(function (k) {
+            codes[k] = {};
+            d.lists[k].rows.forEach(function (row) { codes[k][row[0]] = row[1]; });
+          });
+          return codes;
+        });
+      }
+
+      // UBL JSON: every value is an array of objects; text sits under "_".
+      function first(node) { return Array.isArray(node) ? node[0] : node; }
+      function val(node) { var n = first(node); return n && typeof n === 'object' && '_' in n ? n._ : undefined; }
+      function str(node) { var v = val(node); return v === undefined || v === null ? '' : String(v).trim(); }
+      function num(node) { var v = val(node); var n = typeof v === 'number' ? v : parseFloat(v); return isFinite(n) ? n : null; }
+      function attr(node, name) { var n = first(node); return n && typeof n === 'object' ? n[name] : undefined; }
+      function arr(node) { return Array.isArray(node) ? node : (node ? [node] : []); }
+      function money(n) { return n === null ? '?' : n.toFixed(2); }
+      function near(a, b) { return a !== null && b !== null && Math.abs(a - b) <= 0.01; }
+
+      function check(doc) {
+        var fix = [], chk = [];
+        function F(path, msg) { fix.push({ path: path, msg: msg }); }
+        function C(path, msg) { chk.push({ path: path, msg: msg }); }
+
+        var inv = first(doc && doc.Invoice);
+        if (!inv || typeof inv !== 'object') {
+          F('Invoice', 'This is not a MyInvois UBL JSON document: there is no "Invoice" array at the top. The document starts with {"_D": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2", ..., "Invoice": [ { ... } ]}.');
+          return { fix: fix, chk: chk, info: null };
+        }
+
+        // ── Document ──
+        var number = str(inv.ID);
+        if (!number) F('Invoice.ID', 'Invoice number is missing. Every e-invoice needs your own document number.');
+        else if (number.length > 50) F('Invoice.ID', 'Invoice number is ' + number.length + ' characters; LHDN allows 50.');
+
+        var date = str(inv.IssueDate), time = str(inv.IssueTime);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) F('Invoice.IssueDate', 'Issue date "' + esc(date) + '" must be written YYYY-MM-DD.');
+        if (!time) F('Invoice.IssueTime', 'Issue time is missing.');
+        else if (!/^\d{2}:\d{2}:\d{2}Z$/.test(time)) F('Invoice.IssueTime', 'Issue time "' + esc(time) + '" must be UTC and end with Z, for example 01:30:00Z. LHDN refuses a time without the Z. Malaysian time is UTC+8, so subtract 8 hours.');
+        if (/^\d{4}-\d{2}-\d{2}$/.test(date) && /^\d{2}:\d{2}:\d{2}Z$/.test(time)) {
+          var issued = new Date(date + 'T' + time), now = new Date();
+          if (issued - now > 5 * 60 * 1000) F('Invoice.IssueDate', 'Issue date and time are in the future. LHDN refuses an e-invoice dated after the moment it is submitted.');
+          else if (now - issued > 72 * 3600 * 1000) C('Invoice.IssueDate', 'Issued more than 72 hours ago. LHDN expects an e-invoice to be submitted soon after it is issued: if it refuses the date, re-issue it with today\'s date.');
+        }
+
+        var typeCode = str(inv.InvoiceTypeCode), typeVer = attr(inv.InvoiceTypeCode, 'listVersionID');
+        if (!typeCode) F('Invoice.InvoiceTypeCode', 'Document type code is missing (01 Invoice, 02 Credit Note, ...).');
+        else if (!codes.type[typeCode]) F('Invoice.InvoiceTypeCode', 'Document type "' + esc(typeCode) + '" is not on LHDN\'s list. Use 01 to 04, or 11 to 14 for self-billed documents.');
+        if (typeVer && typeVer !== '1.0' && typeVer !== '1.1') F('Invoice.InvoiceTypeCode.listVersionID', 'Version "' + esc(typeVer) + '" is not one LHDN takes: use 1.0 (unsigned) or 1.1 (digitally signed).');
+        if (typeVer === '1.1' && !inv.UBLExtensions) C('Invoice.UBLExtensions', 'Version 1.1 must carry a digital signature (UBLExtensions), which this document does not have. Sign it, or send version 1.0.');
+
+        var ccy = str(inv.DocumentCurrencyCode);
+        if (!ccy) F('Invoice.DocumentCurrencyCode', 'Currency code is missing (MYR for ringgit).');
+        else if (!codes.cur[ccy]) F('Invoice.DocumentCurrencyCode', 'Currency "' + esc(ccy) + '" is not on LHDN\'s list. Use the three-letter ISO code, such as MYR or USD.');
+        else if (ccy !== 'MYR' && !inv.TaxExchangeRate) C('Invoice.TaxExchangeRate', 'The currency is ' + esc(ccy) + ' but there is no exchange rate to MYR. A foreign-currency e-invoice gives the rate in TaxExchangeRate.');
+
+        if (NOTE_TYPES.indexOf(typeCode) !== -1) {
+          var ref = first(first(inv.BillingReference) && first(inv.BillingReference).InvoiceDocumentReference);
+          if (!ref || !str(ref.UUID)) F('Invoice.BillingReference', (codes.type[typeCode] || 'This note') + ' must name the original e-invoice: its number and LHDN UUID, in BillingReference.InvoiceDocumentReference.');
+        }
+
+        // ── Lines (read first: the general TIN rules depend on them) ──
+        var lines = arr(inv.InvoiceLine), lineSum = 0, lineTax = 0, allConsolidated = lines.length > 0, maxLine = 0;
+        if (!lines.length) F('Invoice.InvoiceLine', 'The e-invoice has no lines.');
+        lines.forEach(function (ln, i) {
+          var p = 'InvoiceLine[' + (i + 1) + ']';
+          var qty = num(ln.InvoicedQuantity), unit = attr(ln.InvoicedQuantity, 'unitCode');
+          if (qty === null) F(p + '.InvoicedQuantity', 'Quantity is missing.');
+          else if (qty < 0) F(p + '.InvoicedQuantity', 'Quantity is negative. Issue a credit note for returns instead.');
+          if (!unit) C(p + '.InvoicedQuantity.unitCode', 'No unit of measure.');
+          else if (!codes.unit[unit]) F(p + '.InvoicedQuantity.unitCode', 'Unit "' + esc(unit) + '" is not on LHDN\'s list (UN/ECE codes). For example: H87 piece, C62 one, HUR hour, KGM kilogram, XBX box. <a href="myinvois-code-lookup.html#unit">Find a unit &rarr;</a>');
+
+          var item = first(ln.Item) || {};
+          var cls = str(first(first(item.CommodityClassification) && first(item.CommodityClassification).ItemClassificationCode) ? first(item.CommodityClassification).ItemClassificationCode : undefined);
+          if (!cls) F(p + '.Item.CommodityClassification', 'Classification code is missing. Every line needs one of LHDN\'s 45 codes. <a href="myinvois-code-lookup.html#class">See the codes &rarr;</a>');
+          else if (!codes['class'][cls]) F(p + '.Item.CommodityClassification', 'Classification "' + esc(cls) + '" is not on LHDN\'s list (001 to 045).');
+          if (cls !== '004') allConsolidated = false;
+          if (!str(item.Description)) F(p + '.Item.Description', 'Item description is missing.');
+
+          var amount = num(ln.LineExtensionAmount);
+          if (amount === null) F(p + '.LineExtensionAmount', 'Line amount is missing.');
+          else { lineSum += amount; maxLine = Math.max(maxLine, amount); }
+
+          var price = num(first(ln.Price) && first(ln.Price).PriceAmount);
+          var hasDiscount = !!ln.AllowanceCharge;
+          if (!hasDiscount && qty !== null && price !== null && amount !== null && !near(qty * price, amount))
+            C(p + '.LineExtensionAmount', 'Quantity ' + qty + ' x price ' + money(price) + ' = ' + money(qty * price) + ', but the line amount is ' + money(amount) + '.');
+
+          var lt = first(ln.TaxTotal), lsub = lt && first(lt.TaxSubtotal), cat = lsub && first(lsub.TaxCategory);
+          var taxCode = cat ? str(cat.ID) : '', rate = cat ? num(cat.Percent) : null, tax = lt ? num(lt.TaxAmount) : null;
+          if (!lt || !cat) F(p + '.TaxTotal', 'Line tax is missing. Even an untaxed line gives a tax category (E or 06) and an amount of 0.');
+          else {
+            if (!taxCode) F(p + '.TaxTotal.TaxCategory.ID', 'Tax type code is missing.');
+            else if (!codes.tax[taxCode]) F(p + '.TaxTotal.TaxCategory.ID', 'Tax type "' + esc(taxCode) + '" is not on LHDN\'s list: 01 Sales, 02 Service, 03 Tourism, 04 High-Value Goods, 05 Low Value Goods, 06 Not Applicable, E exemption.');
+            if (taxCode === 'E' && !str(cat.TaxExemptionReason)) F(p + '.TaxTotal.TaxCategory.TaxExemptionReason', 'Tax type E (exemption) needs the reason, in TaxExemptionReason.');
+            if (tax !== null) lineTax += tax;
+            var taxable = num(lsub.TaxableAmount);
+            if (rate !== null && taxable !== null && tax !== null && !near(taxable * rate / 100, tax))
+              C(p + '.TaxTotal.TaxAmount', 'Tax ' + money(tax) + ' does not match ' + rate + '% of ' + money(taxable) + ' (' + money(taxable * rate / 100) + ').');
+          }
+        });
+
+        // ── Parties ──
+        function party(node, role) {
+          var pr = first(first(node) && first(node).Party);
+          var p = role === 'buyer' ? 'AccountingCustomerParty' : 'AccountingSupplierParty';
+          var info = { tin: '', idType: '', id: '' };
+          if (!pr) { F(p, 'The ' + role + ' is missing.'); return info; }
+          arr(pr.PartyIdentification).forEach(function (pi) {
+            var idNode = first(pi && pi.ID), scheme = idNode && idNode.schemeID, v = idNode ? String(idNode._ || '').trim() : '';
+            if (scheme === 'TIN') info.tin = v;
+            else if (ID_SCHEMES.indexOf(scheme) !== -1) { info.idType = scheme; info.id = v; }
+          });
+          if (!info.tin) F(p + '.PartyIdentification', 'The ' + role + '\'s TIN is missing (schemeID "TIN").');
+          else if (GENERAL.indexOf(info.tin) === -1 && !TIN_RE.test(info.tin)) C(p + '.PartyIdentification', 'The ' + role + '\'s TIN "' + esc(info.tin) + '" does not look like an LHDN TIN (for example C21984536000 or IG12345678090). Check for a typo.');
+          if (!info.idType) F(p + '.PartyIdentification', 'The ' + role + ' needs a second ID with schemeID NRIC, BRN, PASSPORT or ARMY (the value can be NA where LHDN allows it).');
+
+          var legal = first(pr.PartyLegalEntity);
+          if (!str(legal && legal.RegistrationName)) F(p + '.PartyLegalEntity.RegistrationName', 'The ' + role + '\'s name is missing.');
+
+          var addr = first(pr.PostalAddress);
+          if (!addr) F(p + '.PostalAddress', 'The ' + role + '\'s address is missing.');
+          else {
+            var st = str(addr.CountrySubentityCode), co = str(first(first(addr.Country) && first(addr.Country).IdentificationCode) ? first(addr.Country).IdentificationCode : undefined);
+            if (!st) F(p + '.PostalAddress.CountrySubentityCode', 'State code is missing (01 Johor to 16 Putrajaya, 17 Not Applicable).');
+            else if (!codes.state[st]) F(p + '.PostalAddress.CountrySubentityCode', 'State "' + esc(st) + '" is not on LHDN\'s list: use the two-digit code, such as 10 for Selangor or 14 for Kuala Lumpur. <a href="myinvois-code-lookup.html#state">State codes &rarr;</a>');
+            if (!co) F(p + '.PostalAddress.Country', 'Country code is missing (MYS for Malaysia).');
+            else if (!codes.country[co]) F(p + '.PostalAddress.Country', 'Country "' + esc(co) + '" is not on LHDN\'s list: use the three-letter code, such as MYS or SGP.');
+            if (!arr(addr.AddressLine).some(function (l) { return str(l && l.Line); })) F(p + '.PostalAddress.AddressLine', 'The ' + role + '\'s address line is empty.');
+            if (!str(addr.CityName)) F(p + '.PostalAddress.CityName', 'The ' + role + '\'s city is missing.');
+          }
+
+          var contact = first(pr.Contact) || {};
+          var phone = str(contact.Telephone), email = str(contact.ElectronicMail);
+          if (!phone) F(p + '.Contact.Telephone', 'The ' + role + '\'s contact number is missing. It is mandatory; on a consolidated e-invoice LHDN\'s placeholder is NA.');
+          else if (PLACEHOLDER.test(phone)) F(p + '.Contact.Telephone', 'Contact number "' + esc(phone) + '" is refused. Use a real number such as +60123456789, or NA (no slash) for a general-public buyer.');
+          else if (phone.toUpperCase() !== 'NA' && phone.length < 8) F(p + '.Contact.Telephone', 'Contact number "' + esc(phone) + '" is under 8 characters: LHDN refuses it. Include the country code, such as +60123456789.');
+          if (email) {
+            if (PLACEHOLDER.test(email) || email.toUpperCase() === 'NA') F(p + '.Contact.ElectronicMail', 'Email "' + esc(email) + '" is refused ("Enter valid e-mail address"). Email is optional: leave it out when there is none.');
+            else if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(email)) F(p + '.Contact.ElectronicMail', 'Email "' + esc(email) + '" is not a valid address. Give one address, with no spaces.');
+          }
+
+          if (role === 'seller') {
+            var msic = first(pr.IndustryClassificationCode);
+            var msicCode = msic ? String(msic._ || '').trim() : '';
+            if (!msicCode) F(p + '.IndustryClassificationCode', 'The seller\'s MSIC code is missing. <a href="msic-code-lookup.html">Look it up &rarr;</a>');
+            else if (!/^\d{5}$/.test(msicCode)) F(p + '.IndustryClassificationCode', 'MSIC code "' + esc(msicCode) + '" should be 5 digits.');
+            else if (!msic.name) C(p + '.IndustryClassificationCode.name', 'The business activity description (the "name" beside the MSIC code) is missing.');
+          }
+          return info;
+        }
+        var seller = party(inv.AccountingSupplierParty, 'seller');
+        var buyer = party(inv.AccountingCustomerParty, 'buyer');
+        var selfBilled = SELF_BILLED.indexOf(typeCode) !== -1;
+        var bp = 'AccountingCustomerParty.PartyIdentification';
+        var idNA = !buyer.id || buyer.id.toUpperCase() === 'NA';
+
+        // ── General TIN rules (LHDN's taxpayer validator; seen on preprod, October 2026) ──
+        if (!selfBilled && buyer.tin === GEN_PUBLIC) {
+          if (buyer.idType === 'BRN' && !idNA) F(bp, 'ERR237: a business buyer (BRN) cannot take the general public TIN EI00000000010. Use the company\'s own TIN. <a href="myinvois-error-codes.html#err237">More &rarr;</a>');
+          else if (buyer.idType === 'PASSPORT' && !idNA) F(bp, 'ERR222: EI00000000010 goes with a MyKad or MyTentera number. A foreign individual with a passport takes EI00000000020. <a href="myinvois-error-codes.html#err222">More &rarr;</a>');
+          else if (idNA && !allConsolidated) F(bp, 'ERR236 / ERR228: the general TIN with no buyer ID is only for a consolidated e-invoice, where every line has classification 004. Add the buyer\'s IC number, or file the sale in the consolidated e-invoice. <a href="myinvois-error-codes.html#err236">More &rarr;</a>');
+        }
+        if (!selfBilled && (seller.tin === GEN_PUBLIC || seller.tin === GEN_FOREIGN_SUPPLIER))
+          F('AccountingSupplierParty.PartyIdentification', 'The seller cannot use a general TIN on an ordinary e-invoice. General TINs for suppliers are only for self-billed documents (types 11 to 14).');
+        if (!selfBilled && buyer.tin === GEN_FOREIGN_SUPPLIER)
+          F(bp, 'EI00000000030 is for a foreign supplier on a self-billed e-invoice, never for a buyer. A foreign buyer takes EI00000000020.');
+        if (allConsolidated && buyer.tin && buyer.tin !== GEN_PUBLIC)
+          F(bp, 'Every line has classification 004 (consolidated), but the buyer is not the general public. A consolidated e-invoice uses buyer TIN EI00000000010 with ID NA.');
+
+        // ── Totals ──
+        var lmt = first(inv.LegalMonetaryTotal), docTax = num(first(inv.TaxTotal) && first(inv.TaxTotal).TaxAmount);
+        if (!lmt) F('Invoice.LegalMonetaryTotal', 'Document totals (LegalMonetaryTotal) are missing.');
+        else {
+          var lea = num(lmt.LineExtensionAmount), excl = num(lmt.TaxExclusiveAmount), incl = num(lmt.TaxInclusiveAmount), pay = num(lmt.PayableAmount);
+          if (lea !== null && lines.length && !near(lea, lineSum)) C('LegalMonetaryTotal.LineExtensionAmount', 'Lines add up to ' + money(lineSum) + ', but the total line amount says ' + money(lea) + '.');
+          if (excl !== null && incl !== null && docTax !== null && !near(excl + docTax, incl)) C('LegalMonetaryTotal.TaxInclusiveAmount', 'Amount before tax ' + money(excl) + ' + tax ' + money(docTax) + ' = ' + money(excl + docTax) + ', but the amount with tax says ' + money(incl) + '.');
+          if (pay === null) F('LegalMonetaryTotal.PayableAmount', 'The amount payable is missing.');
+          if (!selfBilled && pay !== null && pay > 10000) {
+            if (allConsolidated && maxLine > 10000) C('InvoiceLine', 'A line in this consolidated e-invoice is above RM10,000. A single sale above RM10,000 needs its own e-invoice with the buyer\'s details, unless your business is in the Phase 4 relaxation until 31 December 2027.');
+            else if (!allConsolidated && buyer.tin === GEN_PUBLIC) C(bp, 'Above RM10,000 with the general TIN. LHDN\'s guideline lets EI00000000010 go with a MyKad number, but for a sale this size get the buyer\'s own TIN where you can.');
+          }
+        }
+        if (docTax === null) F('Invoice.TaxTotal', 'The document tax total (TaxTotal.TaxAmount) is missing.');
+        else if (lines.length && !near(docTax, lineTax)) C('Invoice.TaxTotal.TaxAmount', 'Line taxes add up to ' + money(lineTax) + ', but the document tax total says ' + money(docTax) + '.');
+
+        return { fix: fix, chk: chk, info: { number: number, type: codes.type[typeCode] || typeCode, lines: lines.length, ccy: ccy, payable: lmt ? num(lmt.PayableAmount) : null } };
+      }
+
+      function show(r) {
+        var list = $('jcList'), n = r.fix.length + r.chk.length;
+        $('jcHead').textContent = n === 0 ? 'No problems found.' : (r.fix.length + ' to fix, ' + r.chk.length + ' to check.');
+        var sum = $('jcSum');
+        if (r.info) {
+          sum.hidden = false;
+          sum.innerHTML = '<span><b>' + esc(r.info.type || '?') + '</b> ' + esc(r.info.number || '(no number)') + '</span><span><b>' + r.info.lines + '</b> line' + (r.info.lines === 1 ? '' : 's') + '</span><span><b>' + esc(r.info.ccy || '') + ' ' + (r.info.payable === null ? '?' : r.info.payable.toFixed(2)) + '</b> payable</span>';
+        } else sum.hidden = true;
+        list.innerHTML = r.fix.map(function (p) { return '<li><span class="f-badge f-badge--crimson">Fix</span> ' + p.msg + '<span class="jc-path">' + esc(p.path) + '</span></li>'; }).join('') +
+          r.chk.map(function (p) { return '<li><span class="f-badge">Check</span> ' + p.msg + '<span class="jc-path">' + esc(p.path) + '</span></li>'; }).join('');
+        $('jcFoot').hidden = false;
+        // The problem count only: never the document.
+        if (typeof gtag === 'function') gtag('event', 'json_check', { fix: r.fix.length, check: r.chk.length });
+      }
+
+      function run() {
+        var text = $('jcInput').value.trim();
+        if (!text) { $('jcHead').textContent = 'Paste a document and press Check.'; $('jcList').innerHTML = ''; $('jcSum').hidden = true; return; }
+        var doc;
+        try { doc = JSON.parse(text); }
+        catch (e) {
+          show({ fix: [{ path: 'JSON', msg: 'This is not valid JSON: ' + esc(e.message) + '. Check for a missing comma, quote or bracket.' }], chk: [], info: null });
+          return;
+        }
+        loadCodes().then(function () { show(check(doc)); })
+          .catch(function () { $('jcHead').textContent = 'Could not load LHDN\'s code lists. Check your connection and try again.'; });
+      }
+
+      // An example with the mistakes we see most: general TIN beside a BRN, "N/A" phone, units
+      // that aren't UN/ECE codes, a time without Z, a missing exemption reason, totals off.
+      function sample() {
+        function V(v) { return [{ _: v }]; }
+        function A(v) { return [{ _: v, currencyID: 'MYR' }]; }
+        function party(tin, idScheme, id, name, phone, email, state, extra) {
+          var p = {
+            PartyIdentification: [{ ID: [{ _: tin, schemeID: 'TIN' }] }, { ID: [{ _: id, schemeID: idScheme }] }],
+            PostalAddress: [{ CityName: V('Shah Alam'), PostalZone: V('40150'), CountrySubentityCode: V(state), AddressLine: [{ Line: V('No. 12, Jalan Teknologi 3/4') }], Country: [{ IdentificationCode: V('MYS') }] }],
+            PartyLegalEntity: [{ RegistrationName: V(name) }],
+            Contact: [{ Telephone: V(phone), ElectronicMail: V(email) }]
+          };
+          if (extra) p.IndustryClassificationCode = [extra];
+          return [{ Party: [p] }];
+        }
+        function line(id, qty, unit, price, rate, code, desc, reason) {
+          var sub = Math.round(qty * price * 100) / 100, tax = Math.round(sub * rate) / 100;
+          var cat = { ID: V(code), Percent: [{ _: rate }], TaxScheme: [{ ID: [{ _: 'OTH', schemeID: 'UN/ECE 5153', schemeAgencyID: '6' }] }] };
+          if (reason) cat.TaxExemptionReason = V(reason);
+          return { ID: V(String(id)), InvoicedQuantity: [{ _: qty, unitCode: unit }], LineExtensionAmount: A(sub),
+            TaxTotal: [{ TaxAmount: A(tax), TaxSubtotal: [{ TaxableAmount: A(sub), TaxAmount: A(tax), TaxCategory: [cat] }] }],
+            Item: [{ CommodityClassification: [{ ItemClassificationCode: [{ _: '022', listID: 'CLASS' }] }], Description: V(desc) }],
+            Price: [{ PriceAmount: A(price) }] };
+        }
+        var today = new Date().toISOString().slice(0, 10);
+        var doc = { _D: 'urn:oasis:names:specification:ubl:schema:xsd:Invoice-2', _A: 'urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2', _B: 'urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2',
+          Invoice: [{
+            ID: V('INV-2026-0042'), IssueDate: V(today), IssueTime: V('09:30:00'),
+            InvoiceTypeCode: [{ _: '01', listVersionID: '1.0' }], DocumentCurrencyCode: V('MYR'), TaxCurrencyCode: V('MYR'),
+            AccountingSupplierParty: party('C21984536000', 'BRN', '202001234567', 'Acme Manufacturing Sdn Bhd', '+60355561234', 'accounts@acme-mfg.com.my', '10', { _: '25999', name: 'Manufacture of fabricated metal products' }),
+            AccountingCustomerParty: party('EI00000000010', 'BRN', '201801234561', 'Kedai Hardware Seri Maju', 'N/A', 'N/A', 'Selangor'),
+            TaxTotal: [{ TaxAmount: A(112.20), TaxSubtotal: [] }],
+            LegalMonetaryTotal: [{ LineExtensionAmount: A(1122.00), TaxExclusiveAmount: A(1122.00), TaxInclusiveAmount: A(1234.20), PayableAmount: A(1234.20) }],
+            InvoiceLine: [
+              line(1, 15, 'BOX', 62.00, 10, '01', 'Welding Rod 2.5mm (5 kg)'),
+              line(2, 2, 'HR', 150.00, 0, 'E', 'Technical maintenance service'),
+              line(3, 1, 'H87', 72.00, 10, '01', 'Hydraulic fitting kit')
+            ]
+          }] };
+        return JSON.stringify(doc, null, 2);
+      }
+
+      $('jcCheck').addEventListener('click', run);
+      $('jcSample').addEventListener('click', function () { $('jcInput').value = sample(); run(); });
+      $('jcFile').addEventListener('change', function (e) {
+        var f = e.target.files && e.target.files[0];
+        if (!f) return;
+        var reader = new FileReader();
+        reader.onload = function () { $('jcInput').value = String(reader.result); run(); };
+        reader.readAsText(f);
+      });
+      $('jcInput').addEventListener('focus', loadCodes, { once: true });
+    })();
+  </script>
+</body>
+</html>
