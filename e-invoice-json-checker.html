@@ -315,7 +315,7 @@
           else if (idNA && !allConsolidated) F(bp, 'ERR236 / ERR228: the general TIN with no buyer ID is only for a consolidated e-invoice, where every line has classification 004. Add the buyer\'s IC number, or file the sale in the consolidated e-invoice. <a href="myinvois-error-codes.html#err236">More &rarr;</a>');
         }
         if (!selfBilled && (seller.tin === GEN_PUBLIC || seller.tin === GEN_FOREIGN_SUPPLIER))
-          F('AccountingSupplierParty.PartyIdentification', 'The seller cannot use a general TIN on an ordinary e-invoice. General TINs for suppliers are only for self-billed documents (types 11 to 14).');
+          F('AccountingSupplierParty.PartyIdentification', 'The seller cannot use a general TIN on an ordinary e-invoice. General TINs for suppliers are only for self-billed documents (types 11 to 14). <a href="blog/self-billed-einvoice-malaysia-guide.html">When to self-bill &rarr;</a>');
         if (!selfBilled && buyer.tin === GEN_FOREIGN_SUPPLIER)
           F(bp, 'EI00000000030 is for a foreign supplier on a self-billed e-invoice, never for a buyer. A foreign buyer takes EI00000000020.');
         if (allConsolidated && buyer.tin && buyer.tin !== GEN_PUBLIC)

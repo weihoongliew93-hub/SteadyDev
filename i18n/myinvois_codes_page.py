@@ -36,12 +36,14 @@ LISTS = [
 data = {k: load(f, v) for k, _, f, v, _ in LISTS}
 
 # What each short list is for, in our words. Codes are LHDN's; these notes are not.
+# Notes are HTML (written here, not taken from LHDN's files), so they can link.
+SELF_BILLED_GUIDE = '<a href="blog/self-billed-einvoice-malaysia-guide.html">guide to self-billed e-invoices</a>'
 NOTES = {
     "tax": "Goes in each line's tax category. A line taxed at 0% under an exemption uses E, with the exemption reason. 06 is for a supplier not registered for sales or service tax.",
-    "type": "The document type code. Credit, debit and refund notes (02, 03, 04, and 12 to 14 for self-billed) must name the original e-invoice's LHDN UUID.",
+    "type": "The document type code. Credit, debit and refund notes (02, 03, 04, and 12 to 14 for self-billed) must name the original e-invoice's LHDN UUID. When you issue the e-invoice for your supplier, see our " + SELF_BILLED_GUIDE + ".",
     "pay": "Optional on the e-invoice. Use 08 (Others) for a method not listed.",
     "state": "The state of each party's address. 17 (Not Applicable) is for a foreign address, and for the buyer on a consolidated e-invoice.",
-    "class": "One per line. 004 is the code for a consolidated e-invoice: every line of one uses it. The self-billed cases have their own codes: 033 to 037 and 045.",
+    "class": "One per line. 004 is the code for a consolidated e-invoice: every line of one uses it. Several are for self-billed e-invoices: 009, 033 to 037 and 045 (see our " + SELF_BILLED_GUIDE + ").",
 }
 
 COMMON_UNITS = ["C62", "EA", "H87", "SET", "PR", "KGM", "GRM", "TNE", "LTR", "MLT", "MTR", "CMT", "MTK",
@@ -63,7 +65,7 @@ for key, title, _, _, static in LISTS:
         continue
     sections.append(
         f'<div class="mc-block" id="{key}"><h2 class="f-h3">{e(title)}</h2>'
-        f'<p class="mc-note">{e(NOTES[key])}</p>{table(data[key], "Meaning")}</div>')
+        f'<p class="mc-note">{NOTES[key]}</p>{table(data[key], "Meaning")}</div>')
 common = [(c, units[c]) for c in COMMON_UNITS if c in units]
 sections.append(
     '<div class="mc-block" id="unit"><h2 class="f-h3">Common unit of measure codes</h2>'

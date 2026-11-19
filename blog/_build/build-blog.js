@@ -79,6 +79,12 @@ function productCallout(post) {
   if (has('e-invoice', 'lhdn', 'myinvois', 'invoice')) c = {
     label: 'Filing e-invoices with LHDN?', href: '../einvoice.html', link: 'See the e-Invoice platform',
     demo: '../einvoice.html#demo',
+    // Every e-invoice post links the free LHDN tools, so readers find them and search
+    // engines see the topic pages pointing at them.
+    tools: [['../myinvois-error-codes.html', 'MyInvois error codes explained'],
+            ['../e-invoice-tin-checker.html', 'TIN and field checker'],
+            ['../myinvois-code-lookup.html', 'MyInvois code lookup'],
+            ['../e-invoice-json-checker.html', 'MyInvois JSON checker']],
     text: 'SteadyDevs e-Invoice connects your POS, ERP or spreadsheet to MyInvois. It checks every invoice against LHDN\'s rules before sending, files the monthly consolidated e-invoice for walk-in sales, and bills monthly with no lock-in.' };
   else if (has('venue booking', 'double booking')) c = {
     label: 'Taking bookings for courts, rooms or studios?', href: '../venue-booking.html', link: 'See Venue Booking',
@@ -98,7 +104,8 @@ function productCallout(post) {
   return `
       <aside class="f-callout f-callout--tip blog-product-callout">
         <span class="f-callout__label">${c.label}</span>
-        <p>${c.text} <a href="${c.href}">${c.link} &rarr;</a>${c.demo ? ` <a href="${c.demo}">Or try the live demo, no sign-up &rarr;</a>` : ''}</p>
+        <p>${c.text} <a href="${c.href}">${c.link} &rarr;</a>${c.demo ? ` <a href="${c.demo}">Or try the live demo, no sign-up &rarr;</a>` : ''}</p>${c.tools ? `
+        <p>Free tools: ${c.tools.map(([href, name]) => `<a href="${href}">${name}</a>`).join(' &middot; ')}</p>` : ''}
       </aside>`;
 }
 
