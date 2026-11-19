@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MyInvois Error Codes Explained: ERR237, ERR222, ERR228, ERR236 | SteadyDevs</title>
+  <meta name="description" content="What LHDN's MyInvois rejection codes mean and how to fix each one: ERR237, ERR222, ERR228, ERR236, TIN mismatch, invalid email and phone. From real submissions, not guesses.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/myinvois-error-codes.html">
+  <meta property="og:title" content="MyInvois error codes explained, with the fix for each">
+  <meta property="og:description" content="What LHDN's MyInvois rejection codes mean and how to fix each one: ERR237, ERR222, ERR228, ERR236, TIN mismatch, invalid email and phone. From real submissions, not guesses.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/myinvois-error-codes.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does ERR237 mean in MyInvois?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN's message is \"Buyer's details cannot be general TIN (010) for issuance of individual e-Invoice\". The buyer has a business registration number, but the e-invoice gives the general public TIN EI00000000010. A business buyer must be invoiced under its own TIN. LHDN accepts the submission first and then marks the e-invoice Invalid, so check the document's final status."}}, {"@type": "Question", "name": "Why did LHDN accept my e-invoice and then mark it Invalid?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN checks in two stages. At submission it checks the structure, such as mandatory fields and formats. A document that passes is accepted and then checked against LHDN's records and rules, including which general TIN may go with which ID. ERR222, ERR228, ERR236 and ERR237 come from that second stage, a moment after the submission was accepted."}}, {"@type": "Question", "name": "Can I resubmit an e-invoice after fixing the error?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. An e-invoice LHDN refused or marked Invalid was never a valid e-invoice, so correct it and submit it again under the same invoice number. Do not resend a document LHDN already accepted as Valid: that is a duplicate. Change a Valid e-invoice by cancelling it within 72 hours, or by issuing a credit or debit note."}}, {"@type": "Question", "name": "Where does LHDN list these error codes?", "acceptedAnswer": {"@type": "Answer", "text": "The MyInvois SDK documents the API and the fields, but not these rejection codes and their causes. This page lists codes and messages LHDN actually returned to submissions from our e-invoice platform in its test environment in October 2026, with the cause we confirmed for each."}}]}</script>
+  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=13">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* MyInvois error reference (design F): a filter box over one card per error. */
+    .ec-search { margin-top: 28px; max-width: 560px; }
+    .ec-count { margin-top: 10px; font-size: 14px; color: var(--faint); }
+    .ec-list { display: grid; gap: 16px; margin-top: 24px; }
+    .ec-list [hidden] { display: none; }
+    .ec-item { scroll-margin-top: 90px; }
+    .ec-code { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .ec-msg { font-family: var(--mono); font-size: 14px; color: var(--text-strong); background: var(--surface-2, rgba(127,127,127,.08)); border-radius: 6px; padding: 10px 12px; margin: 10px 0 14px; overflow-wrap: anywhere; }
+    .ec-item dl { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 8px 16px; margin: 0; }
+    @media (max-width: 640px) { .ec-item dl { grid-template-columns: 1fr; gap: 2px; } .ec-item dd { margin-bottom: 8px; } }
+    .ec-item dt { color: var(--faint); font-size: 14px; }
+    .ec-item dd { margin: 0; color: var(--text-soft); }
+    .ec-empty { color: var(--faint); }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=8"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free reference &middot; LHDN e-invoice</p>
+        <h1 class="f-h1">MyInvois error codes, explained</h1>
+        <p class="f-lead">What LHDN's rejection codes and messages mean, why your e-invoice got one, and how to fix it. Every entry comes from a response LHDN actually sent to our e-invoice platform, not from guesswork. Type the code or a few words of the message to jump to it.</p>
+        <div class="f-field ec-search">
+          <label for="ecFilter">Error code or message</label>
+          <input class="f-input" id="ecFilter" type="search" placeholder="e.g. ERR237, general TIN, e-mail" autocomplete="off">
+        </div>
+        <p class="ec-count" id="ecCount" aria-live="polite"></p>
+
+        <div class="ec-list" id="ecList">
+          <article class="f-card ec-item" id="err237" data-k="ERR237 Step05 Invalid Taxpayer Profile Validator buyer's details cannot be general TIN 010 individual e-invoice BRN business registration EI00000000010">
+            <p class="ec-code"><span>ERR237</span><span class="f-badge f-badge--crimson">Marked Invalid</span></p>
+            <h2 class="f-card__title">Business buyer given the general public TIN</h2>
+            <p class="ec-msg">Buyer's details cannot be general TIN (010) for issuance of individual e-Invoice</p>
+            <dl>
+              <dt>Why</dt><dd>The buyer's ID is a business registration number (BRN), but the TIN is the general public TIN EI00000000010. That general TIN is for individuals and consolidated e-invoices, never for a company.</dd>
+              <dt>Fix</dt><dd>Ask the buyer company for its own TIN and resubmit. A Malaysian company's TIN starts with C (for example C21984536000). LHDN reports this under "Step05 - Invalid Taxpayer Profile Validator".</dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="err222" data-k="ERR222 general TIN EI00000000010 IC MyKad army MyTentera passport individual identification">
+            <p class="ec-code"><span>ERR222</span><span class="f-badge f-badge--crimson">Marked Invalid</span></p>
+            <h2 class="f-card__title">General TIN with the wrong kind of ID</h2>
+            <dl>
+              <dt>Why</dt><dd>EI00000000010 on an individual e-invoice must go with a Malaysian individual's MyKad (IC) or MyTentera (army) number. Here it went with another kind of ID.</dd>
+              <dt>Fix</dt><dd>Enter the buyer's own TIN, or their IC number with the general TIN. A foreign individual with only a passport takes EI00000000020 instead. <a href="e-invoice-tin-checker.html">Check the TIN and ID pair &rarr;</a></dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="err228" data-k="ERR228 general TIN EI00000000010 no buyer ID NA ordinary invoice not allowed">
+            <p class="ec-code"><span>ERR228</span><span class="f-badge f-badge--crimson">Marked Invalid</span></p>
+            <h2 class="f-card__title">General TIN on an ordinary invoice with no buyer ID</h2>
+            <dl>
+              <dt>Why</dt><dd>The general TIN appears with no buyer ID (or "NA") on an invoice that is not a consolidated e-invoice. LHDN only accepts that pairing on a consolidated e-invoice.</dd>
+              <dt>Fix</dt><dd>Add the buyer's IC number, or use the buyer's own TIN. If this is a walk-in sale, leave it out of individual e-invoicing and file it in your month-end consolidated e-invoice instead.</dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="err236" data-k="ERR236 consolidated e-invoice classification 004 NA general public layout">
+            <p class="ec-code"><span>ERR236</span><span class="f-badge f-badge--crimson">Marked Invalid</span></p>
+            <h2 class="f-card__title">Looks like a consolidated e-invoice, but isn't laid out as one</h2>
+            <dl>
+              <dt>Why</dt><dd>The buyer is the general public (EI00000000010 with ID "NA"), which LHDN reads as a consolidated e-invoice, but not every line carries classification code 004.</dd>
+              <dt>Fix</dt><dd>On a consolidated e-invoice, every line uses classification 004, the buyer is "General Public" with TIN EI00000000010 and ID "NA". If it is really a single sale, give the buyer's details instead. <a href="blog/einvoice-b2c-consolidation-retail-guide.html">How consolidation works &rarr;</a></dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="tin-mismatch" data-k="Authenticated TIN and document's TIN is not matching seller TIN sign in account intermediary sole proprietor">
+            <p class="ec-code"><span>No code</span><span class="f-badge f-badge--crimson">Refused</span></p>
+            <h2 class="f-card__title">Seller TIN doesn't match the account that submitted</h2>
+            <p class="ec-msg">Authenticated TIN and document's TIN is not matching</p>
+            <dl>
+              <dt>Why</dt><dd>The seller's TIN on the e-invoice is not the taxpayer whose MyInvois credentials sent it. Common after copying an invoice template from another company, or when a system submits for a client it is not authorised for.</dd>
+              <dt>Fix</dt><dd>Make the seller TIN match the account you submit with. For a sole proprietor, the ID is the owner's own IC number. If someone submits on your behalf, authorise them as your intermediary in MyInvois first.</dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="email" data-k="Enter valid e-mail address BUYER SELLER email N/A dash blank optional">
+            <p class="ec-code"><span>No code</span><span class="f-badge f-badge--crimson">Refused</span></p>
+            <h2 class="f-card__title">Email address refused</h2>
+            <p class="ec-msg">Enter valid e-mail address - BUYER</p>
+            <dl>
+              <dt>Why</dt><dd>The email field holds a placeholder such as "N/A" or "-", or more than one address. LHDN checks the format even though email is optional.</dd>
+              <dt>Fix</dt><dd>Enter one valid address, or leave the field empty when the buyer has none. Empty is accepted; "N/A" is not.</dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="phone" data-k="contact number phone telephone N/A short 8 characters NA minimum">
+            <p class="ec-code"><span>No code</span><span class="f-badge f-badge--crimson">Refused</span></p>
+            <h2 class="f-card__title">Contact number refused</h2>
+            <dl>
+              <dt>Why</dt><dd>The contact number is mandatory and LHDN refuses one shorter than 8 characters. Placeholders such as "N/A" and "-" fail that check.</dd>
+              <dt>Fix</dt><dd>Write the number with the country code, such as +60123456789. On a consolidated e-invoice, where the buyer is the general public, LHDN's own placeholder is "NA", without the slash.</dd>
+            </dl>
+          </article>
+
+          <article class="f-card ec-item" id="duplicate" data-k="DuplicateSubmission duplicate submission already submitted resend same document">
+            <p class="ec-code"><span>DuplicateSubmission</span><span class="f-badge">Nothing to resend</span></p>
+            <h2 class="f-card__title">LHDN already has this submission</h2>
+            <dl>
+              <dt>Why</dt><dd>The same document was sent again, usually because the first attempt timed out and the system retried without checking.</dd>
+              <dt>Fix</dt><dd>Don't resend. Look the document up in MyInvois (or with the API's document search) and record the e-invoice LHDN already holds. Sending it a third time won't change the answer.</dd>
+            </dl>
+          </article>
+
+          <p class="ec-empty" id="ecEmpty" hidden>Not on this list yet. LHDN's own message usually names the rule and the field, for example "Enter valid e-mail address - BUYER": correct that field and resubmit. If it still fails, <a href="contact.html?ref=error-codes">send us the message</a> and we'll add it here.</p>
+        </div>
+
+        <p class="f-note" style="margin-top: 28px">Codes and messages LHDN returned to submissions from our e-invoice platform in LHDN's test (preprod) environment in October 2026, with the cause we confirmed for each. The <a href="https://sdk.myinvois.hasil.gov.my/">MyInvois SDK</a> documents the API and the fields, but not these codes. Where LHDN's exact wording is on record it is shown in the grey box; otherwise the description is ours. Not tax advice. Checked on 19 November 2026.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Refused now, or marked Invalid later</h2></div>
+        <div class="f-prose">
+          <p>LHDN checks an e-invoice in two stages. When you submit, it checks the structure: mandatory fields, lengths and formats. A phone number of "N/A" or an email of "-" fails there, and the document is refused straight away.</p>
+          <p>A document that passes is accepted, then validated against LHDN's own records and rules a moment later. The four ERR codes above come from that second stage: the submission looked successful, and the e-invoice came back Invalid.</p>
+          <p>That second kind is the one that causes trouble. A system that only reads the submission response reports the e-invoice as sent while LHDN holds it as Invalid. Always read each document's final status. For the wider picture of rejections, see our <a href="blog/einvoice-validation-errors-rejections-fix-guide.html">guide to LHDN validation errors</a>.</p>
+        </div>
+
+        <div class="f-head" style="margin-top: 56px"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>What does ERR237 mean in MyInvois?</summary><div>LHDN's message is "Buyer's details cannot be general TIN (010) for issuance of individual e-Invoice". The buyer has a business registration number, but the e-invoice gives the general public TIN EI00000000010. A business buyer must be invoiced under its own TIN. LHDN accepts the submission first and then marks the e-invoice Invalid, so check the document's final status.</div></details><details><summary>Why did LHDN accept my e-invoice and then mark it Invalid?</summary><div>LHDN checks in two stages. At submission it checks the structure, such as mandatory fields and formats. A document that passes is accepted and then checked against LHDN's records and rules, including which general TIN may go with which ID. ERR222, ERR228, ERR236 and ERR237 come from that second stage, a moment after the submission was accepted.</div></details><details><summary>Can I resubmit an e-invoice after fixing the error?</summary><div>Yes. An e-invoice LHDN refused or marked Invalid was never a valid e-invoice, so correct it and submit it again under the same invoice number. Do not resend a document LHDN already accepted as Valid: that is a duplicate. Change a Valid e-invoice by cancelling it within 72 hours, or by issuing a credit or debit note.</div></details><details><summary>Where does LHDN list these error codes?</summary><div>The MyInvois SDK documents the API and the fields, but not these rejection codes and their causes. This page lists codes and messages LHDN actually returned to submissions from our e-invoice platform in its test environment in October 2026, with the cause we confirmed for each.</div></details></div>
+
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">Catch them before LHDN does</span>
+          Our e-Invoice platform runs these checks on every invoice before it is sent, explains any rejection in plain words, and resubmits corrected invoices for free. <a href="einvoice.html">See the e-Invoice platform &rarr;</a> <a href="einvoice.html#demo">Try the live demo, no sign-up &rarr;</a> Checking one buyer by hand? <a href="e-invoice-tin-checker.html">Use the TIN and field checker &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById('ecFilter');
+      var items = Array.prototype.slice.call(document.querySelectorAll('.ec-item'));
+      var count = document.getElementById('ecCount');
+      var empty = document.getElementById('ecEmpty');
+      var lastSent = '';
+
+      function norm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
+      items.forEach(function (el) { el._k = norm(el.getAttribute('data-k') + ' ' + el.textContent); });
+
+      function apply() {
+        var words = norm(input.value).split(' ').filter(Boolean), shown = [];
+        items.forEach(function (el) {
+          var hit = words.every(function (w) { return el._k.indexOf(w) !== -1; });
+          el.hidden = !hit;
+          if (hit) shown.push(el.id);
+        });
+        empty.hidden = shown.length > 0;
+        count.textContent = words.length ? shown.length + ' of ' + items.length + ' shown' : '';
+        return { words: words, shown: shown };
+      }
+      function send() {
+        var r = apply();
+        // Only which entry matched, never the text typed in.
+        var key = r.words.length ? (r.shown.length === 1 ? r.shown[0] : (r.shown.length ? 'several' : 'none')) : '';
+        if (key && key !== lastSent && typeof gtag === 'function') { lastSent = key; gtag('event', 'error_code_lookup', { result: key }); }
+      }
+      input.addEventListener('input', apply);
+      input.addEventListener('change', send);
+      // Links such as myinvois-error-codes.html#err237 just scroll to the entry (each card has an id).
+      apply();
+    })();
+  </script>
+</body>
+</html>

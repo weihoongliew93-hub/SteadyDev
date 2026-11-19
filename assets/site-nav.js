@@ -330,6 +330,9 @@
     var zip = href.match(/([a-z0-9-]+?)(?:-\d[\d.]*)?\.zip$/i);
     if (zip) return ['plugin_download_click', { product: zip[1] }];
     if (/(^|\/)contact\.html([?#]|$)/i.test(href)) return ['contact_cta_click', {}];
+    // The live e-invoice demo: the app itself, or the demo section that introduces it.
+    if (/^https:\/\/demo\.[^\/]*sslip\.io\//i.test(href)) return ['demo_click', { target: 'app' }];
+    if (/(^|\/)einvoice\.html#demo$/i.test(href)) return ['demo_click', { target: 'einvoice_page' }];
     return null;
   }
   document.addEventListener('click', function (e) {
