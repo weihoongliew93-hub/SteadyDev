@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://steadydevs.com/e-invoice-json-checker.html">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my e-invoice JSON uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The checker runs in your browser. The document you paste or open is read on your own computer and never sent to us or anyone else."}}, {"@type": "Question", "name": "Does passing this check mean LHDN will accept the e-invoice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It catches the mistakes that most often get e-invoices refused or marked Invalid: missing or wrong codes, general TIN pairings, phone and email formats, and totals that don't add up. LHDN also checks the TIN against its records, the digital signature on version 1.1 and its full schema, which only a submission to its sandbox can confirm."}}, {"@type": "Question", "name": "Which format does it read?", "acceptedAnswer": {"@type": "Answer", "text": "MyInvois UBL 2.1 JSON, the document you send to LHDN's submission API, with values written as arrays of objects carrying an underscore key. XML documents are not checked here."}}, {"@type": "Question", "name": "Why does the issue time need a Z?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN takes the issue date and time in UTC, and the time must end with Z, for example 01:30:00Z. Without it the document is refused with an invalid issuance date time format. Malaysian time is 8 hours ahead of UTC, so a sale at 9:30 in the morning is 01:30:00Z."}}]}</script>
-  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=8"></script>
+  <script src="assets/site-nav.js?v=9"></script>
   <main id="main">
     <section class="f-glow-top">
       <div class="f-container f-page-hero">

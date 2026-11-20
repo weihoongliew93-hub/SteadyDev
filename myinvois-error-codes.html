@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://steadydevs.com/myinvois-error-codes.html">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does ERR237 mean in MyInvois?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN's message is \"Buyer's details cannot be general TIN (010) for issuance of individual e-Invoice\". The buyer has a business registration number, but the e-invoice gives the general public TIN EI00000000010. A business buyer must be invoiced under its own TIN. LHDN accepts the submission first and then marks the e-invoice Invalid, so check the document's final status."}}, {"@type": "Question", "name": "Why did LHDN accept my e-invoice and then mark it Invalid?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN checks in two stages. At submission it checks the structure, such as mandatory fields and formats. A document that passes is accepted and then checked against LHDN's records and rules, including which general TIN may go with which ID. ERR222, ERR228, ERR236 and ERR237 come from that second stage, a moment after the submission was accepted."}}, {"@type": "Question", "name": "Can I resubmit an e-invoice after fixing the error?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. An e-invoice LHDN refused or marked Invalid was never a valid e-invoice, so correct it and submit it again under the same invoice number. Do not resend a document LHDN already accepted as Valid: that is a duplicate. Change a Valid e-invoice by cancelling it within 72 hours, or by issuing a credit or debit note."}}, {"@type": "Question", "name": "Where does LHDN list these error codes?", "acceptedAnswer": {"@type": "Answer", "text": "The MyInvois SDK documents the API and the fields, but not these rejection codes and their causes. This page lists codes and messages LHDN actually returned to submissions from our e-invoice platform in its test environment in October 2026, with the cause we confirmed for each."}}]}</script>
-  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,7 @@
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=8"></script>
+  <script src="assets/site-nav.js?v=9"></script>
   <main id="main">
     <section class="f-glow-top">
       <div class="f-container f-page-hero">

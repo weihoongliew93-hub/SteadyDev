@@ -217,9 +217,13 @@
 
     var root = document.documentElement;
     var themeBtn = document.getElementById('fhTheme');
+    // The theme follows the visitor's system setting (set in each page's <head>) until they
+    // press the toggle; after that their choice is saved and wins.
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
     var syncThemeLabel = function () {
       var light = root.getAttribute('data-theme') === 'light';
       themeBtn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+      if (themeMeta) themeMeta.setAttribute('content', light ? '#F7F8FA' : '#0A0B0F');
     };
     syncThemeLabel();
     themeBtn.addEventListener('click', function () {
@@ -228,6 +232,16 @@
       try { localStorage.setItem('sd-theme', next); } catch (e) { /* storage blocked: theme still switches */ }
       syncThemeLabel();
     });
+    var systemLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
+    if (systemLight && systemLight.addEventListener) {
+      systemLight.addEventListener('change', function (e) {
+        var saved = null;
+        try { saved = localStorage.getItem('sd-theme'); } catch (err) { /* storage blocked */ }
+        if (saved === 'light' || saved === 'dark') return;
+        root.setAttribute('data-theme', e.matches ? 'light' : 'dark');
+        syncThemeLabel();
+      });
+    }
 
     // Every menu (EInvoice, plugins, language) opens on click, closes on Escape or a click
     // elsewhere, and opening one closes the others.

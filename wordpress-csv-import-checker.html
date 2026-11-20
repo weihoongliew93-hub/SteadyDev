@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://steadydevs.com/wordpress-csv-import-checker.html">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which columns does SteadyPost need?", "acceptedAnswer": {"@type": "Answer", "text": "Only a title. Every other column is optional, and columns it doesn't recognise are ignored unless you map them on the Import screen. Header names are matched without regard to case, spaces or punctuation, so \"Publish Date\", \"publish_date\" and \"PUBLISH-DATE\" are the same column."}}, {"@type": "Question", "name": "What date format should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Use YYYY-MM-DD HH:MM, for example 2026-11-01 09:00. SteadyPost reads it in your site's timezone. Dates with slashes are read month first, so 03/11/2026 becomes 11 March, and 13/11/2026 can't be read at all. Dates with dashes or dots, such as 03-11-2026, are read day first."}}, {"@type": "Question", "name": "How do I separate categories and tags?", "acceptedAnswer": {"@type": "Answer", "text": "With commas or vertical bars, such as News, Events or News | Events. Semicolons are not separators. Categories and tags that don't exist yet are created during the import."}}, {"@type": "Question", "name": "Why do accents or Chinese characters come out wrong?", "acceptedAnswer": {"@type": "Answer", "text": "SteadyPost reads a CSV as UTF-8. If the file isn't valid UTF-8, it assumes Windows-1252, the encoding Excel uses for plain CSV on Windows. That keeps Western European accents but garbles Chinese, Tamil and other scripts. In Excel, save as CSV UTF-8 (Comma delimited) instead."}}, {"@type": "Question", "name": "Will importing the same file twice create duplicate posts?", "acceptedAnswer": {"@type": "Answer", "text": "No. Each row is matched to the post it created, by a Ref column, then the slug, then the title, and that post is updated. The same applies inside one file: two rows with the same slug or title become one post, and the later row's values win."}}]}</script>
-  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +80,7 @@
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=8"></script>
+  <script src="assets/site-nav.js?v=9"></script>
   <main id="main">
     <section class="f-glow-top">
       <div class="f-container f-page-hero">

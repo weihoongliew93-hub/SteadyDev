@@ -71,7 +71,7 @@ page = f'''<!DOCTYPE html>
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="{URL}">
   <script type="application/ld+json">{faq_ld}</script>
-  <script>try{{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
+  <script>(function(){{var t;try{{t=localStorage.getItem("sd-theme")}}catch(e){{}}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)}})()</script>
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +105,7 @@ page = f'''<!DOCTYPE html>
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=3"></script>
+  <script src="assets/site-nav.js?v=9"></script>
   <main id="main">
     <section class="f-glow-top">
       <div class="f-container f-page-hero">

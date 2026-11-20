@@ -16,7 +16,7 @@
 <meta content="summary" name="twitter:card"/>
 <link href="https://steadydevs.com/zh/wordpress-csv-import-checker.html" rel="canonical"/><link href="https://steadydevs.com/wordpress-csv-import-checker.html" hreflang="x-default" rel="alternate"/><link href="https://steadydevs.com/zh/wordpress-csv-import-checker.html" hreflang="zh-Hans" rel="alternate"/><link href="https://steadydevs.com/ms/wordpress-csv-import-checker.html" hreflang="ms" rel="alternate"/><link href="https://steadydevs.com/wordpress-csv-import-checker.html" hreflang="en" rel="alternate"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "SteadyPost 需要哪些列？", "acceptedAnswer": {"@type": "Answer", "text": "只需要标题。其他列都是可选的，无法识别的列除非您在导入页面中映射，否则会被忽略。标题名称的匹配不分大小写、空格或标点，所以 \"Publish Date\"、\"publish_date\" 和 \"PUBLISH-DATE\" 是同一列。"}}, {"@type": "Question", "name": "应该用什么日期格式？", "acceptedAnswer": {"@type": "Answer", "text": "请使用 YYYY-MM-DD HH:MM，例如 2026-11-01 09:00。SteadyPost 会按您网站的时区读取。带斜线的日期按月份在前读取，所以 03/11/2026 会变成 3 月 11 日，而 13/11/2026 完全无法读取。带连字符或点的日期，例如 03-11-2026，按日期在前读取。"}}, {"@type": "Question", "name": "分类和标签怎么分隔？", "acceptedAnswer": {"@type": "Answer", "text": "用逗号或竖线，例如 News, Events 或 News | Events。分号不是分隔符。尚不存在的分类和标签会在导入时创建。"}}, {"@type": "Question", "name": "为什么重音字母或中文会变成乱码？", "acceptedAnswer": {"@type": "Answer", "text": "SteadyPost 按 UTF-8 读取 CSV。如果文件不是有效的 UTF-8，它会当作 Windows-1252，即 Windows 上 Excel 保存普通 CSV 时使用的编码。这样能保留西欧语言的重音字母，但中文、淡米尔文等文字会变成乱码。请在 Excel 中改存为 CSV UTF-8（逗号分隔）。"}}, {"@type": "Question", "name": "同一个文件导入两次会产生重复文章吗？", "acceptedAnswer": {"@type": "Answer", "text": "不会。每一行会依次按 Ref 列、slug、标题匹配到它之前创建的文章，并更新那篇文章。同一个文件内也一样：slug 或标题相同的两行会成为同一篇文章，以后面那一行的值为准。"}}]}</script>
-<script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
 <meta content="#0A0B0F" name="theme-color"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -81,7 +81,7 @@
 <body>
 <a class="f-skip" href="#main">跳到内容</a>
 <div id="sd-site-nav"></div>
-<script src="../assets/site-nav.js?v=8"></script>
+<script src="../assets/site-nav.js?v=9"></script>
 <main id="main">
 <section class="f-glow-top">
 <div class="f-container f-page-hero">

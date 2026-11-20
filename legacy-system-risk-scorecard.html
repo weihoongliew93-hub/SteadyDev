@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://steadydevs.com/legacy-system-risk-scorecard.html">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this scorecard an audit of my system?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a rule of thumb built from the problems we see most often when we take over legacy systems. It can't see your code, your server or your backups, so a low score doesn't prove the system is safe and a high one doesn't mean it is about to fail. Use it to decide what to check first."}}, {"@type": "Question", "name": "Why does \"Not sure\" count against me?", "acceptedAnswer": {"@type": "Answer", "text": "Because not knowing is itself a finding. If nobody can say when a backup was last restored or which server version the system runs on, nobody is looking after it. \"Not sure\" scores half the weight of \"Yes\", and finding out is the first step."}}, {"@type": "Question", "name": "What should I fix first?", "acceptedAnswer": {"@type": "Answer", "text": "Usually access, code and data: make sure the business holds every login, a complete copy of the source code and a backup it has actually restored. Those are what you need on the day something goes wrong. The scorecard lists your top three in order of weight."}}, {"@type": "Question", "name": "The system works fine. Why should I worry?", "acceptedAnswer": {"@type": "Answer", "text": "Working fine and about to fail often look the same from outside. Systems send warning signs for months before they fail, and fixing them on your own schedule is far cheaper than fixing an outage."}}, {"@type": "Question", "name": "What does the free assessment involve?", "acceptedAnswer": {"@type": "Answer", "text": "You describe the system and the problem. We reply within 1 to 2 business days, hold a free 30-minute strategy session, and send a written assessment with a fixed quote. There is no charge and no obligation to proceed."}}]}</script>
-  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,7 +60,7 @@
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=8"></script>
+  <script src="assets/site-nav.js?v=9"></script>
   <main id="main">
     <section class="f-glow-top">
       <div class="f-container f-page-hero">

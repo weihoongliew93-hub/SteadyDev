@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://steadydevs.com/e-invoice-tin-checker.html">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What TIN do I use for a buyer who has none?", "acceptedAnswer": {"@type": "Answer", "text": "Use one of LHDN's general TINs. For a Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder, use EI00000000010 with that number. For a foreign individual with only a passport, or a foreign buyer on an export sale, use EI00000000020. For a government or statutory body, use EI00000000040. A Malaysian business that gives you its registration number can't take EI00000000010: ask it for its own TIN."}}, {"@type": "Question", "name": "What is EI00000000010?", "acceptedAnswer": {"@type": "Answer", "text": "LHDN's general public TIN. It goes on an e-invoice to a Malaysian individual who gives only a MyKad or MyTentera number, or a MyPR or MyKAS holder, and on a consolidated e-invoice as the buyer's TIN, with the buyer ID \"NA\". Beside a business registration number, or on an ordinary invoice with no buyer ID, LHDN takes the submission and then marks the e-invoice Invalid."}}, {"@type": "Question", "name": "Why was my e-invoice rejected for the phone number?", "acceptedAnswer": {"@type": "Answer", "text": "The contact number is mandatory, and LHDN refuses one shorter than 8 characters. \"N/A\" and \"-\" fail that check. Write the number with the country code, such as +60123456789. On a consolidated e-invoice, where the buyer is the general public, LHDN's placeholder is \"NA\", without the slash."}}, {"@type": "Question", "name": "Can a consolidated e-invoice exceed RM10,000?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in total. The RM10,000 rule is about a single sale: any one transaction above RM10,000 needs its own e-invoice and can't go into a consolidated one. Phase 4 businesses in the relaxation period, which runs to 31 December 2027, may consolidate all their sales, including those above RM10,000."}}, {"@type": "Question", "name": "Does this check tell me the TIN is real?", "acceptedAnswer": {"@type": "Answer", "text": "No. It checks the format and LHDN's rules on which TIN goes with which ID. Only LHDN can confirm that a TIN is registered and matches the ID number. The buyer can find their TIN in MyTax, and a system connected to MyInvois can check the TIN and ID pair with LHDN's Validate TIN API before sending."}}]}</script>
-  <script>try{var t=localStorage.getItem("sd-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
   <meta name="theme-color" content="#0A0B0F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@
 <body>
   <a class="f-skip" href="#main">Skip to content</a>
   <div id="sd-site-nav"></div>
-  <script src="assets/site-nav.js?v=8"></script>
+  <script src="assets/site-nav.js?v=9"></script>
   <main id="main">
     <section class="f-glow-top">
       <div class="f-container f-page-hero">
