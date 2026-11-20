@@ -1,0 +1,40 @@
+# Uptime check for the e-invoice platform (on the Oracle VM, not GitHub Pages).
+#
+# A failed run is the alert: GitHub emails a failed scheduled workflow to whoever last changed
+# its schedule, and shows it in the GitHub mobile app. Each URL gets three tries a minute apart
+# so one dropped connection does not page anyone. GitHub may start scheduled runs late under
+# load; treat this as "within about 15 minutes", not to the second.
+name: Uptime check
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: uptime-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Platform and demo respond healthy
+        run: |
+          fail=0
+          for url in \
+            https://einvoice.steadydevs.com/health \
+            https://demo.129-221-144-95.sslip.io/health
+          do
+            ok=0
+            for attempt in 1 2 3; do
+              body=$(curl -fsS --max-time 20 "$url" 2>&1) && echo "$body" | grep -q '"status":"healthy"' && { ok=1; break; }
+              echo "::warning::$url attempt $attempt failed: ${body:0:200}"
+              [ $attempt -lt 3 ] && sleep 60
+            done
+            if [ $ok -eq 1 ]; then echo "OK   $url"; else echo "::error::DOWN $url"; fail=1; fi
+          done
+          exit $fail
