@@ -59,7 +59,7 @@ B = {
  'b49': 'Hanya perlukan nasihat? Penasihat · RM497 / bulan <span class="f-muted" style="font-size: 15px; font-weight: 500">(≈ S$150 · US$120)</span>',
  'b50': 'Sehingga 4 jam sebulan nasihat jurutera kanan: keputusan teknikal, pandangan kedua sebelum anda melancarkan perubahan, dan panggilan semakan bulanan. Sasaran respons pertama dalam 2 hari bekerja.',
  'b51': 'Pilih Penasihat',
- 'b108': 'Prabayar 6 bulan dan jimat 8%, atau 12 bulan dan jimat 10% · Jam yang tidak digunakan dibawa satu bulan ke hadapan bagi Jurutera pasukan dan Ketua kejuruteraan · Jam tambahan RM285/jam · Minimum 3 bulan, kemudian batal dengan notis 30 hari. Setiap pelan bermula dengan sesi orientasi untuk memetakan sistem dan keutamaan anda.',
+ 'b108': 'Prabayar 6 bulan dan jimat 8%, atau 12 bulan dan jimat 10% · Jam yang tidak digunakan dibawa satu bulan ke hadapan bagi Jurutera pasukan dan Ketua kejuruteraan · Jam tambahan RM148/jam · Minimum 3 bulan, kemudian batal dengan notis 30 hari. Setiap pelan bermula dengan sesi orientasi untuk memetakan sistem dan keutamaan anda.',
  'b109': '<a class="f-btn f-btn--primary" href="contact.html?package=Engineer%20Retainer">Tempah tempat anda</a>',
  'b110': 'Apa yang kami lakukan',
  'b111': 'Daripada penyelamatan segera hingga penjagaan jangka panjang',
