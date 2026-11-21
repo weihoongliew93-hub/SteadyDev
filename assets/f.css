@@ -590,5 +590,10 @@ a.f-tag:hover { color: var(--text-strong); border-color: var(--border-strong); }
   .f-glow-top:not(:has(form, input, select, textarea, .ei-preview)), .f-cta { background-size: auto 120px, auto, auto, auto, auto; background-position: right bottom, 0 0, 0 0, 0 0, 0 0; }
 }
 
+/* Free tools: the title sits in a shorter navy band and the tool itself in the section below it. */
+.f-glow-top:has(+ .f-tool-section) > .f-container { padding-bottom: clamp(110px, 11vw, 150px); }
+.f-tool-section { padding-top: 56px; padding-bottom: 80px; }
+@media (max-width: 760px) { .f-glow-top:has(+ .f-tool-section) > .f-container { padding-bottom: 150px; } }
+
 /* Pill buttons everywhere, as on the product pages. */
 .f-btn { border-radius: 999px; }

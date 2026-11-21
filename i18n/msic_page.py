@@ -112,6 +112,11 @@ page = f'''<!DOCTYPE html>
         <p class="f-eyebrow">Free tool &middot; LHDN e-invoice</p>
         <h1 class="f-h1">MSIC code lookup</h1>
         <p class="f-lead">Every e-invoice must carry the seller's five-digit MSIC code, and LHDN only accepts codes on its own list. Search all {len(codes):,} of them by code or by what your business does.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-tool-section">
+      <div class="f-container">
         <div class="msic-tools">
           <div class="f-field"><label for="msicQ">Search</label><input class="f-input" id="msicQ" type="search" placeholder="e.g. restaurant, software, 47111" autocomplete="off"></div>
           <div class="f-field"><label for="msicS">Section</label><select class="f-input" id="msicS"><option value="">All sections</option>{options}</select></div>

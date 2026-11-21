@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/legacy-dotnet-warning-signs.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -179,11 +179,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>5 Warning Signs Your Legacy .NET System Needs Professional Attention</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>5 Warning Signs Your Legacy .NET System Needs Professional Attention</span>
+      </nav>
+      <h1 class="f-h1">5 Warning Signs Your Legacy .NET System Needs Professional Attention</h1>
+      <p class="f-note">April 6, 2026 · 8 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -226,10 +231,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/legacy-dotnet-warning-signs.webp" alt="Code displayed on laptop screen representing legacy .NET systems" class="blog-hero-image" width="1600" height="900" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>5 Warning Signs Your Legacy .NET System Needs Professional Attention</h1>
-          <div class="blog-meta">April 6, 2026 | 8 min read</div>
-        </div>
         <p>You know the feeling. Every time someone mentions making a change to your legacy .NET system, there's a collective groan in the room. Maybe it's a POS system that's been running for years, an inventory management platform, or a custom business application that everything depends on.</p>
 <p>The system works—mostly. But deep down, you know something's not quite right. Small issues keep cropping up, changes take longer than they should, and there's an underlying anxiety that one wrong move could break everything.</p>
 <p>If this sounds familiar, you're not alone. Many businesses are in the same situation, running critical systems that were built years ago and are now difficult to maintain. The question is: <strong>how do you know when it's time to seek professional help?</strong></p>

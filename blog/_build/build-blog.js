@@ -449,7 +449,7 @@ function generateHTML(post) {
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>${howToSchema}${faqSchema}
@@ -486,11 +486,16 @@ function generateHTML(post) {
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>${post.title}</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>${post.title}</span>
+      </nav>
+      <h1 class="f-h1">${post.title}</h1>
+      <p class="f-note">${post.dateDisplay} · ${post.readTime}</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -533,10 +538,6 @@ function generateHTML(post) {
     <main class="blog-content" id="main">
       <article>
         ${heroImageHTML}
-        <div class="blog-header">
-          <h1>${post.title}</h1>
-          <div class="blog-meta">${post.dateDisplay} | ${post.readTime}</div>
-        </div>
         ${contentHTML}
         ${productCallout(post)}
       </article>

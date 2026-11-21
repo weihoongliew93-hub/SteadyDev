@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/rm30000-mistake-add-feature.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -171,11 +171,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</span>
+      </nav>
+      <h1 class="f-h1">The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</h1>
+      <p class="f-note">July 25, 2026 · 10 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -218,10 +223,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/rm30000-mistake-add-feature.webp" alt="Business owner and developer discussing the true cost of a feature" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>The RM30,000 Mistake: Why 'Just Add That Feature' Is Never That Simple</h1>
-          <div class="blog-meta">July 25, 2026 | 10 min read</div>
-        </div>
         <p>"Can you just add a field so we can track the delivery date?" It sounds like a five-minute job. Then the quote comes back at RM30,000 and a two-month timeline, and you're left wondering whether you're being taken for a ride.</p>
 <p>Usually, you're not. The gap between how simple a feature <em>sounds</em> and what it actually takes to build is one of the most consistent sources of friction between business owners and developers. Understanding where the cost comes from won't make features cheaper—but it will help you make smarter decisions about which ones are worth it.</p>
 <h2>Why 'Just Add a Field' Is Almost Never Just a Field</h2>

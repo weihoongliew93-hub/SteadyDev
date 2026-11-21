@@ -24,6 +24,7 @@
     "operatingSystem": "Web-based",
     "description": "Cloud-based SaaS platform for automated LHDN MyInvois e-invoice submission. Three-tier validation, monthly consolidated e-invoices and real-time status sync for Malaysian businesses.",
     "url": "https://steadydevs.com/einvoice.html",
+    "screenshot": "https://steadydevs.com/images/einvoice/invoices.webp",
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "MYR",
@@ -71,47 +72,7 @@
 <link as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Chakra+Petch:wght@600;700&amp;display=swap" rel="stylesheet"/></noscript>
 <link href="../assets/f.css?v=13" rel="stylesheet"/>
 <link href="../assets/f-legacy.css?v=4" rel="stylesheet"/>
-  <style>
-    /* Screenshot slideshow and live-demo box. f.css theme tokens only, so both themes work. */
-    .slideshow-frame { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
-    .slideshow-titlebar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--surface-inset); border-bottom: 1px solid var(--border-soft); }
-    .ss-trafficdot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; background: var(--border-strong); }
-    .ss-urlbar { flex: 1; max-width: 320px; margin-left: 8px; padding: 3px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font: 12px var(--mono); color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .slideshow-track { position: relative; }
-    /* Inactive slides sit as transparent overlays; the active one is in normal flow and sets the height. */
-    .ss-slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity .5s ease; pointer-events: none; }
-    .ss-slide.active { position: relative; opacity: 1; pointer-events: auto; }
-    .ss-slide img { display: block; width: 100%; height: auto; }
-    .slideshow-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; border-top: 1px solid var(--border-soft); }
-    .ss-caption { flex: 1; min-width: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
-    .ss-caption strong { color: var(--text-strong); font-weight: 600; }
-    .ss-nav { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .ss-arrow { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 6px; color: var(--muted); font-size: 16px; cursor: pointer; transition: border-color .15s, color .15s; }
-    .ss-arrow:hover { border-color: var(--faint); color: var(--text-strong); }
-    .ss-dots { display: flex; align-items: center; gap: 6px; }
-    .ss-dot-btn { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: var(--border-strong); cursor: pointer; transition: background .2s, transform .2s; }
-    .ss-dot-btn.active { background: var(--crimson); transform: scale(1.3); }
-    @media (max-width: 640px) { .ss-urlbar { display: none; } }
-
-    .demo-box { padding: 56px 40px; text-align: center; background: radial-gradient(ellipse 70% 60% at 50% 0%, var(--glow-system), transparent 70%), var(--surface); border: 1px solid var(--system-line-soft); border-radius: var(--radius); scroll-margin-top: 90px; }
-    .demo-box .f-sub { margin-left: auto; margin-right: auto; max-width: 640px; }
-    .demo-box .demo-note { font-size: 15px; }
-    .demo-box .demo-note strong { color: var(--text-strong); font-weight: 600; }
-    .demo-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin: 36px 0; text-align: left; }
-    .demo-card { padding: 20px 18px; background: var(--surface-inset); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); }
-    .demo-card-icon { font-size: 22px; margin-bottom: 10px; }
-    .demo-card-title { color: var(--text-strong); font-weight: 600; margin-bottom: 6px; }
-    .demo-card-desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
-    .demo-launch { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px; }
-    .demo-credentials { padding: 16px 24px; text-align: left; background: var(--surface-inset); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); }
-    .demo-credentials .cred-label { margin-bottom: 10px; font: 12px var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--faint); }
-    .demo-credentials .cred-row { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; font-size: 15px; }
-    .demo-credentials .cred-row:last-child { margin-bottom: 0; }
-    .demo-credentials .cred-key { min-width: 76px; color: var(--muted); }
-    .demo-credentials .cred-val { font-family: var(--mono); color: var(--text-strong); }
-    .demo-launch .f-note { margin-top: 10px; }
-    @media (max-width: 580px) { .demo-box { padding: 40px 20px; } }
-  </style>
+<link as="image" href="../images/einvoice/invoices.webp" media="(prefers-color-scheme: light)" rel="preload"/>
 <!-- Google Analytics -->
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -127,40 +88,196 @@
     });
   </script>
 <style>
-    /* EInvoice page (design F). Uses f.css tokens only. */
-    .ei-btn-invert { background: var(--text-strong); color: var(--bg); }
-    .ei-btn-invert:hover { color: var(--bg); opacity: .9; }
-    .ei-preview { margin: 64px auto 0; max-width: 980px; text-align: left; }
-    .ei-window { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; }
-    .ei-window__bar { display: flex; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); }
-    .ei-window__bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
-    .ei-window__body { padding: 24px; display: flex; flex-wrap: wrap; gap: 20px; }
-    .ei-window__main { flex: 2 1 420px; min-width: 0; }
-    .ei-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
-    .ei-tiles div { background: var(--surface-inset); border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px 14px; }
-    .ei-tiles span { display: block; font-size: 12px; color: var(--faint); }
-    .ei-tiles b { font-size: 22px; font-weight: 600; color: var(--text-strong); }
-    .ei-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .ei-table th { text-align: left; font-weight: 500; color: var(--faint); padding: 8px 0; border-bottom: 1px solid var(--border-soft); }
-    .ei-table td { padding: 10px 0; border-bottom: 1px solid var(--border-soft); color: var(--text); }
-    .ei-table tr:last-child td { border-bottom: 0; }
-    .ei-table td.f-ok, .ei-tiles b.f-ok { color: var(--ok); } .ei-table td.f-warn, .ei-tiles b.f-warn { color: var(--warn); } .ei-table td.f-info { color: var(--info); }
-    .ei-alert { flex: 1 1 240px; align-self: flex-start; }
-    .ei-alert .f-sys__body { padding: 16px; }
-    .ei-tiers { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; }
-    .ei-tiers li { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
-    .ei-tiers b { color: var(--text-strong); font-weight: 600; }
-    .ei-tiers p { color: var(--muted); font-size: 15px; margin-top: 4px; }
-    .ei-tiers .f-badge { flex: none; }
-    .ei-badge-warn { color: var(--warn); border-color: currentColor; }
-    .ei-notes { margin: 14px 0 0; padding-left: 1.3em; color: var(--muted); font-size: 15px; display: grid; gap: 10px; }
-    .ei-notes b, .f-note b { color: var(--text-strong); font-weight: 600; }
-    .ei-facts { margin: 28px 0 0; }
-    .ei-facts div { display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--border-soft); }
-    .ei-facts dt { flex: 0 0 180px; font-weight: 500; color: var(--text-strong); }
-    .ei-facts dd { margin: 0; flex: 1 1 320px; color: var(--muted); font-size: 16px; }
-    .f-price-card a[href="#premium-notes"] { color: var(--crimson-text); text-decoration: none; }
-    @media (max-width: 560px) { .ei-tiles { grid-template-columns: 1fr; } .ei-tiers li { flex-direction: column; } }
+    /* EInvoice product page: Apple-style storytelling, Stripe-style hero and developer section.
+       f.css tokens for everything that sits on the page background, so both themes work. */
+    .ep { --ink: #0A2540; --indigo: #6366F1; --ep-tile: var(--bg-alt); overflow-x: clip; }
+    .ep img { display: block; max-width: 100%; height: auto; }
+    .ep .t-dark { display: none; }
+    [data-theme="dark"] .ep .t-light { display: none; }
+    [data-theme="dark"] .ep .t-dark { display: block; }
+    .ep-wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .ep-label { font-size: 15px; font-weight: 600; color: var(--crimson-text); margin: 0 0 12px; }
+    .ep h1, .ep h2, .ep h3 { color: var(--text-strong); letter-spacing: -.03em; margin: 0; }
+    .ep-h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.06; font-weight: 600; }
+    .ep-sub { font-size: 20px; line-height: 1.55; color: var(--muted); max-width: 36em; margin: 18px 0 0; }
+    .ep-center { text-align: center; }
+    .ep-center .ep-sub { margin-left: auto; margin-right: auto; }
+    .ep-link { color: var(--crimson-text); font-weight: 500; text-decoration: none; }
+    .ep-link::after { content: " \2192"; }
+    .ep-sec { padding: 120px 0; }
+    .ep-sec--tile { background: var(--ep-tile); }
+    .ep-shadow { box-shadow: 0 50px 100px -20px rgba(50, 50, 93, .25), 0 30px 60px -30px rgba(0, 0, 0, .3); }
+
+    /* Hero: deep navy with the logo's blocks stacked into rising columns, and a stepped bottom
+       edge like the logo's bars. Always dark, in both themes. */
+    .ep-hero { position: relative; padding: 72px 0 0; isolation: isolate; }
+    .ep-mesh, .ep-cta { --ep-glow:
+        radial-gradient(70% 90% at 85% 10%, rgba(59, 130, 246, .55), transparent 60%),
+        radial-gradient(45% 60% at 100% 70%, rgba(147, 197, 253, .28), transparent 65%),
+        radial-gradient(55% 70% at 0% 100%, rgba(207, 58, 64, .32), transparent 65%),
+        linear-gradient(160deg, #0A1628 0%, #0F2347 55%, #1E3A8A 100%);
+      background: url(/images/hero-blocks.svg) center bottom / 100% auto no-repeat, var(--ep-glow); }
+    .ep-mesh { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: -1; }
+    .ep-hero__grid { padding-bottom: 150px; }
+    .ep-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 48px; align-items: start; }
+    .ep-pill { display: inline-block; font-size: 14px; font-weight: 500; color: #fff; background: rgba(255, 255, 255, .18); border: 1px solid rgba(255, 255, 255, .3); padding: 5px 14px; border-radius: 999px; margin: 0 0 22px; backdrop-filter: blur(6px); }
+    .ep-hero h1 { font-size: clamp(42px, 5vw, 66px); line-height: 1.02; letter-spacing: -.04em; font-weight: 700; color: #fff; }
+    .ep-hero h1 span { color: #93C5FD; }
+    .ep-hero__lede { font-size: 19px; line-height: 1.55; color: #C9D6EA; max-width: 30em; margin: 24px 0 30px; }
+    .ep-hero .ep-btn--ink { background: #CF3A40; }
+    .ep-btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .ep-btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-size: 16px; font-weight: 600; text-decoration: none; transition: transform .15s, opacity .15s; }
+    .ep-btn:hover { transform: translateY(-1px); opacity: .92; }
+    .ep-btn--ink { background: var(--ink); color: #fff; }
+    .ep-btn--white { background: #fff; color: var(--ink); }
+    .ep-btn--line { border: 1px solid var(--border-strong); color: var(--text-strong); }
+    .ep-hero__note { font-size: 14px; color: #9FB0C8; margin: 16px 0 0; }
+    .ep-hero__note a { color: #fff; }
+    .ep-stack { position: relative; height: 540px; }
+    .ep-float { position: absolute; border-radius: 10px; overflow: hidden; background: var(--surface); }
+    .ep-float--main { left: 0; top: 0; width: 780px; }
+    .ep-float--card { left: 10px; top: 330px; width: 420px; border-radius: 12px; }
+    .ep-float--badge { left: 455px; top: -30px; display: flex; gap: 12px; align-items: center; padding: 14px 18px; font-size: 14px; color: var(--text-strong); border-radius: 12px; white-space: nowrap; }
+    .ep-float--badge b { width: 30px; height: 30px; border-radius: 50%; background: rgba(70, 167, 88, .15); color: var(--ok); display: grid; place-items: center; }
+    .ep-float--badge small { display: block; color: var(--faint); font-size: 12px; }
+    .ep-strip { border-bottom: 1px solid var(--border-soft); background: var(--bg); }
+    .ep-strip .ep-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; padding-top: 22px; padding-bottom: 22px; font-size: 15px; color: var(--faint); }
+    .ep-strip b { color: var(--text-strong); font-weight: 600; }
+    @media (max-width: 980px) {
+      .ep-hero__grid { grid-template-columns: 1fr; }
+      .ep-stack { height: auto; }
+      .ep-float--main { position: relative; width: 100%; }
+      .ep-float--card, .ep-float--badge { display: none; }
+      .ep-hero__grid { padding-bottom: 150px; }
+      .ep-mesh, .ep-cta { background-size: auto 130px, auto, auto, auto, auto; background-position: right bottom, 0 0, 0 0, 0 0, 0 0; }
+      .ep-sec { padding: 88px 0; }
+    }
+
+    /* Browser frame for the dashboard */
+    .ep-browser { max-width: 1080px; margin: 56px auto 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+    .ep-browser__bar { height: 38px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: var(--surface-inset); border-bottom: 1px solid var(--border-soft); }
+    .ep-browser__bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--border-strong); }
+
+    /* Problems: Stripe-style columns with a coloured rule */
+    .ep-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 36px; margin-top: 56px; }
+    .ep-cols h3 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; padding-left: 14px; border-left: 2px solid var(--crimson); margin-left: -16px; }
+    .ep-cols p { font-size: 16px; line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
+    @media (max-width: 980px) { .ep-cols { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .ep-cols { grid-template-columns: 1fr; } .ep-cols h3 { margin-left: 0; } }
+
+    /* Feature stories: one idea per row, Apple-style */
+    .ep-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 64px; align-items: center; }
+    .ep-story + .ep-story { margin-top: 140px; }
+    .ep-story--flip .ep-story__text { order: 2; }
+    .ep-story h3 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.08; font-weight: 600; }
+    .ep-story p { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 16px 0 0; }
+    .ep-shot { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+    .ep-shot--tall { max-width: 460px; margin: 0 auto; }
+    .ep-tiers { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px; }
+    .ep-tiers li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; font-size: 16px; color: var(--muted); }
+    .ep-tiers b { color: var(--text-strong); display: block; font-weight: 600; }
+    .ep-tiers i { font-style: normal; width: 28px; height: 28px; border-radius: 50%; background: var(--text-strong); color: var(--bg); display: grid; place-items: center; font-size: 14px; font-weight: 600; }
+    .ep-big { border-radius: 22px; background: #0A1628; color: #A1A1A6; padding: 56px 40px; text-align: center; }
+    .ep-big b { display: block; font-size: clamp(110px, 16vw, 190px); line-height: .9; letter-spacing: -.06em; font-weight: 700;
+      background: linear-gradient(160deg, #93C5FD, #3B82F6 55%, #1E3A8A); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .ep-big span { display: block; font-size: 22px; color: #F5F5F7; font-weight: 600; margin-top: 10px; }
+    .ep-big small { display: block; font-size: 15px; margin-top: 6px; }
+    @media (max-width: 900px) { .ep-story { grid-template-columns: 1fr; gap: 32px; } .ep-story--flip .ep-story__text { order: 0; } .ep-story + .ep-story { margin-top: 96px; } }
+
+    /* Everything else: compact grid */
+    .ep-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--border-soft); border: 1px solid var(--border-soft); border-radius: 16px; overflow: hidden; margin-top: 56px; }
+    .ep-grid article { background: var(--surface); padding: 28px 26px; }
+    .ep-grid h3 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+    .ep-grid p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
+    @media (max-width: 900px) { .ep-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .ep-grid { grid-template-columns: 1fr; } }
+
+    /* Steps */
+    .ep-steps { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; counter-reset: s; }
+    .ep-steps li { counter-increment: s; border-top: 2px solid var(--text-strong); padding-top: 18px; }
+    .ep-steps li::before { content: "0" counter(s); font: 500 14px var(--mono); color: var(--faint); }
+    .ep-steps b { display: block; font-size: 22px; color: var(--text-strong); margin: 6px 0 8px; letter-spacing: -.02em; font-weight: 600; }
+    .ep-steps p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+    @media (max-width: 900px) { .ep-steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .ep-steps { grid-template-columns: 1fr; } }
+
+    /* Developer section: navy, angled (Stripe) */
+    .ep-navy { background: #0A1628; color: #ADBDCC; padding: 130px 0; }
+    .ep-navy h2 { color: #fff; }
+    .ep-navy .ep-label { color: #80E9FF; }
+    .ep-navy .ep-sub { color: #ADBDCC; }
+    .ep-dev { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 56px; align-items: center; }
+    @media (max-width: 960px) { .ep-dev { grid-template-columns: 1fr; } }
+    .ep-ways { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 16px; }
+    .ep-ways li { padding-left: 26px; position: relative; font-size: 16px; line-height: 1.55; }
+    .ep-ways li::before { content: "\2713"; position: absolute; left: 0; color: #80E9FF; }
+    .ep-ways b { color: #fff; font-weight: 600; }
+    .ep-code { background: #13304B; border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .5); font: 13.5px/1.75 var(--mono); }
+    .ep-code__tabs { display: flex; gap: 20px; padding: 12px 20px; background: #0F2A44; font: 500 13px var(--font); color: #8AA1B8; }
+    .ep-code__tabs b { color: #fff; font-weight: 500; }
+    .ep-code pre { margin: 0; padding: 20px 22px; color: #E6EDF3; overflow-x: auto; white-space: pre; }
+    .ep-code .c { color: #6C8AA8; } .ep-code .s { color: #A5F3C4; } .ep-code .k { color: #FF9ED8; } .ep-code .n { color: #FFD479; }
+    .ep-navy .ep-link { color: #80E9FF; }
+
+    /* Demo */
+    .ep-demo-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 48px 0 36px; text-align: left; }
+    .ep-demo-cards div { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 14px; padding: 22px 20px; }
+    .ep-demo-cards b { display: block; color: var(--text-strong); font-size: 16px; margin-bottom: 6px; }
+    .ep-demo-cards p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    @media (max-width: 900px) { .ep-demo-cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .ep-demo-cards { grid-template-columns: 1fr; } }
+    .ep-demo-launch { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px; }
+    .ep-cred { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 14px 22px; text-align: left; font-size: 15px; }
+    .ep-cred div { display: flex; gap: 12px; }
+    .ep-cred span { min-width: 76px; color: var(--muted); }
+    .ep-cred code { font-family: var(--mono); color: var(--text-strong); }
+    .ep-fine { font-size: 14px; color: var(--faint); margin: 12px 0 0; }
+
+    /* Pricing */
+    .ep-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 56px; }
+    .ep-plan { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 28px; display: flex; flex-direction: column; position: relative; }
+    .ep-plan--pop { border: 2px solid var(--crimson); }
+    .ep-plan__tag { position: absolute; top: -12px; left: 28px; background: var(--crimson); color: #fff; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+    .ep-plan h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+    .ep-price { font-size: 40px; font-weight: 600; letter-spacing: -.035em; color: var(--text-strong); margin: 10px 0 0; line-height: 1.1; }
+    .ep-price small { font-size: 16px; font-weight: 400; color: var(--faint); letter-spacing: 0; }
+    .ep-price-alt { font-size: 14px; color: var(--faint); margin: 4px 0 0; }
+    .ep-meta { font-size: 14px; color: var(--muted); margin: 14px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--border-soft); }
+    .ep-meta a { color: var(--crimson-text); text-decoration: none; }
+    .ep-plan ul { list-style: none; padding: 0; margin: 16px 0 24px; display: grid; gap: 10px; font-size: 15px; color: var(--text); flex: 1; }
+    .ep-plan li { padding-left: 22px; position: relative; }
+    .ep-plan li::before { content: "\2713"; position: absolute; left: 0; color: var(--crimson-text); font-weight: 600; }
+    .ep-plan li a { color: var(--crimson-text); text-decoration: none; }
+    .ep-plan p.ep-desc { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 14px 0 0; }
+    .ep-plan .ep-btn { text-align: center; }
+    .ep-sub-h { margin-top: 88px; }
+    .ep-sub-h h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 600; }
+    .ep-notes { margin-top: 32px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 16px; padding: 26px 28px; scroll-margin-top: 90px; }
+    .ep-notes h3 { font-size: 18px; font-weight: 600; }
+    .ep-notes ol { margin: 14px 0 0; padding-left: 1.3em; display: grid; gap: 10px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .ep-notes b { color: var(--text-strong); font-weight: 600; }
+    .ep-notes p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 16px 0 0; }
+    @media (max-width: 900px) { .ep-plans { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .ep-plans { grid-template-columns: 1fr; } }
+
+    /* Security facts */
+    .ep-facts { margin: 40px 0 0; }
+    .ep-facts div { display: grid; grid-template-columns: 220px 1fr; gap: 8px 32px; padding: 20px 0; border-top: 1px solid var(--border-soft); }
+    .ep-facts dt { font-weight: 600; color: var(--text-strong); }
+    .ep-facts dd { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+    @media (max-width: 700px) { .ep-facts div { grid-template-columns: 1fr; } }
+    .ep-aside { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 16px; padding: 24px 28px; }
+    .ep-aside p { margin: 0; color: var(--muted); max-width: 46em; }
+    .ep-aside b { color: var(--text-strong); }
+
+    /* Closing CTA band */
+    .ep-cta { position: relative; overflow: hidden; border-radius: 28px; padding: 88px 32px; text-align: center; color: #fff; isolation: isolate; }
+    .ep-cta { padding-bottom: 150px; }
+    .ep-cta h2 span { color: #93C5FD; }
+    .ep-cta h2 { color: #fff; }
+    .ep-cta p { font-size: 19px; max-width: 34em; margin: 16px auto 30px; color: rgba(255, 255, 255, .92); }
+    .ep-cta .ep-btns { justify-content: center; }
+    .ep-cta small { display: block; margin-top: 18px; font-size: 14px; color: rgba(255, 255, 255, .85); }
   </style>
 </head>
 <body>
@@ -168,388 +285,334 @@
 <div id="sd-site-nav"></div>
 <script src="../assets/site-nav.js?v=9"></script>
 <div hidden="" id="sd-legacy-stubs"><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
-<main id="main">
-<section class="f-glow-top">
-<div class="f-container f-page-hero" style="text-align: center">
-<p class="f-pill">EInvoice 平台 · 测试阶段，欢迎抢先体验合作伙伴</p>
-<h1 class="f-h1" style="margin-left: auto; margin-right: auto">LHDN 电子发票，<span class="f-dim">在后台安静运行。</span></h1>
-<p class="f-lead" style="margin: 0 auto">只需连接一次您的 POS、ERP 或会计系统。每张发票都会按照 LHDN 规则验证，并自动提交到 MyInvois。无需手动操作，没有难懂的拒绝代码，不再错过提交期限。</p>
-<div class="f-actions" style="justify-content: center"><a class="f-btn ei-btn-invert" href="contact.html?ref=einvoice-cta">申请抢先体验</a> <a class="f-btn f-btn--secondary" href="#demo">试用在线演示</a></div>
-<p class="f-note" style="margin-top: 16px">每月 RM 29 起 · 无合约 · 30 天免费试用 · 随时导出数据 · <a href="#pricing">比较配套</a></p>
-<figure aria-label="Illustration of the EInvoice dashboard" class="ei-preview">
-<div class="ei-window">
-<div aria-hidden="true" class="ei-window__bar"><span></span><span></span><span></span></div>
-<div class="ei-window__body">
-<div class="ei-window__main">
-<div class="ei-tiles">
-<div><span>本月已批准</span><b>1,284</b></div>
-<div><span>排队中</span><b>12</b></div>
-<div><span>需要处理</span><b class="f-warn">1</b></div>
+<main class="ep" id="main">
+<section class="ep-hero">
+<div aria-hidden="true" class="ep-mesh"></div>
+<div class="ep-wrap ep-hero__grid">
+<div>
+<p class="ep-pill">EInvoice 平台 · 测试阶段，欢迎抢先体验合作伙伴</p>
+<h1>LHDN 电子发票，<span>无需更换您的 POS。</span></h1>
+<p class="ep-hero__lede">适合 POS、ERP 或会计系统无法自行提交到 MyInvois 的企业。只需连接一次。每张发票在发送前都会按 LHDN 的规则检查，因此不会被退回。</p>
+<div class="ep-btns"><a class="ep-btn ep-btn--ink" href="contact.html?ref=einvoice-cta">申请抢先体验</a>
+<a class="ep-btn ep-btn--white" href="#demo">试用在线演示</a></div>
+<p class="ep-hero__note">每月 RM 29 起 · 无合约 · 30 天免费试用 · <a href="#pricing">比较配套</a></p>
 </div>
-<table class="ei-table">
-<tr><th scope="col">发票</th><th scope="col">金额</th><th scope="col">状态</th></tr>
-<tr><td class="f-mono">INV-10482</td><td>RM 1,240.00</td><td class="f-ok">已批准</td></tr>
-<tr><td class="f-mono">INV-10484</td><td>RM 13,905.00</td><td class="f-warn">已暂扣</td></tr>
-<tr><td class="f-mono">CONS-0930</td><td>RM 18,377.20</td><td class="f-info">已提交</td></tr>
-</table>
-</div>
-<div class="f-sys ei-alert">
-<span aria-hidden="true" class="f-sys__c f-sys__c--tl"></span><span aria-hidden="true" class="f-sys__c f-sys__c--br"></span>
-<div class="f-sys__head"><span class="f-sys__title">警报</span><span class="f-sys__tag">验证</span></div>
-<div class="f-sys__body">
-<p class="f-sys__lead" style="font-size: 16px">INV-10484 在提交前被暂扣</p>
-<p>超过 RM 10,000 的销售需要买家的税务识别号（TIN）。补上后重新提交即可。LHDN 尚未收到这张发票。</p>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="f-note" style="margin-top: 12px">示意图使用的是示例数据。真实的仪表板请看下方截图和在线演示。</figcaption>
+<div class="ep-stack">
+<figure class="ep-float ep-float--main ep-shadow" style="margin: 0">
+<img alt="发票列表：每张发票的买家、金额、LHDN 状态和 UUID" class="t-light" height="1125" src="../images/einvoice/invoices.webp" width="1800"/>
+<img alt="发票列表：每张发票的买家、金额、LHDN 状态和 UUID" class="t-dark" height="1125" loading="lazy" src="../images/einvoice/invoices-dark.webp" width="1800"/>
 </figure>
+<div class="ep-float ep-float--card ep-shadow">
+<img alt="因缺少买家 TIN 而在发送前暂扣的发票" class="t-light" height="489" loading="lazy" src="../images/einvoice/incomplete.webp" width="1200"/>
+<img alt="因缺少买家 TIN 而在发送前暂扣的发票" class="t-dark" height="489" loading="lazy" src="../images/einvoice/incomplete-dark.webp" width="1200"/>
 </div>
-</section>
-<div class="f-strip">
-<div class="f-container f-strip__inner" style="justify-content: space-between"><strong>官方 MyInvois API</strong><strong>全部 8 种发票类型</strong><strong>三层验证</strong><strong>每 5 分钟同步状态</strong><strong>免费重新提交</strong></div>
-</div>
-<section class="f-section">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">现实情况</p>
-<h2 class="f-h2">电子发票中最麻烦的部分，我们帮您处理</h2>
-<p class="f-sub">大多数企业在 LHDN 电子发票上遇到的问题，以及平台如何逐一解决。</p>
-</div>
-<div class="f-grid">
-<article class="f-card f-card--compact"><h3 class="f-card__title">难懂的拒绝代码</h3><p class="f-card__text">LHDN 的拒绝信息只说明违反了哪条规则，并不告诉您怎么改。常见原因在发送前就会被发现；若 LHDN 仍然拒绝，系统会显示原因和出错的字段。修改后一键重新提交，免费。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">证书悄悄过期</h3><p class="f-card__text">证书一过期，提交就会停止。只需上传一次；在影响您之前的 60 天和 7 天都会提醒您。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">每月 7 号的慌乱</h3><p class="f-card__text">三月的发票必须在 4 月 7 日晚上 11:59（马来西亚时间）前提交。系统会提前几天提醒您，截止时间过后不会再发送任何发票。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">超过 RM 10k 却缺少买家 TIN</h3><p class="f-card__text">LHDN 不允许高价值销售使用通用 TIN。平台会在提交前发现这个问题，所以发票不会被退回。第四阶段（Phase 4）企业可以开启 LHDN 的宽松措施，该规则将暂停至 2027 年 12 月 31 日。</p></article>
+<div aria-hidden="true" class="ep-float ep-float--badge ep-shadow"><b>✓</b><div>INV-2026-0012 已验证<small>已取得 LHDN UUID</small></div></div>
 </div>
 </div>
 </section>
-<section class="f-section f-section--alt">
-<div class="f-container f-split">
-<div class="f-split__main">
-<p class="f-eyebrow">验证</p>
-<h2 class="f-h2">发票送达 LHDN 之前的三道检查</h2>
-<p class="f-sub">每张发票在尝试提交前都会经过三层检查。问题在您的仪表板里修正，LHDN 永远不会收到有错的发票。</p>
-<ol class="ei-tiers">
-<li><div><b>1 · Structural validation</b><p>有发票号码吗？项目有效吗？数量为正数吗？日期能识别吗？</p></div><span class="f-badge f-badge--crimson">400 直接拒绝</span></li>
-<li><div><b>2 · LHDN completeness check</b><p>卖家的 TIN、MSIC 代码和地址齐全吗？超过 RM 10,000 的销售有买家 TIN 吗？分类代码填了吗？</p></div><span class="f-badge ei-badge-warn">暂存待修正</span></li>
-<li><div><b>3 · Product master enrichment</b><p>税种、税率和分类代码会从您的产品目录中自动填入。</p></div><span class="f-badge f-badge--ok">201 已创建</span></li>
+<div class="ep-strip">
+<div class="ep-wrap"><span><b>官方</b> MyInvois API</span><span><b>全部 8 种</b>发票类型</span><span><b>三层</b>验证</span><span><b>每 5 分钟</b>同步状态</span><span><b>免费</b>重新提交</span></div>
+</div>
+<section class="ep-sec ep-center" style="padding-bottom: 0">
+<div class="ep-wrap">
+<p class="ep-label">一个画面掌握整个月</p>
+<h2 class="ep-h2" style="max-width: 15ch; margin: 0 auto">在 LHDN 发现之前，先看到需要修正的地方。</h2>
+<p class="ep-sub">不完整的发票、导入问题和 LHDN 退回，全部在一个画面上统计，并直接链接到需要修正的字段。</p>
+<div class="ep-browser ep-shadow">
+<div aria-hidden="true" class="ep-browser__bar"><i></i><i></i><i></i></div>
+<img alt="仪表板统计不完整发票、导入问题、LHDN 退回以及可提交的发票" class="t-light" height="675" loading="lazy" src="../images/einvoice/dashboard.webp" width="1800"/>
+<img alt="仪表板统计不完整发票、导入问题、LHDN 退回以及可提交的发票" class="t-dark" height="675" loading="lazy" src="../images/einvoice/dashboard-dark.webp" width="1800"/>
+</div>
+</div>
+</section>
+<section class="ep-sec">
+<div class="ep-wrap">
+<p class="ep-label">现实情况</p>
+<h2 class="ep-h2" style="max-width: 18ch">电子发票里最容易出问题的环节，都替您处理好了。</h2>
+<div class="ep-cols">
+<div><h3>难懂的拒绝代码</h3><p>LHDN 的拒绝信息只说明违反了哪条规则，并不告诉您怎么改。常见原因在发送前就会被发现；若 LHDN 仍然拒绝，系统会显示原因和出错的字段。修改后一键重新提交，免费。</p></div>
+<div><h3>证书悄悄过期</h3><p>证书一过期，提交就会停止。只需上传一次；在影响您之前的 60 天和 7 天都会提醒您。</p></div>
+<div><h3>每月 7 号的慌乱</h3><p>三月的发票必须在 4 月 7 日晚上 11:59（马来西亚时间）前提交。系统会提前几天提醒您，截止时间过后不会再发送任何发票。</p></div>
+<div><h3>超过 RM 10k 却缺少买家 TIN</h3><p>LHDN 不允许高价值销售使用通用 TIN。这个问题在提交前就会被发现，所以发票不会被退回。第四阶段（Phase 4）企业可以开启 LHDN 的宽松措施，该规则将暂停至 2027 年 12 月 31 日。</p></div>
+</div>
+</div>
+</section>
+<section class="ep-sec ep-sec--tile">
+<div class="ep-wrap">
+<div class="ep-story">
+<div class="ep-story__text">
+<p class="ep-label">验证</p>
+<h3>发票送达 LHDN 之前的三道检查。</h3>
+<p>每张发票在提交前都要通过三层检查。问题会连同字段名称显示在您的仪表板上；LHDN 永远看不到有问题的发票。</p>
+<ol class="ep-tiers">
+<li><i>1</i><div><b>结构</b>有发票号码吗？项目有效吗？数量为正数吗？日期能解析吗？如果不符合，会立即拒收。</div></li>
+<li><i>2</i><div><b>LHDN 完整性</b>卖方的 TIN、MSIC 和地址齐全吗？超过 RM 10,000 的销售有买家 TIN 吗？有分类代码吗？如果没有，发票会被暂扣，等您修正。</div></li>
+<li><i>3</i><div><b>产品主档</b>税种、税率和分类代码会从您的产品目录自动填入。</div></li>
 </ol>
 </div>
-<aside class="f-split__aside f-card">
-<h3 class="f-h3">这对您意味着什么</h3>
-<ul class="f-checks" style="margin-top: 12px">
-<li>错误数据在提交前就被发现，而不是等 LHDN 拒绝之后</li>
-<li>第二层的软拒绝会进入您的仪表板，方便修正</li>
-<li>产品目录自动填入税务代码，不必每张发票手动输入</li>
-<li>每张被拒绝的发票都会保留 LHDN 给出的拒绝原因</li>
-<li>自动检查 RM 10,000 买家 TIN 规则；第四阶段企业可在 2027 年 12 月 31 日前放宽</li>
+<div class="ep-shot ep-shadow">
+<img alt="三张被暂扣的发票，列出缺少的字段：tin、identification_number" class="t-light" height="489" loading="lazy" src="../images/einvoice/incomplete.webp" width="1200"/>
+<img alt="三张被暂扣的发票，列出缺少的字段：tin、identification_number" class="t-dark" height="489" loading="lazy" src="../images/einvoice/incomplete-dark.webp" width="1200"/>
+</div>
+</div>
+<div class="ep-story ep-story--flip">
+<div class="ep-story__text">
+<p class="ep-label">产品主档</p>
+<h3>税务代码只需在产品上设置一次。</h3>
+<p>分类代码、税种和税率都存放在每个产品上。使用该产品的每一行发票都会正确填写，不必每张发票重新输入，也不会在 LHDN 要求 H87 的地方出现“PCS”。</p>
+</div>
+<div class="ep-shot ep-shadow">
+<img alt="产品主档，包含品项代码、分类代码、税种和税率" class="t-light" height="569" loading="lazy" src="../images/einvoice/products.webp" width="1400"/>
+<img alt="产品主档，包含品项代码、分类代码、税种和税率" class="t-dark" height="569" loading="lazy" src="../images/einvoice/products-dark.webp" width="1400"/>
+</div>
+</div>
+<div class="ep-story">
+<div class="ep-story__text">
+<p class="ep-label">合并电子发票</p>
+<h3>门市销售，7 号前完成提交。</h3>
+<p>门市销售会先等待，看买家是否要求开立自己的电子发票。月底仍未认领的销售，会作为一张合并电子发票提交给 LHDN，可在每月 1 号自动提交或一键提交，并在 LHDN 的 7 天期限之前提醒您。退款会对应到正确的电子发票，超过 RM 10k 的销售会被标记，需单独开立电子发票。</p>
+<p><a class="ep-link" href="../consolidated-e-invoice-deadline.html">查看本月截止日期</a></p>
+</div>
+<div class="ep-big"><b>7 号</b><span>每个月</span><small>合并电子发票须提交给 LHDN</small></div>
+</div>
+<div class="ep-story ep-story--flip">
+<div class="ep-story__text">
+<p class="ep-label">记录</p>
+<h3>每张电子发票，都附有 LHDN UUID。</h3>
+<p>卖方、买家、金额以及 LHDN 返回的 UUID，与每张已验证的电子发票一起保存。每一次提交、批准、退回和设置更改都记录在审计日志中，包括时间、用户和详情。</p>
+</div>
+<div class="ep-shot ep-shot--tall ep-shadow">
+<img alt="已批准发票的详情，包括 LHDN UUID、卖方和买家" class="t-light" height="977" loading="lazy" src="../images/einvoice/detail.webp" width="900"/>
+<img alt="已批准发票的详情，包括 LHDN UUID、卖方和买家" class="t-dark" height="977" loading="lazy" src="../images/einvoice/detail-dark.webp" width="900"/>
+</div>
+</div>
+</div>
+</section>
+<section class="ep-sec">
+<div class="ep-wrap">
+<p class="ep-label">功能</p>
+<h2 class="ep-h2" style="max-width: 18ch">保持合规所需的其他一切。</h2>
+<div class="ep-grid">
+<article><h3>证书事务交给我们</h3><p>如果您使用自己的 MyInvois 凭证连接，只需上传一次证书，到期前 60 天和 7 天都会提醒您。</p></article>
+<article><h3>提交周期控管</h3><p>逾期提交会被阻止，截止日期前几天就会提醒您，所以绝不会错过截止时间。</p></article>
+<article><h3>实时状态同步</h3><p>每张已提交的发票每 5 分钟向 MyInvois 查询一次。批准或拒绝的状态会自动更新。</p></article>
+<article><h3>电子表格上传</h3><p>无需任何系统对接：上传 Excel 文件（.xlsx）或 CSV 即可。导入前会先检查文件，问题会按发票号码列出。</p></article>
+<article><h3>全部 8 种 LHDN 发票类型</h3><p>发票、贷项通知单、借项通知单、退款单，以及全部四种自开发票（11–14），由适配器自动套用。</p></article>
+<article><h3>支持多家公司</h3><p>一个账户下管理多个企业 TIN（定制配套），每个都有独立的凭证、证书和记录，完全隔离。</p></article>
+<article><h3>Webhook 回调</h3><p>发票一被批准或拒绝，您的系统就会收到通知。HMAC-SHA256 签名，最多重试 4 次。附加功能。</p></article>
+<article><h3>取消期限保护</h3><p>LHDN 只允许在 72 小时内取消发票。倒计时会严格执行这一规定，期限过后系统会建议改开贷项通知单。</p></article>
+<article><h3>直接在 LHDN 上测试过</h3><p>超过 1,300 项自动化测试，以及在 LHDN MyInvois 沙盒环境中进行的真实提交、取消和状态查询。</p></article>
+</div>
+</div>
+</section>
+<section class="ep-sec ep-sec--tile" style="padding-bottom: 160px">
+<div class="ep-wrap">
+<p class="ep-label">运作方式</p>
+<h2 class="ep-h2">从连接到合规。</h2>
+<ol class="ep-steps">
+<li><b>Connect</b><p>生成 API 密钥并把发票推送到 REST 接口，上传电子表格，或由我们为您系统的导出格式编写映射适配器。</p></li>
+<li><b>Validate</b><p>每张发票都要通过三层检查。问题会连同说明出现在您的仪表板上；没有问题的发票会自动排队。</p></li>
+<li><b>Submit</b><p>发票以您的 TIN 提交到 MyInvois。LHDN 截止时间过后不会再发送。</p></li>
+<li><b>Sync &amp; notify</b><p>每 5 分钟检查一次状态，更新您的仪表板，并通过 webhook 通知您的系统。</p></li>
+</ol>
+</div>
+</section>
+<section class="ep-navy">
+<div class="ep-wrap ep-dev">
+<div>
+<p class="ep-label">系统对接</p>
+<h2 class="ep-h2">与您现有的系统配合使用。</h2>
+<p class="ep-sub">三种接入方式，现已全部可用：REST API、电子表格上传，以及我们为您系统的导出文件编写的映射适配器。目前还没有现成的品牌连接器；早期合作伙伴会在上线辅导期间获得专属编写的连接器。</p>
+<ul class="ep-ways">
+<li><b>POS 系统。</b>StoreHub 或任何定制 POS，通过 API 或为其导出文件编写的适配器接入。</li>
+<li><b>ERP 与会计软件。</b>SQL Account、AutoCount、SAP 或任何能导出 Excel 或 CSV 的 ERP，先提供模板并试运行。</li>
+<li><b>电子商务。</b>WooCommerce、Shopify 或定制结账流程，由您商店的 webhook 发送每一笔订单。</li>
+<li><b>其他任何系统。</b>只要能发出 HTTP POST，就能接入。使用 API 密钥验证，无需繁琐的 OAuth。</li>
 </ul>
-</aside>
+</div>
+<div aria-label="API 请求与响应示例" class="ep-code" role="figure">
+<div class="ep-code__tabs"><b>curl</b><span>请求与响应</span></div>
+<pre><span class="c"># 从您的系统发送发票</span>
+curl -X POST $GATEWAY/api/v1/adapter/import \
+  -H <span class="s">"X-API-Key: $API_KEY"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d <span class="s">'{
+    "sourceSystem": "GENERIC",
+    "data": {
+      "invoice_number": "INV-2026-0012",
+      "buyer": { "name": "Global Freight Malaysia Sdn Bhd",
+                 "tin": "C20111222000" },
+      "items": [{ "name": "Conveyor Belt Section 2m",
+                  "quantity": 2, "price": 980.00 }]
+    }
+  }'</span>
+
+<span class="c"># 201：已检查，税务代码已从您的产品填入，排队提交给 LHDN</span>
+{ <span class="k">"status"</span>: <span class="s">"CREATED"</span>, <span class="k">"invoice_number"</span>: <span class="s">"INV-2026-0012"</span> }
+
+<span class="c"># 422：结构错误，暂扣在您的仪表板上。LHDN 从未看到这张发票。</span>
+{ <span class="k">"status"</span>: <span class="s">"STAGED"</span>, <span class="k">"errors"</span>: [ <span class="n">…</span> ] }</pre>
+</div>
 </div>
 </section>
-<section class="f-section">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">功能</p>
-<h2 class="f-h2">保持合规所需的一切</h2>
+<section class="ep-sec ep-center" id="demo" style="scroll-margin-top: 70px; padding-top: 160px">
+<div class="ep-wrap">
+<p class="ep-label">在线演示 · 无需注册</p>
+<h2 class="ep-h2">决定之前，先试一试。</h2>
+<p class="ep-sub">完整的平台，实时运行，预载了真实感的马来西亚发票。无需账户，也不会调用 LHDN。正式使用时，平台会连接 LHDN MyInvois 的正式 API，真实提交发票。</p>
+<div class="ep-demo-cards">
+<div><b>25 realistic invoices</b><p>已批准、已提交、被 LHDN 退回、已取消、草稿和待处理，均来自马来西亚公司。</p></div>
+<div><b>Fully interactive</b><p>提交发票、查看退回详情、修改设置、管理产品、查看审计日志。</p></div>
+<div><b>Business plan active</b><p>所有附加功能均已开启：API 密钥、webhook、连接器、认领门户和完整仪表板。</p></div>
+<div><b>Resets every hour</b><p>每 60 分钟恢复一份全新的数据。随便操作，坏了也会复原。</p></div>
 </div>
-<div class="f-grid">
-<article class="f-card f-card--compact"><h3 class="f-card__title">证书事务交给我们</h3><p class="f-card__text">如果您使用自己的 MyInvois 凭证连接，只需上传一次证书，到期前 60 天和 7 天都会提醒您。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">提交周期控管</h3><p class="f-card__text">逾期提交会被阻止，截止日期前几天就会提醒您，所以绝不会错过截止时间。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">实时状态同步</h3><p class="f-card__text">每张已提交的发票每 5 分钟向 MyInvois 查询一次。批准或拒绝的状态会自动更新。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">连接任何系统</h3><p class="f-card__text">插件式适配器架构，支持任何 POS、ERP 或会计系统，另提供带 API 密钥的 REST API，供系统之间对接。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">每月合并电子发票</h3><p class="f-card__text">散客销售会先等待，看买家是否要求开立自己的电子发票。月底仍未被认领的，会合并成一张电子发票提交给 LHDN，可在每月 1 号自动提交或一键提交，并在 LHDN 规定的 7 天期限前提醒您。退款会针对正确的电子发票处理。超过 RM 10k 的销售会被标记，需要单独开立电子发票。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">电子表格上传</h3><p class="f-card__text">无需任何系统对接：上传 Excel 文件（.xlsx）或 CSV 即可。导入前会先检查文件，问题会按发票号码列出。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">全部 8 种 LHDN 发票类型</h3><p class="f-card__text">发票、贷项通知单、借项通知单、退款单，以及全部四种自开发票（11–14），由适配器自动套用。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">支持多家公司</h3><p class="f-card__text">一个账户下管理多个企业 TIN（定制配套），每个都有独立的凭证、证书和记录，完全隔离。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">Webhook 回调</h3><p class="f-card__text">发票一被批准或拒绝，您的系统就会收到通知。HMAC-SHA256 签名，最多重试 4 次。附加功能。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">取消期限保护</h3><p class="f-card__text">LHDN 只允许在 72 小时内取消发票。倒计时会严格执行这一规定，期限过后系统会建议改开贷项通知单。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">仪表板行动卡片</h3><p class="f-card__text">未完成的发票、暂存区的拒绝和 LHDN 错误都会以浅白的说明显示，让您的团队知道该怎么做。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">直接在 LHDN 上测试过</h3><p class="f-card__text">超过 1,300 项自动化测试，以及在 LHDN MyInvois 沙盒环境中进行的真实提交、取消和状态查询。</p></article>
-</div>
-</div>
-</section>
-<section class="f-section f-section--alt">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">运作方式</p>
-<h2 class="f-h2">从连接到合规</h2>
-</div>
-<ol class="f-steps">
-<li><div class="f-steps__n">01</div><div class="f-steps__t">连接</div><div class="f-steps__d">生成 API 密钥并把发票推送到 REST 接口，上传电子表格，或由我们为您系统的导出格式编写映射适配器。</div></li>
-<li><div class="f-steps__n">02</div><div class="f-steps__t">验证</div><div class="f-steps__d">每张发票都要通过三层检查。问题会连同说明出现在您的仪表板上；没有问题的发票会自动排队。</div></li>
-<li><div class="f-steps__n">03</div><div class="f-steps__t">提交</div><div class="f-steps__d">发票以您的 TIN 提交到 MyInvois。LHDN 截止时间过后不会再发送。</div></li>
-<li><div class="f-steps__n">04</div><div class="f-steps__t">同步并通知</div><div class="f-steps__d">每 5 分钟检查一次状态，更新您的仪表板，并通过 webhook 通知您的系统。</div></li>
-</ol>
-</div>
-</section>
-<section class="f-section">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">截图</p>
-<h2 class="f-h2">近距离看看</h2>
-<p class="f-sub">您每天会用到的每个画面，从提交发票到处理拒绝。</p>
-</div>
-<div id="slideshow">
-<div class="slideshow-frame">
-<!-- Browser chrome -->
-<div class="slideshow-titlebar">
-<div class="ss-trafficdot"></div>
-<div class="ss-trafficdot"></div>
-<div class="ss-trafficdot"></div>
-<div class="ss-urlbar">demo.129-221-144-95.sslip.io</div>
-</div>
-<!-- Slides — replace each .ss-placeholder with <img src="..." alt="..."> when screenshots are ready -->
-<div class="slideshow-track" id="ssTrack">
-<div class="ss-slide active" data-caption="&lt;strong&gt;Dashboard&lt;/strong&gt; — monthly invoice stats, submission queue count, and action cards for anything that needs attention.">
-<img alt="Dashboard overview" src="../images/Dashboard Screenshot.png"/>
-</div>
-<div class="ss-slide" data-caption="&lt;strong&gt;Invoice List&lt;/strong&gt; — filter by status (Approved, Submitted, Rejected, Cancelled), search by number or buyer, and bulk-submit ready invoices.">
-<img alt="Invoice list" src="../images/Invoice List Screenshot.png"/>
-</div>
-<div class="ss-slide" data-caption="&lt;strong&gt;Rejection Detail&lt;/strong&gt; — LHDN error codes translated to plain English with a suggested fix. One-click resubmit once corrected.">
-<img alt="LHDN rejection detail" src="../images/Rejected Invoice Screenshot.png"/>
-</div>
-<div class="ss-slide" data-caption="&lt;strong&gt;Settings &amp; LHDN Setup&lt;/strong&gt; — upload your certificate, enter credentials, test the connection live, and track your readiness checklist.">
-<img alt="Settings and LHDN setup" src="../images/Setup Screenshot.png"/>
-</div>
-<div class="ss-slide" data-caption="&lt;strong&gt;Audit Log&lt;/strong&gt; — every submission, approval, rejection, and settings change recorded with timestamp, user, and full detail.">
-<img alt="Audit log" src="../images/Audit log screenshot.png"/>
-</div>
-</div><!-- /slideshow-track -->
-<!-- Caption + navigation -->
-<div class="slideshow-footer">
-<div class="ss-caption" id="ssCaption"><strong>仪表板</strong>：每月发票统计、提交队列数量，以及需要处理事项的行动卡片。</div>
-<div class="ss-nav">
-<button aria-label="Previous" class="ss-arrow" id="ssPrev">←</button>
-<div class="ss-dots" id="ssDots">
-<button class="ss-dot-btn active" data-idx="0"></button>
-<button class="ss-dot-btn" data-idx="1"></button>
-<button class="ss-dot-btn" data-idx="2"></button>
-<button class="ss-dot-btn" data-idx="3"></button>
-<button class="ss-dot-btn" data-idx="4"></button>
-</div>
-<button aria-label="Next" class="ss-arrow" id="ssNext">→</button>
-</div>
-</div>
-</div><!-- /slideshow-frame -->
-</div><!-- /slideshow -->
-</div>
-</section>
-<section class="f-section f-section--alt">
-<div class="f-container">
-<div class="demo-box" id="demo">
-<p class="f-pill">在线演示，无需注册</p>
-<h2 class="f-h2">决定之前，先看看仪表板</h2>
-<p class="f-sub">完整的平台现在就在线运行，并预先载入了真实的马来西亚发票和数据。无需账户，不会向 LHDN 发出任何请求。全部试用过后再做决定。</p>
-<p class="f-sub demo-note"><strong>演示版与正式版：</strong>在线演示在沙盒模式下运行，使用模拟的 LHDN API。正式部署时，平台会直接连接 LHDN MyInvois 正式 API（api.myinvois.hasil.gov.my），可真实提交发票。</p>
-<div class="demo-cards">
-<div class="demo-card">
-<div class="demo-card-icon">📋</div>
-<div class="demo-card-title">25 张真实感发票</div>
-<div class="demo-card-desc">预先载入所有状态：已批准、已提交、被 LHDN 拒绝、已取消、草稿、待处理。马来西亚公司，真实的发票金额。</div>
-</div>
-<div class="demo-card">
-<div class="demo-card-icon">🔌</div>
-<div class="demo-card-title">完全可操作</div>
-<div class="demo-card-desc">提交发票、查看拒绝详情、修改设置、管理产品、检查审计日志。所有功能都可使用。</div>
-</div>
-<div class="demo-card">
-<div class="demo-card-icon">🔐</div>
-<div class="demo-card-title">已启用 Business 配套</div>
-<div class="demo-card-desc">演示账户使用 Business 配套，并开启全部附加功能：API 密钥、webhook、连接器、认领门户和完整仪表板。</div>
-</div>
-<div class="demo-card">
-<div class="demo-card-icon">🔄</div>
-<div class="demo-card-title">每小时重置</div>
-<div class="demo-card-desc">每 60 分钟自动恢复原状。随便怎么试都没关系，都会复原，无需清理。</div>
-</div>
-</div>
-<div class="demo-launch">
-<div class="demo-credentials">
-<div class="cred-label">演示账户登录</div>
-<div class="cred-row"><span class="cred-key">电邮</span> <span class="cred-val">demo@einvoice.com</span></div>
-<div class="cred-row"><span class="cred-key">密码</span> <span class="cred-val">Demo@2024</span></div>
+<div class="ep-demo-launch">
+<div class="ep-cred">
+<div><span>电邮</span><code>demo@einvoice.com</code></div>
+<div><span>密码</span><code>Demo@2024</code></div>
 </div>
 <div>
-<a class="f-btn f-btn--primary f-btn--glow" href="https://demo.129-221-144-95.sslip.io/" rel="noopener" target="_blank">打开演示 →</a>
-<p class="f-note">演示模式下不会真实提交到 LHDN</p>
-</div>
+<a class="ep-btn ep-btn--ink" href="https://demo.129-221-144-95.sslip.io/" rel="noopener" style="background: var(--text-strong); color: var(--bg)" target="_blank">打开演示 →</a>
+<p class="ep-fine">或在登录页面点击“Sign in as Demo User”。</p>
 </div>
 </div>
 </div>
 </section>
-<section class="f-section" id="pricing" style="scroll-margin-top: 90px">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">价格</p>
-<h2 class="f-h2">价格简单，没有绑定</h2>
-<p class="f-sub">每个配套都包含报税所需的一切。按月付费、无合约；或通过 FPX 预付一年，享两个月免费。所有付费配套都从 30 天免费试用开始，无需信用卡。</p>
+<section class="ep-sec ep-sec--tile" id="pricing" style="scroll-margin-top: 70px">
+<div class="ep-wrap">
+<div class="ep-center">
+<p class="ep-label">价格</p>
+<h2 class="ep-h2">价格简单。没有绑定。</h2>
+<p class="ep-sub">每个配套都包含报税所需的一切。按月付费、无合约；或通过 FPX 预付一年，享两个月免费。所有付费配套都从 30 天免费试用开始，无需信用卡。</p>
 </div>
-<div class="f-grid">
-<article class="f-card f-price-card">
-<h3 class="f-card__title">免费</h3>
-<div class="f-price">RM 0</div>
-<p class="f-price-meta">每月 10 张发票 · 1 位用户</p>
-<ul class="f-checks"><li>完整验证与提交</li><li>LHDN 沙盒环境</li><li>仪表板与 Excel/CSV 上传</li><li>数据保留 90 天</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-free">免费开始</a>
+<div class="ep-plans">
+<article class="ep-plan">
+<h3>免费</h3>
+<p class="ep-price">RM 0</p>
+<p class="ep-meta">每月 10 张发票 · 1 位用户</p>
+<ul><li>完整验证与提交</li><li>LHDN 沙盒环境</li><li>仪表板与 Excel/CSV 上传</li><li>数据保留 90 天</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-free">免费开始</a>
 </article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">Starter</h3>
-<div class="f-price">RM 29<small> /月</small><span class="f-price-alt">或 RM 290/年</span></div>
-<p class="f-price-meta">100 张发票 + 超额每张 RM 0.30 · 2 位用户</p>
-<ul class="f-checks"><li>1 个 API 密钥</li><li>后台队列 + 自动重试</li><li>产品资料自动补全</li><li>电邮支持（5 个工作日）</li><li>数据保留 3 年</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-starter">开始试用</a>
+<article class="ep-plan">
+<h3>Starter</h3>
+<p class="ep-price">RM 29<small> /mo</small></p><p class="ep-price-alt">或 RM 290/年</p>
+<p class="ep-meta">100 张发票 + 超额每张 RM 0.30 · 2 位用户</p>
+<ul><li>1 个 API 密钥</li><li>后台队列 + 自动重试</li><li>产品资料自动补全</li><li>电邮支持（5 个工作日）</li><li>数据保留 3 年</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-starter">开始试用</a>
 </article>
-<article class="f-card f-price-card f-price-card--featured">
-<span class="f-ribbon">最受欢迎</span>
-<h3 class="f-card__title">Business</h3>
-<div class="f-price">RM 59<small> /月</small><span class="f-price-alt">或 RM 590/年</span></div>
-<p class="f-price-meta">400 张发票 + 超额每张 RM 0.15 · 5 位用户</p>
-<ul class="f-checks"><li>3 个 API 密钥</li><li>后台队列 + 自动重试</li><li>产品资料自动补全</li><li>电邮支持（2 个工作日）</li><li>数据保留 5 年</li></ul>
-<a class="f-btn f-btn--primary" href="contact.html?ref=einvoice-business">开始试用</a>
+<article class="ep-plan ep-plan--pop">
+<span class="ep-plan__tag">最受欢迎</span>
+<h3>Business</h3>
+<p class="ep-price">RM 59<small> /mo</small></p><p class="ep-price-alt">或 RM 590/年</p>
+<p class="ep-meta">400 张发票 + 超额每张 RM 0.15 · 5 位用户</p>
+<ul><li>3 个 API 密钥</li><li>后台队列 + 自动重试</li><li>产品资料自动补全</li><li>电邮支持（2 个工作日）</li><li>数据保留 5 年</li></ul>
+<a class="ep-btn ep-btn--ink" href="contact.html?ref=einvoice-business" style="background: var(--crimson)">开始试用</a>
 </article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">Growth</h3>
-<div class="f-price">RM 89<small> /月</small><span class="f-price-alt">或 RM 890/年</span></div>
-<p class="f-price-meta">1,000 张发票 + 超额每张 RM 0.09 · 10 位用户</p>
-<ul class="f-checks"><li>5 个 API 密钥</li><li>更高的队列优先级</li><li>高级分析</li><li>电邮支持（1 个工作日）</li><li>数据保留 5 年</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-growth">开始试用</a>
+<article class="ep-plan">
+<h3>Growth</h3>
+<p class="ep-price">RM 89<small> /mo</small></p><p class="ep-price-alt">或 RM 890/年</p>
+<p class="ep-meta">1,000 张发票 + 超额每张 RM 0.09 · 10 位用户</p>
+<ul><li>5 个 API 密钥</li><li>更高的队列优先级</li><li>高级分析</li><li>电邮支持（1 个工作日）</li><li>数据保留 5 年</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-growth">开始试用</a>
 </article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">Premium</h3>
-<div class="f-price">RM 199<small> /月</small><span class="f-price-alt">或 RM 1,990/年</span></div>
-<p class="f-price-meta">发票数量无上限 <a href="#premium-notes">①</a> · 用户无上限</p>
-<ul class="f-checks"><li>API 密钥无上限</li><li>最高队列优先级</li><li>99.9% 正常运行目标 + 服务抵扣 <a href="#premium-notes">②</a></li><li>优先支持联系人 <a href="#premium-notes">③</a></li><li>数据保留 7 年</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-premium">开始试用</a>
+<article class="ep-plan">
+<h3>Premium</h3>
+<p class="ep-price">RM 199<small> /mo</small></p><p class="ep-price-alt">或 RM 1,990/年</p>
+<p class="ep-meta">发票数量无上限 <a href="#premium-notes">①</a> · 用户无上限</p>
+<ul><li>API 密钥无上限</li><li>最高队列优先级</li><li>99.9% 正常运行目标 + 服务抵扣 <a href="#premium-notes">②</a></li><li>优先支持联系人 <a href="#premium-notes">③</a></li><li>数据保留 7 年</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-premium">开始试用</a>
 </article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">定制</h3>
-<div class="f-price">欢迎洽谈</div>
-<p class="f-price-meta">每月持续超过 20,000 张发票</p>
-<ul class="f-checks"><li>包含 Premium 的全部内容</li><li>一个账户下管理多家公司（TIN）</li><li>可按需提供专属处理资源与 SSO</li><li>企业级 SLA，配专人联络</li><li>自定数据保留期限</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-custom">联系我们</a>
-</article>
-</div>
-<div class="f-head" id="addons" style="margin-top: 56px; scroll-margin-top: 90px">
-<p class="f-eyebrow">附加功能</p>
-<h2 class="f-h3" style="font-size: 24px">只为您用到的对接付费</h2>
-<p class="f-sub">大多数企业用不到这些功能，所以没有算进配套价格。任何付费配套都可以添加，随时可以停用。</p>
-</div>
-<div class="f-grid">
-<article class="f-card f-price-card">
-<h3 class="f-card__title">Webhook</h3>
-<div class="f-price f-price--range">RM 19<small> /月</small><span class="f-price-alt">或 RM 190/年</span></div>
-<p class="f-card__text">发票一被批准或拒绝，您的系统就会收到通知。HMAC 签名，自动重试，最多 10 个接收端点。</p>
-</article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">POS 与 ERP 连接器</h3>
-<div class="f-price f-price--range">RM 29<small> /月</small><span class="f-price-alt">或 RM 290/年</span></div>
-<p class="f-card__text">直接发送 POS 或 ERP 原有的导出文件。现成的适配器会将其对应到 MyInvois 格式，您那边无需改写任何东西。</p>
-</article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">买家认领门户</h3>
-<div class="f-price f-price--range">RM 19<small> /月</small><span class="f-price-alt">或 RM 190/年</span></div>
-<p class="f-card__text">买家扫描收据上的二维码，就能在您的品牌页面上申请自己的电子发票。柜台不必再追问资料。</p>
+<article class="ep-plan">
+<h3>定制</h3>
+<p class="ep-price">欢迎洽谈</p>
+<p class="ep-meta">每月持续超过 20,000 张发票</p>
+<ul><li>包含 Premium 的全部内容</li><li>一个账户下管理多家公司（TIN）</li><li>可按需提供专属处理资源与 SSO</li><li>企业级 SLA，配专人联络</li><li>自定数据保留期限</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-custom">联系我们</a>
 </article>
 </div>
-<div class="f-head" id="setup" style="margin-top: 56px; scroll-margin-top: 90px">
-<p class="f-eyebrow">开通服务</p>
-<h2 class="f-h3" style="font-size: 24px">不想自己设置？我们陪您一起完成</h2>
-<p class="f-sub">一次性收费，适用于任何配套，包括 Free。完成时您已经在提交真实的电子发票，我们设置的一切都归您所有。如需数字证书，须向 LHDN 认可的供应商购买，费用直接付给对方。</p>
+<div class="ep-sub-h" id="addons" style="scroll-margin-top: 90px">
+<p class="ep-label">附加功能</p>
+<h3>只为您用到的对接付费。</h3>
+<p class="ep-sub" style="font-size: 18px">大多数企业用不到这些功能，所以没有算进配套价格。任何付费配套都可以添加，随时可以停用。</p>
 </div>
-<div class="f-grid">
-<article class="f-card f-price-card">
-<h3 class="f-card__title">陪同开通</h3>
-<div class="f-price">RM 490<small> 一次性</small></div>
-<p class="f-price-meta">适合用电子表格或控制面板提交 · 线上一起约 2 小时</p>
-<ul class="f-checks"><li>一步步办好 MyInvois 权限和证书</li><li>设置好企业资料、买家和产品</li><li>对应并试导入您自己的 Excel 导出文件</li><li>通话中和您一起提交第一批电子发票</li><li>带您完成第一份月底合并电子发票</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-setup">预约开通</a>
+<div class="ep-plans">
+<article class="ep-plan"><h3>Webhook</h3><p class="ep-price">RM 19<small> /mo</small></p><p class="ep-price-alt">或 RM 190/年</p><p class="ep-desc">发票一被批准或拒绝，您的系统就会收到通知。HMAC 签名，自动重试，最多 10 个接收端点。</p></article>
+<article class="ep-plan"><h3>POS 与 ERP 连接器</h3><p class="ep-price">RM 29<small> /mo</small></p><p class="ep-price-alt">或 RM 290/年</p><p class="ep-desc">直接发送 POS 或 ERP 原有的导出文件。现成的适配器会将其对应到 MyInvois 格式，您那边无需改写任何东西。</p></article>
+<article class="ep-plan"><h3>买家认领门户</h3><p class="ep-price">RM 19<small> /mo</small></p><p class="ep-price-alt">或 RM 190/年</p><p class="ep-desc">买家扫描收据上的二维码，就能在您的品牌页面上申请自己的电子发票。柜台不必再追问资料。</p></article>
+</div>
+<div class="ep-sub-h" id="setup" style="scroll-margin-top: 90px">
+<p class="ep-label">开通服务</p>
+<h3>不想自己设置？我们陪您一起完成。</h3>
+<p class="ep-sub" style="font-size: 18px">一次性收费，适用于任何配套，包括 Free。完成时您已经在提交真实的电子发票，我们设置的一切都归您所有。如需数字证书，须向 LHDN 认可的供应商购买，费用直接付给对方。</p>
+</div>
+<div class="ep-plans" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))">
+<article class="ep-plan">
+<h3>陪同开通</h3>
+<p class="ep-price">RM 490<small> 一次性</small></p>
+<p class="ep-meta">适合用电子表格或控制面板提交 · 线上一起约 2 小时</p>
+<ul><li>一步步办好 MyInvois 权限和证书</li><li>设置好企业资料、买家和产品</li><li>对应并试导入您自己的 Excel 导出文件</li><li>通话中和您一起提交第一批电子发票</li><li>带您完成第一份月底合并电子发票</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-setup">预约开通</a>
 </article>
-<article class="f-card f-price-card">
-<h3 class="f-card__title">系统对接</h3>
-<div class="f-price">RM 1,490 起<small> 一次性</small></div>
-<p class="f-price-meta">适合 POS、ERP 或网店 · 免费 20 分钟通话后给出固定报价</p>
-<ul class="f-checks"><li>包含陪同开通的全部内容</li><li>接通并对应您系统的导出文件或 API</li><li>上线前先在 LHDN 沙盒环境测试</li><li>检查您上线第一天的真实发票</li><li>含 30 天对接修复</li></ul>
-<a class="f-btn f-btn--secondary" href="contact.html?ref=einvoice-connect">获取报价</a>
+<article class="ep-plan">
+<h3>系统对接</h3>
+<p class="ep-price">RM 1,490 起<small> 一次性</small></p>
+<p class="ep-meta">适合 POS、ERP 或网店 · 免费 20 分钟通话后给出固定报价</p>
+<ul><li>包含陪同开通的全部内容</li><li>接通并对应您系统的导出文件或 API</li><li>上线前先在 LHDN 沙盒环境测试</li><li>检查您上线第一天的真实发票</li><li>含 30 天对接修复</li></ul>
+<a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-connect">获取报价</a>
 </article>
 </div>
-<div class="f-card" id="premium-notes" style="margin-top: 28px; scroll-margin-top: 90px">
-<h3 class="f-h3">配套说明</h3>
-<ol class="ei-notes">
+<div class="ep-notes" id="premium-notes">
+<h3>配套说明</h3>
+<ol>
 <li><b>Premium 合理使用：</b>Premium 没有发票数量上限。若账户在一个月内超过 20,000 次提交，我们会联系您讨论定制配套；每月持续超过 40,000 张则需要改用定制配套。</li>
 <li><b>服务抵扣：</b>如发生未达正常运行目标的情况，最多相当于一个月订阅费的服务抵扣会计入下一个账单周期。服务抵扣是唯一的补偿方式；对于因服务中断而错过 LHDN 截止日期或造成的间接损失，我们不承担责任。</li>
 <li><b>优先支持：</b>我们会为您指定一位支持联系人。在支持团队达到满员之前，非紧急问题的回复时间可能超过 4 小时的目标；我们会在开通时清楚说明预计的回复时间。</li>
 <li><b>电邮提醒：</b>证书到期提醒和系统通知会通过已设置的 SMTP 发送。开通时，我们会协助您连接电邮服务（SendGrid、AWS SES 或公司自己的 SMTP）。演示账户的提醒只显示在仪表板内。</li>
 </ol>
-<p class="f-note" style="margin-top: 14px"><b>超额计费：</b>超过每月额度后，每张额外发票按配套收费（RM 0.09–0.30），绝不会阻止您报税。在用到额度的 80% 和 95% 时会提醒您。超额费用在每月 1 号结算，并加到下一次付款中：月付配套加到下一次月费，年付配套则加到续费时。<b>重新提交免费：</b>一张发票无论修改并重新提交多少次，都只计算一次。</p>
+<p><b>超额计费：</b>超过每月额度后，每张额外发票按配套收费（RM 0.09–0.30），绝不会阻止您报税。在用到额度的 80% 和 95% 时会提醒您。超额费用在每月 1 号结算，并加到下一次付款中：月付配套加到下一次月费，年付配套则加到续费时。<b>重新提交免费：</b>一张发票无论修改并重新提交多少次，都只计算一次。</p>
 </div>
 </div>
 </section>
-<section class="f-section" id="your-data" style="scroll-margin-top: 90px">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">随时可以离开</p>
-<h2 class="f-h2">您的数据属于您，想走随时可以走</h2>
-<p class="f-sub">我们希望客户留下来，是因为产品好用，而不是因为离开太难。</p>
-</div>
-<div class="f-grid">
-<article class="f-card f-card--compact"><h3 class="f-card__title">所有资料一并带走</h3><p class="f-card__text">一键下载您输入过的所有记录：发票、明细、买家、产品、设置和日志，格式为开放的 JSON，另附可直接用电子表格打开的 CSV。所有配套都提供，即使停止付费后也可下载。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">没有需要解除的合约</h3><p class="f-card__text">月付配套在您取消后即停止。年付配套到期就结束；没有您的同意，不会自动续费。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">删除就是真的删除（PDPA）</h3><p class="f-card__text">关闭账户后，经过 7 天冷静期，我们保存的所有资料都会被永久删除，完成后会发电邮通知您。已验证的电子发票仍可在 LHDN 的 MyInvois 上查阅。</p></article>
+<section class="ep-sec" id="your-data" style="scroll-margin-top: 70px">
+<div class="ep-wrap">
+<p class="ep-label">随时可以离开</p>
+<h2 class="ep-h2" style="max-width: 18ch">您的数据属于您。想走随时可以走。</h2>
+<p class="ep-sub">我们希望客户留下来，是因为产品好用，而不是因为离开太难。</p>
+<div class="ep-grid">
+<article><h3>所有资料一并带走</h3><p>一键下载您输入过的所有记录：发票、明细、买家、产品、设置和日志，格式为开放的 JSON，另附可直接用电子表格打开的 CSV。所有配套都提供，即使停止付费后也可下载。</p></article>
+<article><h3>没有需要解除的合约</h3><p>月付配套在您取消后即停止。年付配套到期就结束；没有您的同意，不会自动续费。</p></article>
+<article><h3>删除就是真的删除（PDPA）</h3><p>关闭账户后，经过 7 天冷静期，我们保存的所有资料都会被永久删除，完成后会发电邮通知您。已验证的电子发票仍可在 LHDN 的 MyInvois 上查阅。</p></article>
 </div>
 </div>
 </section>
-<section class="f-section f-section--alt">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">系统对接</p>
-<h2 class="f-h2">与您现有的系统配合使用</h2>
-<p class="f-sub">三种接入方式，今天就都可用：REST API、电子表格上传，以及由我们为您系统的导出格式编写的映射适配器。目前还没有预制的品牌连接器；早期合作伙伴的适配器会在上线对接时由我们编写。</p>
-</div>
-<div class="f-grid">
-<article class="f-card f-card--compact"><h3 class="f-card__title">POS 系统</h3><p class="f-card__text">StoreHub 或任何定制 POS。通过 REST API 推送发票，或由我们在早期接入对接时为您的 POS 导出格式编写映射适配器。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">ERP / 会计系统</h3><p class="f-card__text">SQL Account、AutoCount、SAP 或任何可以导出数据的 ERP。上传 Excel 或 CSV 导出文件（提供模板，导入前可先试运行），或通过 API 推送。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">电子商务</h3><p class="f-card__text">WooCommerce、Shopify 或定制的结账流程。从您商店的 webhook 把每笔完成的订单发送到 REST API；预制的商店插件目前尚未提供。</p></article>
-<article class="f-card f-card--compact"><h3 class="f-card__title">定制系统</h3><p class="f-card__text">任何能发出 HTTP POST 的系统都能对接，使用 API 密钥验证，无需繁琐的 OAuth 流程。</p></article>
-</div>
-</div>
-</section>
-<section class="f-section">
-<div class="f-container f-split">
-<div class="f-split__main">
-<p class="f-eyebrow">安全与基础设施</p>
-<h2 class="f-h2">谨慎处理您的凭证和数据</h2>
-<dl class="ei-facts">
+<section class="ep-sec ep-sec--tile">
+<div class="ep-wrap">
+<p class="ep-label">安全与基础设施</p>
+<h2 class="ep-h2" style="max-width: 18ch">谨慎处理您的凭证和数据。</h2>
+<dl class="ep-facts">
 <div><dt>凭证存储</dt><dd>LHDN 的 Client ID、Client Secret、证书和私钥均以 AES-256-GCM 加密存储。主密钥与数据库分开存放，凭证只在提交时于内存中解密，仪表板也从不显示密钥。</dd></div>
 <div><dt>审计日志</dt><dd>每次提交、批准、拒绝和设置更改都会记录时间、用户和详情。</dd></div>
 <div><dt>公司之间完全隔离</dt><dd>每个 TIN 都有独立的凭证、证书和记录，完全隔离（定制配套）。</dd></div>
 <div><dt>平台</dt><dd>.NET 8 / ASP.NET Core 8 与 EF Core，运行在容器化（Docker）基础设施上。正式账户使用 PostgreSQL 并妥善保留数据，连接 LHDN 正式接口（api.myinvois.hasil.gov.my），并提供 SMTP 提醒和付费级基础设施。</dd></div>
 <div><dt>开通协助</dt><dd>每个正式部署都包含一次技术开通会议，确认您的 LHDN 凭证和证书设置无误。在线演示以沙盒模式运行在免费层，使用 SQLite。</dd></div>
 </dl>
+<div class="ep-aside">
+<p><b>由 .NET 团队打造。</b>如果您的 POS 或 ERP 是较旧或定制的 .NET 系统，SteadyDevs 可以与您现有的代码库紧密集成。</p>
+<a class="ep-btn ep-btn--line" href="solutions.html#einvoice">工程服务选项</a>
 </div>
-<aside class="f-split__aside f-card">
-<h3 class="f-h3">由 .NET 团队打造</h3>
-<p class="f-muted" style="margin-top: 8px">如果您的 POS 或 ERP 是较旧或定制的 .NET 系统，SteadyDevs 可以与您现有的代码做紧密对接。</p>
-<a class="f-btn f-btn--secondary" href="solutions.html#einvoice" style="margin-top: 16px">工程服务选项</a>
-</aside>
 </div>
 </section>
-<section class="f-section f-section--alt">
-<div class="f-container">
-<div class="f-head">
-<p class="f-eyebrow">须知</p>
-<h2 class="f-h2">常见问题</h2>
-</div>
-<div class="f-faq">
+<section class="ep-sec">
+<div class="ep-wrap">
+<p class="ep-label">须知</p>
+<h2 class="ep-h2">常见问题。</h2>
+<div class="f-faq" style="margin-top: 40px">
 <details><summary>平台如何连接 LHDN？</summary><div>通过 LHDN 官方的 MyInvois API，以您自己的 TIN 提交。目前您使用自己的 MyInvois 凭证连接，开通时我们会一步步引导您完成。由 SteadyDevs 作为您的中介代为提交（您只需在 MyInvois 授权一次）即将推出。</div></details>
 <details><summary>我需要自己的数字证书吗？</summary><div>目前需要：您使用自己的 MyInvois 凭证连接，需要一张来自 LHDN 认可供应商的证书。您只需在“设置”中上传一次，到期前 60 天会收到提醒。待 SteadyDevs 可以作为您的中介代为提交（即将推出）后，您就不再需要证书。</div></details>
 <details><summary>如果 LHDN 拒绝了发票怎么办？</summary><div>被拒绝的发票会出现在“LHDN 拒绝”下，附上 LHDN 的原因及出问题的字段，例如“Enter valid e-mail address - BUYER”。修正资料后一键重新提交即可。重新提交免费：一张发票无论修改并重新提交多少次，都只占用一次月度额度。大多数常见原因，例如缺少买家 TIN 或行业代码（MSIC）无效，在发票发送之前就会被发现。</div></details>
 <details><summary>一个账户可以管理多家公司吗？</summary><div>定制配套可以：每家公司在同一个登录下拥有自己的 TIN、LHDN 凭证、数字证书和提交记录。其他配套中，每家公司各自是一个账户。如果您经营多个实体，<a href="contact.html?ref=einvoice-multi-entity">请联系我们</a>。</div></details>
 <details><summary>每一笔散客销售都要提交给 LHDN 吗？</summary><div>不用逐笔提交。散客销售可以不填买家 TIN 记录下来；想要自己电子发票的买家仍然可以申请。到了月底，所有未被认领的销售会合并成一张电子发票提交给 LHDN，LHDN 要求在 7 天内完成。可以开启在每月 1 号自动提交，也可以先预览再自行提交；若到了 3 号还未提交，系统会提醒您。散客销售的退款会针对其所在的合并电子发票处理。单笔超过 RM 10,000 的销售需要单独开立电子发票并附上买家资料，除非您的企业适用第四阶段宽松措施。</div></details>
-<details><summary>我的企业必须开电子发票吗？什么时候开始？</summary><div>年营业额达到 RM300 万或以上的，必须开。营业额不超过 RM500 万的企业（第四阶段）目前处于过渡宽松期，至 2027 年 12 月 31 日为止：所有销售都可以每月开立合并电子发票，2028 年 1 月 1 日起全面实施规则。如果符合，请在 设置 &gt; 企业资料 中开启“Phase 4 relaxation”，平台对日期在 2027 年 12 月 31 日或之前的发票将不再执行 RM 10,000 买家 TIN 规则。营业额低于 RM300 万可获豁免，但若您的企业股东、控股公司或关联公司营业额达 RM300 万或以上则除外。获豁免的企业仍可自愿加入，大客户要求提供电子发票时常常如此。来源：<a href="https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/" rel="noopener" target="_blank">LHDN 实施时间表</a> 及 <a href="../blog/lhdn-einvoice-rm3-million-exemption-2028-deadline.html">我们 2026 年 10 月的总结</a>（英文）。<a href="e-invoice-checker.html">或用我们的免费自查工具确认您的日期 →</a></div></details>
+<details><summary>我的企业必须开电子发票吗？什么时候开始？</summary><div>年营业额达到 RM300 万或以上的，必须开。营业额不超过 RM500 万的企业（第四阶段）目前处于过渡宽松期，至 2027 年 12 月 31 日为止：所有销售都可以每月开立合并电子发票，2028 年 1 月 1 日起全面实施规则。如果符合，请在 设置 &gt; 企业资料 中开启“Phase 4 relaxation”，平台对日期在 2027 年 12 月 31 日或之前的发票将不再执行 RM 10,000 买家 TIN 规则。营业额低于 RM300 万可获豁免，但若您的企业股东、控股公司或关联公司营业额达 RM300 万或以上则除外。获豁免的企业仍可自愿加入，大客户要求提供电子发票时常常如此。来源：<a href="https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/" rel="noopener" target="_blank">LHDN 实施时间表</a> 及 <a href="../blog/lhdn-einvoice-rm3-million-exemption-2028-deadline.html">我们 2026 年 10 月的总结</a>（英文）。<a href="e-invoice-checker.html">或用我们的免费自查工具确认您的日期和准备程度 →</a></div></details>
 <details><summary>Premium 真的没有上限吗？</summary><div>是的，Premium 没有发票数量上限，也没有超额收费。但须合理使用：若账户在一个月内超过 20,000 次提交，我们会联系您讨论定制配套；每月持续超过 40,000 张则需要改用定制配套。</div></details>
 <details><summary>如果我不再使用平台，我的数据会怎样？</summary><div>您可以随时下载全部资料，任何配套都可以，停止付费后也可以：发票、明细、买家、产品、设置和日志，格式为 JSON 及 CSV。若关闭账户，按照 PDPA 的规定，经过 7 天冷静期后，我们保存的所有资料都会被永久删除，完成后会发电邮通知您。已验证的电子发票仍可在 LHDN 的 MyInvois 上查阅。请保留好导出的资料：所得税法规定商业记录须保存七年。</div></details>
 <details><summary>Webhook 和 POS 连接器包括在配套内吗？</summary><div>它们是附加功能，用不到的企业就不必付费：Webhook 每月 RM 19、POS 与 ERP 连接器每月 RM 29、买家认领门户每月 RM 19。通过 REST API 或 CSV 上传提交发票，所有配套都包括。</div></details>
@@ -559,12 +622,15 @@
 </div>
 </div>
 </section>
-<section class="f-section--line f-glow-bottom">
-<div class="f-container f-cta">
-<h2 class="f-h2">准备好让 LHDN 提交自动化了吗？</h2>
+<section style="padding: 0 0 120px">
+<div class="ep-wrap">
+<div class="ep-cta">
+<h2 class="ep-h2">准备好不再为 LHDN 操心了吗？</h2>
 <p>先试用在线演示，无需注册。准备好之后，我们会协助您连接系统并设置 LHDN 凭证。</p>
-<div class="f-actions"><a class="f-btn f-btn--primary f-btn--glow" href="contact.html?ref=einvoice-cta">申请抢先体验</a> <a class="f-btn f-btn--secondary" href="#demo">先试用演示</a></div>
-<p class="f-note" style="margin-top: 18px">所有付费配套 30 天免费试用 · 自行开通免费 · 随时取消</p>
+<div class="ep-btns"><a class="ep-btn ep-btn--white" href="contact.html?ref=einvoice-cta">申请抢先体验</a>
+<a class="ep-btn" href="#demo" style="border: 1px solid rgba(255,255,255,.6); color: #fff">先试用演示</a></div>
+<small>所有付费配套 30 天免费试用 · 自行开通免费 · 随时取消</small>
+</div>
 </div>
 </section>
 </main>
@@ -603,7 +669,7 @@
 <div class="ff__col">
 <h2>免费工具</h2>
 <ul>
-<li><a href="https://demo.129-221-144-95.sslip.io/" rel="noopener" style="background: var(--system); color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;" target="_blank">试用演示 →</a> <a href="contact.html?ref=einvoice-sticky" style="color: var(--system); font-weight: 600; font-size: 0.88em; text-decoration: none; white-space: nowrap;">申请使用 →</a></li>
+<li><a href="e-invoice-checker.html">我需要开电子发票吗？</a></li>
 <li><a href="msic-code-lookup.html">MSIC 代码查询</a></li>
 <li><a href="../microsoft-end-of-support-lookup.html">支持终止日期查询</a></li>
 <li><a href="../legacy-system-risk-scorecard.html">风险评分</a></li>
@@ -668,52 +734,6 @@
     });
 
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animated'); observer.unobserve(e.target); } }),
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-    // ── Slideshow ─────────────────────────────────────────────────────────
-    (function () {
-      const slides   = document.querySelectorAll('.ss-slide');
-      const dots     = document.querySelectorAll('.ss-dot-btn');
-      const caption  = document.getElementById('ssCaption');
-      const total    = slides.length;
-      let current    = 0;
-      let timer      = null;
-
-      function goTo(idx) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (idx + total) % total;
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-        caption.innerHTML = slides[current].dataset.caption || '';
-      }
-
-      function startAuto() {
-        timer = setInterval(() => goTo(current + 1), 5000);
-      }
-
-      function stopAuto() {
-        clearInterval(timer);
-      }
-
-      document.getElementById('ssNext').addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
-      document.getElementById('ssPrev').addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => { stopAuto(); goTo(parseInt(dot.dataset.idx)); startAuto(); });
-      });
-
-      const frame = document.getElementById('slideshow');
-      frame.addEventListener('mouseenter', stopAuto);
-      frame.addEventListener('mouseleave', startAuto);
-
-      startAuto();
-    }());
   </script>
 </body>
 </html>

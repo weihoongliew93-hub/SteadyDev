@@ -32,8 +32,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=f1">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -91,7 +91,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -128,11 +128,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</span>
+      </nav>
+      <h1 class="f-h1">Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</h1>
+      <p class="f-note">June 21, 2026 · 11 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -175,10 +180,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/windows-server-end-of-life.webp" alt="Aging Windows Server infrastructure reaching end of life" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>Windows Server & SQL Server End-of-Life: Is Your Legacy System Running on Borrowed Time?</h1>
-          <div class="blog-meta">June 21, 2026 | 11 min read</div>
-        </div>
         <p>Ask a business owner about their legacy system and they'll talk about the application—the POS, the invoicing, the inventory module. Almost no one talks about the server it runs on. Yet that quiet machine in the back office, running a version of Windows Server and SQL Server chosen years ago, is often the real liability.</p>
 <p>Operating systems and databases have expiry dates. When Microsoft ends support, the software keeps running—which is exactly why the risk is so easy to ignore. Nothing visibly breaks. But behind the scenes, security patches stop, compliance assumptions collapse, and your exposure quietly climbs. Here's how to know whether you're on borrowed time.</p>
 <h2>What "End of Support" Actually Means</h2>

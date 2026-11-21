@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/prevent-double-bookings-cover.svg" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -179,11 +179,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</span>
+      </nav>
+      <h1 class="f-h1">Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</h1>
+      <p class="f-note">August 27, 2026 · 7 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -226,10 +231,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/prevent-double-bookings-cover.svg" alt="Cover graphic showing two colliding court bookings resolving into a single confirmed booking" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>Double Bookings Are Costing You Customers: How to Stop Them for Courts, Studios and Rental Spaces</h1>
-          <div class="blog-meta">August 27, 2026 | 7 min read</div>
-        </div>
         <p>There's a particular kind of bad moment that venue owners know well: a customer arrives for their booked slot—a court, a room, a bay, a table—and someone else is already using it. Two different bookings, one resource, one time. Whoever made the mistake, the customer standing there doesn't care whose fault it was. They just know your business let them down.</p>
 <p>Double bookings are one of the most reputation-damaging failures a booking-based business can have, and they keep happening even in venues that are careful—because the tools most venues use were never designed to prevent them.</p>
 <h2>Why Double Bookings Keep Happening</h2>

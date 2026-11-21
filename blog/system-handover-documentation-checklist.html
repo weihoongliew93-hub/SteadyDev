@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/system-handover-checklist.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -187,11 +187,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>What a Proper System Handover Document Should Contain (Free Checklist)</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>What a Proper System Handover Document Should Contain (Free Checklist)</span>
+      </nav>
+      <h1 class="f-h1">What a Proper System Handover Document Should Contain (Free Checklist)</h1>
+      <p class="f-note">June 24, 2026 · 10 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -234,10 +239,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/system-handover-checklist.webp" alt="System handover documentation checklist for business owners" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>What a Proper System Handover Document Should Contain (Free Checklist)</h1>
-          <div class="blog-meta">June 24, 2026 | 10 min read</div>
-        </div>
         <p>Most businesses learn the value of documentation the hard way: the day the one person who understood their system stops answering. We've written before about what happens when a developer leaves and how to recover from it. This article is the prevention—the document that turns that potential crisis into a non-event.</p>
 <p>A proper handover document isn't a 200-page technical manual. It's a focused record of the things that, if lost, would leave you stranded. You don't need to write it yourself—but you do need to know what to demand. Use this as a checklist you can hand to any developer, current or departing.</p>
 <div class="tip-box"><p><strong>The best time to create this is now—while everything still works and the person who knows it is still around.</strong> The second-best time is before they leave. The worst time is after. If you only act on one thing from this article, request this document from whoever maintains your system today.</p></div>

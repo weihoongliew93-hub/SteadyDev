@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/why-developer-wants-rewrite.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -171,11 +171,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</span>
+      </nav>
+      <h1 class="f-h1">Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</h1>
+      <p class="f-note">July 14, 2026 · 10 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -218,10 +223,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/why-developer-wants-rewrite.webp" alt="Developer proposing a full system rewrite to a business owner" class="blog-hero-image" width="1200" height="800" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>Why Your Developer Wants to Rewrite Everything (And Why You Shouldn't Let Them)</h1>
-          <div class="blog-meta">July 14, 2026 | 10 min read</div>
-        </div>
         <p>If you've hired a new developer to work on an older system, you've probably heard some version of this: "Honestly, this codebase is a mess. It would be faster to just rebuild it properly than to keep patching it."</p>
 <p>It sounds reasonable. It's said with confidence. And it's one of the most expensive pieces of advice a business owner can act on without scrutiny.</p>
 <p>The urge to rewrite is almost universal among developers. Understanding <em>why</em> they feel it—and when it's actually justified—can save you from an avoidable disaster.</p>

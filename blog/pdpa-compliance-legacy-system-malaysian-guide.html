@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/pdpa-compliance-legacy-system.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -306,11 +306,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Is Your Legacy System PDPA-Compliant? A Practical Guide for Malaysian Businesses</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Is Your Legacy System PDPA-Compliant? A Practical Guide for Malaysian Businesses</span>
+      </nav>
+      <h1 class="f-h1">Is Your Legacy System PDPA-Compliant? A Practical Guide for Malaysian Businesses</h1>
+      <p class="f-note">June 5, 2026 · 11 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -353,10 +358,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/pdpa-compliance-legacy-system.webp" alt="Data protection and compliance concept for Malaysian businesses" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>Is Your Legacy System PDPA-Compliant? A Practical Guide for Malaysian Businesses</h1>
-          <div class="blog-meta">June 5, 2026 | 11 min read</div>
-        </div>
         <p>"Is our system PDPA-compliant?" It's a question many Malaysian business owners ask—often years after the system was built, and usually only when someone raises concerns about data handling or a competitor mentions they're certified.</p>
 <p>Here's the uncomfortable truth: <strong>most legacy systems built before 2013 (when PDPA came into force) were never designed with data protection regulations in mind.</strong> They collect data freely, store it indefinitely, share it across modules without restriction, and have no audit trails showing who accessed what and when.</p>
 <p>That doesn't mean your system is broken. It means it was built in a different regulatory environment—and now needs updates to match current legal requirements.</p>

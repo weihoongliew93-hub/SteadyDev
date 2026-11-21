@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/einvoice-b2c-consolidation.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -171,11 +171,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</span>
+      </nav>
+      <h1 class="f-h1">E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</h1>
+      <p class="f-note">July 01, 2026 · 10 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -218,10 +223,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/einvoice-b2c-consolidation.webp" alt="Retail point of sale handling consolidated B2C e-invoices" class="blog-hero-image" width="1600" height="1067" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>E-Invoice for B2C: How Retailers Handle Walk-In Customers Without Issuing Thousands of Invoices</h1>
-          <div class="blog-meta">July 01, 2026 | 10 min read</div>
-        </div>
         <p>If you run a retail shop, restaurant, or any business serving walk-in customers, the e-invoice mandate raises an obvious worry: "Do I really have to generate a separate e-invoice for every single customer, even the ones who just buy a drink and leave?" The good news is no—LHDN designed a consolidation mechanism specifically for B2C. The catch is that you have to handle it correctly, and your POS system has to support it.</p>
 <h2>The Core Rule: Issue on Request, Consolidate the Rest</h2>
 <p>For business-to-consumer transactions, the framework works like this:</p>

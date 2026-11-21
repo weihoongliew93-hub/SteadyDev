@@ -42,6 +42,10 @@
 }
 
 /* ---------- Article header ---------- */
+/* The title sits in the site's navy hero band (.f-glow-top in f.css); a shorter skyline than a page hero. */
+.blog-hero > .f-container { padding-top: 56px; padding-bottom: clamp(120px, 12vw, 170px); }
+.blog-hero .f-h1 { font-size: clamp(32px, 4.2vw, 52px); max-width: 900px; margin-bottom: 16px; }
+.blog-hero ~ .blog-layout { padding-top: 48px; }
 .blog-hero-image { width: 100%; border-radius: 14px; border: 1px solid var(--border); margin: 0 0 36px; }
 .blog-header h1 { font-size: clamp(32px, 4.2vw, 48px); font-weight: 600; line-height: 1.08; letter-spacing: -0.035em; color: var(--text-strong); margin: 0 0 14px; }
 .blog-meta { color: var(--faint); font-size: 15px; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border-soft); }

@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/upkeep-check-what-changed-cover.svg" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -187,11 +187,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Your WordPress Site Broke After an Update. Which One?</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Your WordPress Site Broke After an Update. Which One?</span>
+      </nav>
+      <h1 class="f-h1">Your WordPress Site Broke After an Update. Which One?</h1>
+      <p class="f-note">November 1, 2026 · 7 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -234,10 +239,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/upkeep-check-what-changed-cover.svg" alt="Cover graphic of a timeline showing a plugin update followed four minutes later by a fatal error" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>Your WordPress Site Broke After an Update. Which One?</h1>
-          <div class="blog-meta">November 1, 2026 | 7 min read</div>
-        </div>
         <p>The message arrives on a Monday morning: "Checkout stopped working over the weekend. Nobody touched anything."</p>
 <p>Somebody did. WordPress ran an automatic plugin update at 3am. Your host moved the server to a newer PHP version. A colleague pressed Update All on Friday afternoon and went home. None of those people think of themselves as having "touched" the site, and none of them left a note.</p>
 <p>So the person who has to fix it starts the way everyone does: deactivate plugins one by one and reload the page. On a site with forty plugins that is an afternoon, and it tells you what to switch off, not what to put back.</p>

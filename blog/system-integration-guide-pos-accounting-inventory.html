@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/system-integration-guide.webp" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -302,11 +302,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</span>
+      </nav>
+      <h1 class="f-h1">The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</h1>
+      <p class="f-note">June 13, 2026 · 13 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -349,10 +354,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/system-integration-guide.webp" alt="Business systems connecting through integration" class="blog-hero-image" width="1600" height="900" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>The Small Business Guide to System Integration: Connecting Your POS, Accounting, and Inventory</h1>
-          <div class="blog-meta">June 13, 2026 | 13 min read</div>
-        </div>
         <p>Every evening, someone at your business spends 30-60 minutes (or more) manually copying data from one system to another. Sales totals from the POS into the accounting software. Stock movements into the inventory system. Customer orders into the fulfillment tracker.</p>
 <p>It's tedious. It's error-prone. Mistakes happen—a wrong number here, a missed entry there. Then someone has to spend more time finding and fixing the discrepancies.</p>
 <p>You know there must be a better way. "Can't these systems just talk to each other?"</p>

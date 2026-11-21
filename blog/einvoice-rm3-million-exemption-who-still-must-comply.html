@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../images/blog/einvoice-exemption-check-cover.svg" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=835f1cf9">
-  <link rel="stylesheet" href="blog-styles.css?v=9b7eac4f">
+  <link rel="stylesheet" href="../assets/f.css?v=2c4f14a6">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
   
   <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
   <script type="application/ld+json">
@@ -92,7 +92,7 @@
     },
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".blog-header", ".blog-content h2", ".blog-content p"]
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
     }
   }
   </script>
@@ -163,11 +163,16 @@
   <script src="../assets/site-nav.js?v=9"></script>
   <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 
-  <div class="f-container blog-crumbs">
-    <nav class="f-breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Under RM3 Million but Not Exempt: The E-Invoice Rule Catching Small Companies Out</span>
-    </nav>
-  </div>
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Under RM3 Million but Not Exempt: The E-Invoice Rule Catching Small Companies Out</span>
+      </nav>
+      <h1 class="f-h1">Under RM3 Million but Not Exempt: The E-Invoice Rule Catching Small Companies Out</h1>
+      <p class="f-note">October 23, 2026 · 6 min read</p>
+    </div>
+  </section>
   
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
@@ -210,10 +215,6 @@
     <main class="blog-content" id="main">
       <article>
         <img src="../images/blog/einvoice-exemption-check-cover.svg" alt="Cover graphic: checking whether a business under RM3 million is really exempt from e-invoicing" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
-        <div class="blog-header">
-          <h1>Under RM3 Million but Not Exempt: The E-Invoice Rule Catching Small Companies Out</h1>
-          <div class="blog-meta">October 23, 2026 | 6 min read</div>
-        </div>
         <p>When LHDN raised the e-invoice exemption to RM3 million, a lot of small business owners relaxed. If you turn over less than that, the reasoning goes, e-invoicing isn't your problem.</p>
 <p>For many businesses that's right. But the exemption comes with conditions, and they're exactly the conditions that apply to small companies that are part of a larger group. If yours is one of them, you may have been required to e-invoice since <strong>1 July 2026</strong>.</p>
 <div class="warning-box"><p>Sources: LHDN's <a href="https://www.hasil.gov.my/en/e-invois/pelaksanaan-e-invois-di-malaysia/garis-masa-pelaksanaan-e-invois/">e-Invoice implementation timeline</a> (updated 30 August 2026), the <a href="https://www.hasil.gov.my/wp-content/uploads/IRBM-e-Invoice-Specific-Guideline.pdf">e-Invoice Specific Guideline v4.9</a> (7 September 2026) and the <a href="https://www.hasil.gov.my/wp-content/uploads/lhdnm-e-invoice-general-faqs.pdf">e-Invoice FAQ</a> (4 September 2026). This is a plain-language summary, not tax advice; confirm your own position with your tax agent.</p></div>
