@@ -868,11 +868,19 @@ const listHTML = livePosts.map(post => {
     : `<span class="bl-thumb-fallback" aria-hidden="true"></span>`;
   return `<a href="${post.slug}.html" class="f-card f-card--link bl-row"><div class="bl-thumb">${thumb}</div><div class="bl-body"><span class="f-mono f-small bl-cat">${category}</span><h3 class="f-card__title">${post.title}</h3><p class="f-card__text bl-clamp">${post.excerpt}</p><div class="bl-meta"><span>${post.dateDisplay} · ${post.readTime}</span><span>Read article →</span></div></div></a>`;
 }).join('\n');
+// "Get the highlights": the six newest posts as large cards in a sideways-scrolling rail.
+const highlightsHTML = livePosts.slice(0, 6).map(post => {
+  const category = (post.tags && post.tags.length) ? post.tags[0] : 'Article';
+  return `<a href="${post.slug}.html"><span class="f-rail__kicker">${category}</span><span class="f-rail__title">${post.title}</span><span class="f-rail__text">${post.dateDisplay} · ${post.readTime}</span><span class="f-rail__go">Read the article</span></a>`;
+}).join('\n');
 const indexPath = '../index.html';
 const indexHTML = fs.readFileSync(indexPath, 'utf8');
 const listed = indexHTML.replace(
   /(<!-- static-list:start -->)[\s\S]*?(<!-- static-list:end -->)/,
   `$1\n${listHTML}\n$2`
+).replace(
+  /(<!-- highlights:start -->)[\s\S]*?(<!-- highlights:end -->)/,
+  `$1\n${highlightsHTML}\n$2`
 );
 if (listed === indexHTML && !indexHTML.includes('<!-- static-list:start -->')) {
   console.warn('⚠️  blog/index.html has no static-list markers; post list not written.');

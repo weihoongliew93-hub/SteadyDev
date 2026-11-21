@@ -358,3 +358,70 @@
     gtag('event', ev[0], ev[1]);
   }, true);
 })();
+
+/*
+ * Apple-style touches, on every design F page (Nov 2026).
+ * 1. Product bar: a thin sticky bar under the header on product pages, with the product's
+ *    name, its sections and one call to action. Labels are kept here in all three languages,
+ *    so the translated pages need no extra text blocks.
+ * 2. Reveal: sections and cards below the fold fade up as they scroll into view. Nothing is
+ *    hidden without JavaScript, above the fold, or when the visitor prefers reduced motion.
+ */
+(function () {
+  if (document.documentElement.getAttribute('data-design') !== 'f') return;
+  var path = location.pathname;
+  var lang = (path.match(/\/(ms|zh)\//) || [])[1] || 'en';
+  var file = (path.split('/').pop() || 'index.html').replace(/^$/, 'index.html');
+  if (!/\.html$/.test(file)) file += '.html';
+  var L = function (en, ms, zh) { return { en: en, ms: ms, zh: zh }[lang]; };
+
+  var PRODUCTS = {
+    'einvoice.html': { name: L('e-Invoicing', 'e-Invois', '电子发票'), links: [
+      ['#features', L('Features', 'Ciri', '功能')], ['#demo', L('Demo', 'Demo', '演示')], ['#pricing', L('Pricing', 'Harga', '价格')]],
+      cta: ['contact.html?ref=einvoice-cta', L('Request access', 'Mohon akses', '申请体验')] },
+    'venue-booking.html': { name: 'Venue Booking', links: [
+      ['#demo-hub', L('Demo', 'Demo', '演示')], ['#features', L('Features', 'Ciri', '功能')], ['#buy', L('Pricing', 'Harga', '价格')]],
+      cta: ['#buy', L('Free trial', 'Percubaan percuma', '免费试用')] },
+    'steadypost.html': { name: 'SteadyPost', links: [
+      ['#tour', L('How it works', 'Cara ia berfungsi', '使用方式')], ['#features', L('Features', 'Ciri', '功能')]],
+      cta: ['#get', L('Download', 'Muat turun', '下载')] },
+    'upkeep-check.html': { name: 'Upkeep Check', links: [
+      ['#tour', L('How it works', 'Cara ia berfungsi', '使用方式')], ['#features', L('Features', 'Ciri', '功能')]],
+      cta: ['#get', L('Download', 'Muat turun', '下载')] }
+  };
+  var p = PRODUCTS[file];
+  var header = document.getElementById('fh');
+  if (p && header) {
+    var bar = document.createElement('nav');
+    bar.className = 'f-pnav';
+    bar.setAttribute('aria-label', p.name);
+    var ctaHref = /^#|^https?:/.test(p.cta[0]) || lang === 'en' ? p.cta[0] : '../' + p.cta[0];
+    bar.innerHTML = '<div class="f-pnav__in"><a class="f-pnav__name" href="#main">' + p.name + '</a><div class="f-pnav__links">' +
+      p.links.map(function (l) { return '<a href="' + l[0] + '">' + l[1] + '</a>'; }).join('') +
+      '<a class="f-pnav__cta" href="' + ctaHref + '">' + p.cta[1] + '</a></div></div>';
+    header.insertAdjacentElement('afterend', bar);
+    var setTop = function () { bar.style.top = header.offsetHeight + 'px'; };
+    setTop(); addEventListener('resize', setTop);
+  }
+
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var start = function () {
+    var sel = 'main > section:not(:first-child) .f-head, main > section:not(:first-child) .ep-wrap > :is(h2, .ep-label, .ep-sub), ' +
+      '.f-grid > *, .ep-grid > *, .ep-plans > *, .ep-cols > *, .ep-steps > li, .f-steps > li, .ep-story, .f-cta, .ep-cta, .ep-browser, .f-tiles > *';
+    var els = Array.prototype.filter.call(document.querySelectorAll(sel), function (el) {
+      return el.getBoundingClientRect().top > innerHeight * 0.9;
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        // Siblings that appear together arrive one after another.
+        var i = Array.prototype.indexOf.call(e.target.parentNode.children, e.target) % 4;
+        e.target.style.transitionDelay = (i * 70) + 'ms';
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { el.classList.add('f-reveal'); io.observe(el); });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();

@@ -278,6 +278,29 @@
     .ep-cta p { font-size: 19px; max-width: 34em; margin: 16px auto 30px; color: rgba(255, 255, 255, .92); }
     .ep-cta .ep-btns { justify-content: center; }
     .ep-cta small { display: block; margin-top: 18px; font-size: 14px; color: rgba(255, 255, 255, .85); }
+
+    /* Apple-style: the second action is a link, not a second button. */
+    .ep-hero .ep-btn--white, .ep-cta .ep-btn:not(.ep-btn--white) { background: none; border: 0 !important; color: #FFFFFF; padding-left: 4px; padding-right: 4px; }
+    .ep-hero .ep-btn--white::after, .ep-cta .ep-btn:not(.ep-btn--white)::after { content: " \203A"; }
+    .ep-cta .ep-btn--white { background: var(--crimson); color: #fff; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Pinned story (wide screens): the visuals stay on the right and change as each story
+       scrolls past on the left. The script below clones them into .ep-stage; without it, or
+       on a phone, the stories stay as they are. */
+    @media (min-width: 1000px) {
+      .ep-scrolly { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 64px; }
+      .ep-scrolly > .ep-story { grid-column: 1; display: flex; align-items: center; min-height: 78vh; margin: 0 !important; }
+      .ep-scrolly > .ep-story > :not(.ep-story__text) { display: none; }
+      .ep-scrolly > .ep-story .ep-story__text { opacity: .35; transition: opacity .4s; }
+      .ep-scrolly > .ep-story.is-active .ep-story__text { opacity: 1; }
+      .ep-stage { grid-column: 2; grid-row: 1 / span 4; position: sticky; top: 140px; align-self: start; height: calc(100vh - 200px); }
+      .ep-stage__item { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(16px) scale(.98); transition: opacity .5s ease, transform .5s ease; pointer-events: none; }
+      .ep-stage__item.is-on { opacity: 1; transform: none; }
+      .ep-stage__item > * { width: 100%; max-height: 100%; }
+      .ep-stage__item > .ep-shot--tall { width: auto; max-width: 460px; }
+      .ep-stage__item > .ep-shot--tall img { max-height: calc(100vh - 220px); width: auto; }
+    }
   </style>
 </head>
 <body>
@@ -337,7 +360,7 @@
 </div>
 </div>
 </section>
-<section class="ep-sec ep-sec--tile">
+<section class="ep-sec ep-sec--tile" id="features" style="scroll-margin-top: 120px">
 <div class="ep-wrap">
 <div class="ep-story">
 <div class="ep-story__text">
@@ -529,6 +552,27 @@ curl -X POST $GATEWAY/api/v1/adapter/import \
 <ul><li>Semua dalam Premium</li><li>Berbilang syarikat (TIN) di bawah satu akaun</li><li>Pekerja khusus &amp; SSO atas permintaan</li><li>SLA perusahaan dengan kenalan yang dinamakan</li><li>Tempoh simpanan data tersuai</li></ul>
 <a class="ep-btn ep-btn--line" href="contact.html?ref=einvoice-custom">Hubungi kami</a>
 </article>
+</div>
+<div class="ep-sub-h">
+<h3>Bandingkan pelan.</h3>
+</div>
+<div class="f-compare-wrap">
+<table class="f-compare">
+<thead><tr><th scope="col"><span class="sr-only">Pelan</span></th><th scope="col">Percuma<small>RM 0</small></th><th scope="col">Starter<small>RM 29 sebulan</small></th><th class="pop" scope="col">Business<small>RM 59 sebulan</small></th><th scope="col">Growth<small>RM 89 sebulan</small></th><th scope="col">Premium<small>RM 199 sebulan</small></th></tr></thead>
+<tbody>
+<tr><th scope="row">Bayaran tahunan</th><td class="no">–</td><td>RM 290</td><td class="pop">RM 590</td><td>RM 890</td><td>RM 1,990</td></tr>
+<tr><th scope="row">Invois sebulan</th><td>10</td><td>100</td><td class="pop">400</td><td>1,000</td><td>Tanpa had</td></tr>
+<tr><th scope="row">Setiap invois tambahan</th><td class="no">–</td><td>RM 0.30</td><td class="pop">RM 0.15</td><td>RM 0.09</td><td class="no">–</td></tr>
+<tr><th scope="row">Pengguna</th><td>1</td><td>2</td><td class="pop">5</td><td>10</td><td>Tanpa had</td></tr>
+<tr><th scope="row">Kunci API</th><td class="no">–</td><td>1</td><td class="pop">3</td><td>5</td><td>Tanpa had</td></tr>
+<tr><th scope="row">Muat naik Excel dan CSV</th><td class="yes">✓</td><td class="yes">✓</td><td class="yes pop">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><th scope="row">Keutamaan baris gilir</th><td class="no">–</td><td>Standard</td><td class="pop">Standard</td><td>Lebih tinggi</td><td>Tertinggi</td></tr>
+<tr><th scope="row">Sokongan e-mel</th><td class="no">–</td><td>5 hari bekerja</td><td class="pop">2 hari bekerja</td><td>1 hari bekerja</td><td>Kenalan keutamaan</td></tr>
+<tr><th scope="row">Data disimpan selama</th><td>90 hari</td><td>3 tahun</td><td class="pop">5 tahun</td><td>5 tahun</td><td>7 tahun</td></tr>
+<tr><th scope="row">Sasaran masa operasi dengan kredit perkhidmatan</th><td class="no">–</td><td class="no">–</td><td class="no pop">–</td><td class="no">–</td><td>99.9%</td></tr>
+<tr><th scope="row">Percubaan percuma 30 hari</th><td class="no">–</td><td class="yes">✓</td><td class="yes pop">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+</tbody>
+</table>
 </div>
 <div class="ep-sub-h" id="addons" style="scroll-margin-top: 90px">
 <p class="ep-label">Tambahan</p>
@@ -734,6 +778,36 @@ curl -X POST $GATEWAY/api/v1/adapter/import \
     });
 
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Pinned story: clone each story's visual into a sticky stage and show the one whose text
+    // is in view. Wide screens only; reduced motion keeps the plain layout.
+    (function () {
+      const stories = Array.from(document.querySelectorAll('#features .ep-story'));
+      if (stories.length < 2 || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const wrap = stories[0].parentElement;
+      const stage = document.createElement('div');
+      stage.className = 'ep-stage'; stage.setAttribute('aria-hidden', 'true');
+      stories.forEach(s => {
+        const visual = Array.from(s.children).find(c => !c.classList.contains('ep-story__text'));
+        const item = document.createElement('div');
+        item.className = 'ep-stage__item';
+        if (visual) item.appendChild(visual.cloneNode(true));
+        stage.appendChild(item);
+      });
+      wrap.appendChild(stage);
+      const items = Array.from(stage.children);
+      const show = i => {
+        items.forEach((it, j) => it.classList.toggle('is-on', j === i));
+        stories.forEach((s, j) => s.classList.toggle('is-active', j === i));
+      };
+      const wide = matchMedia('(min-width: 1000px)');
+      const apply = () => { wrap.classList.toggle('ep-scrolly', wide.matches); if (wide.matches) show(0); };
+      apply(); wide.addEventListener('change', apply);
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) show(stories.indexOf(e.target));
+      }), { rootMargin: '-45% 0px -45% 0px' });
+      stories.forEach(s => io.observe(s));
+    })();
   </script>
 </body>
 </html>

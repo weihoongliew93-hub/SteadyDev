@@ -597,3 +597,100 @@ a.f-tag:hover { color: var(--text-strong); border-color: var(--border-strong); }
 
 /* Pill buttons everywhere, as on the product pages. */
 .f-btn { border-radius: 999px; }
+
+/* ---------- Apple-style touches (Nov 2026) ---------- */
+/* 1. Section labels: a short line in the brand colour, not monospace capitals. */
+.f-eyebrow { font-family: var(--font); font-size: 15px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--crimson-text); }
+
+/* 2. The second action reads as a link with a chevron, so one button leads. */
+.f-actions .f-btn--secondary { background: none; border-color: transparent; color: var(--system); padding-left: 4px; padding-right: 4px; min-height: 46px; }
+.f-actions .f-btn--secondary::after { content: "\203A"; font-size: 1.35em; line-height: 0; margin-left: 2px; transition: transform .15s; }
+.f-actions .f-btn--secondary:hover { text-decoration: underline; text-underline-offset: 4px; border-color: transparent; }
+.f-actions .f-btn--secondary:hover::after { transform: translateX(2px); }
+:is(.f-page-hero, .f-hero__copy) > .f-actions .f-btn--secondary { background: none; color: #FFFFFF; }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-actions .f-btn--secondary { background: none; color: var(--system); border-color: transparent; }
+.f-cta .f-btn--secondary { border-color: transparent; }
+
+/* 3. Fewer boxes: information cards lose their outline; things you click keep it. */
+.f-card:not(.f-card--link):not(.f-price-card):not(.f-card--accent):not(a) { border-color: transparent; box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
+:root:not([data-theme="light"]) .f-card:not(.f-card--link):not(.f-price-card):not(.f-card--accent):not(a) { box-shadow: none; }
+
+/* 4. Reveal on scroll (site-nav.js adds .f-reveal only below the fold, and never with reduced motion). */
+.f-reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+.f-reveal:not(.is-in) { opacity: 0; transform: translateY(18px); }
+
+/* 5. Product bar under the header on product pages (built by site-nav.js). */
+.f-pnav { position: sticky; z-index: 990; background: var(--header-bg); backdrop-filter: saturate(160%) blur(16px); -webkit-backdrop-filter: saturate(160%) blur(16px); border-bottom: 1px solid var(--border-soft); }
+.f-pnav__in { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.f-pnav__name { font-size: 19px; font-weight: 600; letter-spacing: -.02em; color: var(--text-strong); text-decoration: none; white-space: nowrap; }
+.f-pnav__links { display: flex; align-items: center; gap: 22px; font-size: 13px; }
+.f-pnav__links a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+.f-pnav__links a:hover { color: var(--text-strong); }
+.f-pnav__links .f-pnav__cta { color: #FFFFFF; background: var(--crimson); padding: 5px 13px; border-radius: 999px; font-weight: 500; }
+.f-pnav__links .f-pnav__cta:hover { color: #FFFFFF; background: #B8323A; }
+@media (max-width: 640px) { .f-pnav__links a:not(.f-pnav__cta) { display: none; } }
+
+/* 6. Home: the three ways to help as large product tiles, text first and the visual below. */
+#paths .f-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 960px) { #paths .f-row { grid-template-columns: 1fr; } }
+#paths .f-path { border: 0; border-radius: 24px; min-height: 480px; background: var(--surface); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
+#paths .f-path:first-child { background: url(../images/hero-blocks.svg) center bottom / 140% auto no-repeat, var(--brand-glow); }
+#paths .f-path:first-child :is(.f-path__title) { color: #FFFFFF; }
+#paths .f-path:first-child :is(.f-path__desc, .f-path__foot) { color: #C9D6EA; }
+#paths .f-path:first-child .f-path__kicker { color: #93C5FD; }
+#paths .f-path__body { order: -1; padding: 34px 30px 8px; gap: 8px; }
+#paths .f-path__kicker { font-size: 14px; font-weight: 600; color: var(--crimson-text); }
+#paths .f-path__title { font-size: 28px; line-height: 1.1; letter-spacing: -.03em; }
+#paths .f-path__foot { padding-top: 10px; font-weight: 500; color: var(--system); justify-content: flex-start; gap: 6px; }
+#paths .f-path__media { margin: auto 0 0 30px; border: 0; border-radius: 14px 0 0 0; min-height: 0; background: var(--surface-inset); box-shadow: 0 -10px 40px rgba(16, 24, 40, .12); }
+#paths .f-path:first-child .f-path__media { background: rgba(7, 14, 28, .72); }
+#paths .f-path__media--shot { padding: 0; overflow: hidden; }
+#paths .f-path__media--shot img { display: block; width: 100%; height: auto; }
+#paths .f-path__media .t-dark { display: none; }
+[data-theme="dark"] #paths .f-path__media .t-light { display: none; }
+[data-theme="dark"] #paths .f-path__media .t-dark { display: block; }
+
+/* 7. One big statement: a single sentence as a pause between busy sections. */
+.f-statement { padding: 112px 0 24px; text-align: center; }
+.f-statement p { font-size: clamp(30px, 4.6vw, 56px); line-height: 1.12; letter-spacing: -.035em; font-weight: 600; color: var(--faint); max-width: 920px; margin: 0 auto; }
+.f-statement p span { color: var(--text-strong); }
+
+/* 8. Highlights carousel: large cards scrolled sideways. */
+.f-rail { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px max(24px, calc((100vw - 1152px) / 2)) 28px; scrollbar-width: none; }
+.f-rail::-webkit-scrollbar { display: none; }
+.f-rail > a { flex: 0 0 300px; min-height: 340px; scroll-snap-align: start; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #FFFFFF; background: var(--brand-glow); }
+.f-rail > a:nth-child(3n+2) { background: radial-gradient(70% 90% at 85% 10%, rgba(207, 58, 64, .55), transparent 60%), linear-gradient(160deg, #1A1030 0%, #3A1420 100%); }
+.f-rail > a:nth-child(3n) { background: radial-gradient(70% 90% at 85% 10%, rgba(147, 197, 253, .35), transparent 60%), linear-gradient(160deg, #10202E 0%, #123A52 100%); }
+.f-rail__kicker { font-size: 13px; font-weight: 600; color: #93C5FD; }
+.f-rail__title { font-size: 24px; line-height: 1.15; letter-spacing: -.02em; font-weight: 600; }
+.f-rail__text { font-size: 15px; color: #C9D6EA; }
+.f-rail__go { margin-top: auto; font-size: 15px; font-weight: 500; }
+.f-rail__go::after { content: " \203A"; }
+.f-rail-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+.f-rail-head a { color: var(--system); text-decoration: none; font-weight: 500; }
+.f-rail-head a::after { content: " \203A"; }
+
+/* 9. Compare plans, Apple-style: plans as columns, ticks and dashes. */
+.f-compare-wrap { overflow-x: auto; margin-top: 40px; }
+.f-compare { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px; }
+.f-compare th, .f-compare td { padding: 14px 12px; text-align: center; border-bottom: 1px solid var(--border-soft); color: var(--text); }
+.f-compare thead th { font-size: 17px; font-weight: 600; color: var(--text-strong); border-bottom: 1px solid var(--border); vertical-align: bottom; }
+.f-compare thead th small { display: block; font-size: 14px; font-weight: 400; color: var(--faint); margin-top: 4px; }
+.f-compare tbody th { text-align: left; font-weight: 500; color: var(--muted); width: 22%; }
+.f-compare .yes { color: var(--ok); font-weight: 600; }
+.f-compare .no { color: var(--faint); }
+.f-compare .pop { background: var(--crimson-soft); }
+
+/* 10. Laptop frame around a product screenshot. */
+.f-laptop { max-width: 980px; margin: 0 auto; }
+.f-laptop__screen { background: #0D0F14; border-radius: 16px 16px 0 0; padding: 12px 12px 0; box-shadow: 0 40px 80px -30px rgba(16, 24, 40, .45); }
+.f-laptop__screen img { display: block; width: 100%; height: auto; border-radius: 6px 6px 0 0; }
+.f-laptop__base { height: 14px; margin: 0 -5%; border-radius: 0 0 14px 14px; background: linear-gradient(#D5D8DE, #A5A9B1); position: relative; }
+.f-laptop__base::before { content: ""; position: absolute; left: 50%; top: 0; width: 110px; height: 5px; transform: translateX(-50%); background: #BFC3CA; border-radius: 0 0 8px 8px; }
+.f-sr, .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Product screenshots on the plugin pages sit in a dark device bezel. */
+:is(.sp-shot, .uc-shot) { border: 0 !important; border-radius: 18px !important; background: #0D0F14 !important; padding: 18px 10px 10px; position: relative; box-shadow: 0 40px 80px -30px rgba(16, 24, 40, .45) !important; }
+:is(.sp-shot, .uc-shot)::before { content: ""; position: absolute; top: 7px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: #2A2F3A; }
+:is(.sp-shot, .uc-shot) img { border-radius: 8px; display: block; }
+:is(.sp-shot--crop, .uc-shot--crop)::after { left: 10px !important; right: 10px !important; bottom: 10px !important; border-radius: 0 0 8px 8px; }
