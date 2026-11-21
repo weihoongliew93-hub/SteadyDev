@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Consolidated e-Invoice Deadline: When Is This Month Due? | SteadyDevs</title>
+  <meta name="description" content="When your monthly consolidated e-invoice is due to LHDN: within 7 days after the month ends. Pick a month to see the date and days left, plus every deadline to December 2027.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://steadydevs.com/consolidated-e-invoice-deadline.html">
+  <meta property="og:title" content="Consolidated e-invoice deadline checker (LHDN)">
+  <meta property="og:description" content="When your monthly consolidated e-invoice is due to LHDN: within 7 days after the month ends. Pick a month to see the date and days left, plus every deadline to December 2027.">
+  <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://steadydevs.com/consolidated-e-invoice-deadline.html">
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/consolidated-e-invoice-deadline.html">
+  <link rel="alternate" hreflang="x-default" href="https://steadydevs.com/consolidated-e-invoice-deadline.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is the consolidated e-invoice due?", "acceptedAnswer": {"@type": "Answer", "text": "Within 7 days after the end of the month. For November, by 7 December; for December, by 7 January."}}, {"@type": "Question", "name": "What goes into a consolidated e-invoice?", "acceptedAnswer": {"@type": "Answer", "text": "Sales where the buyer did not ask for an e-invoice, such as walk-in retail sales, added up for the month. The buyer is the general public, with TIN EI00000000010, and every line uses classification code 004."}}, {"@type": "Question", "name": "Can a sale over RM10,000 go into the consolidated e-invoice?", "acceptedAnswer": {"@type": "Answer", "text": "Normally no: a single sale over RM10,000 needs its own e-invoice. Until 31 December 2027, businesses whose e-invoicing started on 1 January or 1 July 2026 may consolidate those too under LHDN's relaxation."}}, {"@type": "Question", "name": "What if a buyer asks for their own e-invoice after I consolidated?", "acceptedAnswer": {"@type": "Answer", "text": "Issue the individual e-invoice and leave that sale out of the consolidated one. If the month is already filed, adjust it with a credit note."}}, {"@type": "Question", "name": "What happens if I miss the deadline?", "acceptedAnswer": {"@type": "Answer", "text": "Not issuing an e-invoice when required is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance. Past months can be put right through LHDN's Special Voluntary Disclosure Programme, which runs to 31 December 2027."}}]}</script>
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/f.css?v=13">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+  <style>
+    /* Consolidated e-invoice deadline (design F). */
+    .cdl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 32px; align-items: start; }
+    @media (max-width: 860px) { .cdl { grid-template-columns: 1fr; } }
+    .cdl > * { min-width: 0; }
+    .cdl [hidden] { display: none; }
+    .cdl-result { display: grid; gap: 12px; }
+    .cdl-label { font-family: var(--mono); font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+    .cdl-date { font-size: 32px; font-weight: 600; letter-spacing: -.02em; color: var(--text-strong); line-height: 1.15; }
+    .cdl-left { font-weight: 500; }
+    .cdl-left.is-soon { color: var(--warn); }
+    .cdl-left.is-late { color: var(--crimson-text); }
+    .cdl-left.is-ok { color: var(--ok); }
+    .cdl-dim { color: var(--faint); font-size: 14px; }
+    .cdl-result a { color: var(--crimson-text); text-decoration: none; }
+    .cdl + .f-note { margin-top: 24px; }
+    .cdl-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .cdl-table th { text-align: left; font-weight: 500; color: var(--faint); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--border); }
+    .cdl-table td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--border-soft); color: var(--text); }
+  </style>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="assets/site-nav.js?v=9"></script>
+  <main id="main">
+    <section class="f-glow-top">
+      <div class="f-container f-page-hero">
+        <p class="f-eyebrow">Free tool &middot; LHDN e-invoice</p>
+        <h1 class="f-h1">When is my consolidated e-invoice due?</h1>
+        <p class="f-lead">The monthly consolidated e-invoice for sales without a buyer's details is due to LHDN within 7 days after the month ends. Pick a month to see its date and how long you have left.</p>
+        <div class="cdl">
+          <form class="f-form" id="cdlForm" novalidate>
+            <div class="f-field">
+              <label for="cdlMonth">Sales month</label>
+              <input class="f-input" type="month" id="cdlMonth" min="2024-08" max="2030-12">
+              <span class="f-hint">The month whose walk-in or unclaimed sales you are consolidating.</span>
+            </div>
+          </form>
+          <div class="f-card cdl-result" id="cdlResult" aria-live="polite">
+            <p class="cdl-label">Due to LHDN by</p>
+            <p class="cdl-date" id="cdlDate">&ndash;</p>
+            <p class="cdl-left" id="cdlLeft"></p>
+            <p>Count calendar days. If the 7th falls on a weekend or public holiday, file before it rather than after.</p>
+            <p class="cdl-dim">A buyer who asks for their own e-invoice gets one, and that sale comes out of the consolidated e-invoice. Every line uses classification code 004, and the buyer is the general public (TIN EI00000000010).</p>
+            <p><a href="einvoice.html">Let the platform build and file it on time, every month &rarr;</a></p>
+          </div>
+        </div>
+        <p class="f-note">A guide to LHDN's published rules, not tax advice. The 7-day rule is in LHDN's e-Invoice Guideline (section 3.6.2). Checked on 21 November 2026; confirm with LHDN or your tax agent.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--alt">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Every deadline to December 2027</h2><p class="f-sub">The relaxation that lets newer e-invoicing businesses consolidate every sale runs until 31 December 2027.</p></div>
+        <table class="cdl-table">
+          <thead><tr><th>Sales month</th><th>Consolidated e-invoice due by</th></tr></thead>
+          <tbody><tr><td>January 2026</td><td>7 February 2026 (Sat)</td></tr><tr><td>February 2026</td><td>7 March 2026 (Sat)</td></tr><tr><td>March 2026</td><td>7 April 2026 (Tue)</td></tr><tr><td>April 2026</td><td>7 May 2026 (Thu)</td></tr><tr><td>May 2026</td><td>7 June 2026 (Sun)</td></tr><tr><td>June 2026</td><td>7 July 2026 (Tue)</td></tr><tr><td>July 2026</td><td>7 August 2026 (Fri)</td></tr><tr><td>August 2026</td><td>7 September 2026 (Mon)</td></tr><tr><td>September 2026</td><td>7 October 2026 (Wed)</td></tr><tr><td>October 2026</td><td>7 November 2026 (Sat)</td></tr><tr><td>November 2026</td><td>7 December 2026 (Mon)</td></tr><tr><td>December 2026</td><td>7 January 2027 (Thu)</td></tr><tr><td>January 2027</td><td>7 February 2027 (Sun)</td></tr><tr><td>February 2027</td><td>7 March 2027 (Sun)</td></tr><tr><td>March 2027</td><td>7 April 2027 (Wed)</td></tr><tr><td>April 2027</td><td>7 May 2027 (Fri)</td></tr><tr><td>May 2027</td><td>7 June 2027 (Mon)</td></tr><tr><td>June 2027</td><td>7 July 2027 (Wed)</td></tr><tr><td>July 2027</td><td>7 August 2027 (Sat)</td></tr><tr><td>August 2027</td><td>7 September 2027 (Tue)</td></tr><tr><td>September 2027</td><td>7 October 2027 (Thu)</td></tr><tr><td>October 2027</td><td>7 November 2027 (Sun)</td></tr><tr><td>November 2027</td><td>7 December 2027 (Tue)</td></tr><tr><td>December 2027</td><td>7 January 2028 (Fri)</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="f-section">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0"><h2 class="f-h2">Common questions</h2></div>
+        <div class="f-faq"><details><summary>When is the consolidated e-invoice due?</summary><div>Within 7 days after the end of the month. For November, by 7 December; for December, by 7 January.</div></details><details><summary>What goes into a consolidated e-invoice?</summary><div>Sales where the buyer did not ask for an e-invoice, such as walk-in retail sales, added up for the month. The buyer is the general public, with TIN EI00000000010, and every line uses classification code 004.</div></details><details><summary>Can a sale over RM10,000 go into the consolidated e-invoice?</summary><div>Normally no: a single sale over RM10,000 needs its own e-invoice. Until 31 December 2027, businesses whose e-invoicing started on 1 January or 1 July 2026 may consolidate those too under LHDN's relaxation.</div></details><details><summary>What if a buyer asks for their own e-invoice after I consolidated?</summary><div>Issue the individual e-invoice and leave that sale out of the consolidated one. If the month is already filed, adjust it with a credit note.</div></details><details><summary>What happens if I miss the deadline?</summary><div>Not issuing an e-invoice when required is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance. Past months can be put right through LHDN's Special Voluntary Disclosure Programme, which runs to 31 December 2027.</div></details></div>
+        <div class="f-callout f-callout--tip" style="margin-top: 40px">
+          <span class="f-callout__label">More free tools</span>
+          Not sure e-invoicing applies to you yet? <a href="e-invoice-checker.html">Check, and score how ready you are &rarr;</a> Need the codes for a consolidated e-invoice? <a href="myinvois-code-lookup.html">MyInvois code lookup &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ff">
+    <div class="f-container">
+      <div class="ff__grid">
+        <div class="ff__brand">
+          <a href="index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+          <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+        </div>
+        <div class="ff__col"><h2>Offerings</h2><ul>
+          <li><a href="solutions.html">Engineering services</a></li><li><a href="einvoice.html">EInvoice Platform</a></li>
+          <li><a href="venue-booking.html">Venue Booking</a></li><li><a href="steadypost.html">SteadyPost</a></li></ul></div>
+        <div class="ff__col"><h2>Company</h2><ul>
+          <li><a href="about.html">About</a></li><li><a href="portfolio.html">Case studies</a></li>
+          <li><a href="blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ff__col"><h2>More</h2><ul>
+          <li><a href="pricing-terms.html">Pricing terms</a></li><li><a href="my-account.html">My account</a></li>
+          <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li></ul></div>
+        <div class="ff__col"><h2>Free tools</h2><ul>
+          <li><a href="e-invoice-checker.html">Do I need to e-invoice?</a></li><li><a href="msic-code-lookup.html">MSIC code lookup</a></li><li><a href="microsoft-end-of-support-lookup.html">End-of-support lookup</a></li><li><a href="legacy-system-risk-scorecard.html">Risk scorecard</a></li><li><a href="free-tools.html">All free tools &rarr;</a></li></ul></div>
+      </div>
+      <div class="ff__base"><span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span><span>Malaysia · Singapore</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById('cdlMonth');
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      // Malaysia time, so the default month and "days left" are right whatever the visitor's clock says.
+      function todayMyt() { var n = new Date(Date.now() + 8 * 3600 * 1000); return new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate())); }
+      var t = todayMyt(), prev = new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth() - 1, 1));
+      // Default: the month whose deadline is next (last month until its 7-day window closes).
+      var lastDue = new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), 7));
+      var def = t <= lastDue ? prev : new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), 1));
+      input.value = def.getUTCFullYear() + '-' + String(def.getUTCMonth() + 1).padStart(2, '0');
+      var sent = false;
+      function update() {
+        var v = input.value.split('-'); if (v.length !== 2) return;
+        var y = +v[0], m = +v[1];
+        var due = new Date(Date.UTC(y, m, 7)); // day 0 of next month is the last day; +7 days = the 7th
+        document.getElementById('cdlDate').textContent = days[due.getUTCDay()] + ', ' + due.getUTCDate() + ' ' + months[due.getUTCMonth()] + ' ' + due.getUTCFullYear();
+        var left = Math.round((due - t) / 86400000), el = document.getElementById('cdlLeft');
+        var monthEnd = new Date(Date.UTC(y, m, 0));
+        el.className = 'cdl-left';
+        if (t <= monthEnd) { el.textContent = 'The month is still running. The 7 days start when it ends.'; }
+        else if (left > 0) { el.textContent = left + (left === 1 ? ' day left.' : ' days left.'); el.classList.add(left <= 2 ? 'is-soon' : 'is-ok'); }
+        else if (left === 0) { el.textContent = 'Due today.'; el.classList.add('is-soon'); }
+        else { el.textContent = 'Overdue by ' + (-left) + (left === -1 ? ' day.' : ' days.') + ' File it now; past months can be put right through LHDN\'s voluntary disclosure programme until 31 December 2027.'; el.classList.add('is-late'); }
+        if (sent && typeof gtag === 'function') gtag('event', 'consolidated_deadline', { month: input.value });
+        sent = true;
+      }
+      input.addEventListener('change', update);
+      update();
+    })();
+  </script>
+</body>
+</html>

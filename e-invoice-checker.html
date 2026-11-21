@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Do I Need to Issue e-Invoices? Free LHDN Checker | SteadyDevs</title>
-  <meta name="description" content="Check whether LHDN e-invoicing applies to your business, when you must start, and whether the RM3 million exemption covers you. Free, in three questions.">
+  <title>Do I Need to Issue e-Invoices? Free LHDN Checker and Readiness Score | SteadyDevs</title>
+  <meta name="description" content="Check whether LHDN e-invoicing applies to your business and when you must start, then score how ready you are out of 100 with the gaps to fix. Free.">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://steadydevs.com/e-invoice-checker.html">
   <meta property="og:title" content="Do I need to issue e-invoices? LHDN e-invoice checker">
-  <meta property="og:description" content="Check whether LHDN e-invoicing applies to your business, when you must start, and whether the RM3 million exemption covers you. Free, in three questions.">
+  <meta property="og:description" content="Check whether LHDN e-invoicing applies to your business and when you must start, then score how ready you are out of 100 with the gaps to fix. Free.">
   <meta property="og:image" content="https://steadydevs.com/images/steadydevs-og.png">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://steadydevs.com/e-invoice-checker.html">
@@ -48,6 +48,41 @@
     .eic-dim { color: var(--faint); font-size: 14px; }
     .eic + .f-note { margin-top: 24px; }
     .eic-result [data-r="relax"] { border-top: 1px solid var(--border-soft); padding-top: 12px; }
+    /* Step 2: readiness score. Answers are built by the script below from data-* labels, so
+       the question text stays in the HTML for translation. */
+    .rdy { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+    @media (max-width: 860px) { .rdy { grid-template-columns: 1fr; } }
+    .rdy [hidden] { display: none; }
+    .rdy-form { display: grid; gap: 20px; }
+    .rdy-area { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px 6px; margin: 0; background: var(--surface); }
+    .rdy-area legend { padding: 0 6px; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--crimson-text); }
+    .rdy-q { padding: 12px 0 14px; border-top: 1px solid var(--border-soft); }
+    .rdy-q:first-of-type { border-top: 0; padding-top: 4px; }
+    .rdy-q p { color: var(--text-strong); font-size: 15px; line-height: 1.5; margin-bottom: 10px; }
+    .rdy-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rdy-opts label { position: relative; cursor: pointer; }
+    .rdy-opts input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .rdy-opts span { display: inline-block; padding: 6px 14px; border: 1px solid var(--border-strong); border-radius: 999px; font-size: 14px; color: var(--muted); background: var(--surface-2); }
+    .rdy-opts input:focus-visible + span { outline: 2px solid var(--system); outline-offset: 2px; }
+    .rdy-opts input:checked + span { color: var(--text-strong); border-color: var(--text-strong); }
+    .rdy-opts input[value="1"]:checked + span { border-color: var(--ok); color: var(--ok); }
+    .rdy-opts input[value="0"]:checked + span { border-color: var(--crimson-text); color: var(--crimson-text); }
+    .rdy-result { position: sticky; top: 88px; display: grid; gap: 16px; }
+    .rdy-progress { color: var(--faint); font-size: 14px; }
+    .rdy-num { font-size: 48px; font-weight: 600; letter-spacing: -.03em; color: var(--text-strong); line-height: 1; }
+    .rdy-num small { font-size: 18px; color: var(--faint); font-weight: 500; margin-left: 4px; }
+    .rdy-band { margin-top: 8px; font-weight: 500; color: var(--text-strong); }
+    .rdy-band[data-band="ready"] { color: var(--ok); }
+    .rdy-band[data-band="risk"] { color: var(--crimson-text); }
+    .rdy-bars { display: grid; gap: 8px; }
+    .rdy-bars > div { display: grid; grid-template-columns: 110px 1fr 40px; gap: 10px; align-items: center; font-size: 14px; color: var(--muted); }
+    .rdy-bars i { display: block; height: 8px; border-radius: 999px; background: var(--surface-inset); border: 1px solid var(--border-soft); overflow: hidden; }
+    .rdy-bars b { display: block; height: 100%; width: 0; background: var(--system); transition: width .3s; }
+    .rdy-bars em { font-style: normal; text-align: right; color: var(--text); }
+    .rdy-gaps ol { margin: 8px 0 0; padding-left: 1.2em; display: grid; gap: 10px; color: var(--muted); font-size: 15px; }
+    .rdy > * { min-width: 0; }
+    .rdy-gaps a, .rdy-cta a { color: var(--crimson-text); text-decoration: none; }
+    .rdy-cta { border-top: 1px solid var(--border-soft); padding-top: 14px; display: grid; gap: 6px; }
   </style>
 </head>
 <body>
@@ -122,10 +157,84 @@
             <div data-r="unsure" hidden><p class="eic-head">It depends on your group.</p><p>If no company in your group turns over RM3 million or more, you're exempt. If one does, the exemption doesn't apply and you must issue e-invoices from 1 July 2026, or from the day the business started operating if that was later.</p><p>The test is about companies holding 20% or more of the shares, or controlling operations. Your tax agent or company secretary can tell you from your share register.</p></div>
             <div data-r="relax" hidden><p><strong>Relaxation until 31 December 2027.</strong> Until then you may issue one consolidated e-invoice a month for all your sales, including single sales over RM10,000, within 7 days after the month ends. Do that and LHDN won't prosecute under section 120. From 1 January 2028 the full rules apply.</p><p>Missed some months? LHDN's Special Voluntary Disclosure Programme runs until 31 December 2027.</p></div>
             <div data-r="penalty" hidden><p class="eic-dim">Not issuing an e-invoice when you must is an offence under section 120(1)(d) of the Income Tax Act 1967: a fine of RM200 to RM20,000, up to 6 months' imprisonment, or both, for each non-compliance.</p></div>
+            <div data-r="cta" hidden><p><a href="#readiness">Next: check how ready you are, in 12 questions &darr;</a></p></div>
             <div data-r="cta" hidden><p><a href="einvoice.html">Send e-invoices to LHDN from the system you already use &rarr;</a> <a href="einvoice.html#demo">Or try the live demo, no sign-up &rarr;</a></p></div>
           </div>
         </div>
         <p class="f-note">A guide to LHDN's published rules, not tax advice. Checked on 23 October 2026 against <a href="https://www.hasil.gov.my/media/0xqitc2t/lhdnm-e-invoice-general-faqs.pdf">LHDN's e-Invoice FAQ (updated 4 September 2026)</a>. LHDN has changed these dates more than once, so confirm yours with LHDN or your tax agent.</p>
+      </div>
+    </section>
+
+    <section class="f-section f-section--line" id="readiness">
+      <div class="f-container">
+        <div class="f-head" style="margin-top: 0">
+          <p class="f-eyebrow">Step 2</p>
+          <h2 class="f-h2">How ready are you?</h2>
+          <p class="f-sub">Twelve questions on what LHDN e-invoicing needs from your business. Get a score out of 100 and the gaps to fix first. Nothing you answer leaves your browser.</p>
+        </div>
+        <div class="rdy">
+          <form class="rdy-form" id="rdyForm" novalidate>
+            <fieldset class="rdy-area" data-area="reg">
+              <legend>Registration and identifiers</legend>
+              <div class="rdy-q" data-q="1" data-w="2"><p>Do you know your business's TIN, and does it appear on your invoices?</p></div>
+              <div class="rdy-q" data-q="2" data-w="2"><p>Can you sign in to the MyInvois portal, with the right people given access?</p></div>
+              <div class="rdy-q" data-q="3" data-w="1"><p>Do you have your MSIC code, and your SST number if you are registered for SST?</p></div>
+            </fieldset>
+            <fieldset class="rdy-area" data-area="data">
+              <legend>Invoice data</legend>
+              <div class="rdy-q" data-q="4" data-w="1"><p>For business buyers, do you collect their TIN and their BRN or IC number?</p></div>
+              <div class="rdy-q" data-q="5" data-w="1"><p>Do your products have LHDN classification codes and valid unit codes, such as H87 or KGM rather than "PCS" or "KG"?</p></div>
+              <div class="rdy-q" data-q="6" data-w="1"><p>For walk-in sales without buyer details, can you issue the monthly consolidated e-invoice within 7 days of the month ending?</p></div>
+            </fieldset>
+            <fieldset class="rdy-area" data-area="sys">
+              <legend>Systems</legend>
+              <div class="rdy-q" data-q="7" data-w="2"><p>Can your POS or accounting system send e-invoices to MyInvois, or at least export invoice data (Excel, CSV or an API)?</p></div>
+              <div class="rdy-q" data-q="8" data-w="1"><p>Do you have MyInvois API credentials (a client ID and secret), or a provider who files for you?</p></div>
+              <div class="rdy-q" data-q="9" data-w="1"><p>Have you sent a test e-invoice on LHDN's sandbox?</p></div>
+            </fieldset>
+            <fieldset class="rdy-area" data-area="proc">
+              <legend>Process and records</legend>
+              <div class="rdy-q" data-q="10" data-w="1"><p>Does someone know how to fix a rejected e-invoice, and that a validated one can only be cancelled within 72 hours?</p></div>
+              <div class="rdy-q" data-q="11" data-w="1"><p>Do you know when you must issue a self-billed e-invoice, such as when buying from an individual or a foreign supplier?</p></div>
+              <div class="rdy-q" data-q="12" data-w="1"><p>Do you keep each validated e-invoice, with its UUID and QR code, for 7 years?</p></div>
+            </fieldset>
+          </form>
+
+          <div class="f-card rdy-result" id="rdyResult" aria-live="polite">
+            <p class="eic-label">Your readiness</p>
+            <p class="rdy-progress" id="rdyProgress">0 of 12 answered</p>
+            <div class="rdy-score" id="rdyScoreBox" hidden>
+              <p class="rdy-num"><span id="rdyScore">0</span><small>/100</small></p>
+              <p class="rdy-band" data-band="ready" hidden>Ready. Close the remaining gaps before your start date.</p>
+              <p class="rdy-band" data-band="almost" hidden>Almost there. A few gaps would stop some e-invoices reaching LHDN.</p>
+              <p class="rdy-band" data-band="risk" hidden>At risk. As things stand, most e-invoices would not reach LHDN on time.</p>
+            </div>
+            <div class="rdy-bars" id="rdyBars" hidden>
+              <div data-bar="reg"><span>Registration</span><i><b></b></i><em></em></div>
+              <div data-bar="data"><span>Invoice data</span><i><b></b></i><em></em></div>
+              <div data-bar="sys"><span>Systems</span><i><b></b></i><em></em></div>
+              <div data-bar="proc"><span>Process</span><i><b></b></i><em></em></div>
+            </div>
+            <div class="rdy-gaps" id="rdyGaps" hidden>
+              <p class="eic-label">Fix these first</p>
+              <ol>
+                <li data-gap="1">Find your TIN in MyTax (companies start with C, individuals with IG) and put it on your invoice template. <a href="e-invoice-tin-checker.html">Check its format &rarr;</a></li>
+                <li data-gap="2">Sign in to the MyInvois portal through MyTax and give your staff or provider their roles. <a href="einvoice.html#setup">We can set it up with you &rarr;</a></li>
+                <li data-gap="7">If your system can't file to MyInvois itself, a platform can take its export or API and file for you. <a href="einvoice.html">See how it works &rarr;</a></li>
+                <li data-gap="3">Every e-invoice needs the seller's MSIC code, from LHDN's list. <a href="msic-code-lookup.html">Look up your MSIC code &rarr;</a></li>
+                <li data-gap="4">Ask business buyers for their TIN and BRN or IC before you invoice them. <a href="e-invoice-tin-checker.html">Check buyer details &rarr;</a></li>
+                <li data-gap="5">Give each product a classification code and a unit code LHDN accepts. <a href="myinvois-code-lookup.html">Find the codes &rarr;</a></li>
+                <li data-gap="6">The consolidated e-invoice for walk-in sales is due within 7 days of each month ending. <a href="consolidated-e-invoice-deadline.html">See this month's deadline &rarr;</a></li>
+                <li data-gap="8">Register your system in the MyInvois portal for a client ID and secret, or let a provider file for you as an intermediary. <a href="einvoice.html#setup">Guided setup &rarr;</a></li>
+                <li data-gap="9">Try a test before going live. <a href="e-invoice-json-checker.html">Check an e-invoice's JSON &rarr;</a> <a href="einvoice.html#demo">Or try the live demo &rarr;</a></li>
+                <li data-gap="10">Learn what LHDN's rejections mean and how to fix each. <a href="myinvois-error-codes.html">MyInvois error codes &rarr;</a></li>
+                <li data-gap="11">Buying from individuals, foreign suppliers and some others needs a self-billed e-invoice. <a href="blog/self-billed-einvoice-malaysia-guide.html">Read the guide &rarr;</a></li>
+                <li data-gap="12">Keep each validated e-invoice and its UUID and QR code with your business records for 7 years.</li>
+              </ol>
+            </div>
+            <p class="rdy-cta" id="rdyCta" hidden><a href="einvoice.html">File e-invoices to LHDN from the system you already use &rarr;</a> <a href="einvoice.html#setup">Or let us set it up with you &rarr;</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -197,6 +306,62 @@
       [start, band, reach, group].forEach(function (el) { el.addEventListener('change', apply); });
       $('eicForm').addEventListener('submit', function (e) { e.preventDefault(); });
       apply();
+    })();
+  </script>
+  <script>
+    // Step 2: readiness. Yes = 1, Partly or not sure = 0.5, No = 0, times each question's weight.
+    (function () {
+      var form = document.getElementById('rdyForm');
+      if (!form) return;
+      var labels = [['1', 'Yes'], ['0.5', 'Partly or not sure'], ['0', 'No']];
+      var qs = Array.prototype.slice.call(form.querySelectorAll('.rdy-q'));
+      qs.forEach(function (q) {
+        var n = q.getAttribute('data-q'), box = document.createElement('div');
+        box.className = 'rdy-opts'; box.setAttribute('role', 'radiogroup');
+        box.setAttribute('aria-label', q.querySelector('p').textContent);
+        labels.forEach(function (l) {
+          var lab = document.createElement('label'), inp = document.createElement('input'), sp = document.createElement('span');
+          inp.type = 'radio'; inp.name = 'rdy' + n; inp.value = l[0]; sp.textContent = l[1];
+          lab.appendChild(inp); lab.appendChild(sp); box.appendChild(lab);
+        });
+        q.appendChild(box);
+      });
+      var $ = function (id) { return document.getElementById(id); };
+      var sent = false;
+      function update() {
+        var answered = 0, got = 0, max = 0, areas = {}, gaps = [];
+        qs.forEach(function (q) {
+          var w = +q.getAttribute('data-w'), area = q.closest('[data-area]').getAttribute('data-area');
+          var picked = q.querySelector('input:checked');
+          areas[area] = areas[area] || { got: 0, max: 0 };
+          areas[area].max += w; max += w;
+          if (!picked) return;
+          answered++;
+          var v = +picked.value; got += v * w; areas[area].got += v * w;
+          if (v < 1) gaps.push({ q: q.getAttribute('data-q'), w: w, v: v });
+        });
+        $('rdyProgress').textContent = answered + ' of ' + qs.length + ' answered';
+        var done = answered === qs.length;
+        $('rdyScoreBox').hidden = $('rdyBars').hidden = $('rdyCta').hidden = !done;
+        // Gaps show as they are found; the score waits for every answer.
+        gaps.sort(function (a, b) { return (b.w * (1 - b.v)) - (a.w * (1 - a.v)) || a.q - b.q; });
+        var list = $('rdyGaps').querySelector('ol');
+        list.querySelectorAll('li').forEach(function (li) { li.hidden = true; });
+        gaps.forEach(function (g) { var li = list.querySelector('[data-gap="' + g.q + '"]'); li.hidden = false; list.appendChild(li); });
+        $('rdyGaps').hidden = gaps.length === 0;
+        if (!done) return;
+        var score = Math.round(got / max * 100), band = score >= 80 ? 'ready' : score >= 50 ? 'almost' : 'risk';
+        $('rdyScore').textContent = score;
+        document.querySelectorAll('#rdyScoreBox [data-band]').forEach(function (p) { p.hidden = p.getAttribute('data-band') !== band; });
+        Object.keys(areas).forEach(function (a) {
+          var pct = Math.round(areas[a].got / areas[a].max * 100), row = document.querySelector('[data-bar="' + a + '"]');
+          row.querySelector('b').style.width = pct + '%'; row.querySelector('em').textContent = pct + '%';
+        });
+        if (!sent && typeof gtag === 'function') { sent = true; gtag('event', 'einvoice_readiness', { band: band, score: score }); }
+      }
+      form.addEventListener('change', update);
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+      update();
     })();
   </script>
 </body>

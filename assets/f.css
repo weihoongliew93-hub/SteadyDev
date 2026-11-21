@@ -534,3 +534,61 @@ a.f-tag:hover { color: var(--text-strong); border-color: var(--border-strong); }
   .f-path, .f-btn { transition: none; }
   .f-path:hover { transform: none; }
 }
+
+/* ---------- Brand hero and closing banner (Nov 2026) ----------
+   Navy gradient with the logo's blocks stacked into a skyline, as on einvoice.html. Applied to the
+   shared hero (.f-glow-top) only when it holds no form, so the free tools stay content-first. Always
+   dark, in both themes. */
+:root { --brand-glow:
+    radial-gradient(70% 90% at 85% 10%, rgba(59, 130, 246, .55), transparent 60%),
+    radial-gradient(45% 60% at 100% 70%, rgba(147, 197, 253, .28), transparent 65%),
+    radial-gradient(55% 70% at 0% 100%, rgba(207, 58, 64, .32), transparent 65%),
+    linear-gradient(160deg, #0A1628 0%, #0F2347 55%, #1E3A8A 100%); }
+.f-glow-top:not(:has(form, input, select, textarea, .ei-preview)) { background: url(../images/hero-blocks.svg) center bottom / 100% auto no-repeat, var(--brand-glow); color: #C9D6EA; }
+.f-glow-top:not(:has(form, input, select, textarea, .ei-preview)) > .f-container { padding-bottom: clamp(150px, 17vw, 230px); }
+:is(.f-page-hero, .f-hero__copy) > .f-h1 { color: #FFFFFF; }
+:is(.f-page-hero, .f-hero__copy) > .f-h1 .f-dim { color: #93C5FD; }
+:is(.f-page-hero, .f-hero__copy) > :is(.f-lead, .f-sub, .f-muted) { color: #C9D6EA; }
+:is(.f-page-hero, .f-hero__copy) > .f-eyebrow { color: #93C5FD; }
+:is(.f-page-hero, .f-hero__copy) > .f-note { color: #9FB0C8; }
+:is(.f-page-hero, .f-hero__copy) > :is(.f-note, .f-lead) a { color: #FFFFFF; }
+:is(.f-page-hero, .f-hero__copy) > .f-pill { color: #FFFFFF; background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .25); }
+:is(.f-page-hero, .f-hero__copy) > .f-pill::before { background: #93C5FD; }
+:is(.f-page-hero, .f-hero__copy) > .f-actions .f-btn--secondary { background: #FFFFFF; color: #0A1628; border-color: transparent; }
+:is(.f-page-hero, .f-hero__copy) > .f-breadcrumb, :is(.f-page-hero, .f-hero__copy) > .f-breadcrumb a { color: #9FB0C8; }
+:is(.f-page-hero, .f-hero__copy) > .f-breadcrumb a:hover { color: #FFFFFF; }
+:is(.f-page-hero, .f-hero__copy) > .f-kpi { border-top-color: rgba(255, 255, 255, .18); }
+:is(.f-page-hero, .f-hero__copy) > .f-kpi .f-kpi__label { color: #9FB0C8; }
+:is(.f-page-hero, .f-hero__copy) > .f-kpi .f-kpi__value { color: #FFFFFF; }
+/* A form inside the hero keeps the old light hero: undo the colours above there. */
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-h1 { color: var(--text-strong); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-h1 .f-dim { color: var(--dim); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > :is(.f-lead, .f-sub, .f-muted, .f-note) { color: var(--muted); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-eyebrow { color: var(--crimson-text); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > :is(.f-note, .f-lead) a { color: var(--text-strong); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-pill { color: var(--muted); background: var(--surface); border-color: var(--border); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-pill::before { background: var(--crimson); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-actions .f-btn--secondary { background: var(--surface-2); color: var(--text); border-color: var(--border-strong); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-breadcrumb { color: var(--faint); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-breadcrumb a { color: var(--muted); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-kpi { border-top-color: var(--border-soft); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-kpi .f-kpi__label { color: var(--faint); }
+.f-glow-top:has(form, input, select, textarea, .ei-preview) :is(.f-page-hero, .f-hero__copy) > .f-kpi .f-kpi__value { color: var(--text-strong); }
+
+/* Closing banner: the same navy and skyline, as a rounded panel. */
+.f-glow-bottom:has(> .f-cta) { background: none; border-top: 0; }
+.f-cta { max-width: 1152px; margin: 96px auto; border-radius: 28px; padding: 88px 32px clamp(150px, 15vw, 210px); color: #C9D6EA;
+  background: url(../images/hero-blocks.svg) center bottom / 100% auto no-repeat, var(--brand-glow); }
+.f-cta .f-h2, .f-cta h2 { color: #FFFFFF; }
+.f-cta p { color: #C9D6EA; }
+.f-cta .f-note, .f-cta .f-note a { color: #9FB0C8; }
+.f-cta a:not(.f-btn) { color: #FFFFFF; }
+.f-cta .f-btn--secondary { background: transparent; color: #FFFFFF; border-color: rgba(255, 255, 255, .5); }
+.f-cta .f-btn--glow { box-shadow: none; }
+@media (max-width: 760px) {
+  .f-cta { margin: 64px 16px; padding-left: 22px; padding-right: 22px; }
+  .f-glow-top:not(:has(form, input, select, textarea, .ei-preview)), .f-cta { background-size: auto 120px, auto, auto, auto, auto; background-position: right bottom, 0 0, 0 0, 0 0, 0 0; }
+}
+
+/* Pill buttons everywhere, as on the product pages. */
+.f-btn { border-radius: 999px; }

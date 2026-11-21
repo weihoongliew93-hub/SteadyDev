@@ -51,6 +51,7 @@ const MAIN = [
   { file: 'einvoice.html',      loc: '/einvoice.html',      changefreq: 'monthly', priority: '0.9' },
   { file: 'msic-code-lookup.html', loc: '/msic-code-lookup.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'e-invoice-checker.html', loc: '/e-invoice-checker.html', changefreq: 'monthly', priority: '0.8' },
+  { file: 'consolidated-e-invoice-deadline.html', loc: '/consolidated-e-invoice-deadline.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'e-invoice-penalty-calculator.html', loc: '/e-invoice-penalty-calculator.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'free-tools.html', loc: '/free-tools.html', changefreq: 'monthly', priority: '0.8' },
   { file: 'e-invoice-tin-checker.html', loc: '/e-invoice-tin-checker.html', changefreq: 'monthly', priority: '0.7' },
