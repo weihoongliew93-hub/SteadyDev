@@ -64,7 +64,7 @@
 <body>
 <a class="f-skip" href="#main">Langkau ke kandungan</a>
 <div id="sd-site-nav"></div>
-<script src="../assets/site-nav.js?v=9"></script>
+<script src="../assets/site-nav.js?v=10"></script>
 <div hidden="" id="sd-legacy-stubs"><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 <main id="main">
 <section class="f-glow-top">
@@ -131,6 +131,20 @@
 <option value="EInvoice Guided Setup">Persediaan berpandu (RM490 sekali sahaja)</option>
 <option value="EInvoice System Connection">Sambungan sistem (dari RM1,490)</option>
 </optgroup>
+</select>
+</div>
+
+<div class="form-group">
+<label for="heard_about">Bagaimana anda mengetahui tentang kami? (pilihan)</label>
+<select id="heard_about" name="heard_about">
+<option value="">Pilih satu...</option>
+<option value="Instagram">Instagram</option>
+<option value="LinkedIn">LinkedIn</option>
+<option value="Google">Carian Google</option>
+<option value="Facebook">Facebook</option>
+<option value="Friend or colleague">Rakan atau rakan sekerja</option>
+<option value="AI assistant">Pembantu AI (ChatGPT dll.)</option>
+<option value="Other">Lain-lain</option>
 </select>
 </div>
 <div class="form-group">
@@ -273,7 +287,7 @@
             if (response.ok) {
               // Success
               successMsg.style.display = 'block';
-              if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact' });
+              if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact', lead_source: window.sdLeadSource ? window.sdLeadSource().source : '', heard_about: form.heard_about ? form.heard_about.value : '' });
               form.reset();
               // Scroll to success message
               successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });

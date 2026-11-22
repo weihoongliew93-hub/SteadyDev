@@ -64,7 +64,7 @@
 <body>
 <a class="f-skip" href="#main">跳至内容</a>
 <div id="sd-site-nav"></div>
-<script src="../assets/site-nav.js?v=9"></script>
+<script src="../assets/site-nav.js?v=10"></script>
 <div hidden="" id="sd-legacy-stubs"><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
 <main id="main">
 <section class="f-glow-top">
@@ -131,6 +131,20 @@
 <option value="EInvoice Guided Setup">陪同开通（RM490 一次性）</option>
 <option value="EInvoice System Connection">系统对接（RM1,490 起）</option>
 </optgroup>
+</select>
+</div>
+
+<div class="form-group">
+<label for="heard_about">您是如何得知我们的？（选填）</label>
+<select id="heard_about" name="heard_about">
+<option value="">请选择...</option>
+<option value="Instagram">Instagram</option>
+<option value="LinkedIn">LinkedIn</option>
+<option value="Google">Google 搜索</option>
+<option value="Facebook">Facebook</option>
+<option value="Friend or colleague">朋友或同事推荐</option>
+<option value="AI assistant">AI 助手（ChatGPT 等）</option>
+<option value="Other">其他</option>
 </select>
 </div>
 <div class="form-group">
@@ -273,7 +287,7 @@
             if (response.ok) {
               // Success
               successMsg.style.display = 'block';
-              if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact' });
+              if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact', lead_source: window.sdLeadSource ? window.sdLeadSource().source : '', heard_about: form.heard_about ? form.heard_about.value : '' });
               form.reset();
               // Scroll to success message
               successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });

@@ -360,6 +360,72 @@
 })();
 
 /*
+ * Lead source (Nov 2026): remember where a visitor came from, so an enquiry can say
+ * "instagram / social (bio)" even when the form is filled in three pages later.
+ * - First source is kept for 90 days; a tagged link (utm_source) or an outside site only
+ *   replaces it while it is still "direct". The latest outside source is kept as well.
+ * - Every Formspree form gets hidden fields lead_source, lead_latest_source,
+ *   lead_landing_page and lead_first_visit when it is submitted.
+ * Only the source, landing path and date are stored, in this browser; nothing personal.
+ */
+(function () {
+  var KEY = 'sd-src', DAYS = 90;
+  function hostSource(h) {
+    h = h.replace(/^www\./, '');
+    var map = [
+      [/(^|\.)(chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com)$/, 'ai_assistant'],
+      [/(^|\.)instagram\.com$/, 'instagram'],
+      [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'linkedin'],
+      [/(^|\.)(facebook\.com|fb\.me|messenger\.com)$/, 'facebook'],
+      [/(^|\.)threads\.(net|com)$/, 'threads'],
+      [/(^|\.)(whatsapp\.com|wa\.me)$/, 'whatsapp'],
+      [/(^|\.)google\.[a-z.]+$/, 'google'],
+      [/(^|\.)bing\.com$/, 'bing']
+    ];
+    for (var i = 0; i < map.length; i++) if (map[i][0].test(h)) return map[i][1];
+    return h;
+  }
+  function read() {
+    try {
+      var v = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (v && v.first && Date.now() - v.first.t < DAYS * 864e5) return v;
+    } catch (e) { /* storage blocked */ }
+    return null;
+  }
+  var q = new URLSearchParams(location.search), utm = q.get('utm_source'), ref = '';
+  try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) { /* bad referrer */ }
+  var own = /(^|\.)steadydevs\.com$|^localhost$|^127\.0\.0\.1$/.test(ref);
+  var fresh = utm ? { s: utm.toLowerCase(), m: (q.get('utm_medium') || '').toLowerCase(), c: q.get('utm_campaign') || '' }
+    : (ref && !own) ? { s: hostSource(ref), m: 'referral', c: '' } : null;
+  if (fresh) { fresh.l = location.pathname; fresh.t = Date.now(); }
+  var v = read();
+  if (!v) v = { first: fresh || { s: 'direct', m: '', c: '', l: location.pathname, t: Date.now() } };
+  else if (fresh && v.first.s === 'direct') v.first = fresh;
+  if (fresh) v.last = fresh;
+  try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { /* storage blocked: still works for this page */ }
+
+  function label(x) { return x ? x.s + (x.m ? ' / ' + x.m : '') + (x.c ? ' (' + x.c + ')' : '') : ''; }
+  window.sdLeadSource = function () { var cur = read() || v; return { source: label(cur.first), latest: label(cur.last), first: cur.first, last: cur.last }; };
+
+  // Capture phase, so the fields exist before a page's own submit handler builds its FormData.
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || !/formspree\.io/i.test(f.getAttribute('action') || '')) return;
+    var cur = read() || v, fields = {
+      lead_source: label(cur.first),
+      lead_latest_source: cur.last && label(cur.last) !== label(cur.first) ? label(cur.last) : '',
+      lead_landing_page: cur.first.l || '',
+      lead_first_visit: new Date(cur.first.t).toISOString().slice(0, 10)
+    };
+    Object.keys(fields).forEach(function (name) {
+      var input = f.querySelector('input[name="' + name + '"]');
+      if (!input) { input = document.createElement('input'); input.type = 'hidden'; input.name = name; f.appendChild(input); }
+      input.value = fields[name];
+    });
+  }, true);
+})();
+
+/*
  * Apple-style touches, on every design F page (Nov 2026).
  * 1. Product bar: a thin sticky bar under the header on product pages, with the product's
  *    name, its sections and one call to action. Labels are kept here in all three languages,
