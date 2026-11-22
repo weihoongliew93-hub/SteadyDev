@@ -587,7 +587,7 @@ function generateHTML(post) {
             <ul>
               <li><a href="../pricing-terms.html">Pricing terms</a></li>
               <li><a href="../my-account.html">My account</a></li>
-              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li><li><a href="https://www.instagram.com/steady_devs/">Instagram</a></li>
             </ul>
           </div>
           <div class="ff__col">
