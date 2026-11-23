@@ -291,6 +291,15 @@ p { margin: 0; }
 .fh__lang-panel a[aria-current="true"] { color: var(--text-strong); font-weight: 500; background: var(--surface-2); }
 .fh__lang-note { margin: 6px 12px 6px; font-size: 12px; line-height: 1.45; color: var(--faint); }
 @media (max-width: 440px) { .fh__lang-btn > span { display: none; } .fh__lang-btn { padding: 0 8px; } }
+/* Smallest phones (320px): logo plus four buttons ran about 30px past the right edge and the
+   whole page scrolled sideways. Tighter gutters, gaps and slightly smaller buttons fit them. */
+@media (max-width: 374px) {
+  .fh__inner { padding-left: 16px; padding-right: 16px; gap: 8px; }
+  .fh__logo { font-size: 16px; gap: 8px; }
+  .fh__tools { gap: 4px; }
+  .fh__icon { width: 36px; height: 36px; }
+  .fh__lang-btn { height: 36px; padding: 0 6px; }
+}
 /* EInvoice and WordPress Plugins menus: a button opening a short list of pages (assets/site-nav.js). */
 .fh__group { position: relative; }
 .fh__group-btn { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; padding: 0; border: 0; background: none; font: inherit; color: var(--muted); cursor: pointer; }

@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="../assets/f.css?v=9">
+  <link rel="stylesheet" href="../assets/f.css?v=14">
   
   <style>
     /* Blog topics (design F). Uses f.css tokens only; styles the script-rendered markup. */
@@ -36,7 +36,7 @@
     .topic-category:first-child { border-top: 0; padding-top: 0; }
     .topic-category h2 { display: flex; align-items: baseline; gap: 10px; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-strong); margin: 0; }
     .topic-category .category-description { color: var(--muted); margin: 8px 0 24px; max-width: 640px; }
-    .articles-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+    .articles-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 16px; }
     .article-item { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); text-decoration: none; color: var(--text); transition: border-color .15s, transform .15s; }
     .article-item:hover { border-color: var(--border-strong); transform: translateY(-2px); }
     .article-item-header { display: flex; flex-direction: column; gap: 4px; }

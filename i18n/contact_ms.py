@@ -44,29 +44,29 @@ B = {
  'b29': 'Audit penuh (dari RM5,860)',
  'b30': 'Pelaksanaan (dari RM2,940)',
  'b31': 'Platform EInvoice - Akses Awal (beta)',
- 'b34': 'Mesej *',
- 'b35': 'Hantar mesej',
- 'b36': 'Atau e-mel terus: <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>',
- 'b37': '<span class="f-sys__title">NOTIS</span><span class="f-sys__tag">LANGKAH SETERUSNYA</span>',
- 'b38': '<span>1. Kami membaca mesej anda dan membalas</span><span>1–2 hari bekerja</span>',
- 'b39': '<span>2. Sesi strategi percuma 30 minit</span><span class="f-sys__note">Percuma</span>',
- 'b40': '<span>3. Penilaian bertulis dengan sebut harga tetap</span><span class="f-sys__note">Percuma</span>',
- 'b41': 'Tiada kewajipan untuk meneruskan',
- 'b42': 'E-mel',
- 'b44': 'Masa respons',
- 'b45': 'Dalam 1–2 hari bekerja, dengan keutamaan untuk pertanyaan yang terperinci',
- 'b46': 'Waktu tersedia',
- 'b47': 'Setiap hari, waktu Malaysia (GMT+8). Paling sesuai untuk penambahbaikan yang dirancang, bukan kecemasan segera.',
- 'b48': 'Lokasi',
- 'b49': 'Berpangkalan di Malaysia, berkhidmat untuk pelanggan di seluruh dunia',
- 'b50': 'Apa yang perlu disertakan',
- 'b51': 'Penerangan ringkas tentang sistem anda dan masalahnya',
- 'b52': 'Apa yang telah anda cuba setakat ini, jika ada',
- 'b53': 'Jadual masa anda dan tahap kesegeraannya',
- 'b54': 'Julat bajet yang anda pertimbangkan, supaya kami boleh mencadangkan pilihan yang sesuai',
- 'b55': 'Sebarang kekangan atau keperluan',
+ 'b43': 'Mesej *',
+ 'b44': 'Hantar mesej',
+ 'b45': 'Atau e-mel terus: <a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>',
+ 'b46': '<span class="f-sys__title">NOTIS</span><span class="f-sys__tag">LANGKAH SETERUSNYA</span>',
+ 'b47': '<span>1. Kami membaca mesej anda dan membalas</span><span>1–2 hari bekerja</span>',
+ 'b48': '<span>2. Sesi strategi percuma 30 minit</span><span class="f-sys__note">Percuma</span>',
+ 'b49': '<span>3. Penilaian bertulis dengan sebut harga tetap</span><span class="f-sys__note">Percuma</span>',
+ 'b50': 'Tiada kewajipan untuk meneruskan',
+ 'b51': 'E-mel',
+ 'b53': 'Masa respons',
+ 'b54': 'Dalam 1–2 hari bekerja, dengan keutamaan untuk pertanyaan yang terperinci',
+ 'b55': 'Waktu tersedia',
+ 'b56': 'Setiap hari, waktu Malaysia (GMT+8). Paling sesuai untuk penambahbaikan yang dirancang, bukan kecemasan segera.',
+ 'b57': 'Lokasi',
+ 'b58': 'Berpangkalan di Malaysia, berkhidmat untuk pelanggan di seluruh dunia',
+ 'b59': 'Apa yang perlu disertakan',
+ 'b60': 'Penerangan ringkas tentang sistem anda dan masalahnya',
+ 'b61': 'Apa yang telah anda cuba setakat ini, jika ada',
+ 'b62': 'Jadual masa anda dan tahap kesegeraannya',
+ 'b63': 'Julat bajet yang anda pertimbangkan, supaya kami boleh mencadangkan pilihan yang sesuai',
+ 'b64': 'Sebarang kekangan atau keperluan',
 }
-B.update(footer('ms', 56))
+B.update(footer('ms', 65))
 SCRIPT = {"'Send Message'": "'Hantar mesej'", "'Sending...'": "'Menghantar...'"}
 
 # Setup service section (and contact options), added 16 Nov 2026.
@@ -77,4 +77,17 @@ B.update({
 # Single Fix tier (Nov 2026).
 B.update({
  "b15": "Pembetulan Tunggal (dari RM590)"
+})
+
+# "How did you hear about us?" box (lead-source tracking), added 22 Nov 2026.
+B.update({
+ 'b34': 'Bagaimana anda mengetahui tentang kami? (pilihan)',
+ 'b35': 'Pilih satu...',
+ 'b36': 'Instagram',
+ 'b37': 'LinkedIn',
+ 'b38': 'Carian Google',
+ 'b39': 'Facebook',
+ 'b40': 'Rakan atau rakan sekerja',
+ 'b41': 'Pembantu AI (ChatGPT dll.)',
+ 'b42': 'Lain-lain'
 })

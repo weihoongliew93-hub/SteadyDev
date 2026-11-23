@@ -44,29 +44,29 @@ B = {
  'b29': '全面审计（RM5,860 起）',
  'b30': '实施（RM2,940 起）',
  'b31': 'EInvoice 平台 - 抢先体验（测试版）',
- 'b34': '留言内容 *',
- 'b35': '发送留言',
- 'b36': '或直接发电邮：<a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>',
- 'b37': '<span class="f-sys__title">通知</span><span class="f-sys__tag">接下来会怎样</span>',
- 'b38': '<span>1. 我们阅读您的留言并回复</span><span>1–2 个工作日</span>',
- 'b39': '<span>2. 免费 30 分钟策略咨询</span><span class="f-sys__note">免费</span>',
- 'b40': '<span>3. 附固定报价的书面评估</span><span class="f-sys__note">免费</span>',
- 'b41': '没有义务继续合作',
- 'b42': '电邮',
- 'b44': '回复时间',
- 'b45': '1–2 个工作日内，内容详细的咨询优先处理',
- 'b46': '服务时间',
- 'b47': '每天，马来西亚时间（GMT+8）。适合有计划的改进工作，不适合即时紧急事故。',
- 'b48': '所在地',
- 'b49': '立足马来西亚，服务全球客户',
- 'b50': '留言时请附上',
- 'b51': '系统和问题的简要说明',
- 'b52': '目前为止尝试过的方法（如有）',
- 'b53': '您的时间安排和紧急程度',
- 'b54': '您考虑的预算范围，方便我们推荐合适的方案',
- 'b55': '任何限制或特殊要求',
+ 'b43': '留言内容 *',
+ 'b44': '发送留言',
+ 'b45': '或直接发电邮：<a href="mailto:contact@steadydevs.com">contact@steadydevs.com</a>',
+ 'b46': '<span class="f-sys__title">通知</span><span class="f-sys__tag">接下来会怎样</span>',
+ 'b47': '<span>1. 我们阅读您的留言并回复</span><span>1–2 个工作日</span>',
+ 'b48': '<span>2. 免费 30 分钟策略咨询</span><span class="f-sys__note">免费</span>',
+ 'b49': '<span>3. 附固定报价的书面评估</span><span class="f-sys__note">免费</span>',
+ 'b50': '没有义务继续合作',
+ 'b51': '电邮',
+ 'b53': '回复时间',
+ 'b54': '1–2 个工作日内，内容详细的咨询优先处理',
+ 'b55': '服务时间',
+ 'b56': '每天，马来西亚时间（GMT+8）。适合有计划的改进工作，不适合即时紧急事故。',
+ 'b57': '所在地',
+ 'b58': '立足马来西亚，服务全球客户',
+ 'b59': '留言时请附上',
+ 'b60': '系统和问题的简要说明',
+ 'b61': '目前为止尝试过的方法（如有）',
+ 'b62': '您的时间安排和紧急程度',
+ 'b63': '您考虑的预算范围，方便我们推荐合适的方案',
+ 'b64': '任何限制或特殊要求',
 }
-B.update(footer('zh', 56))
+B.update(footer('zh', 65))
 SCRIPT = {"'Send Message'": "'发送留言'", "'Sending...'": "'发送中……'"}
 
 # Setup service section (and contact options), added 16 Nov 2026.
@@ -77,4 +77,17 @@ B.update({
 # Single Fix tier (Nov 2026).
 B.update({
  "b15": "单项修复（RM590 起）"
+})
+
+# "How did you hear about us?" box (lead-source tracking), added 22 Nov 2026.
+B.update({
+ 'b34': '您是如何得知我们的？（选填）',
+ 'b35': '请选择...',
+ 'b36': 'Instagram',
+ 'b37': 'LinkedIn',
+ 'b38': 'Google 搜索',
+ 'b39': 'Facebook',
+ 'b40': '朋友或同事推荐',
+ 'b41': 'AI 助手（ChatGPT 等）',
+ 'b42': '其他'
 })
