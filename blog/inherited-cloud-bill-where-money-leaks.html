@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" data-design="f">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Inherited Cloud Bill? 6 Places Money Leaks | SteadyDevs</title>
+  <meta name="description" content="Took over an AWS or Google Cloud account? The six places we most often find waste, and why cutting them blindly breaks production.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.svg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://steadydevs.com/blog/inherited-cloud-bill-where-money-leaks.html">
+  <meta property="og:title" content="Inherited Cloud Bill? 6 Places Money Leaks">
+  <meta property="og:description" content="Took over an AWS or Google Cloud account? The six places we most often find waste, and why cutting them blindly breaks production.">
+  <meta property="og:image" content="https://steadydevs.com/images/blog/cloud-bill-leaks-cover.png">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inherited Cloud Bill? 6 Places Money Leaks">
+  <meta name="twitter:description" content="Took over an AWS or Google Cloud account? The six places we most often find waste, and why cutting them blindly breaks production.">
+  <meta name="twitter:image" content="https://steadydevs.com/images/blog/cloud-bill-leaks-cover.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://steadydevs.com/blog/inherited-cloud-bill-where-money-leaks.html">
+  
+  <script>(function(){var t;try{t=localStorage.getItem("sd-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})()</script>
+  <meta name="theme-color" content="#0A0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="../images/blog/cloud-bill-leaks-cover.svg" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Chakra+Petch:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/f.css?v=ca0c2163">
+  <link rel="stylesheet" href="blog-styles.css?v=133092a1">
+  
+  <!-- Enhanced Article Schema (BlogPosting) with AI-friendly fields -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your Cloud Bill Keeps Climbing: Six Places Inherited Cloud Setups Quietly Leak Money",
+    "alternativeHeadline": "If you took over a Google Cloud or AWS account from a previous developer, you are probably paying for things n",
+    "image": "https://steadydevs.com/images/blog/cloud-bill-leaks-cover.png",
+    "datePublished": "2026-11-24T00:00:00+08:00",
+    "dateModified": "2026-11-24T00:00:00+08:00",
+    "author": {
+      "@type": "Person",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SteadyDevs",
+      "url": "https://steadydevs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://steadydevs.com/images/SteadyDevsLogo.svg"
+      }
+    },
+    "description": "Took over an AWS or Google Cloud account? The six places we most often find waste, and why cutting them blindly breaks production.",
+    "articleSection": "Software Development",
+    "articleBody": "If you took over a Google Cloud or AWS account from a previous developer, you are probably paying for things nobody remembers creating. Here are the six places we most often find waste—and why cutting them blindly is how production breaks.",
+    "wordCount": 1002,
+    "inLanguage": "en-MY",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Cloud Costs"
+      },
+      {
+        "@type": "Thing",
+        "name": "Google Cloud"
+      },
+      {
+        "@type": "Thing",
+        "name": "AWS"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": ".NET Framework"
+      }
+    ],
+    "keywords": "cloud costs, google cloud, aws, legacy systems",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://steadydevs.com/blog/inherited-cloud-bill-where-money-leaks.html"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".blog-hero h1", ".blog-content h2", ".blog-content p"]
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much can a cloud cost review typically save?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends entirely on how the account has been run. Accounts that have been reviewed recently may have little to recover; inherited accounts that have never been reviewed often have substantial waste. A triage of the bill is the only honest way to estimate it for your account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe to delete resources we don't recognise?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not without checking. Look at audit logs for recent use, check whether anything references the resource (DNS records, configuration files, scheduled jobs), and take a snapshot where possible before removing it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should we buy committed-use or reserved discounts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only after right-sizing. Committing to a year of capacity on oversized machines locks the waste in at a discount. Clean up first, observe steady usage, then commit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need to give a consultant full admin access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. A proper review starts with read-only viewer and billing roles. Changes should only be made later, item by item, with your approval."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Article Metadata -->
+  <meta property="article:published_time" content="2026-11-24T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-11-24T00:00:00+08:00">
+  <meta property="article:author" content="SteadyDevs">
+  <meta property="article:section" content="Software Development">
+  <meta property="article:tag" content="Cloud Costs, Google Cloud, AWS, Legacy Systems">
+  
+  <!-- Alternate Language Tags -->
+  <link rel="alternate" hreflang="en-my" href="https://steadydevs.com/blog/inherited-cloud-bill-where-money-leaks.html" />
+  <link rel="alternate" hreflang="en" href="https://steadydevs.com/blog/inherited-cloud-bill-where-money-leaks.html" />
+  
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LRWB31H8T');
+    // Fetched after the page has loaded, so it never competes with the content; calls
+    // made before then wait in dataLayer and are sent when it arrives.
+    addEventListener('load', function () {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LRWB31H8T';
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+  <a class="f-skip" href="#main">Skip to content</a>
+  <div id="sd-site-nav"></div>
+  <script src="../assets/site-nav.js?v=10"></script>
+  <div id="sd-legacy-stubs" hidden><button id="menuToggle" type="button"></button><nav id="mainNav"></nav><div id="navOverlay"></div><div id="stickyCta"></div><button id="backToTop" type="button"></button></div>
+
+  <!-- Post header: the site's navy hero band (f.css), so posts match the rest of the site. -->
+  <section class="f-glow-top blog-hero">
+    <div class="f-container f-page-hero">
+      <nav class="f-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Your Cloud Bill Keeps Climbing: Six Places Inherited Cloud Setups Quietly Leak Money</span>
+      </nav>
+      <h1 class="f-h1">Your Cloud Bill Keeps Climbing: Six Places Inherited Cloud Setups Quietly Leak Money</h1>
+      <p class="f-note">November 24, 2026 · 8 min read</p>
+    </div>
+  </section>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://steadydevs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://steadydevs.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Your Cloud Bill Keeps Climbing: Six Places Inherited Cloud Setups Quietly Leak Money",
+        "item": "https://steadydevs.com/blog/inherited-cloud-bill-where-money-leaks.html"
+      }
+    ]
+  }
+  </script>
+
+  <div class="f-container blog-layout">
+    <!-- TOC toggle for narrower screens -->
+    <button type="button" class="toc-toggle-btn" id="tocToggle" aria-label="Show table of contents" aria-controls="blogToc">On this page</button>
+    
+    <!-- Table of Contents -->
+    <aside class="blog-toc" id="blogToc" style="display: none;">
+      <div class="blog-toc-title">On This Page</div>
+      <ul class="blog-toc-list" id="tocList"></ul>
+    </aside>
+    
+    <main class="blog-content" id="main">
+      <article>
+        <img src="../images/blog/cloud-bill-leaks-cover.svg" alt="Cover graphic of a monthly cloud bill bar chart rising each month with leak points highlighted" class="blog-hero-image" width="1200" height="630" fetchpriority="high" decoding="async">
+        <p>Cloud accounts rarely get expensive in one go. They get expensive the way a storeroom gets full: one test server here, a snapshot "just in case" there, a logging setting nobody switched back. Each item is small. Together, after a year or two and a change of developer, they can make up a large share of the bill.</p>
+<p>The problem is worst in <em>inherited</em> accounts—set up by an agency, a freelancer or an employee who has since moved on. The people paying the bill can't tell which resources matter, so nobody dares delete anything, and the bill only goes one way.</p>
+<p>Here are the six places we look first.</p>
+<h2>1. Machines sized for a launch that never needed it</h2>
+<p>Servers are often created large "to be safe" and never revisited. A virtual machine running at a small fraction of its CPU all month is a common sight. Right-sizing is usually the biggest single saving.</p>
+<div class="warning-box"><p><strong>CPU isn't the whole story.</strong> A machine can look idle on CPU and still need its memory. Before shrinking anything, check its memory and swap history under real load. In one of our audits, a server that had already been "right-sized" was killing its own database under load—the cause was a cache configured to use most of the machine's memory. You can read the details in our <a href="../case-cloud-cost-reduction.html">cloud cost case study</a>.</p></div>
+<h2>2. Things that are switched off but still billed</h2>
+<p>Stopping a virtual machine stops the compute charge. It doesn't stop the charges for what's attached to it:</p>
+<ul><li><strong>Disks</strong> from deleted or stopped servers, still billed every month.</li><li><strong>Reserved IP addresses</strong> that aren't attached to anything—providers charge for these precisely because they're idle.</li><li><strong>Snapshots and machine images</strong> taken before a change years ago and never cleaned up.</li><li><strong>Load balancers</strong> pointing at nothing.</li></ul>
+<p>These are usually the safest savings, because nothing running depends on them. "Usually" is doing some work in that sentence—confirm before deleting, especially with IP addresses that DNS records might still point to.</p>
+<h2>3. Storage that only grows</h2>
+<p>Container image registries, log buckets, backups and uploaded files grow every day and are almost never pruned. Every deploy can push a new image; every image is kept forever unless someone sets a retention rule. Lifecycle policies that move old data to cheaper storage classes, or delete it after a set period, stop the growth without touching anything live.</p>
+<h2>4. Logging and monitoring set to "everything"</h2>
+<p>Verbose logging is useful while debugging and expensive forever after. Debug-level logs from a busy application, ingested and retained by default, can cost more than the servers that produce them. Check what's being ingested, at what level, and how long it's kept.</p>
+<h2>5. The wrong service for the workload</h2>
+<p>Some older setups run a small API on a platform priced for always-on capacity, when a scale-to-zero service would cost a fraction for the same traffic. In the case study above, moving one API from App Engine to Cloud Run cut that line of spend by 99%, with a rollback kept ready. That kind of move is more involved than deleting a disk—but it's often where the largest structural savings sit.</p>
+<h2>6. Leftovers nobody owns</h2>
+<p>Test environments, staging copies, a proof-of-concept database, a scheduled job that exports data to a bucket nobody reads. The tell-tale sign is a resource with no label, no documentation and no one who can say what it does.</p>
+<div class="tip-box"><p><strong>The test for "can we delete it?"</strong> isn't "does anyone know what this is?"—the honest answer is often no. It's "what do the audit logs show using it, and do we have a snapshot and a way back if we're wrong?"</p></div>
+<h2>Why provider recommendations aren't enough</h2>
+<p>Google Cloud and AWS both offer free resize suggestions. They're a good starting point, but they only see utilisation numbers. They don't know that the "idle" server is your month-end batch job, that a migration listed in your plan already happened, or that you're a few deploys away from a hard version limit. The savings are real; the risk is in applying them without that context.</p>
+<h2>A safe order of operations</h2>
+<ol><li><strong>Look before touching.</strong> Read-only access first. Explain every line of the bill before changing any of it.</li><li><strong>Take the zero-risk items</strong>—unattached disks, idle IPs, stale snapshots—with confirmation and a record of what was removed.</li><li><strong>Right-size carefully,</strong> one machine at a time, after checking memory, with a snapshot and a rollback step written down.</li><li><strong>Set a budget alert.</strong> Costs drift back on their own. An alert at a sensible threshold catches the next leak in weeks rather than a year.</li></ol>
+<p>One thing worth doing today if you're on Google Cloud: turn on detailed billing export to BigQuery. It's free, takes minutes, and only records from the day you switch it on—so every week it stays off is detail you can never recover.</p>
+
+          <div class="cta-box">
+            <h3>Not Sure What You're Paying For?</h3>
+            <p>Our free cloud cost triage uses read-only access to explain your three biggest spend lines and estimate what's realistically recoverable—with an honest answer on whether it's worth going further.</p>
+            <a href="../cloud-cost-audit.html" class="f-btn f-btn--primary cta-button">Get a Free Triage</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+              <div class="faq-item" data-faq-index="0">
+                <div class="faq-question">
+                  <span class="faq-question-text">How much can a cloud cost review typically save?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>It depends entirely on how the account has been run. Accounts that have been reviewed recently may have little to recover; inherited accounts that have never been reviewed often have substantial waste. A triage of the bill is the only honest way to estimate it for your account.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="1">
+                <div class="faq-question">
+                  <span class="faq-question-text">Is it safe to delete resources we don't recognise?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Not without checking. Look at audit logs for recent use, check whether anything references the resource (DNS records, configuration files, scheduled jobs), and take a snapshot where possible before removing it.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="2">
+                <div class="faq-question">
+                  <span class="faq-question-text">Should we buy committed-use or reserved discounts?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>Only after right-sizing. Committing to a year of capacity on oversized machines locks the waste in at a discount. Clean up first, observe steady usage, then commit.</p>
+                </div>
+              </div>
+            
+              <div class="faq-item" data-faq-index="3">
+                <div class="faq-question">
+                  <span class="faq-question-text">Do we need to give a consultant full admin access?</span>
+                  <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>No. A proper review starts with read-only viewer and billing roles. Changes should only be made later, item by item, with your approval.</p>
+                </div>
+              </div>
+            
+          </div>
+
+        
+      <aside class="f-callout f-callout--tip blog-product-callout">
+        <span class="f-callout__label">Cloud bill higher than it should be?</span>
+        <p>We review what you run and what you pay for, and show where the money goes, before you commit to a migration or a bigger plan. <a href="../cloud-cost-audit.html">See the cloud cost audit &rarr;</a></p>
+      </aside>
+      </article>
+      
+      
+    <div id="relatedArticles" data-current-post="inherited-cloud-bill-where-money-leaks" data-current-tags='["Cloud Costs","Google Cloud","AWS","Legacy Systems"]'><section class="related-posts-section"><h2 class="related-posts-title">Continue reading</h2><div class="f-grid related-posts-grid"><a href="year-end-change-freeze-legacy-system.html" class="f-card f-card--link related-card"><img src="../images/blog/year-end-change-freeze-cover.svg" alt="Cover graphic of a December calendar with a padlock marking the change freeze window" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">The Year-End Change Freeze: What to Fix Before Your Busiest Month (and What to Leave Alone)</h3><p class="f-card__text">December is when your systems carry the most load and your developer is hardest to reach. A short, deliberate change fre...</p><div class="f-tags"><span class="f-tag">Legacy Systems</span></div><div class="f-card__foot related-card__foot"><span>7 min read</span><span>Read article →</span></div></a><a href="pos-vendor-acquired-shut-down-survival-guide.html" class="f-card f-card--link related-card"><img src="../images/blog/pos-vendor-acquired-cover.svg" alt="Cover graphic of a POS terminal whose vendor connection has been cut, with a survival checklist" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Your POS Vendor Got Acquired (or Shut Down): A Survival Guide</h3><p class="f-card__text">The company behind your POS or business system was bought out, pivoted, or quietly disappeared. Support emails bounce, u...</p><div class="f-tags"><span class="f-tag">Legacy Systems</span></div><div class="f-card__foot related-card__foot"><span>11 min read</span><span>Read article →</span></div></a><a href="who-owns-your-source-code-legacy-system.html" class="f-card f-card--link related-card"><img src="../images/blog/who-owns-source-code-cover.svg" alt="Cover graphic showing a handover checklist where legal ownership and a code copy pass but rebuildability fails" class="related-card__img" loading="lazy"><h3 class="f-card__title related-card__title">Who Actually Owns Your Source Code? The Question to Ask Before You Need the Answer</h3><p class="f-card__text">You paid for the system, so you own it—right? Ownership, possession and the ability to hand it to another developer are ...</p><div class="f-tags"><span class="f-tag">Legacy Systems</span></div><div class="f-card__foot related-card__foot"><span>7 min read</span><span>Read article →</span></div></a></div></section></div>
+    </main>
+  </div>
+
+  <section class="f-section--line f-glow-bottom">
+    <div class="f-container f-cta">
+      <h2 class="f-h2">Running into this in your own system?</h2>
+      <p>Tell us what's going on. A senior engineer will reply with a written assessment, at no cost.</p>
+      <div class="f-actions">
+        <a class="f-btn f-btn--primary f-btn--glow" href="../contact.html">Book a consultation</a>
+        <a class="f-btn f-btn--secondary" href="index.html">More articles</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ff">
+      <div class="f-container">
+        <div class="ff__grid">
+          <div class="ff__brand">
+            <a href="../index.html" class="fh__logo"><svg class="fh__mark" viewBox="1 5 23 30" aria-hidden="true" focusable="false"><rect class="sd-b1" x="2" y="24" width="10" height="10" rx="2"/><rect class="sd-b2" x="13" y="18" width="10" height="16" rx="2"/><rect class="sd-b3" x="2" y="12" width="10" height="10" rx="2"/><rect class="sd-b4" x="13" y="6" width="10" height="10" rx="2"/></svg>SteadyDevs</a>
+            <p>Software and engineering for systems Malaysian businesses can't afford to lose.</p>
+          </div>
+          <div class="ff__col">
+            <h2>Offerings</h2>
+            <ul>
+              <li><a href="../solutions.html">Engineering services</a></li>
+              <li><a href="../einvoice.html">EInvoice Platform</a></li>
+              <li><a href="../venue-booking.html">Venue Booking</a></li>
+              <li><a href="../steadypost.html">SteadyPost</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../portfolio.html">Case studies</a></li>
+              <li><a href="../blog/index.html">Blog</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>More</h2>
+            <ul>
+              <li><a href="../pricing-terms.html">Pricing terms</a></li>
+              <li><a href="../my-account.html">My account</a></li>
+              <li><a href="https://www.linkedin.com/company/steadydevs">LinkedIn</a></li><li><a href="https://www.instagram.com/steady_devs/">Instagram</a></li>
+            </ul>
+          </div>
+          <div class="ff__col">
+            <h2>Free tools</h2>
+            <ul>
+              <li><a href="../e-invoice-checker.html">Do I need to e-invoice?</a></li>
+              <li><a href="../msic-code-lookup.html">MSIC code lookup</a></li>
+              <li><a href="../microsoft-end-of-support-lookup.html">End-of-support lookup</a></li>
+              <li><a href="../legacy-system-risk-scorecard.html">Risk scorecard</a></li>
+              <li><a href="../free-tools.html">All free tools &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ff__base">
+          <span>&copy; 2026 Steady Devs Solutions · SSM 202603092285</span>
+          <span>Malaysia · Singapore</span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // Generate Table of Contents
+    function generateTableOfContents() {
+      const content = document.querySelector('.blog-content article');
+      const headings = content.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('blogToc');
+      
+      if (headings.length === 0) {
+        return;
+      }
+      
+      // Add IDs to headings
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `heading-${index}`;
+        }
+      });
+      
+      // Build TOC
+      let tocHTML = '';
+      headings.forEach((heading) => {
+        const level = heading.tagName.toLowerCase();
+        const text = heading.textContent;
+        const id = heading.id;
+        
+        tocHTML += `
+          <li class="blog-toc-item blog-toc-item-${level}">
+            <a href="#${id}" class="blog-toc-link" data-target="${id}">${text}</a>
+          </li>
+        `;
+      });
+      
+      tocList.innerHTML = tocHTML;
+      tocContainer.style.display = 'block';
+      
+      const tocToggleBtn = document.getElementById('tocToggle');
+      if (window.innerWidth < 1100) {
+        tocToggleBtn.style.display = 'block';
+      }
+      
+      // Smooth scrolling
+      const tocLinks = tocList.querySelectorAll('.blog-toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth < 1100) {
+              tocContainer.classList.remove('toc-visible');
+            }
+          }
+        });
+      });
+      
+      setupScrollTracking(headings);
+    }
+    
+    function setupScrollTracking(headings) {
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      const tocContainer = document.getElementById('blogToc');
+      
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        let currentHeading = null;
+        
+        headings.forEach((heading) => {
+          const headingTop = heading.offsetTop;
+          if (scrollPosition >= headingTop) {
+            currentHeading = heading;
+          }
+        });
+        
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (currentHeading) {
+          const activeLink = document.querySelector(`[data-target="${currentHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            
+            // Auto-scroll TOC to keep active link visible
+            const tocRect = tocContainer.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            const tocScrollTop = tocContainer.scrollTop;
+            
+            // Check if active link is above visible area
+            if (linkRect.top < tocRect.top) {
+              tocContainer.scrollTop = tocScrollTop - (tocRect.top - linkRect.top) - 20;
+            }
+            // Check if active link is below visible area
+            else if (linkRect.bottom > tocRect.bottom) {
+              tocContainer.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+            }
+          }
+        }
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      updateActiveLink();
+    }
+    
+    // FAQ Toggle
+    function setupFaqToggles() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Toggle for Mobile/Tablet
+    const tocToggleBtn = document.getElementById('tocToggle');
+    const tocContainer = document.getElementById('blogToc');
+    
+    if (tocToggleBtn) {
+      tocToggleBtn.addEventListener('click', () => {
+        tocContainer.classList.toggle('toc-visible');
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1100 && 
+            !tocContainer.contains(e.target) && 
+            !tocToggleBtn.contains(e.target) &&
+            tocContainer.classList.contains('toc-visible')) {
+          tocContainer.classList.remove('toc-visible');
+        }
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1100) {
+          tocToggleBtn.style.display = 'none';
+          tocContainer.classList.remove('toc-visible');
+        } else if (tocContainer.style.display === 'block') {
+          tocToggleBtn.style.display = 'block';
+        }
+      });
+    }
+    
+    // Initialize
+    generateTableOfContents();
+    setupFaqToggles();
+  </script>
+  
+  <!-- Dynamic Related Posts -->
+  <script src="related-posts.js"></script>
+</body>
+</html>
